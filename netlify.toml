@@ -1,8 +1,3 @@
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: sorthvid
-    api_key: 675546469724492
 [build]
   publish = "dist/"
   command = "npm run generate"
