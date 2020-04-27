@@ -7,6 +7,7 @@ media_library:
   config:
     cloud_name: sorthvid
     api_key: 675546469724492
+
 media_folder: static/img
 public_folder: /img
 
