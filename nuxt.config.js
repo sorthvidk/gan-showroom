@@ -41,7 +41,14 @@ export default {
 	 ** Plugins to load before mounting the App
 	 */
 	plugins: [
-		'~/plugins/vue-draggable-resizable'
+		{
+			src: '~/plugins/vue-draggable-resizable.js',
+			mode: 'client'
+		},
+		{
+			src: '~/plugins/lodash.js',
+			mode: 'client'
+		}
 	],
 	/*
 	 ** Nuxt.js dev-modules

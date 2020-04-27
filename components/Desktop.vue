@@ -1,16 +1,14 @@
 <template>
 	<div class="desktop">
-		<ul class="desktop__shortcuts">
-			<li class="desktop__shortcuts__item" v-for="(item, index) in shortcutList" :key="index">
+		<div class="desktop__shortcuts">
+			<div class="desktop__shortcuts__item" v-for="(item, index) in shortcutList" :key="index">
 				<shortcut :position-h="item.posH" :position-v="item.posV" :width-span="item.widthSpan" />
-			</li>
-		</ul>
+			</div>
+		</div>
 
-		<ul class="desktop__windows">
-			<li class="desktop__windows__item" v-for="(item, index) in windowList" :key="index">
-				<window :w="100" :h="100" :x="item.posX" :y="item.posY" :width="item.width" :height="item.height" :title="item.title"/>
-			</li>
-		</ul>
+		<div class="desktop__windows">
+			<window v-for="(item, index) in windowList" :title="item.title" :key="index" :position-x="item.x" :position-y="item.y" :position-z="item.z" :size-w="item.w" :size-h="item.h" :id="item.id"/>
+		</div>
 	</div>
 </template>
 
@@ -33,8 +31,8 @@ export default {
 				,{posH:1,posV:3,widthSpan:2}
 			],
 			windowList: [
-				{title:'New collection 2020',posX:30,posY:20,width:733,height:300},
-				{title:'Test lorem',posX:10,posY:60,width:300,height:500}
+				{id:'38972342n342894u234', title:'New collection 2020',x:300,y:20,w:733,h:300, z:50},
+				{id:'80hj23489dsf670953b', title:'Test lorem',x:100,y:600,w:300,h:500, z:20}
 			]
 		}
 	}
