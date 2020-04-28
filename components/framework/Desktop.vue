@@ -1,7 +1,7 @@
 <template>
 	<div class="desktop" @mousedown="onMouseDown">
 		<div class="desktop__shortcuts">
-			<shortcut v-for="(item, index) in shortcutList" :key="index" :position-h="item.posH" :position-v="item.posV" :width-span="item.widthSpan" :content-component="item.component" :content-props="item.props"/>
+			<shortcut v-for="(item, index) in shortcutList" :key="index" :id="item.id" :position-h="item.posH" :position-v="item.posV" :width-span="item.widthSpan" :content-component="item.component" :content-props="item.props" :is-activated="item.isActivated"/>
 		</div>
 
 		<div class="desktop__windows">

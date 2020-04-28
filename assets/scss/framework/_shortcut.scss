@@ -17,5 +17,8 @@
 		align-items: center;
 		width: rem(60);
 		height: rem(60);
+		&:hover {
+			opacity: 0.7;
+		}
 	}
 }

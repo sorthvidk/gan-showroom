@@ -9,3 +9,5 @@ const createMutation = (type) => ({
 // General
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW');
 export const CLOSE_WINDOW = createMutation('CLOSE_WINDOW');
+
+export const ACTIVATE_SHORTCUT = createMutation('ACTIVATE_SHORTCUT');

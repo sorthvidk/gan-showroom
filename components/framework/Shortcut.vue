@@ -7,12 +7,25 @@
 </template>
 
 <script>
+import { vuex, mapActions, mapState } from 'vuex'
+import { ACTIVATE_SHORTCUT } from '~/store/constants'
+
 export default {
 	name:'shortcut',
 	props: {
+		isActivated: {
+			type: Boolean,
+			default: false,
+			required: true
+		},
 		contentComponent: {
 			type: String,
 			default: '',
+			required: true
+		},	
+		contentProps: {
+			type: Object,
+			default: null,
 			required: true
 		},
 		positionH: {
@@ -29,6 +42,14 @@ export default {
 			type: Number,
 			default: 2,
 			required: true	
+		},
+		id: {
+			type: String
+		}
+	},
+	data() {
+		return {
+			activated: false
 		}
 	},
 	computed: {
@@ -40,8 +61,11 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions([
+			ACTIVATE_SHORTCUT.action
+		]),
 		onClick() {
-			console.log("this.component",this.contentComponent);
+			this[ACTIVATE_SHORTCUT.action](this.id);
 		}
 	}
 };

@@ -165,6 +165,7 @@ export default {
 	mounted() {
 		console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
+		TweenLite.from(this.$el, 0.2, {scale: 0});
 	}
 };
 
