@@ -8,26 +8,11 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { ACTIVATE_SHORTCUT } from '~/store/constants'
+import { OPEN_CONTENT } from '~/store/constants'
 
 export default {
 	name:'shortcut',
 	props: {
-		isActivated: {
-			type: Boolean,
-			default: false,
-			required: true
-		},
-		contentComponent: {
-			type: String,
-			default: '',
-			required: true
-		},	
-		contentProps: {
-			type: Object,
-			default: null,
-			required: true
-		},
 		positionH: {
 			type: Number,
 			default: 0,
@@ -43,13 +28,15 @@ export default {
 			default: 2,
 			required: true	
 		},
-		id: {
-			type: String
-		}
-	},
-	data() {
-		return {
-			activated: false
+		shortcutId: {
+			type: String,
+			default: null,
+			required: true	
+		},
+		contentId: {
+			type: String,
+			default: null,
+			required: true	
 		}
 	},
 	computed: {
@@ -62,10 +49,10 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			ACTIVATE_SHORTCUT.action
+			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[ACTIVATE_SHORTCUT.action](this.id);
+			this[OPEN_CONTENT.action](this.contentId);
 		}
 	}
 };

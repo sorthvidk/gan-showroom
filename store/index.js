@@ -1,35 +1,55 @@
-import { TOPMOST_WINDOW, CLOSE_WINDOW, ACTIVATE_SHORTCUT } from '../store/constants'
+import { TOPMOST_WINDOW, CLOSE_WINDOW, OPEN_CONTENT } from '../store/constants'
 
 export const state = () => ({
-	shortcutList: [
+	contentList: [
 		{
-			id:'knfgoi34',
-			posH:1, 
-			posV:1, 
-			widthSpan:2, 
-			isActivated:false,
+			title:'Lorem ipsum dolor',
+			contentId:'content1',
 			component:'collection', 
-			props: { collectionId:'234897234' } 
+			props: { collectionId:'234897234' },
+			isActive:false
 		},
 		{
-			id:'b8834234',
-			posH:3, 
-			posV:1, 
-			widthSpan:2, 
-			isActivated:false,
+			title:'Lorem ipsum dolor',
+			contentId:'content2',
 			component:'collection', 
-			props: { collectionId:'897345983' } 
+			props: { collectionId:'897345983' },
+			isActive:false
 		},
 		{
-			id:'783n690d9',
-			posH:1, 
-			posV:3, 
-			widthSpan:2, 
-			isActivated:false,
+			title:'Lorem ipsum dolor',
+			contentId:'content3',
 			component:'collection', 
-			props: { collectionId:'291173006' } 
+			props: { collectionId:'291173006' },
+			isActive:false
 		}
 	],
+
+	shortcutList: [
+		{
+			shortcutId:'shortcut1',
+			posH:1,
+			posV:1,
+			widthSpan:2, 
+			contentId:'content1' 
+		},
+		{
+			shortcutId:'shortcut2',
+			posH:1, 
+			posV:3, 
+			widthSpan:2,
+			contentId:'content2'
+			
+		},
+		{
+			shortcutId:'shortcut3',
+			posH:23, 
+			posV:1, 
+			widthSpan:2,
+			contentId:'content3'
+		}
+	],
+
 	windowList: [
 		// {
 		// 	id:'38972342n342894u234', 
@@ -56,34 +76,30 @@ export const mutations = {
 	[TOPMOST_WINDOW.mutation] (state, payload) {
 		state[TOPMOST_WINDOW.stateKey] = payload
 	},
-	[CLOSE_WINDOW.mutation] (state, id) {		
-		console.log("state.windowList before", state.windowList)
-		state.windowList = state.windowList.filter(e => e.id !== id)
-		console.log("state.windowList after", state.windowList)
-	},
-	[ACTIVATE_SHORTCUT.mutation] (state, id) {
-
-		let foundWindow = state.windowList.filter(e => e.id === id)
-
-		console.log("foundWindow",foundWindow)
-
-		if ( foundWindow && !foundWindow[0] ) {
+	[CLOSE_WINDOW.mutation] (state, windowId) {		
+		let matchingContent = state.contentList.filter(e => e.windowId === windowId)
+		if ( matchingContent && matchingContent[0] ) {
+			matchingContent.isActive = false;
 			
-			let associatedShortcut = state.shortcutList.filter(e => e.id === id)
-			console.log("associatedShortcut",associatedShortcut)
-
+			state.windowList = state.windowList.filter(e => e.windowId !== windowId)
+		}
+	},
+	[OPEN_CONTENT.mutation] (state, contentId) {
+		console.log("contentId",contentId)
+		let matchingContent = state.contentList.filter(e => e.contentId === contentId)
+		if ( matchingContent && matchingContent[0] && !matchingContent[0].isActive  ) {
 			let newWindow = {
-				id: id, 
-				title: 'New collection 2020',
-				x:200, y:60, w:600, h:300, z:1, 
-				component: associatedShortcut[0].component, 
-				props: associatedShortcut[0].props
+				x:100, y:100, w:400, h:300, z:1, 
+				windowId: '' + Math.random().toString(36).substr(2, 9),
+				contentId: contentId,
+				title: matchingContent[0].title,
+				component: matchingContent[0].component, 
+				props: matchingContent[0].props
 			};
 			
+			matchingContent[0].isActive	= true;
 			state.windowList.push(newWindow);
 		}
-
-
 	}
 }
 
@@ -94,9 +110,8 @@ export const actions = {
 	[CLOSE_WINDOW.action] ({ commit }, windowId) {
 		commit(CLOSE_WINDOW.mutation, windowId)
 	},
-	[ACTIVATE_SHORTCUT.action] ({ commit }, shortcutId) {
-		console.log("shortcutId",shortcutId)
-		commit(ACTIVATE_SHORTCUT.mutation, shortcutId)
+	[OPEN_CONTENT.action] ({ commit }, contentId) {
+		commit(OPEN_CONTENT.mutation, contentId)
 	},
 
 	async nuxtServerInit ({ commit }) {

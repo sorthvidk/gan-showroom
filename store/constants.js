@@ -6,8 +6,16 @@ const createMutation = (type) => ({
 	stateKey: camelCase(type)
 });
 
-// General
+
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW');
 export const CLOSE_WINDOW = createMutation('CLOSE_WINDOW');
+export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
 
-export const ACTIVATE_SHORTCUT = createMutation('ACTIVATE_SHORTCUT');
+
+
+
+const createComponent = (type) => ({
+	name: camelCase(`${type}_NAME`)
+});
+
+export const COMPONENT_COLLECTION = createComponent('COMPONENT_COLLECTION');

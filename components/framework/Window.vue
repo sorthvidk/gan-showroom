@@ -82,7 +82,10 @@ export default {
 		sizeH: {
 			type: Number
 		},
-		id: {
+		contentId: {
+			type: String
+		},
+		windowId: {
 			type: String
 		}
 	},
@@ -114,6 +117,7 @@ export default {
 	},
 	data: function() {
 		return {
+			resetPositionDistance: 40,
 			width: 0,
 			height: 0,
 			x: -1,
@@ -151,15 +155,11 @@ export default {
 			this.constrain();
 		},
 		constrain() {
-			this.x = Math.min(Math.max(this.x,0), window.innerWidth - 20);
-			this.y = Math.min(Math.max(this.y,0), window.innerHeight - 20);
+			this.x = Math.min(Math.max(this.x,0), window.innerWidth - this.resetPositionDistance);
+			this.y = Math.min(Math.max(this.y,0), window.innerHeight - this.resetPositionDistance);
 		},
 		onMouseDown() {
-			console.log('this.id', this.id)
-			console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
-			console.log('this[TOPMOST_WINDOW.action]', this[TOPMOST_WINDOW.action])
-
-			this[TOPMOST_WINDOW.action](this.id)
+			this[TOPMOST_WINDOW.action](this.windowId);
 		}
 	},
 	mounted() {

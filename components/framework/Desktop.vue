@@ -1,11 +1,30 @@
 <template>
 	<div class="desktop" @mousedown="onMouseDown">
 		<div class="desktop__shortcuts">
-			<shortcut v-for="(item, index) in shortcutList" :key="index" :id="item.id" :position-h="item.posH" :position-v="item.posV" :width-span="item.widthSpan" :content-component="item.component" :content-props="item.props" :is-activated="item.isActivated"/>
+			<shortcut 
+				v-for="(item, index) in shortcutList" 
+				:key="index" 
+				:shortcut-id="item.shortcutId" 
+				:content-id="item.contentId" 
+				:position-h="item.posH" 
+				:position-v="item.posV" 
+				:width-span="item.widthSpan"/>
 		</div>
 
 		<div class="desktop__windows">
-			<window v-for="(item, index) in windowList" :title="item.title" :key="index" :position-x="item.x" :position-y="item.y" :position-z="item.z" :size-w="item.w" :size-h="item.h" :id="item.id" :content-component="item.component"  :content-props="item.props"/>
+			<window 
+				v-for="(item, index) in windowList" 
+				:window-id="item.windowId" 
+				:content-id="item.contentId" 
+				:title="item.title" 
+				:key="index" 
+				:position-x="item.x" 
+				:position-y="item.y" 
+				:position-z="item.z" 
+				:size-w="item.w" 
+				:size-h="item.h" 
+				:content-component="item.component"  
+				:content-props="item.props"/>
 		</div>
 	</div>
 </template>
