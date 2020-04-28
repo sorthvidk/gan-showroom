@@ -1,0 +1,9 @@
+.collection {
+	display: flex;
+
+	> * {
+		flex: 0 0 33%;
+		box-sizing: border-box;
+		padding: rem(10);
+	}
+}

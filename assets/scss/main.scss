@@ -4,8 +4,9 @@
 @import 'core/typography';
 @import 'core/normalize';
 
-@import 'components/desktop';
-@import 'components/shortcut';
-@import 'components/window';
+@import 'framework/desktop';
+@import 'framework/shortcut';
+@import 'framework/window';
 
+@import 'content/collection';
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="desktop">
+	<div class="desktop" @mousedown="onMouseDown">
 		<div class="desktop__shortcuts">
 			<div class="desktop__shortcuts__item" v-for="(item, index) in shortcutList" :key="index">
 				<shortcut :position-h="item.posH" :position-v="item.posV" :width-span="item.widthSpan" />
@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import { vuex, mapActions, mapState } from 'vuex'
+import { TOPMOST_WINDOW } from '~/store/constants'
 
-import Shortcut from '~/components/Shortcut.vue'
-import Window from '~/components/Window.vue'
+import Shortcut from '~/components/framework/Shortcut.vue'
+import Window from '~/components/framework/Window.vue'
 
 export default {
 	name:'desktop',
@@ -23,17 +25,16 @@ export default {
 		Shortcut,
 		Window
 	},
-	data() {
-		return {
-			shortcutList: [
-				{posH:1,posV:1,widthSpan:2}
-				,{posH:3,posV:1,widthSpan:2}
-				,{posH:1,posV:3,widthSpan:2}
-			],
-			windowList: [
-				{id:'38972342n342894u234', title:'New collection 2020',x:300,y:20,w:733,h:300, z:50},
-				{id:'80hj23489dsf670953b', title:'Test lorem',x:100,y:600,w:300,h:500, z:20}
-			]
+	computed: {
+		...mapState({
+			windowList: state => state.windowList,
+			shortcutList: state => state.shortcutList
+		})
+	},
+	methods: {
+		...mapActions([TOPMOST_WINDOW.action]),
+		onMouseDown() {
+			this[TOPMOST_WINDOW.action](null);
 		}
 	}
 };

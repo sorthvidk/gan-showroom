@@ -7,7 +7,7 @@
 
 <script>
 
-import Desktop from '~/components/Desktop.vue'
+import Desktop from '~/components/framework/Desktop.vue'
 
 export default {
 	components: {
