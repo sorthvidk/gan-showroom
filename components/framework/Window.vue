@@ -4,11 +4,13 @@
 		class-name="window"
 		class-name-active="is-active"
 		@dragging="onDrag"
+		@dragstop="onDragStop"
 		@resizing="onResize"
+		@resizestop="onResizeStop"
 		:handles="['br']"
 		:drag-handle="'.window__top'"
-		:x="positionX"
-		:y="positionY"
+		:x="panelPositionX"
+		:y="panelPositionY"
 		:w="sizeW"
 		:h="sizeH"
 		:z="positionZ"
@@ -20,7 +22,7 @@
 		</div>
 		<div class="window__content" @click="onMouseDown">
 			<p>X: {{ x }} / Y: {{ y }} - Width: {{ width }} / Height: {{ height }}</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero voluptatum nulla, perferendis provident recusandae voluptatibus molestias nesciunt odio debitis numquam laudantium eum? Voluptatum atque in placeat ipsa praesentium obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero voluptatum nulla, perferendis provident recusandae voluptatibus molestias nesciunt odio debitis numquam laudantium eum? Voluptatum atque in placeat ipsa praesentium obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero voluptatum nulla, perferendis provident recusandae voluptatibus molestias nesciunt odio debitis numquam laudantium eum? Voluptatum atque in placeat ipsa praesentium obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero voluptatum nulla, perferendis provident recusandae voluptatibus molestias nesciunt odio debitis numquam laudantium eum? Voluptatum atque in placeat ipsa praesentium obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero voluptatum nulla, perferendis provident recusandae voluptatibus molestias nesciunt odio debitis numquam laudantium eum? Voluptatum atque in placeat ipsa praesentium obcaecati.</p>
+			<component :is="contentComponent" v-bind="{...contentProps}"/>
 		</div>
 	</vue-draggable-resizable>
 </template>
@@ -33,12 +35,23 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW } from '~/store/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import Collection from '~/components/content/Collection.vue'
+
 export default {
 	name: 'window',
 	components: {
-		VueDraggableResizable
+		VueDraggableResizable,
+		Collection
 	},
 	props: {
+		contentComponent: {
+			type: String,
+			default: null
+		},
+		contentProps: {
+			type: Object,
+			default: null
+		},
 		isLocked: {
 			type: Boolean,
 			default: false
@@ -91,14 +104,20 @@ export default {
 		}),
 		zIndexStyle() {
 			return { zIndex: this.z };
+		},
+		panelPositionX() {
+			return this.x > -1 ? this.x : this.positionX;
+		},
+		panelPositionY() {
+			return this.y > -1 ? this.y : this.positionY;
 		}
 	},
 	data: function() {
 		return {
 			width: 0,
 			height: 0,
-			x: 0,
-			y: 0,
+			x: -1,
+			y: -1,
 			z: 0,
 			isClosing: false
 		}
@@ -121,9 +140,19 @@ export default {
 			this.width = width
 			this.height = height
 		},
+		onResizeStop() {
+			this.constrain();
+		},
 		onDrag(x, y) {
-			this.x = x
-			this.y = y
+			this.x = x;
+			this.y = y;
+		},
+		onDragStop() {
+			this.constrain();
+		},
+		constrain() {
+			this.x = Math.min(Math.max(this.x,0), window.innerWidth - 20);
+			this.y = Math.min(Math.max(this.y,0), window.innerHeight - 20);
 		},
 		onMouseDown() {
 			console.log('this.id', this.id)
@@ -137,5 +166,6 @@ export default {
 		console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
 	}
-}
+};
+
 </script>

@@ -1,6 +1,8 @@
 <template>
 	<div class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
-		🅰️
+		<button @click="onClick">
+			✅
+		</button>
 	</div>
 </template>
 
@@ -8,6 +10,11 @@
 export default {
 	name:'shortcut',
 	props: {
+		contentComponent: {
+			type: String,
+			default: '',
+			required: true
+		},
 		positionH: {
 			type: Number,
 			default: 0,
@@ -30,6 +37,11 @@ export default {
 		},
 		styleGridColumn() {
 			return this.positionH + "/" + (this.positionH+this.widthSpan);
+		}
+	},
+	methods: {
+		onClick() {
+			console.log("this.component",this.contentComponent);
 		}
 	}
 };

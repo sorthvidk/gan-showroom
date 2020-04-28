@@ -2,13 +2,43 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW } from '../store/constants'
 
 export const state = () => ({
 	shortcutList: [
-		{posH:1,posV:1,widthSpan:2}
-		,{posH:3,posV:1,widthSpan:2}
-		,{posH:1,posV:3,widthSpan:2}
+		{
+			posH:1, 
+			posV:1, 
+			widthSpan:2, 
+			component:'collection', 
+			props: { collectionId:'234897234' } 
+		},
+		{
+			posH:3, 
+			posV:1, 
+			widthSpan:2, 
+			component:'collection', 
+			props: { collectionId:'897345983' } 
+		},
+		{
+			posH:1, 
+			posV:3, 
+			widthSpan:2, 
+			component:'collection', 
+			props: { collectionId:'291173006' } 
+		}
 	],
 	windowList: [
-		{id:'38972342n342894u234', title:'New collection 2020',x:300,y:20,w:733,h:300, z:50},
-		{id:'80hj23489dsf670953b', title:'Test lorem',x:100,y:600,w:300,h:500, z:20}
+		{
+			id:'38972342n342894u234', 
+			title:'New collection 2020',
+			x:300,y:20,w:733,h:300, z:50, 
+			component:'collection', 
+			props: { collectionId:'234897234' }
+		},
+		{
+			id:'80hj23489dsf670953b', 
+			title:'Test lorem',x:
+			100,y:600,w:300,h:500, z:20,  
+			component:'collection', 
+			props:  { collectionId:'77334455' }
+		}
 	],
 	[TOPMOST_WINDOW.stateKey]: null
 })
@@ -28,8 +58,7 @@ export const mutations = {
 export const actions = {
 	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
-	},
-	
+	},	
 	[CLOSE_WINDOW.action] ({ commit }, windowId) {
 		commit(CLOSE_WINDOW.mutation, windowId)
 	},

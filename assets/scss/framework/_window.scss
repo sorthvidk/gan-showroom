@@ -51,14 +51,14 @@
 	.handle {
 		box-sizing: border-box;
 		position: absolute;
-		width: 10px;
-		height: 10px;
+		width: 20px;
+		height: 20px;
 		background: #EEE;
 		border: 1px solid #333;
 	}
 	.handle-br {
-		bottom: -10px;
-		right: -10px;
+		bottom: 0;
+		right: 0;
 		cursor: se-resize;		
 	}
 	@media only screen and (max-width: 768px) {
