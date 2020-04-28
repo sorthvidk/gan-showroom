@@ -1,5 +1,5 @@
 <template>
-	<div class="desktop" @mousedown="onMouseDown">
+	<div class="desktop" @mousedown="onMouseDown" :style="{backgroundImage: 'url(//placeimg.com/2000/1500/nature)'}">
 		<div class="desktop__shortcuts">
 			<shortcut 
 				v-for="(item, index) in shortcutList" 

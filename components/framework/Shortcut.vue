@@ -1,7 +1,7 @@
 <template>
 	<div class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
 		<button @click="onClick">
-			✅
+			📂
 		</button>
 	</div>
 </template>

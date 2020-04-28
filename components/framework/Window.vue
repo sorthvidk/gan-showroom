@@ -14,7 +14,7 @@
 		:w="sizeW"
 		:h="sizeH"
 		:z="positionZ"
-		:style="zIndexStyle"
+		:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}"
 	>
 		<div class="window__top">
 			<span class="title">{{title}}</span>
@@ -105,14 +105,17 @@ export default {
 		...mapState({
 			topMostWindow: state => state[TOPMOST_WINDOW.stateKey]
 		}),
-		zIndexStyle() {
-			return { zIndex: this.z };
-		},
 		panelPositionX() {
 			return this.x > -1 ? this.x : this.positionX;
 		},
 		panelPositionY() {
 			return this.y > -1 ? this.y : this.positionY;
+		},
+		zIndexStyle() {
+			return this.z;
+		},
+		transformOriginStyle() {
+			return this.x + 'px ' + this.y + 'px';
 		}
 	},
 	data: function() {
@@ -133,10 +136,10 @@ export default {
 		]),
 		closeHandler(e) {
 			this.isClosing = true;
-			TweenLite.to(this.$el, 0.2, {scale: 0, onComplete: function(){ this.closeWindow(); }.bind(this) });
+			TweenLite.to(this.$el, 0.2, {scale: 0, opacity: 0, onComplete: function(){ this.closeWindow(); }.bind(this) });
 		},
 		closeWindow() {
-			this[CLOSE_WINDOW.action](this.id)
+			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
 		onResize(x, y, width, height) {
 			this.x = x
@@ -165,7 +168,7 @@ export default {
 	mounted() {
 		console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
-		TweenLite.from(this.$el, 0.2, {scale: 0});
+		TweenLite.from(this.$el, 0.2, {scale: 0.5, opacity:0});
 	}
 };
 

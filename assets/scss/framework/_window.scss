@@ -1,6 +1,7 @@
 .window {
 	color: black;
-	border: 1px solid grey;
+	border: rem(1) solid #333;
+	box-shadow: rem(5) rem(5) rem(10) rgba(0,0,0,0.5);
 
 	position: absolute;
 	top: 0;
@@ -8,7 +9,9 @@
 	z-index: 1;
 
 	min-width: rem(300);
-	background-color: #eee;
+	background-color: #cccccc;
+
+	transform-origin: top left;
 
 
 	&.is-active {
@@ -20,9 +23,12 @@
 	}
 
 	&__top {
-		border-bottom: 1px solid grey;		
+		border-bottom: rem(1) solid #333;
+		box-shadow: rem(1) rem(1) rem(3) white inset, rem(-1) rem(-1) rem(3) rgba(0,0,0,0.5) inset;
+		background-color: #dddddd;
 		display: flex;
 		justify-content: space-between;
+		font-family: monospace;
 		
 		span {
 			padding: rem(5);
@@ -30,7 +36,15 @@
 		}
 		button {
 			padding: rem(5);
-			display: inline-flex;			
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: rem(30);
+			height: rem(30);			
+			background-color: transparent;
+			border: 0;
+			border-left: rem(1) solid #333;
+			box-shadow: rem(1) rem(1) rem(3) white inset, rem(-1) rem(-1) rem(3) rgba(0,0,0,0.5) inset;
 		}
 
 	}
@@ -38,7 +52,7 @@
 		overflow-x: hidden;
 		overflow-y: scroll;
 		padding: rem(20) rem(5);
-		max-height: calc(100% - 30px);
+		max-height: calc(100% - rem(31));
 		
 	}
 
@@ -46,30 +60,20 @@
 		touch-action: none;
 		position: absolute;
 		box-sizing: border-box;
-		border: 1px dashed black;
+		border: rem(1) dashed black;
 	}
 	.handle {
 		box-sizing: border-box;
 		position: absolute;
-		width: 20px;
-		height: 20px;
+		width: rem(20);
+		height: rem(20);
 		background: #EEE;
-		border: 1px solid #333;
+		border: rem(1) solid #333;
 	}
 	.handle-br {
 		bottom: 0;
 		right: 0;
 		cursor: se-resize;		
-	}
-	@media only screen and (max-width: 768px) {
-		[class*="handle-"]:before {
-			content: '';
-			left: -10px;
-			right: -10px;
-			bottom: -10px;
-			top: -10px;
-			position: absolute;
-		}
-	}
+	}	
 
 }

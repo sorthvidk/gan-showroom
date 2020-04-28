@@ -76,12 +76,12 @@ export const mutations = {
 	[TOPMOST_WINDOW.mutation] (state, payload) {
 		state[TOPMOST_WINDOW.stateKey] = payload
 	},
-	[CLOSE_WINDOW.mutation] (state, windowId) {		
-		let matchingContent = state.contentList.filter(e => e.windowId === windowId)
+	[CLOSE_WINDOW.mutation] (state, ids) {
+
+		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
 		if ( matchingContent && matchingContent[0] ) {
-			matchingContent.isActive = false;
-			
-			state.windowList = state.windowList.filter(e => e.windowId !== windowId)
+			matchingContent[0].isActive = false;			
+			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 		}
 	},
 	[OPEN_CONTENT.mutation] (state, contentId) {
@@ -107,8 +107,8 @@ export const actions = {
 	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},	
-	[CLOSE_WINDOW.action] ({ commit }, windowId) {
-		commit(CLOSE_WINDOW.mutation, windowId)
+	[CLOSE_WINDOW.action] ({ commit }, ids) {
+		commit(CLOSE_WINDOW.mutation, ids)
 	},
 	[OPEN_CONTENT.action] ({ commit }, contentId) {
 		commit(OPEN_CONTENT.mutation, contentId)
