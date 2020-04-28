@@ -9,13 +9,12 @@ const createMutation = (type) => ({
 
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW');
 export const CLOSE_WINDOW = createMutation('CLOSE_WINDOW');
+export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP');
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
+export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
 
 
 
 
-const createComponent = (type) => ({
-	name: camelCase(`${type}_NAME`)
-});
-
-export const COMPONENT_COLLECTION = createComponent('COMPONENT_COLLECTION');
+export const COMPONENT_COLLECTION = 'collection';
+export const COMPONENT_IMAGE_VIEWER = 'image-viewer';

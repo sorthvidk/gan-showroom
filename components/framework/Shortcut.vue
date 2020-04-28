@@ -52,7 +52,7 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action](this.contentId);
+			this[OPEN_CONTENT.action]([this.contentId]);
 		}
 	}
 };

@@ -1,26 +1,68 @@
-import { TOPMOST_WINDOW, CLOSE_WINDOW, OPEN_CONTENT } from '../store/constants'
+import { TOPMOST_WINDOW, CLOSE_WINDOW, CLOSE_WINDOW_GROUP, OPEN_CONTENT, ESC_KEYPRESS } from '../store/constants'
 
 export const state = () => ({
 	contentList: [
 		{
 			title:'Lorem ipsum dolor',
-			contentId:'content1',
+			contentId:'collection1',
 			component:'collection', 
 			props: { collectionId:'234897234' },
 			isActive:false
 		},
 		{
 			title:'Lorem ipsum dolor',
-			contentId:'content2',
+			contentId:'collection2',
 			component:'collection', 
 			props: { collectionId:'897345983' },
 			isActive:false
 		},
 		{
 			title:'Lorem ipsum dolor',
-			contentId:'content3',
+			contentId:'collection3',
 			component:'collection', 
 			props: { collectionId:'291173006' },
+			isActive:false
+		},
+		{
+			title:'Image 1',
+			contentId:'image1',
+			component:'image-viewer', 
+			props: { },
+			isActive:false
+		},
+		{
+			title:'Image 2',
+			contentId:'image2',
+			component:'image-viewer', 
+			props: { },
+			isActive:false
+		},
+		{
+			title:'Image 3',
+			contentId:'image3',
+			component:'image-viewer', 
+			props: { },
+			isActive:false
+		},
+		{
+			title:'Image 4',
+			contentId:'image4',
+			component:'image-viewer', 
+			props: { },
+			isActive:false
+		},
+		{
+			title:'Image 5',
+			contentId:'image5',
+			component:'image-viewer', 
+			props: { },
+			isActive:false
+		},
+		{
+			title:'Image 6',
+			contentId:'image6',
+			component:'image-viewer', 
+			props: { },
 			isActive:false
 		}
 	],
@@ -31,14 +73,14 @@ export const state = () => ({
 			posH:1,
 			posV:1,
 			widthSpan:2, 
-			contentId:'content1' 
+			contentId:'collection1' 
 		},
 		{
 			shortcutId:'shortcut2',
 			posH:1, 
 			posV:3, 
 			widthSpan:2,
-			contentId:'content2'
+			contentId:'collection2'
 			
 		},
 		{
@@ -46,26 +88,14 @@ export const state = () => ({
 			posH:23, 
 			posV:1, 
 			widthSpan:2,
-			contentId:'content3'
+			contentId:'collection3'
 		}
 	],
 
-	windowList: [
-		// {
-		// 	id:'38972342n342894u234', 
-		// 	title:'New collection 2020',
-		// 	x:300,y:20,w:733,h:300, z:50, 
-		// 	component:'collection', 
-		// 	props: { collectionId:'234897234' }
-		// },
-		// {
-		// 	id:'80hj23489dsf670953b', 
-		// 	title:'Test lorem',x:
-		// 	100,y:600,w:300,h:500, z:20,  
-		// 	component:'collection', 
-		// 	props:  { collectionId:'77334455' }
-		// }
-	],
+	windowGroup: {},
+	
+	windowList: [],
+
 	[TOPMOST_WINDOW.stateKey]: null
 })
 
@@ -76,30 +106,58 @@ export const mutations = {
 	[TOPMOST_WINDOW.mutation] (state, payload) {
 		state[TOPMOST_WINDOW.stateKey] = payload
 	},
-	[CLOSE_WINDOW.mutation] (state, ids) {
-
+	[CLOSE_WINDOW.mutation] (state, ids) {		
 		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
 		if ( matchingContent && matchingContent[0] ) {
 			matchingContent[0].isActive = false;			
 			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 		}
 	},
-	[OPEN_CONTENT.mutation] (state, contentId) {
-		console.log("contentId",contentId)
-		let matchingContent = state.contentList.filter(e => e.contentId === contentId)
-		if ( matchingContent && matchingContent[0] && !matchingContent[0].isActive  ) {
-			let newWindow = {
-				x:100, y:100, w:400, h:300, z:1, 
-				windowId: '' + Math.random().toString(36).substr(2, 9),
-				contentId: contentId,
-				title: matchingContent[0].title,
-				component: matchingContent[0].component, 
-				props: matchingContent[0].props
-			};
+	[CLOSE_WINDOW_GROUP.mutation] (state) {
+		console.log("CLOSE windowGroup",state.windowGroup)
+
+		for (var i = 0; i < state.windowGroup.groupSize; i++) {
+			let ids = {windowId:state.windowGroup.windowIds[i],contentId:state.windowGroup.contentIds[i]};
+			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
 			
-			matchingContent[0].isActive	= true;
-			state.windowList.push(newWindow);
+			if ( matchingContent && matchingContent[0] ) {
+				matchingContent[0].isActive = false;			
+				state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
+			}
 		}
+	},
+	[OPEN_CONTENT.mutation] (state, contentIds) {
+		let newWindowGroup = {
+			groupId: '' + Math.random().toString(36).substr(2, 9),
+			windowIds: [],
+			contentIds: [],
+			groupSize: 0
+		};
+		for (var i = 0; i < contentIds.length; i++) {
+
+			let contentId = contentIds[i];
+			let matchingContent = state.contentList.filter(e => e.contentId === contentId)
+			if ( matchingContent && matchingContent[0] && !matchingContent[0].isActive  ) {
+				let newWindow = {
+					x:140+i*30, y:20+i*30, w:500, h:400, z:1, 
+					windowId: '' + Math.random().toString(36).substr(2, 9),
+					contentId: contentId,
+					groupId: newWindowGroup.groupId,
+					title: matchingContent[0].title,
+					component: matchingContent[0].component, 
+					props: matchingContent[0].props
+				};
+				
+				matchingContent[0].isActive	= true;
+				state.windowList.push(newWindow);
+
+				newWindowGroup.windowIds.push(newWindow.windowId);
+				newWindowGroup.contentIds.push(newWindow.contentId);
+				newWindowGroup.groupSize++;
+			}
+		}
+
+		state.windowGroup = newWindowGroup;
 	}
 }
 
@@ -110,8 +168,11 @@ export const actions = {
 	[CLOSE_WINDOW.action] ({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
-	[OPEN_CONTENT.action] ({ commit }, contentId) {
-		commit(OPEN_CONTENT.mutation, contentId)
+	[OPEN_CONTENT.action] ({ commit }, contentIds) {
+		commit(OPEN_CONTENT.mutation, contentIds)
+	},
+	[ESC_KEYPRESS.action] ({ commit }) {
+		commit(CLOSE_WINDOW_GROUP.mutation)
 	},
 
 	async nuxtServerInit ({ commit }) {

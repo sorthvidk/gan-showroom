@@ -13,8 +13,7 @@
 		:y="panelPositionY"
 		:w="sizeW"
 		:h="sizeH"
-		:z="positionZ"
-		:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}"
+		:style="{transformOrigin: transformOriginStyle}"
 	>
 		<div class="window__top">
 			<span class="title">{{title}}</span>
@@ -36,12 +35,14 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW } from '~/store/constants'
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 import Collection from '~/components/content/Collection.vue'
+import ImageViewer from '~/components/content/ImageViewer.vue'
 
 export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
-		Collection
+		Collection,
+		ImageViewer
 	},
 	props: {
 		contentComponent: {
@@ -87,17 +88,17 @@ export default {
 		},
 		windowId: {
 			type: String
+		},
+		groupId: {
+			type: String
 		}
 	},
 	watch: {
 		topMostWindow(newVal) {
-			console.log('match?', newVal == this.id)
 			if (newVal == this.id) {
-				console.log(this.id+" set to 1000")
 				this.z = 1000
 			} else {
-				console.log(this.id+" set to "+this.positionZ)
-				this.z = this.positionZ //default z
+				this.z = this.positionZ
 			}
 		}
 	},
@@ -125,8 +126,7 @@ export default {
 			height: 0,
 			x: -1,
 			y: -1,
-			z: 0,
-			isClosing: false
+			z: 0
 		}
 	},
 	methods: {
@@ -135,8 +135,7 @@ export default {
 			CLOSE_WINDOW.action,
 		]),
 		closeHandler(e) {
-			this.isClosing = true;
-			TweenLite.to(this.$el, 0.2, {scale: 0, opacity: 0, onComplete: function(){ this.closeWindow(); }.bind(this) });
+			this.closeWindow();
 		},
 		closeWindow() {
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
@@ -169,6 +168,9 @@ export default {
 		console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
 		TweenLite.from(this.$el, 0.2, {scale: 0.5, opacity:0});
+	},
+	beforeDestroy() {
+		TweenLite.to(this.$el, 0.2, {scale: 0, opacity: 0});	
 	}
 };
 

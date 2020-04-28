@@ -16,6 +16,9 @@
 
 	&.is-active {
 		z-index: 1000 !important;
+		.window__top {
+			background-color: #eeeeee;
+		}
 	}
 
 	&:hover .handle {

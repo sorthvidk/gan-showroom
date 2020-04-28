@@ -16,6 +16,7 @@
 				v-for="(item, index) in windowList" 
 				:window-id="item.windowId" 
 				:content-id="item.contentId" 
+				:group-id="item.groupId" 
 				:title="item.title" 
 				:key="index" 
 				:position-x="item.x" 
@@ -31,7 +32,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW } from '~/store/constants'
+import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/store/constants'
 
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
@@ -49,10 +50,20 @@ export default {
 		})
 	},
 	methods: {
-		...mapActions([TOPMOST_WINDOW.action]),
+		...mapActions([
+			TOPMOST_WINDOW.action, 
+			ESC_KEYPRESS.action
+		]),
 		onMouseDown() {
 			this[TOPMOST_WINDOW.action](null);
 		}
+	},
+	mounted() {		
+		window.addEventListener('keyup', event=>{
+			if(event.key === "Escape") {
+				this[ESC_KEYPRESS.action]();
+			}
+		});
 	}
 };
 
