@@ -1,7 +1,6 @@
 <template>
 	<div class="image-viewer">
-		<img src="//placeimg.com/200/400/people" alt="">
-		<p>pleaded_skirt_1.jpg</p>
+		<img :src="imageUrlDefault" alt="img">
 	</div>
 </template>
 
@@ -10,6 +9,10 @@
 export default {
 	name:'image-viewer',
 	props: {
+		imageUrlDefault: {
+			type: String,
+			default: ''
+		}
 	}
 };
 </script>

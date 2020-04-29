@@ -7,6 +7,8 @@ import {
 	UPDATE_WINDOW, 
 } from '../store/constants'
 
+const WINDOW_CHROME_HEIGHT = 31;
+
 export const state = () => ({
 	contentList: [
 		{
@@ -14,63 +16,111 @@ export const state = () => ({
 			contentId:'collection1',
 			component:'collection', 
 			props: { collectionId:'234897234' },
-			isActive:false
+			attributes: {},
+			isActive:false,
+			modifierClass:''
 		},
 		{
 			title:'Lorem ipsum dolor',
 			contentId:'collection2',
 			component:'collection', 
 			props: { collectionId:'897345983' },
-			isActive:false
+			attributes: {},
+			isActive:false,
+			modifierClass:''
 		},
 		{
 			title:'Lorem ipsum dolor',
 			contentId:'collection3',
 			component:'collection', 
 			props: { collectionId:'291173006' },
-			isActive:false
+			attributes: {},
+			isActive:false,
+			modifierClass:''
 		},
 		{
 			title:'Image 1',
 			contentId:'image1',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 300,
+				height: 250
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/300/250/people',				
+			}
 		},
 		{
 			title:'Image 2',
 			contentId:'image2',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 200,
+				height: 400
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/200/400/people',				
+			}
 		},
 		{
 			title:'Image 3',
 			contentId:'image3',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 200,
+				height: 400
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/200/400/people',				
+			}
 		},
 		{
 			title:'Image 4',
 			contentId:'image4',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 200,
+				height: 400
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/200/400/people',				
+			}
 		},
 		{
 			title:'Image 5',
 			contentId:'image5',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 200,
+				height: 400
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/200/400/people',				
+			}
 		},
 		{
 			title:'Image 6',
 			contentId:'image6',
-			component:'image-viewer', 
-			props: { },
-			isActive:false
+			component:'image-viewer',
+			modifierClass:'window--tight',
+			isActive:false,
+			attributes: {
+				width: 200,
+				height: 400
+			}, 
+			props: { 
+				imageUrlDefault:'//placeimg.com/200/400/people',				
+			}
 		}
 	],
 
@@ -99,79 +149,191 @@ export const state = () => ({
 		}
 	],
 
-	windowGroupList: [],
-	
-	windowList: [],
 
-	[TOPMOST_WINDOW.stateKey]: null
+	windowList: [],
+	windowGroupList: [],
+
+	zIndexes: [],
+	lowestZIndex: 0,
+	highestZIndex: 0
 })
 
 export const mutations = {
 	setBlogPosts (state, list) {
 		state.blogPosts = list
 	},
-	[TOPMOST_WINDOW.mutation] (state, payload) {
-		state[TOPMOST_WINDOW.stateKey] = payload
-	},
-	[CLOSE_WINDOW.mutation] (state, ids) {		
-		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
-		if ( matchingContent && matchingContent[0] ) {
-			matchingContent[0].isActive = false;			
-			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
+	/* 
+	 *	Bring window to top.
+	 *
+	 */
+	[TOPMOST_WINDOW.mutation] (state, windowId) {
+		let windowsLength = state.windowList.length;
+		let zIndexes = [];
+
+		for (var i = 0; i < windowsLength; i++) {
+			let currentWindow = state.windowList[i];
+			zIndexes.push(currentWindow.z);
+		}
+		// con{sole.log("zIndexes before",state.zIndexes)
+		zIndexes.sort(function(a, b){return a - b});
+		// console.log("zIndexes after",state.zIndexes)
+		state.zIndexes = zIndexes;
+		
+		
+		let matchingWindow = state.windowList.filter(e => e.windowId === windowId)[0]
+		if ( matchingWindow ) {
+			matchingWindow.z = state.zIndexes[windowsLength-1]+1;
+			state.highestZIndex = matchingWindow.z;
 		}
 	},
+	/* 
+	 *	Single window close. Wipes window group history, so user has to close all windows individually after
+	 *
+	 */
+	[CLOSE_WINDOW.mutation] (state, ids) {
+
+		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
+		matchingContent.isActive = false;
+
+		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
+		
+		console.log("zIndexes before",state.zIndexes)
+
+		let searchZ = currentWindow.z;
+		//if closing window was lowest, set lowest current index to next lowest window
+		if ( searchZ == state.lowestZIndex ) {
+			//remove first element
+			state.lowestZIndex = state.zIndexes.shift();
+		}
+		//if closing window was highest, set highest current index to next highest window
+		else if ( searchZ == state.highestZIndex ) {
+			state.highestZIndex = state.zIndexes.pop();
+		}
+		else {
+			//just remove index
+			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
+		}
+		
+		console.log("zIndexes after",state.zIndexes)
+
+		console.log("state.windowList[0].x before",state.windowList[0].x)
+		var newWindowList = [];
+		state.windowList.forEach(e => {if (e.windowId !== ids.windowId) newWindowList.push(e)});
+
+		console.log("newWindowList",newWindowList)
+		state.windowList = newWindowList
+		if ( state.windowList[0] ) console.log("state.windowList[0].x after",state.windowList[0].x)
+
+		//if manual close => no groups to close
+
+		//TODO: search for and remove dead ids
+		state.windowGroupList = [];
+
+
+		console.warn("CLOSE_WINDOW | removed id:"+ids.windowId+", remaining windows: "+state.windowList.length)
+	},
+	/* 
+	 *	Close a window group. Closes the last added group.
+	 *
+	 */
 	[CLOSE_WINDOW_GROUP.mutation] (state) {
 		let groupsLength = state.windowGroupList.length;
-		console.log("groupsLength",groupsLength)
+		
 		if ( groupsLength < 1 ) return false;
 
 		let windowGroup = state.windowGroupList[groupsLength-1]; //get latest group
 
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {windowId: windowGroup.windowIds[i],contentId: windowGroup.contentIds[i]};
-			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
+
+			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
+			matchingContent.isActive = false;
+
+			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 			
-			if ( matchingContent && matchingContent[0] ) {
-				matchingContent[0].isActive = false;			
-				state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
+			let searchZ = currentWindow.z;
+			//if closing window was lowest, set lowest current index to next lowest window
+			if ( searchZ == state.lowestZIndex ) {
+				//remove first element
+				state.lowestZIndex = state.zIndexes.shift();
 			}
+			//if closing window was highest, set highest current index to next highest window
+			else if ( searchZ == state.highestZIndex ) {
+				state.highestZIndex = state.zIndexes.pop();
+			}
+			else {
+				//just remove index
+				state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
+			}
+
+			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 		}
+
 		state.windowGroupList.pop(); //remove that group
+		console.warn("CLOSE_WINDOW_GROUP | remaining groups: "+state.windowGroupList.length)
+
+		if ( state.windowGroupList.length == 0 ) {
+			state.highestZIndex = 0;
+			state.lowestZIndex = 0;
+		}
 	},
+	/* 
+	 *	Activate content block, opens window with matching component
+	 *
+	 */
 	[OPEN_CONTENT.mutation] (state, contentIds) {
+		console.warn("OPEN_CONTENT",contentIds)
 		let newWindowGroup = {
 			groupId: '' + Math.random().toString(36).substr(2, 9),
 			windowIds: [],
 			contentIds: [],
 			groupSize: 0
 		};
+		
+		let windowsLength = state.windowList.length;
+
 		for (var i = 0; i < contentIds.length; i++) {
 
 			let contentId = contentIds[i];
-			let matchingContent = state.contentList.filter(e => e.contentId === contentId)
-			if ( matchingContent && matchingContent[0] && !matchingContent[0].isActive  ) {
+			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
+			if ( !matchingContent.isActive  ) {
+				console.log("matchingContent",matchingContent)
+				
 				let newWindow = {
-					x:140+i*30, y:20+i*30, w:500, h:400, z:1, 
 					windowId: '' + Math.random().toString(36).substr(2, 9),
 					contentId: contentId,
 					groupId: newWindowGroup.groupId,
-					title: matchingContent[0].title,
-					component: matchingContent[0].component, 
-					props: matchingContent[0].props
+					title: matchingContent.title + " _ window "+windowsLength,
+					component: matchingContent.component, 
+					props: matchingContent.props,
+					x:140+windowsLength*30+i*30, 
+					y:20+windowsLength*30+i*30, 
+					w: matchingContent.attributes.width ? matchingContent.attributes.width : 500, 
+					h: matchingContent.attributes.height ? matchingContent.attributes.height+WINDOW_CHROME_HEIGHT : 400, 
+					modifierClass: matchingContent.modifierClass,
+					z: state.highestZIndex+1
 				};
 				
-				matchingContent[0].isActive	= true;
+				matchingContent.isActive = true;
 				
 				state.windowList.push(newWindow);
+				windowsLength++;
 
 				newWindowGroup.windowIds.push(newWindow.windowId);
 				newWindowGroup.contentIds.push(newWindow.contentId);
 				newWindowGroup.groupSize++;
+
+				state.zIndexes.push(newWindow.z)
+				state.highestZIndex++;
 			}
 		}
 
 		state.windowGroupList.push(newWindowGroup);
 	},
+	/* 
+	 *	Save window position and size values
+	 *
+	 */
 	[UPDATE_WINDOW.mutation] (state, params) {
 		let currentWindow = state.windowList.filter(e => e.windowId === params.windowId)[0];
 		for(var key in params) {

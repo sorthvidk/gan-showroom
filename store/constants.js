@@ -13,9 +13,3 @@ export const UPDATE_WINDOW = createMutation('UPDATE_WINDOW');
 export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP');
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
 export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
-
-
-
-
-export const COMPONENT_COLLECTION = 'collection';
-export const COMPONENT_IMAGE_VIEWER = 'image-viewer';

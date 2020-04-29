@@ -1,14 +1,14 @@
 <template>
 	<div class="collection">
-		<button @click="onItemClick">
+		<button @click.stop="onItemClick">
 			<img src="//placeimg.com/200/400/people" alt="">
 			<p>pleaded_skirt_1.jpg</p>
 		</button>
-		<button @click="onItemClick2">
+		<button @click.stop="onItemClick2">
 			<img src="//placeimg.com/200/400/people" alt="">
 			<p>pleaded_skirt_1.jpg</p>
 		</button>
-		<button @click="onItemClick3">
+		<button @click.stop="onItemClick3">
 			<img src="//placeimg.com/200/400/people" alt="">
 			<p>pleaded_skirt_1.jpg</p>
 		</button>

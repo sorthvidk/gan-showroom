@@ -1,9 +1,9 @@
 <template>
-	<div class="desktop" @mousedown="onMouseDown" :style="{backgroundImage: 'url(//placeimg.com/2000/1500/nature)'}">
+	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/200/150/nature)'}">
 		<div class="desktop__shortcuts">
 			<shortcut 
 				v-for="(item, index) in shortcutList" 
-				:key="index" 
+				:key="item.shortcutId" 
 				:shortcut-id="item.shortcutId" 
 				:content-id="item.contentId" 
 				:position-h="item.posH" 
@@ -14,11 +14,12 @@
 		<div class="desktop__windows">
 			<window 
 				v-for="(item, index) in windowList" 
+				:modifier-class="item.modifierClass"
 				:window-id="item.windowId" 
 				:content-id="item.contentId" 
 				:group-id="item.groupId" 
 				:title="item.title" 
-				:key="index" 
+				:key="item.windowId" 
 				:position-x="item.x" 
 				:position-y="item.y" 
 				:position-z="item.z" 
@@ -53,10 +54,7 @@ export default {
 		...mapActions([
 			TOPMOST_WINDOW.action, 
 			ESC_KEYPRESS.action
-		]),
-		onMouseDown() {
-			this[TOPMOST_WINDOW.action](null);
-		}
+		])
 	},
 	mounted() {		
 		window.addEventListener('keyup', event=>{

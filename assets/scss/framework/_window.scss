@@ -1,5 +1,8 @@
 .window {
+	$module: '.window';
+
 	color: black;
+	background-color: #cccccc;
 	border: rem(1) solid #333;
 	box-shadow: rem(5) rem(5) rem(10) rgba(0,0,0,0.5);
 
@@ -8,15 +11,10 @@
 	left: 0;
 	z-index: 1;
 
-	min-width: rem(300);
-	background-color: #cccccc;
-
-	transform-origin: top left;
 
 
 	&.is-active {
-		z-index: 1000 !important;
-		.window__top {
+		#{$module}__top {
 			background-color: #eeeeee;
 		}
 	}
@@ -31,13 +29,17 @@
 		background-color: #dddddd;
 		display: flex;
 		justify-content: space-between;
-		font-family: monospace;
+		font-size: rem(14);
+		font-weight: bold;
 		
-		span {
+		.title {
 			padding: rem(5);
-			display: inline-flex;			
+			display: inline-flex;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;		
 		}
-		button {
+		.close {
 			padding: rem(5);
 			display: inline-flex;
 			align-items: center;
@@ -51,13 +53,38 @@
 		}
 
 	}
+	&__status {
+		position: relative;
+		background-color: #fff;
+		border-bottom: rem(1) solid #333;
+		p {
+			font-size: rem(12);
+			padding: rem(5);
+		}
+		&:after {
+			content:'';
+			display: block;
+			border-top: rem(1) solid #333;
+			height: rem(5);
+			background-color: #fff;
+		}
+	}
 	&__content {
 		overflow-x: hidden;
 		overflow-y: scroll;
 		padding: rem(20) rem(5);
-		max-height: calc(100% - rem(31));
-		
+		max-height: calc(100% - rem(31));		
 	}
+	
+	&--tight {
+		#{$module}__content {
+			padding: 0;
+			overflow: visible;
+			max-height: none;
+			height: calc(100% - rem(31));
+		}
+	}
+
 
 	.vdr {
 		touch-action: none;

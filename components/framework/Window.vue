@@ -1,29 +1,36 @@
 <template>
-	<vue-draggable-resizable
-		v-if="!isLocked && !isFoldable"
-		class-name="window"
-		class-name-active="is-active"
-		@dragging="onDrag"
-		@dragstop="onDragStop"
-		@resizing="onResize"
-		@resizestop="onResizeStop"
-		:handles="['br']"
-		:drag-handle="'.window__top'"
-		:x="panelPositionX"
-		:y="panelPositionY"
-		:w="sizeW"
-		:h="sizeH"
-		:style="{transformOrigin: transformOriginStyle}"
-	>
-		<div class="window__top">
-			<span class="title">{{title}}</span>
-			<button @click="closeHandler">X</button>
-		</div>
-		<div class="window__content" @click="onMouseDown">
-			<p>X: {{ x }} / Y: {{ y }} - Width: {{ w }} / Height: {{ h }}</p>
-			<component :is="contentComponent" v-bind="{...contentProps}"/>
-		</div>
-	</vue-draggable-resizable>
+	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
+		<span @click="onMouseDown"> <!-- can't attach listener to vue-draggable -->				
+			<vue-draggable-resizable
+				v-if="!isLocked && !isFoldable"
+				:class-name="concatClassName"
+				class-name-active="is-active"
+				@dragging="onDrag"
+				@dragstop="onDragStop"
+				@resizing="onResize"
+				@resizestop="onResizeStop"
+				:handles="['br']"
+				:drag-handle="'.window__top'"
+				:x="panelPositionX"
+				:y="panelPositionY"
+				:w="sizeW"
+				:h="sizeH"
+				:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}">
+				<div class="window__top">
+					<span class="title">{{title}}</span>
+					<button class="close" @click="closeHandler">X</button>
+				</div>
+				<div class="window__status">
+					<p>TIP: Try to touch your own nose!</p>
+				</div>
+				<div class="window__content">				
+					<!-- <p>X: {{ panelPositionX }} / Y: {{ panelPositionY }} / Z: {{ panelPositionZ }} | W: {{ w }} / H: {{ h }}</p>
+					<p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
+					<component :is="contentComponent" v-bind="{...contentProps}"/>
+				</div>
+			</vue-draggable-resizable>
+		</span>
+	</transition>
 </template>
 
 <script>
@@ -49,6 +56,10 @@ export default {
 		ImageViewer
 	},
 	props: {
+		modifierClass: {
+			type: String,
+			default: ''
+		},
 		contentComponent: {
 			type: String,
 			default: null
@@ -97,30 +108,28 @@ export default {
 			type: String
 		}
 	},
-	watch: {
-		topMostWindow(newVal) {
-			if (newVal == this.id) {
-				this.z = 1000
-			} else {
-				this.z = this.positionZ
-			}
-		}
-	},
 	computed: {
-		...mapState({
-			topMostWindow: state => state[TOPMOST_WINDOW.stateKey]
-		}),
 		panelPositionX() {
 			return this.x > -1 ? this.x : this.positionX;
 		},
 		panelPositionY() {
 			return this.y > -1 ? this.y : this.positionY;
 		},
+		panelPositionZ() {
+			let newZ = this.z > 0 ? this.z : this.positionZ;
+			// console.log("pos z",newZ)
+			return newZ;
+		},
 		zIndexStyle() {
-			return this.z;
+			return this.positionZ;
 		},
 		transformOriginStyle() {
 			return this.x + 'px ' + this.y + 'px';
+		},
+		concatClassName() {
+			console.log("this.modifierClass",this.modifierClass)
+			if ( this.modifierClass != '') return 'window ' + this.modifierClass;
+			return 'window';
 		}
 	},
 	data: function() {
@@ -144,6 +153,7 @@ export default {
 			this.closeWindow();
 		},
 		closeWindow() {
+			
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
 		onResize(x, y, w, h) {
@@ -170,15 +180,20 @@ export default {
 		},
 		onMouseDown() {
 			this[TOPMOST_WINDOW.action](this.windowId);
+		},
+		beforeAnimateIn(el) {
+			TweenLite.set(el, {scale:0, opacity:0});
+		},
+		animateIn(el) {
+			TweenLite.to(el, 0.2, {scale:1, opacity:1});	
+		},
+		animateOut(el, done) {
+			TweenLite.to(el, 0.2, {scale:0, opacity:0});		
+			done();		
 		}
 	},
 	mounted() {
-		console.log('TOPMOST_WINDOW', TOPMOST_WINDOW)
-		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
-		TweenLite.from(this.$el, 0.2, {scale: 0.5, opacity:0});
-	},
-	beforeDestroy() {
-		TweenLite.to(this.$el, 0.2, {scale: 0, opacity: 0});	
+		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
 	}
 };
 
