@@ -7,7 +7,8 @@ import {
 	UPDATE_WINDOW, 
 } from '../store/constants'
 
-const WINDOW_CHROME_HEIGHT = 31;
+const WINDOW_CHROME_HEIGHT = 62;
+const WINDOW_CHROME_WIDTH = 2;
 
 export const state = () => ({
 	contentList: [
@@ -15,8 +16,8 @@ export const state = () => ({
 			title:'Lorem ipsum dolor',
 			contentId:'collection1',
 			component:'collection', 
-			props: { collectionId:'234897234' },
-			attributes: {},
+			componentProps: { collectionId:'234897234' },
+			windowProps: {},
 			isActive:false,
 			modifierClass:''
 		},
@@ -24,8 +25,8 @@ export const state = () => ({
 			title:'Lorem ipsum dolor',
 			contentId:'collection2',
 			component:'collection', 
-			props: { collectionId:'897345983' },
-			attributes: {},
+			componentProps: { collectionId:'897345983' },
+			windowProps: {},
 			isActive:false,
 			modifierClass:''
 		},
@@ -33,8 +34,8 @@ export const state = () => ({
 			title:'Lorem ipsum dolor',
 			contentId:'collection3',
 			component:'collection', 
-			props: { collectionId:'291173006' },
-			attributes: {},
+			componentProps: { collectionId:'291173006' },
+			windowProps: {},
 			isActive:false,
 			modifierClass:''
 		},
@@ -42,13 +43,15 @@ export const state = () => ({
 			title:'Image 1',
 			contentId:'image1',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 300,
-				height: 250
+				height: 250,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/300/250/people',				
 			}
 		},
@@ -56,13 +59,15 @@ export const state = () => ({
 			title:'Image 2',
 			contentId:'image2',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 200,
-				height: 400
+				height: 400,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/200/400/people',				
 			}
 		},
@@ -70,13 +75,15 @@ export const state = () => ({
 			title:'Image 3',
 			contentId:'image3',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 200,
-				height: 400
+				height: 400,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/200/400/people',				
 			}
 		},
@@ -84,13 +91,15 @@ export const state = () => ({
 			title:'Image 4',
 			contentId:'image4',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 200,
-				height: 400
+				height: 400,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/200/400/people',				
 			}
 		},
@@ -98,13 +107,15 @@ export const state = () => ({
 			title:'Image 5',
 			contentId:'image5',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 200,
-				height: 400
+				height: 400,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/200/400/people',				
 			}
 		},
@@ -112,13 +123,15 @@ export const state = () => ({
 			title:'Image 6',
 			contentId:'image6',
 			component:'image-viewer',
-			modifierClass:'window--tight',
 			isActive:false,
-			attributes: {
+			windowProps: {
 				width: 200,
-				height: 400
+				height: 400,
+				modifierClass:'window--tight',
+				canMaximize: true,
+				canClose: false
 			}, 
-			props: { 
+			componentProps: { 
 				imageUrlDefault:'//placeimg.com/200/400/people',				
 			}
 		}
@@ -305,14 +318,15 @@ export const mutations = {
 					groupId: newWindowGroup.groupId,
 					title: matchingContent.title + " _ window "+windowsLength,
 					component: matchingContent.component, 
-					props: matchingContent.props,
-					x:140+windowsLength*30+i*30, 
-					y:20+windowsLength*30+i*30, 
-					w: matchingContent.attributes.width ? matchingContent.attributes.width : 500, 
-					h: matchingContent.attributes.height ? matchingContent.attributes.height+WINDOW_CHROME_HEIGHT : 400, 
-					modifierClass: matchingContent.modifierClass,
-					z: state.highestZIndex+1
+					componentProps: matchingContent.componentProps,
+					windowProps: matchingContent.windowProps					
 				};
+
+				newWindow.windowProps.positionX = 140 + windowsLength*30 + i*30; 
+				newWindow.windowProps.positionY = 20 + windowsLength*30 + i*30; 
+				newWindow.windowProps.positionZ = state.highestZIndex + 1;
+				newWindow.windowProps.sizeW = matchingContent.windowProps.width ? matchingContent.windowProps.width+WINDOW_CHROME_WIDTH : 500; 
+				newWindow.windowProps.sizeH = matchingContent.windowProps.height ? matchingContent.windowProps.height+WINDOW_CHROME_HEIGHT : 400; 
 				
 				matchingContent.isActive = true;
 				
@@ -325,6 +339,8 @@ export const mutations = {
 
 				state.zIndexes.push(newWindow.z)
 				state.highestZIndex++;
+
+				console.log("newWindow.windowProps",newWindow.windowProps)
 			}
 		}
 

@@ -1,9 +1,8 @@
 .window {
 	$module: '.window';
 
-	color: black;
-	background-color: #cccccc;
-	border: rem(1) solid #333;
+	background-color: $color-white;
+	border: rem(1) solid $color-black;
 	box-shadow: rem(5) rem(5) rem(10) rgba(0,0,0,0.5);
 
 	position: absolute;
@@ -15,7 +14,7 @@
 
 	&.is-active {
 		#{$module}__top {
-			background-color: #eeeeee;
+			background-color: lighten($color-lightgrey,5%);
 		}
 	}
 
@@ -24,22 +23,26 @@
 	}
 
 	&__top {
-		border-bottom: rem(1) solid #333;
-		box-shadow: rem(1) rem(1) rem(3) white inset, rem(-1) rem(-1) rem(3) rgba(0,0,0,0.5) inset;
-		background-color: #dddddd;
+		height: rem(30);
+		background-color: $color-lightgrey;
 		display: flex;
 		justify-content: space-between;
-		font-size: rem(14);
-		font-weight: bold;
 		
 		.title {
+			flex: 1 1 100%;
+			height: rem(30);
 			padding: rem(5);
-			display: inline-flex;
 			overflow: hidden;
+			
+			display: block;
 			white-space: nowrap;
-			text-overflow: ellipsis;		
+			text-overflow: ellipsis;
+			text-align: center;
+			@include bevel();
+			@include headline();
 		}
-		.close {
+		button {
+			flex: 0 0 rem(30);
 			padding: rem(5);
 			display: inline-flex;
 			align-items: center;
@@ -48,23 +51,31 @@
 			height: rem(30);			
 			background-color: transparent;
 			border: 0;
-			border-left: rem(1) solid #333;
-			box-shadow: rem(1) rem(1) rem(3) white inset, rem(-1) rem(-1) rem(3) rgba(0,0,0,0.5) inset;
+			@include bevel();
+			border-left: rem(1) solid $color-black;
 		}
 
 	}
 	&__status {
+		height: rem(30);
+		box-sizing: border-box;
 		position: relative;
 		background-color: #fff;
-		border-bottom: rem(1) solid #333;
+		border-top: rem(1) solid $color-black;
+		border-bottom: rem(1) solid $color-black;
+
 		p {
-			font-size: rem(12);
+			overflow: hidden;
 			padding: rem(5);
+			display: block;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			@include bodytext();
 		}
 		&:after {
 			content:'';
 			display: block;
-			border-top: rem(1) solid #333;
+			border-top: rem(1) solid $color-black;
 			height: rem(5);
 			background-color: #fff;
 		}
@@ -73,7 +84,7 @@
 		overflow-x: hidden;
 		overflow-y: scroll;
 		padding: rem(20) rem(5);
-		max-height: calc(100% - rem(31));		
+		max-height: calc(100% - rem(60));		
 	}
 	
 	&--tight {
@@ -81,7 +92,7 @@
 			padding: 0;
 			overflow: visible;
 			max-height: none;
-			height: calc(100% - rem(31));
+			height: calc(100% - rem(60));
 		}
 	}
 
@@ -90,7 +101,7 @@
 		touch-action: none;
 		position: absolute;
 		box-sizing: border-box;
-		border: rem(1) dashed black;
+		border: rem(1) dashed $color-black;
 	}
 	.handle {
 		box-sizing: border-box;
@@ -98,7 +109,7 @@
 		width: rem(20);
 		height: rem(20);
 		background: #EEE;
-		border: rem(1) solid #333;
+		border: rem(1) solid $color-black;
 	}
 	.handle-br {
 		bottom: 0;

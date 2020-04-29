@@ -14,19 +14,14 @@
 		<div class="desktop__windows">
 			<window 
 				v-for="(item, index) in windowList" 
-				:modifier-class="item.modifierClass"
+				:key="item.windowId" 
+				v-bind="{...item.windowProps}"
 				:window-id="item.windowId" 
 				:content-id="item.contentId" 
 				:group-id="item.groupId" 
 				:title="item.title" 
-				:key="item.windowId" 
-				:position-x="item.x" 
-				:position-y="item.y" 
-				:position-z="item.z" 
-				:size-w="item.w" 
-				:size-h="item.h" 
 				:content-component="item.component"  
-				:content-props="item.props"/>
+				:content-props="item.componentProps"/>
 		</div>
 	</div>
 </template>

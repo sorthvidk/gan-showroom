@@ -5,3 +5,22 @@ strong {
 em {
 	font-style: italic;
 }
+
+@mixin title() {
+	font-size: rem(50);
+	line-height: 1.68;
+	letter-spacing: -0.03em;
+}
+
+@mixin headline() {
+	font-size: rem(15);
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+@mixin bodytext() {
+	font-size: rem(11);
+	font-weight: 500;
+	line-height: 1.27;
+}

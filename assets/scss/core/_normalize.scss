@@ -22,10 +22,16 @@ html {
 	box-sizing: border-box;
 	margin: 0;
 }
+
 body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
+	background: $color-white;
+	font-family: $primary-font;
+	color: $color-black;
+	font-size: rem(15);
+	line-height: 1.2;
 }
 ol, ul {
 	list-style: none;
@@ -33,11 +39,4 @@ ol, ul {
 img {
 	max-width: 100%;
 	height: auto;
-}
-body {
-	background-color: pink;
-	font-family: $primary-font;
-	font-weight: 300;
-	font-style: normal;
-	color: lime; // TODO: Fix with proper color var
 }

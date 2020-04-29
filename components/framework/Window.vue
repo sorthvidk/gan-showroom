@@ -11,14 +11,18 @@
 				@resizestop="onResizeStop"
 				:handles="['br']"
 				:drag-handle="'.window__top'"
-				:x="panelPositionX"
-				:y="panelPositionY"
-				:w="sizeW"
-				:h="sizeH"
+				:x="computedPositionX"
+				:y="computedPositionY"
+				:w="computedSizeW"
+				:h="computedSizeH"
 				:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}">
 				<div class="window__top">
 					<span class="title">{{title}}</span>
-					<button class="close" @click="closeHandler">X</button>
+					<button v-if="canClose" class="close" @click="closeHandler">Ｘ</button>
+					<button v-if="canMaximize" class="maximize" @click="maximizeHandler">
+						<span v-if="isMaximized">⇲</span>
+						<span v-if="!isMaximized">↖︎</span>
+					</button>
 				</div>
 				<div class="window__status">
 					<p>TIP: Try to touch your own nose!</p>
@@ -68,15 +72,19 @@ export default {
 			type: Object,
 			default: null
 		},
+		canClose: {
+			type: Boolean,
+			default: true
+		},
+		canMaximize: {
+			type: Boolean,
+			default: false
+		},
 		isLocked: {
 			type: Boolean,
 			default: false
 		},
 		isFoldable: {
-			type: Boolean,
-			default: false
-		},
-		canMaximize: {
 			type: Boolean,
 			default: false
 		},
@@ -109,16 +117,21 @@ export default {
 		}
 	},
 	computed: {
-		panelPositionX() {
+		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX;
 		},
-		panelPositionY() {
+		computedPositionY() {
 			return this.y > -1 ? this.y : this.positionY;
 		},
-		panelPositionZ() {
+		computedPositionZ() {
 			let newZ = this.z > 0 ? this.z : this.positionZ;
-			// console.log("pos z",newZ)
 			return newZ;
+		},
+		computedSizeW() {
+			return this.w > 0 ? this.w : this.sizeW;
+		},
+		computedSizeH() {
+			return this.h > 0 ? this.h : this.sizeH;
 		},
 		zIndexStyle() {
 			return this.positionZ;
@@ -136,6 +149,8 @@ export default {
 		return {
 			resetPositionDistance: 40,
 
+			isMaximized: false,
+
 			x: -1,
 			y: -1,
 			z: 0,
@@ -150,17 +165,25 @@ export default {
 			UPDATE_WINDOW.action,
 		]),
 		closeHandler(e) {
-			this.closeWindow();
-		},
-		closeWindow() {
-			
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
+		maximizeHandler() {			
+			if (this.isMaximized) {
+				this.isMaximized = false;
+				this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
+			}
+			else {
+				this.isMaximized = true;
+				this.onResize(this.resetPositionDistance, this.resetPositionDistance, window.innerWidth - 2*this.resetPositionDistance, window.innerHeight - 2*this.resetPositionDistance);
+			}
+			this.constrain();
+		},
 		onResize(x, y, w, h) {
+			console.log(x, y, w, h);
 			this.x = x
 			this.y = y
 			this.w = w
-			this.h = h			
+			this.h = h
 		},
 		onResizeStop() {
 			this.constrain();
