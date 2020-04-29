@@ -20,7 +20,7 @@
 			<button @click="closeHandler">X</button>
 		</div>
 		<div class="window__content" @click="onMouseDown">
-			<p>X: {{ x }} / Y: {{ y }} - Width: {{ width }} / Height: {{ height }}</p>
+			<p>X: {{ x }} / Y: {{ y }} - Width: {{ w }} / Height: {{ h }}</p>
 			<component :is="contentComponent" v-bind="{...contentProps}"/>
 		</div>
 	</vue-draggable-resizable>
@@ -30,7 +30,11 @@
 import { Expo, TweenLite } from 'gsap';
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, CLOSE_WINDOW } from '~/store/constants'
+import { 
+	TOPMOST_WINDOW, 
+	CLOSE_WINDOW,
+	UPDATE_WINDOW
+} from '~/store/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
@@ -122,17 +126,19 @@ export default {
 	data: function() {
 		return {
 			resetPositionDistance: 40,
-			width: 0,
-			height: 0,
+
 			x: -1,
 			y: -1,
-			z: 0
+			z: 0,
+			w: 0,
+			h: 0,
 		}
 	},
 	methods: {
 		...mapActions([
 			TOPMOST_WINDOW.action,
 			CLOSE_WINDOW.action,
+			UPDATE_WINDOW.action,
 		]),
 		closeHandler(e) {
 			this.closeWindow();
@@ -140,11 +146,11 @@ export default {
 		closeWindow() {
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
-		onResize(x, y, width, height) {
+		onResize(x, y, w, h) {
 			this.x = x
 			this.y = y
-			this.width = width
-			this.height = height
+			this.w = w
+			this.h = h			
 		},
 		onResizeStop() {
 			this.constrain();
@@ -159,6 +165,8 @@ export default {
 		constrain() {
 			this.x = Math.min(Math.max(this.x,0), window.innerWidth - this.resetPositionDistance);
 			this.y = Math.min(Math.max(this.y,0), window.innerHeight - this.resetPositionDistance);
+
+			this[UPDATE_WINDOW.action]({windowId:this.windowId, x:this.x, y:this.y, z:this.z, w:this.w, h:this.h});
 		},
 		onMouseDown() {
 			this[TOPMOST_WINDOW.action](this.windowId);

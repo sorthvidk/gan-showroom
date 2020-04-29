@@ -1,4 +1,11 @@
-import { TOPMOST_WINDOW, CLOSE_WINDOW, CLOSE_WINDOW_GROUP, OPEN_CONTENT, ESC_KEYPRESS } from '../store/constants'
+import { 
+	TOPMOST_WINDOW, 
+	CLOSE_WINDOW, 
+	CLOSE_WINDOW_GROUP, 
+	OPEN_CONTENT, 
+	ESC_KEYPRESS,
+	UPDATE_WINDOW, 
+} from '../store/constants'
 
 export const state = () => ({
 	contentList: [
@@ -164,7 +171,14 @@ export const mutations = {
 		}
 
 		state.windowGroupList.push(newWindowGroup);
-	}
+	},
+	[UPDATE_WINDOW.mutation] (state, params) {
+		let currentWindow = state.windowList.filter(e => e.windowId === params.windowId)[0];
+		for(var key in params) {
+			currentWindow[key] = params[key];
+		}	
+	},
+
 }
 
 export const actions = {
@@ -179,6 +193,9 @@ export const actions = {
 	},
 	[ESC_KEYPRESS.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
+	},
+	[UPDATE_WINDOW.action] ({ commit }, params) {
+		commit(UPDATE_WINDOW.mutation, params)
 	},
 
 	async nuxtServerInit ({ commit }) {

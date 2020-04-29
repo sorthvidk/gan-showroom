@@ -42,11 +42,16 @@ export default {
 	 */
 	plugins: [
 		{
-			src: '~/plugins/vue-draggable-resizable.js',
+			src: '~/plugins/vue-plugins.js',
 			mode: 'client'
 		},
 		{
-			src: '~/plugins/lodash.js',
+			src: '~/plugins/vuex-plugins.js',
+			mode: 'client',
+			ssr: false
+		},
+		{
+			src: '~/plugins/other-plugins.js',
 			mode: 'client'
 		}
 	],
