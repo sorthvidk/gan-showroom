@@ -92,7 +92,7 @@ export const state = () => ({
 		}
 	],
 
-	windowGroup: {},
+	windowGroupList: [],
 	
 	windowList: [],
 
@@ -114,10 +114,14 @@ export const mutations = {
 		}
 	},
 	[CLOSE_WINDOW_GROUP.mutation] (state) {
-		console.log("CLOSE windowGroup",state.windowGroup)
+		let groupsLength = state.windowGroupList.length;
+		console.log("groupsLength",groupsLength)
+		if ( groupsLength < 1 ) return false;
 
-		for (var i = 0; i < state.windowGroup.groupSize; i++) {
-			let ids = {windowId:state.windowGroup.windowIds[i],contentId:state.windowGroup.contentIds[i]};
+		let windowGroup = state.windowGroupList[groupsLength-1]; //get latest group
+
+		for (var i = 0; i < windowGroup.groupSize; i++) {
+			let ids = {windowId: windowGroup.windowIds[i],contentId: windowGroup.contentIds[i]};
 			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)
 			
 			if ( matchingContent && matchingContent[0] ) {
@@ -125,6 +129,7 @@ export const mutations = {
 				state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 			}
 		}
+		state.windowGroupList.pop(); //remove that group
 	},
 	[OPEN_CONTENT.mutation] (state, contentIds) {
 		let newWindowGroup = {
@@ -149,6 +154,7 @@ export const mutations = {
 				};
 				
 				matchingContent[0].isActive	= true;
+				
 				state.windowList.push(newWindow);
 
 				newWindowGroup.windowIds.push(newWindow.windowId);
@@ -157,7 +163,7 @@ export const mutations = {
 			}
 		}
 
-		state.windowGroup = newWindowGroup;
+		state.windowGroupList.push(newWindowGroup);
 	}
 }
 
