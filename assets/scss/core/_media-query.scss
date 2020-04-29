@@ -1,0 +1,50 @@
+// Responsive breakpoints
+//
+// DOD: wip
+//
+// The following breakpoints are implemented. Mobile first applies, meaning all styling is done from a benchmark mobile screen width of 320px portrait mode, and then gets enhanced as screen size increases.<br />
+// <ul><li>screen-xs: 567px (mobile landscape)</li><li>screen-sm: 768px (tablet portrait)</li><li>screen-sm-plus: 950px (large tablet/very small desktop)</li><li>screen-md: 1000px (tablet landscape/small desktop)</li><li>screen-lg: 1150px (desktop+)</li><li>screen-xl: 1280px</li><li>screen-xxl: 1440px</li><li>screen-xxxl: 1680px</li></ul><br />
+// When these breakpoints are used in media queries, values are transformed to "em".
+//
+// Markup: <empty></empty>
+//
+// Weight: 1
+//
+// examplelink: /test
+//
+// Style guide: core.breakpoints
+
+
+// ----------
+// SH MQ
+//
+// * Modified sass-mq version for consistent and easy media query usage.
+// @link https://github.com/sass-mq/sass-mq
+// ----------
+@import 'sh-mq';
+
+
+// ----------
+// Media queries
+// ----------
+$mq-breakpoints: (
+	screen-xxxs: 360px,	// mobile portrait (most used query jan. 2019)
+	screen-xxs: 450px,	// mobile landscape (phablet aka. "iPhone 7 plus")
+	screen-xs: 567px,	// mobile landscape (phablet aka. "iPhone 7 plus")
+	screen-sm: 768px,	// up to tablet portrait
+	screen-sm-plus: 950px,	// bridge between tablet portrait and desktop
+	screen-md: 1024px,	// tablet landscape + small desktop
+	screen-lg: 1150px,	// wrapper min-width
+	screen-xl: 1280px,	// medium desktop
+	screen-xxl: 1440px,	// large desktop
+	screen-xxxl: 1680px	// extra large desktop
+);
+
+
+// ----------
+// Tiny schema of pixel resolutions for devices
+//
+// * iPhone SE 			up to screen-xs(567px)			1136-by-640-pixel resolution at 326 ppi =~ 	350px
+// * iPhone 7			up to screen-xs 				1334-by-750-pixel resolution at 326 ppi =~ 	409px
+// * iPhone 7 plus		up to screen-md					1920-by-1080-pixel resolution at 401 ppi =~ 480px
+// ----------

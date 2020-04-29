@@ -1,0 +1,8 @@
+@import './settings';
+
+@mixin bevel() {
+	box-shadow: inset -1px -1px $color-grey, 
+				inset 1px 1px $color-white, 
+				inset -3px -3px $color-grey, 
+				inset 3px 3px $color-lightgrey;
+}

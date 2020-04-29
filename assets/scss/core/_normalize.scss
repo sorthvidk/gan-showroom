@@ -1,0 +1,42 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+html,
+body {
+	font-size: 100%;
+}
+
+html {
+	font-size: 16px;
+	word-spacing: 1px;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	background: $color-white;
+	font-family: $primary-font;
+	color: $color-black;
+	font-size: rem(15);
+	line-height: 1.2;
+}
+ol, ul {
+	list-style: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}

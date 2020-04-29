@@ -1,0 +1,10 @@
+.collection {
+	display: flex;
+	flex-wrap: wrap;
+
+	> * {
+		flex: 0 1 rem(160);
+		box-sizing: border-box;
+		padding: rem(10);
+	}
+}
