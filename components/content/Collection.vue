@@ -17,7 +17,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { OPEN_CONTENT } from '~/store/constants'
+import { OPEN_CONTENT } from '~/model/constants'
 
 export default {
 	name:'collection',

@@ -28,7 +28,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/store/constants'
+import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
 
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'

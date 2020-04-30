@@ -5,7 +5,7 @@ import {
 	OPEN_CONTENT, 
 	ESC_KEYPRESS,
 	UPDATE_WINDOW, 
-} from '../store/constants'
+} from '~/model/constants'
 
 const WINDOW_CHROME_HEIGHT = 62;
 const WINDOW_CHROME_WIDTH = 2;
@@ -180,6 +180,7 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation] (state, windowId) {
+		console.log("TOPMOST_WINDOW",windowId)
 		let windowsLength = state.windowList.length;
 		let zIndexes = [];
 

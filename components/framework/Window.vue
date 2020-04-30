@@ -25,11 +25,11 @@
 					</button>
 				</div>
 				<div class="window__status">
-					<p>TIP: Try to touch your own nose!</p>
+					<!-- <p>TIP: Try to touch your own nose!</p> -->
+					<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
+					<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 				</div>
 				<div class="window__content">				
-					<!-- <p>X: {{ panelPositionX }} / Y: {{ panelPositionY }} / Z: {{ panelPositionZ }} | W: {{ w }} / H: {{ h }}</p>
-					<p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					<component :is="contentComponent" v-bind="{...contentProps}"/>
 				</div>
 			</vue-draggable-resizable>
@@ -45,7 +45,7 @@ import {
 	TOPMOST_WINDOW, 
 	CLOSE_WINDOW,
 	UPDATE_WINDOW
-} from '~/store/constants'
+} from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
@@ -124,8 +124,7 @@ export default {
 			return this.y > -1 ? this.y : this.positionY;
 		},
 		computedPositionZ() {
-			let newZ = this.z > 0 ? this.z : this.positionZ;
-			return newZ;
+			return this.positionZ;
 		},
 		computedSizeW() {
 			return this.w > 0 ? this.w : this.sizeW;
@@ -140,7 +139,6 @@ export default {
 			return this.x + 'px ' + this.y + 'px';
 		},
 		concatClassName() {
-			console.log("this.modifierClass",this.modifierClass)
 			if ( this.modifierClass != '') return 'window ' + this.modifierClass;
 			return 'window';
 		}
@@ -202,6 +200,7 @@ export default {
 			this[UPDATE_WINDOW.action]({windowId:this.windowId, x:this.x, y:this.y, z:this.z, w:this.w, h:this.h});
 		},
 		onMouseDown() {
+			console.log("kldsf")
 			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		beforeAnimateIn(el) {
