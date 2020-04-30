@@ -10,7 +10,7 @@
 				@resizing="onResize"
 				@resizestop="onResizeStop"
 				:handles="['br']"
-				:drag-handle="'.window__top'"
+				:drag-handle="'.title'"
 				:x="computedPositionX"
 				:y="computedPositionY"
 				:w="computedSizeW"
@@ -18,10 +18,10 @@
 				:style="{transformOrigin: transformOriginStyle}">
 				<div class="window__top">
 					<span class="title">{{title}}</span>
-					<button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
+					<!-- <button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
 						<span v-if="isMaximized">⇲</span>
 						<span v-if="!isMaximized">↖︎</span>
-					</button>
+					</button> -->
 					<button class="close" @click.stop="closeHandler">Ｘ</button>
 				</div>
 				<div class="window__status">
@@ -184,7 +184,7 @@ export default {
 			this.constrain();
 		},
 		onResize(x, y, w, h) {
-			// console.log(x, y, w, h);
+			console.log(x, y, w, h);
 			this.x = x
 			this.y = y
 			this.w = w

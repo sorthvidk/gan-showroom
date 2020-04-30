@@ -1,5 +1,9 @@
 <template>
+
 	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/200/150/nature)'}">
+
+		<status-bar	:text="'You still have more to experience! Dive deeper into the PS21 digital universe.'" />
+
 		<div class="desktop__shortcuts">
 			<shortcut 
 				v-for="(item, index) in shortcutList" 
@@ -24,6 +28,9 @@
 				:content-component="item.component"  
 				:content-props="item.componentProps"/>
 		</div>
+
+		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />
+
 	</div>
 </template>
 
@@ -31,14 +38,19 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
 
+import StatusBar from '~/components/framework/StatusBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
+
+import Marquee from '~/components/content/Marquee.vue'
 
 export default {
 	name:'desktop',
 	components: {
+		StatusBar,
 		Shortcut,
-		Window
+		Window,
+		Marquee
 	},
 	computed: {
 		...mapState({

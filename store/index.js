@@ -212,16 +212,13 @@ export const mutations = {
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 		
-		//console.log("zIndexes before",state.zIndexes)
-
 		let searchZ = currentWindow.positionZ;
-		//if closing window was lowest, set lowest current index to next lowest window
 		if ( searchZ == state.lowestZIndex ) {
-			//remove first element
+			//if closing window was lowest, set lowest current index to next lowest window
 			state.lowestZIndex = state.zIndexes.shift();
 		}
-		//if closing window was highest, set highest current index to next highest window
 		else if ( searchZ == state.highestZIndex ) {
+			//if closing window was highest, set highest current index to next highest window
 			state.highestZIndex = state.zIndexes.pop();
 		}
 		else {
@@ -229,23 +226,31 @@ export const mutations = {
 			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
 		}
 		
-		//console.log("zIndexes after",state.zIndexes)
-
-		//console.log("state.windowList[0].x before",state.windowList[0].x)
-		var newWindowList = [];
-		state.windowList.forEach(e => {if (e.windowId !== ids.windowId) newWindowList.push(e)});
-
-		//console.log("newWindowList",newWindowList)
-		state.windowList = newWindowList
-		if ( state.windowList[0] ) //console.log("state.windowList[0].x after",state.windowList[0].x)
-
-		//if manual close => no groups to close
+		//remove window
+		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 
 
+		//search for and remove dead ids in groups
+		let groupsLength = state.windowGroupList.length;		
+		if ( groupsLength > 0 ) {
+			for (var i = groupsLength-1; i >= 0; i--) {						
+				let windowGroup = state.windowGroupList[i];
+				if ( windowGroup.windowIds.indexOf(ids.windowId) > -1 ) {
+					//if id found in id list, remove it
+					windowGroup.windowIds.splice(windowGroup.windowIds.indexOf(ids.windowId), 1);
+				}
+				if ( windowGroup.windowIds.length == 0 ) {
+					//if no ids left, remove group
+					state.windowGroupList.splice(i,1);
+				}
+			}
+		}
 
-		//TODO: search for and remove dead ids
-		state.windowGroupList = [];
 
+		if ( state.windowGroupList.length == 0 ) {
+			state.highestZIndex = 0;
+			state.lowestZIndex = 0;
+		}
 
 		console.warn("CLOSE_WINDOW | removed id:"+ids.windowId+", remaining windows: "+state.windowList.length)
 	},
@@ -267,22 +272,22 @@ export const mutations = {
 			matchingContent.isActive = false;
 
 			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
-			
-			let searchZ = currentWindow.positionZ;
-			//if closing window was lowest, set lowest current index to next lowest window
-			if ( searchZ == state.lowestZIndex ) {
-				//remove first element
-				state.lowestZIndex = state.zIndexes.shift();
+			if ( currentWindow ) {
+				let searchZ = currentWindow.positionZ;
+				//if closing window was lowest, set lowest current index to next lowest window
+				if ( searchZ == state.lowestZIndex ) {
+					//remove first element
+					state.lowestZIndex = state.zIndexes.shift();
+				}
+				//if closing window was highest, set highest current index to next highest window
+				else if ( searchZ == state.highestZIndex ) {
+					state.highestZIndex = state.zIndexes.pop();
+				}
+				else {
+					//just remove index
+					state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
+				}
 			}
-			//if closing window was highest, set highest current index to next highest window
-			else if ( searchZ == state.highestZIndex ) {
-				state.highestZIndex = state.zIndexes.pop();
-			}
-			else {
-				//just remove index
-				state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
-			}
-
 			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 		}
 
@@ -300,6 +305,7 @@ export const mutations = {
 	 */
 	[OPEN_CONTENT.mutation] (state, contentIds) {
 		console.warn("OPEN_CONTENT",contentIds)
+		
 		let newWindowGroup = {
 			groupId: '' + Math.random().toString(36).substr(2, 9),
 			windowIds: [],
