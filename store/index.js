@@ -180,7 +180,7 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation] (state, windowId) {
-		console.log("TOPMOST_WINDOW",windowId)
+		//console.log("TOPMOST_WINDOW",windowId)
 		let windowsLength = state.windowList.length;
 		let newZIndexes = [];
 
@@ -188,14 +188,14 @@ export const mutations = {
 			let currentWindow = state.windowList[i];
 			newZIndexes.push(currentWindow.positionZ);
 		}
-		console.log("zIndexes before",state.zIndexes)
+		//console.log("zIndexes before",state.zIndexes)
 		newZIndexes.sort(function(a, b){return a - b});
 		state.zIndexes = newZIndexes;
-		console.log("zIndexes after",state.zIndexes)
+		//console.log("zIndexes after",state.zIndexes)
 		
 		
 		let matchingWindow = state.windowList.filter(e => e.windowId === windowId)[0]
-		console.log("current z", matchingWindow.positionZ )
+		//console.log("current z", matchingWindow.positionZ )
 		if ( matchingWindow ) {			
 			state.highestZIndex = matchingWindow.positionZ;
 			state.windowList.filter(e => e.windowId === windowId)[0].positionZ = state.zIndexes[windowsLength-1]+1;
@@ -212,7 +212,7 @@ export const mutations = {
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 		
-		console.log("zIndexes before",state.zIndexes)
+		//console.log("zIndexes before",state.zIndexes)
 
 		let searchZ = currentWindow.positionZ;
 		//if closing window was lowest, set lowest current index to next lowest window
@@ -229,17 +229,19 @@ export const mutations = {
 			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
 		}
 		
-		console.log("zIndexes after",state.zIndexes)
+		//console.log("zIndexes after",state.zIndexes)
 
-		console.log("state.windowList[0].x before",state.windowList[0].x)
+		//console.log("state.windowList[0].x before",state.windowList[0].x)
 		var newWindowList = [];
 		state.windowList.forEach(e => {if (e.windowId !== ids.windowId) newWindowList.push(e)});
 
-		console.log("newWindowList",newWindowList)
+		//console.log("newWindowList",newWindowList)
 		state.windowList = newWindowList
-		if ( state.windowList[0] ) console.log("state.windowList[0].x after",state.windowList[0].x)
+		if ( state.windowList[0] ) //console.log("state.windowList[0].x after",state.windowList[0].x)
 
 		//if manual close => no groups to close
+
+
 
 		//TODO: search for and remove dead ids
 		state.windowGroupList = [];
@@ -312,7 +314,7 @@ export const mutations = {
 			let contentId = contentIds[i];
 			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
 			if ( !matchingContent.isActive  ) {
-				console.log("matchingContent",matchingContent)
+				//console.log("matchingContent",matchingContent)
 				
 				let newWindow = {
 					windowId: '' + Math.random().toString(36).substr(2, 9),
@@ -342,7 +344,7 @@ export const mutations = {
 				state.zIndexes.push(newWindow.positionZ)
 				state.highestZIndex++;
 
-				console.log("newWindow.windowProps",newWindow.windowProps)
+				//console.log("newWindow.windowProps",newWindow.windowProps)
 			}
 		}
 

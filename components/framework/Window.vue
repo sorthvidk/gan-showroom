@@ -133,7 +133,7 @@ export default {
 			return this.h > 0 ? this.h : this.sizeH;
 		},
 		zIndexStyle() {
-			console.log("z index style", this.positionZ)
+			// console.log("z index style", this.positionZ)
 			return this.positionZ;
 		},
 		transformOriginStyle() {
@@ -184,7 +184,7 @@ export default {
 			this.constrain();
 		},
 		onResize(x, y, w, h) {
-			console.log(x, y, w, h);
+			// console.log(x, y, w, h);
 			this.x = x
 			this.y = y
 			this.w = w
