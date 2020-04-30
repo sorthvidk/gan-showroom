@@ -14,28 +14,13 @@ export default const AssetModel {
 		default: null,
 		required: true
 	},
-	imageUrlDefault: { //viewed when opening style
+	mediaId: { //ref to cloudinary image or video
 		type: String,
 		default: null,
 		required: false
 	},
-	imageUrlMaximized: { //viewed when maximized
-		type: String,
-		default: null,
-		required: false
-	},
-	// imageUrlCloseup: { //viewed when closeupping on maximized
-	// 	type: String,
-	// 	default: null,
-	// 	required: false
-	// },
-	videoUrlMp4: { //mp4 video
-		type: String,
-		default: null,
-		required: false
-	},
-	videoUrlWebm: { //webm video
-		type: String,
+	imageAspect: {
+		type: String, //landscape, portrait or square
 		default: null,
 		required: false
 	},

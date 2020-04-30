@@ -78,5 +78,5 @@ export default const CollectionItemModel {
 		type: Array,
 		default: null,
 		required: true
-	},
+	}
 };

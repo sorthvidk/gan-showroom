@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span @click="onMouseDown"> <!-- can't attach listener to vue-draggable -->				
+		<span @click="onMouseDown" :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
@@ -15,7 +15,7 @@
 				:y="computedPositionY"
 				:w="computedSizeW"
 				:h="computedSizeH"
-				:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}">
+				:style="{transformOrigin: transformOriginStyle}">
 				<div class="window__top">
 					<span class="title">{{title}}</span>
 					<button v-if="canClose" class="close" @click="closeHandler">Ｘ</button>
@@ -133,6 +133,7 @@ export default {
 			return this.h > 0 ? this.h : this.sizeH;
 		},
 		zIndexStyle() {
+			console.log("z index style", this.positionZ)
 			return this.positionZ;
 		},
 		transformOriginStyle() {
@@ -149,11 +150,11 @@ export default {
 
 			isMaximized: false,
 
-			x: -1,
-			y: -1,
-			z: 0,
-			w: 0,
-			h: 0,
+			x: this.computedPositionX,
+			y: this.computedPositionY,
+
+			w: this.computedSizeW,
+			h: this.computedSizeH,
 		}
 	},
 	methods: {
@@ -197,10 +198,13 @@ export default {
 			this.x = Math.min(Math.max(this.x,0), window.innerWidth - this.resetPositionDistance);
 			this.y = Math.min(Math.max(this.y,0), window.innerHeight - this.resetPositionDistance);
 
-			this[UPDATE_WINDOW.action]({windowId:this.windowId, x:this.x, y:this.y, z:this.z, w:this.w, h:this.h});
+			this[UPDATE_WINDOW.action]( {	
+				windowId:this.windowId, 
+				windowProps: {positionX:this.x, positionY:this.y, sizeW:this.w, sizeH:this.h}
+			});
+			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		onMouseDown() {
-			console.log("kldsf")
 			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		beforeAnimateIn(el) {
