@@ -16,6 +16,7 @@
 				v-for="(item, index) in windowList" 
 				:key="item.windowId" 
 				v-bind="{...item.windowProps}"
+				:position-z="item.positionZ"
 				:window-id="item.windowId" 
 				:content-id="item.contentId" 
 				:group-id="item.groupId" 

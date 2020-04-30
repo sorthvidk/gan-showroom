@@ -18,11 +18,11 @@
 				:style="{transformOrigin: transformOriginStyle}">
 				<div class="window__top">
 					<span class="title">{{title}}</span>
-					<button v-if="canClose" class="close" @click="closeHandler">Ｘ</button>
-					<button v-if="canMaximize" class="maximize" @click="maximizeHandler">
+					<button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
 						<span v-if="isMaximized">⇲</span>
 						<span v-if="!isMaximized">↖︎</span>
 					</button>
+					<button class="close" @click.stop="closeHandler">Ｘ</button>
 				</div>
 				<div class="window__status">
 					<!-- <p>TIP: Try to touch your own nose!</p> -->
@@ -147,6 +147,7 @@ export default {
 	data: function() {
 		return {
 			resetPositionDistance: 40,
+			maximizeOffset: 0,
 
 			isMaximized: false,
 
@@ -155,6 +156,10 @@ export default {
 
 			w: this.computedSizeW,
 			h: this.computedSizeH,
+
+			savedAttributes: {
+				x:0,y:0,w:0,h:0
+			}
 		}
 	},
 	methods: {
@@ -169,11 +174,12 @@ export default {
 		maximizeHandler() {			
 			if (this.isMaximized) {
 				this.isMaximized = false;
-				this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
+				this.onResize(this.savedAttributes.x, this.savedAttributes.y, this.savedAttributes.w, this.savedAttributes.h);
 			}
 			else {
 				this.isMaximized = true;
-				this.onResize(this.resetPositionDistance, this.resetPositionDistance, window.innerWidth - 2*this.resetPositionDistance, window.innerHeight - 2*this.resetPositionDistance);
+				this.savedAttributes = {x: this.positionX,y: this.positionY,w: this.sizeW,h: this.sizeH}
+				this.onResize(this.maximizeOffset, this.maximizeOffset, window.innerWidth - 2*this.maximizeOffset, window.innerHeight - 2*this.maximizeOffset);
 			}
 			this.constrain();
 		},
