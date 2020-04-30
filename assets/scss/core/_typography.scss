@@ -8,8 +8,9 @@ em {
 
 @mixin title() {
 	font-size: rem(50);
-	line-height: 1.68;
+	line-height: 1.2;
 	letter-spacing: -0.03em;
+	text-transform: uppercase;
 }
 
 @mixin headline() {

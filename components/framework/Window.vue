@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span @click="onMouseDown"> <!-- can't attach listener to vue-draggable -->				
+		<span @click="onMouseDown" :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
@@ -10,26 +10,26 @@
 				@resizing="onResize"
 				@resizestop="onResizeStop"
 				:handles="['br']"
-				:drag-handle="'.window__top'"
+				:drag-handle="'.title'"
 				:x="computedPositionX"
 				:y="computedPositionY"
 				:w="computedSizeW"
 				:h="computedSizeH"
-				:style="{zIndex: zIndexStyle, transformOrigin: transformOriginStyle}">
+				:style="{transformOrigin: transformOriginStyle}">
 				<div class="window__top">
 					<span class="title">{{title}}</span>
-					<button v-if="canClose" class="close" @click="closeHandler">Ｘ</button>
-					<button v-if="canMaximize" class="maximize" @click="maximizeHandler">
+					<!-- <button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
 						<span v-if="isMaximized">⇲</span>
 						<span v-if="!isMaximized">↖︎</span>
-					</button>
+					</button> -->
+					<button class="close" @click.stop="closeHandler">Ｘ</button>
 				</div>
 				<div class="window__status">
-					<p>TIP: Try to touch your own nose!</p>
+					<!-- <p>TIP: Try to touch your own nose!</p> -->
+					<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
+					<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 				</div>
 				<div class="window__content">				
-					<!-- <p>X: {{ panelPositionX }} / Y: {{ panelPositionY }} / Z: {{ panelPositionZ }} | W: {{ w }} / H: {{ h }}</p>
-					<p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					<component :is="contentComponent" v-bind="{...contentProps}"/>
 				</div>
 			</vue-draggable-resizable>
@@ -45,7 +45,7 @@ import {
 	TOPMOST_WINDOW, 
 	CLOSE_WINDOW,
 	UPDATE_WINDOW
-} from '~/store/constants'
+} from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
@@ -124,8 +124,7 @@ export default {
 			return this.y > -1 ? this.y : this.positionY;
 		},
 		computedPositionZ() {
-			let newZ = this.z > 0 ? this.z : this.positionZ;
-			return newZ;
+			return this.positionZ;
 		},
 		computedSizeW() {
 			return this.w > 0 ? this.w : this.sizeW;
@@ -134,13 +133,13 @@ export default {
 			return this.h > 0 ? this.h : this.sizeH;
 		},
 		zIndexStyle() {
+			// console.log("z index style", this.positionZ)
 			return this.positionZ;
 		},
 		transformOriginStyle() {
 			return this.x + 'px ' + this.y + 'px';
 		},
 		concatClassName() {
-			console.log("this.modifierClass",this.modifierClass)
 			if ( this.modifierClass != '') return 'window ' + this.modifierClass;
 			return 'window';
 		}
@@ -148,14 +147,19 @@ export default {
 	data: function() {
 		return {
 			resetPositionDistance: 40,
+			maximizeOffset: 0,
 
 			isMaximized: false,
 
-			x: -1,
-			y: -1,
-			z: 0,
-			w: 0,
-			h: 0,
+			x: this.computedPositionX,
+			y: this.computedPositionY,
+
+			w: this.computedSizeW,
+			h: this.computedSizeH,
+
+			savedAttributes: {
+				x:0,y:0,w:0,h:0
+			}
 		}
 	},
 	methods: {
@@ -170,11 +174,12 @@ export default {
 		maximizeHandler() {			
 			if (this.isMaximized) {
 				this.isMaximized = false;
-				this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
+				this.onResize(this.savedAttributes.x, this.savedAttributes.y, this.savedAttributes.w, this.savedAttributes.h);
 			}
 			else {
 				this.isMaximized = true;
-				this.onResize(this.resetPositionDistance, this.resetPositionDistance, window.innerWidth - 2*this.resetPositionDistance, window.innerHeight - 2*this.resetPositionDistance);
+				this.savedAttributes = {x: this.positionX,y: this.positionY,w: this.sizeW,h: this.sizeH}
+				this.onResize(this.maximizeOffset, this.maximizeOffset, window.innerWidth - 2*this.maximizeOffset, window.innerHeight - 2*this.maximizeOffset);
 			}
 			this.constrain();
 		},
@@ -199,7 +204,11 @@ export default {
 			this.x = Math.min(Math.max(this.x,0), window.innerWidth - this.resetPositionDistance);
 			this.y = Math.min(Math.max(this.y,0), window.innerHeight - this.resetPositionDistance);
 
-			this[UPDATE_WINDOW.action]({windowId:this.windowId, x:this.x, y:this.y, z:this.z, w:this.w, h:this.h});
+			this[UPDATE_WINDOW.action]( {	
+				windowId:this.windowId, 
+				windowProps: {positionX:this.x, positionY:this.y, sizeW:this.w, sizeH:this.h}
+			});
+			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		onMouseDown() {
 			this[TOPMOST_WINDOW.action](this.windowId);

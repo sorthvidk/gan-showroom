@@ -1,0 +1,17 @@
+.marquee {
+	box-sizing: border-box;
+
+	border-top: rem(1) solid $color-black;
+	border-bottom: rem(1) solid $color-black;
+	background-color: $color-white;
+	height: rem(60);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	p {
+		white-space: nowrap;
+		@include title();
+	}
+}

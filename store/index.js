@@ -5,7 +5,7 @@ import {
 	OPEN_CONTENT, 
 	ESC_KEYPRESS,
 	UPDATE_WINDOW, 
-} from '../store/constants'
+} from '~/model/constants'
 
 const WINDOW_CHROME_HEIGHT = 62;
 const WINDOW_CHROME_WIDTH = 2;
@@ -180,23 +180,25 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation] (state, windowId) {
+		//console.log("TOPMOST_WINDOW",windowId)
 		let windowsLength = state.windowList.length;
-		let zIndexes = [];
+		let newZIndexes = [];
 
 		for (var i = 0; i < windowsLength; i++) {
 			let currentWindow = state.windowList[i];
-			zIndexes.push(currentWindow.z);
+			newZIndexes.push(currentWindow.positionZ);
 		}
-		// con{sole.log("zIndexes before",state.zIndexes)
-		zIndexes.sort(function(a, b){return a - b});
-		// console.log("zIndexes after",state.zIndexes)
-		state.zIndexes = zIndexes;
+		//console.log("zIndexes before",state.zIndexes)
+		newZIndexes.sort(function(a, b){return a - b});
+		state.zIndexes = newZIndexes;
+		//console.log("zIndexes after",state.zIndexes)
 		
 		
 		let matchingWindow = state.windowList.filter(e => e.windowId === windowId)[0]
-		if ( matchingWindow ) {
-			matchingWindow.z = state.zIndexes[windowsLength-1]+1;
-			state.highestZIndex = matchingWindow.z;
+		//console.log("current z", matchingWindow.positionZ )
+		if ( matchingWindow ) {			
+			state.highestZIndex = matchingWindow.positionZ;
+			state.windowList.filter(e => e.windowId === windowId)[0].positionZ = state.zIndexes[windowsLength-1]+1;
 		}
 	},
 	/* 
@@ -210,16 +212,13 @@ export const mutations = {
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 		
-		console.log("zIndexes before",state.zIndexes)
-
-		let searchZ = currentWindow.z;
-		//if closing window was lowest, set lowest current index to next lowest window
+		let searchZ = currentWindow.positionZ;
 		if ( searchZ == state.lowestZIndex ) {
-			//remove first element
+			//if closing window was lowest, set lowest current index to next lowest window
 			state.lowestZIndex = state.zIndexes.shift();
 		}
-		//if closing window was highest, set highest current index to next highest window
 		else if ( searchZ == state.highestZIndex ) {
+			//if closing window was highest, set highest current index to next highest window
 			state.highestZIndex = state.zIndexes.pop();
 		}
 		else {
@@ -227,21 +226,31 @@ export const mutations = {
 			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
 		}
 		
-		console.log("zIndexes after",state.zIndexes)
+		//remove window
+		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 
-		console.log("state.windowList[0].x before",state.windowList[0].x)
-		var newWindowList = [];
-		state.windowList.forEach(e => {if (e.windowId !== ids.windowId) newWindowList.push(e)});
 
-		console.log("newWindowList",newWindowList)
-		state.windowList = newWindowList
-		if ( state.windowList[0] ) console.log("state.windowList[0].x after",state.windowList[0].x)
+		//search for and remove dead ids in groups
+		let groupsLength = state.windowGroupList.length;		
+		if ( groupsLength > 0 ) {
+			for (var i = groupsLength-1; i >= 0; i--) {						
+				let windowGroup = state.windowGroupList[i];
+				if ( windowGroup.windowIds.indexOf(ids.windowId) > -1 ) {
+					//if id found in id list, remove it
+					windowGroup.windowIds.splice(windowGroup.windowIds.indexOf(ids.windowId), 1);
+				}
+				if ( windowGroup.windowIds.length == 0 ) {
+					//if no ids left, remove group
+					state.windowGroupList.splice(i,1);
+				}
+			}
+		}
 
-		//if manual close => no groups to close
 
-		//TODO: search for and remove dead ids
-		state.windowGroupList = [];
-
+		if ( state.windowGroupList.length == 0 ) {
+			state.highestZIndex = 0;
+			state.lowestZIndex = 0;
+		}
 
 		console.warn("CLOSE_WINDOW | removed id:"+ids.windowId+", remaining windows: "+state.windowList.length)
 	},
@@ -263,22 +272,22 @@ export const mutations = {
 			matchingContent.isActive = false;
 
 			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
-			
-			let searchZ = currentWindow.z;
-			//if closing window was lowest, set lowest current index to next lowest window
-			if ( searchZ == state.lowestZIndex ) {
-				//remove first element
-				state.lowestZIndex = state.zIndexes.shift();
+			if ( currentWindow ) {
+				let searchZ = currentWindow.positionZ;
+				//if closing window was lowest, set lowest current index to next lowest window
+				if ( searchZ == state.lowestZIndex ) {
+					//remove first element
+					state.lowestZIndex = state.zIndexes.shift();
+				}
+				//if closing window was highest, set highest current index to next highest window
+				else if ( searchZ == state.highestZIndex ) {
+					state.highestZIndex = state.zIndexes.pop();
+				}
+				else {
+					//just remove index
+					state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
+				}
 			}
-			//if closing window was highest, set highest current index to next highest window
-			else if ( searchZ == state.highestZIndex ) {
-				state.highestZIndex = state.zIndexes.pop();
-			}
-			else {
-				//just remove index
-				state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1);
-			}
-
 			state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
 		}
 
@@ -296,6 +305,7 @@ export const mutations = {
 	 */
 	[OPEN_CONTENT.mutation] (state, contentIds) {
 		console.warn("OPEN_CONTENT",contentIds)
+		
 		let newWindowGroup = {
 			groupId: '' + Math.random().toString(36).substr(2, 9),
 			windowIds: [],
@@ -310,7 +320,7 @@ export const mutations = {
 			let contentId = contentIds[i];
 			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
 			if ( !matchingContent.isActive  ) {
-				console.log("matchingContent",matchingContent)
+				//console.log("matchingContent",matchingContent)
 				
 				let newWindow = {
 					windowId: '' + Math.random().toString(36).substr(2, 9),
@@ -324,7 +334,7 @@ export const mutations = {
 
 				newWindow.windowProps.positionX = 140 + windowsLength*30 + i*30; 
 				newWindow.windowProps.positionY = 20 + windowsLength*30 + i*30; 
-				newWindow.windowProps.positionZ = state.highestZIndex + 1;
+				newWindow.positionZ = state.highestZIndex + 1;
 				newWindow.windowProps.sizeW = matchingContent.windowProps.width ? matchingContent.windowProps.width+WINDOW_CHROME_WIDTH : 500; 
 				newWindow.windowProps.sizeH = matchingContent.windowProps.height ? matchingContent.windowProps.height+WINDOW_CHROME_HEIGHT : 400; 
 				
@@ -337,10 +347,10 @@ export const mutations = {
 				newWindowGroup.contentIds.push(newWindow.contentId);
 				newWindowGroup.groupSize++;
 
-				state.zIndexes.push(newWindow.z)
+				state.zIndexes.push(newWindow.positionZ)
 				state.highestZIndex++;
 
-				console.log("newWindow.windowProps",newWindow.windowProps)
+				//console.log("newWindow.windowProps",newWindow.windowProps)
 			}
 		}
 
@@ -352,8 +362,8 @@ export const mutations = {
 	 */
 	[UPDATE_WINDOW.mutation] (state, params) {
 		let currentWindow = state.windowList.filter(e => e.windowId === params.windowId)[0];
-		for(var key in params) {
-			currentWindow[key] = params[key];
+		for(var key in params.windowProps) {
+			currentWindow.windowProps[key] = params.windowProps[key];
 		}	
 	},
 
