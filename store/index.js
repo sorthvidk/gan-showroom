@@ -7,6 +7,9 @@ import {
 	UPDATE_WINDOW, 
 } from '~/model/constants'
 
+import getUniqueId from '~/utils/get-unique-id';
+import isMobile from '~/utils/is-mobile';
+
 const WINDOW_CHROME_HEIGHT = 62;
 const WINDOW_CHROME_WIDTH = 2;
 
@@ -306,6 +309,11 @@ export const mutations = {
 	[OPEN_CONTENT.mutation] (state, contentIds) {
 		console.warn("OPEN_CONTENT",contentIds)
 		
+		let defaultWindowProps = {x:10,y:10,w:window.innerWidth - 20,h:window.innerHeight - 20};
+		if ( !isMobile() ) {
+			defaultWindowProps = {x:140, y:20, w:500, h:300};
+		}
+
 		let newWindowGroup = {
 			groupId: '' + Math.random().toString(36).substr(2, 9),
 			windowIds: [],
@@ -315,7 +323,8 @@ export const mutations = {
 		
 		let windowsLength = state.windowList.length;
 
-		for (var i = 0; i < contentIds.length; i++) {
+		let newWindowCount = contentIds.length;
+		for (var i = 0; i < newWindowCount; i++) {
 
 			let contentId = contentIds[i];
 			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
@@ -332,11 +341,12 @@ export const mutations = {
 					windowProps: matchingContent.windowProps					
 				};
 
-				newWindow.windowProps.positionX = 140 + windowsLength*30 + i*30; 
-				newWindow.windowProps.positionY = 20 + windowsLength*30 + i*30; 
+				newWindow.windowProps.positionX = defaultWindowProps.x + windowsLength*10 + i*30; 
+				newWindow.windowProps.positionY = defaultWindowProps.y + windowsLength*10 + i*10; 
+				newWindow.windowProps.sizeW = matchingContent.windowProps.width ? matchingContent.windowProps.width+WINDOW_CHROME_WIDTH : defaultWindowProps.w; 
+				newWindow.windowProps.sizeH = matchingContent.windowProps.height ? matchingContent.windowProps.height+WINDOW_CHROME_HEIGHT : defaultWindowProps.h; 
+				
 				newWindow.positionZ = state.highestZIndex + 1;
-				newWindow.windowProps.sizeW = matchingContent.windowProps.width ? matchingContent.windowProps.width+WINDOW_CHROME_WIDTH : 500; 
-				newWindow.windowProps.sizeH = matchingContent.windowProps.height ? matchingContent.windowProps.height+WINDOW_CHROME_HEIGHT : 400; 
 				
 				matchingContent.isActive = true;
 				

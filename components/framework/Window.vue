@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span @click="onMouseDown" :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
+		<span @mousedown="onMouseDown" :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
@@ -16,22 +16,22 @@
 				:w="computedSizeW"
 				:h="computedSizeH"
 				:style="{transformOrigin: transformOriginStyle}">
-				<div class="window__top">
-					<span class="title">{{title}}</span>
-					<!-- <button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
-						<span v-if="isMaximized">⇲</span>
-						<span v-if="!isMaximized">↖︎</span>
-					</button> -->
-					<button class="close" @click.stop="closeHandler">Ｘ</button>
-				</div>
-				<div class="window__status">
-					<!-- <p>TIP: Try to touch your own nose!</p> -->
-					<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
-					<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
-				</div>
-				<div class="window__content">				
-					<component :is="contentComponent" v-bind="{...contentProps}"/>
-				</div>
+					<div class="window__top">
+						<span class="title" @click="titleClick">{{title}}</span>
+						<!-- <button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
+							<span v-if="isMaximized">⇲</span>
+							<span v-if="!isMaximized">↖︎</span>
+						</button> -->
+						<button class="close" @click.stop="closeHandler">Ｘ</button>
+					</div>
+					<div class="window__status">
+						<!-- <p>TIP: Try to touch your own nose!</p> -->
+						<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
+						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
+					</div>
+					<div class="window__content">				
+						<component :is="contentComponent" v-bind="{...contentProps}"/>
+					</div>
 			</vue-draggable-resizable>
 		</span>
 	</transition>
@@ -148,7 +148,8 @@ export default {
 		return {
 			resetPositionDistance: 40,
 			maximizeOffset: 0,
-
+			maximizeTimeoutHandle: -1,
+			maximizeClicked: false,
 			isMaximized: false,
 
 			x: this.computedPositionX,
@@ -171,7 +172,18 @@ export default {
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
-		maximizeHandler() {			
+		titleClick() {
+			if ( this.maximizeClicked ) {
+				clearTimeout(this.maximizeTimeoutHandle);
+				this.maximizeClicked = false;
+				this.maximizeHandler();
+			}
+			else {				
+				this.maximizeClicked = true;
+				this.maximizeTimeoutHandle = setTimeout( ()=>{ this.maximizeClicked = false; }, 200 );
+			}
+		},
+		maximizeHandler() {
 			if (this.isMaximized) {
 				this.isMaximized = false;
 				this.onResize(this.savedAttributes.x, this.savedAttributes.y, this.savedAttributes.w, this.savedAttributes.h);
@@ -184,7 +196,7 @@ export default {
 			this.constrain();
 		},
 		onResize(x, y, w, h) {
-			console.log(x, y, w, h);
+			// console.log(x, y, w, h);
 			this.x = x
 			this.y = y
 			this.w = w
