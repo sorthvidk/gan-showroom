@@ -1,7 +1,8 @@
 <template>
 	<div class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
-		<button @click="onClick">
-			📂
+		<button @click="onClick"> 
+			<span class="icon">{{icon}}</span>
+			<span class="text">{{label}}</span>
 		</button>
 	</div>
 </template>
@@ -28,14 +29,24 @@ export default {
 			default: 2,
 			required: true	
 		},
+		icon: {
+			type: String,
+			default: null,
+			required: true	
+		},
+		label: {
+			type: String,
+			default: null,
+			required: true	
+		},
 		shortcutId: {
 			type: String,
 			default: null,
 			required: true	
 		},
-		contentId: {
-			type: String,
-			default: null,
+		contentIds: {
+			type: Array,
+			default: [],
 			required: true	
 		}
 	},
@@ -52,7 +63,7 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action]([this.contentId]);
+			this[OPEN_CONTENT.action](this.contentIds);
 		}
 	}
 };

@@ -82,14 +82,12 @@
 	}
 	&__content {
 		overflow-x: hidden;
-		overflow-y: scroll;
-		padding: rem(20) rem(5);
+		overflow-y: scroll;		
 		max-height: calc(100% - rem(60));		
 	}
 	
 	&--tight {
 		#{$module}__content {
-			padding: 0;
 			overflow: visible;
 			max-height: none;
 			height: calc(100% - rem(60));

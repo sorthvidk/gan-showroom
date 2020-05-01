@@ -17,3 +17,5 @@ export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP');
 export const EXPAND_WINDOW_GROUP = createMutation('EXPAND_WINDOW_GROUP');
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
 export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
+
+export const GET_FILTERED_COLLECTION = createMutation('GET_FILTERED_COLLECTION');

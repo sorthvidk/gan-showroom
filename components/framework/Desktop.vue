@@ -8,8 +8,10 @@
 			<shortcut 
 				v-for="(item, index) in shortcutList" 
 				:key="item.shortcutId" 
+				:icon="item.icon" 
+				:label="item.label" 
 				:shortcut-id="item.shortcutId" 
-				:content-id="item.contentId" 
+				:content-ids="item.contentIds" 
 				:position-h="item.posH" 
 				:position-v="item.posV" 
 				:width-span="item.widthSpan"/>
@@ -55,7 +57,7 @@ export default {
 	computed: {
 		...mapState({
 			windowList: state => state.windowList,
-			shortcutList: state => state.shortcutList
+			shortcutList: state => state.shortcuts.list
 		})
 	},
 	methods: {

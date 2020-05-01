@@ -4,6 +4,11 @@ export default const CollectionItemModel {
 		default: null,
 		required: true
 	},
+	collectionFilters: {
+		type: Array,
+		default: [],
+		required: true	
+	},
 	name: { //"file name" human readable title
 		type: String,
 		default: null,
@@ -71,11 +76,6 @@ export default const CollectionItemModel {
 	},
 	description: { //long description
 		type: String,
-		default: null,
-		required: true
-	},
-	assetIds: { //list of asset references
-		type: Array,
 		default: null,
 		required: true
 	}

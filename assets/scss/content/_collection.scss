@@ -1,7 +1,7 @@
 .collection {
 	display: flex;
 	flex-wrap: wrap;
-
+	padding: rem(5);
 	> * {
 		flex: 0 1 rem(160);
 		box-sizing: border-box;

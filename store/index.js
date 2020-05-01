@@ -14,158 +14,6 @@ const WINDOW_CHROME_HEIGHT = 62;
 const WINDOW_CHROME_WIDTH = 2;
 
 export const state = () => ({
-	contentList: [
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection1',
-			component:'collection', 
-			componentProps: { collectionId:'234897234' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection2',
-			component:'collection', 
-			componentProps: { collectionId:'897345983' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection3',
-			component:'collection', 
-			componentProps: { collectionId:'291173006' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Image 1',
-			contentId:'image1',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 300,
-				height: 250,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/300/250/people',				
-			}
-		},
-		{
-			title:'Image 2',
-			contentId:'image2',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 3',
-			contentId:'image3',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 4',
-			contentId:'image4',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 5',
-			contentId:'image5',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 6',
-			contentId:'image6',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		}
-	],
-
-	shortcutList: [
-		{
-			shortcutId:'shortcut1',
-			posH:1,
-			posV:1,
-			widthSpan:2, 
-			contentId:'collection1' 
-		},
-		{
-			shortcutId:'shortcut2',
-			posH:1, 
-			posV:3, 
-			widthSpan:2,
-			contentId:'collection2'
-			
-		},
-		{
-			shortcutId:'shortcut3',
-			posH:23, 
-			posV:1, 
-			widthSpan:2,
-			contentId:'collection3'
-		}
-	],
-
-
 	windowList: [],
 	windowGroupList: [],
 
@@ -210,7 +58,7 @@ export const mutations = {
 	 */
 	[CLOSE_WINDOW.mutation] (state, ids) {
 
-		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
+		let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
 		matchingContent.isActive = false;
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
@@ -271,7 +119,7 @@ export const mutations = {
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {windowId: windowGroup.windowIds[i],contentId: windowGroup.contentIds[i]};
 
-			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
+			let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
 			matchingContent.isActive = false;
 
 			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
@@ -327,7 +175,7 @@ export const mutations = {
 		for (var i = 0; i < newWindowCount; i++) {
 
 			let contentId = contentIds[i];
-			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
+			let matchingContent = state.content.list.filter(e => e.contentId === contentId)[0]
 			if ( !matchingContent.isActive  ) {
 				//console.log("matchingContent",matchingContent)
 				

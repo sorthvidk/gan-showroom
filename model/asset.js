@@ -1,5 +1,15 @@
 export default const AssetModel {
-	assetId: { //unique identifier
+	assetId: { //unique identifier, ref to cloudinary image or video
+		type: String,
+		default: null,
+		required: true
+	},
+	styleId: { //ref to associated style
+		type: String,
+		default: null,
+		required: false
+	},
+	type: { //either image, video or text
 		type: String,
 		default: null,
 		required: true
@@ -9,23 +19,18 @@ export default const AssetModel {
 		default: null,
 		required: true
 	},
-	type: { //either image, video or text
-		type: String,
-		default: null,
-		required: true
-	},
-	mediaId: { //ref to cloudinary image or video
-		type: String,
-		default: null,
-		required: false
-	},
 	imageAspect: {
 		type: String, //landscape, portrait or square
 		default: null,
 		required: false
 	},
-	textContent: { //for private letter
-		type: String,
+	onTop: {
+		type: Boolean, //focused image for collection, topmost window
+		default: null,
+		required: false
+	},
+	visible: {
+		type: Boolean, //false for optional variant images
 		default: null,
 		required: false
 	}
