@@ -6,6 +6,7 @@ import {
 	OPEN_CONTENT, 
 	ESC_KEYPRESS,
 	UPDATE_WINDOW, 
+	OPEN_GALLERY, 
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -87,21 +88,25 @@ export const mutations = {
 			
 			let contentType = contentItem.type,
 				contentName = contentItem.title,
-				contentId = getUniqueId();
+				contentId = contentItem.contentId;
 
+			let allowInstantiation = true;
 
-			let possibleIdentical = state.windowList.filter(e => e.contentName === contentName);
-			let equalComponentProps = _.isEqual(possibleIdentical.componentProps, contentItem.componentProps);
-			let equalActionParam = _.isEqual(possibleIdentical.actionParam, contentItem.actionParam);
+			let alreadyExists = state.content.list.filter(e => e.contentId === contentId).length > 0;
 
-			let exactContentAlreadyOpen = 
-				possibleIdentical.length > 0 && equalComponentProps && equalActionParam;
-
-			if ( !exactContentAlreadyOpen ) {
-
-				if (contentType.allowedInstances === 1) {
+			if ( alreadyExists ) {
+				if ( contentItem.canOverride ) {
 					state.windowList = state.windowList.filter(e => e.contentType !== contentType);
 				}
+				else {
+					allowInstantiation = false;
+				}
+			}
+
+
+			if ( allowInstantiation ) {
+
+				state.content.list.push(contentItem);
 
 				let newWindow = {
 					windowId: '' + getUniqueId(),
@@ -136,7 +141,9 @@ export const mutations = {
 			}
 		}
 
-		state.windowGroupList.push(newWindowGroup);
+		//only add the group if it has content
+		if ( newWindowGroup.groupSize > 0 ) state.windowGroupList.push(newWindowGroup);
+
 	},
 	/* 
 	 *	Save window position and size values
@@ -188,8 +195,8 @@ export const mutations = {
 	 */
 	[CLOSE_WINDOW.mutation] (state, ids) {
 
-		// let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
-		// matchingContent.isActive = false;
+		state.content.list = state.content.list.filter(e => e.contentId !== ids.contentId)
+		
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 		
@@ -252,8 +259,7 @@ export const mutations = {
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {windowId: windowGroup.windowIds[i],contentId: windowGroup.contentIds[i]};
 
-			// let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
-			// matchingContent.isActive = false;
+			state.content.list = state.content.list.filter(e => e.contentId !== ids.contentId)
 
 			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 			if ( currentWindow ) {
@@ -285,8 +291,15 @@ export const mutations = {
 		
 		let wll = state.windowList.length;
 		state.topMostWindow = state.windowList[wll-1];
-	}
+	},
 
+	/* 
+	 *	Show gallery with all assets
+	 *
+	 */
+	[OPEN_GALLERY.mutation] (state, asset) {
+		console.warn("OPEN_GALLERY | focused asset: "+asset.name)
+	}
 }
 
 export const actions = {
@@ -310,6 +323,9 @@ export const actions = {
 	},
 	[UPDATE_WINDOW.action] ({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
+	},
+	[OPEN_GALLERY.action] ({ commit }, asset) {
+		commit(OPEN_GALLERY.mutation, asset)
 	},
 
 	// async nuxtServerInit ({ commit }) {

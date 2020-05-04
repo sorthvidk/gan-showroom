@@ -25,7 +25,7 @@
 						</button> -->
 						<button class="close" @click.stop="closeHandler">Ｘ</button>
 					</div>
-					<div class="window__status">
+					<div v-if="!noStatus" class="window__status">
 						<!-- <p>TIP: Try to touch your own nose!</p> -->
 						<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
 						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
@@ -52,13 +52,15 @@ import VueDraggableResizable from 'vue-draggable-resizable'
 
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
+import TextReader from '~/components/content/TextReader.vue'
 
 export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
 		Collection,
-		SingleImage
+		SingleImage,
+		TextReader
 	},
 	props: {
 		modifierClass: {
@@ -88,6 +90,10 @@ export default {
 		canMaximize: {
 			type: Boolean,
 			default: false
+		},
+		noStatus: {
+			type: Boolean,
+			default: false		
 		},
 		isLocked: {
 			type: Boolean,

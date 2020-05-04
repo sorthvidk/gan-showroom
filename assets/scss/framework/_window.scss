@@ -17,9 +17,13 @@
 			background-color: lighten($color-lightgrey,5%);
 		}
 	}
+	&:hover {
+		.handle {
+			display: block !important;
+		}
+	}
 
 	&.is-dragging {
-
 		.title {
 			cursor: grabbing;
 		}
@@ -119,6 +123,9 @@
 			max-height: none;
 			height: calc(100% - rem(60));
 		}
+		.handle {
+			display: none;
+		}
 	}
 
 
@@ -135,7 +142,7 @@
 		height: rem(30);
 		background: #EEE;
 		border: rem(1) solid $color-black;
-		display: block !important;
+		display: block;
 
 		&:after,
 		&:before {
