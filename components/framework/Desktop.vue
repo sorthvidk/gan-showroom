@@ -11,13 +11,13 @@
 			<shortcut 
 				v-for="(item, index) in shortcutList" 
 				:key="item.shortcutId" 
+				:position-h="item.posH" 
+				:position-v="item.posV" 
+				:width-span="item.widthSpan"
 				:icon="item.icon" 
 				:label="item.label" 
 				:shortcut-id="item.shortcutId" 
-				:content-ids="item.contentIds" 
-				:position-h="item.posH" 
-				:position-v="item.posV" 
-				:width-span="item.widthSpan"/>
+				:content="item.content"/>
 		</div>
 
 		<div class="desktop__windows">
@@ -28,10 +28,14 @@
 				:position-z="item.positionZ"
 				:window-id="item.windowId" 
 				:content-id="item.contentId" 
+				:content-type="item.contentType" 
+				:content-name="item.contentName" 
 				:group-id="item.groupId" 
 				:title="item.title" 
 				:content-component="item.component"  
-				:content-props="item.componentProps"/>
+				:content-component-props="item.componentProps"/>
+
+			<assistant/>
 		</div>
 
 		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />
@@ -46,6 +50,7 @@ import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
 import StatusBar from '~/components/framework/StatusBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
+import Assistant from '~/components/framework/Assistant.vue'
 
 import Marquee from '~/components/content/Marquee.vue'
 
@@ -55,7 +60,8 @@ export default {
 		StatusBar,
 		Shortcut,
 		Window,
-		Marquee
+		Marquee,
+		Assistant
 	},
 	computed: {
 		...mapState({

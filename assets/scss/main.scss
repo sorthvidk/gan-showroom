@@ -7,9 +7,12 @@
 @import 'framework/desktop';
 @import 'framework/shortcut';
 @import 'framework/window';
+
+@import 'framework/assistant';
 @import 'framework/status-bar';
+@import 'framework/marquee';
+
 
 @import 'content/collection';
-@import 'content/image-viewer';
-@import 'content/marquee';
+@import 'content/single-image';
 

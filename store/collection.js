@@ -11,19 +11,25 @@ export const state = () => ({
 	currentStyles: [],
 	
 	filtersParsed: false,
+	
+	activeFilter: {
+		filterId: null,
+		name: '',
+		styleIds: []
+	},
 
-	filters: {
-		c1: {
+	filters: [
+		{
 			filterId:'c1',
 			name:'Tops',
 			styleIds: []
 		},
-		c2: {
+		{
 			filterId:'c2',
 			name:'Bottoms',
 			styleIds: []
 		}
-	},
+	],
 
 	assetsConnected: false,
 
@@ -106,22 +112,55 @@ export const mutations = {
 			let fl = style.filters.length;
 
 			for (var j = 0; j < fl; j++) {
-				let filter = style.filters[j];
-				state.filters[filter].styleIds.push(style.styleId);
+				let styleFilter = style.filters[j];
+				let stateFilter = state.filters.filter(e => e.filterId === styleFilter)[0]
+				stateFilter.styleIds.push(style.styleId);
 			}
 		}
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list;
-
+		state.activeFilter = {
+			filterId: null,
+			name: '',
+			styleIds: []
+		};
 		state.filtersParsed = true;
+	},
+	[SET_CURRENT_FILTER.mutation] (state, filterId) {
+		if ( !filterId || filterId == '' ) {
+			state.currentStyles = state.list;
+			state.activeFilter = {
+				filterId: null,
+				name: '',
+				styleIds: []
+			};
+		}
+		else {
+			// set current collection to filtered by params
+			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
+
+			let styleIds = state.activeFilter.styleIds;
+			let sil = styleIds.length;
+			let newCurrentStyles = []; 
+
+			for (var i = 0; i < sil; i++) {
+				let styleId = styleIds[i];
+				newCurrentStyles.push( state.list.filter(e => e.styleId === styleId)[0] );
+			}
+			state.currentStyles = newCurrentStyles;
+		}
 	},
 	[PROGRESS_UPDATE.mutation] (state, styleId) {
 		state.list.filter(e => e.styleId === styleId)[0].completed = true;
-	},
-	[SET_CURRENT_FILTER.mutation] (state, filterId) {
-		// set current collection to filtered by params
-		state.filtered = state.list.filter(e => e.styleId === styleId)
+
+		let cc = 0;
+		let cl = state.list.length;
+		for (var i = 0; i < cl; i++) {
+			let style = state.list[i];
+			if ( style.completed ) cc++;
+		}
+		state.completedPct = Math.round((cc/cl)*100);
 	},
 };
 

@@ -42,7 +42,7 @@ export default {
 			default: null,
 			required: true	
 		},
-		contentIds: {
+		content: {
 			type: Array,
 			default: [],
 			required: true	
@@ -61,7 +61,12 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action](this.contentIds);
+			this[OPEN_CONTENT.action](this.content);
+
+			if ( this.content.action ) {
+				if ( this.content.actionParams ) this.$store.dispatch(this.content.action,this.content.actionParams)
+				else this.$store.dispatch(this.content.action);
+			}
 		}
 	}
 };

@@ -1,4 +1,4 @@
-export default const CollectionFilterModel {
+export default {
 	styleIds: { //reference to collection items
 		type: Array,
 		default: null,

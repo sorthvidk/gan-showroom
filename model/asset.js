@@ -1,4 +1,4 @@
-export default const AssetModel {
+export default {
 	assetId: { //unique identifier, ref to cloudinary image or video
 		type: String,
 		default: null,

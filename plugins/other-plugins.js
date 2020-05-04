@@ -1,2 +1,1 @@
-import camelCase from 'lodash/camelCase';
-import capitalize from 'lodash/capitalize';
+import _ from 'lodash';

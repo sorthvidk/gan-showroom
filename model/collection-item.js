@@ -1,82 +1,70 @@
-export default const CollectionItemModel {
+export default {
 	styleId: { //unique identifier
 		type: String,
-		default: null,
-		required: true
-	},
-	collectionFilters: {
-		type: Array,
-		default: [],
-		required: true	
+		default: null
 	},
 	name: { //"file name" human readable title
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	program: { //series lvl 1
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	programName: { //series lvl 2
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	material: { //textile
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	drop: { //ready for order time
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	colorNames: { // human readable
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	colorId: { // human readable number
 		type: String,
-		default: null,
-		required: true
+		default: null
 	},
 	wholesalePriceDKK: { //price in DKK
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	wholesalePriceEUR: { //price in EUR
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	wholesalePriceUSD: { //price in USD
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	suggestedRetailPriceDKK: { //price in DKK
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	suggestedRetailPriceEUR: { //price in EUR
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	suggestedRetailPriceUSD: { //price in USD
-		type: String,
-		default: null,
-		required: true
+		type: Number,
+		default: 0
 	},
 	description: { //long description
 		type: String,
-		default: null,
-		required: true
+		default: null
+	},
+	filters: {
+		type: Array,
+		default: null
+	},
+	assets: {
+		type: Array,
+		default: null
 	}
 };

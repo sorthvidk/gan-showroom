@@ -8,7 +8,6 @@
 <script>
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { PROGRESS_UPDATE } from '~/model/constants'
 
 export default {
 	name:'status-bar',

@@ -17,12 +17,12 @@ export default {
 	methods: {
 		...mapActions([
 			CONNECT_ASSETS.action,
-			FILTER_COLLECTION.action
+			'collection/'+FILTER_COLLECTION.action
 		])
 	},
 	mounted() {
 		this[CONNECT_ASSETS.action]();
-		this[FILTER_COLLECTION.action]();
+		this['collection/'+FILTER_COLLECTION.action]();
 	}
 };
 </script>

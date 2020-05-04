@@ -30,7 +30,7 @@
 						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					</div>
 					<div class="window__content">				
-						<component :is="contentComponent" v-bind="{...contentProps}"/>
+						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
 					</div>
 			</vue-draggable-resizable>
 		</span>
@@ -50,14 +50,14 @@ import {
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 import Collection from '~/components/content/Collection.vue'
-import ImageViewer from '~/components/content/ImageViewer.vue'
+import SingleImage from '~/components/content/SingleImage.vue'
 
 export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
 		Collection,
-		ImageViewer
+		SingleImage
 	},
 	props: {
 		modifierClass: {
@@ -68,9 +68,17 @@ export default {
 			type: String,
 			default: null
 		},
-		contentProps: {
+		contentComponentProps: {
 			type: Object,
 			default: null
+		},
+		contentType: {
+			type: Object,
+			required: true
+		},
+		contentName: {
+			type: String,
+			required: true
 		},
 		canClose: {
 			type: Boolean,
