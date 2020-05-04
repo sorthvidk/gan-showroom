@@ -8,7 +8,7 @@ export const state = () => ({
 			imageAspect: 'landscape',
 			onTop: false,
 			visible: true,
-			dummyImage:'/img/styles/F4478-687-landscape.png'
+			defaultImageUrl:'/img/styles/F4478-687-landscape.png'
 		},
 		{
 			assetId: 'v230230423826',
@@ -18,7 +18,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			dummyImage:'/img/styles/F4478-687-4.jpg'
+			defaultImageUrl:'/img/styles/F4478-687-4.jpg'
 		},
 		{
 			assetId: 'v29893453397',
@@ -28,29 +28,27 @@ export const state = () => ({
 			imageAspect: 'square',
 			onTop: false,
 			visible: false,
-			dummyImage:'/img/styles/F4478-687-square.png'
+			defaultImageUrl:'/img/styles/F4478-687-square.png'
 		},
-
 		{
-			assetId: 'v230230423826',
+			assetId: 'v86837673245',
 			styleId: 'F5987334',
 			type: 'image',
 			name: 'dress1.jpg',
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			dummyImage:'/img/styles/F4488-180-1.jpg'
+			defaultImageUrl:'/img/styles/F4488-180-1.jpg'
 		},
-
 		{
-			assetId: 'v230230423826',
+			assetId: 'v18877098345',
 			styleId: 'F1121095',
 			type: 'image',
 			name: 'pants1.jpg',
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			dummyImage:'/img/styles/F4600-994-1.jpg'
+			defaultImageUrl:'/img/styles/F4600-994-1.jpg'
 		}
 	]
 });

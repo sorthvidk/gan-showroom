@@ -58,4 +58,24 @@ export default {
 			modifierClass:'window--tight'
 		}
 	},
+	musicPlayer: {
+		name: 'music-player',
+		component:'music-player',
+		allowedInstances: 1,
+		windowProps: {
+			width: 320,
+			height: 180,
+			modifierClass:'window--tight'
+		}
+	},
+	textFile: {
+		name: 'text-reader',
+		component:'text-reader',
+		allowedInstances: 1,
+		windowProps: {
+			width: 700,
+			height: 400,
+			modifierClass:'window--tight'
+		}
+	},
 };

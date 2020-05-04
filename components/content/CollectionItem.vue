@@ -22,12 +22,10 @@ export default {
 	props: CollectionItemModel,
 	computed: {
 		imageUrl() {
-			// return getCloudinaryUrl(this.assets[0]);
-			return this.assets[0].dummyImage;
+			return getCloudinaryUrl(this.assets[0]);
 		},
 		imageName() {
-			// return getCloudinaryUrl(this.assets[0]);
-			return this.assets[0].name;
+			return this.assets[0].name		
 		},
 		assetContent() {
 			let content = [];
@@ -40,7 +38,9 @@ export default {
 				if ( asset.visible ) {
 					content.push({
 						title: asset.name,
+						contentId: asset.assetId,
 						type: getAssetType(asset),
+						canOverride: false,
 						componentProps: {
 							asset: asset
 						}

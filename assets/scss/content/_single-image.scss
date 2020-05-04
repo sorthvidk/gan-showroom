@@ -7,6 +7,10 @@
 	img {
 		object-fit: contain;
     	height: 100%;
-    	cursor: zoom-in;
+	}
+	&.is-interactive {
+		img {
+    		cursor: zoom-in;
+		}
 	}
 }
