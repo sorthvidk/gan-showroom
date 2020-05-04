@@ -46,7 +46,17 @@ export default {
 			type: Array,
 			default: [],
 			required: true	
-		}
+		},
+		action: {
+			type: String,
+			default: null,
+			required: false	
+		},
+		actionParam: {
+			type: String,
+			default: null,
+			required: false	
+		},
 	},
 	computed: {
 		styleGridRow() {
@@ -62,11 +72,13 @@ export default {
 		]),
 		onClick() {
 			this[OPEN_CONTENT.action](this.content);
-			console.log("this.content", this.content)
-			if ( this.content.action ) {
-				if ( this.content.actionParams ) this.$store.dispatch(this.content.action,this.content.actionParams)
-				else this.$store.dispatch(this.content.action);
-			}
+
+			setTimeout(()=>{
+				if ( this.action ) {
+					if ( this.actionParam ) this.$store.dispatch(this.action,this.actionParam)
+					else this.$store.dispatch(this.action);
+				}				
+			}, 200);
 		}
 	}
 };

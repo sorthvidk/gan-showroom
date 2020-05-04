@@ -57,7 +57,7 @@ export const state = () => ({
 		},
 		{
 			styleId: 'F5987334',
-			filters: ['c1', 'c2'],
+			filters: ['c1'],
 			name: 'Dress',
 			program: '1972',
 			programName: 'Stripe Cotton',

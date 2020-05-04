@@ -16,7 +16,9 @@
 				:width-span="item.widthSpan"
 				:icon="item.icon" 
 				:label="item.label" 
-				:shortcut-id="item.shortcutId" 
+				:shortcut-id="item.shortcutId"
+				:action="item.action"
+				:action-param="item.actionParam"
 				:content="item.content"/>
 		</div>
 

@@ -11,12 +11,12 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			widthSpan: 2, 
+			action: 'collection/'+SET_CURRENT_FILTER.action,
+			actionParam: '',
 			content: [
 				{
 					title:'PS21 collection 🔥',
 					type: ContentTypes.collection,
-					action: 'collection/'+SET_CURRENT_FILTER,
-					actionParam: '',
 					componentProps: {}
 				}
 			]
@@ -28,12 +28,12 @@ export const state = () => ({
 			posH: 1,
 			posV: 3,
 			widthSpan: 2, 
+			action: 'collection/'+SET_CURRENT_FILTER.action,
+			actionParam: 'c2',
 			content: [
 				{
 					title:'PS21 collection 🔥',
 					type: ContentTypes.collection,
-					action: 'collection/'+SET_CURRENT_FILTER,
-					actionParam: 'c2',
 					componentProps: {}
 				}
 			]
@@ -45,6 +45,8 @@ export const state = () => ({
 			posH: 3, 
 			posV: 1, 
 			widthSpan: 2,
+			action: null,
+			actionParam: null,
 			content: []
 		}
 	]
