@@ -5,6 +5,7 @@
 				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
 				class-name-active="is-active"
+				class-name-dragging="is-dragging"
 				@dragging="onDrag"
 				@dragstop="onDragStop"
 				@resizing="onResize"

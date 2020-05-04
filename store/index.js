@@ -20,6 +20,7 @@ const WINDOW_CHROME_WIDTH = 2;
 export const state = () => ({
 	windowList: [],
 	windowGroupList: [],
+	topMostWindow: null,
 
 	zIndexes: [],
 	lowestZIndex: 0,
@@ -130,6 +131,8 @@ export const mutations = {
 
 				state.zIndexes.push(newWindow.positionZ)
 				state.highestZIndex++;
+
+				state.topMostWindow = newWindow;
 			}
 		}
 
@@ -166,10 +169,14 @@ export const mutations = {
 		
 		let matchingWindow = state.windowList.filter(e => e.windowId === windowId)[0]
 		//console.log("current z", matchingWindow.positionZ )
+
 		if ( matchingWindow ) {			
 			state.highestZIndex = matchingWindow.positionZ;
-			state.windowList.filter(e => e.windowId === windowId)[0].positionZ = state.zIndexes[windowsLength-1]+1;
+			matchingWindow.positionZ = state.zIndexes[windowsLength-1]+1;
+			
+			state.topMostWindow = matchingWindow;
 		}
+
 	},
 
 
@@ -226,6 +233,9 @@ export const mutations = {
 			state.lowestZIndex = 0;
 		}
 
+		let wll = state.windowList.length;
+		state.topMostWindow = state.windowList[wll-1];
+
 		console.warn("CLOSE_WINDOW | removed id:"+ids.windowId+", remaining windows: "+state.windowList.length)
 	},
 	/* 
@@ -272,6 +282,9 @@ export const mutations = {
 			state.highestZIndex = 0;
 			state.lowestZIndex = 0;
 		}
+		
+		let wll = state.windowList.length;
+		state.topMostWindow = state.windowList[wll-1];
 	}
 
 }

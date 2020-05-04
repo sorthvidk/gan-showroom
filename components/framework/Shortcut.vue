@@ -62,7 +62,7 @@ export default {
 		]),
 		onClick() {
 			this[OPEN_CONTENT.action](this.content);
-
+			console.log("this.content", this.content)
 			if ( this.content.action ) {
 				if ( this.content.actionParams ) this.$store.dispatch(this.content.action,this.content.actionParams)
 				else this.$store.dispatch(this.content.action);

@@ -26,7 +26,7 @@ export const state = () => ({
 		},
 		{
 			filterId:'c2',
-			name:'Bottoms',
+			name:'Animal print',
 			styleIds: []
 		}
 	],
