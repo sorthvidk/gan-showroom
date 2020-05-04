@@ -1,4 +1,5 @@
 import { 
+	CONNECT_ASSETS, 
 	TOPMOST_WINDOW, 
 	CLOSE_WINDOW, 
 	CLOSE_WINDOW_GROUP, 
@@ -23,9 +24,36 @@ export const state = () => ({
 })
 
 export const mutations = {
-	setBlogPosts (state, list) {
-		state.blogPosts = list
+	
+	[CONNECT_ASSETS.mutation] (state) {
+		console.warn("CONNECT_ASSETS")
+
+		if ( state.collection.assetsConnected ) return false;
+
+		let al = state.assets.list.length;
+
+		for (var i = 0; i < al; i++) {
+			let asset = state.assets.list[i];
+
+			let style = state.collection.list.filter(e => e.styleId === asset.styleId)[0];
+			style.assets.push(asset);
+		}
+
+		//sort style assets to have onTop asset first in assets array
+		let cl = state.collection.list.length;
+		for (var j = 0; j < cl; j++) {
+
+			let style = state.collection.list[j];
+			let sortedAssets = style.assets.sort(
+				(a, b) => a.onTop && !b.onTop ? -1 : 1
+			);
+			style.assets = sortedAssets;
+		}
+
+		//to ensure only one connection operation
+		state.collection.assetsConnected = true;
 	},
+	
 	/* 
 	 *	Bring window to top.
 	 *
@@ -37,8 +65,8 @@ export const mutations = {
 
 		for (var i = 0; i < windowsLength; i++) {
 			let currentWindow = state.windowList[i];
-			newZIndexes.push(currentWindow.positionZ);
 		}
+			newZIndexes.push(currentWindow.positionZ);
 		//console.log("zIndexes before",state.zIndexes)
 		newZIndexes.sort(function(a, b){return a - b});
 		state.zIndexes = newZIndexes;
@@ -228,6 +256,12 @@ export const mutations = {
 }
 
 export const actions = {
+	//first action, injects assets into collection
+	[CONNECT_ASSETS.action] ({ commit }) {
+		commit(CONNECT_ASSETS.mutation)
+	},	
+
+
 	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},	

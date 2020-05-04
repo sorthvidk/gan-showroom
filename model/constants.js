@@ -7,7 +7,10 @@ const createMutation = (type) => ({
 });
 
 
+
 //ALL interactions
+export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS');
+export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION');
 
 //bring window to top, activate window
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW');
@@ -18,4 +21,5 @@ export const EXPAND_WINDOW_GROUP = createMutation('EXPAND_WINDOW_GROUP');
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
 export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
 
-export const GET_FILTERED_COLLECTION = createMutation('GET_FILTERED_COLLECTION');
+export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER');
+export const PROGRESS_UPDATE = createMutation('PROGRESS_UPDATE');

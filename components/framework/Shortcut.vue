@@ -1,10 +1,8 @@
 <template>
-	<div class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
-		<button @click="onClick"> 
-			<span class="icon">{{icon}}</span>
-			<span class="text">{{label}}</span>
-		</button>
-	</div>
+	<button @click="onClick" class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
+		<span class="icon">{{icon}}</span>
+		<span class="text">{{label}}</span>
+	</button>
 </template>
 
 <script>

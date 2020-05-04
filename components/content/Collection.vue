@@ -1,46 +1,38 @@
 <template>
 	<div class="collection">
-		<button @click.stop="onItemClick">
-			<img src="//placeimg.com/200/400/people" alt="">
-			<p>pleaded_skirt_1.jpg</p>
-		</button>
-		<button @click.stop="onItemClick2">
-			<img src="//placeimg.com/200/400/people" alt="">
-			<p>pleaded_skirt_1.jpg</p>
-		</button>
-		<button @click.stop="onItemClick3">
-			<img src="//placeimg.com/200/400/people" alt="">
-			<p>pleaded_skirt_1.jpg</p>
+		<button v-for="(item, key) in collectionItems" @click.stop="onItemClick">
+			<img :src="item.assets[0].dummyImage" alt="lorem">
+			<p>{{topmostAsset.name}}</p>
 		</button>
 	</div>
 </template>
 
+
 <script>
+
+// return `https://res.cloudinary.com/sorthvid/image/upload/t_${capitalize(topMostAsset.imageAspect)}/${topMostAsset.assetId}/sample.jpg`;
+
+
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_CONTENT } from '~/model/constants'
+import capitalize from 'lodash/capitalize';
 
 export default {
 	name:'collection',
-	props: {
-		collectionId: {
-			type: String,
-			default: '',
-			required: true
-		}
+	computed: {
+		...mapState({
+			collectionItems: state => state.collection.currentStyles
+		})
 	},
-	methods: {
+	methods: {		
 		...mapActions([
 			OPEN_CONTENT.action
 		]),
 		onItemClick() {
-			this[OPEN_CONTENT.action](['image1','image2']);			
-		},
-		onItemClick2() {
-			this[OPEN_CONTENT.action](['image3']);			
-		},
-		onItemClick3() {
-			this[OPEN_CONTENT.action](['image4','image5','image6']);			
+
+			this[OPEN_CONTENT.action](['image1','image2']);
 		}
 	}
 };
+
 </script>

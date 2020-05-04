@@ -2,7 +2,10 @@
 
 	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/200/150/nature)'}">
 
-		<status-bar	:text="'You still have more to experience! Dive deeper into the PS21 digital universe.'" />
+		<status-bar	
+			:text-start="'Start diving into the PS21 digital universe.'" 
+			:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'" 
+			:text-end="'You\'re completely filled in on the PS21 digital universe!'"/>
 
 		<div class="desktop__shortcuts">
 			<shortcut 

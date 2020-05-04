@@ -2,8 +2,9 @@ export const state = () => ({
 	list: [
 		{
 			title:'Lorem ipsum dolor',
-			contentId:'collection',
 			component:'collection', 
+			contentId:'collection',
+			allowedInstances: 1,
 			componentProps: { 
 				filterIds:[] 
 			},
@@ -16,12 +17,13 @@ export const state = () => ({
 		},
 		{
 			title:'Image 1',
-			contentId:'image1',
 			component:'image-viewer',
+			contentId:'image-portrait',
+			allowedInstances: -1,
 			isActive:false,
 			windowProps: {
-				width: 300,
-				height: 250,
+				width: 274,
+				height: 416,
 				modifierClass:'window--tight',
 				canMaximize: true,
 				canClose: false
@@ -32,8 +34,9 @@ export const state = () => ({
 		},
 		{
 			title:'Image 2',
-			contentId:'image2',
 			component:'image-viewer',
+			contentId:'image2',
+			allowedInstances: -1,
 			isActive:false,
 			windowProps: {
 				width: 200,
