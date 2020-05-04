@@ -1,1 +1,1 @@
-import camelCase from 'lodash/camelCase';
+import _ from 'lodash';

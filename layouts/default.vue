@@ -6,11 +6,23 @@
 
 
 <script>
-import Collection from '~/components/content/Collection.vue'
+import { vuex, mapActions, mapState } from 'vuex'
+import { 
+	CONNECT_ASSETS,
+	FILTER_COLLECTION
+} from '~/model/constants'
 
 export default {
-	components: {
-		Collection
+	name: 'default',
+	methods: {
+		...mapActions([
+			CONNECT_ASSETS.action,
+			'collection/'+FILTER_COLLECTION.action
+		])
+	},
+	mounted() {
+		this[CONNECT_ASSETS.action]();
+		this['collection/'+FILTER_COLLECTION.action]();
 	}
 };
 </script>

@@ -1,4 +1,5 @@
 import { 
+	CONNECT_ASSETS, 
 	TOPMOST_WINDOW, 
 	CLOSE_WINDOW, 
 	CLOSE_WINDOW_GROUP, 
@@ -7,164 +8,19 @@ import {
 	UPDATE_WINDOW, 
 } from '~/model/constants'
 
+import ContentTypes from '~/model/content-types'
+import _ from 'lodash';
+
+import getUniqueId from '~/utils/get-unique-id';
+import isMobile from '~/utils/is-mobile';
+
 const WINDOW_CHROME_HEIGHT = 62;
 const WINDOW_CHROME_WIDTH = 2;
 
 export const state = () => ({
-	contentList: [
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection1',
-			component:'collection', 
-			componentProps: { collectionId:'234897234' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection2',
-			component:'collection', 
-			componentProps: { collectionId:'897345983' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Lorem ipsum dolor',
-			contentId:'collection3',
-			component:'collection', 
-			componentProps: { collectionId:'291173006' },
-			windowProps: {},
-			isActive:false,
-			modifierClass:''
-		},
-		{
-			title:'Image 1',
-			contentId:'image1',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 300,
-				height: 250,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/300/250/people',				
-			}
-		},
-		{
-			title:'Image 2',
-			contentId:'image2',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 3',
-			contentId:'image3',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 4',
-			contentId:'image4',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 5',
-			contentId:'image5',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		},
-		{
-			title:'Image 6',
-			contentId:'image6',
-			component:'image-viewer',
-			isActive:false,
-			windowProps: {
-				width: 200,
-				height: 400,
-				modifierClass:'window--tight',
-				canMaximize: true,
-				canClose: false
-			}, 
-			componentProps: { 
-				imageUrlDefault:'//placeimg.com/200/400/people',				
-			}
-		}
-	],
-
-	shortcutList: [
-		{
-			shortcutId:'shortcut1',
-			posH:1,
-			posV:1,
-			widthSpan:2, 
-			contentId:'collection1' 
-		},
-		{
-			shortcutId:'shortcut2',
-			posH:1, 
-			posV:3, 
-			widthSpan:2,
-			contentId:'collection2'
-			
-		},
-		{
-			shortcutId:'shortcut3',
-			posH:23, 
-			posV:1, 
-			widthSpan:2,
-			contentId:'collection3'
-		}
-	],
-
-
 	windowList: [],
 	windowGroupList: [],
+	topMostWindow: null,
 
 	zIndexes: [],
 	lowestZIndex: 0,
@@ -172,9 +28,126 @@ export const state = () => ({
 })
 
 export const mutations = {
-	setBlogPosts (state, list) {
-		state.blogPosts = list
+	
+	[CONNECT_ASSETS.mutation] (state) {
+		console.warn("CONNECT_ASSETS")
+
+		if ( state.collection.assetsConnected ) return false;
+
+		let al = state.assets.list.length;
+
+		for (var i = 0; i < al; i++) {
+			let asset = state.assets.list[i];
+
+			let style = state.collection.list.filter(e => e.styleId === asset.styleId)[0];
+			style.assets.push(asset);
+		}
+
+		//sort style assets to have onTop asset first in assets array
+		let cl = state.collection.list.length;
+		for (var j = 0; j < cl; j++) {
+
+			let style = state.collection.list[j];
+			let sortedAssets = style.assets.sort(
+				(a, b) => a.onTop && !b.onTop ? -1 : 1
+			);
+			style.assets = sortedAssets;
+		}
+
+		//to ensure only one connection operation
+		state.collection.assetsConnected = true;
 	},
+
+
+
+	/* 
+	 *	Activate content block, opens window with matching component
+	 *
+	 */
+	[OPEN_CONTENT.mutation] (state, content) {
+		console.warn("OPEN_CONTENT",content)
+		
+		let defaultWindowProps = {x:10,y:10,w:window.innerWidth - 20,h:window.innerHeight - 20};
+		if ( !isMobile() ) {
+			defaultWindowProps = {x:140, y:20, w:500, h:300};
+		}
+
+		let newWindowGroup = {
+			groupId: '' + getUniqueId(),
+			windowIds: [],
+			contentIds: [],
+			groupSize: 0
+		};
+		
+		let windowsLength = state.windowList.length;
+
+		let cl = content.length;
+		for (var i = 0; i < cl; i++) {
+			let contentItem = content[i];
+			
+			let contentType = contentItem.type,
+				contentName = contentItem.title,
+				contentId = getUniqueId();
+
+
+			let possibleIdentical = state.windowList.filter(e => e.contentName === contentName);
+			let equalComponentProps = _.isEqual(possibleIdentical.componentProps, contentItem.componentProps);
+			let equalActionParam = _.isEqual(possibleIdentical.actionParam, contentItem.actionParam);
+
+			let exactContentAlreadyOpen = 
+				possibleIdentical.length > 0 && equalComponentProps && equalActionParam;
+
+			if ( !exactContentAlreadyOpen ) {
+
+				if (contentType.allowedInstances === 1) {
+					state.windowList = state.windowList.filter(e => e.contentType !== contentType);
+				}
+
+				let newWindow = {
+					windowId: '' + getUniqueId(),
+					contentId: contentId,
+					contentType: contentType,
+					contentName: contentName,
+					groupId: newWindowGroup.groupId,
+					title: contentItem.title,
+					component: contentType.component,					
+					componentProps: contentItem.componentProps,
+					windowProps: contentType.windowProps
+				};
+
+				newWindow.windowProps.positionX = defaultWindowProps.x + windowsLength*10 + i*30; 
+				newWindow.windowProps.positionY = defaultWindowProps.y + windowsLength*10 + i*10; 
+				newWindow.windowProps.sizeW = contentType.windowProps.width ? contentType.windowProps.width+WINDOW_CHROME_WIDTH : defaultWindowProps.w; 
+				newWindow.windowProps.sizeH = contentType.windowProps.height ? contentType.windowProps.height+WINDOW_CHROME_HEIGHT : defaultWindowProps.h; 
+				
+				newWindow.positionZ = state.highestZIndex + 1;
+				
+				state.windowList.push(newWindow);
+				windowsLength++;
+
+				newWindowGroup.windowIds.push(newWindow.windowId);
+				newWindowGroup.contentIds.push(newWindow.contentId);
+				newWindowGroup.groupSize++;
+
+				state.zIndexes.push(newWindow.positionZ)
+				state.highestZIndex++;
+
+				state.topMostWindow = newWindow;
+			}
+		}
+
+		state.windowGroupList.push(newWindowGroup);
+	},
+	/* 
+	 *	Save window position and size values
+	 *
+	 */
+	[UPDATE_WINDOW.mutation] (state, params) {
+		let currentWindow = state.windowList.filter(e => e.windowId === params.windowId)[0];
+		for(var key in params.windowProps) {
+			currentWindow.windowProps[key] = params.windowProps[key];
+		}	
+	},	
 	/* 
 	 *	Bring window to top.
 	 *
@@ -196,19 +169,27 @@ export const mutations = {
 		
 		let matchingWindow = state.windowList.filter(e => e.windowId === windowId)[0]
 		//console.log("current z", matchingWindow.positionZ )
+
 		if ( matchingWindow ) {			
 			state.highestZIndex = matchingWindow.positionZ;
-			state.windowList.filter(e => e.windowId === windowId)[0].positionZ = state.zIndexes[windowsLength-1]+1;
+			matchingWindow.positionZ = state.zIndexes[windowsLength-1]+1;
+			
+			state.topMostWindow = matchingWindow;
 		}
+
 	},
+
+
+
+
 	/* 
 	 *	Single window close. Wipes window group history, so user has to close all windows individually after
 	 *
 	 */
 	[CLOSE_WINDOW.mutation] (state, ids) {
 
-		let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
-		matchingContent.isActive = false;
+		// let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
+		// matchingContent.isActive = false;
 
 		let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 		
@@ -252,6 +233,9 @@ export const mutations = {
 			state.lowestZIndex = 0;
 		}
 
+		let wll = state.windowList.length;
+		state.topMostWindow = state.windowList[wll-1];
+
 		console.warn("CLOSE_WINDOW | removed id:"+ids.windowId+", remaining windows: "+state.windowList.length)
 	},
 	/* 
@@ -268,8 +252,8 @@ export const mutations = {
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {windowId: windowGroup.windowIds[i],contentId: windowGroup.contentIds[i]};
 
-			let matchingContent = state.contentList.filter(e => e.contentId === ids.contentId)[0]
-			matchingContent.isActive = false;
+			// let matchingContent = state.content.list.filter(e => e.contentId === ids.contentId)[0]
+			// matchingContent.isActive = false;
 
 			let currentWindow = state.windowList.filter(e => e.windowId === ids.windowId)[0]
 			if ( currentWindow ) {
@@ -298,86 +282,28 @@ export const mutations = {
 			state.highestZIndex = 0;
 			state.lowestZIndex = 0;
 		}
-	},
-	/* 
-	 *	Activate content block, opens window with matching component
-	 *
-	 */
-	[OPEN_CONTENT.mutation] (state, contentIds) {
-		console.warn("OPEN_CONTENT",contentIds)
 		
-		let newWindowGroup = {
-			groupId: '' + Math.random().toString(36).substr(2, 9),
-			windowIds: [],
-			contentIds: [],
-			groupSize: 0
-		};
-		
-		let windowsLength = state.windowList.length;
-
-		for (var i = 0; i < contentIds.length; i++) {
-
-			let contentId = contentIds[i];
-			let matchingContent = state.contentList.filter(e => e.contentId === contentId)[0]
-			if ( !matchingContent.isActive  ) {
-				//console.log("matchingContent",matchingContent)
-				
-				let newWindow = {
-					windowId: '' + Math.random().toString(36).substr(2, 9),
-					contentId: contentId,
-					groupId: newWindowGroup.groupId,
-					title: matchingContent.title + " _ window "+windowsLength,
-					component: matchingContent.component, 
-					componentProps: matchingContent.componentProps,
-					windowProps: matchingContent.windowProps					
-				};
-
-				newWindow.windowProps.positionX = 140 + windowsLength*30 + i*30; 
-				newWindow.windowProps.positionY = 20 + windowsLength*30 + i*30; 
-				newWindow.positionZ = state.highestZIndex + 1;
-				newWindow.windowProps.sizeW = matchingContent.windowProps.width ? matchingContent.windowProps.width+WINDOW_CHROME_WIDTH : 500; 
-				newWindow.windowProps.sizeH = matchingContent.windowProps.height ? matchingContent.windowProps.height+WINDOW_CHROME_HEIGHT : 400; 
-				
-				matchingContent.isActive = true;
-				
-				state.windowList.push(newWindow);
-				windowsLength++;
-
-				newWindowGroup.windowIds.push(newWindow.windowId);
-				newWindowGroup.contentIds.push(newWindow.contentId);
-				newWindowGroup.groupSize++;
-
-				state.zIndexes.push(newWindow.positionZ)
-				state.highestZIndex++;
-
-				//console.log("newWindow.windowProps",newWindow.windowProps)
-			}
-		}
-
-		state.windowGroupList.push(newWindowGroup);
-	},
-	/* 
-	 *	Save window position and size values
-	 *
-	 */
-	[UPDATE_WINDOW.mutation] (state, params) {
-		let currentWindow = state.windowList.filter(e => e.windowId === params.windowId)[0];
-		for(var key in params.windowProps) {
-			currentWindow.windowProps[key] = params.windowProps[key];
-		}	
-	},
+		let wll = state.windowList.length;
+		state.topMostWindow = state.windowList[wll-1];
+	}
 
 }
 
 export const actions = {
+	//first action, injects assets into collection
+	[CONNECT_ASSETS.action] ({ commit }) {
+		commit(CONNECT_ASSETS.mutation)
+	},	
+
+
 	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},	
 	[CLOSE_WINDOW.action] ({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
-	[OPEN_CONTENT.action] ({ commit }, contentIds) {
-		commit(OPEN_CONTENT.mutation, contentIds)
+	[OPEN_CONTENT.action] ({ commit }, content) {
+		commit(OPEN_CONTENT.mutation, content)
 	},
 	[ESC_KEYPRESS.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
@@ -386,17 +312,17 @@ export const actions = {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	async nuxtServerInit ({ commit }) {
-		let files = await require.context(
-			'~/assets/content/blog/',
-			false,
-			/\.json$/
-		)
-		let blogPosts = files.keys().map(key => {
-			let res = files(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		await commit('setBlogPosts', blogPosts)
-	}
+	// async nuxtServerInit ({ commit }) {
+	// 	let files = await require.context(
+	// 		'~/assets/content/blog/',
+	// 		false,
+	// 		/\.json$/
+	// 	)
+	// 	let blogPosts = files.keys().map(key => {
+	// 		let res = files(key)
+	// 		res.slug = key.slice(2, -5)
+	// 		return res
+	// 	})
+	// 	await commit('setBlogPosts', blogPosts)
+	// }
 }

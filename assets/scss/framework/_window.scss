@@ -3,7 +3,7 @@
 
 	background-color: $color-white;
 	border: rem(1) solid $color-black;
-	box-shadow: rem(5) rem(5) rem(10) rgba(0,0,0,0.5);
+	box-shadow: rem(4) rem(4) 0 0 rgba(0,0,0,0.2);
 
 	position: absolute;
 	top: 0;
@@ -18,21 +18,26 @@
 		}
 	}
 
-	&:hover .handle {
-		display: block !important;
+	&.is-dragging {
+
+		.title {
+			cursor: grabbing;
+		}
 	}
 
+
 	&__top {
-		height: rem(30);
 		background-color: $color-lightgrey;
 		display: flex;
 		justify-content: space-between;
 		
+
 		.title {
 			flex: 1 1 100%;
 			height: rem(30);
 			padding: rem(5);
 			overflow: hidden;
+			border-bottom: rem(1) solid $color-black;
 			
 			display: block;
 			white-space: nowrap;
@@ -40,6 +45,9 @@
 			text-align: center;
 			@include bevel();
 			@include headline();
+			
+			cursor: grab;
+
 		}
 		button {
 			flex: 0 0 rem(30);
@@ -53,6 +61,7 @@
 			border: 0;
 			@include bevel();
 			border-left: rem(1) solid $color-black;
+			border-bottom: rem(1) solid $color-black;
 		}
 
 	}
@@ -61,7 +70,6 @@
 		box-sizing: border-box;
 		position: relative;
 		background-color: #fff;
-		border-top: rem(1) solid $color-black;
 		border-bottom: rem(1) solid $color-black;
 
 		p {
@@ -82,14 +90,31 @@
 	}
 	&__content {
 		overflow-x: hidden;
-		overflow-y: scroll;
-		padding: rem(20) rem(5);
-		max-height: calc(100% - rem(60));		
+		overflow-y: scroll;		
+		height: calc(100% - rem(60));
+
+		scrollbar-width: auto;
+		scrollbar-color: $color-white $color-white;
+
+		&::-webkit-scrollbar {
+			width: rem(29);
+		}
+		&::-webkit-scrollbar-track {
+			background: $color-white;
+			border-left: rem(1) solid $color-black;
+		}
+		&::-webkit-scrollbar-thumb {
+			// background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 40%, rgba(0,0,0,1) 42%, rgba(255,255,255,1) 44%, rgba(255,255,255,1) 56%, rgba(0,0,0,1) 58%, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
+			background-color: $color-white;
+			padding: rem(10);
+			border-radius: 0;
+			border: rem(1) solid $color-black;
+			box-shadow: 0 rem(3) 0 0 rgba(0,0,0,0.2);
+		}	
 	}
 	
 	&--tight {
 		#{$module}__content {
-			padding: 0;
 			overflow: visible;
 			max-height: none;
 			height: calc(100% - rem(60));
@@ -106,15 +131,35 @@
 	.handle {
 		box-sizing: border-box;
 		position: absolute;
-		width: rem(20);
-		height: rem(20);
+		width: rem(30);
+		height: rem(30);
 		background: #EEE;
 		border: rem(1) solid $color-black;
+		display: block !important;
+
+		&:after,
+		&:before {
+			content:'';
+			display: inline-block;
+			position: absolute;
+			height: rem(1);
+			left: rem(10);
+			bottom: rem(8);
+			background-color: $color-black;
+		}
+		&:after {
+			width: rem(16);
+			transform: rotate(-45deg);
+		}
+		&:before {
+			width: rem(9);
+			transform: rotate(-45deg) translate(3px, 6px);
+		}
 	}
 	.handle-br {
-		bottom: 0;
-		right: 0;
-		cursor: se-resize;		
+		bottom: rem(-1);
+		right: rem(-1);
+		cursor: nwse-resize;	
 	}	
 
 }

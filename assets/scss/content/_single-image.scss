@@ -1,4 +1,4 @@
-.image-viewer {
+.single-image {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -7,5 +7,6 @@
 	img {
 		object-fit: contain;
     	height: 100%;
+    	cursor: zoom-in;
 	}
 }

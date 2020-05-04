@@ -1,9 +1,8 @@
 <template>
-	<div class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
-		<button @click="onClick">
-			📂
-		</button>
-	</div>
+	<button @click="onClick" class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
+		<span class="icon">{{icon}}</span>
+		<span class="text">{{label}}</span>
+	</button>
 </template>
 
 <script>
@@ -28,16 +27,36 @@ export default {
 			default: 2,
 			required: true	
 		},
+		icon: {
+			type: String,
+			default: null,
+			required: true	
+		},
+		label: {
+			type: String,
+			default: null,
+			required: true	
+		},
 		shortcutId: {
 			type: String,
 			default: null,
 			required: true	
 		},
-		contentId: {
+		content: {
+			type: Array,
+			default: [],
+			required: true	
+		},
+		action: {
 			type: String,
 			default: null,
-			required: true	
-		}
+			required: false	
+		},
+		actionParam: {
+			type: String,
+			default: null,
+			required: false	
+		},
 	},
 	computed: {
 		styleGridRow() {
@@ -52,7 +71,14 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action]([this.contentId]);
+			this[OPEN_CONTENT.action](this.content);
+
+			setTimeout(()=>{
+				if ( this.action ) {
+					if ( this.actionParam ) this.$store.dispatch(this.action,this.actionParam)
+					else this.$store.dispatch(this.action);
+				}				
+			}, 200);
 		}
 	}
 };

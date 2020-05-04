@@ -1,4 +1,4 @@
-export default const CollectionModel {
+export default {
 	collectionItems: {
 		type: Array,
 		default: null,

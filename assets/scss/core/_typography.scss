@@ -25,3 +25,13 @@ em {
 	font-weight: 500;
 	line-height: 1.27;
 }
+
+h1, h2 {
+	@include title();
+}
+h3, h4 {
+	@include headline();
+}
+p {
+	@include bodytext();
+}

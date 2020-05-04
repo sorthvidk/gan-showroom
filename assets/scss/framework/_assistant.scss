@@ -1,0 +1,45 @@
+.assistant {
+	position: fixed;
+	top: rem(80);
+	right: rem(30);
+	width: 80vw;
+	max-width: rem(300);
+
+	.window {
+		position: static;
+		.title {			
+			cursor: default;
+		}
+
+		&__content {
+			padding: rem(20);
+		}
+	}
+
+
+	.filters {
+		display: flex;
+
+		.filter-button {
+			flex: 0 0 50%;
+			cursor: pointer;
+
+			background-color: $color-white;
+			border: rem(1) solid $color-black;
+			padding: rem(5);
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+
+			&:hover {
+				background-color: $color-lightgrey;
+			}
+
+			&.is-active {
+				color: $color-white;
+				background-color: $color-black;
+				border: rem(1) solid $color-white;
+			}
+		}
+	}
+}
