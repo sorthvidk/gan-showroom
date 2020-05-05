@@ -334,6 +334,9 @@ export const actions = {
 	[OPEN_CONTENT.action] ({ commit }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 	},
+	[CLOSE_WINDOW_GROUP.action] ({ commit }) {
+		commit(CLOSE_WINDOW_GROUP.mutation)
+	},
 	[ESC_KEYPRESS.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
 	},

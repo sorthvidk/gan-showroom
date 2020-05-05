@@ -5,6 +5,8 @@ import {
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	ALL_ASSETS_VISIBLE,
+	SHOW_NEXT_STYLE,
+	SHOW_PREVIOUS_STYLE,
 } from '~/model/constants'
 
 export const state = () => ({
@@ -133,6 +135,12 @@ export const mutations = {
 			state.wishList = state.wishList.filter(e => e.styleId !== styleItem.styleId);
 		}
 	},
+	[SHOW_PREVIOUS_STYLE.mutation] (state, styleId) {
+		
+	},
+	[SHOW_NEXT_STYLE.mutation] (state, styleId) {
+		
+	},
 	[FILTER_COLLECTION.mutation] (state) {
 		
 		// run through data, make reference lists for each filter
@@ -219,6 +227,12 @@ export const actions = {
 	[PROGRESS_UPDATE.action] ({ commit }, styleId) {
 		// ex 'F1121095'
 		commit(PROGRESS_UPDATE.mutation, styleId)
+	},
+	[SHOW_PREVIOUS_STYLE.action] ({ commit }, styleId) {
+		commit(SHOW_PREVIOUS_STYLE.mutation, styleId)		
+	},
+	[SHOW_NEXT_STYLE.action] ({ commit }, styleId) {
+		commit(SHOW_NEXT_STYLE.mutation, styleId)				
 	},	
 
 };
