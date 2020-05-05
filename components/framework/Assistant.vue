@@ -10,9 +10,9 @@
 			<p>
 				{{currentStyle.name}}
 			</p>
-			<button class="button previous">❮</button>
-			<button class="button next">❯</button>
-			<button class="button close">𝗫</button>
+			<button class="button previous" @click="previousStyleHandler">❮</button>
+			<button class="button next" @click="nextStyleHandler">❯</button>
+			<button class="button close" @click="closeStyleHandler">𝗫</button>
 		</div>
 
 		<div class="window__content">
@@ -140,6 +140,9 @@ import {
 	REMOVE_FROM_WISHLIST, 
 	OPEN_CONTENT,
 	ALL_ASSETS_VISIBLE,
+	CLOSE_WINDOW_GROUP,
+	SHOW_NEXT_STYLE,
+	SHOW_PREVIOUS_STYLE,
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -223,13 +226,25 @@ export default {
 	methods: {
 		...mapActions([
 			OPEN_CONTENT.action,
+			CLOSE_WINDOW_GROUP.action,
 			'collection/'+ALL_ASSETS_VISIBLE.action,
 			'collection/'+SET_CURRENT_FILTER.action,
 			'collection/'+ADD_TO_WISHLIST.action,
-			'collection/'+REMOVE_FROM_WISHLIST.action
+			'collection/'+REMOVE_FROM_WISHLIST.action,
+			'collection/'+SHOW_PREVIOUS_STYLE.action,
+			'collection/'+SHOW_NEXT_STYLE.action,
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
+		},
+		previousStyleHandler() {
+			this['collection/'+SHOW_PREVIOUS_STYLE.action]( this.currentStyle.styleId );
+		},
+		nextStyleHandler() {
+			this['collection/'+SHOW_NEXT_STYLE.action]( this.currentStyle.styleId );
+		},
+		closeStyleHandler() {
+			this[CLOSE_WINDOW_GROUP.action]( );
 		},
 		showAllVariantsClickHandler() {
 			this['collection/'+ALL_ASSETS_VISIBLE.action](this.currentStyle);
