@@ -1,50 +1,71 @@
 .assistant {
-	position: fixed;
-	left: rem(10);
-	right: rem(10);
-	bottom: rem(30);
-
-	@include mq($from: screen-sm) {
-		top: rem(80);
-		right: rem(30);
-		left: auto;
-		max-width: rem(300);
-	}
-
-	.window {
-		position: static;
-		.title {			
-			cursor: default;
+	
+	&__filters {
+		p {
+			padding: rem(9) rem(10);
 		}
 
-		&__content {
-			padding: rem(20);
+		&__list {
+			display: flex;			
+			border-top: rem(1) solid $color-black;
+
+			.filter-button {
+				flex: 0 0 50%;
+				cursor: pointer;
+
+				background-color: $color-white;
+				border-bottom: rem(1) solid $color-black;
+				border-right: rem(1) solid $color-black;
+				padding: rem(10);
+				display: inline-flex;				
+				align-items: center;
+				@include bodytext();
+				transition: all 0.2s ease;
+
+				&:hover {
+					background-color: $color-lightgrey;
+				}
+
+				&.is-active {
+					color: $color-white;
+					background-color: darken($color-grey,12%);
+					@include bevel(true);
+				}
+
+				&:nth-child(2n) {
+					border-right: 0;
+				}
+				&:nth-last-child(-n+2) {
+					border-bottom: 0;
+				}
+			}
 		}
+
 	}
 
+	&__welcome {
+		padding: rem(9) rem(10);
+	}
 
-	.filters {
-		display: flex;
+	&__product-details {
+		padding: rem(9) rem(10);
+	}
 
-		.filter-button {
-			flex: 0 0 50%;
+	&__ctas {
+
+		.button {
 			cursor: pointer;
-
+			display: block;
+			width: 100%;
 			background-color: $color-white;
-			border: rem(1) solid $color-black;
-			padding: rem(5);
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
+			padding: rem(10);
+			@include bodytext();
+			text-decoration: underline;
+			border-top: rem(1) solid $color-black;
+			text-align: left;
 
 			&:hover {
 				background-color: $color-lightgrey;
-			}
-
-			&.is-active {
-				color: $color-white;
-				background-color: $color-black;
-				border: rem(1) solid $color-white;
 			}
 		}
 	}

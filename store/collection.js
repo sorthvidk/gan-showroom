@@ -17,6 +17,8 @@ export const state = () => ({
 		name: '',
 		styleIds: []
 	},
+	
+	wishList: [],
 
 	filters: [
 		{

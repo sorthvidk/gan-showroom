@@ -23,7 +23,7 @@
 							<span v-if="isMaximized">⇲</span>
 							<span v-if="!isMaximized">↖︎</span>
 						</button> -->
-						<button class="close" @click.stop="closeHandler">Ｘ</button>
+						<button class="button close" @click.stop="closeHandler">Ｘ</button>
 					</div>
 					<div v-if="!noStatus" class="window__status">
 
