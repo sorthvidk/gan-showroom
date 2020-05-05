@@ -2,7 +2,7 @@
 
 	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/200/150/nature)'}">
 
-		<status-bar	
+		<progress-bar	
 			:text-start="'Start diving into the PS21 digital universe.'" 
 			:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'" 
 			:text-end="'You\'re completely filled in on the PS21 digital universe!'"/>
@@ -13,13 +13,12 @@
 				:key="item.shortcutId" 
 				:position-h="item.posH" 
 				:position-v="item.posV" 
-				:width-span="item.widthSpan"
 				:icon="item.icon" 
 				:label="item.label" 
 				:shortcut-id="item.shortcutId"
 				:action="item.action"
 				:action-param="item.actionParam"
-				:content="item.content"/>
+				:window-content="item.windowContent"/>
 		</div>
 
 		<div class="desktop__windows">
@@ -34,8 +33,10 @@
 				:content-name="item.contentName" 
 				:group-id="item.groupId" 
 				:title="item.title" 
-				:content-component="item.component"  
-				:content-component-props="item.componentProps"/>
+				:content-component="item.contentComponent"  
+				:content-component-props="item.contentComponentProps" 
+				:status-component="item.statusComponent"  
+				:status-component-props="item.statusComponentProps"/>
 
 			<assistant/>
 		</div>
@@ -49,7 +50,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
 
-import StatusBar from '~/components/framework/StatusBar.vue'
+import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
@@ -59,7 +60,7 @@ import Marquee from '~/components/content/Marquee.vue'
 export default {
 	name:'desktop',
 	components: {
-		StatusBar,
+		ProgressBar,
 		Shortcut,
 		Window,
 		Marquee,

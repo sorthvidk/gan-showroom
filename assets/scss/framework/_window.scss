@@ -1,4 +1,7 @@
 .window {
+	$chrome-height: 70;
+	$chrome-height-no-status: 31;
+
 	$module: '.window';
 
 	background-color: $color-white;
@@ -29,6 +32,20 @@
 		}
 	}
 
+	@mixin window-button() {
+		flex: 0 0 rem(30);
+		width: rem(30);
+		height: rem(30);
+		padding: rem(5);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+	}
 
 	&__top {
 		background-color: $color-lightgrey;
@@ -53,49 +70,68 @@
 			cursor: grab;
 
 		}
-		button {
-			flex: 0 0 rem(30);
-			padding: rem(5);
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			width: rem(30);
-			height: rem(30);			
-			background-color: transparent;
-			border: 0;
+		.button {
+			@include window-button();
 			@include bevel();
 			border-left: rem(1) solid $color-black;
 			border-bottom: rem(1) solid $color-black;
+			
+			&:hover {
+				background-color: $color-white;
+			}
 		}
 
 	}
 	&__status {
-		height: rem(30);
+		height: rem(40);
 		box-sizing: border-box;
 		position: relative;
 		background-color: #fff;
-		border-bottom: rem(1) solid $color-black;
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: rem(5);
 
 		p {
-			overflow: hidden;
-			padding: rem(5);
-			display: block;
-			white-space: nowrap;
-			text-overflow: ellipsis;
 			@include bodytext();
+
+			flex: 1 1 100%;
+			overflow: hidden;
+			padding: rem(5) rem(10);
+			
+			display: flex;
+			align-items: center;			
 		}
+
 		&:after {
 			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
 			display: block;
 			border-top: rem(1) solid $color-black;
+			border-bottom: rem(1) solid $color-black;
 			height: rem(5);
 			background-color: #fff;
+		}
+
+		.button {
+			@include window-button();
+			flex: 0 0 rem(35);
+			width: rem(35);
+			height: rem(35);
+			border-left: rem(1) solid $color-black;
+			border-bottom: rem(1) solid $color-black;
+
+			&:hover {
+				background-color: $color-lightgrey;
+			}
 		}
 	}
 	&__content {
 		overflow-x: hidden;
 		overflow-y: scroll;		
-		height: calc(100% - rem(60));
+		height: calc(100% - #{rem($chrome-height)});
 
 		scrollbar-width: auto;
 		scrollbar-color: $color-white $color-white;
@@ -104,7 +140,7 @@
 			width: rem(29);
 		}
 		&::-webkit-scrollbar-track {
-			background: $color-white;
+			background: $color-lightgrey;
 			border-left: rem(1) solid $color-black;
 		}
 		&::-webkit-scrollbar-thumb {
@@ -113,6 +149,8 @@
 			padding: rem(10);
 			border-radius: 0;
 			border: rem(1) solid $color-black;
+			border-left: 0;
+			border-right: 0;
 			box-shadow: 0 rem(3) 0 0 rgba(0,0,0,0.2);
 		}	
 	}
@@ -120,11 +158,39 @@
 	&--tight {
 		#{$module}__content {
 			overflow: visible;
-			max-height: none;
-			height: calc(100% - rem(60));
 		}
 		.handle {
 			display: none;
+		}
+	}
+
+	&--no-status {
+		#{$module}__content {
+			height: calc(100% - #{rem($chrome-height-no-status)});
+		}
+	}
+	
+	&--assistant {
+		
+		.title {			
+			cursor: default;
+		}
+
+		position: fixed;
+		left: rem(10);
+		right: rem(10);
+		bottom: rem(30);
+
+		@include mq($from: screen-sm) {
+			top: rem(80);
+			right: rem(30);
+			bottom: auto;
+			left: auto;
+			width: rem(276);
+		}
+
+		#{$module}__content {
+			height: auto;
 		}
 	}
 

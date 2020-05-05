@@ -1,28 +1,69 @@
 export default {
 	collection: {
 		name: 'collection',
-		component:'collection', 
+		contentComponent:'collection', 
+		statusComponent:'status-collection',		
 		allowedInstances: 1,
-		windowProps: {
-			width: 4*180,
+		defaultWindowProps: {
+			width: 700,
 			height: 400
+		}		
+	},
+	films: {
+		name: 'films',
+		contentComponent:'films',
+		statusComponent:'status-static',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			width: 700,
+			height: 400
+		}
+	},
+	musicPlayer: {
+		name: 'music-player',
+		contentComponent:'music-player',
+		statusComponent:'status-static',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			width: 320,
+			height: 180,
+			modifierClass:'window--tight'
+		}
+	},	
+	textFile: {
+		name: 'text-reader',
+		contentComponent:'text-reader',
+		statusComponent:'status-static',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			width: 700,
+			height: 400,
+			modifierClass:'window--tight'
 		}
 	},
 	imagePortrait: {
 		name: 'image-portrait',
-		component:'single-image',
+		contentComponent:'single-image',
+		statusComponent:'status-static',
 		allowedInstances: 100,
-		windowProps: {
+		defaultStatusComponentProps: {
+			text: 'TIP! Click image to zoom.'
+		},
+		defaultWindowProps: {
 			width: 274,
-			height: 416,
+			height: 418,
 			modifierClass:'window--tight'
 		}
 	},
 	imageLandscape: {
 		name: 'image-landscape',
-		component:'single-image',
+		contentComponent:'single-image',
+		statusComponent:'status-static',
 		allowedInstances: 100,
-		windowProps: {
+		defaultStatusComponentProps: {
+			text: 'TIP! Click image to zoom.'
+		},
+		defaultWindowProps: {
 			width: 416,
 			height: 276,
 			modifierClass:'window--tight'
@@ -30,9 +71,13 @@ export default {
 	},
 	imageSquare: {
 		name: 'image-square',
-		component:'single-image',
+		contentComponent:'single-image',
+		statusComponent:'status-static',
 		allowedInstances: 100,
-		windowProps: {
+		defaultStatusComponentProps: {
+			text: 'TIP! Click image to zoom.'
+		},
+		defaultWindowProps: {
 			width: 320,
 			height: 320,
 			modifierClass:'window--tight'
@@ -40,42 +85,26 @@ export default {
 	},
 	videoPortrait: {
 		name: 'video-portrait',
-		component:'video',
+		contentComponent:'video',
+		statusComponent:'status-static',
 		allowedInstances: 100,
-		windowProps: {
+		defaultWindowProps: {
 			width: 180,
 			height: 320,
-			modifierClass:'window--tight'
+			modifierClass:'window--tight',
+			noStatus: true
 		}
 	},
 	videoLandscape: {
 		name: 'video-landscape',
-		component:'video',
+		contentComponent:'video',
+		statusComponent:'status-static',
 		allowedInstances: 100,
-		windowProps: {
+		defaultWindowProps: {
 			width: 320,
 			height: 180,
-			modifierClass:'window--tight'
+			modifierClass:'window--tight',
+			noStatus: true
 		}
-	},
-	musicPlayer: {
-		name: 'music-player',
-		component:'music-player',
-		allowedInstances: 1,
-		windowProps: {
-			width: 320,
-			height: 180,
-			modifierClass:'window--tight'
-		}
-	},
-	textFile: {
-		name: 'text-reader',
-		component:'text-reader',
-		allowedInstances: 1,
-		windowProps: {
-			width: 700,
-			height: 400,
-			modifierClass:'window--tight'
-		}
-	},
+	}
 };

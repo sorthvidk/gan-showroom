@@ -1,21 +1,131 @@
 <template>
-	<div class="assistant">
-		<div class="window window--tight">
-			<div class="window__top">
-				<span class="title">🤖 Desktop assistant</span>				
-			</div>
-			<div class="window__content">
+	<div class="window window--tight window--assistant">
+		
+		<div class="window__top">
+			<span class="title">🤖 Desktop assistant</span>				
+		</div>
+
+
+		<div class="window__status" v-if="assistantMode == 2">
+			<p>
+				{{currentStyle.name}}
+			</p>
+			<button class="button previous">❮</button>
+			<button class="button next">❯</button>
+			<button class="button close">𝗫</button>
+		</div>
+
+		<div class="window__content">
+
+
+			<div class="assistant">
+				
 				<div v-if="assistantMode == 0">
-					<h3>Welcome!</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
+					<div class="assistant__welcome">
+						<h3>Welcome!</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
+					</div>
 				</div>
 
-				<div v-if="assistantMode == 1" class="filters">					
-					<filter-button v-for="(item, key) in filtersList" :name="item.name" :filter-id="item.filterId" />
+				<div v-if="assistantMode == 1">
+					<div class="assistant__filters">
+						<p>Do you have any preferences to the collection? choose from the options here!</p>		
+						<div class="assistant__filters__list">						
+							<filter-button v-for="(item, key) in filtersList" :name="item.name" :filter-id="item.filterId" />
+						</div>
+					</div>
 				</div>			
-				<div v-if="assistantMode == 2">	
-					<p>Product info - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quibusdam sint hic dolore libero quaerat quae perferendis, cupiditate, distinctio delectus aliquid! Magnam quae assumenda neque reiciendis nisi adipisci incidunt et?</p>
-				</div>				
+				
+				<div v-if="assistantMode == 2">
+					<div class="assistant__product-details">
+						<p>{{currentStyle.description}}</p>
+						<table>
+							<tbody>
+								<tr>
+									<th>Color</th>
+									<td>{{currentStyle.colorNames}}
+										<span v-if="hasHiddenAssets">
+											<button class="link" @click="showAllVariantsClickHandler">&nearr; Show all variants</button>
+										</span>
+									</td>
+								</tr>
+							
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+							
+								<tr>
+									<th>Materiel</th>
+									<td>{{currentStyle.material}}</td>
+								</tr>
+								<tr>
+									<th>Style #</th>
+									<td>{{currentStyle.styleId}}</td>
+								</tr>
+								<tr>
+									<th>Program #</th>
+									<td>{{currentStyle.program}}</td>
+								</tr>
+								<tr>
+									<th>Program name</th>
+									<td>{{currentStyle.programName}}</td>
+								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<th>Wholesale price</th>
+									<td>DKK {{currentStyle.wholesalePriceDKK}}</td>
+								</tr>
+								<tr>
+									<th>Wholesale price</th>
+									<td>EUR {{currentStyle.wholesalePriceEUR}}</td>
+								</tr>
+								<tr>
+									<th>Wholesale price</th>
+									<td>USD {{currentStyle.wholesalePriceUSD}}</td>
+								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<th>Suggested retail price</th>
+									<td>DKK {{currentStyle.suggestedRetailPriceDKK}}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>EUR {{currentStyle.suggestedRetailPriceEUR}}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>USD {{currentStyle.suggestedRetailPriceUSD}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				
+				<div class="assistant__ctas" v-if="assistantMode == 1">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						{{viewWishListButtonLabel}}
+					</button>
+				</div>			
+				<div class="assistant__ctas" v-if="assistantMode == 2">
+					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
+						{{addRemoveWishListButtonLabel}}
+					</button>
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						{{viewWishListButtonLabel}}
+					</button>
+				</div>			
 			</div>			
 		</div>
 	</div>
@@ -24,10 +134,16 @@
 <script>
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { SET_CURRENT_FILTER } from '~/model/constants'
+import { 
+	SET_CURRENT_FILTER,
+	ADD_TO_WISHLIST,
+	REMOVE_FROM_WISHLIST, 
+	OPEN_CONTENT,
+	ALL_ASSETS_VISIBLE,
+} from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
-
+import getAssetType from '~/utils/asset-type'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 
@@ -38,38 +154,124 @@ export default {
 	},
 	data() {
 		return {
-			assistantMode: 0
+			assistantMode: 0,
+			associatedWindow: null,
+			currentStyle: null,
+			hiddenAssetContent: [],
+			associatedWindowGroupId: null
 		}
 	},
 	computed: {
 		...mapState({
 			filtersList: state => state.collection.filters,
+			wishList: state => state.collection.wishList,
+			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow
-		})
+		}),
+		viewWishListButtonLabel() {
+			return `View wishlist (${this.wishList.length})`;
+		},
+		addRemoveWishListButtonLabel() {
+			if ( this.styleOnWishList ) return 'Remove from list';
+ 			return 'Add to wishlist';
+		},
+		styleOnWishList() {
+			return this.currentStyle.onWishList;
+		},
+		hasHiddenAssets() {
+			return this.hiddenAssetContent.length > 0;
+		}
 	},
 	watch: {
 		topMostWindow(newVal) {
-			if ( !newVal || !newVal.contentType ) {
-				this.assistantMode = 0;
+
+			this.associatedWindow = newVal;
+
+
+			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
+				this.assistantMode = 0;			
 			}
 			else {
-				switch(newVal.contentType.component) {
-					case ContentTypes.collection.component:
+				this.associatedWindowGroupId = this.associatedWindow.groupId;
+
+				let component = this.associatedWindow.contentComponent,
+					componentProps = this.associatedWindow.contentComponentProps;
+
+				switch(component) {
+					case ContentTypes.collection.contentComponent:
 						this.assistantMode = 1;
 						break;
-					case ContentTypes.imagePortrait.component:
-					case ContentTypes.imageLandscape.component:
-					case ContentTypes.imageSquare.component:				
-						this.assistantMode = 2;
-						break;						
+					case ContentTypes.imagePortrait.contentComponent:
+					case ContentTypes.imageLandscape.contentComponent:
+					case ContentTypes.imageSquare.contentComponent:
+						if ( componentProps.asset && componentProps.asset.styleId ) {
+							this.currentStyle = this.currentStyles.filter(e=>e.styleId === componentProps.asset.styleId)[0];
+							this.parseAssets();
+							
+						}
+						else {
+							this.assistantMode = 0;							
+						}
+						break;	
+					default:					
+						this.assistantMode = 0;
+						break;	
 				}			
 			}
 		}
 	},
 	methods: {
 		...mapActions([
-			'collection/'+SET_CURRENT_FILTER.action
-		])
+			OPEN_CONTENT.action,
+			'collection/'+ALL_ASSETS_VISIBLE.action,
+			'collection/'+SET_CURRENT_FILTER.action,
+			'collection/'+ADD_TO_WISHLIST.action,
+			'collection/'+REMOVE_FROM_WISHLIST.action
+		]),
+		viewWishListClickHandler() {
+			//VIEW WISHLIST
+		},
+		showAllVariantsClickHandler() {
+			this['collection/'+ALL_ASSETS_VISIBLE.action](this.currentStyle);
+			this[OPEN_CONTENT.action]( {windowContent:this.hiddenAssetContent, addToGroupId:this.associatedWindowGroupId} );
+			this.hiddenAssetContent = [];
+		},
+		addToWishListClickHandler() {
+			if ( this.styleOnWishList ) {
+				this['collection/'+REMOVE_FROM_WISHLIST.action](this.currentStyle);
+			}
+			else {
+				this['collection/'+ADD_TO_WISHLIST.action](this.currentStyle);
+			}
+		},
+		parseAssets() {
+			let al = this.currentStyle.assets.length;
+
+			this.hiddenAssetContent = [];
+
+			//backwards loop to ensure asset [0] gets on top (as sorted in $store)
+			for (var i = al-1; i >= 0; i--) {
+				let asset = this.currentStyle.assets[i];
+
+				if ( !asset.visible ) {
+					let type = getAssetType(asset);
+					this.hiddenAssetContent.push({
+						title: asset.name,
+						contentId: asset.assetId,
+						type: type,
+						canOverride: false,
+						windowProps: type.defaultWindowProps,
+						contentComponentProps: { asset: asset },
+						statusComponentProps: type.defaultStatusComponentProps
+					});
+				}
+			}
+
+			console.log("HIDDEN ASSET COUNT: "+this.hiddenAssetContent.length)
+			
+			//ready to show details
+			this.assistantMode = 2;
+		}
 	}
 };
 </script>

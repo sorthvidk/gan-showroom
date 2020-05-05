@@ -1,7 +1,10 @@
 import { 
 	FILTER_COLLECTION, 
 	SET_CURRENT_FILTER, 
-	PROGRESS_UPDATE
+	PROGRESS_UPDATE,
+	ADD_TO_WISHLIST,
+	REMOVE_FROM_WISHLIST,
+	ALL_ASSETS_VISIBLE,
 } from '~/model/constants'
 
 export const state = () => ({
@@ -17,6 +20,8 @@ export const state = () => ({
 		name: '',
 		styleIds: []
 	},
+	
+	wishList: [],
 
 	filters: [
 		{
@@ -53,7 +58,8 @@ export const state = () => ({
 			suggestedRetailPriceUSD: 170,
 			description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.',
 			assets: [],			
-			completed: false
+			completed: false,
+			onWishList: false
 		},
 		{
 			styleId: 'F5987334',
@@ -73,7 +79,8 @@ export const state = () => ({
 			suggestedRetailPriceUSD: 170,
 			description: 'Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.',
 			assets: [],
-			completed: false
+			completed: false,
+			onWishList: false
 		},
 		{
 			styleId: 'F1121095',
@@ -93,12 +100,39 @@ export const state = () => ({
 			suggestedRetailPriceUSD: 170,
 			description: 'Qui voluptatibus consequuntur tempore nam accusantium quam assumenda.',
 			assets: [],
-			completed: false
+			completed: false,
+			onWishList: false
 		}
 	]
 });
 
 export const mutations = {
+	[ALL_ASSETS_VISIBLE.mutation] (state, styleItem) {
+		
+		let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
+		let sial = listStyle.assets.length;
+
+		for (var i = 0; i < sial; i++) {
+			let asset = listStyle.assets[i];
+			asset.visible = true;
+		}
+	},
+	[ADD_TO_WISHLIST.mutation] (state, styleItem) {
+		if ( styleItem.onWishList ) return false;
+		else {
+			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
+			listStyle.onWishList = true;
+			state.wishList.push(styleItem);
+		}
+	},
+	[REMOVE_FROM_WISHLIST.mutation] (state, styleItem) {
+		if ( !styleItem.onWishList ) return false;
+		else {
+			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
+			listStyle.onWishList = false;
+			state.wishList = state.wishList.filter(e => e.styleId !== styleItem.styleId);
+		}
+	},
 	[FILTER_COLLECTION.mutation] (state) {
 		
 		// run through data, make reference lists for each filter
@@ -166,6 +200,15 @@ export const mutations = {
 
 export const actions = {
 
+	[ALL_ASSETS_VISIBLE.action] ({ commit }, style) {
+		commit(ALL_ASSETS_VISIBLE.mutation, style)
+	},
+	[ADD_TO_WISHLIST.action] ({ commit }, style) {
+		commit(ADD_TO_WISHLIST.mutation, style)
+	},	
+	[REMOVE_FROM_WISHLIST.action] ({ commit }, style) {
+		commit(REMOVE_FROM_WISHLIST.mutation, style)
+	},	
 	[FILTER_COLLECTION.action] ({ commit }) {
 		commit(FILTER_COLLECTION.mutation)
 	},	
