@@ -4,6 +4,7 @@ import {
 	PROGRESS_UPDATE,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
+	ALL_ASSETS_VISIBLE,
 } from '~/model/constants'
 
 export const state = () => ({
@@ -106,6 +107,16 @@ export const state = () => ({
 });
 
 export const mutations = {
+	[ALL_ASSETS_VISIBLE.mutation] (state, styleItem) {
+		
+		let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
+		let sial = listStyle.assets.length;
+
+		for (var i = 0; i < sial; i++) {
+			let asset = listStyle.assets[i];
+			asset.visible = true;
+		}
+	},
 	[ADD_TO_WISHLIST.mutation] (state, styleItem) {
 		if ( styleItem.onWishList ) return false;
 		else {
@@ -189,6 +200,9 @@ export const mutations = {
 
 export const actions = {
 
+	[ALL_ASSETS_VISIBLE.action] ({ commit }, style) {
+		commit(ALL_ASSETS_VISIBLE.mutation, style)
+	},
 	[ADD_TO_WISHLIST.action] ({ commit }, style) {
 		commit(ADD_TO_WISHLIST.mutation, style)
 	},	

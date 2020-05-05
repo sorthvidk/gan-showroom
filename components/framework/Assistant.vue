@@ -8,7 +8,7 @@
 
 		<div class="window__status" v-if="assistantMode == 2">
 			<p>
-				{{styleName}}
+				{{currentStyle.name}}
 			</p>
 			<button class="button previous">❮</button>
 			<button class="button next">❯</button>
@@ -38,7 +38,77 @@
 				
 				<div v-if="assistantMode == 2">
 					<div class="assistant__product-details">
-						<p>Product info - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quibusdam sint hic dolore libero quaerat quae perferendis, cupiditate, distinctio delectus aliquid! Magnam quae assumenda neque reiciendis nisi adipisci incidunt et?</p>
+						<p>{{currentStyle.description}}</p>
+						<table>
+							<tbody>
+								<tr>
+									<th>Color</th>
+									<td>{{currentStyle.colorNames}}
+										<span v-if="hasHiddenAssets">
+											<button class="link" @click="showAllVariantsClickHandler">&nearr; Show all variants</button>
+										</span>
+									</td>
+								</tr>
+							
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+							
+								<tr>
+									<th>Materiel</th>
+									<td>{{currentStyle.material}}</td>
+								</tr>
+								<tr>
+									<th>Style #</th>
+									<td>{{currentStyle.styleId}}</td>
+								</tr>
+								<tr>
+									<th>Program #</th>
+									<td>{{currentStyle.program}}</td>
+								</tr>
+								<tr>
+									<th>Program name</th>
+									<td>{{currentStyle.programName}}</td>
+								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<th>Wholesale price</th>
+									<td>DKK {{currentStyle.wholesalePriceDKK}}</td>
+								</tr>
+								<tr>
+									<th>Wholesale price</th>
+									<td>EUR {{currentStyle.wholesalePriceEUR}}</td>
+								</tr>
+								<tr>
+									<th>Wholesale price</th>
+									<td>USD {{currentStyle.wholesalePriceUSD}}</td>
+								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<th>Suggested retail price</th>
+									<td>DKK {{currentStyle.suggestedRetailPriceDKK}}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>EUR {{currentStyle.suggestedRetailPriceEUR}}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>USD {{currentStyle.suggestedRetailPriceUSD}}</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 
@@ -68,10 +138,12 @@ import {
 	SET_CURRENT_FILTER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST, 
+	OPEN_CONTENT,
+	ALL_ASSETS_VISIBLE,
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
-
+import getAssetType from '~/utils/asset-type'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 
@@ -84,7 +156,9 @@ export default {
 		return {
 			assistantMode: 0,
 			associatedWindow: null,
-			currentStyle: null
+			currentStyle: null,
+			hiddenAssetContent: [],
+			associatedWindowGroupId: null
 		}
 	},
 	computed: {
@@ -101,21 +175,24 @@ export default {
 			if ( this.styleOnWishList ) return 'Remove from list';
  			return 'Add to wishlist';
 		},
-		styleName() {
-			return this.currentStyle.name;
-		},
 		styleOnWishList() {
 			return this.currentStyle.onWishList;
+		},
+		hasHiddenAssets() {
+			return this.hiddenAssetContent.length > 0;
 		}
 	},
 	watch: {
 		topMostWindow(newVal) {
+
 			this.associatedWindow = newVal;
 
+
 			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
-				this.assistantMode = 0;
+				this.assistantMode = 0;			
 			}
 			else {
+				this.associatedWindowGroupId = this.associatedWindow.groupId;
 
 				let component = this.associatedWindow.contentComponent,
 					componentProps = this.associatedWindow.contentComponentProps;
@@ -128,8 +205,9 @@ export default {
 					case ContentTypes.imageLandscape.contentComponent:
 					case ContentTypes.imageSquare.contentComponent:
 						if ( componentProps.asset && componentProps.asset.styleId ) {
-							this.assistantMode = 2;
 							this.currentStyle = this.currentStyles.filter(e=>e.styleId === componentProps.asset.styleId)[0];
+							this.parseAssets();
+							
 						}
 						else {
 							this.assistantMode = 0;							
@@ -144,12 +222,19 @@ export default {
 	},
 	methods: {
 		...mapActions([
+			OPEN_CONTENT.action,
+			'collection/'+ALL_ASSETS_VISIBLE.action,
 			'collection/'+SET_CURRENT_FILTER.action,
 			'collection/'+ADD_TO_WISHLIST.action,
 			'collection/'+REMOVE_FROM_WISHLIST.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
+		},
+		showAllVariantsClickHandler() {
+			this['collection/'+ALL_ASSETS_VISIBLE.action](this.currentStyle);
+			this[OPEN_CONTENT.action]( {windowContent:this.hiddenAssetContent, addToGroupId:this.associatedWindowGroupId} );
+			this.hiddenAssetContent = [];
 		},
 		addToWishListClickHandler() {
 			if ( this.styleOnWishList ) {
@@ -158,6 +243,34 @@ export default {
 			else {
 				this['collection/'+ADD_TO_WISHLIST.action](this.currentStyle);
 			}
+		},
+		parseAssets() {
+			let al = this.currentStyle.assets.length;
+
+			this.hiddenAssetContent = [];
+
+			//backwards loop to ensure asset [0] gets on top (as sorted in $store)
+			for (var i = al-1; i >= 0; i--) {
+				let asset = this.currentStyle.assets[i];
+
+				if ( !asset.visible ) {
+					let type = getAssetType(asset);
+					this.hiddenAssetContent.push({
+						title: asset.name,
+						contentId: asset.assetId,
+						type: type,
+						canOverride: false,
+						windowProps: type.defaultWindowProps,
+						contentComponentProps: { asset: asset },
+						statusComponentProps: type.defaultStatusComponentProps
+					});
+				}
+			}
+
+			console.log("HIDDEN ASSET COUNT: "+this.hiddenAssetContent.length)
+			
+			//ready to show details
+			this.assistantMode = 2;
 		}
 	}
 };

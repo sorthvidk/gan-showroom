@@ -58,7 +58,7 @@ export default {
 			'collection/'+PROGRESS_UPDATE.action
 		]),		
 		onItemClick() {
-			this[OPEN_CONTENT.action]( this.assetContent );
+			this[OPEN_CONTENT.action]( {windowContent: this.assetContent} );
 			this['collection/'+PROGRESS_UPDATE.action]( this.styleId );
 		}
 	}

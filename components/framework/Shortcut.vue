@@ -66,7 +66,7 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action](this.windowContent);
+			this[OPEN_CONTENT.action]( {windowContent:this.windowContent} );
 
 			setTimeout(()=>{
 				if ( this.action ) {

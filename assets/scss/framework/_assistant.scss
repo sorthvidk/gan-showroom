@@ -1,8 +1,18 @@
 .assistant {
+
+	&__welcome {
+		padding: rem(9) rem(10);
+		
+		p {
+			@include bodytext();
+		}
+	}
+
 	
 	&__filters {
 		p {
 			padding: rem(9) rem(10);
+			@include bodytext();
 		}
 
 		&__list {
@@ -42,13 +52,33 @@
 		}
 
 	}
-
-	&__welcome {
-		padding: rem(9) rem(10);
-	}
-
 	&__product-details {
 		padding: rem(9) rem(10);
+
+		p {
+			@include bodytext();	
+			margin-bottom: rem(20);		
+		}
+		table {
+			table-layout: fixed;
+			text-align: left;
+		}
+		table tr td {
+			padding: 0;
+			@include bodytext();			
+		}
+		table tr th {
+			@include bodytext();			
+			white-space: nowrap;
+			padding-right: rem(10);
+		}
+		.link {
+			cursor: pointer;
+			display: block;
+			padding: 0;
+			@include bodytext();	
+			text-decoration: underline;
+		}
 	}
 
 	&__ctas {
@@ -69,10 +99,11 @@
 				background-color: $color-lightgrey;
 			}
 
-			&.is-active {
-				color: $color-white;
-				background-color: darken($color-grey,12%);
-				@include bevel(true);
+			&.add-to-wishlist {
+				background-color: $color-yellow;
+				&.is-active {
+					background-color: lighten($color-yellow,20%);
+				}
 			}
 		}
 		.button + .button {

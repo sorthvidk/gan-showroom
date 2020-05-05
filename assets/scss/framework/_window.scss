@@ -1,4 +1,7 @@
 .window {
+	$chrome-height: 70;
+	$chrome-height-no-status: 31;
+
 	$module: '.window';
 
 	background-color: $color-white;
@@ -80,14 +83,13 @@
 
 	}
 	&__status {
-		height: rem(35);
+		height: rem(40);
 		box-sizing: border-box;
 		position: relative;
 		background-color: #fff;
-		border-bottom: rem(1) solid $color-black;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: rem(5);
+		padding-bottom: rem(5);
 
 		p {
 			@include bodytext();
@@ -95,16 +97,15 @@
 			flex: 1 1 100%;
 			overflow: hidden;
 			padding: rem(5) rem(10);
-			line-height: rem(30);
-			display: block;
-			white-space: nowrap;
-			text-overflow: ellipsis;
+			
+			display: flex;
+			align-items: center;			
 		}
 
 		&:after {
 			content:'';
 			position: absolute;
-			top: 100%;
+			bottom: 0;
 			left: 0;
 			right: 0;
 			display: block;
@@ -130,7 +131,7 @@
 	&__content {
 		overflow-x: hidden;
 		overflow-y: scroll;		
-		height: calc(100% - rem(60));
+		height: calc(100% - #{rem($chrome-height)});
 
 		scrollbar-width: auto;
 		scrollbar-color: $color-white $color-white;
@@ -165,7 +166,7 @@
 
 	&--no-status {
 		#{$module}__content {
-			height: calc(100% - rem(30));
+			height: calc(100% - #{rem($chrome-height-no-status)});
 		}
 	}
 	
