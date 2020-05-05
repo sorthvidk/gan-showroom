@@ -22,6 +22,7 @@ export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
 export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
 export const OPEN_GALLERY = createMutation('OPEN_GALLERY');
 export const ADD_TO_WISHLIST = createMutation('ADD_TO_WISHLIST');
+export const REMOVE_FROM_WISHLIST = createMutation('REMOVE_FROM_WISHLIST');
 
 export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER');
 export const PROGRESS_UPDATE = createMutation('PROGRESS_UPDATE');

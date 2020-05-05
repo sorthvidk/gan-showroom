@@ -31,12 +31,12 @@
 
 	@mixin window-button() {
 		flex: 0 0 rem(30);
+		width: rem(30);
+		height: rem(30);
 		padding: rem(5);
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: rem(30);
-		height: rem(30);			
 		background-color: transparent;
 		border: 0;
 		cursor: pointer;
@@ -116,6 +116,9 @@
 
 		.button {
 			@include window-button();
+			flex: 0 0 rem(35);
+			width: rem(35);
+			height: rem(35);
 			border-left: rem(1) solid $color-black;
 			border-bottom: rem(1) solid $color-black;
 

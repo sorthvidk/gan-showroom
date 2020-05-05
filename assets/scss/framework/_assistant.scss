@@ -52,7 +52,8 @@
 	}
 
 	&__ctas {
-
+		display: flex;
+		justify-content: space-between;
 		.button {
 			cursor: pointer;
 			display: block;
@@ -67,6 +68,15 @@
 			&:hover {
 				background-color: $color-lightgrey;
 			}
+
+			&.is-active {
+				color: $color-white;
+				background-color: darken($color-grey,12%);
+				@include bevel(true);
+			}
+		}
+		.button + .button {
+			border-left: rem(1) solid $color-black;
 		}
 	}
 }

@@ -1,5 +1,5 @@
 <template>
-	<div class="status-bar">
+	<div class="progress-bar">
 		<p><strong>{{completePct}}% COMPLETE - </strong>{{text}}</p>
 		<span class="fill" :style="{width: completePct+'%'}">&nbsp;</span>
 	</div>
@@ -10,7 +10,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 export default {
-	name:'status-bar',
+	name:'progress-bar',
 	props: {
 		textStart: {
 			type: String,
@@ -31,8 +31,8 @@ export default {
 		}),
 		text() {
 			if ( this.completePct == 0 ) return this.textStart;
-			else if (this.completePct == 100 ) return this.textProgress;
-			else return this.textEnd;
+			else if (this.completePct == 100 ) return this.textEnd;
+			else return this.textProgress;
 		}
 	}
 };

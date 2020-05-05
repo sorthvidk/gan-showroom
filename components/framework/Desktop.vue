@@ -2,7 +2,7 @@
 
 	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/200/150/nature)'}">
 
-		<status-bar	
+		<progress-bar	
 			:text-start="'Start diving into the PS21 digital universe.'" 
 			:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'" 
 			:text-end="'You\'re completely filled in on the PS21 digital universe!'"/>
@@ -50,7 +50,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
 
-import StatusBar from '~/components/framework/StatusBar.vue'
+import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
@@ -60,7 +60,7 @@ import Marquee from '~/components/content/Marquee.vue'
 export default {
 	name:'desktop',
 	components: {
-		StatusBar,
+		ProgressBar,
 		Shortcut,
 		Window,
 		Marquee,

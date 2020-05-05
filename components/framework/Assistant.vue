@@ -43,17 +43,18 @@
 				</div>
 
 				
-				<div class="assistant__ctas">
-					<div v-if="assistantMode == 1">
-						<button class="button wishlist" @click="wishListClickHandler">
-							{{wishListButtonLabel}}
-						</button>
-					</div>			
-					<div v-if="assistantMode == 1">
-						<button class="button wishlist" @click="wishListClickHandler">
-							{{wishListButtonLabel}}
-						</button>
-					</div>			
+				<div class="assistant__ctas" v-if="assistantMode == 1">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						{{viewWishListButtonLabel}}
+					</button>
+				</div>			
+				<div class="assistant__ctas" v-if="assistantMode == 2">
+					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
+						{{addRemoveWishListButtonLabel}}
+					</button>
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						{{viewWishListButtonLabel}}
+					</button>
 				</div>			
 			</div>			
 		</div>
@@ -63,7 +64,11 @@
 <script>
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { SET_CURRENT_FILTER } from '~/model/constants'
+import { 
+	SET_CURRENT_FILTER,
+	ADD_TO_WISHLIST,
+	REMOVE_FROM_WISHLIST, 
+} from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
 
@@ -89,11 +94,18 @@ export default {
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow
 		}),
-		wishListButtonLabel() {
+		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`;
+		},
+		addRemoveWishListButtonLabel() {
+			if ( this.styleOnWishList ) return 'Remove from list';
+ 			return 'Add to wishlist';
 		},
 		styleName() {
 			return this.currentStyle.name;
+		},
+		styleOnWishList() {
+			return this.currentStyle.onWishList;
 		}
 	},
 	watch: {
@@ -132,10 +144,20 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			'collection/'+SET_CURRENT_FILTER.action
+			'collection/'+SET_CURRENT_FILTER.action,
+			'collection/'+ADD_TO_WISHLIST.action,
+			'collection/'+REMOVE_FROM_WISHLIST.action
 		]),
-		wishListClickHandler() {
+		viewWishListClickHandler() {
 			//VIEW WISHLIST
+		},
+		addToWishListClickHandler() {
+			if ( this.styleOnWishList ) {
+				this['collection/'+REMOVE_FROM_WISHLIST.action](this.currentStyle);
+			}
+			else {
+				this['collection/'+ADD_TO_WISHLIST.action](this.currentStyle);
+			}
 		}
 	}
 };
