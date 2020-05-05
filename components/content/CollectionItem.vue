@@ -36,14 +36,15 @@ export default {
 				let asset = this.assets[i];
 
 				if ( asset.visible ) {
+					let type = getAssetType(asset);
 					content.push({
 						title: asset.name,
 						contentId: asset.assetId,
-						type: getAssetType(asset),
+						type: type,
 						canOverride: false,
-						componentProps: {
-							asset: asset
-						}
+						windowProps: type.defaultWindowProps,
+						contentComponentProps: { asset: asset },
+						statusComponentProps: type.defaultStatusComponentProps
 					});
 				}
 			}

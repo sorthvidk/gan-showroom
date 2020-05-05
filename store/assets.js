@@ -50,6 +50,27 @@ export const state = () => ({
 			visible: true,
 			defaultImageUrl:'/img/styles/F4600-994-1.jpg'
 		}
+	],
+
+	films: [
+		{
+			filmId:'123456',
+			filmName: 'Numa numa',
+			posterUrl:'/img/styles/F4478-687-square.png',
+			videoUrl: ''
+		},
+		{
+			filmId:'123457',
+			filmName: 'Numa numa',
+			posterUrl:'/img/styles/F4478-687-square.png',
+			videoUrl: ''
+		},
+		{
+			filmId:'123458',
+			filmName: 'Numa numa',
+			posterUrl:'/img/styles/F4478-687-square.png',
+			videoUrl: ''
+		}
 	]
 });
 

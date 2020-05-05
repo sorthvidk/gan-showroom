@@ -22,11 +22,6 @@ export default {
 			default: 0,
 			required: true
 		},
-		widthSpan: {
-			type: Number,
-			default: 2,
-			required: true	
-		},
 		icon: {
 			type: String,
 			default: null,
@@ -42,7 +37,7 @@ export default {
 			default: null,
 			required: true	
 		},
-		content: {
+		windowContent: {
 			type: Array,
 			default: [],
 			required: true	
@@ -60,10 +55,10 @@ export default {
 	},
 	computed: {
 		styleGridRow() {
-			return this.positionV + "/" + (this.positionV+this.widthSpan);
+			return this.positionV + "/" + (this.positionV+1);
 		},
 		styleGridColumn() {
-			return this.positionH + "/" + (this.positionH+this.widthSpan);
+			return this.positionH + "/" + (this.positionH+1);
 		}
 	},
 	methods: {
@@ -71,7 +66,7 @@ export default {
 			OPEN_CONTENT.action
 		]),
 		onClick() {
-			this[OPEN_CONTENT.action](this.content);
+			this[OPEN_CONTENT.action](this.windowContent);
 
 			setTimeout(()=>{
 				if ( this.action ) {

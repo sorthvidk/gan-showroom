@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span @mousedown="onMouseDown" :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
+		<span :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
@@ -26,8 +26,10 @@
 						<button class="close" @click.stop="closeHandler">Ｘ</button>
 					</div>
 					<div v-if="!noStatus" class="window__status">
+
+						<component :is="statusComponent" v-bind="{...statusComponentProps}" />
 						<!-- <p>TIP: Try to touch your own nose!</p> -->
-						<p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p>
+						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p> -->
 						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					</div>
 					<div class="window__content">				
@@ -53,28 +55,28 @@ import VueDraggableResizable from 'vue-draggable-resizable'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
 import TextReader from '~/components/content/TextReader.vue'
+import Films from '~/components/content/Films.vue'
+
+
+import StatusStatic from '~/components/content/StatusStatic.vue'
+import StatusCollection from '~/components/content/StatusCollection.vue'
 
 export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
+		StatusStatic,
+		StatusCollection,
 		Collection,
 		SingleImage,
-		TextReader
+		TextReader,
+		Films,
 	},
 	props: {
 		modifierClass: {
 			type: String,
 			default: ''
-		},
-		contentComponent: {
-			type: String,
-			default: null
-		},
-		contentComponentProps: {
-			type: Object,
-			default: null
-		},
+		},		
 		contentType: {
 			type: Object,
 			required: true
@@ -90,11 +92,32 @@ export default {
 		canMaximize: {
 			type: Boolean,
 			default: false
+		},		
+		
+
+		contentComponent: {
+			type: String,
+			default: null
 		},
+		contentComponentProps: {
+			type: Object,
+			default: null
+		},
+
 		noStatus: {
 			type: Boolean,
 			default: false		
 		},
+		statusComponent: {
+			type: String,
+			default: null,
+			required: false
+		},
+		statusComponentProps: {
+			type: Object,
+			default: null
+		},
+
 		isLocked: {
 			type: Boolean,
 			default: false
@@ -155,8 +178,11 @@ export default {
 			return this.x + 'px ' + this.y + 'px';
 		},
 		concatClassName() {
-			if ( this.modifierClass != '') return 'window ' + this.modifierClass;
-			return 'window';
+			let cn = 'window';
+			if ( this.modifierClass != '') cn += ' ' + this.modifierClass;
+			if ( this.noStatus ) cn += ' window--no-status';
+
+			return cn;
 		}
 	},
 	data: function() {
@@ -216,13 +242,16 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
+			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		onResizeStop() {
+			this.isMaximized = false;
 			this.constrain();
 		},
 		onDrag(x, y) {
 			this.x = x;
 			this.y = y;
+			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		onDragStop() {
 			this.constrain();
@@ -237,9 +266,9 @@ export default {
 			});
 			this[TOPMOST_WINDOW.action](this.windowId);
 		},
-		onMouseDown() {
-			this[TOPMOST_WINDOW.action](this.windowId);
-		},
+		// onMouseDown() {
+		// 	this[TOPMOST_WINDOW.action](this.windowId);
+		// },
 		beforeAnimateIn(el) {
 			TweenLite.set(el, {scale:0, opacity:0});
 		},

@@ -1,9 +1,15 @@
 .assistant {
 	position: fixed;
-	top: rem(80);
-	right: rem(30);
-	width: 80vw;
-	max-width: rem(300);
+	left: rem(10);
+	right: rem(10);
+	bottom: rem(30);
+
+	@include mq($from: screen-sm) {
+		top: rem(80);
+		right: rem(30);
+		left: auto;
+		max-width: rem(300);
+	}
 
 	.window {
 		position: static;

@@ -13,13 +13,12 @@
 				:key="item.shortcutId" 
 				:position-h="item.posH" 
 				:position-v="item.posV" 
-				:width-span="item.widthSpan"
 				:icon="item.icon" 
 				:label="item.label" 
 				:shortcut-id="item.shortcutId"
 				:action="item.action"
 				:action-param="item.actionParam"
-				:content="item.content"/>
+				:window-content="item.windowContent"/>
 		</div>
 
 		<div class="desktop__windows">
@@ -34,8 +33,10 @@
 				:content-name="item.contentName" 
 				:group-id="item.groupId" 
 				:title="item.title" 
-				:content-component="item.component"  
-				:content-component-props="item.componentProps"/>
+				:content-component="item.contentComponent"  
+				:content-component-props="item.contentComponentProps" 
+				:status-component="item.statusComponent"  
+				:status-component-props="item.statusComponentProps"/>
 
 			<assistant/>
 		</div>

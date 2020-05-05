@@ -15,7 +15,7 @@ import _ from 'lodash';
 import getUniqueId from '~/utils/get-unique-id';
 import isMobile from '~/utils/is-mobile';
 
-const WINDOW_CHROME_HEIGHT = 62;
+const WINDOW_CHROME_HEIGHT = 61;
 const WINDOW_CHROME_WIDTH = 2;
 
 export const state = () => ({
@@ -62,11 +62,11 @@ export const mutations = {
 
 
 	/* 
-	 *	Activate content block, opens window with matching component
+	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
-	[OPEN_CONTENT.mutation] (state, content) {
-		console.warn("OPEN_CONTENT",content)
+	[OPEN_CONTENT.mutation] (state, windowContent) {
+		console.warn("OPEN_CONTENT",windowContent)
 		
 		let defaultWindowProps = {x:10,y:10,w:window.innerWidth - 20,h:window.innerHeight - 20};
 		if ( !isMobile() ) {
@@ -82,9 +82,9 @@ export const mutations = {
 		
 		let windowsLength = state.windowList.length;
 
-		let cl = content.length;
+		let cl = windowContent.length;
 		for (var i = 0; i < cl; i++) {
-			let contentItem = content[i];
+			let contentItem = windowContent[i];
 			
 			let contentType = contentItem.type,
 				contentName = contentItem.title,
@@ -115,16 +115,25 @@ export const mutations = {
 					contentName: contentName,
 					groupId: newWindowGroup.groupId,
 					title: contentItem.title,
-					component: contentType.component,					
-					componentProps: contentItem.componentProps,
-					windowProps: contentType.windowProps
+
+					contentComponent: contentType.contentComponent,					
+					contentComponentProps: contentItem.contentComponentProps,
+					
+					statusComponent: contentType.statusComponent,
+					statusComponentProps: contentItem.statusComponentProps,
+					
+					windowProps: contentItem.windowProps
 				};
+				
+				console.log("contentItem.windowProps",contentItem.windowProps)
 
 				newWindow.windowProps.positionX = defaultWindowProps.x + windowsLength*10 + i*30; 
 				newWindow.windowProps.positionY = defaultWindowProps.y + windowsLength*10 + i*10; 
-				newWindow.windowProps.sizeW = contentType.windowProps.width ? contentType.windowProps.width+WINDOW_CHROME_WIDTH : defaultWindowProps.w; 
-				newWindow.windowProps.sizeH = contentType.windowProps.height ? contentType.windowProps.height+WINDOW_CHROME_HEIGHT : defaultWindowProps.h; 
+				newWindow.windowProps.sizeW = contentItem.windowProps.width ? contentItem.windowProps.width+WINDOW_CHROME_WIDTH : defaultWindowProps.w; 
+				newWindow.windowProps.sizeH = contentItem.windowProps.height ? contentItem.windowProps.height+WINDOW_CHROME_HEIGHT : defaultWindowProps.h; 
 				
+				if ( contentItem.statusComponentProps && contentItem.statusComponentProps.noStatus ) newWindow.windowProps.sizeH -= 30;
+
 				newWindow.positionZ = state.highestZIndex + 1;
 				
 				state.windowList.push(newWindow);
