@@ -17,10 +17,12 @@
 		position: relative;
 		z-index: 10;
 		display: flex;
+		flex-wrap: wrap;
 		width: 100%;
-		height: calc(100% - #{rem(40 + 60)});
 
 		@include mq($from: screen-md) {
+			height: calc(100% - #{rem(40 + 60)});
+			padding: rem(10);
 			display: grid;
 
 			grid-template-columns: repeat(12, 1fr);

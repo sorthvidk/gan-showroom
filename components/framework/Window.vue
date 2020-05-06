@@ -32,6 +32,9 @@
 						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p> -->
 						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					</div>
+					
+					<hr v-if="!noStatus" />
+
 					<div class="window__content">				
 						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
 					</div>
