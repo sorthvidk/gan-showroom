@@ -15,8 +15,7 @@
 				:x="computedPositionX"
 				:y="computedPositionY"
 				:w="computedSizeW"
-				:h="computedSizeH"
-				:style="{transformOrigin: transformOriginStyle}">
+				:h="computedSizeH">
 					<div class="window__top">
 						<span class="title" @click="titleClick">{{title}}</span>
 						<button class="button close" @click.stop="closeHandler">Ｘ</button>

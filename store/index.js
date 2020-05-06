@@ -348,7 +348,7 @@ export const actions = {
 				title:'Style gallery',
 				contentId: 'gallery',
 				type: ContentTypes.gallery,
-				canOverride: false,
+				canOverride: true,
 				contentComponentProps: {
 					styleId: asset.styleId,
 					focusedAsset: asset
@@ -358,7 +358,7 @@ export const actions = {
 					noStatus: true,
 					isMaximized: true,
 					canResize: false,
-					modifierClass:'window--full-screen',
+					modifierClass:'window--gallery',
 				}
 			}
 		];

@@ -1,6 +1,6 @@
 .window {
 	$chrome-height: 70;
-	$chrome-height-no-status: 31;
+	$chrome-height-no-status: 30;
 
 	$module: '.window';
 
@@ -131,7 +131,7 @@
 		scrollbar-color: $color-white $color-white;
 
 		&::-webkit-scrollbar {
-			width: rem(29);
+			width: rem(30);
 		}
 		&::-webkit-scrollbar-track {
 			background: $color-lightgrey;
@@ -143,6 +143,7 @@
 			padding: rem(10);
 			border-radius: 0;
 			border: rem(1) solid $color-black;
+			border-top-color: $color-grey;
 			border-right: 0;
 			box-shadow: 0 rem(3) 0 0 rgba(0,0,0,0.2);
 		}	
@@ -157,13 +158,21 @@
 		}
 	}
 
-	&--full-screen {
+	&--gallery {
+		left: 0;
+		top: 0;
 		width: 100vw !important;
 		height: 100vh !important;
 		transform: translate(0,0) !important;
 
 		.handle {
 			display: none;
+		}
+
+		@include mq($from: screen-sm) {
+			width: auto !important;
+			left: 50vw;
+			transform: translateX(-50%) !important;
 		}
 	}
 

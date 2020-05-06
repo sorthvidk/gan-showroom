@@ -137,7 +137,7 @@ export default {
 			noStatus: true,
 			isMaximized: true,
 			canResize: false,
-			modifierClass:'window--full-screen',
+			modifierClass:'window--gallery',
 		}		
 	}
 };

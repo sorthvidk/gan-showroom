@@ -74,7 +74,7 @@ export default {
 					if ( this.actionParam ) this.$store.dispatch(this.action,this.actionParam)
 					else this.$store.dispatch(this.action);
 				}
-			}, 300);
+			}, 500);
 		}
 	}
 };
