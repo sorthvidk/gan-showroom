@@ -4,14 +4,19 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0;	
+	bottom: 0;
 	width: 100vw;
 	height: 100vh;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
 
 	background-size: cover;
-	
+	image-rendering: pixelated;
+
+	* {
+		image-rendering: initial;
+	}
+
 	&__shortcuts {
 		padding: rem(10);
 		position: relative;
