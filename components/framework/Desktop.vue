@@ -39,6 +39,8 @@
 				:status-component-props="item.statusComponentProps"/>
 
 			<assistant/>
+
+			
 		</div>
 
 		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />

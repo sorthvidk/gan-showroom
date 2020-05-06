@@ -124,5 +124,20 @@ export default {
 			modifierClass:'window--tight',
 			noStatus: true
 		}
+	},
+	gallery: {
+		name: 'gallery',
+		contentComponent:'gallery', 
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 600,
+			smallWidth: 600,
+			largeHeight: 600,
+			smallHeight: 600,
+			noStatus: true,
+			isMaximized: true,
+			canResize: false,
+			modifierClass:'window--gallery',
+		}		
 	}
 };

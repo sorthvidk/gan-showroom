@@ -111,7 +111,7 @@ export const mutations = {
 
 				state.content.list.push(contentItem);
 
-				let windowProps = {x:0,y:0, w:contentType.defaultWindowProps.smallWidth, h:contentType.defaultWindowProps.smallHeight};
+				let windowProps = {x:10,y:10, w:contentType.defaultWindowProps.smallWidth, h:contentType.defaultWindowProps.smallHeight};
 				if ( !isMobile() ) {
 					windowProps = {x:140, y:20, w: contentType.defaultWindowProps.largeWidth+WINDOW_CHROME_WIDTH, h:contentType.defaultWindowProps.largeHeight+WINDOW_CHROME_HEIGHT};
 				}
@@ -146,7 +146,7 @@ export const mutations = {
 				
 				if ( contentItem.statusComponentProps && contentItem.statusComponentProps.noStatus ) newWindow.windowProps.sizeH -= 30;
 
-				newWindow.positionZ = state.highestZIndex + 1;
+				newWindow.positionZ = contentItem.windowProps && contentItem.windowProps.positionZ ? contentItem.windowProps.positionZ : state.highestZIndex + 1;
 				
 				state.windowList.push(newWindow);
 				windowsLength++;
@@ -313,14 +313,6 @@ export const mutations = {
 		let wll = state.windowList.length;
 		state.topMostWindow = state.windowList[wll-1];
 	},
-
-	/* 
-	 *	Show gallery with all assets
-	 *
-	 */
-	[OPEN_GALLERY.mutation] (state, asset) {
-		console.warn("OPEN_GALLERY | focused asset: "+asset.name)
-	}
 }
 
 export const actions = {
@@ -342,14 +334,35 @@ export const actions = {
 	[CLOSE_WINDOW_GROUP.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
 	},
-	[ESC_KEYPRESS.action] ({ commit }) {
-		commit(CLOSE_WINDOW_GROUP.mutation)
-	},
 	[UPDATE_WINDOW.action] ({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
+
+
+	[ESC_KEYPRESS.action] ({ commit }) {
+		commit(CLOSE_WINDOW_GROUP.mutation)
+	},
 	[OPEN_GALLERY.action] ({ commit }, asset) {
-		commit(OPEN_GALLERY.mutation, asset)
+		let galleryContent = [
+			{
+				title:'Style gallery',
+				contentId: 'gallery',
+				type: ContentTypes.gallery,
+				canOverride: true,
+				contentComponentProps: {
+					styleId: asset.styleId,
+					focusedAsset: asset
+				},
+				windowProps: {
+					positionZ: 4500,
+					noStatus: true,
+					isMaximized: true,
+					canResize: false,
+					modifierClass:'window--gallery',
+				}
+			}
+		];
+		commit(OPEN_CONTENT.mutation, {windowContent:galleryContent})
 	},
 
 	// async nuxtServerInit ({ commit }) {

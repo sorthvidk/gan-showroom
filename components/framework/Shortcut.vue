@@ -68,12 +68,13 @@ export default {
 		onClick() {
 			this[OPEN_CONTENT.action]( {windowContent:this.windowContent} );
 
+			//TODO: Fix race condition!!
 			setTimeout(()=>{
 				if ( this.action ) {
 					if ( this.actionParam ) this.$store.dispatch(this.action,this.actionParam)
 					else this.$store.dispatch(this.action);
-				}				
-			}, 200);
+				}
+			}, 500);
 		}
 	}
 };
