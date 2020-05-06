@@ -33,7 +33,7 @@
 					<div class="assistant__filters">
 						<p>Do you have any preferences to the collection? choose from the options here!</p>		
 						<div class="assistant__filters__list">						
-							<filter-button v-for="(item, key) in filtersList" :name="item.name" :filter-id="item.filterId" />
+							<filter-button v-for="(item, key) in filtersList" :key="key" :name="item.name" :filter-id="item.filterId" />
 						</div>
 					</div>
 				</div>			

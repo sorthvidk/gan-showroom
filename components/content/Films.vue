@@ -1,6 +1,6 @@
 <template>
 	<div class="films">
-		<films-item v-for="(item, key) in filmsItems" v-bind="{...item}" />
+		<films-item v-for="(item, key) in filmsItems" :key="key" v-bind="{...item}" />
 	</div>
 </template>
 
