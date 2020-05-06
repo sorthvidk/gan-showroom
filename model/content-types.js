@@ -5,8 +5,10 @@ export default {
 		statusComponent:'status-collection',		
 		allowedInstances: 1,
 		defaultWindowProps: {
-			width: 700,
-			height: 400
+			largeWidth: 4*160 + 31 + 10,
+			smallWidth: 2*160 + 31 + 10,
+			largeHeight: 510,
+			smallHeight: 510
 		}		
 	},
 	films: {
@@ -15,8 +17,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			width: 700,
-			height: 400
+			largeWidth: 700,
+			smallWidth: 350,
+			largeHeight: 510,
+			smallHeight: 510
 		}
 	},
 	musicPlayer: {
@@ -25,8 +29,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			width: 320,
-			height: 180,
+			largeWidth: 320,
+			smallWidth: 320,
+			largeHeight: 180,
+			smallHeight: 180,
 			modifierClass:'window--tight'
 		}
 	},	
@@ -36,8 +42,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			width: 700,
-			height: 400,
+			largeWidth: 700,
+			smallWidth: 350,
+			largeHeight: 400,
+			smallHeight: 300,
 			modifierClass:'window--tight'
 		}
 	},
@@ -50,8 +58,10 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			width: 274,
-			height: 418,
+			largeWidth: 274,
+			smallWidth: 274,
+			largeHeight: 418,
+			smallHeight: 418,
 			modifierClass:'window--tight'
 		}
 	},
@@ -64,8 +74,10 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			width: 416,
-			height: 276,
+			largeWidth: 274,
+			smallWidth: 274,
+			largeHeight: 180,
+			smallHeight: 180,
 			modifierClass:'window--tight'
 		}
 	},
@@ -78,8 +90,10 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			width: 320,
-			height: 320,
+			largeWidth: 320,
+			smallWidth: 320,
+			largeHeight: 274,
+			smallHeight: 274,
 			modifierClass:'window--tight'
 		}
 	},
@@ -89,8 +103,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			width: 180,
-			height: 320,
+			largeWidth: 180,
+			smallWidth: 180,
+			largeHeight: 320,
+			smallHeight: 320,
 			modifierClass:'window--tight',
 			noStatus: true
 		}
@@ -101,8 +117,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			width: 320,
-			height: 180,
+			largeWidth: 320,
+			smallWidth: 320,
+			largeHeight: 180,
+			smallHeight: 180,
 			modifierClass:'window--tight',
 			noStatus: true
 		}

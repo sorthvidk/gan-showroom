@@ -15,7 +15,9 @@
 			<button class="button close" @click="closeStyleHandler">𝗫</button>
 		</div>
 
-		<div class="window__content">
+		<hr  v-if="assistantMode == 2" />
+
+		<div class="window__content" :class="{'is-active': assistantExpanded}">
 
 
 			<div class="assistant">
@@ -31,7 +33,7 @@
 					<div class="assistant__filters">
 						<p>Do you have any preferences to the collection? choose from the options here!</p>		
 						<div class="assistant__filters__list">						
-							<filter-button v-for="(item, key) in filtersList" :name="item.name" :filter-id="item.filterId" />
+							<filter-button v-for="(item, key) in filtersList" :key="key" :name="item.name" :filter-id="item.filterId" />
 						</div>
 					</div>
 				</div>			
@@ -147,6 +149,7 @@ import {
 
 import ContentTypes from '~/model/content-types'
 import getAssetType from '~/utils/asset-type'
+import addMediaChangeListener from '~/utils/media-change'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 
@@ -157,6 +160,8 @@ export default {
 	},
 	data() {
 		return {
+			assistantExpanded: true,
+			viewportSize: 0,
 			assistantMode: 0,
 			associatedWindow: null,
 			currentStyle: null,
@@ -286,7 +291,18 @@ export default {
 			
 			//ready to show details
 			this.assistantMode = 2;
+		},
+		isSmallViewport() {
+			console.log("isSmallViewport")
+			this.viewportSize = 0;
+		},
+		isLargeViewport() {
+			console.log("isLargeViewport")
+			this.viewportSize = 1;
 		}
+	},
+	mounted() {
+		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
 	}
 };
 </script>

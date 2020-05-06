@@ -68,10 +68,6 @@ export const mutations = {
 	[OPEN_CONTENT.mutation] (state, params) {
 		console.warn("OPEN_CONTENT",params)
 		
-		let defaultWindowProps = {x:10,y:10,w:window.innerWidth - 20,h:window.innerHeight - 20};
-		if ( !isMobile() ) {
-			defaultWindowProps = {x:140, y:20, w:500, h:300};
-		}
 
 		let windowContent = params.windowContent;
 
@@ -115,6 +111,15 @@ export const mutations = {
 
 				state.content.list.push(contentItem);
 
+				let windowProps = {x:0,y:0, w:contentType.defaultWindowProps.smallWidth, h:contentType.defaultWindowProps.smallHeight};
+				if ( !isMobile() ) {
+					windowProps = {x:140, y:20, w: contentType.defaultWindowProps.largeWidth+WINDOW_CHROME_WIDTH, h:contentType.defaultWindowProps.largeHeight+WINDOW_CHROME_HEIGHT};
+				}
+
+				//override dimensions if needed
+				if ( contentItem.windowProps && contentItem.windowProps.width ) windowProps.w = contentItem.windowProps.width;
+				if ( contentItem.windowProps && contentItem.windowProps.height ) windowProps.w = contentItem.windowProps.height;
+
 				let newWindow = {
 					windowId: '' + getUniqueId(),
 					contentId: contentId,
@@ -129,15 +134,15 @@ export const mutations = {
 					statusComponent: contentType.statusComponent,
 					statusComponentProps: contentItem.statusComponentProps,
 					
-					windowProps: contentItem.windowProps
+					windowProps: contentItem.windowProps ? contentItem.windowProps : {}
 				};
-				
-				console.log("contentItem.windowProps",contentItem.windowProps)
 
-				newWindow.windowProps.positionX = defaultWindowProps.x + windowsLength*10 + i*30; 
-				newWindow.windowProps.positionY = defaultWindowProps.y + windowsLength*10 + i*10; 
-				newWindow.windowProps.sizeW = contentItem.windowProps.width ? contentItem.windowProps.width+WINDOW_CHROME_WIDTH : defaultWindowProps.w; 
-				newWindow.windowProps.sizeH = contentItem.windowProps.height ? contentItem.windowProps.height+WINDOW_CHROME_HEIGHT : defaultWindowProps.h; 
+				let offset = isMobile() ? 5 : 30;
+				
+				newWindow.windowProps.positionX = windowProps.x + windowsLength*10 + i*offset; 
+				newWindow.windowProps.positionY = windowProps.y + windowsLength*10 + i*offset;
+				newWindow.windowProps.sizeW = windowProps.w; 
+				newWindow.windowProps.sizeH = windowProps.h; 
 				
 				if ( contentItem.statusComponentProps && contentItem.statusComponentProps.noStatus ) newWindow.windowProps.sizeH -= 30;
 

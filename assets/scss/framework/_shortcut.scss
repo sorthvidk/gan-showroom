@@ -1,8 +1,9 @@
 .shortcut {
+	position: relative;
 	box-sizing: border-box;
 	padding: rem(20);
-	flex: 0 0 rem(60);
-	max-height: rem(60);
+	max-height: rem(120);
+	flex: 0 0 rem(120);
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -30,6 +31,10 @@
 	}
 	.text {
 		display: inline-block;
+		position: absolute;
+		top: 80%;
+		left: 50%;
+		transform: translateX(-50%);
 		@include bodytext();
 		background-color: $color-white;
 		padding: rem(2) rem(5);
