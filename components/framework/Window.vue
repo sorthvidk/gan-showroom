@@ -2,8 +2,8 @@
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
 		<span :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
-				v-if="!isLocked && !isFoldable"
 				:class-name="concatClassName"
+				:resizable="computedResizable"
 				class-name-active="is-active"
 				class-name-dragging="is-dragging"
 				@dragging="onDrag"
@@ -19,18 +19,11 @@
 				:style="{transformOrigin: transformOriginStyle}">
 					<div class="window__top">
 						<span class="title" @click="titleClick">{{title}}</span>
-						<!-- <button v-if="canMaximize" class="maximize" @click.stop="maximizeHandler">
-							<span v-if="isMaximized">⇲</span>
-							<span v-if="!isMaximized">↖︎</span>
-						</button> -->
 						<button class="button close" @click.stop="closeHandler">Ｘ</button>
 					</div>
 					<div v-if="!noStatus" class="window__status">
 
 						<component :is="statusComponent" v-bind="{...statusComponentProps}" />
-						<!-- <p>TIP: Try to touch your own nose!</p> -->
-						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}} | pos: {{ computedPositionX }},{{ computedPositionY }}-{{ computedPositionZ }}z | size: {{ computedSizeW }}/{{ computedSizeH }}</p> -->
-						<!-- <p>windowId: {{windowId}} | contentId: {{contentId}}</p> -->
 					</div>
 					
 					<hr v-if="!noStatus" />
@@ -59,6 +52,7 @@ import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
 import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
+import Gallery from '~/components/content/Gallery.vue'
 
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
@@ -74,6 +68,7 @@ export default {
 		SingleImage,
 		TextReader,
 		Films,
+		Gallery,
 	},
 	props: {
 		modifierClass: {
@@ -88,13 +83,9 @@ export default {
 			type: String,
 			required: true
 		},
-		canClose: {
+		canResize: {
 			type: Boolean,
 			default: true
-		},
-		canMaximize: {
-			type: Boolean,
-			default: false
 		},		
 		
 
@@ -121,14 +112,6 @@ export default {
 			default: null
 		},
 
-		isLocked: {
-			type: Boolean,
-			default: false
-		},
-		isFoldable: {
-			type: Boolean,
-			default: false
-		},
 		title: {
 			type: String
 		},
@@ -172,6 +155,10 @@ export default {
 		},
 		computedSizeH() {
 			return this.h > 0 ? this.h : this.sizeH;
+		},
+		computedResizable() {
+			if ( !this.canResize ) return false;
+			return true;
 		},
 		zIndexStyle() {
 			// console.log("z index style", this.positionZ)
@@ -217,6 +204,8 @@ export default {
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
 		},
 		titleClick() {
+			if ( !this.canResize ) return false;
+
 			if ( this.maximizeClicked ) {
 				clearTimeout(this.maximizeTimeoutHandle);
 				this.maximizeClicked = false;
@@ -228,6 +217,7 @@ export default {
 			}
 		},
 		maximizeHandler() {
+
 			if (this.isMaximized) {
 				this.isMaximized = false;
 				this.onResize(this.savedAttributes.x, this.savedAttributes.y, this.savedAttributes.w, this.savedAttributes.h);
