@@ -25,3 +25,4 @@ export const SHOW_PREVIOUS_STYLE = createMutation('SHOW_PREVIOUS_STYLE');
 export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER');
 export const PROGRESS_UPDATE = createMutation('PROGRESS_UPDATE');
 export const OPEN_WISH_LIST = createMutation('OPEN_WISH_LIST');
+export const OPEN_STYLE_CONTENT = createMutation('OPEN_STYLE_CONTENT');

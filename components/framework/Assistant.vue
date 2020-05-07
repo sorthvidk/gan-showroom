@@ -152,31 +152,31 @@
 
 				<div class="assistant__ctas" v-if="assistantMode == 1">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						{{viewWishListButtonLabel}}
+						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>		
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
 					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
-						{{addRemoveWishListButtonLabel}}
+						<p>{{addRemoveWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						{{viewWishListButtonLabel}}
+						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 3">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						{{viewWishListButtonLabel}}
+						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 4">
 					<button class="button download-wishlist" @click="downloadWishListClickHandler">
-						↓ Download wishlist
+						<p>↓ Download wishlist</p>
 					</button>
 					<button class="button share-wishlist" @click="shareWishListClickHandler">
-						Share wishlist
+						<p>Share wishlist</p>
 					</button>
 				</div>
 			</div>
@@ -261,13 +261,11 @@ export default {
 		topMostWindow(newVal) {
 
 			this.associatedWindow = newVal;
+			let noRelevantAssistantContent = false;
 
 			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
-				if ( this.completedPct > 0 ) {
-					this.assistantMode = AssistantModes.COLLECTION_SEEN;
-				} else {
-					this.assistantMode = AssistantModes.WELCOME;
-				}
+				noRelevantAssistantContent = true;
+				
 			}
 			else {
 				this.associatedWindowGroupId = this.associatedWindow.groupId;
@@ -284,17 +282,28 @@ export default {
 					case ContentTypes.imageSquare.contentComponent:
 						if ( componentProps.asset && componentProps.asset.styleId ) {
 							this.currentStyle = this.currentStyles.filter(e=>e.styleId === componentProps.asset.styleId)[0];
-							this.parseAssets();
-							
+							this.parseAssets();							
 						}
 						else {
-							this.assistantMode = AssistantModes.WELCOME;							
+							noRelevantAssistantContent = true;
 						}
 						break;	
-					default:					
-						this.assistantMode = AssistantModes.WELCOME;
+					case ContentTypes.wishList.contentComponent:
+						this.assistantMode = AssistantModes.WISHLIST;
+						break;	
+					default:				
+						//No window type found? 	
+						noRelevantAssistantContent = true;
 						break;	
 				}			
+			}
+
+			if ( noRelevantAssistantContent ) {
+				if ( this.completedPct > 0 ) {
+					this.assistantMode = AssistantModes.COLLECTION_SEEN;
+				} else {
+					this.assistantMode = AssistantModes.WELCOME;
+				}
 			}
 		}
 	},
@@ -375,7 +384,6 @@ export default {
 		isLargeViewport() {
 			console.log("isLargeViewport")
 			this.viewPortSize = ViewportSizes.LARGE;
-
 		},
 		toggleContentHandler() {
 			this.assistantExpanded = !this.assistantExpanded;
@@ -383,9 +391,9 @@ export default {
 	},
 	mounted() {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
-		if ( isMobile() ) {
-			this.assistantExpanded = false;
-			this.viewPortSize = ViewportSizes.SMALL;
+		if (!isMobile() ) {
+			this.assistantExpanded = true;
+			this.viewPortSize = ViewportSizes.LARGE;
 		}
 	}
 };

@@ -8,12 +8,15 @@ import {
 	UPDATE_WINDOW, 
 	OPEN_GALLERY, 
 	OPEN_WISH_LIST, 
+	OPEN_STYLE_CONTENT, 
+	PROGRESS_UPDATE, 
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
 import _ from 'lodash';
 
 import getUniqueId from '~/utils/get-unique-id';
+import getAssetType from '~/utils/asset-type'
 import isMobile from '~/utils/is-mobile';
 
 const WINDOW_CHROME_HEIGHT = 70;
@@ -54,6 +57,7 @@ export const mutations = {
 				(a, b) => a.onTop && !b.onTop ? -1 : 1
 			);
 			style.assets = sortedAssets;
+
 		}
 
 		//to ensure only one connection operation
@@ -342,6 +346,37 @@ export const actions = {
 
 	[ESC_KEYPRESS.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
+	},
+	[OPEN_STYLE_CONTENT.action] ({ commit, state }, styleId ) {
+
+		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0];
+		if ( !listStyle ) return false;
+
+		let content = [];
+		let al = listStyle.assets.length;
+
+		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
+		for (var i = al-1; i >= 0; i--) {
+			let asset = listStyle.assets[i];
+
+			if ( asset.visible ) {
+				let type = getAssetType(asset);
+				content.push({
+					title: asset.name,
+					contentId: asset.assetId,
+					type: type,
+					canOverride: false,
+					windowProps: type.defaultWindowProps,
+					contentComponentProps: { asset: asset },
+					statusComponentProps: type.defaultStatusComponentProps
+				});
+			}
+		}
+		
+		commit('collection/'+PROGRESS_UPDATE.mutation, styleId );
+
+		commit(OPEN_CONTENT.mutation, {windowContent: content})
+
 	},
 	[OPEN_GALLERY.action] ({ commit }, asset) {
 		let galleryContent = [
