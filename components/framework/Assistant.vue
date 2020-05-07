@@ -7,9 +7,9 @@
 
 
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
-			<button class="button expand" @click="expandContentHandler">
-				<span v-if="!assistantExpanded">+</span>
-				<span v-if="assistantExpanded">-</span>
+			<button class="button expand" @click="toggleContentHandler">
+				<span v-if="!assistantExpanded">➕</span>
+				<span v-if="assistantExpanded">➖</span>
 				<p>{{filterStatusText}}</p>
 			</button>
 		</div>
@@ -18,9 +18,9 @@
 			<p>
 				{{currentStyle.name}}
 			</p>
-			<button class="button previous" @click="previousStyleHandler">❮</button>
-			<button class="button next" @click="nextStyleHandler">❯</button>
-			<button class="button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">❮</button>
+			<button class="window-button next" @click="nextStyleHandler">❯</button>
+			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
 		</div>
 
 		<hr  v-if="assistantMode == 2" />
@@ -37,16 +37,34 @@
 					</div>
 				</div>
 
-				<div class="assistant__content" v-if="assistantMode == 1" :class="{'is-active': viewPortSize == 1 || assistantExpanded}">
+				<div class="assistant__content" v-if="assistantMode == 1" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
 					<div class="assistant__filters">
 						<p>Do you have any preferences to the collection? choose from the options here!</p>		
 						<div class="assistant__filters__list">						
 							<filter-button v-for="(item, key) in filtersList" :key="key" :name="item.name" :filter-id="item.filterId" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
+							<filter-button :name="'lorem'" />
 						</div>
 					</div>
 				</div>			
 				
-				<div class="assistant__content" v-if="assistantMode == 2" :class="{'is-active': viewPortSize == 1 || assistantExpanded}">
+				<div class="assistant__content" v-if="assistantMode == 2" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
 					<div class="assistant__product-details">
 						<p>{{currentStyle.description}}</p>
 						<table>
@@ -157,6 +175,7 @@ import {
 
 import ContentTypes from '~/model/content-types'
 import ViewportSizes from '~/model/viewport-sizes'
+import AssistantModes from '~/model/assistant-modes'
 import getAssetType from '~/utils/asset-type'
 import addMediaChangeListener from '~/utils/media-change'
 import isMobile from '~/utils/is-mobile'
@@ -171,8 +190,8 @@ export default {
 	data() {
 		return {
 			assistantExpanded: true,
-			viewPortSize: 0,
-			assistantMode: 0,
+			viewPortSize: ViewportSizes.SMALL,
+			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
 			currentStyle: null,
 			hiddenAssetContent: [],
@@ -216,7 +235,7 @@ export default {
 			this.associatedWindow = newVal;
 
 			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
-				this.assistantMode = 0;			
+				this.assistantMode = AssistantModes.WELCOME;			
 			}
 			else {
 				this.associatedWindowGroupId = this.associatedWindow.groupId;
@@ -226,7 +245,7 @@ export default {
 
 				switch(component) {
 					case ContentTypes.collection.contentComponent:
-						this.assistantMode = 1;
+						this.assistantMode = AssistantModes.FILTERS;
 						break;
 					case ContentTypes.imagePortrait.contentComponent:
 					case ContentTypes.imageLandscape.contentComponent:
@@ -237,11 +256,11 @@ export default {
 							
 						}
 						else {
-							this.assistantMode = 0;							
+							this.assistantMode = AssistantModes.WELCOME;							
 						}
 						break;	
 					default:					
-						this.assistantMode = 0;
+						this.assistantMode = AssistantModes.WELCOME;
 						break;	
 				}			
 			}
@@ -309,22 +328,26 @@ export default {
 			console.log("HIDDEN ASSET COUNT: "+this.hiddenAssetContent.length)
 			
 			//ready to show details
-			this.assistantMode = 2;
+			this.assistantMode = AssistantModes.DETAILS;
 		},
 		isSmallViewport() {
 			console.log("isSmallViewport")
-			this.viewPortSize = ViewportSizes.small;
+			this.viewPortSize = ViewportSizes.SMALL;
 		},
 		isLargeViewport() {
 			console.log("isLargeViewport")
-			this.viewPortSize = ViewportSizes.large;			
+			this.viewPortSize = ViewportSizes.LARGE;
+
+		},
+		toggleContentHandler() {
+			this.assistantExpanded = !this.assistantExpanded;
 		}
 	},
 	mounted() {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
 		if ( isMobile() ) {
 			this.assistantExpanded = false;
-			this.viewPortSize = ViewportSizes.small;
+			this.viewPortSize = ViewportSizes.SMALL;
 		}
 	}
 };

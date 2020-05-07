@@ -36,7 +36,7 @@ export default {
 	name: 'support',
 	data() {
 		return {
-			viewPortSize: 1,
+			viewPortSize: ViewportSizes.SMALL,
 			minimized: true,
 			avatar: '/img/avatar.png'
 		}
@@ -51,18 +51,16 @@ export default {
 			this.minimized = !this.minimized
 		},
 		isSmallViewport() {
-			this.viewPortSize = ViewportSizes.small;
+			this.viewPortSize = ViewportSizes.SMALL;
 		},
 		isLargeViewport() {
-			this.viewPortSize = ViewportSizes.large;			
+			this.viewPortSize = ViewportSizes.LARGE;			
 		}
 	},
 	mounted() {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
-		if ( isMobile() ) {
-			this.viewPortSize = ViewportSizes.small;
-		}
-		else {
+		if ( !isMobile() ) {
+			this.viewPortSize = ViewportSizes.LARGE;
 			this.minimized = false;			
 		}
 	}
