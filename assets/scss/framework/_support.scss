@@ -1,9 +1,38 @@
+.window {
+
+	&--support {
+		z-index: $z-index-support !important;
+
+		.title {
+			cursor: default;
+		}
+
+		position: fixed;
+		top: auto;
+		left: rem(10);
+		right: rem(10);
+		bottom: rem(45 + 10);
+
+		@include mq($from: screen-sm) {
+			right: rem(20);
+			left: auto;
+			width: rem(276);
+			bottom: rem(59);
+		}
+		@include mq($from: screen-md) {
+			right: rem(30);
+		}
+
+		.window__content {
+			height: auto;
+		}
+	}
+}
+
+
 .support {
 	@include bodytext();
-
-	border: none;
-	box-shadow: none;
-
+	
 	a {
 		color: currentColor;
 	}

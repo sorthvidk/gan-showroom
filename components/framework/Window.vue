@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
+		<section :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				:class-name="concatClassName"
 				:resizable="computedResizable"
@@ -31,7 +31,7 @@
 						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
 					</div>
 			</vue-draggable-resizable>
-		</span>
+		</section>
 	</transition>
 </template>
 
