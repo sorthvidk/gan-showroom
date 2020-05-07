@@ -1,7 +1,7 @@
 <template>
 	<div class="gallery">
-		<gallery-image class="gallery__item" v-for="(asset,key) in assets" v-if="asset.type === 'image'" :asset="asset" :focused="focusedAsset.assetId === asset.assetId" />
-		<gallery-video class="gallery__item" v-for="(asset,key) in assets" v-if="asset.type === 'video'" :asset="asset" :focused="focusedAsset.assetId === asset.assetId" />
+		<gallery-image class="gallery__item" v-for="(asset,key) in assets" :key="'galleryImage'+key" v-if="asset.type === 'image'" :asset="asset" :focused="focusedAsset.assetId === asset.assetId" />
+		<gallery-video class="gallery__item" v-for="(asset,key) in assets" :key="'galleryVideo'+key"  v-if="asset.type === 'video'" :asset="asset" :focused="focusedAsset.assetId === asset.assetId" />
 	</div>
 </template>
 

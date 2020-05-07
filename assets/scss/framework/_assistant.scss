@@ -1,5 +1,69 @@
-.assistant {
+.window {
 
+	&--assistant {
+		z-index: $z-index-assistant !important;
+
+		.title {
+			cursor: default;
+		}
+
+		position: fixed;
+		top: auto;
+		left: rem(10);
+		right: rem(10);
+		bottom: rem(45 + 10 + 30); //ios navbar + gutter + support (heights)
+
+		@include mq($from: screen-sm) {
+			top: rem(60);
+			right: rem(20);
+			bottom: auto;
+			left: auto;
+			width: rem(276);
+		}
+		@include mq($from: screen-md) {
+			top: rem(80);
+			right: rem(30);
+		}
+
+		.window__content {
+			height: auto;
+		}
+
+
+		.button.expand {
+			display: inline-flex;
+			align-items: center;
+
+			span {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				width: rem(20);
+				height: rem(20);
+				margin-right: rem(10);
+			}
+			p {
+				@include bodytext();
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.assistant {
+	&__content {
+		max-height: 0;
+		overflow: hidden;
+		overflow-y: scroll;
+
+		&.is-active {
+			max-height: rem(180);
+		}
+
+		@include mq($from: screen-md) {
+			max-height: none;
+		}
+	}
 	&__welcome {
 		padding: rem(9) rem(10);
 		

@@ -1,10 +1,18 @@
 <template>
-	<div class="window window--tight window--assistant">
+	<section class="window window--tight window--assistant">
 		
 		<div class="window__top">
 			<span class="title">🤖 Desktop assistant</span>				
 		</div>
 
+
+		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
+			<button class="button expand" @click="expandContentHandler">
+				<span v-if="!assistantExpanded">+</span>
+				<span v-if="assistantExpanded">-</span>
+				<p>{{filterStatusText}}</p>
+			</button>
+		</div>
 
 		<div class="window__status" v-if="assistantMode == 2">
 			<p>
@@ -17,19 +25,19 @@
 
 		<hr  v-if="assistantMode == 2" />
 
-		<div class="window__content" :class="{'is-active': assistantExpanded}">
+		<div class="window__content">
 
 
 			<div class="assistant">
 				
-				<div v-if="assistantMode == 0">
+				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__welcome">
 						<h3>Welcome!</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
 					</div>
 				</div>
 
-				<div v-if="assistantMode == 1">
+				<div class="assistant__content" v-if="assistantMode == 1" :class="{'is-active': viewPortSize == 1 || assistantExpanded}">
 					<div class="assistant__filters">
 						<p>Do you have any preferences to the collection? choose from the options here!</p>		
 						<div class="assistant__filters__list">						
@@ -38,7 +46,7 @@
 					</div>
 				</div>			
 				
-				<div v-if="assistantMode == 2">
+				<div class="assistant__content" v-if="assistantMode == 2" :class="{'is-active': viewPortSize == 1 || assistantExpanded}">
 					<div class="assistant__product-details">
 						<p>{{currentStyle.description}}</p>
 						<table>
@@ -114,7 +122,6 @@
 					</div>
 				</div>
 
-				
 				<div class="assistant__ctas" v-if="assistantMode == 1">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						{{viewWishListButtonLabel}}
@@ -129,8 +136,9 @@
 					</button>
 				</div>			
 			</div>			
+			
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -148,8 +156,10 @@ import {
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import ViewportSizes from '~/model/viewport-sizes'
 import getAssetType from '~/utils/asset-type'
 import addMediaChangeListener from '~/utils/media-change'
+import isMobile from '~/utils/is-mobile'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 
@@ -161,12 +171,13 @@ export default {
 	data() {
 		return {
 			assistantExpanded: true,
-			viewportSize: 0,
+			viewPortSize: 0,
 			assistantMode: 0,
 			associatedWindow: null,
 			currentStyle: null,
 			hiddenAssetContent: [],
-			associatedWindowGroupId: null
+			associatedWindowGroupId: null,
+			filterName: null
 		}
 	},
 	computed: {
@@ -174,7 +185,8 @@ export default {
 			filtersList: state => state.collection.filters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow
+			topMostWindow: state => state.topMostWindow,
+			activeFilter: state => state.collection.activeFilter
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`;
@@ -188,13 +200,20 @@ export default {
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0;
+		},
+		filterStatusText() {
+			if ( this.filterName ) return filterName;
+			return 'Filter';
 		}
 	},
 	watch: {
+		activeFilter(newVal) {
+			if ( newVal && newVal.name != '' ) this.filterName = newVal.name;
+			else this.filterName = null;
+		},
 		topMostWindow(newVal) {
 
 			this.associatedWindow = newVal;
-
 
 			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
 				this.assistantMode = 0;			
@@ -294,15 +313,19 @@ export default {
 		},
 		isSmallViewport() {
 			console.log("isSmallViewport")
-			this.viewportSize = 0;
+			this.viewPortSize = ViewportSizes.small;
 		},
 		isLargeViewport() {
 			console.log("isLargeViewport")
-			this.viewportSize = 1;
+			this.viewPortSize = ViewportSizes.large;			
 		}
 	},
 	mounted() {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		if ( isMobile() ) {
+			this.assistantExpanded = false;
+			this.viewPortSize = ViewportSizes.small;
+		}
 	}
 };
 </script>

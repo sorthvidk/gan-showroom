@@ -153,23 +153,6 @@
 		}
 	}
 
-	&--gallery {
-		left: 0;
-		top: 0;
-		width: 100vw !important;
-		height: 100vh !important;
-		transform: translate(0,0) !important;
-
-		.handle {
-			display: none;
-		}
-
-		@include mq($from: screen-sm) {
-			width: auto !important;
-			left: 50vw;
-			transform: translateX(-50%) !important;
-		}
-	}
 
 	&--no-status {
 		#{$module}__content {
@@ -177,63 +160,7 @@
 		}
 	}
 
-	&--assistant {
-		z-index: $z-index-assistant !important;
 
-		.title {
-			cursor: default;
-		}
-
-		position: fixed;
-		top: auto;
-		left: rem(10);
-		right: rem(10);
-		bottom: rem(45 + 10 + 30); //ios navbar + gutter + support (heights)
-
-		@include mq($from: screen-sm) {
-			top: rem(60);
-			right: rem(20);
-			bottom: auto;
-			left: auto;
-			width: rem(276);
-		}
-		@include mq($from: screen-md) {
-			top: rem(80);
-			right: rem(30);
-		}
-
-		#{$module}__content {
-			height: auto;
-		}
-	}
-
-	&--support {
-		z-index: $z-index-support !important;
-
-		.title {
-			cursor: default;
-		}
-
-		position: fixed;
-		top: auto;
-		left: rem(10);
-		right: rem(10);
-		bottom: rem(10);
-
-		@include mq($from: screen-sm) {
-			right: rem(20);
-			left: auto;
-			width: rem(276);
-			bottom: rem(60);
-		}
-		@include mq($from: screen-md) {
-			right: rem(30);
-		}
-
-		#{$module}__content {
-			height: auto;
-		}
-	}
 
 	.vdr {
 		touch-action: none;
