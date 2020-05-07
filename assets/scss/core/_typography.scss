@@ -6,15 +6,22 @@ em {
 	font-style: italic;
 }
 
-@mixin title() {
+@mixin megatype() {
 	font-size: rem(50);
 	line-height: 1.2;
 	letter-spacing: -0.03em;
 	text-transform: uppercase;
 }
 
-@mixin headline() {
+@mixin windowtitle() {
 	font-size: rem(15);
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.01em;
+}
+
+@mixin headline() {
+	font-size: rem(16);
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: -0.01em;
@@ -26,10 +33,7 @@ em {
 	line-height: 1.27;
 }
 
-h1, h2 {
-	@include title();
-}
-h3, h4 {
+h3 {
 	@include headline();
 }
 p {

@@ -11,11 +11,12 @@
 	justify-content: center;
 	display: none;
 
+	
 	@include mq($from: screen-sm) {
 		display: block;
 	}
 	p {
 		white-space: nowrap;
-		@include title();
+		@include megatype();
 	}
 }

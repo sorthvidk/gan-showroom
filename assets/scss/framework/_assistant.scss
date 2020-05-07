@@ -70,6 +70,7 @@
 		}
 
 		@include mq($from: screen-md) {
+			border-top: 0;
 			max-height: none;
 		}
 	}
@@ -154,18 +155,7 @@
 			margin-bottom: rem(20);		
 		}
 		table {
-			table-layout: fixed;
-			text-align: left;
-		}
-		table tr td {
-			padding: 0;
-			@include bodytext();			
-		}
-		table tr th {
-			@include bodytext();
-			color: $color-darkgrey;			
-			white-space: nowrap;
-			padding-right: rem(10);
+			@include details-table();
 		}
 		.link {
 			cursor: pointer;
@@ -180,13 +170,7 @@
 		display: flex;
 		justify-content: space-between;
 		.button {
-			cursor: pointer;
-			display: block;
-			width: 100%;
-			background-color: $color-white;
-			padding: rem(10);
-			@include bodytext();
-			text-decoration: underline;
+			@include full-width-button();
 			border-top: rem(1) solid $color-black;
 			text-align: left;
 

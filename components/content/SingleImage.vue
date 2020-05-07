@@ -1,6 +1,8 @@
 <template>
 	<div class="single-image" :class="{'is-interactive': this.canOpenGallery}">
-		<img :src="imageUrl" alt="img" @click="clickHandler">
+		<transition name="fade">
+			<img :src="imageUrl" alt="img" @click="clickHandler">
+		</transition>
 	</div>
 </template>
 
