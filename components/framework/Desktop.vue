@@ -51,7 +51,11 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, ESC_KEYPRESS } from '~/model/constants'
+import { 
+	TOPMOST_WINDOW, 
+	ESC_KEYPRESS,
+	RIGHT_KEYPRESS,
+	LEFT_KEYPRESS } from '~/model/constants'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'

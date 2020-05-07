@@ -6,6 +6,9 @@ const createMutation = (type) => ({
 	stateKey: camelCase(type)
 });
 
+export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
+export const LEFT_KEYPRESS = createMutation('LEFT_KEYPRESS');
+export const RIGHT_KEYPRESS = createMutation('RIGHT_KEYPRESS');
 
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS');
 export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION');
@@ -15,7 +18,6 @@ export const UPDATE_WINDOW = createMutation('UPDATE_WINDOW');
 export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP');
 export const EXPAND_WINDOW_GROUP = createMutation('EXPAND_WINDOW_GROUP');
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT');
-export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS');
 export const OPEN_GALLERY = createMutation('OPEN_GALLERY');
 export const ADD_TO_WISHLIST = createMutation('ADD_TO_WISHLIST');
 export const REMOVE_FROM_WISHLIST = createMutation('REMOVE_FROM_WISHLIST');

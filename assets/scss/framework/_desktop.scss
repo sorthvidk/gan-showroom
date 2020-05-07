@@ -26,8 +26,8 @@
 		width: 100%;
 
 		@include mq($from: screen-md) {
-			height: calc(100% - #{rem(40 + 60)});
-			padding: rem(10);
+			height: calc(100vh - #{rem(40 + 60)});
+			padding: 0;
 			display: grid;
 
 			grid-template-columns: repeat(12, 1fr);
