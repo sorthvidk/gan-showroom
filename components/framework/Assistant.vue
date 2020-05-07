@@ -408,6 +408,10 @@ export default {
 				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
 					this.nextStyleHandler();
 				}
+			} else if (event.code === 'Space') {
+				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
+					this.addToWishListClickHandler();
+				}				
 			}
 		})
 	}
