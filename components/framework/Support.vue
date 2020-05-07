@@ -61,7 +61,6 @@ export default {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
 		if ( !isMobile() ) {
 			this.viewPortSize = ViewportSizes.LARGE;
-			this.minimized = false;			
 		}
 	}
 }
