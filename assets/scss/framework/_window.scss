@@ -1,6 +1,6 @@
 .window {
 	$chrome-height: 70;
-	$chrome-height-no-status: 30;
+	$chrome-height-no-status: 31;
 
 	$module: '.window';
 
@@ -32,6 +32,7 @@
 
 
 	hr {
+		box-sizing: border-box;
 		display: block;
 		margin: 0;
 		background-color: $color-white;
@@ -48,7 +49,6 @@
 
 		.title {
 			flex: 1 1 100%;
-			height: rem(30);
 			padding: rem(5);
 			overflow: hidden;
 			border-bottom: rem(1) solid $color-black;
@@ -58,7 +58,7 @@
 			text-overflow: ellipsis;
 			text-align: center;
 			@include bevel();
-			@include headline();
+			@include windowtitle();
 
 			cursor: grab;
 		}
@@ -146,6 +146,7 @@
 		background: #eee;
 		border: rem(1) solid $color-black;
 		display: block;
+		z-index: 2;
 
 		&:after,
 		&:before {

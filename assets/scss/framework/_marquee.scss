@@ -17,6 +17,6 @@
 	}
 	p {
 		white-space: nowrap;
-		@include title();
+		@include megatype();
 	}
 }

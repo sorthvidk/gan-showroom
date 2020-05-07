@@ -19,7 +19,7 @@ import getUniqueId from '~/utils/get-unique-id';
 import getAssetType from '~/utils/asset-type'
 import isMobile from '~/utils/is-mobile';
 
-const WINDOW_CHROME_HEIGHT = 70;
+const WINDOW_CHROME_HEIGHT = 71;
 const WINDOW_CHROME_WIDTH = 2;
 
 export const state = () => ({

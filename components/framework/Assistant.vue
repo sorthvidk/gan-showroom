@@ -258,6 +258,9 @@ export default {
 			if ( newVal && newVal.name != '' ) this.filterName = newVal.name;
 			else this.filterName = null;
 		},
+		wishList(newVal) {
+			console.log("WISH LIST",newVal)
+		},
 		topMostWindow(newVal) {
 
 			this.associatedWindow = newVal;

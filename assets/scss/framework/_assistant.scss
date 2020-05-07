@@ -155,18 +155,7 @@
 			margin-bottom: rem(20);		
 		}
 		table {
-			table-layout: fixed;
-			text-align: left;
-		}
-		table tr td {
-			padding: 0;
-			@include bodytext();			
-		}
-		table tr th {
-			@include bodytext();
-			color: $color-darkgrey;			
-			white-space: nowrap;
-			padding-right: rem(10);
+			@include details-table();
 		}
 		.link {
 			cursor: pointer;
