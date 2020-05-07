@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<span :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
+		<section :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
 				:class-name="concatClassName"
 				:resizable="computedResizable"
@@ -16,10 +16,10 @@
 				:y="computedPositionY"
 				:w="computedSizeW"
 				:h="computedSizeH">
-					<div class="window__top">
+					<header class="window__top">
 						<span class="title" @click="titleClick">{{title}}</span>
 						<button class="button close" @click.stop="closeHandler">Ｘ</button>
-					</div>
+					</header>
 					<div v-if="!noStatus" class="window__status">
 
 						<component :is="statusComponent" v-bind="{...statusComponentProps}" />
@@ -31,7 +31,7 @@
 						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
 					</div>
 			</vue-draggable-resizable>
-		</span>
+		</section>
 	</transition>
 </template>
 
@@ -52,10 +52,12 @@ import SingleImage from '~/components/content/SingleImage.vue'
 import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
+import WishList from '~/components/content/WishList.vue'
 
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
+import StatusWishList from '~/components/content/StatusWishList.vue'
 
 export default {
 	name: 'window',
@@ -63,11 +65,13 @@ export default {
 		VueDraggableResizable,
 		StatusStatic,
 		StatusCollection,
+		StatusWishList,
 		Collection,
 		SingleImage,
 		TextReader,
 		Films,
 		Gallery,
+		WishList,
 	},
 	props: {
 		modifierClass: {

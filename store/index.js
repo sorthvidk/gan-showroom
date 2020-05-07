@@ -7,6 +7,7 @@ import {
 	ESC_KEYPRESS,
 	UPDATE_WINDOW, 
 	OPEN_GALLERY, 
+	OPEN_WISH_LIST, 
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -359,6 +360,21 @@ export const actions = {
 					isMaximized: true,
 					canResize: false,
 					modifierClass:'window--gallery',
+				}
+			}
+		];
+		commit(OPEN_CONTENT.mutation, {windowContent:galleryContent})
+	},
+
+	[OPEN_WISH_LIST.action] ({ commit }, asset) {
+		let galleryContent = [
+			{
+				title:'Your wishlist',
+				contentId: 'wish-list',
+				type: ContentTypes.wishList,
+				canOverride: false,
+				windowProps: {
+					modifierClass:'window--wish-list',
 				}
 			}
 		];

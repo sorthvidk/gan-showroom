@@ -5,8 +5,8 @@ export default {
 		statusComponent:'status-collection',		
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 4*160 + 31 + 10,
-			smallWidth: 2*160 + 31 + 10,
+			largeWidth: 4*160 + 32 + 10,
+			smallWidth: 2*160 + 32 + 10,
 			largeHeight: 510,
 			smallHeight: 510
 		}		
@@ -138,6 +138,19 @@ export default {
 			isMaximized: true,
 			canResize: false,
 			modifierClass:'window--gallery',
+		}		
+	},
+	wishList: {
+		name: 'wish-list',
+		contentComponent:'wish-list', 
+		statusComponent:'status-wish-list',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 705,
+			smallWidth: 355,
+			largeHeight: 600,
+			smallHeight: 400,
+			modifierClass:'window--wish-list',
 		}		
 	}
 };

@@ -1,44 +1,64 @@
 <template>
-	<div class="window window--tight window--assistant">
+	<section class="window window--tight window--assistant">
 		
 		<div class="window__top">
 			<span class="title">🤖 Desktop assistant</span>				
 		</div>
 
 
-		<div class="window__status" v-if="assistantMode == 2">
+		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
+			<button class="button expand" @click="toggleContentHandler">
+				<span v-if="!assistantExpanded">➕</span>
+				<span v-if="assistantExpanded">➖</span>
+				<p>{{filterStatusText}}</p>
+			</button>
+		</div>
+
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 0">
+			<button class="button expand" @click="toggleContentHandler">
+				<span v-if="!assistantExpanded">➕</span>
+				<span v-if="assistantExpanded">➖</span>
+				<p>{{currentStyle.name}}</p>
+			</button>
+			<button class="window-button previous" @click="previousStyleHandler">❮</button>
+			<button class="window-button next" @click="nextStyleHandler">❯</button>
+			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+		</div>
+
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
 			<p>
 				{{currentStyle.name}}
 			</p>
-			<button class="button previous" @click="previousStyleHandler">❮</button>
-			<button class="button next" @click="nextStyleHandler">❯</button>
-			<button class="button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">❮</button>
+			<button class="window-button next" @click="nextStyleHandler">❯</button>
+			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
 		</div>
 
-		<hr  v-if="assistantMode == 2" />
+		<hr  v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
 
-		<div class="window__content" :class="{'is-active': assistantExpanded}">
+		<div class="window__content">
 
 
 			<div class="assistant">
 				
-				<div v-if="assistantMode == 0">
-					<div class="assistant__welcome">
+				<div class="assistant__content" v-if="assistantMode == 0">
+					<div class="assistant__text">
 						<h3>Welcome!</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
 					</div>
 				</div>
+					
 
-				<div v-if="assistantMode == 1">
+				<div class="assistant__content" v-if="assistantMode == 1" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
 					<div class="assistant__filters">
 						<p>Do you have any preferences to the collection? choose from the options here!</p>		
 						<div class="assistant__filters__list">						
 							<filter-button v-for="(item, key) in filtersList" :key="key" :name="item.name" :filter-id="item.filterId" />
 						</div>
 					</div>
-				</div>			
+				</div>
 				
-				<div v-if="assistantMode == 2">
+				<div class="assistant__content" v-if="assistantMode == 2" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
 					<div class="assistant__product-details">
 						<p>{{currentStyle.description}}</p>
 						<table>
@@ -114,12 +134,28 @@
 					</div>
 				</div>
 
-				
+				<div class="assistant__content" v-if="assistantMode == 3">
+					<div class="assistant__text">
+						<p>Do you have any preferences to the collection? choose from the options here!</p>
+					</div>
+				</div>
+
+				<div class="assistant__content" v-if="assistantMode == 4">
+					<div class="assistant__text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue.</p>
+					</div>
+				</div>
+
+
+
+
+
 				<div class="assistant__ctas" v-if="assistantMode == 1">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						{{viewWishListButtonLabel}}
 					</button>
-				</div>			
+				</div>		
+
 				<div class="assistant__ctas" v-if="assistantMode == 2">
 					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
 						{{addRemoveWishListButtonLabel}}
@@ -127,10 +163,26 @@
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						{{viewWishListButtonLabel}}
 					</button>
-				</div>			
-			</div>			
+				</div>
+
+				<div class="assistant__ctas" v-if="assistantMode == 3">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						{{viewWishListButtonLabel}}
+					</button>
+				</div>
+
+				<div class="assistant__ctas" v-if="assistantMode == 4">
+					<button class="button download-wishlist" @click="downloadWishListClickHandler">
+						↓ Download wishlist
+					</button>
+					<button class="button share-wishlist" @click="shareWishListClickHandler">
+						Share wishlist
+					</button>
+				</div>
+			</div>
+			
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -145,11 +197,15 @@ import {
 	CLOSE_WINDOW_GROUP,
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
+	OPEN_WISH_LIST,
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import ViewportSizes from '~/model/viewport-sizes'
+import AssistantModes from '~/model/assistant-modes'
 import getAssetType from '~/utils/asset-type'
 import addMediaChangeListener from '~/utils/media-change'
+import isMobile from '~/utils/is-mobile'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 
@@ -161,12 +217,13 @@ export default {
 	data() {
 		return {
 			assistantExpanded: true,
-			viewportSize: 0,
-			assistantMode: 0,
+			viewPortSize: ViewportSizes.SMALL,
+			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
 			currentStyle: null,
 			hiddenAssetContent: [],
-			associatedWindowGroupId: null
+			associatedWindowGroupId: null,
+			filterName: null
 		}
 	},
 	computed: {
@@ -174,7 +231,9 @@ export default {
 			filtersList: state => state.collection.filters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow
+			topMostWindow: state => state.topMostWindow,
+			activeFilter: state => state.collection.activeFilter,
+			completedPct: state => state.collection.completedPct
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`;
@@ -188,16 +247,27 @@ export default {
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0;
+		},
+		filterStatusText() {
+			if ( this.filterName ) return filterName;
+			return 'Filter';
 		}
 	},
 	watch: {
+		activeFilter(newVal) {
+			if ( newVal && newVal.name != '' ) this.filterName = newVal.name;
+			else this.filterName = null;
+		},
 		topMostWindow(newVal) {
 
 			this.associatedWindow = newVal;
 
-
 			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
-				this.assistantMode = 0;			
+				if ( this.completedPct > 0 ) {
+					this.assistantMode = AssistantModes.COLLECTION_SEEN;
+				} else {
+					this.assistantMode = AssistantModes.WELCOME;
+				}
 			}
 			else {
 				this.associatedWindowGroupId = this.associatedWindow.groupId;
@@ -207,7 +277,7 @@ export default {
 
 				switch(component) {
 					case ContentTypes.collection.contentComponent:
-						this.assistantMode = 1;
+						this.assistantMode = AssistantModes.FILTER_COLLECTION;
 						break;
 					case ContentTypes.imagePortrait.contentComponent:
 					case ContentTypes.imageLandscape.contentComponent:
@@ -218,11 +288,11 @@ export default {
 							
 						}
 						else {
-							this.assistantMode = 0;							
+							this.assistantMode = AssistantModes.WELCOME;							
 						}
 						break;	
 					default:					
-						this.assistantMode = 0;
+						this.assistantMode = AssistantModes.WELCOME;
 						break;	
 				}			
 			}
@@ -232,6 +302,7 @@ export default {
 		...mapActions([
 			OPEN_CONTENT.action,
 			CLOSE_WINDOW_GROUP.action,
+			OPEN_WISH_LIST.action,
 			'collection/'+ALL_ASSETS_VISIBLE.action,
 			'collection/'+SET_CURRENT_FILTER.action,
 			'collection/'+ADD_TO_WISHLIST.action,
@@ -241,6 +312,7 @@ export default {
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
+			this[OPEN_WISH_LIST.action]( );
 		},
 		previousStyleHandler() {
 			this['collection/'+SHOW_PREVIOUS_STYLE.action]( this.currentStyle.styleId );
@@ -263,6 +335,12 @@ export default {
 			else {
 				this['collection/'+ADD_TO_WISHLIST.action](this.currentStyle);
 			}
+		},
+		downloadWishListClickHandler() {
+			//DOWNLOAD
+		},
+		shareWishListClickHandler() {
+			//SHARE
 		},
 		parseAssets() {
 			let al = this.currentStyle.assets.length;
@@ -287,22 +365,28 @@ export default {
 				}
 			}
 
-			console.log("HIDDEN ASSET COUNT: "+this.hiddenAssetContent.length)
-			
 			//ready to show details
-			this.assistantMode = 2;
+			this.assistantMode = AssistantModes.STYLE_DETAILS;
 		},
 		isSmallViewport() {
 			console.log("isSmallViewport")
-			this.viewportSize = 0;
+			this.viewPortSize = ViewportSizes.SMALL;
 		},
 		isLargeViewport() {
 			console.log("isLargeViewport")
-			this.viewportSize = 1;
+			this.viewPortSize = ViewportSizes.LARGE;
+
+		},
+		toggleContentHandler() {
+			this.assistantExpanded = !this.assistantExpanded;
 		}
 	},
 	mounted() {
 		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		if ( isMobile() ) {
+			this.assistantExpanded = false;
+			this.viewPortSize = ViewportSizes.SMALL;
+		}
 	}
 };
 </script>
