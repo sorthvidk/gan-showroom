@@ -1,5 +1,31 @@
 @import './settings';
 
+@mixin custom-scrollbar() {
+	scrollbar-width: auto;
+	scrollbar-color: $color-white $color-grey;
+
+	&::-webkit-scrollbar {
+		width: rem(30);
+	}
+	&::-webkit-scrollbar-track {
+		background: $color-lightgrey;
+		border-left: rem(1) solid $color-black;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-white;
+		padding: rem(10);
+		border-radius: 0;
+		border: 0;
+		border-left: rem(1) solid $color-black;
+		box-shadow: rem(1) rem(1) 0 0 $color-black,  0 rem(-1) 0 0 $color-black;
+
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+
 @mixin bevel($inverted: false) {
 	@if $inverted {
 	box-shadow: inset -1px -1px $color-lightgrey, 
@@ -13,4 +39,49 @@
 				inset -2px -2px $color-grey, 
 				inset 2px 2px $color-white;
 	}
+}
+
+
+@mixin full-width-button() {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: $color-white;
+	padding: 0 rem(10);
+	height: rem(35);
+	border-top: rem(1) solid $color-black;
+	text-align: left;
+
+	&:hover {
+		background-color: $color-lightgrey;
+	}
+
+	span { //icon
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(20);
+		height: rem(20);
+		margin-right: rem(10);
+	}
+	p {
+		@include bodytext();
+		text-decoration: underline;
+	}
+}
+
+
+@mixin window-button() {
+	flex: 0 0 rem(30);
+	width: rem(30);
+	height: rem(30);
+	padding: rem(5);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	transition: all 0.2s ease;
 }

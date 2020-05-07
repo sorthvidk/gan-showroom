@@ -1,3 +1,4 @@
 export default {
-	small: 0, large: 1
+	SMALL: 0, 
+	LARGE: 1
 };
