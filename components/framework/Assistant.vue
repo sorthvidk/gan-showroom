@@ -398,6 +398,18 @@ export default {
 			this.assistantExpanded = true;
 			this.viewPortSize = ViewportSizes.LARGE;
 		}
+		window.addEventListener('keyup', event => {
+			if (event.key === 'ArrowLeft') {
+				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
+					this.previousStyleHandler();
+				}				
+			}
+			else if (event.key === 'ArrowRight') {
+				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
+					this.nextStyleHandler();
+				}
+			}
+		})
 	}
 };
 </script>

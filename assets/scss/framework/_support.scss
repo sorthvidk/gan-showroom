@@ -19,6 +19,7 @@
 		bottom: rem(45 + 10);
 
 		@include mq($from: screen-sm) {
+			border-bottom: 0;
 			right: rem(20);
 			left: auto;
 			width: rem(276);
@@ -90,6 +91,7 @@
 
 			background-color: $color-yellow;
 			border-top: rem(1) solid $color-black;
+			border-bottom: rem(1) solid $color-black;
 			
 			&:hover {
 				background-color: darken($color-yellow, 5%);
