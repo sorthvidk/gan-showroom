@@ -1,5 +1,9 @@
 <template>
-	<button @click="onClick" class="shortcut" :style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }">
+	<button
+		@click="onClick"
+		class="shortcut"
+		:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
+	>
 		<span class="icon">{{icon}}</span>
 		<span class="text">{{label}}</span>
 	</button>
@@ -10,7 +14,7 @@ import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_CONTENT } from '~/model/constants'
 
 export default {
-	name:'shortcut',
+	name: 'shortcut',
 	props: {
 		positionH: {
 			type: Number,
@@ -25,57 +29,56 @@ export default {
 		icon: {
 			type: String,
 			default: null,
-			required: true	
+			required: true
 		},
 		label: {
 			type: String,
 			default: null,
-			required: true	
+			required: true
 		},
 		shortcutId: {
 			type: String,
 			default: null,
-			required: true	
+			required: true
 		},
 		windowContent: {
 			type: Array,
-			default: [],
-			required: true	
+			default: () => [],
+			required: true
 		},
 		action: {
 			type: String,
 			default: null,
-			required: false	
+			required: false
 		},
 		actionParam: {
 			type: String,
 			default: null,
-			required: false	
-		},
+			required: false
+		}
 	},
 	computed: {
 		styleGridRow() {
-			return this.positionV + "/" + (this.positionV+1);
+			return this.positionV + '/' + (this.positionV + 1)
 		},
 		styleGridColumn() {
-			return this.positionH + "/" + (this.positionH+1);
+			return this.positionH + '/' + (this.positionH + 1)
 		}
 	},
 	methods: {
-		...mapActions([
-			OPEN_CONTENT.action
-		]),
+		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
-			this[OPEN_CONTENT.action]( {windowContent:this.windowContent} );
+			this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
 
 			//TODO: Fix race condition!!
-			setTimeout(()=>{
-				if ( this.action ) {
-					if ( this.actionParam ) this.$store.dispatch(this.action,this.actionParam)
-					else this.$store.dispatch(this.action);
+			setTimeout(() => {
+				if (this.action) {
+					if (this.actionParam)
+						this.$store.dispatch(this.action, this.actionParam)
+					else this.$store.dispatch(this.action)
 				}
-			}, 500);
+			}, 500)
 		}
 	}
-};
+}
 </script>

@@ -41,6 +41,7 @@
 
 			<assistant />
 			<support />
+			<music-player v-if="musicPlayerOpen" />
 		</div>
 
 		<marquee
@@ -62,6 +63,7 @@ import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
+import MusicPlayer from '~/components/framework/MusicPlayer.vue'
 
 import Marquee from '~/components/content/Marquee.vue'
 
@@ -73,12 +75,14 @@ export default {
 		Window,
 		Marquee,
 		Assistant,
-		Support
+		Support,
+		MusicPlayer
 	},
 	computed: {
 		...mapState({
 			windowList: state => state.windowList,
-			shortcutList: state => state.shortcuts.list
+			shortcutList: state => state.shortcuts.list,
+			musicPlayerOpen: state => state.musicPlayerOpen
 		})
 	},
 	methods: {
