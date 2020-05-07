@@ -25,6 +25,22 @@
 	}
 }
 
+@mixin details-table() {
+	table-layout: fixed;
+	text-align: left;
+	
+	tr td {
+		padding: 0;
+		@include bodytext();			
+	}
+	tr th {
+		@include bodytext();
+		color: $color-darkgrey;			
+		white-space: nowrap;
+		padding-right: rem(10);
+	}
+}
+
 
 @mixin bevel($inverted: false) {
 	@if $inverted {

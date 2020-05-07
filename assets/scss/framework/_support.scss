@@ -1,7 +1,12 @@
 .window {
 
 	&--support {
-		z-index: $z-index-support !important;
+		box-shadow: rem(4) 0 0 0 rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		z-index: 1;
+		@include mq($until: screen-sm) {
+			z-index: $z-index-support;
+		}
 
 		.title {
 			cursor: default;
@@ -81,17 +86,11 @@
 
 	&__footer {
 		.button {
-			cursor: pointer;
+			@include full-width-button();
 
 			background-color: $color-yellow;
 			border-top: rem(1) solid $color-black;
-			border-bottom: rem(1) solid $color-black;
-			border-right: rem(1) solid $color-black;
-			padding: rem(10);
-			display: flex;
-			align-items: center;
-			@include bodytext();
-
+			
 			&:hover {
 				background-color: darken($color-yellow, 5%);
 			}

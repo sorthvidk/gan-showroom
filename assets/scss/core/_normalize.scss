@@ -52,12 +52,6 @@ body {
 	line-height: 1.2;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-	margin: 0;
-}
 ol, ul {
 	list-style: none;
 }
@@ -67,11 +61,24 @@ img {
 }
 
 button {
+	cursor: pointer;
 	color: currentColor;
 	font-size: inherit;
 	border: 0;
+	padding: 0;
+	margin: 0;	
 	background-color: transparent;
+
 	&:focus, &:active, &:hover {
 		outline: 0;
 	}
+}
+
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .1s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
