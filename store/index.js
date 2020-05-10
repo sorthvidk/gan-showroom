@@ -36,7 +36,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-	[CONNECT_ASSETS.mutation](state) {
+	[CONNECT_ASSETS.mutation] (state) {
 		console.warn('CONNECT_ASSETS')
 
 		if (state.collection.assetsConnected) return false
@@ -70,7 +70,7 @@ export const mutations = {
 	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
-	[OPEN_CONTENT.mutation](state, params) {
+	[OPEN_CONTENT.mutation] (state, params) {
 		console.warn('OPEN_CONTENT', params)
 
 		let windowContent = params.windowContent
@@ -197,7 +197,7 @@ export const mutations = {
 	 *	Save window position and size values
 	 *
 	 */
-	[UPDATE_WINDOW.mutation](state, params) {
+	[UPDATE_WINDOW.mutation] (state, params) {
 		let currentWindow = state.windowList.filter(
 			e => e.windowId === params.windowId
 		)[0]
@@ -209,7 +209,7 @@ export const mutations = {
 	 *	Bring window to top.
 	 *
 	 */
-	[TOPMOST_WINDOW.mutation](state, windowId) {
+	[TOPMOST_WINDOW.mutation] (state, windowId) {
 		//console.log("TOPMOST_WINDOW",windowId)
 		let windowsLength = state.windowList.length
 		let newZIndexes = []
@@ -219,7 +219,7 @@ export const mutations = {
 			newZIndexes.push(currentWindow.positionZ)
 		}
 		//console.log("zIndexes before",state.zIndexes)
-		newZIndexes.sort(function(a, b) {
+		newZIndexes.sort(function (a, b) {
 			return a - b
 		})
 		state.zIndexes = newZIndexes
@@ -242,7 +242,7 @@ export const mutations = {
 	 *	Single window close. Wipes window group history, so user has to close all windows individually after
 	 *
 	 */
-	[CLOSE_WINDOW.mutation](state, ids) {
+	[CLOSE_WINDOW.mutation] (state, ids) {
 		state.content.list = state.content.list.filter(
 			e => e.contentId !== ids.contentId
 		)
@@ -304,7 +304,7 @@ export const mutations = {
 	 *	Close a window group. Closes the last added group.
 	 *
 	 */
-	[CLOSE_WINDOW_GROUP.mutation](state) {
+	[CLOSE_WINDOW_GROUP.mutation] (state) {
 		let groupsLength = state.windowGroupList.length
 
 		if (groupsLength < 1) return false
@@ -358,37 +358,40 @@ export const mutations = {
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
-	[TOGGLE_MUSIC_PLAYER.mutation](state) {
+	[TOGGLE_MUSIC_PLAYER.mutation] (state) {
 		state.musicPlayerOpen = !state.musicPlayerOpen
+	},
+	setStyles (state, payload) {
+		console.log('style from CMS:', payload)
 	}
 }
 
 export const actions = {
 	//first action, injects assets into collection
-	[CONNECT_ASSETS.action]({ commit }) {
+	[CONNECT_ASSETS.action] ({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
-	[TOPMOST_WINDOW.action]({ commit }, windowId) {
+	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},
-	[CLOSE_WINDOW.action]({ commit }, ids) {
+	[CLOSE_WINDOW.action] ({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
-	[OPEN_CONTENT.action]({ commit }, content) {
+	[OPEN_CONTENT.action] ({ commit }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 	},
-	[CLOSE_WINDOW_GROUP.action]({ commit }) {
+	[CLOSE_WINDOW_GROUP.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
 	},
-	[UPDATE_WINDOW.action]({ commit }, params) {
+	[UPDATE_WINDOW.action] ({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[ESC_KEYPRESS.action]({ commit }) {
+	[ESC_KEYPRESS.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
 	},
-	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
+	[OPEN_STYLE_CONTENT.action] ({ commit, state }, styleId) {
 		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
 		if (!listStyle) return false
 
@@ -417,7 +420,7 @@ export const actions = {
 
 		commit(OPEN_CONTENT.mutation, { windowContent: content })
 	},
-	[OPEN_GALLERY.action]({ commit }, asset) {
+	[OPEN_GALLERY.action] ({ commit }, asset) {
 		let galleryContent = [
 			{
 				title: 'Style gallery',
@@ -439,11 +442,11 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-	[TOGGLE_MUSIC_PLAYER.action]({ commit }, openState) {
+	[TOGGLE_MUSIC_PLAYER.action] ({ commit }, openState) {
 		commit(TOGGLE_MUSIC_PLAYER.mutation, openState)
 	},
 
-	[OPEN_WISH_LIST.action]({ commit }, asset) {
+	[OPEN_WISH_LIST.action] ({ commit }, asset) {
 		let galleryContent = [
 			{
 				title: 'Your wishlist',
@@ -456,19 +459,19 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
-	}
+	},
 
-	// async nuxtServerInit ({ commit }) {
-	// 	let files = await require.context(
-	// 		'~/assets/content/blog/',
-	// 		false,
-	// 		/\.json$/
-	// 	)
-	// 	let blogPosts = files.keys().map(key => {
-	// 		let res = files(key)
-	// 		res.slug = key.slice(2, -5)
-	// 		return res
-	// 	})
-	// 	await commit('setBlogPosts', blogPosts)
-	// }
+	async nuxtServerInit ({ commit }) {
+		let files = await require.context(
+			'~/assets/content/style/',
+			false,
+			/\.json$/
+		)
+		let styles = files.keys().map(key => {
+			let res = files(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit('setStyles', styles)
+	}
 }
