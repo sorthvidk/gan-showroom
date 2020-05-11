@@ -24,26 +24,16 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Styleid", name: "styleid", widget: "string", hint: "S-12343" }
+      - { label: "Style #", name: "styleid", widget: "string", hint: "S-12343" }
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Program", name: "program", widget: "string" }
-      - label: "Collections (belongs to)"
-        name: "collection"
+      - label: "Filters"
+        name: "filters"
         widget: "relation"
         multiple: true
-        collection: "collection"
+        collection: "filters"
         searchFields: ["id", "name"]
         valueField: "id"
-      - {
-          label: "Products",
-          name: "products",
-          widget: "relation",
-          multiple: true,
-          collection: "product",
-          searchFields: ["sku", "name"],
-          valueField: "sku",
-          displayFields: ["sku", "name"],
-        }
       - { label: "Program Display name", name: "programName", widget: "string" }
       - { label: "Material", name: "material", widget: "string" }
       - { label: "Drop", name: "drop", widget: "string" }
@@ -72,16 +62,25 @@ collections:
               options: ["DKK", "EUR", "USD"],
             }
       - { label: "Description", name: "description", widget: "markdown" }
-  - name: "product"
-    label: "Product (asset)"
-    folder: "assets/content/product"
+  - name: "assets"
+    label: "Media items"
+    folder: "assets/content/asset"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
     editor:
       preview: false
     fields:
-      - { label: "SKU", name: "sku", widget: "string", hint: "GHF-1243232" }
+      - {
+          label: "Style #",
+          name: "styleId",
+          widget: "relation",
+          multiple: true,
+          collection: "style",
+          searchFields: ["styleid", "name"],
+          valueField: "styleid",
+          displayFields: ["styleid", "name"],
+        }
       - { label: "Prdoduct name", name: "name", widget: "string" }
       - label: "image"
         name: "image"
@@ -91,11 +90,17 @@ collections:
         widget: "select"
         multiple: false
         options: ["video", "image"]
+      - {
+          label: "Aspects",
+          name: "Aspects",
+          widget: "select",
+          options: ["landscape", "portrait", "square"],
+        }
       - { label: "Visible", name: "visible", widget: "boolean", default: true }
-      - { label: "On Top", name: "onTop", widget: "boolean" }
-  - name: "collection"
-    label: "Cellections"
-    folder: "assets/content/collection"
+      - { label: "On Top", name: "onTop", widget: "boolean", default: false }
+  - name: "filters"
+    label: "Filters"
+    folder: "assets/content/filters"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
@@ -109,3 +114,11 @@ collections:
           hint: "dresses",
         }
       - { label: "Display name", name: "name", widget: "string" }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          min: 0,
+          max: 100,
+          default: 0,
+        }
