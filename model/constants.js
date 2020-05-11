@@ -6,6 +6,11 @@ const createMutation = type => ({
 	stateKey: camelCase(type)
 })
 
+export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
+export const COLLECTION_FILTERS_FETCH = createMutation('COLLECTION_FILTERS_FETCH')
+export const MEDIA_ASSETS_FETCH = createMutation('MEDIA_ASSETS_FETCH')
+
+
 export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS')
 export const LEFT_KEYPRESS = createMutation('LEFT_KEYPRESS')
 export const RIGHT_KEYPRESS = createMutation('RIGHT_KEYPRESS')
