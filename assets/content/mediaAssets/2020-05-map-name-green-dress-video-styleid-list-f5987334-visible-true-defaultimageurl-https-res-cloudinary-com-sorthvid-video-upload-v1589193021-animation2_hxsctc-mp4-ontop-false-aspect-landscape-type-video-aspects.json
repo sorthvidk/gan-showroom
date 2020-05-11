@@ -1,9 +1,7 @@
 {
   "assetId": "s897fdsf",
   "name": "Green Dress video",
-  "styleId": [
-    "F5987334"
-  ],
+  "styleId": "F5987334",
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/sorthvid/video/upload/v1589193021/animation2_hxsctc.mp4",
   "onTop": false,

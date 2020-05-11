@@ -35,12 +35,12 @@ collections:
       - { label: "Color names", name: "colorNames", widget: "string", hint: "Names of colors available ex. 'Brunnera Blue, Sunflower Yellow'" }
       - { label: "Color Id", name: "colorId", widget: "string", hint: "ID of color ex. '699'" }
       - { label: "Description", name: "description", widget: "markdown", hint: "Long description of style" }  
-      - { label: "Wholesale Price DKK", name: "wholesalePriceDKK", widget: "string", hint: "Wholesale price in DKK ex. '800'" }
-      - { label: "Wholesale Price EUR", name: "wholesalePriceEUR", widget: "string", hint: "Wholesale price in EUR ex. '110'" }
-      - { label: "Wholesale Price USD", name: "wholesalePriceUSD", widget: "string", hint: "Wholesale price in USD ex. '140'" }
-      - { label: "Retail Price DKK", name: "retailPriceDKK", widget: "string", hint: "Retail price in DKK ex. '1000'" }
-      - { label: "Retail Price EUR", name: "retailPriceEUR", widget: "string", hint: "Retail price in EUR ex. '140'" }
-      - { label: "Retail Price USD", name: "retailPriceUSD", widget: "string", hint: "Retail price in USD ex. '170'" }     
+      - { label: "Wholesale Price DKK", name: "wholesalePriceDKK", widget: "number", hint: "Wholesale price in DKK ex. '800'" }
+      - { label: "Wholesale Price EUR", name: "wholesalePriceEUR", widget: "number", hint: "Wholesale price in EUR ex. '110'" }
+      - { label: "Wholesale Price USD", name: "wholesalePriceUSD", widget: "number", hint: "Wholesale price in USD ex. '140'" }
+      - { label: "Retail Price DKK", name: "retailPriceDKK", widget: "number", hint: "Retail price in DKK ex. '1000'" }
+      - { label: "Retail Price EUR", name: "retailPriceEUR", widget: "number", hint: "Retail price in EUR ex. '140'" }
+      - { label: "Retail Price USD", name: "retailPriceUSD", widget: "number", hint: "Retail price in USD ex. '170'" }     
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }
       - { name: "completed", default: false, widget: "hidden" }
@@ -55,9 +55,10 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Unique identifier", name: "id", widget: "string", hint: "ex. 'c1'" }
+      - { label: "Unique identifier", name: "filterId", widget: "string", hint: "ex. 'c1'" }
       - { label: "Display name", name: "name", widget: "string", hint: "ex. 'Animal print'" }
       - { label: "Order", name: "order", widget: "number", min: 0, max: 100, default: 0, hint: "Optional ordering position" }
+      - { name: "styleIds", default: [], widget: "hidden" }
   
   - name: "mediaAssets"
     label: "Media asset"
@@ -69,7 +70,7 @@ collections:
       preview: false
     fields:
       - { label: "Asset #", name: "assetId", widget: "string", hint: "Unique asset ID" }
-      - { label: "Style #", name: "styleId", widget: "relation", multiple: true, collection: "collectionItems", searchFields: ["styleid", "name"], valueField: "styleid", displayFields: ["styleid", "name"], hint: "Reference to unique style ID" }
+      - { label: "Style #", name: "styleId", widget: "relation", collection: "collectionItems", searchFields: ["styleId", "name"], valueField: "styleId", displayFields: ["styleId", "name"], hint: "Reference to unique style ID" }
       - { label: "Asset title", name: "name", widget: "string", hint: "Title for image window ex. 'pleated_georgette_1.jpg'" }
       - { label: "Cloudinary media reference", name: "cloudinaryUrl", widget: "image" }
       - { label: "Media type", name: "type", widget: "select", multiple: false, options: ["video", "image"], hint: "Either image or video" }      

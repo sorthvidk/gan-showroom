@@ -1,5 +1,9 @@
 import {
+	COLLECTION_ITEMS_FETCH,
+	COLLECTION_FILTERS_FETCH,
+	MEDIA_ASSETS_FETCH,
 	CONNECT_ASSETS,
+	FILTER_COLLECTION,
 	TOPMOST_WINDOW,
 	CLOSE_WINDOW,
 	CLOSE_WINDOW_GROUP,
@@ -36,6 +40,24 @@ export const state = () => ({
 })
 
 export const mutations = {
+	
+	// Baseline content to cms
+
+	[COLLECTION_ITEMS_FETCH.mutation] (state, data) {
+		state.collection.list = data;
+	},
+
+
+	[COLLECTION_FILTERS_FETCH.mutation] (state, data) {
+		state.collection.filters = data;
+	},
+
+
+	[MEDIA_ASSETS_FETCH.mutation] (state, data) {
+		state.assets.list = data;
+	},
+
+
 	[CONNECT_ASSETS.mutation] (state) {
 		console.warn('CONNECT_ASSETS')
 
@@ -45,7 +67,7 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-
+			console.log("asset style", asset.styleId)
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
@@ -461,17 +483,45 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
-	async nuxtServerInit ({ commit }) {
-		let files = await require.context(
-			'~/assets/content/collectionStyles/',
+	async nuxtServerInit ({ commit, dispatch }) {
+		let collectionFiles = await require.context(
+			'~/assets/content/collectionItems/',
 			false,
 			/\.json$/
 		)
-		let styles = files.keys().map(key => {
-			let res = files(key)
+		let collection = collectionFiles.keys().map(key => {
+			let res = collectionFiles(key)
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit('setStyles', styles)
+		await commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+
+		let filterFiles = await require.context(
+			'~/assets/content/collectionFilters/',
+			false,
+			/\.json$/
+		)
+		let filters = filterFiles.keys().map(key => {
+			let res = filterFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(COLLECTION_FILTERS_FETCH.mutation, filters)
+
+		let assetFiles = await require.context(
+			'~/assets/content/mediaAssets/',
+			false,
+			/\.json$/
+		)
+		let assets = assetFiles.keys().map(key => {
+			let res = assetFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(MEDIA_ASSETS_FETCH.mutation, assets)
+
+
+		dispatch(CONNECT_ASSETS.action);
+		dispatch('collection/'+FILTER_COLLECTION.action);
 	}
 }

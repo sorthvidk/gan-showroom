@@ -1,5 +1,6 @@
 {
   "order": 0,
-  "id": "c2",
-  "name": "Tops"
+  "filterId": "c2",
+  "name": "Tops",
+  "styleIds": []
 }

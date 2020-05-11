@@ -3,9 +3,7 @@
   "aspect": "portrait",
   "visible": true,
   "onTop": true,
-  "styleId": [
-    "F8907234"
-  ],
+  "styleId":"F8907234",
   "name": "Shirt Packshot 1",
   "cloudinaryUrl": "https://res.cloudinary.com/sorthvid/image/upload/v1589190760/F4478-687-2_ptz7ln.jpg",
   "type": "image"
