@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: master
 
+# when using the default proxy server port
+local_backend: false
+
 media_library:
   name: cloudinary
   config:
@@ -12,16 +15,110 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'assets/content/blog'
+  - name: "style"
+    label: "Style"
+    folder: "assets/content/style"
     create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    format: "json"
+    slug: "{{year}}-{{month}}-{{slug}}"
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Style #", name: "styleid", widget: "string", hint: "S-12343" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Program", name: "program", widget: "string" }
+      - label: "Filters"
+        name: "filters"
+        widget: "relation"
+        multiple: true
+        collection: "filters"
+        searchFields: ["id", "name"]
+        valueField: "id"
+      - { label: "Program Display name", name: "programName", widget: "string" }
+      - { label: "Material", name: "material", widget: "string" }
+      - { label: "Drop", name: "drop", widget: "string" }
+      - { label: "Color names", name: "colorNames", widget: "string" }
+      - { label: "Color Id", name: "colorId", widget: "string" }
+      - label: "Wholesale Price"
+        name: "wholeSalePrice"
+        widget: "list"
+        fields:
+          - { label: Price, name: price, widget: string }
+          - {
+              label: Currency,
+              name: currency,
+              widget: select,
+              options: ["DKK", "EUR", "USD"],
+            }
+      - label: "Retailer Price"
+        name: "retailerPrice"
+        widget: "list"
+        fields:
+          - { label: Price, name: price, widget: string }
+          - {
+              label: Currency,
+              name: currency,
+              widget: select,
+              options: ["DKK", "EUR", "USD"],
+            }
+      - { label: "Description", name: "description", widget: "markdown" }
+  - name: "assets"
+    label: "Media items"
+    folder: "assets/content/asset"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Style #",
+          name: "styleId",
+          widget: "relation",
+          multiple: true,
+          collection: "style",
+          searchFields: ["styleid", "name"],
+          valueField: "styleid",
+          displayFields: ["styleid", "name"],
+        }
+      - { label: "Prdoduct name", name: "name", widget: "string" }
+      - label: "image"
+        name: "image"
+        widget: "image"
+      - label: "Media type"
+        name: "type"
+        widget: "select"
+        multiple: false
+        options: ["video", "image"]
+      - {
+          label: "Aspects",
+          name: "Aspects",
+          widget: "select",
+          options: ["landscape", "portrait", "square"],
+        }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true }
+      - { label: "On Top", name: "onTop", widget: "boolean", default: false }
+  - name: "filters"
+    label: "Filters"
+    folder: "assets/content/filters"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Unique Identityer",
+          name: "id",
+          widget: "string",
+          hint: "dresses",
+        }
+      - { label: "Display name", name: "name", widget: "string" }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          min: 0,
+          max: 100,
+          default: 0,
+        }

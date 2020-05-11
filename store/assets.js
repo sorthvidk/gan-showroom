@@ -8,7 +8,7 @@ export const state = () => ({
 			imageAspect: 'landscape',
 			onTop: false,
 			visible: true,
-			defaultImageUrl:'/img/styles/F4478-687-landscape.png'
+			defaultImageUrl: '/img/styles/F4478-687-landscape.png'
 		},
 		{
 			assetId: 'v230230423826',
@@ -18,7 +18,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl:'/img/styles/F4478-687-4.jpg'
+			defaultImageUrl: '/img/styles/F4478-687-4.jpg'
 		},
 		{
 			assetId: 'v29893453397',
@@ -28,7 +28,7 @@ export const state = () => ({
 			imageAspect: 'square',
 			onTop: false,
 			visible: false,
-			defaultImageUrl:'/img/styles/F4478-687-square.png'
+			defaultImageUrl: '/img/styles/F4478-687-square.png'
 		},
 		{
 			assetId: 'v86837673245',
@@ -38,7 +38,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl:'/img/styles/F4488-180-1.jpg'
+			defaultImageUrl: '/img/styles/F4488-180-1.jpg'
 		},
 		{
 			assetId: 'v18877098345',
@@ -48,34 +48,32 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl:'/img/styles/F4600-994-1.jpg'
+			defaultImageUrl: '/img/styles/F4600-994-1.jpg'
 		}
 	],
 
 	films: [
 		{
-			filmId:'123456',
+			filmId: '123456',
 			filmName: 'Numa numa',
-			posterUrl:'/img/styles/F4478-687-square.png',
+			posterUrl: '/img/styles/F4478-687-square.png',
 			videoUrl: ''
 		},
 		{
-			filmId:'123457',
+			filmId: '123457',
 			filmName: 'Numa numa',
-			posterUrl:'/img/styles/F4478-687-square.png',
+			posterUrl: '/img/styles/F4478-687-square.png',
 			videoUrl: ''
 		},
 		{
-			filmId:'123458',
+			filmId: '123458',
 			filmName: 'Numa numa',
-			posterUrl:'/img/styles/F4478-687-square.png',
+			posterUrl: '/img/styles/F4478-687-square.png',
 			videoUrl: ''
 		}
 	]
-});
+})
 
-export const mutations = {
+export const mutations = {}
 
-};
-
-export const actions = {};
+export const actions = {}
