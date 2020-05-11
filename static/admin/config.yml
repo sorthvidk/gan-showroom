@@ -35,6 +35,7 @@ collections:
       - { label: "Color names", name: "colorNames", widget: "string", hint: "Names of colors available ex. 'Brunnera Blue, Sunflower Yellow'" }
       - { label: "Color Id", name: "colorId", widget: "string", hint: "ID of color ex. '699'" }
       - { label: "Description", name: "description", widget: "markdown", hint: "Long description of style" }  
+      - { label: "Sustainable", name: "sustainable", widget: "boolean", default: false, hint: "Set to true to show style as sustainable" }
       - { label: "Wholesale Price DKK", name: "wholesalePriceDKK", widget: "number", hint: "Wholesale price in DKK ex. '800'" }
       - { label: "Wholesale Price EUR", name: "wholesalePriceEUR", widget: "number", hint: "Wholesale price in EUR ex. '110'" }
       - { label: "Wholesale Price USD", name: "wholesalePriceUSD", widget: "number", hint: "Wholesale price in USD ex. '140'" }

@@ -64,7 +64,8 @@ export const state = () => ({
 			assets: [],			
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: false
 		},
 		{
 			styleId: 'F5987334',
@@ -86,7 +87,8 @@ export const state = () => ({
 			assets: [],
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: true
 		},
 		{
 			styleId: 'F1121095',
@@ -108,7 +110,8 @@ export const state = () => ({
 			assets: [],
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: false
 		}
 	]
 });

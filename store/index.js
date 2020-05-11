@@ -189,8 +189,7 @@ export const mutations = {
 				if (
 					contentItem.statusComponentProps &&
 					contentItem.statusComponentProps.noStatus
-				)
-					newWindow.windowProps.sizeH -= 30
+				) newWindow.windowProps.sizeH -= 30
 
 				newWindow.positionZ =
 					contentItem.windowProps && contentItem.windowProps.positionZ

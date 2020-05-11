@@ -2,6 +2,7 @@
 	<button class="collection-item" @click.stop="onItemClick">
 		<img :src="imageUrl" alt="lorem">
 		<p>{{imageName}}</p>
+		<span v-if="sustainable">[SUSTAINABLE]</span>
 	</button>
 </template>
 
