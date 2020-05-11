@@ -32,6 +32,7 @@ export default {
 			OPEN_STYLE_CONTENT.action
 		]),		
 		onItemClick() {
+			console.log("STYLE CLICK")
 			this[OPEN_STYLE_CONTENT.action]( this.styleId );
 		}
 	}

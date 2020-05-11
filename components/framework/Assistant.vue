@@ -393,8 +393,8 @@ export default {
 		}
 	},
 	mounted() {
-		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
-		if (!isMobile() ) {
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		if (!isMobile ) {
 			this.assistantExpanded = true;
 			this.viewPortSize = ViewportSizes.LARGE;
 		}
@@ -408,6 +408,10 @@ export default {
 				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
 					this.nextStyleHandler();
 				}
+			} else if (event.code === 'Space') {
+				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
+					this.addToWishListClickHandler();
+				}				
 			}
 		})
 	}

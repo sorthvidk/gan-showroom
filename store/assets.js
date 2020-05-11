@@ -8,7 +8,7 @@ export const state = () => ({
 			imageAspect: 'landscape',
 			onTop: false,
 			visible: true,
-			defaultImageUrl: '/img/styles/F4478-687-landscape.png'
+			cloudinaryUrl: '/img/styles/F4478-687-landscape.png'
 		},
 		{
 			assetId: 'v230230423826',
@@ -18,7 +18,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl: '/img/styles/F4478-687-4.jpg'
+			cloudinaryUrl: '/img/styles/F4478-687-4.jpg'
 		},
 		{
 			assetId: 'v29893453397',
@@ -28,7 +28,7 @@ export const state = () => ({
 			imageAspect: 'square',
 			onTop: false,
 			visible: false,
-			defaultImageUrl: '/img/styles/F4478-687-square.png'
+			cloudinaryUrl: '/img/styles/F4478-687-square.png'
 		},
 		{
 			assetId: 'v86837673245',
@@ -38,7 +38,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl: '/img/styles/F4488-180-1.jpg'
+			cloudinaryUrl: '/img/styles/F4488-180-1.jpg'
 		},
 		{
 			assetId: 'v18877098345',
@@ -48,7 +48,7 @@ export const state = () => ({
 			imageAspect: 'portrait',
 			onTop: true,
 			visible: true,
-			defaultImageUrl: '/img/styles/F4600-994-1.jpg'
+			cloudinaryUrl: '/img/styles/F4600-994-1.jpg'
 		}
 	],
 

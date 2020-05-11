@@ -13,7 +13,8 @@
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
-		"generate": "nuxt generate"
+		"generate": "nuxt generate",
+		"cmsdev": "npx netlify-cms-proxy-server"
 	},
 	"repository": {
 		"type": "git",

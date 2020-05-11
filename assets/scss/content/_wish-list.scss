@@ -45,6 +45,13 @@
 	}
 
 	&__details {
+
+		display: none;
+
+		@include mq($from: screen-sm) {
+			display: block;
+		}
+
 		padding-left: rem(215);
 
 		overflow: hidden;
@@ -54,6 +61,7 @@
 		
 		.inner {
 			padding-top: rem(28);
+			padding-bottom: rem(40);
 			max-width: rem(300);
 			margin: 0 auto;
 			table {
