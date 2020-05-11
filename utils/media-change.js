@@ -19,4 +19,6 @@ export default function(callbackSmallViewport, callbackLargeViewport, maxWidth=1
 	}
 
 	mql.addListener(screenTest);
+
+	return mql.matches;
 }

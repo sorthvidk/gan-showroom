@@ -1,6 +1,6 @@
 <template>
 	<div class="collection">
-		<collection-item v-for="(item, key) in collectionItems" :key="key" v-bind="{...item}" />
+		<collection-item v-for="(item, key) in collectionItems" :key="'collectionItem'+key" v-bind="{...item}" />
 	</div>
 </template>
 

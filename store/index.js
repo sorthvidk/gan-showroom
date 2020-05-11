@@ -210,7 +210,7 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation](state, windowId) {
-		//console.log("TOPMOST_WINDOW",windowId)
+		console.log("TOPMOST_WINDOW",windowId)
 		let windowsLength = state.windowList.length
 		let newZIndexes = []
 
