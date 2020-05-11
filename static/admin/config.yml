@@ -64,9 +64,10 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Asset #", name: "assetId", widget: "string", hint: "Unique asset ID" }
       - { label: "Style #", name: "styleId", widget: "relation", multiple: true, collection: "collectionItems", searchFields: ["styleid", "name"], valueField: "styleid", displayFields: ["styleid", "name"], hint: "Reference to unique style ID" }
       - { label: "Asset title", name: "name", widget: "string", hint: "Title for image window ex. 'pleated_georgette_1.jpg'" }
-      - { label: "Cloudinary media reference", name: "defaultImageUrl", widget: "image" }
+      - { label: "Cloudinary media reference", name: "cloudinaryUrl", widget: "image" }
       - { label: "Media type", name: "type", widget: "select", multiple: false, options: ["video", "image"], hint: "Either image or video" }      
       - { label: "Aspect", name: "aspect", widget: "select", options: ["landscape", "portrait", "square"], default: "portrait", hint: "Aspect of media" }
       - { label: "Visible", name: "visible", widget: "boolean", default: true, hint: "If false, the asset can only be seen when clicking 'Optional assets' in Desktop Assistant" }

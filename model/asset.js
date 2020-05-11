@@ -1,5 +1,5 @@
 export default {
-	assetId: { //unique identifier, ref to cloudinary image or video
+	assetId: { //unique identifier
 		type: String,
 		default: null,
 		required: true
@@ -9,12 +9,17 @@ export default {
 		default: null,
 		required: false
 	},
+	cloudinaryUrl: { //ref to cloudinary image or video
+		type: String,
+		default: null,
+		required: true
+	},
 	type: { //either image, video or text
 		type: String,
 		default: null,
 		required: true
 	},
-	name: {
+	name: { //title of window
 		type: String,
 		default: null,
 		required: true
