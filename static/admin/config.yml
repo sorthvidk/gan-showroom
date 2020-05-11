@@ -3,7 +3,7 @@ backend:
   branch: master
 
 # when using the default proxy server port
-local_backend: false
+local_backend: true
 
 media_library:
   name: cloudinary
