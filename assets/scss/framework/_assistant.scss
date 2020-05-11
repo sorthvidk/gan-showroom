@@ -28,6 +28,11 @@
 		.window__content {
 			height: auto;
 		}
+		.window__top {
+			.title {
+				border-bottom: 0;
+			}
+		}
 
 
 		.button.expand {

@@ -28,6 +28,7 @@
 		"intersection-observer": "^0.5.1",
 		"lazysizes": "^5.2.0",
 		"lodash": "4.17.4",
+		"marquee3000": "^1.1.1",
 		"nuxt": "^2.11.0",
 		"nuxt-polyfill": "^1.0.3",
 		"vue-draggable-resizable": "^2.1.2",

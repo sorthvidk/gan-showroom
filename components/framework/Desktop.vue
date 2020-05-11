@@ -1,5 +1,5 @@
 <template>
-	<div class="desktop" :style="{backgroundImage: 'url(//placeimg.com/400/300/nature)'}">
+	<div class="desktop" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
 		<progress-bar
 			:text-start="'Start diving into the PS21 digital universe.'"
 			:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'"
@@ -41,7 +41,7 @@
 
 			<assistant />
 			<support />
-			<music-player v-if="musicPlayerOpen" />
+			<music-player v-if="musicPlayerOpen" :songs="songs" />
 		</div>
 
 		<marquee
@@ -82,7 +82,8 @@ export default {
 		...mapState({
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list,
-			musicPlayerOpen: state => state.musicPlayerOpen
+			musicPlayerOpen: state => state.musicPlayerOpen,
+			songs: state => state.songs
 		})
 	},
 	methods: {
