@@ -28,7 +28,29 @@ export const state = () => ({
 	lowestZIndex: 0,
 	highestZIndex: 0,
 
-	musicPlayerOpen: false
+	musicPlayerOpen: false,
+	songs: [
+		{
+			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
+			src: `/audio/Kylie-Minogue.mp3`
+		},
+		{
+			title: 'Pete-Hellers-Big-Love-Big-Love.mp3',
+			src: `/audio/Pete-Hellers-Big-Love-Big-Love.mp3`
+		},
+		{
+			title: 'show_me_love.mp3',
+			src: `/audio/Robin-S-Show-Me-Love.mp3`
+		},
+		{
+			title: '(BETTER_QUALITY)_320kbps_Moloko-Sing-It-Back.mp3',
+			src: `/audio/Moloko-Sing-It-Back.mp3`
+		},
+		{
+			title: 'Track_06-Haddaway-What_is_love.mp3',
+			src: `/audio/What-Is-Love.mp3`
+		}
+	]
 })
 
 export const mutations = {

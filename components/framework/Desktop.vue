@@ -41,7 +41,7 @@
 
 			<assistant />
 			<support />
-			<music-player v-if="musicPlayerOpen" />
+			<music-player v-if="musicPlayerOpen" :songs="songs" />
 		</div>
 
 		<marquee
@@ -78,7 +78,8 @@ export default {
 		...mapState({
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list,
-			musicPlayerOpen: state => state.musicPlayerOpen
+			musicPlayerOpen: state => state.musicPlayerOpen,
+			songs: state => state.songs
 		})
 	},
 	methods: {

@@ -41,12 +41,6 @@
 				<canvas ref="canvas" id="canvas"></canvas>
 			</div>
 		</main>
-
-		<!-- display: none -->
-		<audio ref="audio" controls :src="songs[current].src">
-			Your browser does not support the
-			<code>audio</code> element.
-		</audio>
 	</section>
 </template>
 
@@ -56,35 +50,23 @@ import { TOGGLE_MUSIC_PLAYER } from '~/model/constants'
 
 export default {
 	name: 'music-player',
+	props: {
+		/**
+		 * [{ title: 'Name of Song', src: 'path/to/song.mp3' }]
+		 */
+		songs: {
+			type: Array,
+			default: () => [],
+			required: true
+		}
+	},
 	data() {
 		return {
 			audioContext: null,
+			audio: new Audio(this.songs[0].src),
 			loaded: false,
-			audio: null,
 			playing: false,
-			current: 0,
-			songs: [
-				{
-					title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
-					src: `/audio/Kylie-Minogue.mp3`
-				},
-				{
-					title: 'Pete-Hellers-Big-Love-Big-Love.mp3',
-					src: `/audio/Pete-Hellers-Big-Love-Big-Love.mp3`
-				},
-				{
-					title: 'show_me_love.mp3',
-					src: `/audio/Robin-S-Show-Me-Love.mp3`
-				},
-				{
-					title: '(BETTER_QUALITY)_320kbps_Moloko-Sing-It-Back.mp3',
-					src: `/audio/Moloko-Sing-It-Back.mp3`
-				},
-				{
-					title: 'Track_06-Haddaway-What_is_love.mp3',
-					src: `/audio/What-Is-Love.mp3`
-				}
-			]
+			current: 0
 		}
 	},
 	methods: {
@@ -104,25 +86,25 @@ export default {
 		},
 		toggle() {
 			if (!this.playing) {
-				this.$refs.audio.play()
-			} else this.$refs.audio.pause()
+				this.audio.play().catch(err => console.warn(err))
+			} else this.audio.pause()
 			this.playing = !this.audio.paused
 		},
 		playNewSong() {
-			this.$refs.audio.pause()
-			this.$refs.audio.currentTime = 0
+			this.audio.pause()
+			this.audio.src = this.songs[this.current].src
+			this.audio.currentTime = 0
 			setTimeout(() => {
 				if (this.playing) {
-					this.$refs.audio.play()
+					this.audio.play().catch(err => console.warn(err))
 				}
-			}, 0)
+			}, 100)
 		},
 		visualize() {
 			const canvasContainer = this.$refs.canvasContainer
 			const canvas = this.$refs.canvas
 
-			const analyser = this.audioContext.createAnalyser()
-			const src = this.audioContext.createMediaElementSource(this.$refs.audio)
+			// setup / style canvas
 			const dpr = window.devicePixelRatio || 1
 			canvas.width =
 				parseInt(window.getComputedStyle(canvasContainer).width) * dpr
@@ -132,25 +114,35 @@ export default {
 			ctx.translate(-0.5, -0.5)
 			ctx.scale(dpr, dpr)
 
+			// setup audio context
+			const analyser = this.audioContext.createAnalyser()
+			var buffer = this.audioContext.createBuffer(1, 1, 22050)
+			var source = this.audioContext.createBufferSource()
+
+			const src = this.audioContext.createMediaElementSource(this.audio)
+			src.buffer = buffer
 			src.connect(analyser)
 			analyser.connect(this.audioContext.destination)
 			analyser.fftSize = 256
-
 			const bufferLength = analyser.frequencyBinCount
 			const dataArray = new Uint8Array(bufferLength)
+
+			if (src.start) {
+				src.start(0)
+			} else if (src.play) {
+				src.play(0)
+			} else if (src.noteOn) {
+				src.noteOn(0)
+			}
 
 			const WIDTH = canvas.width / dpr
 			const HEIGHT = canvas.height / dpr
 			const BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
 
 			const barWidth = WIDTH / bufferLength + 3
-			let barHeight
-			let x = 0
 
 			const renderFrame = () => {
 				requestAnimationFrame(renderFrame)
-
-				x = 0
 
 				analyser.getByteFrequencyData(dataArray)
 
@@ -162,34 +154,51 @@ export default {
 				grd.addColorStop(0.5, 'peachpuff')
 				grd.addColorStop(1, '#FBD5C5')
 
-				for (let i = 0; i < bufferLength; i++) {
-					barHeight = (dataArray[i] * HEIGHT) / 270
+				dataArray.forEach((freq, i) => {
+					const barHeight = (freq * HEIGHT) / 270
+					const x = (barWidth + 1) * i
 
 					ctx.fillStyle = grd
 					ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight)
-
-					x += barWidth + 1
-				}
+				})
 			}
 
 			renderFrame()
 		},
+		/**
+		 * https://www.mattmontag.com/web/unlock-web-audio-in-safari-for-ios-and-macos
+		 */
+		unlockAudioContext(audioCtx) {
+			if (audioCtx.state !== 'suspended') return
+			const b = document.body
+			const events = ['touchstart', 'touchend', 'mousedown', 'keydown']
+			events.forEach(e => b.addEventListener(e, unlock, false))
+			function unlock() {
+				audioCtx.resume().then(clean)
+			}
+			function clean() {
+				events.forEach(e => b.removeEventListener(e, unlock))
+			}
+		},
 		setLoadedState() {
 			this.loaded = true
-			this.$refs.audio.addEventListener('play', this.init.bind(this), {
+			const AudioContext = window.AudioContext || window.webkitAudioContext
+			this.audioContext = new AudioContext()
+			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
+			this.audio.addEventListener('play', this.init.bind(this), {
 				once: true
 			})
 		},
 		init() {
-			const AudioContext = window.AudioContext || window.webkitAudioContext
-			this.audioContext = new AudioContext()
+			console.log('play')
 			this.visualize()
-			this.$refs.audio.volume = 1
+			// this.audio.volume = 1
+			// this.audio.pause()
+			this.audio.play().catch(console.warn)
 		}
 	},
 	mounted() {
-		this.audio = this.$refs.audio
-		this.$refs.audio.addEventListener(
+		this.audio.addEventListener(
 			'canplaythrough',
 			this.setLoadedState.bind(this),
 			{ once: true }
