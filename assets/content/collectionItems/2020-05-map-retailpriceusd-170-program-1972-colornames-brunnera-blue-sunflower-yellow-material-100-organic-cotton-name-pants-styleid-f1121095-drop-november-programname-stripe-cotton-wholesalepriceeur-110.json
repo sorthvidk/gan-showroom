@@ -4,17 +4,21 @@
   "colorNames": "Brunnera Blue, Sunflower Yellow",
   "material": "100% organic cotton",
   "name": "Leopard dress",
-  "styleid": "F1121095",
+  "styleId": "F1121095",
   "drop": "November",
   "programName": "Stripe cotton",
-  "wholesalePriceEUR": "110",
-  "wholesalePriceDKK": "800",
-  "wholesalePriceUSD": "170",
+  "wholesalePriceEUR": 110,
+  "wholesalePriceDKK": 800,
+  "wholesalePriceUSD": 170,
   "filters": [
     "c2"
   ],
-  "retailPriceEUR": "140",
+  "retailPriceEUR": 140,
   "description": "Qui voluptatibus consequuntur tempore nam accusantium quam assumenda.",
-  "retailPriceDKK": "1000",
-  "colorId": "699"
+  "retailPriceDKK": 1000,
+  "colorId": "699",
+  "assets": [],     
+  "completed": false,
+  "onWishList": false,
+  "index": 0
 }

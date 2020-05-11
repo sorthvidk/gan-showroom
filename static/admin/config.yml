@@ -26,7 +26,7 @@ collections:
     fields:
       - {
           label: "Style #",
-          name: "styleid",
+          name: "styleId",
           widget: "string",
           hint: "Unique identifier ex. 'F34897'",
         }
@@ -91,39 +91,43 @@ collections:
       - {
           label: "Wholesale Price DKK",
           name: "wholesalePriceDKK",
-          widget: "string",
+          widget: "number",
           hint: "Wholesale price in DKK ex. '800'",
         }
       - {
           label: "Wholesale Price EUR",
           name: "wholesalePriceEUR",
-          widget: "string",
+          widget: "number",
           hint: "Wholesale price in EUR ex. '110'",
         }
       - {
           label: "Wholesale Price USD",
           name: "wholesalePriceUSD",
-          widget: "string",
+          widget: "number",
           hint: "Wholesale price in USD ex. '140'",
         }
       - {
           label: "Retail Price DKK",
           name: "retailPriceDKK",
-          widget: "string",
+          widget: "number",
           hint: "Retail price in DKK ex. '1000'",
         }
       - {
           label: "Retail Price EUR",
           name: "retailPriceEUR",
-          widget: "string",
+          widget: "number",
           hint: "Retail price in EUR ex. '140'",
         }
       - {
           label: "Retail Price USD",
           name: "retailPriceUSD",
-          widget: "string",
+          widget: "number",
           hint: "Retail price in USD ex. '170'",
         }
+      - { name: "assets", default: [], widget: "hidden" }
+      - { name: "index", default: 0, widget: "hidden" }
+      - { name: "completed", default: false, widget: "hidden" }
+      - { name: "onWishList", default: false, widget: "hidden" }
 
   - name: "collectionFilters"
     label: "Collection filter"
@@ -136,7 +140,7 @@ collections:
     fields:
       - {
           label: "Unique identifier",
-          name: "id",
+          name: "filterId",
           widget: "string",
           hint: "ex. 'c1'",
         }
@@ -155,6 +159,7 @@ collections:
           default: 0,
           hint: "Optional ordering position",
         }
+      - { name: "styleIds", default: [], widget: "hidden" }
 
   - name: "mediaAssets"
     label: "Media asset"
@@ -166,14 +171,19 @@ collections:
       preview: false
     fields:
       - {
+          label: "Asset #",
+          name: "assetId",
+          widget: "string",
+          hint: "Unique asset ID",
+        }
+      - {
           label: "Style #",
           name: "styleId",
           widget: "relation",
-          multiple: true,
           collection: "collectionItems",
-          searchFields: ["styleid", "name"],
-          valueField: "styleid",
-          displayFields: ["styleid", "name"],
+          searchFields: ["styleId", "name"],
+          valueField: "styleId",
+          displayFields: ["styleId", "name"],
           hint: "Reference to unique style ID",
         }
       - {
@@ -184,7 +194,7 @@ collections:
         }
       - {
           label: "Cloudinary media reference",
-          name: "defaultImageUrl",
+          name: "cloudinaryUrl",
           widget: "image",
         }
       - {
