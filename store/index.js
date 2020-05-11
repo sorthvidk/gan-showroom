@@ -463,7 +463,7 @@ export const actions = {
 
 	async nuxtServerInit ({ commit }) {
 		let files = await require.context(
-			'~/assets/content/style/',
+			'~/assets/content/collectionStyles/',
 			false,
 			/\.json$/
 		)

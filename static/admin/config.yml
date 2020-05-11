@@ -25,7 +25,7 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Style #", name: "styleid", widget: "string", hint: "Unique identifier ex. 'F34897'" }
+      - { label: "Style #", name: "styleId", widget: "string", hint: "Unique identifier ex. 'F34897'" }
       - { label: "Filters", name: "filters", widget: "relation", multiple: true, collection: "collectionFilters", searchFields: ["id", "name"], valueField: "id", hint: "List of filters, the style will appear under" }
       - { label: "Name", name: "name", widget: "string", hint: "Product name ex. 'Pleated georgette'" }
       - { label: "Program", name: "program", widget: "string", hint: "ID of program ex. '1972'" }     
@@ -41,6 +41,10 @@ collections:
       - { label: "Retail Price DKK", name: "retailPriceDKK", widget: "string", hint: "Retail price in DKK ex. '1000'" }
       - { label: "Retail Price EUR", name: "retailPriceEUR", widget: "string", hint: "Retail price in EUR ex. '140'" }
       - { label: "Retail Price USD", name: "retailPriceUSD", widget: "string", hint: "Retail price in USD ex. '170'" }     
+      - { name: "assets", default: [], widget: "hidden" }
+      - { name: "index", default: 0, widget: "hidden" }
+      - { name: "completed", default: false, widget: "hidden" }
+      - { name: "onWishList", default: false, widget: "hidden" }
   
   - name: "collectionFilters"
     label: "Collection filter"

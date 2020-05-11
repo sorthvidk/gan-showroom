@@ -4,7 +4,7 @@
   "colorNames": "Brunnera Blue, Sunflower Yellow",
   "material": "100% organic cotton",
   "name": "Shirt",
-  "styleid": "F8907234",
+  "styleId": "F8907234",
   "drop": "November",
   "programName": "Stripe cotton",
   "wholesalePriceEUR": "110",
@@ -16,5 +16,9 @@
   "retailPriceEUR": "140",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.",
   "retailPriceDKK": "1000",
-  "colorId": "699"
+  "colorId": "699",
+  "assets": [],     
+  "completed": false,
+  "onWishList": false,
+  "index": 0
 }
