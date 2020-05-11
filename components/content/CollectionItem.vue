@@ -2,6 +2,7 @@
 	<button class="collection-item" @click.stop="onItemClick">
 		<img :src="imageUrl" alt="lorem">
 		<p>{{imageName}}</p>
+		<span v-if="sustainable">[SUSTAINABLE]</span>
 	</button>
 </template>
 
@@ -32,6 +33,7 @@ export default {
 			OPEN_STYLE_CONTENT.action
 		]),		
 		onItemClick() {
+			console.log("STYLE CLICK")
 			this[OPEN_STYLE_CONTENT.action]( this.styleId );
 		}
 	}

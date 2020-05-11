@@ -19,7 +19,8 @@
 		bottom: rem(45 + 10);
 
 		@include mq($from: screen-sm) {
-			border-bottom: 0;
+			
+			border-bottom: rem(1) solid $color-black;
 			right: rem(20);
 			left: auto;
 			width: rem(276);
@@ -31,6 +32,11 @@
 
 		.window__content {
 			height: auto;
+		}
+		.window__top {
+			.title, .button {
+				border-bottom: 0;
+			}
 		}
 	}
 }
@@ -49,6 +55,9 @@
 
 	&__top {
 		background-color: $color-lightgrey;
+
+		border-top: rem(1) solid $color-black;
+
 		padding: rem(9) rem(10);
 
 		display: grid;
@@ -78,7 +87,7 @@
 		grid-template: 1fr / 1fr 3fr;
 		padding: rem(9) rem(10);
 		background-color: $color-grey;
-
+		
 		img {
 			grid-column: 1;
 			padding-right: rem(10);
@@ -91,7 +100,7 @@
 
 			background-color: $color-yellow;
 			border-top: rem(1) solid $color-black;
-			border-bottom: rem(1) solid $color-black;
+			
 			
 			&:hover {
 				background-color: darken($color-yellow, 5%);

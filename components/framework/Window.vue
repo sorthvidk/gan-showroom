@@ -2,9 +2,9 @@
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
 		<section :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
 			<vue-draggable-resizable
+				ref="draggableResizable"
 				:class-name="concatClassName"
 				:resizable="computedResizable"
-				class-name-active="is-active"
 				class-name-dragging="is-dragging"
 				@dragging="onDrag"
 				@dragstop="onDragStop"
@@ -17,17 +17,16 @@
 				:w="computedSizeW"
 				:h="computedSizeH">
 					<header class="window__top">
-						<span class="title" @click="titleClick">{{title}}</span>
+						<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
 						<button class="button close" @click.stop="closeHandler">Ｘ</button>
 					</header>
-					<div v-if="!noStatus" class="window__status">
-
+					<div v-if="!noStatus" class="window__status" @touchstart="contentActivateHandler" @mouseDown="contentActivateHandler">
 						<component :is="statusComponent" v-bind="{...statusComponentProps}" />
 					</div>
 					
 					<hr v-if="!noStatus" />
 
-					<div class="window__content">				
+					<div class="window__content" @touchstart="contentActivateHandler" @mouseDown="contentActivateHandler">				
 						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
 					</div>
 			</vue-draggable-resizable>
@@ -180,6 +179,8 @@ export default {
 	},
 	data: function() {
 		return {
+			windowRef: null,
+
 			resetPositionDistance: 40,
 			maximizeOffset: 0,
 			maximizeTimeoutHandle: -1,
@@ -205,6 +206,9 @@ export default {
 		]),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
+		},
+		contentActivateHandler(e) {
+			this[TOPMOST_WINDOW.action](this.windowId);
 		},
 		titleClick() {
 			if ( !this.canResize ) return false;
@@ -278,6 +282,7 @@ export default {
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
+		this.windowRef = this.$el.querySelector('.window');
 	}
 };
 

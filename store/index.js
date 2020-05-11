@@ -189,8 +189,7 @@ export const mutations = {
 				if (
 					contentItem.statusComponentProps &&
 					contentItem.statusComponentProps.noStatus
-				)
-					newWindow.windowProps.sizeH -= 30
+				) newWindow.windowProps.sizeH -= 30
 
 				newWindow.positionZ =
 					contentItem.windowProps && contentItem.windowProps.positionZ
@@ -231,8 +230,9 @@ export const mutations = {
 	 *	Bring window to top.
 	 *
 	 */
-	[TOPMOST_WINDOW.mutation] (state, windowId) {
-		//console.log("TOPMOST_WINDOW",windowId)
+	[TOPMOST_WINDOW.mutation](state, windowId) {
+		console.warn("TOPMOST_WINDOW",windowId)
+		
 		let windowsLength = state.windowList.length
 		let newZIndexes = []
 

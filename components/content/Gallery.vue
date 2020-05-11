@@ -3,14 +3,14 @@
 		<gallery-image
 			class="gallery__item"
 			v-for="(asset,key) in images"
-			:key="key"
+			 :key="'galleryImage'+key"
 			:asset="asset"
 			:focused="focusedAsset.assetId === asset.assetId"
 		/>
 		<gallery-video
 			class="gallery__item"
 			v-for="(asset,key) in images"
-			:key="key"
+			 :key="'galleryVideo'+key"
 			:asset="asset"
 			:focused="focusedAsset.assetId === asset.assetId"
 		/>

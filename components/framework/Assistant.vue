@@ -393,8 +393,8 @@ export default {
 		}
 	},
 	mounted() {
-		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
-		if (!isMobile() ) {
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		if (!isMobile ) {
 			this.assistantExpanded = true;
 			this.viewPortSize = ViewportSizes.LARGE;
 		}
