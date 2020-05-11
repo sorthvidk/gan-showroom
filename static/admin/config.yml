@@ -15,110 +15,59 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "style"
-    label: "Style"
-    folder: "assets/content/style"
+  
+  - name: "collectionItems"
+    label: "Collection item"
+    folder: "assets/content/collectionItems"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
     editor:
       preview: false
     fields:
-      - { label: "Style #", name: "styleid", widget: "string", hint: "S-12343" }
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Program", name: "program", widget: "string" }
-      - label: "Filters"
-        name: "filters"
-        widget: "relation"
-        multiple: true
-        collection: "filters"
-        searchFields: ["id", "name"]
-        valueField: "id"
-      - { label: "Program Display name", name: "programName", widget: "string" }
-      - { label: "Material", name: "material", widget: "string" }
-      - { label: "Drop", name: "drop", widget: "string" }
-      - { label: "Color names", name: "colorNames", widget: "string" }
-      - { label: "Color Id", name: "colorId", widget: "string" }
-      - label: "Wholesale Price"
-        name: "wholeSalePrice"
-        widget: "list"
-        fields:
-          - { label: Price, name: price, widget: string }
-          - {
-              label: Currency,
-              name: currency,
-              widget: select,
-              options: ["DKK", "EUR", "USD"],
-            }
-      - label: "Retailer Price"
-        name: "retailerPrice"
-        widget: "list"
-        fields:
-          - { label: Price, name: price, widget: string }
-          - {
-              label: Currency,
-              name: currency,
-              widget: select,
-              options: ["DKK", "EUR", "USD"],
-            }
-      - { label: "Description", name: "description", widget: "markdown" }
-  - name: "assets"
-    label: "Media items"
-    folder: "assets/content/asset"
+      - { label: "Style #", name: "styleid", widget: "string", hint: "Unique identifier ex. 'F34897'" }
+      - { label: "Filters", name: "filters", widget: "relation", multiple: true, collection: "collectionFilters", searchFields: ["id", "name"], valueField: "id", hint: "List of filters, the style will appear under" }
+      - { label: "Name", name: "name", widget: "string", hint: "Product name ex. 'Pleated georgette'" }
+      - { label: "Program", name: "program", widget: "string", hint: "ID of program ex. '1972'" }     
+      - { label: "Program Display name", name: "programName", widget: "string", hint: "Display name of program ex. 'Stripe cotton'" }
+      - { label: "Material", name: "material", widget: "string", hint: "Name of material ex. '100% organic cotton'" }
+      - { label: "Drop", name: "drop", widget: "string", hint: "Label for drop ex. 'November'" }
+      - { label: "Color names", name: "colorNames", widget: "string", hint: "Names of colors available ex. 'Brunnera Blue, Sunflower Yellow'" }
+      - { label: "Color Id", name: "colorId", widget: "string", hint: "ID of color ex. '699'" }
+      - { label: "Description", name: "description", widget: "markdown", hint: "Long description of style" }  
+      - { label: "Wholesale Price DKK", name: "wholesalePriceDKK", widget: "string", hint: "Wholesale price in DKK ex. '800'" }
+      - { label: "Wholesale Price EUR", name: "wholesalePriceEUR", widget: "string", hint: "Wholesale price in EUR ex. '110'" }
+      - { label: "Wholesale Price USD", name: "wholesalePriceUSD", widget: "string", hint: "Wholesale price in USD ex. '140'" }
+      - { label: "Retail Price DKK", name: "retailPriceDKK", widget: "string", hint: "Retail price in DKK ex. '1000'" }
+      - { label: "Retail Price EUR", name: "retailPriceEUR", widget: "string", hint: "Retail price in EUR ex. '140'" }
+      - { label: "Retail Price USD", name: "retailPriceUSD", widget: "string", hint: "Retail price in USD ex. '170'" }     
+  
+  - name: "collectionFilters"
+    label: "Collection filter"
+    folder: "assets/content/collectionFilters"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
     editor:
       preview: false
     fields:
-      - {
-          label: "Style #",
-          name: "styleId",
-          widget: "relation",
-          multiple: true,
-          collection: "style",
-          searchFields: ["styleid", "name"],
-          valueField: "styleid",
-          displayFields: ["styleid", "name"],
-        }
-      - { label: "Prdoduct name", name: "name", widget: "string" }
-      - label: "image"
-        name: "image"
-        widget: "image"
-      - label: "Media type"
-        name: "type"
-        widget: "select"
-        multiple: false
-        options: ["video", "image"]
-      - {
-          label: "Aspects",
-          name: "Aspects",
-          widget: "select",
-          options: ["landscape", "portrait", "square"],
-        }
-      - { label: "Visible", name: "visible", widget: "boolean", default: true }
-      - { label: "On Top", name: "onTop", widget: "boolean", default: false }
-  - name: "filters"
-    label: "Filters"
-    folder: "assets/content/filters"
+      - { label: "Unique identifier", name: "id", widget: "string", hint: "ex. 'c1'" }
+      - { label: "Display name", name: "name", widget: "string", hint: "ex. 'Animal print'" }
+      - { label: "Order", name: "order", widget: "number", min: 0, max: 100, default: 0, hint: "Optional ordering position" }
+  
+  - name: "mediaAssets"
+    label: "Media asset"
+    folder: "assets/content/mediaAssets"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
     editor:
       preview: false
     fields:
-      - {
-          label: "Unique Identityer",
-          name: "id",
-          widget: "string",
-          hint: "dresses",
-        }
-      - { label: "Display name", name: "name", widget: "string" }
-      - {
-          label: "Order",
-          name: "order",
-          widget: "number",
-          min: 0,
-          max: 100,
-          default: 0,
-        }
+      - { label: "Style #", name: "styleId", widget: "relation", multiple: true, collection: "collectionItems", searchFields: ["styleid", "name"], valueField: "styleid", displayFields: ["styleid", "name"], hint: "Reference to unique style ID" }
+      - { label: "Asset title", name: "name", widget: "string", hint: "Title for image window ex. 'pleated_georgette_1.jpg'" }
+      - { label: "Cloudinary media reference", name: "defaultImageUrl", widget: "image" }
+      - { label: "Media type", name: "type", widget: "select", multiple: false, options: ["video", "image"], hint: "Either image or video" }      
+      - { label: "Aspect", name: "aspect", widget: "select", options: ["landscape", "portrait", "square"], default: "portrait", hint: "Aspect of media" }
+      - { label: "Visible", name: "visible", widget: "boolean", default: true, hint: "If false, the asset can only be seen when clicking 'Optional assets' in Desktop Assistant" }
+      - { label: "On top", name: "onTop", widget: "boolean", default: false, hint: "If true, the asset will be used for Collection overview list thumbnail. NOTE: Try to only set 1 asset on top pr. style" }
