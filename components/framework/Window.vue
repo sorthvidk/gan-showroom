@@ -54,6 +54,7 @@ import VueDraggableResizable from 'vue-draggable-resizable'
 
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
+import SingleVideo from '~/components/content/SingleVideo.vue'
 import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
@@ -73,6 +74,7 @@ export default {
 		StatusWishList,
 		Collection,
 		SingleImage,
+		SingleVideo,
 		TextReader,
 		Films,
 		Gallery,

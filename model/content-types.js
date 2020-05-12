@@ -100,28 +100,28 @@ export default {
 	},
 	videoPortrait: {
 		name: 'video-portrait',
-		contentComponent:'video',
+		contentComponent:'single-video',
 		statusComponent:'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 180,
-			smallWidth: 180,
-			largeHeight: 320,
-			smallHeight: 320,
+			largeWidth: 300,
+			smallWidth: 300,
+			largeHeight: 600,
+			smallHeight: 600,
 			modifierClass:'window--tight',
 			noStatus: true
 		}
 	},
 	videoLandscape: {
 		name: 'video-landscape',
-		contentComponent:'video',
+		contentComponent:'single-video',
 		statusComponent:'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 320,
-			smallWidth: 320,
-			largeHeight: 180,
-			smallHeight: 180,
+			largeWidth: 600,
+			smallWidth: 600,
+			largeHeight: 300,
+			smallHeight: 300,
 			modifierClass:'window--tight',
 			noStatus: true
 		}

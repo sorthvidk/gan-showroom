@@ -41,12 +41,11 @@
 
 			<assistant />
 			<support />
+
 			<music-player v-if="musicPlayerOpen" :songs="songs" />
 		</div>
 
-		<marquee
-			:text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'"
-		/>
+		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />
 	</div>
 </template>
 
