@@ -5,8 +5,8 @@ export default {
 		statusComponent:'status-collection',		
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 4*160 + 32 + 10,
-			smallWidth: 2*160 + 32 + 10,
+			largeWidth: 3*208 + 31 + 50,
+			smallWidth: 2*156 + 31 + 10,
 			largeHeight: 510,
 			smallHeight: 510
 		}		

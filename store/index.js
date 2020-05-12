@@ -404,9 +404,6 @@ export const mutations = {
 
 	[TOGGLE_MUSIC_PLAYER.mutation] (state) {
 		state.musicPlayerOpen = !state.musicPlayerOpen
-	},
-	setStyles (state, payload) {
-		console.log('style from CMS:', payload)
 	}
 }
 
