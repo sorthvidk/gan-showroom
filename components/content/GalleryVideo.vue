@@ -30,7 +30,7 @@ export default {
 	},
 	mounted() {
 		if ( this.focused ) {
-			this.$el.scrollIntoView();
+			setTimeout(()=> this.$el.scrollIntoView({behavior:'smooth'}), 500);
 		}
 	}
 };

@@ -26,9 +26,8 @@ export default {
 		}
 	},
 	mounted() {
-		console.log("this.focused",this.focused)
 		if ( this.focused ) {
-			this.$el.scrollIntoView();
+			setTimeout(()=> this.$el.scrollIntoView({behavior:'smooth'}), 500);
 		}
 	}
 };

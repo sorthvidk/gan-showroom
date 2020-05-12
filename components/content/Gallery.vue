@@ -5,14 +5,14 @@
 			v-for="(asset,key) in images"
 			 :key="'galleryImage'+key"
 			:asset="asset"
-			:focused="focusedAsset.assetId === asset.assetId"
+			:focused="focusedAssetId === asset.assetId"
 		/>
 		<gallery-video
 			class="gallery__item"
 			v-for="(asset,key) in videos"
 			 :key="'galleryVideo'+key"
 			:asset="asset"
-			:focused="focusedAsset.assetId === asset.assetId"
+			:focused="focusedAssetId === asset.assetId"
 		/>
 	</div>
 </template>
@@ -36,9 +36,9 @@ export default {
 			default: '',
 			required: true
 		},
-		focusedAsset: {
-			type: Object,
-			default: null,
+		focusedAssetId: {
+			type: String,
+			default: '',
 			required: true
 		}
 	},
@@ -59,5 +59,5 @@ export default {
 		}
 	},
 	methods: {}
-}
+};
 </script>

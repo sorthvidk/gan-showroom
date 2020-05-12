@@ -459,13 +459,14 @@ export const actions = {
 
 			if (asset.visible) {
 				let type = getAssetType(asset)
+
 				content.push({
 					title: asset.name,
 					contentId: asset.assetId,
 					type: type,
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
-					contentComponentProps: { asset: asset },
+					contentComponentProps: { asset: asset, },
 					statusComponentProps: type.defaultStatusComponentProps
 				})
 			}
@@ -484,7 +485,7 @@ export const actions = {
 				canOverride: true,
 				contentComponentProps: {
 					styleId: asset.styleId,
-					focusedAsset: asset
+					focusedAssetId: asset.assetId
 				},
 				windowProps: {
 					positionZ: 4500,
