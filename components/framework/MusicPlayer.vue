@@ -1,47 +1,40 @@
 <template>
-	<section class>
-		<!-- <header class="window__top">
-			<h1 class="title">⚡️ Ganni FM</h1>
-			<button class="button close" @click="closeHandler">Ｘ</button>
-		</header>-->
-
-		<main class="window__content">
-			<div class="music-player__top">
-				<p>Playing:</p>
-				<div>
-					<!-- print 5 times so it can be css-animated -->
-					<p
-						class="title-marquee"
-					>{{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}}</p>
-				</div>
+	<main class="window__content">
+		<div class="music-player__top">
+			<p>Playing:</p>
+			<div>
+				<!-- print 5 times so it can be css-animated -->
+				<p
+					class="title-marquee"
+				>{{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}}</p>
 			</div>
-			<div class="music-player__controls">
-				<button class="button prev" @click="playlist(-1)">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
-						<path
-							d="M437 1c-3-1-6 0-10 4L225 207l-4 6V10c0-5-1-8-4-9-2-1-5 0-9 4L5 207c-3 4-5 8-5 13s2 9 5 13l203 203c4 3 7 5 9 3 3-1 4-4 4-9V228l4 5 202 203c4 3 7 5 10 3 2-1 3-4 3-9V10c0-5-1-8-3-9z"
-						/>
-					</svg>
-				</button>
-				<button class="button" @click="toggle">
-					<svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 299">
-						<path d="M192 0h85v299h-85zM21 0h85v299H21z" />
-					</svg>
-					<p v-else>►</p>
-				</button>
-				<button class="button next" @click="playlist(1)">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
-						<path
-							d="M437 1c-3-1-6 0-10 4L225 207l-4 6V10c0-5-1-8-4-9-2-1-5 0-9 4L5 207c-3 4-5 8-5 13s2 9 5 13l203 203c4 3 7 5 9 3 3-1 4-4 4-9V228l4 5 202 203c4 3 7 5 10 3 2-1 3-4 3-9V10c0-5-1-8-3-9z"
-						/>
-					</svg>
-				</button>
-			</div>
-			<div class="music-player__canvas-container" ref="canvasContainer">
-				<canvas ref="canvas" id="canvas"></canvas>
-			</div>
-		</main>
-	</section>
+		</div>
+		<div class="music-player__controls">
+			<button class="button prev" @click="playlist(-1)">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
+					<path
+						d="M437 1c-3-1-6 0-10 4L225 207l-4 6V10c0-5-1-8-4-9-2-1-5 0-9 4L5 207c-3 4-5 8-5 13s2 9 5 13l203 203c4 3 7 5 9 3 3-1 4-4 4-9V228l4 5 202 203c4 3 7 5 10 3 2-1 3-4 3-9V10c0-5-1-8-3-9z"
+					/>
+				</svg>
+			</button>
+			<button class="button" @click="toggle">
+				<svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 299">
+					<path d="M192 0h85v299h-85zM21 0h85v299H21z" />
+				</svg>
+				<p v-else>►</p>
+			</button>
+			<button class="button next" @click="playlist(1)">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
+					<path
+						d="M437 1c-3-1-6 0-10 4L225 207l-4 6V10c0-5-1-8-4-9-2-1-5 0-9 4L5 207c-3 4-5 8-5 13s2 9 5 13l203 203c4 3 7 5 9 3 3-1 4-4 4-9V228l4 5 202 203c4 3 7 5 10 3 2-1 3-4 3-9V10c0-5-1-8-3-9z"
+					/>
+				</svg>
+			</button>
+		</div>
+		<div class="music-player__canvas-container" ref="canvasContainer">
+			<canvas ref="canvas" id="canvas"></canvas>
+		</div>
+	</main>
 </template>
 
 <script>

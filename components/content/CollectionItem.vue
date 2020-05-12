@@ -23,7 +23,8 @@ export default {
 			return getCloudinaryUrl(this.assets[0]);
 		},
 		imageName() {
-			return this.assets[0].name		
+			if ( this.assets[0] ) return this.assets[0].name;
+			return 'unnamed - has no assets';
 		}
 	},
 	methods: {		
