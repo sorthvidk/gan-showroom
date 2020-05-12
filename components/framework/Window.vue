@@ -44,8 +44,6 @@
 
 				<hr v-if="!noStatus" />
 
-				<hr v-if="!noStatus" />
-
 				<div
 					class="window__content"
 					@touchstart="contentActivateHandler"
