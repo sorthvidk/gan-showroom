@@ -4,7 +4,7 @@ export default function(asset) {
 
 	switch (asset.type) {
 		case 'image':
-			switch (asset.imageAspect) {
+			switch (asset.aspect) {
 				case 'portrait':
 					return ContentTypes.imagePortrait;
 				break;

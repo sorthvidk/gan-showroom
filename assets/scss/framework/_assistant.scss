@@ -146,7 +146,7 @@
 		@include custom-scrollbar();
 		overflow: hidden;
 		overflow-y: scroll;
-		max-height: rem(180);
+		max-height: rem(160);
 
 		@include mq($from: screen-md) {
 			max-height: none;

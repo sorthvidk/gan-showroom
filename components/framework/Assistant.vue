@@ -249,7 +249,7 @@ export default {
 			return this.hiddenAssetContent.length > 0;
 		},
 		filterStatusText() {
-			if ( this.filterName ) return filterName;
+			if ( this.filterName ) return this.filterName;
 			return 'Filter';
 		}
 	},
