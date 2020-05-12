@@ -109,14 +109,14 @@ export default {
 			this.playNewSong()
 		},
 		toggle() {			
-			this[MUSIC_PLAY_PAUSE.action](!this.isPlaying);
+			this[MUSIC_PLAY_PAUSE.action](!this.audioPlaying);
 		},
 		playNewSong() {
 			this.audio.pause()
 			this.audio.src = this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
-				if (this.isPlaying) {
+				if (this.audioPlaying) {
 					this.audio.play().catch(err => console.warn(err))
 				}
 			}, 100)
@@ -148,14 +148,6 @@ export default {
 			const bufferLength = analyser.frequencyBinCount
 			const dataArray = new Uint8Array(bufferLength)
 
-			if (src.start) {
-				src.start(0)
-			} else if (src.play) {
-				src.play(0)
-			} else if (src.noteOn) {
-				src.noteOn(0)
-			}
-
 			const WIDTH = canvas.width / dpr
 			const HEIGHT = canvas.height / dpr
 			const BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
@@ -163,7 +155,7 @@ export default {
 			const barWidth = WIDTH / bufferLength + 3
 
 			const renderFrame = () => {
-				if ( !this.isPlaying ) return false;
+				if ( !this.audioPlaying ) return false;
 				
 				requestAnimationFrame(renderFrame)
 				console.log("anim")
@@ -214,8 +206,6 @@ export default {
 		init() {
 			console.log('music-player init')
 			this.visualize()
-			// this.audio.volume = 1
-			// this.audio.pause()
 			this.audio.play().catch(console.warn)
 		}
 	},
@@ -224,6 +214,7 @@ export default {
 		this.audio.addEventListener( 'canplaythrough', this.setLoadedState.bind(this), { once: true } )
 	},
 	beforeDestroy() {
+		this.audio.pause();
 		this[MUSIC_PLAY_PAUSE.action](false);
 	}
 };
