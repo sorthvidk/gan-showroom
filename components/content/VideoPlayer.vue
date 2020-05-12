@@ -1,6 +1,6 @@
 <template>
 	<div class="video-player">
-		<video :src="videoUrl" autoplay preload muted controls></video>
+		<video :src="videoUrl" v-bind:poster="posterUrl" v-bind:autoplay="autoPlay" v-bind:muted="muted" v-bind:controls="controls" v-bind:loop="loop" preload></video>
 	</div>
 </template>
 
@@ -19,19 +19,41 @@ export default {
 		videoUrl: {
 			type: String,
 			required: true
+		},
+		posterUrl: {
+			type: String,
+			required: false,
+			default: null
+		},
+		autoPlay: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		muted: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		controls: {
+			type: Boolean,
+			required: false,
+			default: false
+		},
+		loop: {
+			type: Boolean,
+			required: false,
+			default: false
 		}
 	},
 	
 	methods: {
 		...mapActions([
 			PLAY_VIDEO.action,
-		]),	
-		playHandler() {
-			console.log("PLAY")
-		}
+		])
 	},
 	mounted() {
-		this[PLAY_VIDEO.action]();
+		if ( !this.muted && !this.controls ) this[PLAY_VIDEO.action]();
 	}
 };
 </script>

@@ -47,14 +47,16 @@ export default {
 			let type = ContentTypes.videoLandscape;
 
 			let videoContent = [
-				{
-					
+				{					
 					title: this.filmName,
 					contentId: this.filmId,
 					type: type,
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
-					contentComponentProps: { asset: {videoUrl: this.videoUrl, posterUrl:this.posterUrl} },
+					contentComponentProps: { 
+						asset: {videoUrl: this.videoUrl}, 
+						videoAttributes:{ posterUrl:this.posterUrl, autoPlay:false, muted:false, controls:true} 
+					},
 					statusComponentProps: type.defaultStatusComponentProps
 				}
 			]

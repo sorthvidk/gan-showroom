@@ -1,7 +1,7 @@
 <template>
 	<div class="single-video">
 		<transition name="fade">
-			<video-player :video-url="assetUrl"/>
+			<video-player :video-url="assetUrl" v-bind="{...videoAttributes}" />
 		</transition>
 	</div>
 </template>
@@ -32,6 +32,20 @@ export default {
 			}
 			else {
 				return this.asset.videoUrl;
+			}
+		},
+		videoAttributes() {
+			if ( this.belongsToStyle ) {
+				return { 
+					autoPlay:true, 
+					muted:true,
+					loop:true
+				};
+			}
+			else {
+				return { 
+					controls:true
+				};
 			}
 		}
 	}

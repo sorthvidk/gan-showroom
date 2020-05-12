@@ -9,7 +9,7 @@
 		/>
 		<gallery-video
 			class="gallery__item"
-			v-for="(asset,key) in images"
+			v-for="(asset,key) in videos"
 			 :key="'galleryVideo'+key"
 			:asset="asset"
 			:focused="focusedAsset.assetId === asset.assetId"
@@ -53,6 +53,9 @@ export default {
 		},
 		images() {
 			return this.assets.filter(asset => asset.type === 'image')
+		},
+		videos() {
+			return this.assets.filter(asset => asset.type === 'video')
 		}
 	},
 	methods: {}

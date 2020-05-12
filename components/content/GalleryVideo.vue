@@ -1,6 +1,6 @@
 <template>
 	<div class="gallery-video">
-		<video-player videoUrl="videoUrl" />
+		<video-player :video-url="assetUrl" :controls="true" />
 	</div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
 		}
 	},
 	computed: {
-		videoUrl() {
+		assetUrl() {
 			return getCloudinaryUrl(this.asset);
 		}
 	},

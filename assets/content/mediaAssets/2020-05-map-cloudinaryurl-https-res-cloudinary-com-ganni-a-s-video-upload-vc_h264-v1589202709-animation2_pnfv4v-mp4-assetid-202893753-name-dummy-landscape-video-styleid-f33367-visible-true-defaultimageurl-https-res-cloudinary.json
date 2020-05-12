@@ -1,0 +1,13 @@
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4",
+  "assetId": "202893753",
+  "name": "Dummy landscape video",
+  "styleId": "F33367",
+  "visible": true,
+  "defaultImageUrl": "https://res.cloudinary.com/sorthvid/video/upload/v1589193021/animation2_hxsctc.mp4",
+  "onTop": true,
+  "aspect": "landscape",
+  "type": "video",
+  "Aspects": "portrait",
+  "Cloudinary media reference": "https://res.cloudinary.com/sorthvid/image/upload/v1589190757/F4488-180-1_s2ylbp.jpg"
+}

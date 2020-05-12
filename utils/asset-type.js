@@ -17,12 +17,14 @@ export default function(asset) {
 			}
 		break;
 		case 'video':
-			case 'portrait':
-				return ContentTypes.videoPortrait;
-			break;
-			case 'landscape':
-				return ContentTypes.videoLandscape;
-			break;
+			switch (asset.aspect) {
+				case 'portrait':
+					return ContentTypes.videoPortrait;
+				break;
+				case 'landscape':
+					return ContentTypes.videoLandscape;
+				break;
+			}
 		break;
 	}
 

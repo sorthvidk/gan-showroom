@@ -9,8 +9,6 @@
 
 <script>
 
-
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/cloudinary-url'

@@ -75,9 +75,9 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 274,
+			largeWidth: 600,
 			smallWidth: 274,
-			largeHeight: 180,
+			largeHeight: 300,
 			smallHeight: 180,
 			modifierClass:'window--tight'
 		}
@@ -104,10 +104,10 @@ export default {
 		statusComponent:'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 300,
-			smallWidth: 300,
-			largeHeight: 600,
-			smallHeight: 600,
+			largeWidth: 274,
+			smallWidth: 274,
+			largeHeight: 418,
+			smallHeight: 418,
 			modifierClass:'window--tight',
 			noStatus: true
 		}
