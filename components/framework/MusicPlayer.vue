@@ -78,7 +78,7 @@ export default {
 
 			console.log("audioPlaying",this.audioPlaying)
 
-			if (!this.audioPlaying) {
+			if (this.audioPlaying) {
 				this.audio.play().catch(err => console.warn(err))
 			} else {
 				this.audio.pause()
