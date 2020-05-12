@@ -45,17 +45,20 @@
 			<music-player v-if="musicPlayerOpen" :songs="songs" />
 		</div>
 
-		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />
+		<marquee
+			:text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'"
+		/>
 	</div>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { 
-	TOPMOST_WINDOW, 
+import {
+	TOPMOST_WINDOW,
 	ESC_KEYPRESS,
 	RIGHT_KEYPRESS,
-	LEFT_KEYPRESS } from '~/model/constants'
+	LEFT_KEYPRESS
+} from '~/model/constants'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
