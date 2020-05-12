@@ -127,14 +127,6 @@ export default {
 			const bufferLength = analyser.frequencyBinCount
 			const dataArray = new Uint8Array(bufferLength)
 
-			if (src.start) {
-				src.start(0)
-			} else if (src.play) {
-				src.play(0)
-			} else if (src.noteOn) {
-				src.noteOn(0)
-			}
-
 			const WIDTH = canvas.width / dpr
 			const HEIGHT = canvas.height / dpr
 			const BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
@@ -190,10 +182,7 @@ export default {
 			})
 		},
 		init() {
-			console.log('play')
 			this.visualize()
-			// this.audio.volume = 1
-			// this.audio.pause()
 			this.audio.play().catch(console.warn)
 		}
 	},
@@ -203,6 +192,9 @@ export default {
 			this.setLoadedState.bind(this),
 			{ once: true }
 		)
+	},
+	beforeDestroy() {
+		this.audio.pause()
 	}
 }
 </script>
