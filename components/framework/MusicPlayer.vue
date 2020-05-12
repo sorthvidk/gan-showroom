@@ -1,9 +1,9 @@
 <template>
-	<section class="window window--tight window--music-player music-player">
-		<header class="window__top">
+	<section class>
+		<!-- <header class="window__top">
 			<h1 class="title">⚡️ Ganni FM</h1>
 			<button class="button close" @click="closeHandler">Ｘ</button>
-		</header>
+		</header>-->
 
 		<main class="window__content">
 			<div class="music-player__top">
@@ -45,41 +45,34 @@
 </template>
 
 <script>
-import { mapActions,mapState } from 'vuex'
-import { 
-	TOGGLE_MUSIC_PLAYER, 
-	MUSIC_PLAY_PAUSE 
-} from '~/model/constants'
+import { mapActions, mapState } from 'vuex'
+import { TOGGLE_MUSIC_PLAYER, MUSIC_PLAY_PAUSE } from '~/model/constants'
 
 export default {
 	name: 'music-player',
-	props: {
-		/**
-		 * [{ title: 'Name of Song', src: 'path/to/song.mp3' }]
-		 */
-		songs: {
-			type: Array,
-			default: () => [],
-			required: true
-		}
-	},
 	data() {
 		return {
+			// related to canvas and animation
+			// placed here to be 'globally' available
 			audioContext: null,
+			analyser: null,
+			dataArray: null,
+			ctx: null,
+			barWidth: null,
+			BG_COLOR: null,
+			WIDTH: null,
+			HEIGHT: null,
+
 			audio: null,
 			loaded: false,
-			current: 0,
-			audioPlaying: false
+			current: 0
 		}
 	},
 	watch: {
 		isPlaying(playing) {
-			this.audioPlaying = playing
-
-			console.log("audioPlaying",this.audioPlaying)
-
-			if (this.audioPlaying) {
+			if (this.isPlaying) {
 				this.audio.play().catch(err => console.warn(err))
+				this.animate()
 			} else {
 				this.audio.pause()
 			}
@@ -87,16 +80,14 @@ export default {
 	},
 	computed: {
 		...mapState({
-			isPlaying: state => state.musicPlaying
+			isPlaying: state => state.musicPlaying,
+			songs: state => state.songs
 		})
 	},
 	methods: {
-		...mapActions([
-			TOGGLE_MUSIC_PLAYER.action,
-			MUSIC_PLAY_PAUSE.action 
-		]),
+		...mapActions([TOGGLE_MUSIC_PLAYER.action, MUSIC_PLAY_PAUSE.action]),
 		closeHandler() {
-			this[TOGGLE_MUSIC_PLAYER.action](!this.audioPlaying)
+			this[TOGGLE_MUSIC_PLAYER.action]() // state handles the toggling
 		},
 		playlist(n) {
 			const newCurrent = this.current + n
@@ -108,20 +99,20 @@ export default {
 					: newCurrent
 			this.playNewSong()
 		},
-		toggle() {			
-			this[MUSIC_PLAY_PAUSE.action](!this.audioPlaying);
+		toggle() {
+			this[MUSIC_PLAY_PAUSE.action](!this.isPlaying)
 		},
 		playNewSong() {
 			this.audio.pause()
 			this.audio.src = this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
-				if (this.audioPlaying) {
+				if (this.isPlaying) {
 					this.audio.play().catch(err => console.warn(err))
 				}
 			}, 100)
 		},
-		visualize() {
+		setupCanvas() {
 			const canvasContainer = this.$refs.canvasContainer
 			const canvas = this.$refs.canvas
 
@@ -131,54 +122,28 @@ export default {
 				parseInt(window.getComputedStyle(canvasContainer).width) * dpr
 			canvas.height =
 				parseInt(window.getComputedStyle(canvasContainer).height) * dpr
-			const ctx = canvas.getContext('2d')
-			ctx.translate(-0.5, -0.5)
-			ctx.scale(dpr, dpr)
+			this.ctx = canvas.getContext('2d')
+			this.ctx.translate(-0.5, -0.5)
+			this.ctx.scale(dpr, dpr)
 
 			// setup audio context
-			const analyser = this.audioContext.createAnalyser()
+			this.analyser = this.audioContext.createAnalyser()
 			var buffer = this.audioContext.createBuffer(1, 1, 22050)
 			var source = this.audioContext.createBufferSource()
 
 			const src = this.audioContext.createMediaElementSource(this.audio)
 			src.buffer = buffer
-			src.connect(analyser)
-			analyser.connect(this.audioContext.destination)
-			analyser.fftSize = 256
-			const bufferLength = analyser.frequencyBinCount
-			const dataArray = new Uint8Array(bufferLength)
+			src.connect(this.analyser)
+			this.analyser.connect(this.audioContext.destination)
+			this.analyser.fftSize = 256
+			const bufferLength = this.analyser.frequencyBinCount
+			this.dataArray = new Uint8Array(bufferLength)
 
-			const WIDTH = canvas.width / dpr
-			const HEIGHT = canvas.height / dpr
-			const BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
+			this.WIDTH = canvas.width / dpr
+			this.HEIGHT = canvas.height / dpr
+			this.BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
 
-			const barWidth = WIDTH / bufferLength + 3
-
-			const renderFrame = () => {
-				if ( !this.audioPlaying ) return false;
-				
-				requestAnimationFrame(renderFrame)
-				console.log("anim")
-				analyser.getByteFrequencyData(dataArray)
-
-				ctx.fillStyle = BG_COLOR
-				ctx.fillRect(0, 0, WIDTH, HEIGHT)
-
-				const grd = ctx.createLinearGradient(0, 0, 0, HEIGHT)
-				grd.addColorStop(0, 'darksalmon')
-				grd.addColorStop(0.5, 'peachpuff')
-				grd.addColorStop(1, '#FBD5C5')
-
-				dataArray.forEach((freq, i) => {
-					const barHeight = (freq * HEIGHT) / 270
-					const x = (barWidth + 1) * i
-
-					ctx.fillStyle = grd
-					ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight)
-				})
-			}
-
-			renderFrame()
+			this.barWidth = this.WIDTH / bufferLength + 3
 		},
 		/**
 		 * https://www.mattmontag.com/web/unlock-web-audio-in-safari-for-ios-and-macos
@@ -196,26 +161,66 @@ export default {
 			}
 		},
 		setLoadedState() {
-			console.log("music-player setLoadedState")
 			this.loaded = true
 			const AudioContext = window.AudioContext || window.webkitAudioContext
 			this.audioContext = new AudioContext()
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
-			this.init()
+
+			// run first time audio gets played
+			this.audio.addEventListener('play', this.setupCanvas.bind(this), {
+				once: true
+			})
 		},
-		init() {
-			console.log('music-player init')
-			this.visualize()
-			this.audio.play().catch(console.warn)
+		animate() {
+			const renderFrame = () => {
+				// stop animation when no music and all the frequencies are at 0,
+				// creates smooth ending of animation
+				if (!this.isPlaying && this.dataArray.every(v => v === 0)) return
+
+				requestAnimationFrame(renderFrame)
+
+				// be sure everything is hooked up and referencable
+				if (!this.analyser || !this.ctx || !this.dataArray) return
+
+				this.analyser.getByteFrequencyData(this.dataArray)
+
+				// clear canvas
+				this.ctx.fillStyle = this.BG_COLOR
+				this.ctx.fillRect(0, 0, this.WIDTH, this.HEIGHT)
+
+				const grd = this.ctx.createLinearGradient(0, 0, 0, this.HEIGHT)
+				grd.addColorStop(0, 'darksalmon')
+				grd.addColorStop(0.5, 'peachpuff')
+				grd.addColorStop(1, '#FBD5C5')
+
+				// print bars in corrent height
+				this.dataArray.forEach((freq, i) => {
+					const barHeight = (freq * this.HEIGHT) / 270
+					const x = (this.barWidth + 1) * i
+
+					this.ctx.fillStyle = grd
+					this.ctx.fillRect(
+						x,
+						this.HEIGHT - barHeight,
+						this.barWidth,
+						barHeight
+					)
+				})
+			}
+			renderFrame()
 		}
 	},
 	mounted() {
-		this.audio = new Audio(this.songs[0].src);
-		this.audio.addEventListener( 'canplaythrough', this.setLoadedState.bind(this), { once: true } )
+		this.audio = new Audio(this.songs[0].src)
+		this.audio.addEventListener(
+			'canplaythrough',
+			this.setLoadedState.bind(this),
+			{ once: true }
+		)
 	},
 	beforeDestroy() {
-		this.audio.pause();
-		this[MUSIC_PLAY_PAUSE.action](false);
+		this.audio.pause()
+		this[MUSIC_PLAY_PAUSE.action](false)
 	}
-};
+}
 </script>

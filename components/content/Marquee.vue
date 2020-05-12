@@ -25,10 +25,11 @@ export default {
 		}
 	},
 	mounted() {
-		// this.$nextTick(Marquee3k.init)
+		// works when content doesn't have display none
+		this.$nextTick(Marquee3k.init)
 	},
 	beforeDestroy() {
-		// this.$nextTick(Marquee3k.pauseAll)
+		this.$nextTick(Marquee3k.pauseAll)
 	}
 }
 </script>

@@ -1,6 +1,6 @@
 .music-player {
 	background-color: $color-salmon;
-	user-select: none;
+	user-select: none !important;
 	cursor: default;
 
 	h1 {

@@ -27,7 +27,7 @@ export const placementX = (state, sizeW) => {
 export const placementY = (state, sizeH) => {
 	return isMobile()
 		? (state.windowList.length + 1) * 40
-		: random(40, window.innerHeight - sizeH - MOBILE_GUTTERS_VERTICAL)
+		: random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
 }
 
 export default function(state, currentWindow, groupId) {
@@ -38,6 +38,8 @@ export default function(state, currentWindow, groupId) {
 		statusComponent,
 		defaultWindowProps
 	} = currentWindow.type
+
+	console.log(defaultWindowProps.autoPlacement)
 
 	const statusHeight = statusComponentProps.noStatus ? 0 : 30
 
@@ -60,11 +62,11 @@ export default function(state, currentWindow, groupId) {
 		positionZ: windowProps.positionZ || state.highestZIndex + 1,
 
 		windowProps: {
-			...windowProps,
+			...defaultWindowProps,
 			sizeW,
 			sizeH,
-			positionX: placementX(state, sizeW),
-			positionY: placementY(state, sizeH)
+			positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
+			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH)
 		}
 	}
 }

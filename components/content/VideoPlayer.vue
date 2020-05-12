@@ -1,20 +1,24 @@
 <template>
 	<div class="video-player">
-		<video :src="videoUrl" v-bind:poster="posterUrl" v-bind:autoplay="autoPlay" v-bind:muted="muted" v-bind:controls="controls" v-bind:loop="loop" preload></video>
+		<video
+			:src="videoUrl"
+			v-bind:poster="posterUrl"
+			v-bind:autoplay="autoPlay"
+			v-bind:muted="muted"
+			v-bind:controls="controls"
+			v-bind:loop="loop"
+			preload
+		></video>
 	</div>
 </template>
 
 <script>
-
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { PLAY_VIDEO } from '~/model/constants'
 
 export default {
-	name:'video-player',
-	components: {
-		
-	},
+	name: 'video-player',
+	components: {},
 	props: {
 		videoUrl: {
 			type: String,
@@ -46,14 +50,12 @@ export default {
 			default: false
 		}
 	},
-	
+
 	methods: {
-		...mapActions([
-			PLAY_VIDEO.action,
-		])
+		...mapActions([PLAY_VIDEO.action])
 	},
 	mounted() {
-		if ( !this.muted && !this.controls ) this[PLAY_VIDEO.action]();
+		if (!this.muted && !this.controls) this[PLAY_VIDEO.action]()
 	}
-};
+}
 </script>

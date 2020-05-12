@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :style="{position: 'relative', zIndex: zIndexStyle}">
+		<section class="window-container" :style="{position: 'relative', zIndex: zIndexStyle}">
 			<!-- can't attach listener to vue-draggable -->
 			<vue-draggable-resizable
 				ref="draggableResizable"
@@ -73,6 +73,7 @@ import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
 import WishList from '~/components/content/WishList.vue'
+import MusicPlayer from '~/components/framework/MusicPlayer.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -91,7 +92,8 @@ export default {
 		TextReader,
 		Films,
 		Gallery,
-		WishList
+		WishList,
+		MusicPlayer
 	},
 	props: {
 		modifierClass: {

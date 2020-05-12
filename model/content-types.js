@@ -34,9 +34,12 @@ export default {
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_CHROME_WIDTH,
 			smallWidth: 320,
-			largeHeight: 180 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 180,
-			modifierClass: 'window--tight'
+			largeHeight: 45 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 100,
+			noStatus: true,
+			canResize: false,
+			noPlacement: true,
+			modifierClass: 'window--tight window--music-player music-player'
 		}
 	},
 	textFile: {

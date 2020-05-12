@@ -40,9 +40,7 @@ export const state = () => ({
 	highestZIndex: 0,
 
 	musicPlayerOpen: false,
-
 	musicPlaying: false,
-
 	songs: [
 		{
 			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
@@ -127,7 +125,7 @@ export const mutations = {
 					groupSize: 0
 			  }
 
-		params.windowContent.forEach((content, i) => {
+		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
 			const contentType = content.type
 			const contentName = content.title
