@@ -46,6 +46,7 @@ export default {
 			smallWidth: 350,
 			largeHeight: 400,
 			smallHeight: 300,
+			noStatus: true,
 			modifierClass:'window--tight'
 		}
 	},
