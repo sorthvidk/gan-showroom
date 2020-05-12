@@ -20,18 +20,54 @@
 				<span v-if="assistantExpanded">➖</span>
 				<p>{{currentStyle.name}}</p>
 			</button>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.00525 9.40259L9.00263 1.40521L17 9.40259" stroke="black"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.9948 7.99744L8.99737 15.9948L0.999995 7.99744" stroke="black"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">									
+					<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 16.963l7.778-7.779-.707-.707L17 16.256 9.222 8.477l-.707.708 7.778 7.778-7.778 7.778.707.707L17 17.67l7.778 7.778.707-.707-7.778-7.778z" fill="#000"/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
 			<p>
 				{{currentStyle.name}}
 			</p>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.00525 9.40259L9.00263 1.40521L17 9.40259" stroke="black"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.9948 7.99744L8.99737 15.9948L0.999995 7.99744" stroke="black"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">									
+					<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 16.963l7.778-7.779-.707-.707L17 16.256 9.222 8.477l-.707.708 7.778 7.778-7.778 7.778.707.707L17 17.67l7.778 7.778.707-.707-7.778-7.778z" fill="#000"/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
 		<hr  v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />

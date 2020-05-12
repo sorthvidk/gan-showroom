@@ -24,7 +24,7 @@
 					</svg>
 				</button>
 				<button class="button" @click="toggle">
-					<svg v-if="playing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 299">
+					<svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 299">
 						<path d="M192 0h85v299h-85zM21 0h85v299H21z" />
 					</svg>
 					<p v-else>►</p>
@@ -45,8 +45,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import { TOGGLE_MUSIC_PLAYER } from '~/model/constants'
+import { mapActions,mapState } from 'vuex'
+import { 
+	TOGGLE_MUSIC_PLAYER, 
+	MUSIC_PLAY_PAUSE 
+} from '~/model/constants'
 
 export default {
 	name: 'music-player',
@@ -63,16 +66,37 @@ export default {
 	data() {
 		return {
 			audioContext: null,
-			audio: new Audio(this.songs[0].src),
+			audio: null,
 			loaded: false,
-			playing: false,
-			current: 0
+			current: 0,
+			audioPlaying: false
 		}
 	},
+	watch: {
+		isPlaying(playing) {
+			this.audioPlaying = playing
+
+			console.log("audioPlaying",this.audioPlaying)
+
+			if (this.audioPlaying) {
+				this.audio.play().catch(err => console.warn(err))
+			} else {
+				this.audio.pause()
+			}
+		}
+	},
+	computed: {
+		...mapState({
+			isPlaying: state => state.musicPlaying
+		})
+	},
 	methods: {
-		...mapActions([TOGGLE_MUSIC_PLAYER.action]),
+		...mapActions([
+			TOGGLE_MUSIC_PLAYER.action,
+			MUSIC_PLAY_PAUSE.action 
+		]),
 		closeHandler() {
-			this[TOGGLE_MUSIC_PLAYER.action]()
+			this[TOGGLE_MUSIC_PLAYER.action](!this.audioPlaying)
 		},
 		playlist(n) {
 			const newCurrent = this.current + n
@@ -84,18 +108,15 @@ export default {
 					: newCurrent
 			this.playNewSong()
 		},
-		toggle() {
-			if (!this.playing) {
-				this.audio.play().catch(err => console.warn(err))
-			} else this.audio.pause()
-			this.playing = !this.audio.paused
+		toggle() {			
+			this[MUSIC_PLAY_PAUSE.action](!this.audioPlaying);
 		},
 		playNewSong() {
 			this.audio.pause()
 			this.audio.src = this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
-				if (this.playing) {
+				if (this.audioPlaying) {
 					this.audio.play().catch(err => console.warn(err))
 				}
 			}, 100)
@@ -127,14 +148,6 @@ export default {
 			const bufferLength = analyser.frequencyBinCount
 			const dataArray = new Uint8Array(bufferLength)
 
-			if (src.start) {
-				src.start(0)
-			} else if (src.play) {
-				src.play(0)
-			} else if (src.noteOn) {
-				src.noteOn(0)
-			}
-
 			const WIDTH = canvas.width / dpr
 			const HEIGHT = canvas.height / dpr
 			const BG_COLOR = window.getComputedStyle(canvasContainer).backgroundColor
@@ -142,8 +155,10 @@ export default {
 			const barWidth = WIDTH / bufferLength + 3
 
 			const renderFrame = () => {
+				if ( !this.audioPlaying ) return false;
+				
 				requestAnimationFrame(renderFrame)
-
+				console.log("anim")
 				analyser.getByteFrequencyData(dataArray)
 
 				ctx.fillStyle = BG_COLOR
@@ -181,28 +196,26 @@ export default {
 			}
 		},
 		setLoadedState() {
+			console.log("music-player setLoadedState")
 			this.loaded = true
 			const AudioContext = window.AudioContext || window.webkitAudioContext
 			this.audioContext = new AudioContext()
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
-			this.audio.addEventListener('play', this.init.bind(this), {
-				once: true
-			})
+			this.init()
 		},
 		init() {
-			console.log('play')
+			console.log('music-player init')
 			this.visualize()
-			// this.audio.volume = 1
-			// this.audio.pause()
 			this.audio.play().catch(console.warn)
 		}
 	},
 	mounted() {
-		this.audio.addEventListener(
-			'canplaythrough',
-			this.setLoadedState.bind(this),
-			{ once: true }
-		)
+		this.audio = new Audio(this.songs[0].src);
+		this.audio.addEventListener( 'canplaythrough', this.setLoadedState.bind(this), { once: true } )
+	},
+	beforeDestroy() {
+		this.audio.pause();
+		this[MUSIC_PLAY_PAUSE.action](false);
 	}
-}
+};
 </script>

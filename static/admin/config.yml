@@ -36,8 +36,8 @@ collections:
           widget: "relation",
           multiple: true,
           collection: "collectionFilters",
-          searchFields: ["id", "name"],
-          valueField: "id",
+          searchFields: ["filterId", "name"],
+          valueField: "filterId",
           hint: "List of filters, the style will appear under",
         }
       - {

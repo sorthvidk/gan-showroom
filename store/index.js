@@ -14,7 +14,9 @@ import {
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	PROGRESS_UPDATE,
-	TOGGLE_MUSIC_PLAYER
+	TOGGLE_MUSIC_PLAYER,
+	MUSIC_PLAY_PAUSE,
+	PLAY_VIDEO
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -37,6 +39,9 @@ export const state = () => ({
 	highestZIndex: 0,
 
 	musicPlayerOpen: false,
+	
+	musicPlaying: false,
+
 	songs: [
 		{
 			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
@@ -81,15 +86,15 @@ export const mutations = {
 
 
 	[CONNECT_ASSETS.mutation] (state) {
-		console.warn('CONNECT_ASSETS')
 
 		if (state.collection.assetsConnected) return false
+
+		console.warn('CONNECT_ASSETS')
 
 		let al = state.assets.list.length
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			console.log("asset style", asset.styleId)
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
@@ -404,6 +409,15 @@ export const mutations = {
 
 	[TOGGLE_MUSIC_PLAYER.mutation] (state) {
 		state.musicPlayerOpen = !state.musicPlayerOpen
+	},
+
+	[MUSIC_PLAY_PAUSE.mutation] (state, playing) {
+		console.warn("MUSIC_PLAY_PAUSE",playing)
+		state.musicPlaying = playing
+	},
+
+	[PLAY_VIDEO.mutation] (state, playing) {
+		state.musicPlaying = false
 	}
 }
 
@@ -485,6 +499,14 @@ export const actions = {
 	},
 	[TOGGLE_MUSIC_PLAYER.action] ({ commit }, openState) {
 		commit(TOGGLE_MUSIC_PLAYER.mutation, openState)
+	},
+	[MUSIC_PLAY_PAUSE.action] ({ commit }, playing) {
+		console.log("playing",playing)
+		if ( typeof playing === "undefined") commit(MUSIC_PLAY_PAUSE.mutation, true)
+		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
+	},
+	[PLAY_VIDEO.action] ({ commit }) {
+		commit(PLAY_VIDEO.mutation)
 	},
 
 	[OPEN_WISH_LIST.action] ({ commit }, asset) {
