@@ -18,7 +18,13 @@
 				:h="computedSizeH">
 					<header class="window__top">
 						<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
-						<button class="button close" @click.stop="closeHandler">Ｘ</button>
+						<button class="button close" @click.stop="closeHandler">
+							<span class="icon">									
+								<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+								  <path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 16.963l7.778-7.779-.707-.707L17 16.256 9.222 8.477l-.707.708 7.778 7.778-7.778 7.778.707.707L17 17.67l7.778 7.778.707-.707-7.778-7.778z" fill="#000"/>
+								</svg>
+							</span>
+						</button>
 					</header>
 					<div v-if="!noStatus" class="window__status" @touchstart="contentActivateHandler" @mouseDown="contentActivateHandler">
 						<component :is="statusComponent" v-bind="{...statusComponentProps}" />

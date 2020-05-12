@@ -81,15 +81,15 @@ export const mutations = {
 
 
 	[CONNECT_ASSETS.mutation] (state) {
-		console.warn('CONNECT_ASSETS')
 
 		if (state.collection.assetsConnected) return false
+
+		console.warn('CONNECT_ASSETS')
 
 		let al = state.assets.list.length
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			console.log("asset style", asset.styleId)
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]

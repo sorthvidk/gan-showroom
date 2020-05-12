@@ -27,5 +27,5 @@ export default {
 	mounted() {
 		Marquee3k.init()
 	}
-}
+};
 </script>
