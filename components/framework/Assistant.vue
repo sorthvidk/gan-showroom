@@ -21,21 +21,23 @@
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
+						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
+						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
 					</svg>
 				</span>
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+						<path
+							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+						/>
 					</svg>
 				</span>
 			</button>
@@ -46,21 +48,23 @@
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
+						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
+						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
 					</svg>
 				</span>
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+						<path
+							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+						/>
 					</svg>
 				</span>
 			</button>
@@ -387,7 +391,8 @@ export default {
 			}
 		},
 		downloadWishListClickHandler() {
-			//DOWNLOAD
+			console.log('Download wishlist')
+			window.print()
 		},
 		shareWishListClickHandler() {
 			//SHARE

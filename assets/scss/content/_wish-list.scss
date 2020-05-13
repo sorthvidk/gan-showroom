@@ -5,18 +5,16 @@
 }
 
 .wish-list {
-
 	@include mq($until: screen-sm) {
 		overflow: hidden;
 		overflow-y: auto;
 		max-height: 100%;
 		@include custom-scrollbar();
 	}
-	
 
 	position: relative;
 	height: 100%;
-	
+
 	&__overview {
 		position: absolute;
 		top: 0;
@@ -26,7 +24,7 @@
 
 		border-right: rem(1) solid $color-black;
 		box-sizing: border-box;
-		
+
 		overflow: hidden;
 		overflow-y: auto;
 		@include custom-scrollbar();
@@ -45,7 +43,7 @@
 				margin-right: rem(10);
 			}
 			&:hover {
-				background-color: $color-lightgrey;				
+				background-color: $color-lightgrey;
 			}
 			&.is-active {
 				background-color: $color-lightgrey;
@@ -54,7 +52,6 @@
 	}
 
 	&__details {
-
 		display: none;
 
 		@include mq($from: screen-sm) {
@@ -67,7 +64,7 @@
 		overflow-y: auto;
 		max-height: 100%;
 		@include custom-scrollbar();
-		
+
 		.inner {
 			padding-top: rem(28);
 			padding-bottom: rem(40);
@@ -100,7 +97,6 @@
 
 	//mobile only
 	&__accordion {
-		
 		&.is-active {
 			background-color: $color-lightgrey;
 			.content {
@@ -124,7 +120,7 @@
 			img {
 				display: inline-block;
 				flex: 0 0 rem(30);
-				max-width: rem(30);				
+				max-width: rem(30);
 				margin-right: rem(15);
 			}
 		}
@@ -132,7 +128,7 @@
 			overflow: hidden;
 			max-height: 0;
 			transition: max-height 0.2s ease;
-				
+
 			.button {
 				display: inline-flex;
 				@include bodytext();
@@ -144,10 +140,137 @@
 			}
 
 			.inner {
-				padding: 0 rem(30) rem(40) rem(55);				
+				padding: 0 rem(30) rem(40) rem(55);
 				table {
 					@include details-table();
 				}
+			}
+		}
+	}
+}
+
+/**
+* for downloading/printing the wishlist
+*/
+@media print {
+	%re-fucking-move {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	* {
+		position: relative !important;
+	}
+
+	// hide stuff
+	.progress-bar {
+		@extend %re-fucking-move;
+	}
+	.desktop__shortcuts {
+		@extend %re-fucking-move;
+	}
+	.marquee {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.desktop {
+		background: none !important;
+	}
+
+	// hide all windows but not the wishlist
+	.window:not(.window--wish-list) {
+		@extend %re-fucking-move;
+	}
+
+	// hide stuff in the wishlist
+	.window__status,
+	.window__top,
+	.handle,
+	.wish-list__overview {
+		@extend %re-fucking-move;
+
+		* {
+			@extend %re-fucking-move;
+		}
+	}
+
+	.desktop {
+		height: auto;
+
+		&__windows {
+			position: static;
+		}
+	}
+
+	.window {
+		height: auto !important;
+
+		&__content {
+			height: auto;
+		}
+
+		&--wish-list {
+			width: 100vw !important;
+			left: 0 !important;
+			transform: translate(0) !important;
+
+			border: none;
+			box-shadow: none;
+
+			* {
+				background-color: transparent !important;
+			}
+
+			hr {
+				border-top: none;
+			}
+
+			&:before {
+				@include megatype();
+				content: 'GANNI WISHLIST';
+				font-size: 12.8vw; // fills the 'screen'
+				line-height: 1;
+				font-weight: 500;
+			}
+		}
+	}
+
+	.wish-list__accordion {
+		page-break-after: avoid;
+		display: table;
+
+		padding: rem(25);
+		border-bottom: 1px solid;
+
+		.trigger {
+			all: unset;
+			width: 57%;
+
+			img {
+				max-width: none;
+				width: 33%;
+			}
+
+			span {
+				vertical-align: top;
+			}
+		}
+
+		.content {
+			vertical-align: top;
+
+			width: 43%;
+			display: inline-block;
+			max-height: none;
+
+			.inner {
+				padding: 0;
+			}
+
+			.button {
+				@extend %re-fucking-move;
 			}
 		}
 	}
