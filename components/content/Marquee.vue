@@ -31,5 +31,5 @@ export default {
 	beforeDestroy() {
 		this.$nextTick(Marquee3k.pauseAll)
 	}
-}
+};
 </script>

@@ -20,39 +20,22 @@
 			</button>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
-					<svg
-						width="18"
-						height="18"
-						viewBox="0 0 18 18"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path d="M1.00525 9.40259L9.00263 1.40521L17 9.40259" stroke="black" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
-					<svg
-						width="18"
-						height="17"
-						viewBox="0 0 18 17"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path d="M16.9948 7.99744L8.99737 15.9948L0.999995 7.99744" stroke="black" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
 				<span class="icon">
-					<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M17.707 16.963l7.778-7.779-.707-.707L17 16.256 9.222 8.477l-.707.708 7.778 7.778-7.778 7.778.707.707L17 17.67l7.778 7.778.707-.707-7.778-7.778z"
-							fill="#000"
-						/>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
 					</svg>
 				</span>
 			</button>
@@ -62,39 +45,22 @@
 			<p>{{currentStyle.name}}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
-					<svg
-						width="18"
-						height="18"
-						viewBox="0 0 18 18"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path d="M1.00525 9.40259L9.00263 1.40521L17 9.40259" stroke="black" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
-					<svg
-						width="18"
-						height="17"
-						viewBox="0 0 18 17"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path d="M16.9948 7.99744L8.99737 15.9948L0.999995 7.99744" stroke="black" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
 				<span class="icon">
-					<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M17.707 16.963l7.778-7.779-.707-.707L17 16.256 9.222 8.477l-.707.708 7.778 7.778-7.778 7.778.707.707L17 17.67l7.778 7.778.707-.707-7.778-7.778z"
-							fill="#000"
-						/>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
 					</svg>
 				</span>
 			</button>
@@ -331,9 +297,6 @@ export default {
 			if (newVal && newVal.name != '') this.filterName = newVal.name
 			else this.filterName = null
 		},
-		wishList(newVal) {
-			console.log('WISH LIST', newVal)
-		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
@@ -456,11 +419,9 @@ export default {
 			this.assistantMode = AssistantModes.STYLE_DETAILS
 		},
 		isSmallViewport() {
-			console.log('isSmallViewport')
 			this.viewPortSize = ViewportSizes.SMALL
 		},
 		isLargeViewport() {
-			console.log('isLargeViewport')
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		toggleContentHandler() {
@@ -470,8 +431,7 @@ export default {
 	mounted() {
 		let isMobile = addMediaChangeListener(
 			this.isSmallViewport,
-			this.isLargeViewport,
-			768
+			this.isLargeViewport
 		)
 		if (!isMobile) {
 			this.assistantExpanded = true

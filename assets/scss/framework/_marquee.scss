@@ -13,7 +13,7 @@
 	// display: none; // bugs the marquee
 	visibility: hidden;
 
-	@include mq($from: screen-sm) {
+	@include mq($from: screen-md) {
 		// display: block;
 		visibility: visible;
 	}

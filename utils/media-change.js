@@ -1,4 +1,4 @@
-export default function(callbackSmallViewport, callbackLargeViewport, maxWidth=1024) {
+export default function(callbackSmallViewport, callbackLargeViewport, maxWidth=1023) {
 	let mql = window.matchMedia(`(max-width: ${maxWidth}px)`);
 
 	function screenTest(e) {

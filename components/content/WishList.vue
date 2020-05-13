@@ -149,7 +149,7 @@ export default {
 		}
 	},
 	mounted() {
-		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
 		if (!isMobile ) {
 			this.viewPortSize = ViewportSizes.LARGE;
 		}
