@@ -6,7 +6,7 @@
   "colorNames": "Green",
   "material": "100% ipsum",
   "completed": false,
-  "name": "Lorem ipsum",
+  "name": "Dummy, no filter",
   "styleId": "F33367",
   "drop": "December",
   "programName": "Lorem",
@@ -14,9 +14,7 @@
   "wholesalePriceEUR": 100,
   "wholesalePriceDKK": 100,
   "wholesalePriceUSD": 100,
-  "filters": [
-    "TEST"
-  ],
+  "filters": [],
   "retailPriceEUR": 100,
   "description": "Test test test",
   "sustainable": true,
