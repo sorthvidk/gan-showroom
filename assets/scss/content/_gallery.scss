@@ -1,9 +1,32 @@
+.window {
+	
+	&--gallery {
+		left: 0;
+		top: 0;
+		width: 100vw !important;
+		height: 100vh !important;
+		transform: translate(0,0) !important;
+
+		.handle {
+			display: none;
+		}
+
+		@include mq($from: screen-sm) {
+			width: auto !important;
+			left: 50vw;
+			transform: translateX(-50%) !important;
+		}
+	}
+}
+
 .gallery {
 	background-color: $color-grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+
+	
 	
 	&__item {
 		display: block;

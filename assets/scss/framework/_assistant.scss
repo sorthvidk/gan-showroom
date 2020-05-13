@@ -1,6 +1,85 @@
+.window {
+
+	&--assistant {
+		z-index: $z-index-assistant !important;
+
+		.title {
+			cursor: default;
+		}
+
+		position: fixed;
+		top: auto;
+		left: rem(10);
+		right: rem(10);
+		bottom: rem(45 + 10 + 30); //ios navbar + gutter + support (heights)
+
+		@include mq($from: screen-sm) {
+			top: rem(60);
+			right: rem(20);
+			bottom: auto;
+			left: auto;
+			width: rem(276);
+		}
+		@include mq($from: screen-md) {
+			top: rem(80);
+			right: rem(30);
+		}
+
+		.window__content {
+			height: auto;
+		}
+		.window__top {
+			.title {
+				border-bottom: 0;
+			}
+		}
+
+
+		.button.expand {
+			@include full-width-button();
+			border-top: 0;
+			border-bottom: 0;
+
+			span {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				width: rem(20);
+				height: rem(20);
+				margin-right: rem(10);
+			}
+			p {
+				@include bodytext();
+				text-decoration: underline;
+			}
+		}
+		hr {
+			border-top: rem(1) solid $color-black;
+			border-bottom: 0;
+		}
+	}
+}
+
 .assistant {
 
-	&__welcome {
+	
+
+	&__content {
+		overflow: hidden;
+		max-height: rem(180);
+		transition: max-height 0.2s ease;
+		border-top: rem(1) solid $color-black;
+		&.is-collapsed {
+			border-top: 0;
+			max-height: 0;
+		}
+
+		@include mq($from: screen-md) {
+			border-top: 0;
+			max-height: none;
+		}
+	}
+	&__text {
 		padding: rem(9) rem(10);
 		
 		p {
@@ -10,13 +89,24 @@
 
 	
 	&__filters {
+		@include custom-scrollbar();
+		overflow: hidden;
+		overflow-y: auto;
+		max-height: rem(180);
+
+		@include mq($from: screen-md) {
+			max-height: none;
+			overflow: visible;
+		}
+
+
 		p {
 			padding: rem(9) rem(10);
 			@include bodytext();
 		}
-
 		&__list {
 			display: flex;			
+			flex-wrap: wrap;
 			border-top: rem(1) solid $color-black;
 
 			.filter-button {
@@ -53,6 +143,16 @@
 
 	}
 	&__product-details {
+		@include custom-scrollbar();
+		overflow: hidden;
+		overflow-y: scroll;
+		max-height: rem(160);
+
+		@include mq($from: screen-md) {
+			max-height: none;
+			overflow: visible;
+		}
+
 		padding: rem(9) rem(10);
 
 		p {
@@ -60,17 +160,7 @@
 			margin-bottom: rem(20);		
 		}
 		table {
-			table-layout: fixed;
-			text-align: left;
-		}
-		table tr td {
-			padding: 0;
-			@include bodytext();			
-		}
-		table tr th {
-			@include bodytext();			
-			white-space: nowrap;
-			padding-right: rem(10);
+			@include details-table();
 		}
 		.link {
 			cursor: pointer;
@@ -85,13 +175,7 @@
 		display: flex;
 		justify-content: space-between;
 		.button {
-			cursor: pointer;
-			display: block;
-			width: 100%;
-			background-color: $color-white;
-			padding: rem(10);
-			@include bodytext();
-			text-decoration: underline;
+			@include full-width-button();
 			border-top: rem(1) solid $color-black;
 			text-align: left;
 
@@ -99,7 +183,8 @@
 				background-color: $color-lightgrey;
 			}
 
-			&.add-to-wishlist {
+			&.add-to-wishlist,
+			&.download-wishlist {
 				background-color: $color-yellow;
 				&.is-active {
 					background-color: lighten($color-yellow,20%);

@@ -66,5 +66,17 @@ export default {
 	assets: {
 		type: Array,
 		default: null
+	},
+	index: {
+		type: Number,
+		default: 0
+	},
+	completed: {
+		type: Boolean,
+		default: false
+	},
+	sustainable: {
+		type: Boolean,
+		default: false
 	}
 };

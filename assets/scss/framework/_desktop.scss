@@ -4,14 +4,20 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 0;	
+	bottom: 0;
 	width: 100vw;
 	height: 100vh;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
 
 	background-size: cover;
-	
+	background-position: center;
+	image-rendering: pixelated;
+
+	* {
+		image-rendering: initial;
+	}
+
 	&__shortcuts {
 		padding: rem(10);
 		position: relative;
@@ -21,8 +27,8 @@
 		width: 100%;
 
 		@include mq($from: screen-md) {
-			height: calc(100% - #{rem(40 + 60)});
-			padding: rem(10);
+			height: calc(100vh - #{rem(40 + 60)});
+			padding: 0;
 			display: grid;
 
 			grid-template-columns: repeat(12, 1fr);
@@ -31,7 +37,7 @@
 	}
 	&__windows {
 		position: fixed;
-		z-index: 100;
+		z-index: 20;
 		top: 0;
 		left: 0;
 	}
