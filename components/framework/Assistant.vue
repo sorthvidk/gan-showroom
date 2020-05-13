@@ -21,14 +21,14 @@
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
+					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
+					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
 					</svg>
 				</span>
 			</button>
@@ -46,14 +46,14 @@
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
+					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
 					</svg>
 				</span>
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
+					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
 					</svg>
 				</span>
 			</button>
