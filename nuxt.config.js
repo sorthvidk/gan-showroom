@@ -16,27 +16,25 @@ export default {
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
 	},
-	generate: {
-		routes: function() {
-			const fs = require('fs')
-			return fs.readdirSync('./assets/content/blog').map(file => {
-				return {
-					route: `/blog/${file.slice(2, -5)}`,
-					payload: require(`./assets/content/blog/${file}`)
-				}
-			})
-		}
-	},
+	// generate: {
+	// 	routes: function() {
+	// 		const fs = require('fs')
+	// 		return fs.readdirSync('./assets/content/blog').map(file => {
+	// 			return {
+	// 				route: `/blog/${file.slice(2, -5)}`,
+	// 				payload: require(`./assets/content/blog/${file}`)
+	// 			}
+	// 		})
+	// 	}
+	// },
 	/*
 	 ** Customize the progress-bar color
 	 */
 	loading: { color: '#fff' },
 	/*
-	** Global CSS
-	*/
-	css: [
-		'@/assets/scss/main.scss'
-	],
+	 ** Global CSS
+	 */
+	css: ['@/assets/scss/main.scss'],
 	/*
 	 ** Plugins to load before mounting the App
 	 */
@@ -58,7 +56,11 @@ export default {
 	/*
 	 ** Nuxt.js dev-modules
 	 */
-	buildModules: [],
+	buildModules: ['@nuxtjs/gtm'],
+	gtm: {
+		dev: false,
+		id: 'GTM-P2ZL2V6'
+	},
 	/*
 	 ** Nuxt.js modules
 	 */
@@ -71,11 +73,11 @@ export default {
 	 */
 	build: {
 		/*
-		** You can extend webpack config here
-		*/
+		 ** You can extend webpack config here
+		 */
 		devtools: true,
 		analyze: false, // only for debugging
-		extend(config, ctx) {
+		extend (config, ctx) {
 			// console.log('config.entry: ', config.entry);
 		},
 		postcss: {
@@ -86,11 +88,11 @@ export default {
 			preset: {
 				// Change the postcss-preset-env settings
 				autoprefixer: {
-					browsers: [ 'last 4 versions', '> 1%', 'ie 6-8' ],
+					browsers: ['last 4 versions', '> 1%', 'ie 6-8'],
 					// browsers: ['defaults'],
-					grid: true,
+					grid: true
 				}
 			}
-		},
+		}
 	}
 }

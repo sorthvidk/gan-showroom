@@ -7,6 +7,8 @@ import {
 	ALL_ASSETS_VISIBLE,
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
+	OPEN_STYLE_CONTENT,
+	CLOSE_WINDOW_GROUP,
 } from '~/model/constants'
 
 export const state = () => ({
@@ -61,7 +63,9 @@ export const state = () => ({
 			description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.',
 			assets: [],			
 			completed: false,
-			onWishList: false
+			onWishList: false,
+			index: null,
+			sustainable: false
 		},
 		{
 			styleId: 'F5987334',
@@ -82,7 +86,9 @@ export const state = () => ({
 			description: 'Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.',
 			assets: [],
 			completed: false,
-			onWishList: false
+			onWishList: false,
+			index: null,
+			sustainable: true
 		},
 		{
 			styleId: 'F1121095',
@@ -103,7 +109,9 @@ export const state = () => ({
 			description: 'Qui voluptatibus consequuntur tempore nam accusantium quam assumenda.',
 			assets: [],
 			completed: false,
-			onWishList: false
+			onWishList: false,
+			index: null,
+			sustainable: false
 		}
 	]
 });
@@ -136,9 +144,14 @@ export const mutations = {
 		}
 	},
 	[SHOW_PREVIOUS_STYLE.mutation] (state, styleId) {
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		console.log(styleId,listStyle,listStyle.index)
+
 		
 	},
 	[SHOW_NEXT_STYLE.mutation] (state, styleId) {
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		console.log(styleId,listStyle,listStyle.index)
 		
 	},
 	[FILTER_COLLECTION.mutation] (state) {
@@ -156,7 +169,7 @@ export const mutations = {
 			for (var j = 0; j < fl; j++) {
 				let styleFilter = style.filters[j];
 				let stateFilter = state.filters.filter(e => e.filterId === styleFilter)[0]
-				stateFilter.styleIds.push(style.styleId);
+				if ( stateFilter ) stateFilter.styleIds.push(style.styleId);
 			}
 		}
 
@@ -171,6 +184,13 @@ export const mutations = {
 	},
 	[SET_CURRENT_FILTER.mutation] (state, filterId) {
 		if ( !filterId || filterId == '' ) {
+			
+			let cl = state.list.length;
+
+			for (var j = 0; j < cl; j++) {
+				state.list[j].index = j;
+			}
+
 			state.currentStyles = state.list;
 			state.activeFilter = {
 				filterId: null,
@@ -188,7 +208,9 @@ export const mutations = {
 
 			for (var i = 0; i < sil; i++) {
 				let styleId = styleIds[i];
-				newCurrentStyles.push( state.list.filter(e => e.styleId === styleId)[0] );
+				let addedStyle = state.list.filter(e => e.styleId === styleId)[0];
+				addedStyle.index = i;
+				newCurrentStyles.push( addedStyle );
 			}
 			state.currentStyles = newCurrentStyles;
 		}
@@ -228,11 +250,38 @@ export const actions = {
 		// ex 'F1121095'
 		commit(PROGRESS_UPDATE.mutation, styleId)
 	},
-	[SHOW_PREVIOUS_STYLE.action] ({ commit }, styleId) {
-		commit(SHOW_PREVIOUS_STYLE.mutation, styleId)		
+	[SHOW_PREVIOUS_STYLE.action] ({ commit, dispatch, state }, styleId) {
+		dispatch(CLOSE_WINDOW_GROUP.action, {}, {root:true})
+		
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+
+		if ( !listStyle ) return false;
+
+		let styleCount = state.currentStyles.length,
+			index = listStyle.index,
+			nextIndex = index === 0 ? styleCount-1 : index-1,
+			prevStyle = state.currentStyles.filter(e => e.index === nextIndex)[0];
+
+		if ( prevStyle ) {
+			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, {root:true} );
+		}
+
 	},
-	[SHOW_NEXT_STYLE.action] ({ commit }, styleId) {
-		commit(SHOW_NEXT_STYLE.mutation, styleId)				
+	[SHOW_NEXT_STYLE.action] ({ commit, dispatch, state }, styleId) {
+		dispatch(CLOSE_WINDOW_GROUP.action, {}, {root:true})
+		
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+
+		if ( !listStyle ) return false;
+
+		let styleCount = state.currentStyles.length,
+			index = listStyle.index,
+			nextIndex = index === styleCount-1 ? 0 : index+1,
+			nextStyle = state.currentStyles.filter(e => e.index === nextIndex)[0];
+
+		if ( nextStyle ) {
+			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, {root:true} );
+		}
 	},	
 
 };

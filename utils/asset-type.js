@@ -4,7 +4,7 @@ export default function(asset) {
 
 	switch (asset.type) {
 		case 'image':
-			switch (asset.imageAspect) {
+			switch (asset.aspect) {
 				case 'portrait':
 					return ContentTypes.imagePortrait;
 				break;
@@ -17,12 +17,14 @@ export default function(asset) {
 			}
 		break;
 		case 'video':
-			case 'portrait':
-				return ContentTypes.videoPortrait;
-			break;
-			case 'landscape':
-				return ContentTypes.videoLandscape;
-			break;
+			switch (asset.aspect) {
+				case 'portrait':
+					return ContentTypes.videoPortrait;
+				break;
+				case 'landscape':
+					return ContentTypes.videoLandscape;
+				break;
+			}
 		break;
 	}
 

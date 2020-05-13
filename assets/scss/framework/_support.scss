@@ -1,7 +1,12 @@
 .window {
-
 	&--support {
-		z-index: $z-index-support !important;
+		box-shadow: rem(4) 0 0 0 rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		z-index: 1;
+
+		@include mq($until: screen-sm) {
+			z-index: $z-index-support;
+		}
 
 		.title {
 			cursor: default;
@@ -14,6 +19,7 @@
 		bottom: rem(45 + 10);
 
 		@include mq($from: screen-sm) {
+			border-bottom: rem(1) solid $color-black;
 			right: rem(20);
 			left: auto;
 			width: rem(276);
@@ -26,13 +32,22 @@
 		.window__content {
 			height: auto;
 		}
+		.window__top {
+			.title,
+			.button {
+				border-bottom: 0;
+			}
+			.button svg {
+				width: rem(18);
+				height: rem(18);
+			}
+		}
 	}
 }
 
-
 .support {
 	@include bodytext();
-	
+
 	a {
 		color: currentColor;
 	}
@@ -43,6 +58,9 @@
 
 	&__top {
 		background-color: $color-lightgrey;
+
+		border-top: rem(1) solid $color-black;
+
 		padding: rem(9) rem(10);
 
 		display: grid;
@@ -81,19 +99,13 @@
 
 	&__footer {
 		.button {
-			cursor: pointer;
+			@include full-width-button();
 
 			background-color: $color-yellow;
 			border-top: rem(1) solid $color-black;
-			border-bottom: rem(1) solid $color-black;
-			border-right: rem(1) solid $color-black;
-			padding: rem(10);
-			display: flex;
-			align-items: center;
-			@include bodytext();
 
 			&:hover {
-				background-color: darken($color-yellow, 5%);
+				background-color: lighten($color-yellow, 30%);
 			}
 		}
 	}

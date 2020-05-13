@@ -1,6 +1,8 @@
 <template>
-	<div class="single-image" :class="{'is-interactive': this.canOpenGallery}">
-		<img :src="imageUrl" alt="img" @click="clickHandler">
+	<div class="single-image" :class="{'is-interactive': this.belongsToStyle}">
+		<transition name="fade">
+			<img :src="assetUrl" alt="img" @click="clickHandler">
+		</transition>
 	</div>
 </template>
 
@@ -19,15 +21,15 @@ export default {
 		}
 	},
 	computed: {
-		canOpenGallery() {
+		belongsToStyle() {
 			return this.asset.styleId ? true : false;
 		},
-		imageUrl() {
-			if ( this.canOpenGallery ) {
+		assetUrl() {
+			if ( this.belongsToStyle ) {
 				return getCloudinaryUrl(this.asset);
 			}
 			else {
-				return this.asset.defaultImageUrl;
+				return this.asset.imageUrl;
 			}
 		}
 	},
@@ -36,7 +38,7 @@ export default {
 			OPEN_GALLERY.action
 		]),	
 		clickHandler() {
-			if ( this.canOpenGallery ) {
+			if ( this.belongsToStyle ) {
 				this[OPEN_GALLERY.action](this.asset);
 			}
 		}

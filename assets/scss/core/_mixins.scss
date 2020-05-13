@@ -25,6 +25,22 @@
 	}
 }
 
+@mixin details-table() {
+	table-layout: fixed;
+	text-align: left;
+	
+	tr td {
+		padding: 0;
+		@include bodytext();			
+	}
+	tr th {
+		@include bodytext();
+		color: $color-darkgrey;			
+		white-space: nowrap;
+		padding-right: rem(10);
+	}
+}
+
 
 @mixin bevel($inverted: false) {
 	@if $inverted {
@@ -76,7 +92,6 @@
 	flex: 0 0 rem(30);
 	width: rem(30);
 	height: rem(30);
-	padding: rem(5);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -84,4 +99,15 @@
 	border: 0;
 	cursor: pointer;
 	transition: all 0.2s ease;
+	.icon {
+		width: rem(30);
+		height: rem(30);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: rem(30);
+			height: rem(30);
+		}
+	}
 }

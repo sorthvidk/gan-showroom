@@ -2,17 +2,50 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: rem(5);
-	> * {
-		flex: 0 1 rem(160);
-		box-sizing: border-box;
-		padding: rem(10);
-		border: rem(1) solid transparent;
+	align-items: flex-start;
+	@include mq($from: screen-md) {
+		padding: rem(25);
 	}
 
 	.collection-item {
+		display: block;
+		padding: rem(5);
+		flex: 0 0 rem(156);
+		min-width: 0;
+		box-sizing: border-box;
+		border: rem(1) solid transparent;
+		position: relative;
 		cursor: pointer;
+		transition: border 0.3s ease;
+
+		@include mq($from: screen-md) {
+			flex: 0 0 rem(208);
+		}
+	
+
 		&:hover {
 			border: rem(1) solid $color-black;
+		}
+
+		span {
+			font-size: rem(11);
+			font-weight: 600;
+			position: absolute;
+			top: 70%;
+			left: rem(5);
+			background-color: $color-salmon;
+			padding: rem(3);
+		}
+		p {
+			max-width: 100%;
+			max-height: 1.27em;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			margin-top: rem(10);
+			display: block;
+			text-align: center;
+			@include bodytext();
 		}
 	}
 }
