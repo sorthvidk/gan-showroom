@@ -42,7 +42,9 @@
 			<assistant />
 			<support />
 		</div>
-		<marquee v-if="viewPortSize == 1"
+		<marquee
+			:linkTo="'F5987334'"
+			v-if="viewPortSize == 1"
 			:text="`Duis aute irure dolor in reprehenderit • <a href='#'>Duis aute irure dolor</a> in reprehenderit • Duis aute irure dolor in reprehenderit`"
 		/>
 	</div>
@@ -50,9 +52,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import {
-	ESC_KEYPRESS
-} from '~/model/constants'
+import { ESC_KEYPRESS } from '~/model/constants'
 import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
 
@@ -62,7 +62,6 @@ import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
-
 
 export default {
 	name: 'desktop',
@@ -86,9 +85,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
-			ESC_KEYPRESS.action
-		]),
+		...mapActions([ESC_KEYPRESS.action]),
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
 		},
@@ -106,7 +103,7 @@ export default {
 			this.isSmallViewport,
 			this.isLargeViewport
 		)
-		if ( !isMobile ) this.viewPortSize = ViewportSizes.LARGE
+		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 	}
-};
+}
 </script>

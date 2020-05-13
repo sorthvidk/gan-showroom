@@ -57,19 +57,22 @@ export const state = () => ({
 			filmId: '123456',
 			filmName: 'Numa numa',
 			posterUrl: '/img/styles/F4478-687-square.png',
-			videoUrl: 'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
+			videoUrl:
+				'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
 		},
 		{
 			filmId: '123457',
 			filmName: 'Numa numa',
 			posterUrl: '/img/styles/F4478-687-square.png',
-			videoUrl: 'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
+			videoUrl:
+				'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
 		},
 		{
 			filmId: '123458',
 			filmName: 'Numa numa',
 			posterUrl: '/img/styles/F4478-687-square.png',
-			videoUrl: 'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
+			videoUrl:
+				'https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4'
 		}
 	]
 })
