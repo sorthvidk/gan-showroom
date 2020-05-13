@@ -35,6 +35,7 @@ collections:
           name: "filters",
           widget: "relation",
           multiple: true,
+          required: false,
           collection: "collectionFilters",
           searchFields: ["filterId", "name"],
           valueField: "filterId",

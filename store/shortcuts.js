@@ -98,7 +98,7 @@ export const state = () => ({
 			posH: 12,
 			posV: 5,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'c2',
+			actionParam: 'LEOPARD PRINT',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
