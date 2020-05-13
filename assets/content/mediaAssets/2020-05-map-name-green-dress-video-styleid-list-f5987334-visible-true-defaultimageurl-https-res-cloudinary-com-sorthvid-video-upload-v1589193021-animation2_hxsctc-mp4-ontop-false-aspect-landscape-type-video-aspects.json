@@ -1,10 +1,10 @@
 {
   "assetId": "s897fdsf",
-  "name": "Green Dress video",
-  "styleId": "F5987334",
+  "name": "Dummy portrait video",
+  "styleId": "F1121095",
   "visible": true,
-  "cloudinaryUrl": "https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589202709/animation2_pnfv4v.mp4",
+  "cloudinaryUrl": "https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589284222/VID_20200512_134845_uw2izw.mp4",
   "onTop": false,
-  "aspect": "landscape",
+  "aspect": "portrait",
   "type": "video"
 }

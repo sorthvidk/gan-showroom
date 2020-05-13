@@ -41,28 +41,27 @@
 
 			<assistant />
 			<support />
-
-			<music-player v-if="musicPlayerOpen" :songs="songs" />
 		</div>
-
-		<marquee :text="'Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit • Duis aute irure dolor in reprehenderit'" />
+		<marquee
+			:text="`Duis aute irure dolor in reprehenderit • <a href='#'>Duis aute irure dolor</a> in reprehenderit • Duis aute irure dolor in reprehenderit`"
+		/>
 	</div>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { 
-	TOPMOST_WINDOW, 
+import {
+	TOPMOST_WINDOW,
 	ESC_KEYPRESS,
 	RIGHT_KEYPRESS,
-	LEFT_KEYPRESS } from '~/model/constants'
+	LEFT_KEYPRESS
+} from '~/model/constants'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
-import MusicPlayer from '~/components/framework/MusicPlayer.vue'
 
 import Marquee from '~/components/content/Marquee.vue'
 
@@ -74,15 +73,12 @@ export default {
 		Window,
 		Marquee,
 		Assistant,
-		Support,
-		MusicPlayer
+		Support
 	},
 	computed: {
 		...mapState({
 			windowList: state => state.windowList,
-			shortcutList: state => state.shortcuts.list,
-			musicPlayerOpen: state => state.musicPlayerOpen,
-			songs: state => state.songs
+			shortcutList: state => state.shortcuts.list
 		})
 	},
 	methods: {

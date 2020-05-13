@@ -1,65 +1,72 @@
 import isMobile from '~/utils/is-mobile'
+import getUniqueId from '~/utils/get-unique-id'
 
-const WINDOW_CHROME_HEIGHT = 71
-const WINDOW_CHROME_WIDTH = 2
+const RIGHT_CLEARENCE = 320 // arbitary, used to not place windows on top of the assistant
+
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+
 const MOBILE_GUTTERS_HORIZONTAL = 10 + 10 //right + left
 const MOBILE_GUTTERS_VERTICAL = 10 + (10 + 45) //top + (bottom + navbar)
 
-export default function(windowContent) {
+// returns a semi-random value, depending on the length of state.windowList
+// values are loosly structured on four columns
+export const placementX = (state, sizeW) => {
+	const amount = 4
+	const distance = (window.innerWidth - RIGHT_CLEARENCE) / (amount + 1)
+	const placements = [distance, distance * 2, distance * 3, distance * 4]
 
-	let wW = window.innerWidth;
-	let wH = window.innerHeight;
+	return Math.max(
+		random(10, 20),
+		placements[(state.windowList.length + 2) % amount] -
+			sizeW / 2 +
+			random(-30, 30)
+	)
+}
 
-	let isMobile = isMobile();
-	let newWindowContent = [];
+// returns a random value that takes the window size in account
+export const placementY = (state, sizeH) => {
+	return isMobile()
+		? (state.windowList.length + 1) * 40
+		: random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
+}
 
-	let wCL = windowContent.length
+export default function(state, currentWindow, groupId) {
+	const { statusComponentProps = {}, windowProps = {} } = currentWindow
 
-	for (var i = 0; i < wCL; i++) {
-		let contentItem = windowContent[i];
-		let contentType = contentItem.type;
+	const {
+		contentComponent,
+		statusComponent,
+		defaultWindowProps
+	} = currentWindow.type
 
-		let windowProps = {};
+	console.log(defaultWindowProps.autoPlacement)
 
-		windowProps.modifierClass = contentType.defaultWindowProps.modifierClass ? contentType.defaultWindowProps.modifierClass : null;
-		windowProps.noStatus = contentType.defaultWindowProps.noStatus ? contentType.defaultWindowProps.noStatus : false;
-		windowProps.isMaximized = contentType.defaultWindowProps.isMaximized ? contentType.defaultWindowProps.isMaximized : false;
-		windowProps.canResize = contentType.defaultWindowProps.canResize ? contentType.defaultWindowProps.canResize : true;
-		
-		windowProps.sizeW = contentType.defaultWindowProps.smallWidth > (wW + MOBILE_GUTTERS_HORIZONTAL) ? 
-							(wW + MOBILE_GUTTERS_HORIZONTAL) : contentType.defaultWindowProps.smallWidth;
-		windowProps.sizeH = contentType.defaultWindowProps.smallHeight > (wH + MOBILE_GUTTERS_VERTICAL) ? 
-							(wH + MOBILE_GUTTERS_VERTICAL) : contentType.defaultWindowProps.smallWidth;
+	const statusHeight = statusComponentProps.noStatus ? 0 : 30
 
-		if (!isMobile) {
-			windowProps = {
-				w: contentType.defaultWindowProps.largeWidth + WINDOW_CHROME_WIDTH,
-				h: contentType.defaultWindowProps.largeHeight + WINDOW_CHROME_HEIGHT
-			}
-		}
-
-
-		let offsetProps = windowContent[i];
-		
-		let newW = offsetProps.;
-		let newH = 0;
-
-		let newX = 0;
-		let newY = 0;
-
-
-
-		// DO STUFF
-
-
-		newWindowContent.push()
-	}
-
+	const sizeW =
+		windowProps.width ||
+		defaultWindowProps[isMobile() ? 'smallWidth' : 'largeWidth']
+	const sizeH =
+		windowProps.height ||
+		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight'] +
+			statusHeight
 
 	return {
-		positionX: newX,
-		positionY: newY,
-		sizeW: newW,
-		sizeH: newH
+		...currentWindow,
+		windowId: '' + getUniqueId(),
+		groupId,
+
+		contentComponent,
+		statusComponent,
+
+		positionZ: windowProps.positionZ || state.highestZIndex + 1,
+
+		windowProps: {
+			...defaultWindowProps,
+			sizeW,
+			sizeH,
+			positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
+			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH)
+		}
 	}
 }
