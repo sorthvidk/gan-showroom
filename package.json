@@ -13,7 +13,8 @@
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
-		"generate": "nuxt generate"
+		"generate": "nuxt generate",
+		"cmsdev": "npx netlify-cms-proxy-server"
 	},
 	"repository": {
 		"type": "git",
@@ -21,26 +22,28 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@nuxtjs/gtm": "^2.2.3",
 		"@nuxtjs/markdownit": "^1.2.6",
 		"gsap": "^2.1.2",
 		"intersection-observer": "^0.5.1",
 		"lazysizes": "^5.2.0",
 		"lodash": "4.17.4",
+		"marquee3000": "^1.1.1",
 		"nuxt": "^2.11.0",
 		"nuxt-polyfill": "^1.0.3",
 		"vue-draggable-resizable": "^2.1.2",
 		"vuex-persistedstate": "^3.0.1"
 	},
 	"devDependencies": {
+		"autoprefixer": "^9.5.1",
 		"eslint-config-prettier": "^4.1.0",
 		"eslint-plugin-prettier": "^3.0.1",
-		"prettier": "^1.16.4",
-		"autoprefixer": "^9.5.1",
 		"node-sass": "^4.11.0",
 		"nodemon": "^1.18.9",
 		"postcss-inline-svg": "^3.1.1",
 		"postcss-loader": "^3.0.0",
 		"postcss-units": "^1.2.1",
+		"prettier": "^1.16.4",
 		"sass-loader": "^7.1.0"
 	}
 }

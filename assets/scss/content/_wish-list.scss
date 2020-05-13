@@ -5,6 +5,15 @@
 }
 
 .wish-list {
+
+	@include mq($until: screen-sm) {
+		overflow: hidden;
+		overflow-y: auto;
+		max-height: 100%;
+		@include custom-scrollbar();
+	}
+	
+
 	position: relative;
 	height: 100%;
 	
@@ -45,6 +54,13 @@
 	}
 
 	&__details {
+
+		display: none;
+
+		@include mq($from: screen-sm) {
+			display: block;
+		}
+
 		padding-left: rem(215);
 
 		overflow: hidden;
@@ -54,6 +70,7 @@
 		
 		.inner {
 			padding-top: rem(28);
+			padding-bottom: rem(40);
 			max-width: rem(300);
 			margin: 0 auto;
 			table {
@@ -77,6 +94,60 @@
 
 			img {
 				height: auto;
+			}
+		}
+	}
+
+	//mobile only
+	&__accordion {
+		
+		&.is-active {
+			background-color: $color-lightgrey;
+			.content {
+				max-height: rem(400);
+			}
+		}
+
+		.trigger {
+			cursor: pointer;
+			padding: rem(8) rem(12);
+			width: 100%;
+			display: flex;
+			align-items: center;
+			span {
+				display: inline-block;
+				text-align: left;
+			}
+			em {
+				@include bodytext();
+			}
+			img {
+				display: inline-block;
+				flex: 0 0 rem(30);
+				max-width: rem(30);				
+				margin-right: rem(15);
+			}
+		}
+		.content {
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.2s ease;
+				
+			.button {
+				display: inline-flex;
+				@include bodytext();
+				font-size: rem(12);
+				text-decoration: underline;
+				font-weight: 500;
+				margin-bottom: rem(20);
+				color: $color-darkgrey;
+			}
+
+			.inner {
+				padding: 0 rem(30) rem(40) rem(55);				
+				table {
+					@include details-table();
+				}
 			}
 		}
 	}

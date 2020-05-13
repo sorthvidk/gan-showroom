@@ -30,7 +30,6 @@
 		}
 	}
 
-
 	hr {
 		box-sizing: border-box;
 		display: block;
@@ -67,6 +66,10 @@
 			@include bevel();
 			border-left: rem(1) solid $color-black;
 			border-bottom: rem(1) solid $color-black;
+
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
 
 			&:hover {
 				background-color: $color-white;
@@ -123,6 +126,23 @@
 		}
 	}
 
+	&--gallery {
+		left: 0;
+		top: 0;
+		width: 100vw !important;
+		height: 100vh !important;
+		transform: translate(0, 0) !important;
+
+		.handle {
+			display: none;
+		}
+
+		@include mq($from: screen-sm) {
+			width: auto !important;
+			left: 50vw;
+			transform: translateX(-50%) !important;
+		}
+	}
 
 	&--no-status {
 		#{$module}__content {
@@ -130,7 +150,33 @@
 		}
 	}
 
+	&--music-player {
+		z-index: $z-index-support !important;
 
+		.title {
+			cursor: default;
+		}
+
+		position: fixed;
+		top: calc(100vh - 240px);
+		left: rem(10);
+		right: rem(10);
+		bottom: rem(10);
+
+		@include mq($from: screen-sm) {
+			right: auto;
+			left: rem(20);
+			width: rem(326);
+			bottom: rem(160);
+		}
+		@include mq($from: screen-md) {
+			left: rem(30);
+		}
+
+		#{$module}__content {
+			height: auto;
+		}
+	}
 
 	.vdr {
 		touch-action: none;

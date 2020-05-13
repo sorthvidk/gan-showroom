@@ -1,15 +1,18 @@
 <template>
 	<div class="wish-list">
-		<div class="wish-list__overview">
-			<div v-for="(item, key) in wishList">
+		<div class="wish-list__overview" v-if="viewPortSize == 1">
+			<div v-for="(item, key) in wishList" :key="'wishListItem'+key">
 				<button v-if="item.assets && item.assets.length > 0" class="button" :class="{'is-active': currentWishListIndex == key}" @click="overviewItemHandler(key)">
-					<img :src="item.assets[0].defaultImageUrl" alt="">
+					<img :src="item.assets[0].cloudinaryUrl" alt="">
 					<p>{{item.name}}</p>
 				</button>
 			</div>
 		</div>
-		<div class="wish-list__details">
+		<div class="wish-list__details" v-if="viewPortSize == 1">
 			<transition name="fade" mode="in-out">
+				<div class="inner" v-if="wishList.length < 1">
+					<p>Your wish list is empty!</p>
+				</div>
 				<div class="inner" v-if="currentWishListItem.assets && currentWishListItem.assets.length > 0" :key="currentWishListIndex">
 					<single-image :asset="currentWishListItem.assets[0]" />
 
@@ -84,6 +87,9 @@
 				</div>
 			</transition>
 		</div>
+		<div v-if="viewPortSize == 0">
+			<wish-list-accordion v-for="(item, key) in wishList" :key="'wishListItem'+key" :wish-list-item="item" />
+		</div>
 	</div>
 </template>
 
@@ -96,10 +102,14 @@ import {
 } from '~/model/constants'
 
 import SingleImage from '~/components/content/SingleImage.vue'
+import WishListAccordion from '~/components/content/WishListAccordion.vue'
+import ViewportSizes from '~/model/viewport-sizes'
+import addMediaChangeListener from '~/utils/media-change'
 
 export default {
 	name:'wish-list',
 	components: {
+		WishListAccordion,
 		SingleImage
 	},
 	computed: {
@@ -114,7 +124,9 @@ export default {
 	},
 	data() {
 		return {
-			currentWishListIndex: 0
+			currentWishListIndex: 0,
+			accordionStates: [],
+			viewPortSize: ViewportSizes.SMALL
 		}
 	},
 	methods: {
@@ -128,6 +140,18 @@ export default {
 			let removeItem = this.currentWishListItem;
 			this.currentWishListIndex = 0;
 			this['collection/'+REMOVE_FROM_WISHLIST.action](removeItem);
+		},
+		isSmallViewport() {
+			this.viewPortSize = ViewportSizes.SMALL;
+		},
+		isLargeViewport() {
+			this.viewPortSize = ViewportSizes.LARGE;
+		}
+	},
+	mounted() {
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
+		if (!isMobile ) {
+			this.viewPortSize = ViewportSizes.LARGE;
 		}
 	}
 };

@@ -1,0 +1,10 @@
+{
+  "assetId": "s897fdsf",
+  "name": "Dummy portrait video",
+  "styleId": "F1121095",
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/ganni-a-s/video/upload/vc_h264/v1589284222/VID_20200512_134845_uw2izw.mp4",
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "video"
+}

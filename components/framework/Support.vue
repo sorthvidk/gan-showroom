@@ -2,7 +2,18 @@
 	<section class="window window--tight window--support support" v-cloak>
 		<header class="window__top">
 			<h1 class="title">☎️ Need support?</h1>
-			<button class="button close" @click.stop="minimizeHandler">{{ icon }}</button>
+			<button class="button close" @click.stop="minimizeHandler">
+				<span class="icon" v-if="minimized">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
+					</svg>
+				</span>
+				<span class="icon" v-if="!minimized">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
+					</svg>
+				</span>
+			</button>
 		</header>
 
 		<main class="window__content" v-if="!minimized" v-cloak>
@@ -41,11 +52,6 @@ export default {
 			avatar: '/img/avatar.png'
 		}
 	},
-	computed: {
-		icon() {
-			return this.minimized ? 'Λ' : 'V'
-		}
-	},
 	methods: {
 		minimizeHandler() {
 			this.minimized = !this.minimized
@@ -58,7 +64,7 @@ export default {
 		}
 	},
 	mounted() {
-		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
 		if ( !isMobile() ) {
 			this.viewPortSize = ViewportSizes.LARGE;
 		}

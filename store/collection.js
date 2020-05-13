@@ -64,7 +64,8 @@ export const state = () => ({
 			assets: [],			
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: false
 		},
 		{
 			styleId: 'F5987334',
@@ -86,7 +87,8 @@ export const state = () => ({
 			assets: [],
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: true
 		},
 		{
 			styleId: 'F1121095',
@@ -108,7 +110,8 @@ export const state = () => ({
 			assets: [],
 			completed: false,
 			onWishList: false,
-			index: null
+			index: null,
+			sustainable: false
 		}
 	]
 });
@@ -166,7 +169,7 @@ export const mutations = {
 			for (var j = 0; j < fl; j++) {
 				let styleFilter = style.filters[j];
 				let stateFilter = state.filters.filter(e => e.filterId === styleFilter)[0]
-				stateFilter.styleIds.push(style.styleId);
+				if ( stateFilter ) stateFilter.styleIds.push(style.styleId);
 			}
 		}
 

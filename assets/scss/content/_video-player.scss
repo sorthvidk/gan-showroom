@@ -1,0 +1,13 @@
+.video-player {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	video {		
+		outline: 0;
+		width: 100%;
+		height: auto;
+		max-height: 100%;
+	}
+}

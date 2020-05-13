@@ -9,11 +9,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	display: none;
 
-	
-	@include mq($from: screen-sm) {
-		display: block;
+	// display: none; // bugs the marquee
+	visibility: hidden;
+
+	@include mq($from: screen-md) {
+		// display: block;
+		visibility: visible;
 	}
 	p {
 		white-space: nowrap;

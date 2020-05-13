@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 1,
+  "assets": [],
+  "onWishList": false,
+  "program": "TEST",
+  "colorNames": "TEST",
+  "material": "TEST",
+  "completed": false,
+  "name": "TEST",
+  "styleId": "TEST",
+  "drop": "TEST",
+  "programName": "TEST",
+  "index": 0,
+  "wholesalePriceEUR": 1,
+  "wholesalePriceDKK": 1,
+  "wholesalePriceUSD": -2,
+  "filters": [
+    "TEST"
+  ],
+  "retailPriceEUR": 1,
+  "description": "TEST",
+  "sustainable": false,
+  "retailPriceDKK": 1,
+  "colorId": "TEST"
+}
