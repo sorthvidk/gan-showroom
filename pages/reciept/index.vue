@@ -1,10 +1,15 @@
 <template>
-	<div>kvittering</div>
+	<reciept />
 </template>
 
 
 <script>
+import Reciept from '~/components/framework/Reciept.vue'
+
 export default {
+	components: {
+		Reciept
+	},
 	head() {
 		return {
 			script: [

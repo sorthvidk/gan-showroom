@@ -221,9 +221,9 @@
 					<button class="button download-wishlist" @click="downloadWishListClickHandler">
 						<p>↓ Download wishlist</p>
 					</button>
-					<button class="button share-wishlist" @click="shareWishListClickHandler">
+					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -294,6 +294,11 @@ export default {
 		filterStatusText() {
 			if (this.filterName) return this.filterName
 			return 'Filter'
+		},
+		recieptUrl() {
+			return `/reciept/?styles=${this.wishList
+				.map(style => style.styleId)
+				.join(',')}`
 		}
 	},
 	watch: {
