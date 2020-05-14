@@ -59,6 +59,7 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
 import SingleVideo from '~/components/content/SingleVideo.vue'
@@ -66,7 +67,9 @@ import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
 import WishList from '~/components/content/WishList.vue'
-import MusicPlayer from '~/components/framework/MusicPlayer.vue'
+import HampsterDance from '~/components/content/HampsterDance.vue'
+import GanniGirls from '~/components/content/GanniGirls.vue'
+import LookBook from '~/components/content/LookBook.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -86,7 +89,10 @@ export default {
 		Films,
 		Gallery,
 		WishList,
-		MusicPlayer
+		MusicPlayer,
+		HampsterDance,
+		GanniGirls,
+		LookBook,
 	},
 	props: {
 		modifierClass: {
