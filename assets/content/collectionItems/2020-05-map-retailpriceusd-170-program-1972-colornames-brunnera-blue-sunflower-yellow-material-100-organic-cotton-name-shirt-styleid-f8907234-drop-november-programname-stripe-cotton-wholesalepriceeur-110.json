@@ -19,7 +19,7 @@
   ],
   "retailPriceEUR": 140,
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.",
-  "sustainable": false,
+  "responsible": false,
   "retailPriceDKK": 1000,
   "colorId": "699"
 }

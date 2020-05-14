@@ -1,4 +1,5 @@
 import {
+	KEYPRESS,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	MEDIA_ASSETS_FETCH,
@@ -8,7 +9,6 @@ import {
 	CLOSE_WINDOW,
 	CLOSE_WINDOW_GROUP,
 	OPEN_CONTENT,
-	ESC_KEYPRESS,
 	UPDATE_WINDOW,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
@@ -35,6 +35,7 @@ export const state = () => ({
 	windowGroupList: [],
 	topMostWindow: null,
 
+	keyPressed: null,
 	zIndexes: [],
 	lowestZIndex: 0,
 	highestZIndex: 0,
@@ -68,6 +69,10 @@ export const state = () => ({
 export const mutations = {
 	// Baseline content to cms
 
+	[KEYPRESS.mutation](state, key) {
+		state.keyPressed = key
+	},
+
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
@@ -89,9 +94,7 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			let style = state.collection.list.filter(
-				e => e.styleId === asset.styleId
-			)[0]
+			let style = state.collection.list.filter( e => e.styleId === asset.styleId )[0]
 			style.assets.push(asset)
 		}
 
@@ -99,6 +102,18 @@ export const mutations = {
 		let cl = state.collection.list.length
 		for (var j = 0; j < cl; j++) {
 			let style = state.collection.list[j]
+			if ( style.assets.length === 0 ) {
+				style.assets.push({
+					assetId: getUniqueId(),
+					styleId: style.styleId,
+					type: 'image',
+					name: 'dummy-image.jpg',
+					aspect: 'portrait',
+					onTop: true,
+					visible: true,
+					cloudinaryUrl: '/img/styles/dummy.jpg'
+				});
+			}
 			let sortedAssets = style.assets.sort((a, b) =>
 				a.onTop && !b.onTop ? -1 : 1
 			)
@@ -352,9 +367,17 @@ export const actions = {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
+	[KEYPRESS.action]({ commit }, event) {
+		commit(KEYPRESS.mutation, event)
+
+		if ( event.key === "Escape") {
+			commit(CLOSE_WINDOW_GROUP.mutation)
+		}
+	},
 	[TOPMOST_WINDOW.action]({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},
+
 	[CLOSE_WINDOW.action]({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
@@ -368,9 +391,6 @@ export const actions = {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[ESC_KEYPRESS.action]({ commit }) {
-		commit(CLOSE_WINDOW_GROUP.mutation)
-	},
 	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
 		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
 		if (!listStyle) return false

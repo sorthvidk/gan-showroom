@@ -25,10 +25,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
+		box-sizing: border-box;
 
 		@include mq($from: screen-md) {
 			height: calc(100vh - #{rem(40 + 60)});
-			padding: 0;
+			padding: 0 rem(30);
 			display: grid;
 
 			grid-template-columns: repeat(12, 1fr);

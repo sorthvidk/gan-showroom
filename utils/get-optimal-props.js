@@ -12,8 +12,8 @@ const MOBILE_GUTTERS_VERTICAL = 10 + (10 + 45) //top + (bottom + navbar)
 // values are loosly structured on four columns
 export const placementX = (state, sizeW) => {
 	const amount = 4
-	const distance = (window.innerWidth - RIGHT_CLEARENCE) / (amount + 1)
-	const placements = [distance, distance * 2, distance * 3, distance * 4]
+	const gutter = (window.innerWidth - RIGHT_CLEARENCE) / (amount + 1)
+	const placements = [gutter, gutter * 2, gutter * 3, gutter * 4]
 
 	return Math.max(
 		random(10, 20),
@@ -38,8 +38,6 @@ export default function(state, currentWindow, groupId) {
 		statusComponent,
 		defaultWindowProps
 	} = currentWindow.type
-
-	console.log(defaultWindowProps.autoPlacement)
 
 	const statusHeight = statusComponentProps.noStatus ? 0 : 30
 

@@ -92,23 +92,6 @@ export const state = () => ({
 			]
 		},
 		{
-			shortcutId: 'animal-print',
-			icon: '📁',
-			label: 'Animal Print 🐯',
-			posH: 12,
-			posV: 5,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'LEOPARD PRINT',
-			windowContent: [
-				{
-					title: 'PS21 collection 🔥',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
 			shortcutId: 'music-player',
 			icon: '⚡️',
 			label: 'Ganni FM',
@@ -120,6 +103,71 @@ export const state = () => ({
 					title: 'Ganni FM',
 					contentId: 'ganni-fm',
 					type: ContentTypes.musicPlayer,
+					canOverride: true
+				}
+			]
+		},
+		{
+			shortcutId: 'ganni-girls',
+			icon: '👯‍♀️',
+			label: 'Ganni Girls',
+			posH: 2,
+			posV: 2,
+			windowContent: [
+				{
+					title: '#GanniGirls',
+					contentId: 'ganni-girls',
+					type: ContentTypes.ganniGirls,
+					statusComponentProps: {
+						text: 'http://#gannigirls.weblog/'
+					}
+				}
+			]
+		},
+		{
+			shortcutId: 'look-book',
+			icon: '🤩',
+			label: 'LookBook',
+			posH: 3,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'Ganni LookBook',
+					contentId: 'look-book',
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Photo credit: Jakob Landvik'
+					}
+				}
+			]
+		},
+		{
+			shortcutId: 'hampster-dance',
+			icon: '🐹',
+			label: 'Hampster Dance',
+			posH: 12,
+			posV: 4,
+			windowContent: [
+				{
+					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
+					contentId: 'hampster-dance',
+					type: ContentTypes.hampsterDance
+				}
+			]
+		},
+		{
+			shortcutId: 'animal-print',
+			icon: '🐯',
+			label: 'Animal Print',
+			posH: 12,
+			posV: 5,
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'LEOPARD PRINT',
+			windowContent: [
+				{
+					title: 'PS21 collection 🔥',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
 					canOverride: true
 				}
 			]

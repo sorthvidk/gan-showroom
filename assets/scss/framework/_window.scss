@@ -13,6 +13,11 @@
 	left: 0;
 	z-index: 1;
 
+	max-width: calc(100vw - #{rem(20)});
+	@include mq($from: screen-md) {
+		max-width: none;
+	}
+
 	&.is-active {
 		#{$module}__top {
 			background-color: lighten($color-lightgrey, 5%);

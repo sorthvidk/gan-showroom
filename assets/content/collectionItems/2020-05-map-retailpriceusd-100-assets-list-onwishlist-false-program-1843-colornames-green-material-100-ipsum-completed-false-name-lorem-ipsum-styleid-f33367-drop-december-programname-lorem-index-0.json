@@ -11,13 +11,13 @@
   "drop": "December",
   "programName": "Lorem",
   "index": 0,
+  "responsible": false,
   "wholesalePriceEUR": 100,
   "wholesalePriceDKK": 100,
   "wholesalePriceUSD": 100,
   "filters": [],
   "retailPriceEUR": 100,
   "description": "Test test test",
-  "sustainable": true,
   "retailPriceDKK": 100,
   "colorId": "822"
 }
