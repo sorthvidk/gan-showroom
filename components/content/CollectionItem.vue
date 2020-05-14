@@ -9,8 +9,6 @@
 
 <script>
 
-
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/cloudinary-url'
@@ -25,7 +23,8 @@ export default {
 			return getCloudinaryUrl(this.assets[0]);
 		},
 		imageName() {
-			return this.assets[0].name		
+			if ( this.assets[0] ) return this.name;
+			return this.name+' | 0 assets, can\'t open' ;
 		}
 	},
 	methods: {		
@@ -33,7 +32,6 @@ export default {
 			OPEN_STYLE_CONTENT.action
 		]),		
 		onItemClick() {
-			console.log("STYLE CLICK")
 			this[OPEN_STYLE_CONTENT.action]( this.styleId );
 		}
 	}

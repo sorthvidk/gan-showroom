@@ -3,7 +3,7 @@
 		<div class="wish-list__overview" v-if="viewPortSize == 1">
 			<div v-for="(item, key) in wishList" :key="'wishListItem'+key">
 				<button v-if="item.assets && item.assets.length > 0" class="button" :class="{'is-active': currentWishListIndex == key}" @click="overviewItemHandler(key)">
-					<img :src="item.assets[0].defaultImageUrl" alt="">
+					<img :src="item.assets[0].cloudinaryUrl" alt="">
 					<p>{{item.name}}</p>
 				</button>
 			</div>
@@ -88,7 +88,7 @@
 			</transition>
 		</div>
 		<div v-if="viewPortSize == 0">
-			MOBILE
+			<wish-list-accordion v-for="(item, key) in wishList" :key="'wishListItem'+key" :wish-list-item="item" />
 		</div>
 	</div>
 </template>
@@ -102,12 +102,14 @@ import {
 } from '~/model/constants'
 
 import SingleImage from '~/components/content/SingleImage.vue'
+import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
 
 export default {
 	name:'wish-list',
 	components: {
+		WishListAccordion,
 		SingleImage
 	},
 	computed: {
@@ -123,6 +125,7 @@ export default {
 	data() {
 		return {
 			currentWishListIndex: 0,
+			accordionStates: [],
 			viewPortSize: ViewportSizes.SMALL
 		}
 	},
@@ -146,7 +149,7 @@ export default {
 		}
 	},
 	mounted() {
-		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
 		if (!isMobile ) {
 			this.viewPortSize = ViewportSizes.LARGE;
 		}

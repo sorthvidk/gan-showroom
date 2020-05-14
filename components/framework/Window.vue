@@ -1,6 +1,7 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :style="{position: 'relative', zIndex: zIndexStyle}"> <!-- can't attach listener to vue-draggable -->				
+		<section class="window-container" :style="{position: 'relative', zIndex: zIndexStyle}">
+			<!-- can't attach listener to vue-draggable -->
 			<vue-draggable-resizable
 				ref="draggableResizable"
 				:class-name="concatClassName"
@@ -15,44 +16,57 @@
 				:x="computedPositionX"
 				:y="computedPositionY"
 				:w="computedSizeW"
-				:h="computedSizeH">
-					<header class="window__top">
-						<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
-						<button class="button close" @click.stop="closeHandler">Ｘ</button>
-					</header>
-					<div v-if="!noStatus" class="window__status" @touchstart="contentActivateHandler" @mouseDown="contentActivateHandler">
-						<component :is="statusComponent" v-bind="{...statusComponentProps}" />
-					</div>
-					
-					<hr v-if="!noStatus" />
+				:h="computedSizeH"
+			>
+				<header class="window__top">
+					<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
+					<button class="button close" @click.stop="closeHandler">
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+							</svg>
+						</span>
+					</button>
+				</header>
+				<div
+					v-if="!noStatus"
+					class="window__status"
+					@touchstart="contentActivateHandler"
+					@mouseDown="contentActivateHandler"
+				>
+					<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+				</div>
 
-					<div class="window__content" @touchstart="contentActivateHandler" @mouseDown="contentActivateHandler">				
-						<component :is="contentComponent" v-bind="{...contentComponentProps}"/>
-					</div>
+				<hr v-if="!noStatus" />
+
+				<div
+					class="window__content"
+					@touchstart="contentActivateHandler"
+					@mouseDown="contentActivateHandler"
+				>
+					<component :is="contentComponent" v-bind="{...contentComponentProps}" />
+				</div>
 			</vue-draggable-resizable>
 		</section>
 	</transition>
 </template>
 
 <script>
-import { Expo, TweenLite } from 'gsap';
+import { Expo, TweenLite } from 'gsap'
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { 
-	TOPMOST_WINDOW, 
-	CLOSE_WINDOW,
-	UPDATE_WINDOW
-} from '~/model/constants'
+import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
+import SingleVideo from '~/components/content/SingleVideo.vue'
 import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
 import WishList from '~/components/content/WishList.vue'
-
+import MusicPlayer from '~/components/framework/MusicPlayer.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -67,16 +81,18 @@ export default {
 		StatusWishList,
 		Collection,
 		SingleImage,
+		SingleVideo,
 		TextReader,
 		Films,
 		Gallery,
 		WishList,
+		MusicPlayer
 	},
 	props: {
 		modifierClass: {
 			type: String,
 			default: ''
-		},		
+		},
 		contentType: {
 			type: Object,
 			required: true
@@ -88,8 +104,7 @@ export default {
 		canResize: {
 			type: Boolean,
 			default: true
-		},		
-		
+		},
 
 		contentComponent: {
 			type: String,
@@ -102,7 +117,7 @@ export default {
 
 		noStatus: {
 			type: Boolean,
-			default: false		
+			default: false
 		},
 		statusComponent: {
 			type: String,
@@ -144,37 +159,36 @@ export default {
 	},
 	computed: {
 		computedPositionX() {
-			return this.x > -1 ? this.x : this.positionX;
+			return this.x > -1 ? this.x : this.positionX
 		},
 		computedPositionY() {
-			return this.y > -1 ? this.y : this.positionY;
+			return this.y > -1 ? this.y : this.positionY
 		},
 		computedPositionZ() {
-			return this.positionZ;
+			return this.positionZ
 		},
 		computedSizeW() {
-			return this.w > 0 ? this.w : this.sizeW;
+			return this.w > 0 ? this.w : this.sizeW
 		},
 		computedSizeH() {
-			return this.h > 0 ? this.h : this.sizeH;
+			return this.h > 0 ? this.h : this.sizeH
 		},
 		computedResizable() {
-			if ( !this.canResize ) return false;
-			return true;
+			if (!this.canResize) return false
+			return true
 		},
 		zIndexStyle() {
-			// console.log("z index style", this.positionZ)
-			return this.positionZ;
+			return this.positionZ
 		},
 		transformOriginStyle() {
-			return this.x + 'px ' + this.y + 'px';
+			return this.x + 'px ' + this.y + 'px'
 		},
 		concatClassName() {
-			let cn = 'window';
-			if ( this.modifierClass != '') cn += ' ' + this.modifierClass;
-			if ( this.noStatus ) cn += ' window--no-status';
+			let cn = 'window'
+			if (this.modifierClass != '') cn += ' ' + this.modifierClass
+			if (this.noStatus) cn += ' window--no-status'
 
-			return cn;
+			return cn
 		}
 	},
 	data: function() {
@@ -194,7 +208,10 @@ export default {
 			h: this.computedSizeH,
 
 			savedAttributes: {
-				x:0,y:0,w:0,h:0
+				x: 0,
+				y: 0,
+				w: 0,
+				h: 0
 			}
 		}
 	},
@@ -202,39 +219,56 @@ export default {
 		...mapActions([
 			TOPMOST_WINDOW.action,
 			CLOSE_WINDOW.action,
-			UPDATE_WINDOW.action,
+			UPDATE_WINDOW.action
 		]),
 		closeHandler(e) {
-			this[CLOSE_WINDOW.action]({windowId:this.windowId, contentId:this.contentId});
+			this[CLOSE_WINDOW.action]({
+				windowId: this.windowId,
+				contentId: this.contentId
+			})
 		},
 		contentActivateHandler(e) {
-			this[TOPMOST_WINDOW.action](this.windowId);
+			this[TOPMOST_WINDOW.action](this.windowId)
 		},
 		titleClick() {
-			if ( !this.canResize ) return false;
+			if (!this.canResize) return false
 
-			if ( this.maximizeClicked ) {
-				clearTimeout(this.maximizeTimeoutHandle);
-				this.maximizeClicked = false;
-				this.maximizeHandler();
-			}
-			else {				
-				this.maximizeClicked = true;
-				this.maximizeTimeoutHandle = setTimeout( ()=>{ this.maximizeClicked = false; }, 200 );
+			if (this.maximizeClicked) {
+				clearTimeout(this.maximizeTimeoutHandle)
+				this.maximizeClicked = false
+				this.maximizeHandler()
+			} else {
+				this.maximizeClicked = true
+				this.maximizeTimeoutHandle = setTimeout(() => {
+					this.maximizeClicked = false
+				}, 200)
 			}
 		},
 		maximizeHandler() {
-
 			if (this.isMaximized) {
-				this.isMaximized = false;
-				this.onResize(this.savedAttributes.x, this.savedAttributes.y, this.savedAttributes.w, this.savedAttributes.h);
+				this.isMaximized = false
+				this.onResize(
+					this.savedAttributes.x,
+					this.savedAttributes.y,
+					this.savedAttributes.w,
+					this.savedAttributes.h
+				)
+			} else {
+				this.isMaximized = true
+				this.savedAttributes = {
+					x: this.positionX,
+					y: this.positionY,
+					w: this.sizeW,
+					h: this.sizeH
+				}
+				this.onResize(
+					this.maximizeOffset,
+					this.maximizeOffset,
+					window.innerWidth - 2 * this.maximizeOffset,
+					window.innerHeight - 2 * this.maximizeOffset
+				)
 			}
-			else {
-				this.isMaximized = true;
-				this.savedAttributes = {x: this.positionX,y: this.positionY,w: this.sizeW,h: this.sizeH}
-				this.onResize(this.maximizeOffset, this.maximizeOffset, window.innerWidth - 2*this.maximizeOffset, window.innerHeight - 2*this.maximizeOffset);
-			}
-			this.constrain();
+			this.constrain()
 		},
 		onResize(x, y, w, h) {
 			// console.log(x, y, w, h);
@@ -242,48 +276,58 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			this[TOPMOST_WINDOW.action](this.windowId);
+			this[TOPMOST_WINDOW.action](this.windowId)
 		},
 		onResizeStop() {
-			this.isMaximized = false;
-			this.constrain();
+			this.isMaximized = false
+			this.constrain()
 		},
 		onDrag(x, y) {
-			this.x = x;
-			this.y = y;
-			this[TOPMOST_WINDOW.action](this.windowId);
+			this.x = x
+			this.y = y
+			this[TOPMOST_WINDOW.action](this.windowId)
 		},
 		onDragStop() {
-			this.constrain();
+			this.constrain()
 		},
 		constrain() {
-			this.x = Math.min(Math.max(this.x,0), window.innerWidth - this.resetPositionDistance);
-			this.y = Math.min(Math.max(this.y,0), window.innerHeight - this.resetPositionDistance);
+			this.x = Math.min(
+				Math.max(this.x, 0),
+				window.innerWidth - this.resetPositionDistance
+			)
+			this.y = Math.min(
+				Math.max(this.y, 0),
+				window.innerHeight - this.resetPositionDistance
+			)
 
-			this[UPDATE_WINDOW.action]( {	
-				windowId:this.windowId, 
-				windowProps: {positionX:this.x, positionY:this.y, sizeW:this.w, sizeH:this.h}
-			});
-			this[TOPMOST_WINDOW.action](this.windowId);
+			this[UPDATE_WINDOW.action]({
+				windowId: this.windowId,
+				windowProps: {
+					positionX: this.x,
+					positionY: this.y,
+					sizeW: this.w,
+					sizeH: this.h
+				}
+			})
+			this[TOPMOST_WINDOW.action](this.windowId)
 		},
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
 		beforeAnimateIn(el) {
-			TweenLite.set(el, {scale:0, opacity:0});
+			TweenLite.set(el, { scale: 0, opacity: 0 })
 		},
 		animateIn(el) {
-			TweenLite.to(el, 0.2, {scale:1, opacity:1});	
+			TweenLite.to(el, 0.2, { scale: 1, opacity: 1 })
 		},
 		animateOut(el, done) {
-			TweenLite.to(el, 0.2, {scale:0, opacity:0});		
-			done();		
+			TweenLite.to(el, 0.2, { scale: 0, opacity: 0 })
+			done()
 		}
 	},
 	mounted() {
-		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH);
-		this.windowRef = this.$el.querySelector('.window');
+		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
+		this.windowRef = this.$el.querySelector('.window')
 	}
 };
-
 </script>

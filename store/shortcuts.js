@@ -27,8 +27,6 @@ export const state = () => ({
 			label: 'PS21 Films',
 			posH: 2,
 			posV: 1,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'c2',
 			windowContent: [
 				{
 					title: 'PS21 films 📹',
@@ -58,8 +56,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
+							imageUrl: '/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
 						}
 					},
 					windowProps: {
@@ -74,8 +71,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
+							imageUrl: '/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
 						}
 					},
 					windowProps: {
@@ -102,7 +98,7 @@ export const state = () => ({
 			posH: 12,
 			posV: 5,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'c2',
+			actionParam: 'LEOPARD PRINT',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
@@ -119,7 +115,14 @@ export const state = () => ({
 			posH: 1,
 			posV: 2,
 			action: TOGGLE_MUSIC_PLAYER.action,
-			actionParam: ''
+			windowContent: [
+				{
+					title: 'Ganni FM',
+					contentId: 'ganni-fm',
+					type: ContentTypes.musicPlayer,
+					canOverride: true
+				}
+			]
 		}
 	]
 })

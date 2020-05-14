@@ -1,6 +1,6 @@
 <template>
 	<div class="marquee marquee3k" data-speed="1" data-pausable="true">
-		<p @click="marqueeClickHandler">{{text}}</p>
+		<p @click="marqueeClickHandler" v-html="text"></p>
 	</div>
 </template>
 
@@ -25,7 +25,11 @@ export default {
 		}
 	},
 	mounted() {
-		Marquee3k.init()
+		// works when content doesn't have display none
+		this.$nextTick(Marquee3k.init)
+	},
+	beforeDestroy() {
+		this.$nextTick(Marquee3k.pauseAll)
 	}
-}
+};
 </script>

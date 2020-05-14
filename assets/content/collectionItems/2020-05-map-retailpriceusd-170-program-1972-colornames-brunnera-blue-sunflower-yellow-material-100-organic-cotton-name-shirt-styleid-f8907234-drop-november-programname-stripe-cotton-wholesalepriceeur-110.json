@@ -1,25 +1,25 @@
 {
   "retailPriceUSD": "170",
+  "assets": [],
+  "onWishList": false,
   "program": "1972",
   "colorNames": "Brunnera Blue, Sunflower Yellow",
   "material": "100% organic cotton",
-  "name": "Shirt",
+  "completed": false,
+  "name": "Denim top",
   "styleId": "F8907234",
   "drop": "November",
   "programName": "Stripe cotton",
+  "index": 0,
   "wholesalePriceEUR": 110,
   "wholesalePriceDKK": 800,
   "wholesalePriceUSD": 140,
   "filters": [
-    "c1"
+    "TOPS"
   ],
   "retailPriceEUR": 140,
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.",
+  "sustainable": false,
   "retailPriceDKK": 1000,
-  "colorId": "699",
-  "assets": [],     
-  "completed": false,
-  "onWishList": false,
-  "index": 0,
-  "sustainable": false
+  "colorId": "699"
 }

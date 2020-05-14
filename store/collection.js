@@ -169,7 +169,7 @@ export const mutations = {
 			for (var j = 0; j < fl; j++) {
 				let styleFilter = style.filters[j];
 				let stateFilter = state.filters.filter(e => e.filterId === styleFilter)[0]
-				stateFilter.styleIds.push(style.styleId);
+				if ( stateFilter ) stateFilter.styleIds.push(style.styleId);
 			}
 		}
 

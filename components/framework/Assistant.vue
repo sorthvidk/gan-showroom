@@ -1,10 +1,8 @@
 <template>
 	<section class="window window--tight window--assistant">
-		
 		<div class="window__top">
-			<span class="title">🤖 Desktop assistant</span>				
+			<span class="title">🤖 Desktop assistant</span>
 		</div>
-
 
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
@@ -20,63 +18,107 @@
 				<span v-if="assistantExpanded">➖</span>
 				<p>{{currentStyle.name}}</p>
 			</button>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
-			<p>
-				{{currentStyle.name}}
-			</p>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<p>{{currentStyle.name}}</p>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
-		<hr  v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
+		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
 
 		<div class="window__content">
-
-
 			<div class="assistant">
-				
 				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__text">
 						<h3>Welcome!</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
 					</div>
 				</div>
-					
 
-				<div class="assistant__content" v-if="assistantMode == 1" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
+				<div
+					class="assistant__content"
+					v-if="assistantMode == 1"
+					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+				>
 					<div class="assistant__filters">
-						<p>Do you have any preferences to the collection? choose from the options here!</p>		
-						<div class="assistant__filters__list">						
-							<filter-button v-for="(item, key) in filtersList" :key="key" :name="item.name" :filter-id="item.filterId" />
+						<p>Do you have any preferences to the collection? choose from the options here!</p>
+						<div class="assistant__filters__list">
+							<filter-button
+								v-for="(item, key) in filtersList"
+								:key="key"
+								:name="item.name"
+								:filter-id="item.filterId"
+							/>
 						</div>
 					</div>
 				</div>
-				
-				<div class="assistant__content" v-if="assistantMode == 2" :class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}">
+
+				<div
+					class="assistant__content"
+					v-if="assistantMode == 2"
+					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+				>
 					<div class="assistant__product-details">
 						<p>{{currentStyle.description}}</p>
 						<table>
 							<tbody>
 								<tr>
 									<th>Color</th>
-									<td>{{currentStyle.colorNames}}
+									<td>
+										{{currentStyle.colorNames}}
 										<span v-if="hasHiddenAssets">
 											<button class="link" @click="showAllVariantsClickHandler">&nearr; Show all variants</button>
 										</span>
 									</td>
 								</tr>
-							
+
 								<tr>
 									<th>&nbsp;</th>
 									<td>&nbsp;</td>
 								</tr>
-							
+
 								<tr>
 									<th>Materiel</th>
 									<td>{{currentStyle.material}}</td>
@@ -146,18 +188,18 @@
 					</div>
 				</div>
 
-
-
-
-
 				<div class="assistant__ctas" v-if="assistantMode == 1">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
-				</div>		
+				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
-					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
+					<button
+						class="button add-to-wishlist"
+						:class="{'is-active': styleOnWishList}"
+						@click="addToWishListClickHandler"
+					>
 						<p>{{addRemoveWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
@@ -180,24 +222,22 @@
 					</button>
 				</div>
 			</div>
-			
 		</div>
 	</section>
 </template>
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
-import { 
+import {
 	SET_CURRENT_FILTER,
 	ADD_TO_WISHLIST,
-	REMOVE_FROM_WISHLIST, 
+	REMOVE_FROM_WISHLIST,
 	OPEN_CONTENT,
 	ALL_ASSETS_VISIBLE,
 	CLOSE_WINDOW_GROUP,
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
-	OPEN_WISH_LIST,
+	OPEN_WISH_LIST
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -208,9 +248,8 @@ import addMediaChangeListener from '~/utils/media-change'
 import isMobile from '~/utils/is-mobile'
 import FilterButton from '~/components/content/FilterButton.vue'
 
-
 export default {
-	name:'assistant',
+	name: 'assistant',
 	components: {
 		FilterButton
 	},
@@ -236,76 +275,71 @@ export default {
 			completedPct: state => state.collection.completedPct
 		}),
 		viewWishListButtonLabel() {
-			return `View wishlist (${this.wishList.length})`;
+			return `View wishlist (${this.wishList.length})`
 		},
 		addRemoveWishListButtonLabel() {
-			if ( this.styleOnWishList ) return 'Remove from list';
- 			return 'Add to wishlist';
+			if (this.styleOnWishList) return 'Remove from list'
+			return 'Add to wishlist'
 		},
 		styleOnWishList() {
-			return this.currentStyle.onWishList;
+			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
-			return this.hiddenAssetContent.length > 0;
+			return this.hiddenAssetContent.length > 0
 		},
 		filterStatusText() {
-			if ( this.filterName ) return this.filterName;
-			return 'Filter';
+			if (this.filterName) return this.filterName
+			return 'Filter'
 		}
 	},
 	watch: {
 		activeFilter(newVal) {
-			if ( newVal && newVal.name != '' ) this.filterName = newVal.name;
-			else this.filterName = null;
-		},
-		wishList(newVal) {
-			console.log("WISH LIST",newVal)
+			if (newVal && newVal.name != '') this.filterName = newVal.name
+			else this.filterName = null
 		},
 		topMostWindow(newVal) {
+			this.associatedWindow = newVal
+			let noRelevantAssistantContent = false
 
-			this.associatedWindow = newVal;
-			let noRelevantAssistantContent = false;
-
-			if ( !this.associatedWindow || !this.associatedWindow.contentComponent ) {
-				noRelevantAssistantContent = true;
-				
-			}
-			else {
-				this.associatedWindowGroupId = this.associatedWindow.groupId;
+			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
+				noRelevantAssistantContent = true
+			} else {
+				this.associatedWindowGroupId = this.associatedWindow.groupId
 
 				let component = this.associatedWindow.contentComponent,
-					componentProps = this.associatedWindow.contentComponentProps;
+					componentProps = this.associatedWindow.contentComponentProps
 
-				switch(component) {
+				switch (component) {
 					case ContentTypes.collection.contentComponent:
-						this.assistantMode = AssistantModes.FILTER_COLLECTION;
-						break;
+						this.assistantMode = AssistantModes.FILTER_COLLECTION
+						break
 					case ContentTypes.imagePortrait.contentComponent:
 					case ContentTypes.imageLandscape.contentComponent:
 					case ContentTypes.imageSquare.contentComponent:
-						if ( componentProps.asset && componentProps.asset.styleId ) {
-							this.currentStyle = this.currentStyles.filter(e=>e.styleId === componentProps.asset.styleId)[0];
-							this.parseAssets();							
+						if (componentProps.asset && componentProps.asset.styleId) {
+							this.currentStyle = this.currentStyles.filter(
+								e => e.styleId === componentProps.asset.styleId
+							)[0]
+							this.parseAssets()
+						} else {
+							noRelevantAssistantContent = true
 						}
-						else {
-							noRelevantAssistantContent = true;
-						}
-						break;	
+						break
 					case ContentTypes.wishList.contentComponent:
-						this.assistantMode = AssistantModes.WISHLIST;
-						break;	
-					default:				
-						//No window type found? 	
-						noRelevantAssistantContent = true;
-						break;	
-				}			
+						this.assistantMode = AssistantModes.WISHLIST
+						break
+					default:
+						//No window type found?
+						noRelevantAssistantContent = true
+						break
+				}
 			}
 
-			if ( noRelevantAssistantContent ) {
-				if ( this.completedPct > 0 ) {
-					this.assistantMode = AssistantModes.COLLECTION_SEEN;
+			if (noRelevantAssistantContent) {
+				if (this.completedPct > 0) {
+					this.assistantMode = AssistantModes.COLLECTION_SEEN
 				} else {
-					this.assistantMode = AssistantModes.WELCOME;
+					this.assistantMode = AssistantModes.WELCOME
 				}
 			}
 		}
@@ -315,37 +349,41 @@ export default {
 			OPEN_CONTENT.action,
 			CLOSE_WINDOW_GROUP.action,
 			OPEN_WISH_LIST.action,
-			'collection/'+ALL_ASSETS_VISIBLE.action,
-			'collection/'+SET_CURRENT_FILTER.action,
-			'collection/'+ADD_TO_WISHLIST.action,
-			'collection/'+REMOVE_FROM_WISHLIST.action,
-			'collection/'+SHOW_PREVIOUS_STYLE.action,
-			'collection/'+SHOW_NEXT_STYLE.action,
+			'collection/' + ALL_ASSETS_VISIBLE.action,
+			'collection/' + SET_CURRENT_FILTER.action,
+			'collection/' + ADD_TO_WISHLIST.action,
+			'collection/' + REMOVE_FROM_WISHLIST.action,
+			'collection/' + SHOW_PREVIOUS_STYLE.action,
+			'collection/' + SHOW_NEXT_STYLE.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
-			this[OPEN_WISH_LIST.action]( );
+			this[OPEN_WISH_LIST.action]()
 		},
 		previousStyleHandler() {
-			this['collection/'+SHOW_PREVIOUS_STYLE.action]( this.currentStyle.styleId );
+			this['collection/' + SHOW_PREVIOUS_STYLE.action](
+				this.currentStyle.styleId
+			)
 		},
 		nextStyleHandler() {
-			this['collection/'+SHOW_NEXT_STYLE.action]( this.currentStyle.styleId );
+			this['collection/' + SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 		},
 		closeStyleHandler() {
-			this[CLOSE_WINDOW_GROUP.action]( );
+			this[CLOSE_WINDOW_GROUP.action]()
 		},
 		showAllVariantsClickHandler() {
-			this['collection/'+ALL_ASSETS_VISIBLE.action](this.currentStyle);
-			this[OPEN_CONTENT.action]( {windowContent:this.hiddenAssetContent, addToGroupId:this.associatedWindowGroupId} );
-			this.hiddenAssetContent = [];
+			this['collection/' + ALL_ASSETS_VISIBLE.action](this.currentStyle)
+			this[OPEN_CONTENT.action]({
+				windowContent: this.hiddenAssetContent,
+				addToGroupId: this.associatedWindowGroupId
+			})
+			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
-			if ( this.styleOnWishList ) {
-				this['collection/'+REMOVE_FROM_WISHLIST.action](this.currentStyle);
-			}
-			else {
-				this['collection/'+ADD_TO_WISHLIST.action](this.currentStyle);
+			if (this.styleOnWishList) {
+				this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
+			} else {
+				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadWishListClickHandler() {
@@ -355,16 +393,16 @@ export default {
 			//SHARE
 		},
 		parseAssets() {
-			let al = this.currentStyle.assets.length;
+			let al = (this.currentStyle && this.currentStyle.assets.length) || 0
 
-			this.hiddenAssetContent = [];
+			this.hiddenAssetContent = []
 
 			//backwards loop to ensure asset [0] gets on top (as sorted in $store)
-			for (var i = al-1; i >= 0; i--) {
-				let asset = this.currentStyle.assets[i];
+			for (var i = al - 1; i >= 0; i--) {
+				let asset = this.currentStyle.assets[i]
 
-				if ( !asset.visible ) {
-					let type = getAssetType(asset);
+				if (!asset.visible) {
+					let type = getAssetType(asset)
 					this.hiddenAssetContent.push({
 						title: asset.name,
 						contentId: asset.assetId,
@@ -373,47 +411,47 @@ export default {
 						windowProps: type.defaultWindowProps,
 						contentComponentProps: { asset: asset },
 						statusComponentProps: type.defaultStatusComponentProps
-					});
+					})
 				}
 			}
 
 			//ready to show details
-			this.assistantMode = AssistantModes.STYLE_DETAILS;
+			this.assistantMode = AssistantModes.STYLE_DETAILS
 		},
 		isSmallViewport() {
-			console.log("isSmallViewport")
-			this.viewPortSize = ViewportSizes.SMALL;
+			this.viewPortSize = ViewportSizes.SMALL
 		},
 		isLargeViewport() {
-			console.log("isLargeViewport")
-			this.viewPortSize = ViewportSizes.LARGE;
+			this.viewPortSize = ViewportSizes.LARGE
 		},
 		toggleContentHandler() {
-			this.assistantExpanded = !this.assistantExpanded;
+			this.assistantExpanded = !this.assistantExpanded
 		}
 	},
 	mounted() {
-		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport, 768);
-		if (!isMobile ) {
-			this.assistantExpanded = true;
-			this.viewPortSize = ViewportSizes.LARGE;
+		let isMobile = addMediaChangeListener(
+			this.isSmallViewport,
+			this.isLargeViewport
+		)
+		if (!isMobile) {
+			this.assistantExpanded = true
+			this.viewPortSize = ViewportSizes.LARGE
 		}
 		window.addEventListener('keyup', event => {
 			if (event.key === 'ArrowLeft') {
-				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
-					this.previousStyleHandler();
-				}				
-			}
-			else if (event.key === 'ArrowRight') {
-				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
-					this.nextStyleHandler();
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.previousStyleHandler()
+				}
+			} else if (event.key === 'ArrowRight') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.nextStyleHandler()
 				}
 			} else if (event.code === 'Space') {
-				if ( this.assistantMode === AssistantModes.STYLE_DETAILS ) {
-					this.addToWishListClickHandler();
-				}				
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.addToWishListClickHandler()
+				}
 			}
 		})
 	}
-};
+}
 </script>

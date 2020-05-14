@@ -1,25 +1,25 @@
 {
+  "retailPriceUSD": 170,
+  "assets": [],
+  "onWishList": false,
   "program": "1972",
   "colorNames": "Brunnera Blue, Sunflower Yellow",
   "material": "100% organic cotton",
+  "completed": false,
   "name": "Dress",
   "styleId": "F5987334",
   "drop": "November",
   "programName": "Stripe cotton",
+  "index": 0,
   "wholesalePriceEUR": 110,
   "wholesalePriceDKK": 800,
   "wholesalePriceUSD": 140,
   "filters": [
-    "c1"
+    "DRESSES"
   ],
-  "description": "Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.",
   "retailPriceEUR": 140,
+  "description": "Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.",
+  "sustainable": true,
   "retailPriceDKK": 1000,
-  "retailPriceUSD": 170,
-  "colorId": "699",
-  "assets": [],     
-  "completed": false,
-  "onWishList": false,
-  "index": 0,
-  "sustainable": true
+  "colorId": "699"
 }
