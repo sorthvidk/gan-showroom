@@ -134,7 +134,10 @@ export const state = () => ({
 				{
 					title: 'Ganni LookBook',
 					contentId: 'look-book',
-					type: ContentTypes.lookBook
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Photo credit: Jakob Landvik'
+					}
 				}
 			]
 		},

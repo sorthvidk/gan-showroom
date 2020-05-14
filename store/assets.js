@@ -93,7 +93,88 @@ export const state = () => ({
 				bodyText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam molestias sit, eligendi corrupti similique voluptas! Facere deserunt harum quaerat nisi recusandae deleniti hic atque unde, magnam exercitationem sunt earum. Repellat.'
 			}
 		]
-	}
+	},
+
+	lookBook: [
+		{
+			imageUrl: '/img/lookbook/00001-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00002-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00003-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00004-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00005-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00006-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00007-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00008-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00009-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00010-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00011-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00012-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00013-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00014-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00015-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00016-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00017-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00018-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00019-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00020-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00021-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00022-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00023-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00024-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00025-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		},
+		{
+			imageUrl: '/img/lookbook/00026-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
+		}		
+	]
 })
 
 export const mutations = {}

@@ -175,6 +175,7 @@ export default {
 		name: 'ganni-girls',
 		contentComponent: 'ganni-girls',
 		allowedInstances: 1,
+		statusComponent: 'status-static',
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_CHROME_WIDTH,
 			smallWidth: 355,
@@ -185,6 +186,7 @@ export default {
 	lookBook: {
 		name: 'look-book',
 		contentComponent: 'look-book',
+		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_CHROME_WIDTH,
