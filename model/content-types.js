@@ -52,8 +52,7 @@ export default {
 			smallWidth: 350,
 			largeHeight: 400 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 300,
-			noStatus: true,
-			modifierClass: 'window--tight'
+			noStatus: true
 		}
 	},
 	imagePortrait: {
@@ -180,7 +179,7 @@ export default {
 			largeWidth: 705 + WINDOW_CHROME_WIDTH,
 			smallWidth: 355,
 			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 400
+			smallHeight: 600
 		}
 	},
 	lookBook: {

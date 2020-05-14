@@ -115,9 +115,12 @@ export const state = () => ({
 			posV: 2,
 			windowContent: [
 				{
-					title: 'Ganni Girls',
+					title: '#GanniGirls',
 					contentId: 'ganni-girls',
-					type: ContentTypes.ganniGirls
+					type: ContentTypes.ganniGirls,
+					statusComponentProps: {
+						text: 'http://#gannigirls.weblog/'
+					}
 				}
 			]
 		},

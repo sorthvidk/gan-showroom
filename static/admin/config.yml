@@ -37,8 +37,9 @@ collections:
           multiple: true,
           required: false,
           collection: "collectionFilters",
-          searchFields: ["filterId", "name"],
+          searchFields: ["name"],
           valueField: "filterId",
+          displayFields: ["name"],
           hint: "List of filters, the style will appear under",
         }
       - {
