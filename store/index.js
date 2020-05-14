@@ -31,6 +31,8 @@ const WINDOW_CHROME_HEIGHT = 71
 const WINDOW_CHROME_WIDTH = 2
 
 export const state = () => ({
+	hasData: false,
+
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
