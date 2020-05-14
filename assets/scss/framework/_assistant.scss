@@ -60,22 +60,21 @@
 	}
 }
 
-.assistant {
-
-	
+.assistant {	
 
 	&__content {
 		overflow: hidden;
 		max-height: rem(180);
 		transition: max-height 0.2s ease;
 		border-top: rem(1) solid $color-black;
+
 		&.is-collapsed {
 			border-top: 0;
 			max-height: 0;
 		}
 
 		@include mq($from: screen-md) {
-			border-top: 0;
+			border-top: rem(1) solid $color-black;
 			max-height: none;
 		}
 	}
@@ -173,9 +172,12 @@
 
 	&__ctas {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
+
 		.button {
 			@include full-width-button();
+			flex: 1 0 50%;
 			border-top: rem(1) solid $color-black;
 			text-align: left;
 
@@ -190,9 +192,17 @@
 					background-color: lighten($color-yellow,20%);
 				}
 			}
+			&.view-wishlist {
+				color: $color-blue;
+			}
+			&.show-variants {
+				flex: 0 0 100%;
+			}
+
 		}
-		.button + .button {
+		.add-to-wishlist + .view-wishlist {
 			border-left: rem(1) solid $color-black;
 		}
+
 	}
 }

@@ -85,12 +85,6 @@ collections:
           hint: "ID of color ex. '699'",
         }
       - {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-          hint: "Long description of style",
-        }
-      - {
           label: "Wholesale Price DKK",
           name: "wholesalePriceDKK",
           widget: "number",
@@ -133,11 +127,10 @@ collections:
           required: false,
         }
       - {
-          label: "Sustainable",
-          name: "sustainable",
+          label: "Responsible",
+          name: "responsible",
           widget: "boolean",
-          default: false,
-          hint: "Set to true to show style as sustainable",
+          hint: "Check to show style as responsible",
         }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }

@@ -47,12 +47,12 @@
 			cursor: pointer;
 
 			border-right: rem(1) solid $color-black;
-			padding: rem(10);
+			width: rem(50);
+			height: rem(30);
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
 			font-size: rem(13);
-			width: rem(50);
 			line-height: 1;
 
 			&:hover {
@@ -60,14 +60,8 @@
 			}
 
 			svg {
-				width: 1em;
-				height: 1em;
-			}
-
-			&.next {
-				svg {
-					transform: rotate(180deg);
-				}
+				width: rem(30);
+				height: rem(30);
 			}
 		}
 	}

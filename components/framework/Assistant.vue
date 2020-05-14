@@ -101,17 +101,12 @@
 					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
-						<p>{{currentStyle.description}}</p>
+						<!-- <p>{{currentStyle.description}}</p> -->
 						<table>
 							<tbody>
 								<tr>
 									<th>Color</th>
-									<td>
-										{{currentStyle.colorNames}}
-										<span v-if="hasHiddenAssets">
-											<button class="link" @click="showAllVariantsClickHandler">&nearr; Show all variants</button>
-										</span>
-									</td>
+									<td>{{currentStyle.colorNames}}</td>
 								</tr>
 
 								<tr>
@@ -134,6 +129,10 @@
 								<tr>
 									<th>Program name</th>
 									<td>{{currentStyle.programName}}</td>
+								</tr>
+								<tr v-if="currentStyle.responsible">
+									<th>Responsible</th>
+									<td>This style is responsible</td>
 								</tr>
 
 								<tr>
@@ -195,12 +194,12 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
-					<button
-						class="button add-to-wishlist"
-						:class="{'is-active': styleOnWishList}"
-						@click="addToWishListClickHandler"
-					>
-						<p>{{addRemoveWishListButtonLabel}}</p>
+					<button class="button show-variants" v-if="hasHiddenAssets" @click="showAllVariantsClickHandler">
+						<span class="icon">🟢</span>
+						<p>Show all variants</p>
+					</button>
+					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
+						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
@@ -267,6 +266,7 @@ export default {
 	},
 	computed: {
 		...mapState({
+			keyPressed: state => state.keyPressed,
 			filtersList: state => state.collection.filters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
@@ -277,8 +277,8 @@ export default {
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},
-		addRemoveWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Remove from list'
+		addToWishListButtonLabel() {
+			// if (this.styleOnWishList) return 'Remove from list'
 			return 'Add to wishlist'
 		},
 		styleOnWishList() {
@@ -293,6 +293,21 @@ export default {
 		}
 	},
 	watch: {
+		keyPressed(event) {
+			if (event.key === 'ArrowLeft') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.previousStyleHandler()
+				}
+			} else if (event.key === 'ArrowRight') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.nextStyleHandler()
+				}
+			} else if (event.code === 'Space') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.addToWishListClickHandler()
+				}
+			}
+		},
 		activeFilter(newVal) {
 			if (newVal && newVal.name != '') this.filterName = newVal.name
 			else this.filterName = null
@@ -380,10 +395,10 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
-			if (this.styleOnWishList) {
-				this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
-			} else {
+			if (!this.styleOnWishList) {
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+			} else {
+				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadWishListClickHandler() {
@@ -437,21 +452,6 @@ export default {
 			this.assistantExpanded = true
 			this.viewPortSize = ViewportSizes.LARGE
 		}
-		window.addEventListener('keyup', event => {
-			if (event.key === 'ArrowLeft') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.previousStyleHandler()
-				}
-			} else if (event.key === 'ArrowRight') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.nextStyleHandler()
-				}
-			} else if (event.code === 'Space') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.addToWishListClickHandler()
-				}
-			}
-		})
 	}
 }
 </script>

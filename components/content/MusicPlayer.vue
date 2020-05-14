@@ -58,6 +58,18 @@ export default {
 		}
 	},
 	watch: {
+		keyPressed(event) {
+			if ( !this.musicPlayerOpen ) return false;
+
+			if (event.key === 'ArrowLeft') {
+				this.playlist(-1);
+			} else if (event.key === 'ArrowRight') {
+				this.playlist(1)
+			} else if (event.code === 'Space') {
+				if ( this.isPlaying ) this[MUSIC_PLAY_PAUSE.action](false)
+				else this[MUSIC_PLAY_PAUSE.action](true)
+			}
+		},		
 		isPlaying(playing) {
 			if (this.isPlaying) {
 				this.audio.play().catch(err => console.warn(err))
@@ -69,7 +81,9 @@ export default {
 	},
 	computed: {
 		...mapState({
+			keyPressed: state => state.keyPressed,
 			isPlaying: state => state.musicPlaying,
+			musicPlayerOpen: state => state.musicPlayerOpen,
 			songs: state => state.songs
 		})
 	},

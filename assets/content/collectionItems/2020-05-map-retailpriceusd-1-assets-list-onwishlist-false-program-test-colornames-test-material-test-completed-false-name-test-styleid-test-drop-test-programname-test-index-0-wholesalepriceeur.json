@@ -19,7 +19,7 @@
   ],
   "retailPriceEUR": 1,
   "description": "TEST",
-  "sustainable": false,
+  "responsible": false,
   "retailPriceDKK": 1,
   "colorId": "TEST"
 }

@@ -11,10 +11,7 @@ export const COLLECTION_FILTERS_FETCH = createMutation('COLLECTION_FILTERS_FETCH
 export const MEDIA_ASSETS_FETCH = createMutation('MEDIA_ASSETS_FETCH')
 
 
-export const ESC_KEYPRESS = createMutation('ESC_KEYPRESS')
-export const LEFT_KEYPRESS = createMutation('LEFT_KEYPRESS')
-export const RIGHT_KEYPRESS = createMutation('RIGHT_KEYPRESS')
-
+export const KEYPRESS = createMutation('KEYPRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
 export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION')
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW')

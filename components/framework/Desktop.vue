@@ -52,7 +52,11 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { ESC_KEYPRESS } from '~/model/constants'
+
+import { 
+	KEYPRESS 
+} from '~/model/constants'
+
 import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
 
@@ -85,7 +89,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([ESC_KEYPRESS.action]),
+		...mapActions([KEYPRESS.action]),
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
 		},
@@ -95,10 +99,10 @@ export default {
 	},
 	mounted() {
 		window.addEventListener('keyup', event => {
-			if (event.key === 'Escape') {
-				this[ESC_KEYPRESS.action]()
-			}
+			this[KEYPRESS.action]( event );			
 		})
+
+
 		let isMobile = addMediaChangeListener(
 			this.isSmallViewport,
 			this.isLargeViewport

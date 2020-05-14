@@ -157,8 +157,8 @@ export const state = () => ({
 		},
 		{
 			shortcutId: 'animal-print',
-			icon: '📁',
-			label: 'Animal Print 🐯',
+			icon: '🐯',
+			label: 'Animal Print',
 			posH: 12,
 			posV: 5,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
