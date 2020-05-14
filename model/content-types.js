@@ -159,5 +159,39 @@ export default {
 			smallHeight: 400,
 			modifierClass: 'window--wish-list'
 		}
+	},
+	hampsterDance: {
+		name: 'hampster-dance',
+		contentComponent: 'hampster-dance',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 460 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 400,
+			noStatus: true
+		}
+	},
+	ganniGirls: {
+		name: 'ganni-girls',
+		contentComponent: 'ganni-girls',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 400
+		}
+	},
+	lookBook: {
+		name: 'look-book',
+		contentComponent: 'look-book',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 400
+		}
 	}
 }
