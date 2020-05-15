@@ -1,22 +1,32 @@
-import {
+import {	
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
-	MEDIA_ASSETS_FETCH,
+	COLLECTION_ASSETS_FETCH,
+	
+	FILMS_FETCH,
+	GANNIGIRLS_FETCH,
+	LOOKBOOK_FETCH,
+
 	CONNECT_ASSETS,
-	INIT_PROGRESS,
-	KEYPRESS,
 	FILTER_COLLECTION,
-	TOPMOST_WINDOW,
-	CLOSE_WINDOW,
-	CLOSE_WINDOW_GROUP,
-	OPEN_CONTENT,
-	UPDATE_WINDOW,
-	OPEN_GALLERY,
-	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT,
+	INIT_PROGRESS,
+
+	KEYPRESS,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
-	PLAY_VIDEO
+	PLAY_VIDEO,
+	
+	TOPMOST_WINDOW,
+	UPDATE_WINDOW,
+
+	CLOSE_WINDOW,
+	CLOSE_WINDOW_GROUP,
+
+	OPEN_CONTENT,
+	OPEN_GALLERY,
+	OPEN_WISH_LIST,
+	OPEN_STYLE_CONTENT
+
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -81,13 +91,22 @@ export const mutations = {
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
-
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.filters = data
 	},
-
-	[MEDIA_ASSETS_FETCH.mutation](state, data) {
+	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
 		state.assets.list = data
+	},
+
+
+	[FILMS_FETCH.mutation](state, data) {
+		state.assets.films = data
+	},
+	[GANNIGIRLS_FETCH.mutation](state, data) {
+		state.assets.ganniGirls.posts = data
+	},
+	[LOOKBOOK_FETCH.mutation](state, data) {
+		state.assets.lookBook = data
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
@@ -541,10 +560,54 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(MEDIA_ASSETS_FETCH.mutation, assets)
+		await commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+
+		let filmsFiles = await require.context(
+			'~/assets/content/films/',
+			false,
+			/\.json$/
+		)
+		let films = filmsFiles.keys().map(key => {
+			let res = filmsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(FILMS_FETCH.mutation, films)
+
+
+		let ganniGirlsFiles = await require.context(
+			'~/assets/content/ganniGirls/',
+			false,
+			/\.json$/
+		)
+		let posts = ganniGirlsFiles.keys().map(key => {
+			let res = ganniGirlsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GANNIGIRLS_FETCH.mutation, posts)
+
+
+
+		let lookBookFiles = await require.context(
+			'~/assets/content/lookBook/',
+			false,
+			/\.json$/
+		)
+		let lookBook = lookBookFiles.keys().map(key => {
+			let res = lookBookFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+
+
+
+
 
 		await commit(CONNECT_ASSETS.mutation)
 		await commit('collection/' + FILTER_COLLECTION.mutation)
 		await commit(INIT_PROGRESS.mutation)
+
 	}
 }

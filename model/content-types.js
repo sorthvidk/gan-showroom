@@ -43,7 +43,7 @@ export default {
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 320,
-			largeHeight: 45 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			largeHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 100,
 			noStatus: true,
 			canResize: false,

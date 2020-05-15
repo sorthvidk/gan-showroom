@@ -1,6 +1,7 @@
 .ganni-girls {
 	background-size: cover;
 	padding: rem(10);
+	min-height: 100%;
 	
 	@include mq($from: screen-sm) {
 		padding: rem(30);
