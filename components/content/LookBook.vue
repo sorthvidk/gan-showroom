@@ -1,11 +1,11 @@
 <template>
-	<div class="look-book">
-		<transition-group name="fade">
+	<transition name="fade">
+		<div class="look-book">
 			<div class="look-book__item" v-for="(item,key) in content" :key="'lookbook'+key">
-				<img :src="item.imageUrl" alt="lookbook">				
+				<img :src="item.cloudinaryUrl" alt="lookbook">				
 			</div>
-		</transition-group>
-	</div>
+		</div>
+	</transition>
 </template>
 
 <script>
