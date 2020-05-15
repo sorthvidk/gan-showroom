@@ -15,6 +15,17 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+
+  - label: "General"
+    name: "general"
+    files:
+    - label: "Misc strings"
+      name: "misc"
+      file: "assets/content/general/misc.json"
+      fields:
+        - {label: "Ganni Girls background", name: "ganniGirlsUrl", widget: "image"}
+        - {label: "Ditte Letter", name: "ditteLetter", widget: "text"}        
+
   - name: "collectionItems"
     sortableFields: ['styleId']
     label: "Collection item"
@@ -340,7 +351,7 @@ collections:
         }
 
   - name: "lookBook"
-    summary: "Item {{itemId}}: {{cloudinaryUrl}}"
+    summary: "Item {{itemId}}"
     label: "Lookbook item"
     folder: "assets/content/lookBook"
     sortableFields: ['itemId']

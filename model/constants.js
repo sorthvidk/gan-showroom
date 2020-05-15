@@ -12,6 +12,7 @@ export const COLLECTION_ASSETS_FETCH = createMutation('COLLECTION_ASSETS_FETCH')
 export const FILMS_FETCH = createMutation('FILMS_FETCH')
 export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
+export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
 
 export const KEYPRESS = createMutation('KEYPRESS')

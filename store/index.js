@@ -6,6 +6,7 @@ import {
 	FILMS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
+	GENERAL_FETCH,
 
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
@@ -107,6 +108,27 @@ export const mutations = {
 	},
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.assets.lookBook = data
+	},
+	[GENERAL_FETCH.mutation](state, data) {
+
+		//Insert Ganni Girls bg image
+		let misc = data.filter((e)=>e.slug === 'misc')[0];
+		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
+
+
+
+		//Insert Ditte's letter
+
+		let dittesFolder = state.shortcuts.list.filter((e)=> e.shortcutId === 'dittes-folder')[0]
+			
+		if ( !dittesFolder ) return false;
+		let content = dittesFolder.windowContent.filter((f)=>f.contentId === 'ditte-letter');
+		
+		if ( !content ) return false;
+		let props = content[0].contentComponentProps;
+		
+		if ( !props.text ) return false;
+		props.text = misc.ditteLetter;
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
@@ -600,6 +622,20 @@ export const actions = {
 			return res
 		})
 		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+
+
+
+		let generalFiles = await require.context(
+			'~/assets/content/general/',
+			false,
+			/\.json$/
+		)
+		let general = generalFiles.keys().map(key => {
+			let res = generalFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GENERAL_FETCH.mutation, general)
 
 
 

@@ -29,7 +29,7 @@ export default {
 			type: String,
 			required: true
 		},
-		videoUrl: {
+		cloudinaryUrl: {
 			type: String,
 			required: true
 		}
@@ -54,7 +54,7 @@ export default {
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
 					contentComponentProps: { 
-						asset: {videoUrl: this.videoUrl}, 
+						asset: {videoUrl: this.cloudinaryUrl}, 
 						videoAttributes:{ posterUrl:this.posterUrl, autoPlay:false, muted:false, controls:true} 
 					},
 					statusComponentProps: type.defaultStatusComponentProps
