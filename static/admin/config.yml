@@ -174,7 +174,7 @@ collections:
     folder: "assets/content/mediaAssets"
     create: true
     format: "json"
-    slug: "{{year}}-{{month}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{assetId}}"
     editor:
       preview: false
     fields:
