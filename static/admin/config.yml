@@ -124,33 +124,17 @@ collections:
           widget: "number",
           hint: "Retail price in USD ex. '170'",
         }
-      - { 
-          label: "Sustainable", 
-          name: "sustainable", 
-          widget: "boolean", 
-          default: false, 
-          hint: "Set to true to show style as sustainable" 
+      - {
+          label: "Sustainable",
+          name: "sustainable",
+          widget: "boolean",
+          default: false,
+          hint: "Set to true to show style as sustainable",
         }
-      - { 
-          name: "assets", 
-          default: [], 
-          widget: "hidden" 
-        }
-      - { 
-          name: "index", 
-          default: 0, 
-          widget: "hidden" 
-        }
-      - { 
-          name: "completed", 
-          default: false, 
-          widget: "hidden" 
-        }
-      - { 
-          name: "onWishList", 
-          default: false, 
-          widget: "hidden" 
-        }
+      - { name: "assets", default: [], widget: "hidden" }
+      - { name: "index", default: 0, widget: "hidden" }
+      - { name: "completed", default: false, widget: "hidden" }
+      - { name: "onWishList", default: false, widget: "hidden" }
 
   - name: "collectionFilters"
     label: "Collection filter"
@@ -189,7 +173,7 @@ collections:
     folder: "assets/content/mediaAssets"
     create: true
     format: "json"
-    slug: "{{year}}-{{month}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{assetId}}"
     editor:
       preview: false
     fields:
