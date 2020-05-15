@@ -203,6 +203,8 @@ export const mutations = {
 					groupSize: 0
 			  }
 
+		if ( params.styleWindowGroup ) windowGroup.styleWindowGroup = true
+
 		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
 			const contentType = content.type
@@ -369,12 +371,16 @@ export const mutations = {
 	 *	Close a window group. Closes the last added group.
 	 *
 	 */
-	[CLOSE_WINDOW_GROUP.mutation](state) {
+	[CLOSE_WINDOW_GROUP.mutation](state, params) {
 		let groupsLength = state.windowGroupList.length
 
 		if (groupsLength < 1) return false
 
 		let windowGroup = state.windowGroupList[groupsLength - 1] //get latest group
+		if ( params && params.styleWindowGroup ) windowGroup = state.windowGroupList.filter((e)=>e.styleWindowGroup === true)[0]
+		
+		if ( !windowGroup )	return false;
+
 
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {
@@ -411,7 +417,7 @@ export const mutations = {
 
 		state.windowGroupList.pop() //remove that group
 		console.warn(
-			'CLOSE_WINDOW_GROUP | remaining groups: ' + state.windowGroupList.length
+			'CLOSE_WINDOW_GROUP | remaining groups: ' + state.windowGroupList.length + ' | close style? '+(params && params.styleWindowGroup)
 		)
 
 		if (state.windowGroupList.length == 0) {
@@ -496,7 +502,8 @@ export const actions = {
 			}
 		}
 
-		commit(OPEN_CONTENT.mutation, { windowContent: content })
+		commit(CLOSE_WINDOW_GROUP.mutation, {styleWindowGroup: true})
+		commit(OPEN_CONTENT.mutation, { windowContent: content, styleWindowGroup:true })
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -546,6 +553,12 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
+
+
+
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+	// FETCH ALL CONTENT!
 
 	async nuxtServerInit({ commit, dispatch }) {
 		let collectionFiles = await require.context(

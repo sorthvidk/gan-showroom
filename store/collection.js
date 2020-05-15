@@ -223,7 +223,7 @@ export const actions = {
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {}, { root: true })
+		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
@@ -239,7 +239,7 @@ export const actions = {
 		}
 	},
 	[SHOW_NEXT_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {}, { root: true })
+		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
