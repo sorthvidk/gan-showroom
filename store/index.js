@@ -141,7 +141,7 @@ export const mutations = {
 			state.progressItems[type] = false;
 		});
 
-		console.warn('INIT_PROGRESS',Object.keys(ContentTypes),state.progressItems)
+		console.warn('INIT_PROGRESS',state.progressItems)
 		state.progressPct = 0;
 	},
 	/*
