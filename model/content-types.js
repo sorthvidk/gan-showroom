@@ -27,7 +27,7 @@ export default {
 		}
 	},
 	musicPlayer: {
-		name: 'music-player',
+		name: 'musicPlayer',
 		contentComponent: 'music-player',
 		statusComponent: 'status-static',
 		allowedInstances: 1,
@@ -43,7 +43,7 @@ export default {
 		}
 	},
 	textFile: {
-		name: 'text-reader',
+		name: 'textFile',
 		contentComponent: 'text-reader',
 		statusComponent: 'status-static',
 		allowedInstances: 1,
@@ -56,7 +56,7 @@ export default {
 		}
 	},
 	imagePortrait: {
-		name: 'image-portrait',
+		name: 'imagePortrait',
 		contentComponent: 'single-image',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
@@ -72,7 +72,7 @@ export default {
 		}
 	},
 	imageLandscape: {
-		name: 'image-landscape',
+		name: 'imageLandscape',
 		contentComponent: 'single-image',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
@@ -88,7 +88,7 @@ export default {
 		}
 	},
 	imageSquare: {
-		name: 'image-square',
+		name: 'imageSquare',
 		contentComponent: 'single-image',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
@@ -104,7 +104,7 @@ export default {
 		}
 	},
 	videoPortrait: {
-		name: 'video-portrait',
+		name: 'videoPortrait',
 		contentComponent: 'single-video',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
@@ -118,7 +118,7 @@ export default {
 		}
 	},
 	videoLandscape: {
-		name: 'video-landscape',
+		name: 'videoLandscape',
 		contentComponent: 'single-video',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
@@ -147,7 +147,7 @@ export default {
 		}
 	},
 	wishList: {
-		name: 'wish-list',
+		name: 'wishList',
 		contentComponent: 'wish-list',
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
@@ -160,7 +160,7 @@ export default {
 		}
 	},
 	hampsterDance: {
-		name: 'hampster-dance',
+		name: 'hampsterDance',
 		contentComponent: 'hampster-dance',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -172,7 +172,7 @@ export default {
 		}
 	},
 	ganniGirls: {
-		name: 'ganni-girls',
+		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
 		allowedInstances: 1,
 		statusComponent: 'status-static',
@@ -184,7 +184,7 @@ export default {
 		}
 	},
 	lookBook: {
-		name: 'look-book',
+		name: 'lookBook',
 		contentComponent: 'look-book',
 		statusComponent: 'status-static',
 		allowedInstances: 1,

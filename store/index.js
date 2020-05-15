@@ -1,9 +1,10 @@
 import {
-	KEYPRESS,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	MEDIA_ASSETS_FETCH,
 	CONNECT_ASSETS,
+	INIT_PROGRESS,
+	KEYPRESS,
 	FILTER_COLLECTION,
 	TOPMOST_WINDOW,
 	CLOSE_WINDOW,
@@ -13,7 +14,6 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PROGRESS_UPDATE,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
 	PLAY_VIDEO
@@ -32,6 +32,9 @@ const WINDOW_CHROME_WIDTH = 2
 
 export const state = () => ({
 	hasData: false,
+
+	progressItems: {},
+	progressPct: 0,
 
 	windowList: [],
 	windowGroupList: [],
@@ -126,6 +129,21 @@ export const mutations = {
 		state.collection.assetsConnected = true
 	},
 
+
+
+	/*
+	 *	Activate content block, opens window with matching contentComponent
+	 *
+	 */
+	[INIT_PROGRESS.mutation](state) {
+
+		Object.keys(ContentTypes).forEach((type)=> {
+			state.progressItems[type] = false;
+		});
+
+		console.warn('INIT_PROGRESS',Object.keys(ContentTypes),state.progressItems)
+		state.progressPct = 0;
+	},
 	/*
 	 *	Activate content block, opens window with matching contentComponent
 	 *
@@ -177,11 +195,24 @@ export const mutations = {
 			state.highestZIndex++
 
 			state.topMostWindow = newWindow
+
+			//FLAG PROGRESS!
+			state.progressItems[contentType.name] = true;
+
 		})
 
 		//only add the group if it has content
-		if (windowGroup.groupSize > 0 && !params.addToGroupId)
-			state.windowGroupList.push(windowGroup)
+		if (windowGroup.groupSize > 0 && !params.addToGroupId) state.windowGroupList.push(windowGroup)
+
+		let pIC = 0
+		let pIA = Object.entries(state.progressItems)
+		let pIL = pIA.length
+		for (let [key, value] of pIA) {
+			if (value == true) pIC++
+		}
+
+		state.progressPct = Math.round((pIC / pIL) * 100)
+
 	},
 	/*
 	 *	Save window position and size values
@@ -368,6 +399,9 @@ export const actions = {
 	[CONNECT_ASSETS.action]({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
 	},
+	[INIT_PROGRESS.action]({ commit }) {
+		commit(INIT_PROGRESS.mutation)
+	},
 
 	[KEYPRESS.action]({ commit }, event) {
 		commit(KEYPRESS.mutation, event)
@@ -418,8 +452,6 @@ export const actions = {
 				})
 			}
 		}
-
-		commit('collection/' + PROGRESS_UPDATE.mutation, styleId)
 
 		commit(OPEN_CONTENT.mutation, { windowContent: content })
 	},
@@ -509,7 +541,8 @@ export const actions = {
 		})
 		await commit(MEDIA_ASSETS_FETCH.mutation, assets)
 
-		dispatch(CONNECT_ASSETS.action)
-		dispatch('collection/' + FILTER_COLLECTION.action)
+		await commit(CONNECT_ASSETS.mutation)
+		await commit('collection/' + FILTER_COLLECTION.mutation)
+		await commit(INIT_PROGRESS.mutation)
 	}
 }

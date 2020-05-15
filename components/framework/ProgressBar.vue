@@ -1,7 +1,7 @@
 <template>
 	<div class="progress-bar">
-		<p><strong>{{completePct}}% COMPLETE - </strong>{{text}}</p>
-		<span class="fill" :style="{width: completePct+'%'}">&nbsp;</span>
+		<p><strong>{{progressPct}}% COMPLETE - </strong>{{text}}</p>
+		<span class="fill" :style="{width: progressPct+'%'}">&nbsp;</span>
 	</div>
 </template>
 
@@ -27,11 +27,11 @@ export default {
 	},	
 	computed: {
 		...mapState({
-			completePct: state => state.collection.completedPct
+			progressPct: state => state.progressPct
 		}),
 		text() {
-			if ( this.completePct == 0 ) return this.textStart;
-			else if (this.completePct == 100 ) return this.textEnd;
+			if ( this.progressPct == 0 ) return this.textStart;
+			else if (this.progressPct == 100 ) return this.textEnd;
 			else return this.textProgress;
 		}
 	}
