@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :style="{position: 'relative', zIndex: zIndexStyle}">
+		<section class="window-container" :style="{position: 'relative', zIndex: zIndexStyle}">
 			<!-- can't attach listener to vue-draggable -->
 			<vue-draggable-resizable
 				ref="draggableResizable"
@@ -20,7 +20,15 @@
 			>
 				<header class="window__top">
 					<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
-					<button class="button close" @click.stop="closeHandler">Ｘ</button>
+					<button class="button close" @click.stop="closeHandler">
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+								<path
+									d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+								/>
+							</svg>
+						</span>
+					</button>
 				</header>
 				<div
 					v-if="!noStatus"
@@ -53,12 +61,17 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
+import SingleVideo from '~/components/content/SingleVideo.vue'
 import TextReader from '~/components/content/TextReader.vue'
 import Films from '~/components/content/Films.vue'
 import Gallery from '~/components/content/Gallery.vue'
 import WishList from '~/components/content/WishList.vue'
+import HampsterDance from '~/components/content/HampsterDance.vue'
+import GanniGirls from '~/components/content/GanniGirls.vue'
+import LookBook from '~/components/content/LookBook.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -73,10 +86,15 @@ export default {
 		StatusWishList,
 		Collection,
 		SingleImage,
+		SingleVideo,
 		TextReader,
 		Films,
 		Gallery,
-		WishList
+		WishList,
+		MusicPlayer,
+		HampsterDance,
+		GanniGirls,
+		LookBook
 	},
 	props: {
 		modifierClass: {
@@ -168,7 +186,6 @@ export default {
 			return true
 		},
 		zIndexStyle() {
-			// console.log("z index style", this.positionZ)
 			return this.positionZ
 		},
 		transformOriginStyle() {

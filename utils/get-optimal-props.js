@@ -12,8 +12,8 @@ const MOBILE_GUTTERS_VERTICAL = 10 + (10 + 45) //top + (bottom + navbar)
 // values are loosly structured on four columns
 export const placementX = (state, sizeW) => {
 	const amount = 4
-	const distance = (window.innerWidth - RIGHT_CLEARENCE) / (amount + 1)
-	const placements = [distance, distance * 2, distance * 3, distance * 4]
+	const gutter = (window.innerWidth - RIGHT_CLEARENCE) / (amount + 1)
+	const placements = [gutter, gutter * 2, gutter * 3, gutter * 4]
 
 	return Math.max(
 		random(10, 20),
@@ -27,7 +27,7 @@ export const placementX = (state, sizeW) => {
 export const placementY = (state, sizeH) => {
 	return isMobile()
 		? (state.windowList.length + 1) * 40
-		: random(40, window.innerHeight - sizeH - MOBILE_GUTTERS_VERTICAL)
+		: random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
 }
 
 export default function(state, currentWindow, groupId) {
@@ -60,11 +60,11 @@ export default function(state, currentWindow, groupId) {
 		positionZ: windowProps.positionZ || state.highestZIndex + 1,
 
 		windowProps: {
-			...windowProps,
+			...defaultWindowProps,
 			sizeW,
 			sizeH,
-			positionX: placementX(state, sizeW),
-			positionY: placementY(state, sizeH)
+			positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
+			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH)
 		}
 	}
 }

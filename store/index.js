@@ -1,4 +1,5 @@
 import {
+	KEYPRESS,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	MEDIA_ASSETS_FETCH,
@@ -8,13 +9,14 @@ import {
 	CLOSE_WINDOW,
 	CLOSE_WINDOW_GROUP,
 	OPEN_CONTENT,
-	ESC_KEYPRESS,
 	UPDATE_WINDOW,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	PROGRESS_UPDATE,
-	TOGGLE_MUSIC_PLAYER
+	TOGGLE_MUSIC_PLAYER,
+	MUSIC_PLAY_PAUSE,
+	PLAY_VIDEO
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -29,15 +31,19 @@ const WINDOW_CHROME_HEIGHT = 71
 const WINDOW_CHROME_WIDTH = 2
 
 export const state = () => ({
+	hasData: false,
+
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
 
+	keyPressed: null,
 	zIndexes: [],
 	lowestZIndex: 0,
 	highestZIndex: 0,
 
 	musicPlayerOpen: false,
+	musicPlaying: false,
 	songs: [
 		{
 			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
@@ -65,6 +71,10 @@ export const state = () => ({
 export const mutations = {
 	// Baseline content to cms
 
+	[KEYPRESS.mutation](state, key) {
+		state.keyPressed = key
+	},
+
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
@@ -78,15 +88,14 @@ export const mutations = {
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
-		console.warn('CONNECT_ASSETS')
-
 		if (state.collection.assetsConnected) return false
+
+		console.warn('CONNECT_ASSETS')
 
 		let al = state.assets.list.length
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			console.log('asset style', asset.styleId)
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
@@ -97,6 +106,18 @@ export const mutations = {
 		let cl = state.collection.list.length
 		for (var j = 0; j < cl; j++) {
 			let style = state.collection.list[j]
+			if (style.assets.length === 0) {
+				style.assets.push({
+					assetId: getUniqueId(),
+					styleId: style.styleId,
+					type: 'image',
+					name: 'dummy-image.jpg',
+					aspect: 'portrait',
+					onTop: true,
+					visible: true,
+					cloudinaryUrl: '/img/styles/dummy.jpg'
+				})
+			}
 			let sortedAssets = style.assets.sort((a, b) =>
 				a.onTop && !b.onTop ? -1 : 1
 			)
@@ -123,7 +144,7 @@ export const mutations = {
 					groupSize: 0
 			  }
 
-		params.windowContent.forEach((content, i) => {
+		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
 			const contentType = content.type
 			const contentName = content.title
@@ -333,8 +354,14 @@ export const mutations = {
 	[TOGGLE_MUSIC_PLAYER.mutation](state) {
 		state.musicPlayerOpen = !state.musicPlayerOpen
 	},
-	setStyles(state, payload) {
-		console.log('style from CMS:', payload)
+
+	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
+		console.warn('MUSIC_PLAY_PAUSE', playing)
+		state.musicPlaying = playing
+	},
+
+	[PLAY_VIDEO.mutation](state, playing) {
+		state.musicPlaying = false
 	}
 }
 
@@ -344,9 +371,17 @@ export const actions = {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
+	[KEYPRESS.action]({ commit }, event) {
+		commit(KEYPRESS.mutation, event)
+
+		if (event.key === 'Escape') {
+			commit(CLOSE_WINDOW_GROUP.mutation)
+		}
+	},
 	[TOPMOST_WINDOW.action]({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},
+
 	[CLOSE_WINDOW.action]({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
@@ -360,9 +395,6 @@ export const actions = {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[ESC_KEYPRESS.action]({ commit }) {
-		commit(CLOSE_WINDOW_GROUP.mutation)
-	},
 	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
 		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
 		if (!listStyle) return false
@@ -376,6 +408,7 @@ export const actions = {
 
 			if (asset.visible) {
 				let type = getAssetType(asset)
+
 				content.push({
 					title: asset.name,
 					contentId: asset.assetId,
@@ -401,7 +434,7 @@ export const actions = {
 				canOverride: true,
 				contentComponentProps: {
 					styleId: asset.styleId,
-					focusedAsset: asset
+					focusedAssetId: asset.assetId
 				},
 				windowProps: {
 					positionZ: 4500,
@@ -416,6 +449,14 @@ export const actions = {
 	},
 	[TOGGLE_MUSIC_PLAYER.action]({ commit }, openState) {
 		commit(TOGGLE_MUSIC_PLAYER.mutation, openState)
+	},
+	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
+		console.log('playing', playing)
+		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
+		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
+	},
+	[PLAY_VIDEO.action]({ commit }) {
+		commit(PLAY_VIDEO.mutation)
 	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {

@@ -1,6 +1,6 @@
 /* --- FONTS --- */
-$primary-font: Helvetica Neue, Arial, monaco, monospace;
-$secondary-font: Verdana, sans-serif;
+$font-sansserif: Helvetica Neue, Arial, monaco, monospace;
+$font-typewriter: Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
 
 
 /* --- COLORS --- */
@@ -11,6 +11,9 @@ $color-grey: #C6C6C6;
 $color-lightgrey: #EDEDED;
 $color-salmon: #FBD5C5;
 $color-yellow: #FFFF00;
+$color-green: #00C808;
+$color-blue: #1400FF;
+
 
 $z-index-assistant: 4000;
 $z-index-gallery: 4500;

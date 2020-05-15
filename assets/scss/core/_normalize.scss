@@ -46,7 +46,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
-	font-family: $primary-font;
+	font-family: $font-sansserif;
 	color: $color-black;
 	font-size: rem(15);
 	line-height: 1.2;
@@ -80,5 +80,19 @@ button {
   transition: opacity .1s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
   opacity: 0;
 }

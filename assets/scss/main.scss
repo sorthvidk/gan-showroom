@@ -9,13 +9,18 @@
 @import 'framework/window';
 @import 'framework/assistant';
 @import 'framework/support';
-@import 'framework/music-player';
 @import 'framework/progress-bar';
 @import 'framework/marquee';
+@import 'framework/reciept';
 
+@import 'content/music-player';
 @import 'content/collection';
 @import 'content/single-image';
+@import 'content/single-video';
 @import 'content/text-reader';
 @import 'content/films';
 @import 'content/gallery';
 @import 'content/wish-list';
+@import 'content/video-player';
+@import 'content/ganni-girls';
+@import 'content/look-book';

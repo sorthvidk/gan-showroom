@@ -8,8 +8,8 @@ export default {
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 4 * 160 + 32 + 10 + WINDOW_CHROME_WIDTH,
-			smallWidth: 2 * 160 + 32 + 10,
+			largeWidth: 3 * 208 + 31 + 50 + WINDOW_CHROME_WIDTH,
+			smallWidth: 2 * 156 + 31 + 10,
 			largeHeight: 510 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 510
 		}
@@ -34,9 +34,12 @@ export default {
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_CHROME_WIDTH,
 			smallWidth: 320,
-			largeHeight: 180 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 180,
-			modifierClass: 'window--tight'
+			largeHeight: 45 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 100,
+			noStatus: true,
+			canResize: false,
+			noPlacement: true,
+			modifierClass: 'window--tight window--music-player music-player'
 		}
 	},
 	textFile: {
@@ -49,7 +52,7 @@ export default {
 			smallWidth: 350,
 			largeHeight: 400 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 300,
-			modifierClass: 'window--tight'
+			noStatus: true
 		}
 	},
 	imagePortrait: {
@@ -77,9 +80,9 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 274 + WINDOW_CHROME_WIDTH,
+			largeWidth: 600 + WINDOW_CHROME_WIDTH,
 			smallWidth: 274,
-			largeHeight: 180 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 300 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 180,
 			modifierClass: 'window--tight'
 		}
@@ -102,28 +105,28 @@ export default {
 	},
 	videoPortrait: {
 		name: 'video-portrait',
-		contentComponent: 'video',
+		contentComponent: 'single-video',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 180 + WINDOW_CHROME_WIDTH,
-			smallWidth: 180,
-			largeHeight: 320 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 320,
+			largeWidth: 274 + WINDOW_CHROME_WIDTH,
+			smallWidth: 274,
+			largeHeight: 418 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 418,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
 	},
 	videoLandscape: {
 		name: 'video-landscape',
-		contentComponent: 'video',
+		contentComponent: 'single-video',
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_CHROME_WIDTH,
-			smallWidth: 320,
-			largeHeight: 180 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 180,
+			largeWidth: 600 + WINDOW_CHROME_WIDTH,
+			smallWidth: 600,
+			largeHeight: 300 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 300,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -154,6 +157,42 @@ export default {
 			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 400,
 			modifierClass: 'window--wish-list'
+		}
+	},
+	hampsterDance: {
+		name: 'hampster-dance',
+		contentComponent: 'hampster-dance',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 460 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 400,
+			noStatus: true
+		}
+	},
+	ganniGirls: {
+		name: 'ganni-girls',
+		contentComponent: 'ganni-girls',
+		allowedInstances: 1,
+		statusComponent: 'status-static',
+		defaultWindowProps: {
+			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 600
+		}
+	},
+	lookBook: {
+		name: 'look-book',
+		contentComponent: 'look-book',
+		statusComponent: 'status-static',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			smallWidth: 355,
+			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			smallHeight: 400
 		}
 	}
 }

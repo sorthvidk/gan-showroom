@@ -18,16 +18,56 @@
 				<span v-if="assistantExpanded">➖</span>
 				<p>{{currentStyle.name}}</p>
 			</button>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path
+							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+						/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
 			<p>{{currentStyle.name}}</p>
-			<button class="window-button previous" @click="previousStyleHandler">❮</button>
-			<button class="window-button next" @click="nextStyleHandler">❯</button>
-			<button class="window-button close" @click="closeStyleHandler">𝗫</button>
+			<button class="window-button previous" @click="previousStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
+					</svg>
+				</span>
+			</button>
+			<button class="window-button next" @click="nextStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
+					</svg>
+				</span>
+			</button>
+			<button class="window-button close" @click="closeStyleHandler">
+				<span class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path
+							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+						/>
+					</svg>
+				</span>
+			</button>
 		</div>
 
 		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
@@ -65,17 +105,12 @@
 					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
-						<p>{{currentStyle.description}}</p>
+						<!-- <p>{{currentStyle.description}}</p> -->
 						<table>
 							<tbody>
 								<tr>
 									<th>Color</th>
-									<td>
-										{{currentStyle.colorNames}}
-										<span v-if="hasHiddenAssets">
-											<button class="link" @click="showAllVariantsClickHandler">&nearr; Show all variants</button>
-										</span>
-									</td>
+									<td>{{currentStyle.colorNames}}</td>
 								</tr>
 
 								<tr>
@@ -98,6 +133,10 @@
 								<tr>
 									<th>Program name</th>
 									<td>{{currentStyle.programName}}</td>
+								</tr>
+								<tr v-if="currentStyle.responsible">
+									<th>Responsible</th>
+									<td>This style is responsible</td>
 								</tr>
 
 								<tr>
@@ -160,11 +199,19 @@
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
 					<button
+						class="button show-variants"
+						v-if="hasHiddenAssets"
+						@click="showAllVariantsClickHandler"
+					>
+						<span class="icon">🟢</span>
+						<p>Show all variants</p>
+					</button>
+					<button
 						class="button add-to-wishlist"
 						:class="{'is-active': styleOnWishList}"
 						@click="addToWishListClickHandler"
 					>
-						<p>{{addRemoveWishListButtonLabel}}</p>
+						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
@@ -181,9 +228,9 @@
 					<button class="button download-wishlist" @click="downloadWishListClickHandler">
 						<p>↓ Download wishlist</p>
 					</button>
-					<button class="button share-wishlist" @click="shareWishListClickHandler">
+					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -231,6 +278,7 @@ export default {
 	},
 	computed: {
 		...mapState({
+			keyPressed: state => state.keyPressed,
 			filtersList: state => state.collection.filters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
@@ -241,8 +289,8 @@ export default {
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},
-		addRemoveWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Remove from list'
+		addToWishListButtonLabel() {
+			// if (this.styleOnWishList) return 'Remove from list'
 			return 'Add to wishlist'
 		},
 		styleOnWishList() {
@@ -254,15 +302,32 @@ export default {
 		filterStatusText() {
 			if (this.filterName) return this.filterName
 			return 'Filter'
+		},
+		recieptUrl() {
+			return `/reciept/?styles=${this.wishList
+				.map(style => style.styleId)
+				.join(',')}`
 		}
 	},
 	watch: {
+		keyPressed(event) {
+			if (event.key === 'ArrowLeft') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.previousStyleHandler()
+				}
+			} else if (event.key === 'ArrowRight') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.nextStyleHandler()
+				}
+			} else if (event.code === 'Space') {
+				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
+					this.addToWishListClickHandler()
+				}
+			}
+		},
 		activeFilter(newVal) {
 			if (newVal && newVal.name != '') this.filterName = newVal.name
 			else this.filterName = null
-		},
-		wishList(newVal) {
-			console.log('WISH LIST', newVal)
 		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
@@ -347,14 +412,15 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
-			if (this.styleOnWishList) {
-				this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
-			} else {
+			if (!this.styleOnWishList) {
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+			} else {
+				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadWishListClickHandler() {
-			//DOWNLOAD
+			console.log('Download wishlist')
+			window.print()
 		},
 		shareWishListClickHandler() {
 			//SHARE
@@ -386,11 +452,9 @@ export default {
 			this.assistantMode = AssistantModes.STYLE_DETAILS
 		},
 		isSmallViewport() {
-			console.log('isSmallViewport')
 			this.viewPortSize = ViewportSizes.SMALL
 		},
 		isLargeViewport() {
-			console.log('isLargeViewport')
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		toggleContentHandler() {
@@ -400,28 +464,12 @@ export default {
 	mounted() {
 		let isMobile = addMediaChangeListener(
 			this.isSmallViewport,
-			this.isLargeViewport,
-			768
+			this.isLargeViewport
 		)
 		if (!isMobile) {
 			this.assistantExpanded = true
 			this.viewPortSize = ViewportSizes.LARGE
 		}
-		window.addEventListener('keyup', event => {
-			if (event.key === 'ArrowLeft') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.previousStyleHandler()
-				}
-			} else if (event.key === 'ArrowRight') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.nextStyleHandler()
-				}
-			} else if (event.code === 'Space') {
-				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
-					this.addToWishListClickHandler()
-				}
-			}
-		})
 	}
 }
 </script>

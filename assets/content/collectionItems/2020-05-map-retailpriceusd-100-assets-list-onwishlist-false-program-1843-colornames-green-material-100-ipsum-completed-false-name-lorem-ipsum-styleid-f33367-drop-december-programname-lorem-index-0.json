@@ -1,0 +1,23 @@
+{
+  "retailPriceUSD": 100,
+  "assets": [],
+  "onWishList": false,
+  "program": "1843",
+  "colorNames": "Green",
+  "material": "100% ipsum",
+  "completed": false,
+  "name": "Dummy, no filter",
+  "styleId": "F33367",
+  "drop": "December",
+  "programName": "Lorem",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 100,
+  "wholesalePriceDKK": 100,
+  "wholesalePriceUSD": 100,
+  "filters": [],
+  "retailPriceEUR": 100,
+  "description": "Test test test",
+  "retailPriceDKK": 100,
+  "colorId": "822"
+}
