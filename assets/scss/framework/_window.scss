@@ -13,6 +13,11 @@
 	left: 0;
 	z-index: 1;
 
+	max-width: calc(100vw - #{rem(20)});
+	@include mq($from: screen-md) {
+		max-width: none;
+	}
+
 	&.is-active {
 		#{$module}__top {
 			background-color: lighten($color-lightgrey, 5%);
@@ -66,7 +71,7 @@
 			@include bevel();
 			border-left: rem(1) solid $color-black;
 			border-bottom: rem(1) solid $color-black;
-			
+
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
@@ -158,7 +163,7 @@
 		}
 
 		position: fixed;
-		top: auto;
+		top: calc(100vh - 240px);
 		left: rem(10);
 		right: rem(10);
 		bottom: rem(10);

@@ -55,10 +55,6 @@ export default {
 		type: Number,
 		default: 0
 	},
-	description: { //long description
-		type: String,
-		default: null
-	},
 	filters: {
 		type: Array,
 		default: null
@@ -75,7 +71,7 @@ export default {
 		type: Boolean,
 		default: false
 	},
-	sustainable: {
+	responsible: {
 		type: Boolean,
 		default: false
 	}

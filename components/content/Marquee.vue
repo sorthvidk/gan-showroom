@@ -1,6 +1,6 @@
 <template>
-	<div class="marquee marquee3k" data-speed="1" data-pausable="true">
-		<p @click="marqueeClickHandler">{{text}}</p>
+	<div @click="marqueeClickHandler" class="marquee marquee3k" data-speed="1" data-pausable="true">
+		<p v-html="text"></p>
 	</div>
 </template>
 
@@ -16,16 +16,24 @@ export default {
 		text: {
 			type: String,
 			default: ''
+		},
+		linkTo: {
+			type: String,
+			default: ''
 		}
 	},
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action]),
 		marqueeClickHandler() {
-			this[OPEN_STYLE_CONTENT.action]('F5987334')
+			this[OPEN_STYLE_CONTENT.action](this.linkTo)
 		}
 	},
 	mounted() {
-		Marquee3k.init()
+		// works when content doesn't have display none
+		// this.$nextTick(Marquee3k.init)
+	},
+	beforeDestroy() {
+		// this.$nextTick(Marquee3k.pauseAll)
 	}
-};
+}
 </script>

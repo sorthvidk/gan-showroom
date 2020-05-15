@@ -8,8 +8,8 @@ local_backend: true
 media_library:
   name: cloudinary
   config:
-    cloud_name: ganni-a-s
-    api_key: 131238582984474
+    cloud_name: dd6fpxydm
+    api_key: 357528633236135
 
 media_folder: static/img
 public_folder: /img
@@ -35,9 +35,11 @@ collections:
           name: "filters",
           widget: "relation",
           multiple: true,
+          required: false,
           collection: "collectionFilters",
-          searchFields: ["filterId", "name"],
+          searchFields: ["name"],
           valueField: "filterId",
+          displayFields: ["name"],
           hint: "List of filters, the style will appear under",
         }
       - {
@@ -83,53 +85,52 @@ collections:
           hint: "ID of color ex. '699'",
         }
       - {
-          label: "Description",
-          name: "description",
-          widget: "markdown",
-          hint: "Long description of style",
-        }
-      - {
           label: "Wholesale Price DKK",
           name: "wholesalePriceDKK",
           widget: "number",
           hint: "Wholesale price in DKK ex. '800'",
+          required: false,
         }
       - {
           label: "Wholesale Price EUR",
           name: "wholesalePriceEUR",
           widget: "number",
           hint: "Wholesale price in EUR ex. '110'",
+          required: false,
         }
       - {
           label: "Wholesale Price USD",
           name: "wholesalePriceUSD",
           widget: "number",
           hint: "Wholesale price in USD ex. '140'",
+          required: false,
         }
       - {
           label: "Retail Price DKK",
           name: "retailPriceDKK",
           widget: "number",
           hint: "Retail price in DKK ex. '1000'",
+          required: false,
         }
       - {
           label: "Retail Price EUR",
           name: "retailPriceEUR",
           widget: "number",
           hint: "Retail price in EUR ex. '140'",
+          required: false,
         }
       - {
           label: "Retail Price USD",
           name: "retailPriceUSD",
           widget: "number",
           hint: "Retail price in USD ex. '170'",
+          required: false,
         }
       - {
-          label: "Sustainable",
-          name: "sustainable",
+          label: "Responsible",
+          name: "responsible",
           widget: "boolean",
-          default: false,
-          hint: "Set to true to show style as sustainable",
+          hint: "Check to show style as responsible",
         }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }

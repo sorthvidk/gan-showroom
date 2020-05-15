@@ -27,8 +27,6 @@ export const state = () => ({
 			label: 'PS21 Films',
 			posH: 2,
 			posV: 1,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'c2',
 			windowContent: [
 				{
 					title: 'PS21 films 📹',
@@ -58,8 +56,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
+							imageUrl: '/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
 						}
 					},
 					windowProps: {
@@ -74,8 +71,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
+							imageUrl: '/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
 						}
 					},
 					windowProps: {
@@ -96,13 +92,77 @@ export const state = () => ({
 			]
 		},
 		{
+			shortcutId: 'music-player',
+			icon: '⚡️',
+			label: 'Ganni FM',
+			posH: 1,
+			posV: 2,
+			action: TOGGLE_MUSIC_PLAYER.action,
+			windowContent: [
+				{
+					title: 'Ganni FM',
+					contentId: 'ganni-fm',
+					type: ContentTypes.musicPlayer,
+					canOverride: true
+				}
+			]
+		},
+		{
+			shortcutId: 'ganni-girls',
+			icon: '👯‍♀️',
+			label: 'Ganni Girls',
+			posH: 2,
+			posV: 2,
+			windowContent: [
+				{
+					title: '#GanniGirls',
+					contentId: 'ganni-girls',
+					type: ContentTypes.ganniGirls,
+					statusComponentProps: {
+						text: 'http://#gannigirls.weblog/'
+					}
+				}
+			]
+		},
+		{
+			shortcutId: 'look-book',
+			icon: '🤩',
+			label: 'LookBook',
+			posH: 3,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'Ganni LookBook',
+					contentId: 'look-book',
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Photo credit: Jakob Landvik'
+					}
+				}
+			]
+		},
+		{
+			shortcutId: 'hampster-dance',
+			icon: '🐹',
+			label: 'Hampster Dance',
+			posH: 12,
+			posV: 4,
+			windowContent: [
+				{
+					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
+					contentId: 'hampster-dance',
+					type: ContentTypes.hampsterDance
+				}
+			]
+		},
+		{
 			shortcutId: 'animal-print',
-			icon: '📁',
-			label: 'Animal Print 🐯',
+			icon: '🐯',
+			label: 'Animal Print',
 			posH: 12,
 			posV: 5,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'c2',
+			actionParam: 'LEOPARD PRINT',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
@@ -111,15 +171,6 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
-		},
-		{
-			shortcutId: 'music-player',
-			icon: '⚡️',
-			label: 'Ganni FM',
-			posH: 1,
-			posV: 2,
-			action: TOGGLE_MUSIC_PLAYER.action,
-			actionParam: ''
 		}
 	]
 })
