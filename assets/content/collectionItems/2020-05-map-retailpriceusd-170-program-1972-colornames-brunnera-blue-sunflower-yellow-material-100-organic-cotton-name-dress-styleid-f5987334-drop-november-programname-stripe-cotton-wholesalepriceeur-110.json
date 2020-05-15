@@ -5,11 +5,12 @@
   "program": "1972",
   "colorNames": "Brunnera Blue, Sunflower Yellow",
   "material": "100% organic cotton",
-  "name": "Dress",
+  "name": "Green Dress",
   "styleId": "F5987334",
   "drop": "November",
   "programName": "Stripe cotton",
   "index": 0,
+  "responsible": true,
   "wholesalePriceEUR": 110,
   "wholesalePriceDKK": 800,
   "wholesalePriceUSD": 140,
@@ -18,7 +19,6 @@
   ],
   "retailPriceEUR": 140,
   "description": "Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.",
-  "responsible": true,
   "retailPriceDKK": 1000,
   "colorId": "699"
 }

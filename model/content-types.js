@@ -1,5 +1,12 @@
-const WINDOW_CHROME_HEIGHT = 31
-const WINDOW_CHROME_WIDTH = 2
+const WINDOW_TOPBAR_BORDERS_HEIGHT = 30
+const WINDOW_STATUSBAR_HR_HEIGHT = 40
+const WINDOW_BORDERS_WIDTH = 0
+const WINDOW_SCROLLBAR_WIDTH = 30
+
+const WINDOW_DEFAULT_CHROME_WIDTH = WINDOW_BORDERS_WIDTH + WINDOW_SCROLLBAR_WIDTH
+const WINDOW_TIGHT_CHROME_WIDTH = WINDOW_BORDERS_WIDTH
+const WINDOW_DEFAULT_CHROME_HEIGHT = WINDOW_TOPBAR_BORDERS_HEIGHT + WINDOW_STATUSBAR_HR_HEIGHT
+const WINDOW_NOSTATUS_CHROME_HEIGHT = WINDOW_TOPBAR_BORDERS_HEIGHT
 
 export default {
 	collection: {
@@ -8,9 +15,9 @@ export default {
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 3 * 208 + 31 + 50 + WINDOW_CHROME_WIDTH,
-			smallWidth: 2 * 156 + 31 + 10,
-			largeHeight: 510 + WINDOW_CHROME_HEIGHT,
+			largeWidth: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+			smallWidth: 2 * 156 + 10 + WINDOW_DEFAULT_CHROME_WIDTH,
+			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 510
 		}
 	},
@@ -20,9 +27,9 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 700 + WINDOW_CHROME_WIDTH,
+			largeWidth: 700 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 350,
-			largeHeight: 510 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 510
 		}
 	},
@@ -32,9 +39,9 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_CHROME_WIDTH,
+			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 320,
-			largeHeight: 45 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 45 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 100,
 			noStatus: true,
 			canResize: false,
@@ -48,9 +55,9 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 700 + WINDOW_CHROME_WIDTH,
+			largeWidth: 700 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 350,
-			largeHeight: 400 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 300,
 			noStatus: true
 		}
@@ -64,10 +71,10 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 274 + WINDOW_CHROME_WIDTH,
+			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 274,
-			largeHeight: 418 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 418,
+			largeHeight: 417 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 417,
 			modifierClass: 'window--tight'
 		}
 	},
@@ -80,10 +87,10 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 600 + WINDOW_CHROME_WIDTH,
-			smallWidth: 274,
-			largeHeight: 300 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 180,
+			largeWidth: 417 + WINDOW_TIGHT_CHROME_WIDTH,
+			smallWidth: 417,
+			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 274,
 			modifierClass: 'window--tight'
 		}
 	},
@@ -96,9 +103,9 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_CHROME_WIDTH,
+			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 320,
-			largeHeight: 274 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 274,
 			modifierClass: 'window--tight'
 		}
@@ -109,10 +116,10 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 274 + WINDOW_CHROME_WIDTH,
+			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 274,
-			largeHeight: 418 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 418,
+			largeHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			smallHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -123,10 +130,10 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 602,
+			largeWidth: 608 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 355,
-			largeHeight: 338,
-			smallHeight: 200,
+			largeHeight: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			smallHeight: 200 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -136,9 +143,9 @@ export default {
 		contentComponent: 'gallery',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 600 + WINDOW_CHROME_WIDTH,
+			largeWidth: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 600,
-			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 600,
 			noStatus: true,
 			isMaximized: true,
@@ -152,9 +159,9 @@ export default {
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 355,
-			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
 			modifierClass: 'window--wish-list'
 		}
@@ -164,9 +171,9 @@ export default {
 		contentComponent: 'hampster-dance',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 460 + WINDOW_CHROME_WIDTH,
+			largeWidth: 460 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 355,
-			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
 			noStatus: true
 		}
@@ -177,9 +184,9 @@ export default {
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 355,
-			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 600
 		}
 	},
@@ -189,9 +196,9 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_CHROME_WIDTH,
+			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 355,
-			largeHeight: 600 + WINDOW_CHROME_HEIGHT,
+			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400
 		}
 	}
