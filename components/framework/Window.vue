@@ -23,7 +23,9 @@
 					<button class="button close" @click.stop="closeHandler">
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							  <path d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"/>
+								<path
+									d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+								/>
 							</svg>
 						</span>
 					</button>
@@ -92,7 +94,7 @@ export default {
 		MusicPlayer,
 		HampsterDance,
 		GanniGirls,
-		LookBook,
+		LookBook
 	},
 	props: {
 		modifierClass: {
@@ -335,5 +337,5 @@ export default {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
 		this.windowRef = this.$el.querySelector('.window')
 	}
-};
+}
 </script>

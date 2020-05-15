@@ -96,7 +96,9 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			let style = state.collection.list.filter( e => e.styleId === asset.styleId )[0]
+			let style = state.collection.list.filter(
+				e => e.styleId === asset.styleId
+			)[0]
 			style.assets.push(asset)
 		}
 
@@ -104,7 +106,7 @@ export const mutations = {
 		let cl = state.collection.list.length
 		for (var j = 0; j < cl; j++) {
 			let style = state.collection.list[j]
-			if ( style.assets.length === 0 ) {
+			if (style.assets.length === 0) {
 				style.assets.push({
 					assetId: getUniqueId(),
 					styleId: style.styleId,
@@ -114,7 +116,7 @@ export const mutations = {
 					onTop: true,
 					visible: true,
 					cloudinaryUrl: '/img/styles/dummy.jpg'
-				});
+				})
 			}
 			let sortedAssets = style.assets.sort((a, b) =>
 				a.onTop && !b.onTop ? -1 : 1
@@ -372,7 +374,7 @@ export const actions = {
 	[KEYPRESS.action]({ commit }, event) {
 		commit(KEYPRESS.mutation, event)
 
-		if ( event.key === "Escape") {
+		if (event.key === 'Escape') {
 			commit(CLOSE_WINDOW_GROUP.mutation)
 		}
 	},
