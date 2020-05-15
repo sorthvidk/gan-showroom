@@ -33,7 +33,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_CHROME_WIDTH,
-			smallWidth: 320,
+			smallWidth: 375,
 			largeHeight: 45 + WINDOW_CHROME_HEIGHT,
 			smallHeight: 100,
 			noStatus: true,
