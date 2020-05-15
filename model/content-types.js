@@ -1,4 +1,4 @@
-const WINDOW_CHROME_HEIGHT = 71
+const WINDOW_CHROME_HEIGHT = 31
 const WINDOW_CHROME_WIDTH = 2
 
 export default {
@@ -123,10 +123,10 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 600 + WINDOW_CHROME_WIDTH,
-			smallWidth: 600,
-			largeHeight: 300 + WINDOW_CHROME_HEIGHT,
-			smallHeight: 300,
+			largeWidth: 602,
+			smallWidth: 355,
+			largeHeight: 338,
+			smallHeight: 200,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
