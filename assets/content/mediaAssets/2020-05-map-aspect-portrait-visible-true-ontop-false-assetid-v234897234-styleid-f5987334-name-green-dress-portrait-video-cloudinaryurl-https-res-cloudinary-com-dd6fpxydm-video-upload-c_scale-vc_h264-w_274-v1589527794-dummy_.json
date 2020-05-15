@@ -1,0 +1,10 @@
+{
+  "aspect": "portrait",
+  "visible": true,
+  "onTop": false,
+  "assetId": "v234897234",
+  "styleId": "F5987334",
+  "name": "Green dress portrait video",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/c_scale,vc_h264,w_274/v1589527794/dummy_portrait_ni1vo3.mp4",
+  "type": "video"
+}

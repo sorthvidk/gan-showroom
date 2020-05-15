@@ -12,6 +12,7 @@ export const MEDIA_ASSETS_FETCH = createMutation('MEDIA_ASSETS_FETCH')
 
 
 export const KEYPRESS = createMutation('KEYPRESS')
+export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
 export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION')
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW')

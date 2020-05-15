@@ -50,15 +50,12 @@ export default function(state, currentWindow, groupId) {
 		defaultWindowProps
 	} = currentWindow.type
 
-	const statusHeight = statusComponentProps.noStatus ? 0 : 30
-
 	const sizeW =
 		windowProps.width ||
 		defaultWindowProps[isMobile() ? 'smallWidth' : 'largeWidth']
 	const sizeH =
 		windowProps.height ||
-		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight'] +
-			statusHeight
+		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight']
 
 	return {
 		...currentWindow,

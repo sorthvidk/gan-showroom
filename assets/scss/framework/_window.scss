@@ -1,6 +1,6 @@
 .window {
 	$chrome-height: 70;
-	$chrome-height-no-status: 31;
+	$chrome-height-no-status: 30;
 
 	$module: '.window';
 
@@ -14,6 +14,7 @@
 	z-index: 1;
 
 	max-width: calc(100vw - #{rem(20)});
+
 	@include mq($from: screen-md) {
 		max-width: none;
 	}

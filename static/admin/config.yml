@@ -134,7 +134,6 @@ collections:
         }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }
-      - { name: "completed", default: false, widget: "hidden" }
       - { name: "onWishList", default: false, widget: "hidden" }
 
   - name: "collectionFilters"
