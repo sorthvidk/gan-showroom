@@ -11,13 +11,6 @@
 		display: block;
 		margin: 0 auto;
 		width: 100%;
-		@include mq($from: screen-sm) {
-			width: rem(700);
-			max-width: 60vw;
-		}
-		@include mq($from: screen-xxl) {
-			width: rem(1000);			
-		}
 
 		img {
 			display: block;

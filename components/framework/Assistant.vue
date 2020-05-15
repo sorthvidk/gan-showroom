@@ -198,11 +198,19 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
-					<button class="button show-variants" v-if="hasHiddenAssets" @click="showAllVariantsClickHandler">
+					<button
+						class="button show-variants"
+						v-if="hasHiddenAssets"
+						@click="showAllVariantsClickHandler"
+					>
 						<span class="icon">🟢</span>
 						<p>Show all variants</p>
 					</button>
-					<button class="button add-to-wishlist" :class="{'is-active': styleOnWishList}" @click="addToWishListClickHandler">
+					<button
+						class="button add-to-wishlist"
+						:class="{'is-active': styleOnWishList}"
+						@click="addToWishListClickHandler"
+					>
 						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">

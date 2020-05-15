@@ -1,22 +1,33 @@
-import {
+import {	
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
-	MEDIA_ASSETS_FETCH,
+	COLLECTION_ASSETS_FETCH,
+	
+	FILMS_FETCH,
+	GANNIGIRLS_FETCH,
+	LOOKBOOK_FETCH,
+	GENERAL_FETCH,
+
 	CONNECT_ASSETS,
-	INIT_PROGRESS,
-	KEYPRESS,
 	FILTER_COLLECTION,
-	TOPMOST_WINDOW,
-	CLOSE_WINDOW,
-	CLOSE_WINDOW_GROUP,
-	OPEN_CONTENT,
-	UPDATE_WINDOW,
-	OPEN_GALLERY,
-	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT,
+	INIT_PROGRESS,
+
+	KEYPRESS,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
-	PLAY_VIDEO
+	PLAY_VIDEO,
+	
+	TOPMOST_WINDOW,
+	UPDATE_WINDOW,
+
+	CLOSE_WINDOW,
+	CLOSE_WINDOW_GROUP,
+
+	OPEN_CONTENT,
+	OPEN_GALLERY,
+	OPEN_WISH_LIST,
+	OPEN_STYLE_CONTENT
+
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -81,13 +92,43 @@ export const mutations = {
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
-
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.filters = data
 	},
-
-	[MEDIA_ASSETS_FETCH.mutation](state, data) {
+	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
 		state.assets.list = data
+	},
+
+
+	[FILMS_FETCH.mutation](state, data) {
+		state.assets.films = data
+	},
+	[GANNIGIRLS_FETCH.mutation](state, data) {
+		state.assets.ganniGirls.posts = data
+	},
+	[LOOKBOOK_FETCH.mutation](state, data) {
+		state.assets.lookBook = data
+	},
+	[GENERAL_FETCH.mutation](state, data) {
+
+		//Insert Ganni Girls bg image
+		let misc = data.filter((e)=>e.slug === 'misc')[0];
+		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
+
+
+
+		//Insert Ditte's letter
+
+		let dittesFolder = state.shortcuts.list.filter((e)=> e.shortcutId === 'dittes-folder')[0]
+			
+		if ( !dittesFolder ) return false;
+		let content = dittesFolder.windowContent.filter((f)=>f.contentId === 'ditte-letter');
+		
+		if ( !content ) return false;
+		let props = content[0].contentComponentProps;
+		
+		if ( !props.text ) return false;
+		props.text = misc.ditteLetter;
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
@@ -99,7 +140,9 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			let style = state.collection.list.filter( e => e.styleId === asset.styleId )[0]
+			let style = state.collection.list.filter(
+				e => e.styleId === asset.styleId
+			)[0]
 			style.assets.push(asset)
 		}
 
@@ -107,7 +150,7 @@ export const mutations = {
 		let cl = state.collection.list.length
 		for (var j = 0; j < cl; j++) {
 			let style = state.collection.list[j]
-			if ( style.assets.length === 0 ) {
+			if (style.assets.length === 0) {
 				style.assets.push({
 					assetId: getUniqueId(),
 					styleId: style.styleId,
@@ -117,7 +160,7 @@ export const mutations = {
 					onTop: true,
 					visible: true,
 					cloudinaryUrl: '/img/styles/dummy.jpg'
-				});
+				})
 			}
 			let sortedAssets = style.assets.sort((a, b) =>
 				a.onTop && !b.onTop ? -1 : 1
@@ -406,7 +449,7 @@ export const actions = {
 	[KEYPRESS.action]({ commit }, event) {
 		commit(KEYPRESS.mutation, event)
 
-		if ( event.key === "Escape") {
+		if (event.key === 'Escape') {
 			commit(CLOSE_WINDOW_GROUP.mutation)
 		}
 	},
@@ -539,10 +582,68 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(MEDIA_ASSETS_FETCH.mutation, assets)
+		await commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+
+		let filmsFiles = await require.context(
+			'~/assets/content/films/',
+			false,
+			/\.json$/
+		)
+		let films = filmsFiles.keys().map(key => {
+			let res = filmsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(FILMS_FETCH.mutation, films)
+
+
+		let ganniGirlsFiles = await require.context(
+			'~/assets/content/ganniGirls/',
+			false,
+			/\.json$/
+		)
+		let posts = ganniGirlsFiles.keys().map(key => {
+			let res = ganniGirlsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GANNIGIRLS_FETCH.mutation, posts)
+
+
+
+		let lookBookFiles = await require.context(
+			'~/assets/content/lookBook/',
+			false,
+			/\.json$/
+		)
+		let lookBook = lookBookFiles.keys().map(key => {
+			let res = lookBookFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+
+
+
+		let generalFiles = await require.context(
+			'~/assets/content/general/',
+			false,
+			/\.json$/
+		)
+		let general = generalFiles.keys().map(key => {
+			let res = generalFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GENERAL_FETCH.mutation, general)
+
+
+
+
 
 		await commit(CONNECT_ASSETS.mutation)
 		await commit('collection/' + FILTER_COLLECTION.mutation)
 		await commit(INIT_PROGRESS.mutation)
+
 	}
 }

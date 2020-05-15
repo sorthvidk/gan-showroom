@@ -1,6 +1,6 @@
 <template>
-	<div class="ganni-girls" :style="backgroundStyle">
-		<transition-group name="fade">
+	<transition name="fade">
+		<div class="ganni-girls" :style="backgroundStyle">
 			<div v-for="(post, key) in content.posts" class="ganni-girls__post" :key="'post'+key">
 				<div class="thumb">
 					<img :src="post.thumbnailUrl" alt="thumb">
@@ -11,15 +11,15 @@
 						<span>{{post.postedDate}}</span>
 					</div>
 
-					<img v-if="post.imageUrl" :src="post.imageUrl" alt=""/>
-					<video v-if="post.videoUrl" :src="post.videoUrl" preload muted autoplay controls></video>
+					<img v-if="post.type === 'image'" :src="post.cloudinaryUrl" alt=""/>
+					<video v-if="post.type === 'video'" :src="post.cloudinaryUrl" preload muted autoplay controls></video>
 
 					<h3>{{post.title}}</h3>
 					<p>{{post.bodyText}}</p>
 				</div>
 			</div>
-		</transition-group>
-	</div>
+		</div>	
+	</transition>
 </template>
 
 <script>

@@ -32,19 +32,22 @@ export default {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?
 		},
 		recieptStyles() {
+			console.log()
 			// go through all the styles in the DB
-			return this.usableStyles.filter(
-				// return style if:
-				s =>
-					this.urlParams.includes(s.styleId) || // url includes the specific styleID
-					this.urlParams.find(param => s.filters.includes(param)) // url includes any of a style's filters
-			)
+			return this.urlParams[0] === 'all'
+				? this.usableStyles
+				: this.usableStyles.filter(
+						// return style if:
+						s =>
+							this.urlParams.includes(s.styleId) || // url includes the specific styleID
+							this.urlParams.find(param => s.filters.includes(param)) // url includes any of a style's filters
+				  )
 		}
 	},
 	methods: {
 		parseUrl() {
 			const url = new URL(window.location.href)
-			const styles = url.searchParams.get('styles') || ''
+			const styles = url.searchParams.get('styles') || 'all'
 
 			// /reciept <- shows all styles
 			// /reciept/?styles=F5987334,F8907234,F1121095 <- shows those three styles
