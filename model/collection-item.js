@@ -67,10 +67,6 @@ export default {
 		type: Number,
 		default: 0
 	},
-	completed: {
-		type: Boolean,
-		default: false
-	},
 	responsible: {
 		type: Boolean,
 		default: false

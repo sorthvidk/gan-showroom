@@ -1,7 +1,6 @@
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
-	PROGRESS_UPDATE,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	ALL_ASSETS_VISIBLE,
@@ -12,8 +11,6 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
-	completedPct: 0,
-
 	currentStyles: [],
 
 	filtersParsed: false,
@@ -61,7 +58,6 @@ export const state = () => ({
 			description:
 				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.',
 			assets: [],
-			completed: false,
 			onWishList: false,
 			index: null,
 			sustainable: false
@@ -85,7 +81,6 @@ export const state = () => ({
 			description:
 				'Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.',
 			assets: [],
-			completed: false,
 			onWishList: false,
 			index: null,
 			sustainable: true
@@ -109,7 +104,6 @@ export const state = () => ({
 			description:
 				'Qui voluptatibus consequuntur tempore nam accusantium quam assumenda.',
 			assets: [],
-			completed: false,
 			onWishList: false,
 			index: null,
 			sustainable: false
@@ -211,17 +205,6 @@ export const mutations = {
 			}
 			state.currentStyles = newCurrentStyles
 		}
-	},
-	[PROGRESS_UPDATE.mutation](state, styleId) {
-		state.list.filter(e => e.styleId === styleId)[0].completed = true
-
-		let cc = 0
-		let cl = state.list.length
-		for (var i = 0; i < cl; i++) {
-			let style = state.list[i]
-			if (style.completed) cc++
-		}
-		state.completedPct = Math.round((cc / cl) * 100)
 	}
 }
 
@@ -235,16 +218,9 @@ export const actions = {
 	[REMOVE_FROM_WISHLIST.action]({ commit }, style) {
 		commit(REMOVE_FROM_WISHLIST.mutation, style)
 	},
-	[FILTER_COLLECTION.action]({ commit }) {
-		commit(FILTER_COLLECTION.mutation)
-	},
 	[SET_CURRENT_FILTER.action]({ commit }, filterId) {
 		// ex 'c2'
 		commit(SET_CURRENT_FILTER.mutation, filterId)
-	},
-	[PROGRESS_UPDATE.action]({ commit }, styleId) {
-		// ex 'F1121095'
-		commit(PROGRESS_UPDATE.mutation, styleId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
 		dispatch(CLOSE_WINDOW_GROUP.action, {}, { root: true })
