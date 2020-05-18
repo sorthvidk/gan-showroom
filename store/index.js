@@ -1,22 +1,33 @@
-import {
+import {	
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
-	MEDIA_ASSETS_FETCH,
+	COLLECTION_ASSETS_FETCH,
+	
+	FILMS_FETCH,
+	GANNIGIRLS_FETCH,
+	LOOKBOOK_FETCH,
+	GENERAL_FETCH,
+
 	CONNECT_ASSETS,
-	INIT_PROGRESS,
-	KEYPRESS,
 	FILTER_COLLECTION,
-	TOPMOST_WINDOW,
-	CLOSE_WINDOW,
-	CLOSE_WINDOW_GROUP,
-	OPEN_CONTENT,
-	UPDATE_WINDOW,
-	OPEN_GALLERY,
-	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT,
+	INIT_PROGRESS,
+
+	KEYPRESS,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
-	PLAY_VIDEO
+	PLAY_VIDEO,
+	
+	TOPMOST_WINDOW,
+	UPDATE_WINDOW,
+
+	CLOSE_WINDOW,
+	CLOSE_WINDOW_GROUP,
+
+	OPEN_CONTENT,
+	OPEN_GALLERY,
+	OPEN_WISH_LIST,
+	OPEN_STYLE_CONTENT
+
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -81,13 +92,43 @@ export const mutations = {
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
-
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.filters = data
 	},
-
-	[MEDIA_ASSETS_FETCH.mutation](state, data) {
+	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
 		state.assets.list = data
+	},
+
+
+	[FILMS_FETCH.mutation](state, data) {
+		state.assets.films = data
+	},
+	[GANNIGIRLS_FETCH.mutation](state, data) {
+		state.assets.ganniGirls.posts = data
+	},
+	[LOOKBOOK_FETCH.mutation](state, data) {
+		state.assets.lookBook = data
+	},
+	[GENERAL_FETCH.mutation](state, data) {
+
+		//Insert Ganni Girls bg image
+		let misc = data.filter((e)=>e.slug === 'misc')[0];
+		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
+
+
+
+		//Insert Ditte's letter
+
+		let dittesFolder = state.shortcuts.list.filter((e)=> e.shortcutId === 'dittes-folder')[0]
+			
+		if ( !dittesFolder ) return false;
+		let content = dittesFolder.windowContent.filter((f)=>f.contentId === 'ditte-letter');
+		
+		if ( !content ) return false;
+		let props = content[0].contentComponentProps;
+		
+		if ( !props.text ) return false;
+		props.text = misc.ditteLetter;
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
@@ -118,7 +159,7 @@ export const mutations = {
 					aspect: 'portrait',
 					onTop: true,
 					visible: true,
-					cloudinaryUrl: '/img/styles/dummy.jpg'
+					defaultImageUrl: '/img/styles/dummy.jpg'
 				})
 			}
 			let sortedAssets = style.assets.sort((a, b) =>
@@ -161,6 +202,8 @@ export const mutations = {
 					contentIds: [],
 					groupSize: 0
 			  }
+
+		if ( params.styleWindowGroup ) windowGroup.styleWindowGroup = true
 
 		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
@@ -328,12 +371,16 @@ export const mutations = {
 	 *	Close a window group. Closes the last added group.
 	 *
 	 */
-	[CLOSE_WINDOW_GROUP.mutation](state) {
+	[CLOSE_WINDOW_GROUP.mutation](state, params) {
 		let groupsLength = state.windowGroupList.length
 
 		if (groupsLength < 1) return false
 
 		let windowGroup = state.windowGroupList[groupsLength - 1] //get latest group
+		if ( params && params.styleWindowGroup ) windowGroup = state.windowGroupList.filter((e)=>e.styleWindowGroup === true)[0]
+		
+		if ( !windowGroup )	return false;
+
 
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {
@@ -370,7 +417,7 @@ export const mutations = {
 
 		state.windowGroupList.pop() //remove that group
 		console.warn(
-			'CLOSE_WINDOW_GROUP | remaining groups: ' + state.windowGroupList.length
+			'CLOSE_WINDOW_GROUP | remaining groups: ' + state.windowGroupList.length + ' | close style? '+(params && params.styleWindowGroup)
 		)
 
 		if (state.windowGroupList.length == 0) {
@@ -392,6 +439,7 @@ export const mutations = {
 	},
 
 	[PLAY_VIDEO.mutation](state, playing) {
+		console.warn('PLAY_VIDEO | pause music')
 		state.musicPlaying = false
 	}
 }
@@ -455,7 +503,8 @@ export const actions = {
 			}
 		}
 
-		commit(OPEN_CONTENT.mutation, { windowContent: content })
+		commit(CLOSE_WINDOW_GROUP.mutation, {styleWindowGroup: true})
+		commit(OPEN_CONTENT.mutation, { windowContent: content, styleWindowGroup:true })
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -506,6 +555,12 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
+
+
+	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+	// FETCH ALL CONTENT!
+
 	async nuxtServerInit({ commit, dispatch }) {
 		let collectionFiles = await require.context(
 			'~/assets/content/collectionItems/',
@@ -541,10 +596,68 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(MEDIA_ASSETS_FETCH.mutation, assets)
+		await commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+
+		let filmsFiles = await require.context(
+			'~/assets/content/films/',
+			false,
+			/\.json$/
+		)
+		let films = filmsFiles.keys().map(key => {
+			let res = filmsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(FILMS_FETCH.mutation, films)
+
+
+		let ganniGirlsFiles = await require.context(
+			'~/assets/content/ganniGirls/',
+			false,
+			/\.json$/
+		)
+		let posts = ganniGirlsFiles.keys().map(key => {
+			let res = ganniGirlsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GANNIGIRLS_FETCH.mutation, posts)
+
+
+
+		let lookBookFiles = await require.context(
+			'~/assets/content/lookBook/',
+			false,
+			/\.json$/
+		)
+		let lookBook = lookBookFiles.keys().map(key => {
+			let res = lookBookFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+
+
+
+		let generalFiles = await require.context(
+			'~/assets/content/general/',
+			false,
+			/\.json$/
+		)
+		let general = generalFiles.keys().map(key => {
+			let res = generalFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		await commit(GENERAL_FETCH.mutation, general)
+
+
+
+
 
 		await commit(CONNECT_ASSETS.mutation)
 		await commit('collection/' + FILTER_COLLECTION.mutation)
 		await commit(INIT_PROGRESS.mutation)
+
 	}
 }

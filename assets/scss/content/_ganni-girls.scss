@@ -1,8 +1,9 @@
 .ganni-girls {
 	background-size: cover;
 	padding: rem(10);
+	min-height: 100%;
 	
-	@include mq($from: screen-sm) {
+	@include mq($from: screen-md) {
 		padding: rem(30);
 	}
 
@@ -23,7 +24,7 @@
 				object-fit: cover;
 				object-position: center center;
 			}
-			@include mq($from: screen-sm) {
+			@include mq($from: screen-md) {
 				flex: 0 0 rem(90);
 				width: rem(90);
 				height: rem(90);
@@ -49,14 +50,14 @@
 				border: rem(8) solid transparent;
 				border-right-color: $color-white;
 				
-				@include mq($from: screen-sm) {
+				@include mq($from: screen-md) {
 					border-width: rem(10);
 					top: rem(20);
 					left: rem(-20);
 				}
 			}
 
-			@include mq($from: screen-sm) {
+			@include mq($from: screen-md) {
 				padding: 0 rem(20) rem(20);
 			}
 
@@ -70,7 +71,7 @@
 
 			div {
 				padding: rem(10) 0;
-				@include mq($from: screen-sm) {
+				@include mq($from: screen-md) {
 					display: flex;
 					justify-content: space-between;
 					align-items: center;

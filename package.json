@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@nuxtjs/gtm": "^2.2.3",
 		"@nuxtjs/markdownit": "^1.2.6",
+		"cloudinary-core": "^2.8.2",
 		"gsap": "^2.1.2",
 		"intersection-observer": "^0.5.1",
 		"lazysizes": "^5.2.0",

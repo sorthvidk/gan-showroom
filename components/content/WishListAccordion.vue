@@ -1,18 +1,21 @@
 <template>
-	<div class="wish-list__accordion" :class="{'is-active': isActive}">
+	<div
+		class="wish-list__accordion"
+		style="page-break-after: avoid;"
+		:class="{'is-active': isActive}"
+	>
 		<button class="trigger" @click="triggerHandler">
-			<img :src="wishListItem.assets[0].cloudinaryUrl" alt="">
+			<img :src="imageUrl" alt />
 			<span>
 				<p>{{wishListItem.name}}</p>
 				<em>{{wishListItem.styleId}}</em>
 			</span>
 		</button>
-		
+
 		<div class="content" :key="isActive">
 			<div class="inner">
-					
 				<button class="button" @click="removeItemHandler">Remove from wishlist</button>
-				
+
 				<table>
 					<tbody>
 						<tr>
@@ -82,12 +85,18 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
+import getCloudinaryUrl from '~/utils/cloudinary-url'
+
 export default {
 	name: 'wish-list-accordion',
 	props: {
 		wishListItem: {
 			type: Object,
 			default: ''
+		},
+		largeImages: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
@@ -95,16 +104,27 @@ export default {
 			isActive: false
 		}
 	},
+	computed: {
+		imageUrl() {
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				this.wishListItem.assets[0],
+				!this.largeImages
+					? {
+							width: 40
+					  }
+					: {}
+			)
+		}
+	},
 	methods: {
-		...mapActions([
-			'collection/'+REMOVE_FROM_WISHLIST.action
-		]),
+		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
 		removeItemHandler() {
-			this['collection/'+REMOVE_FROM_WISHLIST.action](this.wishListItem);
+			this['collection/' + REMOVE_FROM_WISHLIST.action](this.wishListItem)
 		},
 		triggerHandler() {
-			this.isActive = !this.isActive;
+			this.isActive = !this.isActive
 		}
 	}
-};
+}
 </script>

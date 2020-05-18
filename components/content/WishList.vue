@@ -1,14 +1,14 @@
 <template>
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="viewPortSize == 1">
-			<div v-for="(item, key) in wishList" :key="'wishListItem'+key">
+			<div v-for="(item, index) in wishList" :key="'wishListItem'+index">
 				<button
 					v-if="item.assets && item.assets.length > 0"
 					class="button"
-					:class="{'is-active': currentWishListIndex == key}"
-					@click="overviewItemHandler(key)"
+					:class="{'is-active': currentWishListIndex == index}"
+					@click="overviewItemHandler(index)"
 				>
-					<img :src="item.assets[0].cloudinaryUrl" alt />
+					<img :src="getImageUrl(index)" alt />
 					<p>{{item.name}}</p>
 				</button>
 			</div>
@@ -110,6 +110,8 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
+import getCloudinaryUrl from '~/utils/cloudinary-url'
+
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
@@ -154,6 +156,10 @@ export default {
 		},
 		isLargeViewport() {
 			this.viewPortSize = ViewportSizes.LARGE
+		},
+		getImageUrl(index) {
+			console.error(index)
+			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0]);
 		}
 	},
 	mounted() {

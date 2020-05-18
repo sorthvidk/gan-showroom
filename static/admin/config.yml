@@ -15,9 +15,22 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+
+  - label: "General"
+    name: "general"
+    files:
+    - label: "Misc strings"
+      name: "misc"
+      file: "assets/content/general/misc.json"
+      fields:
+        - {label: "Ganni Girls background", name: "ganniGirlsUrl", widget: "image"}
+        - {label: "Ditte Letter", name: "ditteLetter", widget: "text"}        
+
   - name: "collectionItems"
+    sortableFields: ['styleId']
     label: "Collection item"
     folder: "assets/content/collectionItems"
+    summary: "Style {{styleId}}: {{name}}"
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{slug}}"
@@ -137,7 +150,9 @@ collections:
       - { name: "onWishList", default: false, widget: "hidden" }
 
   - name: "collectionFilters"
+    sortableFields: ['filterId']
     label: "Collection filter"
+    summary: "Filter {{filterId}}: '{{name}}'"
     folder: "assets/content/collectionFilters"
     create: true
     format: "json"
@@ -169,6 +184,8 @@ collections:
       - { name: "styleIds", default: [], widget: "hidden" }
 
   - name: "mediaAssets"
+    sortableFields: ['styleId']
+    summary: "Style {{styleId}}: {{name}} asset ({{assetId}})"
     label: "Media asset"
     folder: "assets/content/mediaAssets"
     create: true
@@ -233,4 +250,125 @@ collections:
           widget: "boolean",
           default: false,
           hint: "If true, the asset will be used for Collection overview list thumbnail. NOTE: Try to only set 1 asset on top pr. style",
+        }
+
+  - name: "films"
+    sortableFields: ['filmId']
+    label: "Films item"
+    summary: "Film {{filmId}}: '{{filmName}}'"
+    folder: "assets/content/films"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{filmId}}"
+    editor:
+      preview: false
+    fields: 
+      - {
+          label: "Film #",
+          name: "filmId",
+          widget: "string",
+          hint: "Unique film ID",
+        }
+      - {
+          label: "Film name",
+          name: "filmName",
+          widget: "string",
+          hint: "Title for film",
+        }
+      - {
+          label: "Cloudinary video reference",
+          name: "cloudinaryUrl",
+          widget: "image",
+          hint: "Reference to video file"
+        }
+      - {
+          label: "Poster url",
+          name: "posterUrl",
+          widget: "image",
+          hint: "Video file thumbnail image"
+        }
+
+
+  - name: "ganniGirls"
+    sortableFields: ['postId']
+    summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
+    label: "Ganni Girls post"
+    folder: "assets/content/ganniGirls"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{postId}}"
+    editor:
+      preview: false
+    fields: 
+      - {
+          label: "Post #",
+          name: "postId",
+          widget: "string",
+          hint: "Unique post ID",
+        }        
+      - {
+          label: "Thumbnail image",
+          name: "thumbnailUrl",
+          widget: "image",
+          hint: "Small photo next to post",
+        }
+      - {
+          label: "Poster handle",
+          name: "posterHandle",
+          widget: "string",
+          hint: "ex. '@chloechill'",
+        }
+      - {
+          label: "Posted date",
+          name: "postedDate",
+          widget: "string",
+          hint: "ex. '12 may 2020'",
+        }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "Title below media",
+        }
+      - {
+          label: "Body text",
+          name: "bodyText",
+          widget: "text",
+          hint: "Body text below media",
+        }
+      - {
+          label: "Media type",
+          name: "type",
+          widget: "select",
+          multiple: false,
+          options: ["video", "image"],
+          hint: "Either image or video",
+        }
+      - {
+          label: "Cloudinary media reference",
+          name: "cloudinaryUrl",
+          widget: "image",
+        }
+
+  - name: "lookBook"
+    summary: "Item {{itemId}}"
+    label: "Lookbook item"
+    folder: "assets/content/lookBook"
+    sortableFields: ['itemId']
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{itemId}}"
+    editor:
+      preview: false
+    fields: 
+      - {
+          label: "Item #",
+          name: "itemId",
+          widget: "string",
+          hint: "Unique item ID",
+        }
+      - {
+          label: "Cloudinary video reference",
+          name: "cloudinaryUrl",
+          widget: "image",
         }

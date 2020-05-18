@@ -1,11 +1,11 @@
 <template>
-	<div class="look-book">
-		<transition-group name="fade">
-			<div class="look-book__item" v-for="(item,key) in content" :key="'lookbook'+key">
-				<img :src="item.imageUrl" alt="lookbook">				
+	<transition name="fade">
+		<div class="look-book">
+			<div class="look-book__item" v-for="(item,index) in content" :key="'lookbook'+index">
+				<img :src="imageUrl(index)" alt="lookbook">				
 			</div>
-		</transition-group>
-	</div>
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -13,6 +13,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 
+import getCloudinaryUrl from '~/utils/cloudinary-url'
 export default {
 	name:'look-book',
 	computed: {
@@ -20,5 +21,10 @@ export default {
 			content: state => state.assets.lookBook
 		})
 	},
+	methods: {
+		imageUrl(index) {
+			return getCloudinaryUrl(this.$cloudinary, this.content[index], {width:700});
+		}
+	}
 };
 </script>

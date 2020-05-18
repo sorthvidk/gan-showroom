@@ -45,4 +45,8 @@
 			width: 100%;
 		}	
 	}
+
+	&__item + &__item {
+		border-top: rem(1) solid $color-black;
+	}
 }

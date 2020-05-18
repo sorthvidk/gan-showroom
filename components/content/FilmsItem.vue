@@ -1,7 +1,7 @@
 <template>
 	<button class="films-item" :class="{'is-playing':isPlaying}" @click="onItemClick">
 		<div class="films-item__poster">
-			<img :src="posterUrl" alt="lorem">
+			<img :src="parsedPosterUrl" alt="lorem">
 		</div>
 		<p>{{filmName}}</p>
 	</button>	
@@ -29,7 +29,7 @@ export default {
 			type: String,
 			required: true
 		},
-		videoUrl: {
+		cloudinaryUrl: {
 			type: String,
 			required: true
 		}
@@ -39,10 +39,15 @@ export default {
 			isPlaying: false
 		}
 	},
+	computed: {
+		parsedPosterUrl() {
+			return this.$cloudinary.url(this.posterUrl);
+		}
+	},
 	methods: {
 		...mapActions([
 			OPEN_CONTENT.action
-		]),		
+		]),	
 		onItemClick() {
 			let type = ContentTypes.videoLandscape;
 
@@ -54,7 +59,7 @@ export default {
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
 					contentComponentProps: { 
-						asset: {videoUrl: this.videoUrl}, 
+						asset: {cloudinaryUrl: this.cloudinaryUrl, type:'video'}, 
 						videoAttributes:{ posterUrl:this.posterUrl, autoPlay:false, muted:false, controls:true} 
 					},
 					statusComponentProps: type.defaultStatusComponentProps

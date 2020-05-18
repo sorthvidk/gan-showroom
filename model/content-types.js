@@ -29,10 +29,10 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 700 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 350,
-			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 510
+			largeWidth: 670 + WINDOW_DEFAULT_CHROME_WIDTH,
+			smallWidth: 320,
+			largeHeight: 500 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 400
 		}
 	},
 	musicPlayer: {
