@@ -6,16 +6,32 @@
 
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!assistantExpanded">➕</span>
-				<span v-if="assistantExpanded">➖</span>
+				<span v-if="!assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+					</svg>
+				</span>
+				<span v-if="assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path d="M0 7h15v1H0V7z"/>
+					</svg>
+				</span>
 				<p>{{filterStatusText}}</p>
 			</button>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!assistantExpanded">➕</span>
-				<span v-if="assistantExpanded">➖</span>
+				<span v-if="!assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+					</svg>
+				</span>
+				<span v-if="assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path d="M0 7h15v1H0V7z"/>
+					</svg>
+				</span>
 				<p>{{currentStyle.name}}</p>
 			</button>
 			<button class="window-button previous" @click="previousStyleHandler">
@@ -237,8 +253,13 @@
 						class="button download-wishlist"
 						@click="downloadWishListClickHandler"
 						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
-					>
-						<p>↓ Download wishlist</p>
+					>	
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+						  <path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"/>
+						</svg>
+					</span>
+						<p>Download wishlist</p>
 					</a>
 					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>

@@ -46,6 +46,10 @@
 				height: rem(20);
 				margin-right: rem(10);
 			}
+			svg {
+				width: rem(15);
+				height: rem(15);
+			}
 			p {
 				@include bodytext();
 				text-decoration: underline;
@@ -214,6 +218,12 @@
 		.add-to-wishlist + .view-wishlist {
 			border-left: rem(1) solid $color-black;
 		}
+		.download-wishlist {
+			svg {
+				width: rem(15);
+				height: rem(15);
+			}
+		}
 
 		.add-to-wishlist {
 			position: relative;
@@ -226,13 +236,13 @@
 					stroke: #000;
 					stroke-linecap: round;
 					stroke-miterlimit: 10;
-					stroke-width: 10px;
+					stroke-width: 5px;
 					stroke-dasharray: 400;
 					stroke-dashoffset: 400;
 				}
 				svg {
-					width: rem(15);
-					height: rem(15);
+					width: rem(20);
+					height: rem(20);
 				}
 			}
 
