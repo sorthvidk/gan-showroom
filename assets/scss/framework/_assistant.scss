@@ -13,15 +13,15 @@
 		bottom: rem(45 + 10 + 30); //ios navbar + gutter + support (heights)
 
 		@include mq($from: screen-sm) {
-			top: rem(60);
-			right: rem(20);
-			bottom: auto;
-			left: auto;
+			bottom: rem(20);
+			left: rem(20);
 			width: rem(276);
 		}
 		@include mq($from: screen-md) {
 			top: rem(80);
+			left: auto;
 			right: rem(30);
+			bottom: auto;
 		}
 
 		.window__content {
