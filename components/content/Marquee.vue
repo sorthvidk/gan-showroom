@@ -1,14 +1,12 @@
 <template>
 	<div ref="marquee" class="marquee" data-speed="1" data-pausable="true">
 		<!-- loop a couple of times to make them fill the screen -->
-		<p v-for="i in amount" :key="i">
-			Lets open
-			<button @click="openWindow(marqueeLinks[0])">{{ marqueeLinks[0].label }}</button>,
-			or why not
-			<button @click="openWindow(marqueeLinks[1])">{{ marqueeLinks[1].label }}</button>
-			or even this
-			<button @click="openStyle(marqueeLinks[2])">{{ marqueeLinks[2].label }}</button>
-			•&nbsp;
+		<p v-for="i in 5" :key="i">
+			<button
+				v-for="button in marqueeLinks"
+				:key="button.label"
+				@click="openWindow(button)"
+			>{{ button.label }}</button>
 		</p>
 	</div>
 </template>
@@ -21,7 +19,7 @@ export default {
 	name: 'marquee',
 	data() {
 		return {
-			amount: 0
+			amount: 0 // currently hardcoded loop, not in use
 		}
 	},
 	computed: {
@@ -34,20 +32,21 @@ export default {
 	},
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action, OPEN_CONTENT.action]),
-		openStyle(link) {
-			this[OPEN_STYLE_CONTENT.action](link.actionParam)
-		},
 		openWindow(link) {
-			this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
+			if (!link.windowContent) {
+				this[OPEN_STYLE_CONTENT.action](link.actionParam)
+			} else {
+				this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
 
-			//TODO: Fix race condition!!
-			setTimeout(() => {
-				if (link.action) {
-					if (link.actionParam)
-						this.$store.dispatch(link.action, link.actionParam)
-					else this.$store.dispatch(link.action)
-				}
-			}, 500)
+				//TODO: Fix race condition!!
+				setTimeout(() => {
+					if (link.action) {
+						if (link.actionParam)
+							this.$store.dispatch(link.action, link.actionParam)
+						else this.$store.dispatch(link.action)
+					}
+				}, 500)
+			}
 		}
 	},
 	mounted() {
