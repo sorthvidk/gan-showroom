@@ -7,6 +7,7 @@
 			:key="'wishListItem'+key"
 			:wish-list-item="item"
 		/>
+		<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>
 	</div>
 </template>
 
