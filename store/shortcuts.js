@@ -56,7 +56,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							imageUrl: '/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
+							defaultImageUrl: '/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
 						}
 					},
 					windowProps: {
@@ -82,7 +82,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							imageUrl: '/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
+							defaultImageUrl: '/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
 						}
 					},
 					windowProps: {
