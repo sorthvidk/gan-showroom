@@ -231,7 +231,7 @@
 					<a
 						class="button download-wishlist"
 						@click="downloadWishListClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist"
 					>
 						<p>↓ Download wishlist</p>
 					</a>
@@ -429,6 +429,7 @@ export default {
 			console.log('Download wishlist')
 			// window.print()
 			history.pushState({}, '', this.recieptUrl)
+			setTimeout(history.back, 2000)
 		},
 		shareWishListClickHandler() {
 			//SHARE
