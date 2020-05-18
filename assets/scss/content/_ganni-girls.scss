@@ -35,7 +35,6 @@
 			position: relative;
 			background-color: $color-white;
 			padding: 0 rem(10) rem(10);
-			border-radius: rem(6);
 			font-family: $font-typewriter;
 
 			&:before {
@@ -46,14 +45,14 @@
 				
 				position: absolute;				
 				top: rem(15);
-				left: rem(-16);
+				left: rem(-15);
 				border: rem(8) solid transparent;
 				border-right-color: $color-white;
 				
 				@include mq($from: screen-md) {
 					border-width: rem(10);
 					top: rem(20);
-					left: rem(-20);
+					left: rem(-19);
 				}
 			}
 
