@@ -439,6 +439,7 @@ export const mutations = {
 	},
 
 	[PLAY_VIDEO.mutation](state, playing) {
+		console.warn('PLAY_VIDEO | pause music')
 		state.musicPlaying = false
 	}
 }

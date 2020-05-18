@@ -25,12 +25,11 @@ export default {
 			return this.asset.styleId ? true : false;
 		},
 		assetUrl() {
-			if ( this.belongsToStyle ) {
-				return getCloudinaryUrl(this.$cloudinary, this.asset);
-			}
-			else {
-				return this.asset.imageUrl;
-			}
+			let transform = {}
+			if ( this.asset.aspect === 'portrait' ) transform = {width:274, height:417}
+			if ( this.asset.aspect === 'landscape' ) transform = {width:417, height:274}
+			if ( this.asset.aspect === 'square' ) transform = {width:320, height:320}
+			return getCloudinaryUrl(this.$cloudinary, this.asset, transform);
 		}
 	},
 	methods: {
