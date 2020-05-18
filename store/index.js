@@ -159,7 +159,7 @@ export const mutations = {
 					aspect: 'portrait',
 					onTop: true,
 					visible: true,
-					cloudinaryUrl: '/img/styles/dummy.jpg'
+					defaultImageUrl: '/img/styles/dummy.jpg'
 				})
 			}
 			let sortedAssets = style.assets.sort((a, b) =>
@@ -439,6 +439,7 @@ export const mutations = {
 	},
 
 	[PLAY_VIDEO.mutation](state, playing) {
+		console.warn('PLAY_VIDEO | pause music')
 		state.musicPlaying = false
 	}
 }

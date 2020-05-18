@@ -1,7 +1,7 @@
 <template>
 	<div class="wish-list__accordion" :class="{'is-active': isActive}">
 		<button class="trigger" @click="triggerHandler">
-			<img :src="wishListItem.assets[0].cloudinaryUrl" alt="">
+			<img :src="imageUrl" alt="">
 			<span>
 				<p>{{wishListItem.name}}</p>
 				<em>{{wishListItem.styleId}}</em>
@@ -82,6 +82,8 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
+import getCloudinaryUrl from '~/utils/cloudinary-url'
+
 export default {
 	name: 'wish-list-accordion',
 	props: {
@@ -93,6 +95,11 @@ export default {
 	data() {
 		return {
 			isActive: false
+		}
+	},
+	computed: {
+		imageUrl() {
+			return getCloudinaryUrl(this.$cloudinary, this.wishListItem.assets[0], {width: 40});
 		}
 	},
 	methods: {

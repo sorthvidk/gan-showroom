@@ -7,6 +7,7 @@
 			:key="'wishListItem'+key"
 			:wish-list-item="item"
 		/>
+		<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>
 	</div>
 </template>
 
@@ -32,7 +33,6 @@ export default {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?
 		},
 		recieptStyles() {
-			console.log()
 			// go through all the styles in the DB
 			return this.urlParams[0] === 'all'
 				? this.usableStyles

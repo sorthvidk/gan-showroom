@@ -8,7 +8,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/cloudinary-url'
-import Marquee3k from 'marquee3000'
+// import Marquee3k from 'marquee3000'
 
 export default {
 	name: 'marquee',

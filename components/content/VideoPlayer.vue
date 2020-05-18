@@ -2,11 +2,7 @@
 	<div class="video-player">
 		<video
 			:src="videoUrl"
-			v-bind:poster="posterUrl"
-			v-bind:autoplay="autoPlay"
-			v-bind:muted="muted"
-			v-bind:controls="controls"
-			v-bind:loop="loop"
+			v-bind="{...videoAttributes}"
 			preload
 		></video>
 	</div>
@@ -50,12 +46,22 @@ export default {
 			default: false
 		}
 	},
+	computed: {
+		videoAttributes() {
+			let attr = {}
+			if ( this.autoPlay ) attr.autoplay = "autoplay"
+			if ( this.controls ) attr.controls = "autoplay"
+			if ( this.loop ) attr.loop = "autoplay"
+			if ( this.muted ) attr.muted = "autoplay"
 
+			return attr;
+		}
+	},
 	methods: {
 		...mapActions([PLAY_VIDEO.action])
 	},
 	mounted() {
-		if (!this.muted && !this.controls) this[PLAY_VIDEO.action]()
+		if (!this.muted) this[PLAY_VIDEO.action]()
 	}
-}
+};
 </script>

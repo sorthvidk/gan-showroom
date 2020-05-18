@@ -31,12 +31,7 @@ export default {
 			return this.asset.styleId ? true : false;
 		},
 		assetUrl() {
-			if ( this.belongsToStyle ) {
-				return getCloudinaryUrl(this.asset);
-			}
-			else {
-				return this.asset.videoUrl;
-			}
+			return getCloudinaryUrl(this.$cloudinary, this.asset);
 		},
 		videoAttributes() {
 			if ( this.belongsToStyle ) {
