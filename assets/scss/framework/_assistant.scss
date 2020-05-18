@@ -29,7 +29,7 @@
 		}
 		.window__top {
 			.title {
-				border-bottom: 0;
+				border-bottom: rem(1) solid $color-black;
 			}
 		}
 
@@ -55,6 +55,20 @@
 			border-top: rem(1) solid $color-black;
 			border-bottom: 0;
 		}
+
+		&.assistant-mode--0,
+		&.assistant-mode--3,
+		&.assistant-mode--4 {
+			.window__top {
+				.title {
+
+					@include mq($until: screen-md) {
+						border-bottom: 0;
+					}
+				}
+			}
+
+		}
 	}
 }
 
@@ -71,7 +85,7 @@
 		}
 
 		@include mq($from: screen-md) {
-			border-top: rem(1) solid $color-black;
+			border-top: 0;
 			max-height: none;
 		}
 	}

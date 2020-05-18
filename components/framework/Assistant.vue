@@ -1,5 +1,5 @@
 <template>
-	<section class="window window--tight window--assistant">
+	<section class="window window--tight window--assistant" :class="'assistant-mode--' + assistantMode">
 		<div class="window__top">
 			<span class="title">🤖 Desktop assistant</span>
 		</div>
@@ -181,7 +181,7 @@
 
 				<div class="assistant__content" v-if="assistantMode == 3">
 					<div class="assistant__text">
-						<p>Do you have any preferences to the collection? choose from the options here!</p>
+						<p>Do you have any preferences to the collection? Choose from the options here!</p>
 					</div>
 				</div>
 
@@ -290,8 +290,7 @@ export default {
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter,
-			completedPct: state => state.collection.completedPct
+			activeFilter: state => state.collection.activeFilter
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -375,7 +374,7 @@ export default {
 			}
 
 			if (noRelevantAssistantContent) {
-				if (this.completedPct > 0) {
+				if (this.wishList.length > 0) {
 					this.assistantMode = AssistantModes.COLLECTION_SEEN
 				} else {
 					this.assistantMode = AssistantModes.WELCOME

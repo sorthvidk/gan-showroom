@@ -1,5 +1,5 @@
 <template>
-	<section class="window window--tight window--support support" v-cloak>
+	<section class="window window--tight window--support support" :class="{'is-active': !minimized}" v-cloak>
 		<header class="window__top">
 			<h1 class="title">☎️ Need support?</h1>
 			<button class="button close" @click.stop="minimizeHandler">
@@ -17,23 +17,23 @@
 		</header>
 
 		<main class="window__content" v-if="!minimized" v-cloak>
-			<div class="support__top">
-				<h3>Support</h3>
-				<a href="tel:#">+45 11 22 33 44</a>
-				<div class="social">
-					<a href="#">IG</a>
-					<a href="#">FB</a>
-				</div>
-			</div>
 			<div class="support__content">
 				<img :src="avatar" />
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum tellus sed arcu fringilla, ut dictum leo luctus. Nunc non lectus et enim pellentesque suscipit.</p>
 			</div>
+
+			<footer class="support__footer">
+				<a href="tel:004511223344">
+					<span class="icon">📞</span>
+					<em>+45 11 22 33 44</em>
+				</a>
+				<a href="mailto:support@ganni.com">
+					<span class="icon">✉️</span>
+					<em> Send email</em>
+				</a>
+			</footer>
 		</main>
 
-		<footer class="support__footer" v-if="!minimized" v-cloak>
-			<a class="button" href="mailto:#">Send email</a>
-		</footer>
 	</section>
 </template>
 
@@ -49,7 +49,7 @@ export default {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
 			minimized: true,
-			avatar: '/img/avatar.png'
+			avatar: '/img/avatar2.png'
 		}
 	},
 	methods: {
