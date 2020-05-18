@@ -8,7 +8,7 @@
 
 		<div class="desktop__shortcuts">
 			<shortcut
-				v-for="(item, index) in shortcutList"
+				v-for="item in desktopIcons"
 				:key="item.shortcutId"
 				:position-h="item.posH"
 				:position-v="item.posV"
@@ -23,7 +23,7 @@
 
 		<div class="desktop__windows">
 			<window
-				v-for="(item, index) in windowList"
+				v-for="item in windowList"
 				:key="item.windowId"
 				v-bind="{...item.windowProps}"
 				:position-z="item.positionZ"
@@ -42,11 +42,7 @@
 			<assistant />
 			<support />
 		</div>
-		<marquee
-			:linkTo="'F5987334'"
-			v-if="viewPortSize == 1"
-			:text="`Duis aute irure dolor in reprehenderit • <a href='#'>Duis aute irure dolor</a> in reprehenderit • Duis aute irure dolor in reprehenderit`"
-		/>
+		<marquee v-if="viewPortSize == 1" />
 	</div>
 </template>
 
@@ -79,7 +75,13 @@ export default {
 		...mapState({
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list
-		})
+		}),
+		desktopIcons() {
+			return this.shortcutList.filter(s => !s.marqueeLink)
+		},
+		marqueeLinks() {
+			return this.shortcutList.filter(s => s.marqueeLink)
+		}
 	},
 	data() {
 		return {
