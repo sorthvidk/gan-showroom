@@ -2,16 +2,20 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: rem(5);
-
-	> * {
-		flex: 0 1 rem(220);
-		box-sizing: border-box;
-		padding: rem(10);
-		border: rem(1) solid transparent;
+	align-items: flex-start;
+	@include mq($from: screen-md) {
+		padding: rem(25);
 	}
 
+
 	.films-item {
+		flex: 0 1 rem(310);
+		padding: rem(5);
+		border: rem(1) solid transparent;
 		cursor: pointer;
+		box-sizing: border-box;
+		transition: border 0.3s ease;
+		
 
 		&:hover {
 			border: rem(1) solid $color-black;
@@ -19,25 +23,36 @@
 		&__poster {
 			display: block;
 			position: relative;
-
-			&:before {
+				
+			&:before,
+			&:after {
+				display: block;
 				content:'';
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%) scaleY(0.8);
-
 				box-sizing: border-box;
-				height: rem(74);
-				display: block;
-				border-color: transparent transparent transparent $color-lightgrey;
-				transition: 100ms all ease;
-				will-change: border-width;
-				cursor: pointer;
-				border-style: solid;
-				border-width: rem(37) 0 rem(37) rem(60);
+			}
 
-				opacity: 0.7;
+
+			&:before {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				height: rem(60);
+				width: rem(60);
+				background-color: $color-white;
+				opacity: 0.4;
+				border-radius: 50% 50%;
+				transform: translate(-50%, -50%);
+			}
+			&:after {
+				height: rem(25);
+				display: block;
+				border-color: transparent transparent transparent $color-white;
+				border-style: solid;
+				border-width: rem(15) 0 rem(15) rem(25);
+				transform: translate(-40%, -50%);
 			}
 		}
 		

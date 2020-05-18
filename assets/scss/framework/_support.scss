@@ -23,9 +23,10 @@
 			right: rem(20);
 			left: auto;
 			width: rem(276);
-			bottom: rem(59);
+			bottom: rem(20);
 		}
 		@include mq($from: screen-md) {
+			bottom: rem(59);
 			right: rem(30);
 		}
 
