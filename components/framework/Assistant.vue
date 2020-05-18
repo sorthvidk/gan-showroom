@@ -427,9 +427,8 @@ export default {
 		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			// window.print()
 			history.pushState({}, '', this.recieptUrl)
-			setTimeout(history.back, 2000)
+			setTimeout(() => history.back(), 2000)
 		},
 		shareWishListClickHandler() {
 			//SHARE
