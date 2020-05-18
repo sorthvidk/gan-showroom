@@ -1,5 +1,4 @@
 .window {
-
 	&--assistant {
 		z-index: $z-index-assistant !important;
 
@@ -34,7 +33,6 @@
 			}
 		}
 
-
 		.button.expand {
 			@include full-width-button();
 			border-top: 0;
@@ -60,8 +58,7 @@
 	}
 }
 
-.assistant {	
-
+.assistant {
 	&__content {
 		overflow: hidden;
 		max-height: rem(180);
@@ -80,13 +77,12 @@
 	}
 	&__text {
 		padding: rem(9) rem(10);
-		
+
 		p {
 			@include bodytext();
 		}
 	}
 
-	
 	&__filters {
 		@include custom-scrollbar();
 		overflow: hidden;
@@ -98,13 +94,12 @@
 			overflow: visible;
 		}
 
-
 		p {
 			padding: rem(9) rem(10);
 			@include bodytext();
 		}
 		&__list {
-			display: flex;			
+			display: flex;
 			flex-wrap: wrap;
 			border-top: rem(1) solid $color-black;
 
@@ -116,7 +111,7 @@
 				border-bottom: rem(1) solid $color-black;
 				border-right: rem(1) solid $color-black;
 				padding: rem(10);
-				display: inline-flex;				
+				display: inline-flex;
 				align-items: center;
 				@include bodytext();
 				transition: all 0.2s ease;
@@ -127,19 +122,18 @@
 
 				&.is-active {
 					color: $color-white;
-					background-color: darken($color-grey,12%);
+					background-color: darken($color-grey, 12%);
 					@include bevel(true);
 				}
 
 				&:nth-child(2n) {
 					border-right: 0;
 				}
-				&:nth-last-child(-n+2) {
+				&:nth-last-child(-n + 2) {
 					border-bottom: 0;
 				}
 			}
 		}
-
 	}
 	&__product-details {
 		@include custom-scrollbar();
@@ -155,8 +149,8 @@
 		padding: rem(9) rem(10);
 
 		p {
-			@include bodytext();	
-			margin-bottom: rem(20);		
+			@include bodytext();
+			margin-bottom: rem(20);
 		}
 		table {
 			@include details-table();
@@ -165,7 +159,7 @@
 			cursor: pointer;
 			display: block;
 			padding: 0;
-			@include bodytext();	
+			@include bodytext();
 			text-decoration: underline;
 		}
 	}
@@ -174,6 +168,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+
+		a {
+			color: $color-black;
+		}
 
 		.button {
 			@include full-width-button();
@@ -189,7 +187,7 @@
 			&.download-wishlist {
 				background-color: $color-yellow;
 				&.is-active {
-					background-color: lighten($color-yellow,20%);
+					background-color: lighten($color-yellow, 20%);
 				}
 			}
 			&.view-wishlist {
@@ -198,11 +196,9 @@
 			&.show-variants {
 				flex: 0 0 100%;
 			}
-
 		}
 		.add-to-wishlist + .view-wishlist {
 			border-left: rem(1) solid $color-black;
 		}
-
 	}
 }

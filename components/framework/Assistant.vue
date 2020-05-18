@@ -225,9 +225,12 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 4">
-					<button class="button download-wishlist" @click="downloadWishListClickHandler">
+					<!-- <button class="button download-wishlist" @click="downloadWishListClickHandler">
 						<p>↓ Download wishlist</p>
-					</button>
+					</button>-->
+					<a class="button download-wishlist" href="//pdfcrowd.com/url_to_pdf/">
+						<p>↓ Download wishlist</p>
+					</a>
 					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>
 					</a>
@@ -420,7 +423,7 @@ export default {
 		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			window.print()
+			// window.print()
 		},
 		shareWishListClickHandler() {
 			//SHARE
