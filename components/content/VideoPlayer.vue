@@ -61,7 +61,7 @@ export default {
 		...mapActions([PLAY_VIDEO.action])
 	},
 	mounted() {
-		if (!this.muted && !this.controls) this[PLAY_VIDEO.action]()
+		if (!this.muted) this[PLAY_VIDEO.action]()
 	}
 };
 </script>
