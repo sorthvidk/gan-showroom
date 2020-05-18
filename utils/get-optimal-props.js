@@ -25,10 +25,10 @@ export const placementX = (state, sizeW) => {
 		? safelyPlaceAt(
 				MOBILE_GUTTERS_HORIZONTAL + (state.windowList.length % 4) * 15,
 				sizeW
-		  ) // if the window can be, then place it staggering, or else all to the left
+		  ) // if the window can fit, then place it staggering, or else all to the left
 		: Math.max(
 				random(10, 20),
-				placements[(state.windowList.length + 2) % amount] -
+				placements[(state.windowList.length + 1) % amount] -
 					sizeW / 2 +
 					random(-30, 30)
 		  )

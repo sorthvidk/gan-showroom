@@ -20,8 +20,30 @@
 		// display: block;
 		visibility: visible;
 	}
+
+	@keyframes marquee {
+		to {
+			transform: translateX(-100%);
+		}
+	}
+
 	p {
+		animation: marquee 20s linear infinite;
+	}
+
+	&:hover {
+		p {
+			animation-play-state: paused;
+		}
+	}
+
+	p,
+	button {
 		white-space: nowrap;
 		@include megatype();
+	}
+
+	button {
+		text-decoration: underline;
 	}
 }

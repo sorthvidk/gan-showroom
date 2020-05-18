@@ -171,6 +171,36 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
+		},
+		{
+			marqueeLink: true,
+			label: 'Leopards',
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'LEOPARD PRINT',
+			windowContent: [
+				{
+					title: 'PS21 collection 🔥',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
+					canOverride: true
+				}
+			]
+		},
+		{
+			marqueeLink: true,
+			label: 'hampster',
+			windowContent: [
+				{
+					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
+					contentId: 'hampster-dance',
+					type: ContentTypes.hampsterDance
+				}
+			]
+		},
+		{
+			marqueeLink: true,
+			label: 'Style',
+			actionParam: 'F8907234'
 		}
 	]
 })
