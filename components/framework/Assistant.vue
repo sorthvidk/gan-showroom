@@ -228,7 +228,11 @@
 					<!-- <button class="button download-wishlist" @click="downloadWishListClickHandler">
 						<p>↓ Download wishlist</p>
 					</button>-->
-					<a class="button download-wishlist" href="//pdfcrowd.com/url_to_pdf/">
+					<a
+						class="button download-wishlist"
+						@click="downloadWishListClickHandler"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist"
+					>
 						<p>↓ Download wishlist</p>
 					</a>
 					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
@@ -424,6 +428,8 @@ export default {
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
 			// window.print()
+			history.pushState({}, '', this.recieptUrl)
+			setTimeout(history.back, 2000)
 		},
 		shareWishListClickHandler() {
 			//SHARE
