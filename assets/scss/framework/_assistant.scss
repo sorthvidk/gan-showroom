@@ -19,8 +19,9 @@
 		}
 		@include mq($from: screen-md) {
 			top: rem(80);
-			
+			left: auto;
 			right: rem(30);
+			bottom: auto;
 		}
 
 		.window__content {
