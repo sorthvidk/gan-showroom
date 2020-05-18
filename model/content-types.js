@@ -18,9 +18,9 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 2 * 156 + 10 + WINDOW_DEFAULT_CHROME_WIDTH,
+			smallWidth: 353,
 			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 510
+			smallHeight: 420
 		}
 	},
 	films: {
@@ -90,9 +90,9 @@ export default {
 		},
 		defaultWindowProps: {
 			largeWidth: 417 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 417,
+			smallWidth: 353,
 			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 274,
+			smallHeight: 232,
 			modifierClass: 'window--tight'
 		}
 	},
@@ -133,7 +133,7 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			largeWidth: 608 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 355,
+			smallWidth: 353,
 			largeHeight: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 200 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			modifierClass: 'window--tight',
@@ -162,7 +162,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 355,
+			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
 			modifierClass: 'window--wish-list'
@@ -174,7 +174,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 460 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 355,
+			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
 			noStatus: true
@@ -187,9 +187,9 @@ export default {
 		statusComponent: 'status-static',
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 355,
+			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 600
+			smallHeight: 400
 		}
 	},
 	lookBook: {
@@ -199,7 +199,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 355,
+			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400
 		}

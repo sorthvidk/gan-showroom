@@ -43,7 +43,7 @@ export const state = () => ({
 			shortcutId: 'dittes-folder',
 			icon: '🗂',
 			label: 'Private ♥️',
-			posH: 3,
+			posH: 4,
 			posV: 1,
 			widthSpan: 2,
 			action: null,
@@ -113,8 +113,8 @@ export const state = () => ({
 			shortcutId: 'ganni-girls',
 			icon: '👯‍♀️',
 			label: 'Ganni Girls',
-			posH: 2,
-			posV: 2,
+			posH: 1,
+			posV: 5,
 			windowContent: [
 				{
 					title: '#GanniGirls',
@@ -130,8 +130,8 @@ export const state = () => ({
 			shortcutId: 'look-book',
 			icon: '🤩',
 			label: 'LookBook',
-			posH: 3,
-			posV: 2,
+			posH: 2,
+			posV: 5,
 			windowContent: [
 				{
 					title: 'Ganni LookBook',
