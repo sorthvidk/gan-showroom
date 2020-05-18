@@ -26,7 +26,7 @@ export default {
 		},
 		assetUrl() {
 			if ( this.belongsToStyle ) {
-				return getCloudinaryUrl(this.asset);
+				return getCloudinaryUrl(this.$cloudinary, this.asset);
 			}
 			else {
 				return this.asset.imageUrl;

@@ -159,7 +159,7 @@ export const mutations = {
 					aspect: 'portrait',
 					onTop: true,
 					visible: true,
-					cloudinaryUrl: '/img/styles/dummy.jpg'
+					defaultImageUrl: '/img/styles/dummy.jpg'
 				})
 			}
 			let sortedAssets = style.assets.sort((a, b) =>
