@@ -1,6 +1,6 @@
 {
-  "posterUrl": "v1589289536/sample.jpg",
-  "cloudinaryUrl": "v1589527794/dummy_landscape_yfoiqu.mp4",
-  "filmId": "2342342",
+  "posterUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1589289536/sample.jpg",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/v1589792474/films/sound-test_xhm465.mp4",
+  "filmId": "2342342d",
   "filmName": "Lorem ipsum"
 }

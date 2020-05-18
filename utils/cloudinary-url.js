@@ -1,27 +1,35 @@
-export default function(cl, asset, params={}) {
-	let transform = {}
-	let url
-
+export default function(cl, asset, tf={}) {
+	let transform = tf
+	let resultUrl
+	let parseUrl
+	
 	if ( asset.cloudinaryUrl ) {
-		if ( params.width ) {
-			transform.width = params.width
-		}
-		if ( params.height ) {
-			transform.height = params.height
-		}
+		parseUrl = asset.cloudinaryUrl.split('upload/')[1]
+		transform.crop = 'scale'
 
-		if ( asset.type === 'image') {
+		if ( asset.type === 'video' ) {			
+			transform.fetchFormat = 'auto' //may need to be h264?
+			transform.width = 608
+			transform.height = 342
+			if ( asset.aspect === 'portrait' ) {
+				transform.width = 274
+				transform.height = 417
+			}
+			
+			resultUrl = cl.video_url(parseUrl, transform);
 		}
-		else if ( asset.type === 'video' ) {
-			transform.codec = 'h264'
+		else {
+			resultUrl = cl.url(parseUrl, transform);
 		}
-
-		url = cl.url(asset.cloudinaryUrl, transform);
+	}
+	else if ( typeof asset.defaultImageUrl != 'undefined' ) {
+		resultUrl = asset.defaultImageUrl;
 	}
 	else {
-		url = asset.defaultImageUrl;
+		resultUrl = '/img/under-construction.gif' //fallback
 	}
-	console.log("URL: "+url)
+
+	console.warn('CLOUDINARY URL', parseUrl, transform, resultUrl)
 	
-	return url;
+	return resultUrl;
 }
