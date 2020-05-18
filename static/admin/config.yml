@@ -7,7 +7,6 @@ local_backend: true
 
 media_library:
   name: cloudinary
-  output_filename_only: true
   config:
     cloud_name: dd6fpxydm
     api_key: 357528633236135

@@ -23,7 +23,7 @@ export default {
 	},
 	methods: {
 		imageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.content[index]);
+			return getCloudinaryUrl(this.$cloudinary, this.content[index], {width:700});
 		}
 	}
 };

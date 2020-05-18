@@ -20,7 +20,7 @@ export default {
 	props: CollectionItemModel,
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.assets[0]);
+			return getCloudinaryUrl(this.$cloudinary, this.assets[0], {width: 196} );
 		},
 		imageName() {
 			if ( this.assets[0] ) return this.name;
