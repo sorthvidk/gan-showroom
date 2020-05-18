@@ -6,6 +6,7 @@
 			v-for="(item, key) in recieptStyles"
 			:key="'wishListItem'+key"
 			:wish-list-item="item"
+			:largeImages="true"
 		/>
 		<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>
 	</div>

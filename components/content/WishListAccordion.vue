@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="wish-list__accordion"
-		style="page-break-before:always"
+		style="page-break-after: avoid;"
 		:class="{'is-active': isActive}"
 	>
 		<button class="trigger" @click="triggerHandler">
@@ -93,6 +93,10 @@ export default {
 		wishListItem: {
 			type: Object,
 			default: ''
+		},
+		largeImages: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
@@ -102,9 +106,15 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.wishListItem.assets[0], {
-				width: 40
-			})
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				this.wishListItem.assets[0],
+				!this.largeImages
+					? {
+							width: 40
+					  }
+					: {}
+			)
 		}
 	},
 	methods: {
