@@ -1,25 +1,25 @@
 <template>
 	<div class="reciept">
-		<h1 class="reciept__title">ganni wishlist</h1>
+		<h1 class="reciept__title" style="font-weight: 500;">ganni wishlist</h1>
 		<!-- wish-list-accordion - when shown inside .reciept it's heavily restyled -->
-		<wish-list-accordion
+		<!-- <wish-list-accordion
 			v-for="(item, key) in recieptStyles"
 			:key="'wishListItem'+key"
 			:wish-list-item="item"
-			:largeImages="true"
-		/>
+		/>-->
+		<reciept-item v-for="(item, key) in recieptStyles" :key="'recieptItem'+key" :reciept-item="item" />
 		<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>
 	</div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import WishListAccordion from '~/components/content/WishListAccordion.vue'
+import RecieptItem from '~/components/content/RecieptItem.vue'
 
 export default {
 	name: 'Reciept',
 	components: {
-		WishListAccordion
+		RecieptItem
 	},
 	data() {
 		return {
