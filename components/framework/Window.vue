@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section class="window-container" :style="{position: 'relative', zIndex: zIndexStyle}">
+		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
 			<!-- can't attach listener to vue-draggable -->
 			<vue-draggable-resizable
 				ref="draggableResizable"
@@ -166,6 +166,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState(['mousepos']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -189,7 +190,11 @@ export default {
 			return this.positionZ
 		},
 		transformOriginStyle() {
+			// in use?
 			return this.x + 'px ' + this.y + 'px'
+		},
+		transformOrigin() {
+			return `${this.mousepos.x}px ${this.mousepos.y}px`
 		},
 		concatClassName() {
 			let cn = 'window'
@@ -326,10 +331,10 @@ export default {
 			TweenLite.set(el, { scale: 0, opacity: 0 })
 		},
 		animateIn(el) {
-			TweenLite.to(el, 0.2, { scale: 1, opacity: 1 })
+			TweenLite.to(el, 0.3, { scale: 1, opacity: 1 })
 		},
 		animateOut(el, done) {
-			TweenLite.to(el, 0.2, { scale: 0, opacity: 0 })
+			TweenLite.to(el, 0.3, { scale: 0, opacity: 0 })
 			done()
 		}
 	},

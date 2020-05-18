@@ -49,7 +49,7 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { KEYPRESS } from '~/model/constants'
+import { KEYPRESS, MOUSEMOVE } from '~/model/constants'
 
 import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
@@ -89,7 +89,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([KEYPRESS.action]),
+		...mapActions([KEYPRESS.action, MOUSEMOVE.action]),
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
 		},
@@ -100,6 +100,10 @@ export default {
 	mounted() {
 		window.addEventListener('keyup', event => {
 			this[KEYPRESS.action](event)
+		})
+
+		window.addEventListener('mousemove', event => {
+			this[MOUSEMOVE.action](event)
 		})
 
 		let isMobile = addMediaChangeListener(

@@ -1,33 +1,27 @@
-import {	
+import {
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
-	
 	FILMS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
 	INIT_PROGRESS,
-
 	KEYPRESS,
+	MOUSEMOVE,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
 	PLAY_VIDEO,
-	
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
-
 	CLOSE_WINDOW,
 	CLOSE_WINDOW_GROUP,
-
 	OPEN_CONTENT,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT
-
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -89,6 +83,10 @@ export const mutations = {
 		state.keyPressed = key
 	},
 
+	[MOUSEMOVE.mutation](state, { x, y }) {
+		state.mousepos = { x, y }
+	},
+
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
@@ -98,7 +96,6 @@ export const mutations = {
 	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
 		state.assets.list = data
 	},
-
 
 	[FILMS_FETCH.mutation](state, data) {
 		state.assets.films = data
@@ -110,25 +107,26 @@ export const mutations = {
 		state.assets.lookBook = data
 	},
 	[GENERAL_FETCH.mutation](state, data) {
-
 		//Insert Ganni Girls bg image
-		let misc = data.filter((e)=>e.slug === 'misc')[0];
+		let misc = data.filter(e => e.slug === 'misc')[0]
 		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
-
-
 
 		//Insert Ditte's letter
 
-		let dittesFolder = state.shortcuts.list.filter((e)=> e.shortcutId === 'dittes-folder')[0]
-			
-		if ( !dittesFolder ) return false;
-		let content = dittesFolder.windowContent.filter((f)=>f.contentId === 'ditte-letter');
-		
-		if ( !content ) return false;
-		let props = content[0].contentComponentProps;
-		
-		if ( !props.text ) return false;
-		props.text = misc.ditteLetter;
+		let dittesFolder = state.shortcuts.list.filter(
+			e => e.shortcutId === 'dittes-folder'
+		)[0]
+
+		if (!dittesFolder) return false
+		let content = dittesFolder.windowContent.filter(
+			f => f.contentId === 'ditte-letter'
+		)
+
+		if (!content) return false
+		let props = content[0].contentComponentProps
+
+		if (!props.text) return false
+		props.text = misc.ditteLetter
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
@@ -172,20 +170,17 @@ export const mutations = {
 		state.collection.assetsConnected = true
 	},
 
-
-
 	/*
 	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
 	[INIT_PROGRESS.mutation](state) {
+		Object.keys(ContentTypes).forEach(type => {
+			state.progressItems[type] = false
+		})
 
-		Object.keys(ContentTypes).forEach((type)=> {
-			state.progressItems[type] = false;
-		});
-
-		console.warn('INIT_PROGRESS',state.progressItems)
-		state.progressPct = 0;
+		console.warn('INIT_PROGRESS', state.progressItems)
+		state.progressPct = 0
 	},
 	/*
 	 *	Activate content block, opens window with matching contentComponent
@@ -203,7 +198,7 @@ export const mutations = {
 					groupSize: 0
 			  }
 
-		if ( params.styleWindowGroup ) windowGroup.styleWindowGroup = true
+		if (params.styleWindowGroup) windowGroup.styleWindowGroup = true
 
 		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
@@ -242,12 +237,12 @@ export const mutations = {
 			state.topMostWindow = newWindow
 
 			//FLAG PROGRESS!
-			state.progressItems[contentType.name] = true;
-
+			state.progressItems[contentType.name] = true
 		})
 
 		//only add the group if it has content
-		if (windowGroup.groupSize > 0 && !params.addToGroupId) state.windowGroupList.push(windowGroup)
+		if (windowGroup.groupSize > 0 && !params.addToGroupId)
+			state.windowGroupList.push(windowGroup)
 
 		let pIC = 0
 		let pIA = Object.entries(state.progressItems)
@@ -257,7 +252,6 @@ export const mutations = {
 		}
 
 		state.progressPct = Math.round((pIC / pIL) * 100)
-
 	},
 	/*
 	 *	Save window position and size values
@@ -377,10 +371,12 @@ export const mutations = {
 		if (groupsLength < 1) return false
 
 		let windowGroup = state.windowGroupList[groupsLength - 1] //get latest group
-		if ( params && params.styleWindowGroup ) windowGroup = state.windowGroupList.filter((e)=>e.styleWindowGroup === true)[0]
-		
-		if ( !windowGroup )	return false;
+		if (params && params.styleWindowGroup)
+			windowGroup = state.windowGroupList.filter(
+				e => e.styleWindowGroup === true
+			)[0]
 
+		if (!windowGroup) return false
 
 		for (var i = 0; i < windowGroup.groupSize; i++) {
 			let ids = {
@@ -417,7 +413,10 @@ export const mutations = {
 
 		state.windowGroupList.pop() //remove that group
 		console.warn(
-			'CLOSE_WINDOW_GROUP | remaining groups: ' + state.windowGroupList.length + ' | close style? '+(params && params.styleWindowGroup)
+			'CLOSE_WINDOW_GROUP | remaining groups: ' +
+				state.windowGroupList.length +
+				' | close style? ' +
+				(params && params.styleWindowGroup)
 		)
 
 		if (state.windowGroupList.length == 0) {
@@ -459,6 +458,13 @@ export const actions = {
 		if (event.key === 'Escape') {
 			commit(CLOSE_WINDOW_GROUP.mutation)
 		}
+	},
+
+	[MOUSEMOVE.action]({ commit }, event) {
+		commit(MOUSEMOVE.mutation, {
+			x: event.clientX,
+			y: event.clientY
+		})
 	},
 	[TOPMOST_WINDOW.action]({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
@@ -503,8 +509,11 @@ export const actions = {
 			}
 		}
 
-		commit(CLOSE_WINDOW_GROUP.mutation, {styleWindowGroup: true})
-		commit(OPEN_CONTENT.mutation, { windowContent: content, styleWindowGroup:true })
+		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
+		commit(OPEN_CONTENT.mutation, {
+			windowContent: content,
+			styleWindowGroup: true
+		})
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -554,8 +563,6 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-
-
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
@@ -610,7 +617,6 @@ export const actions = {
 		})
 		await commit(FILMS_FETCH.mutation, films)
 
-
 		let ganniGirlsFiles = await require.context(
 			'~/assets/content/ganniGirls/',
 			false,
@@ -622,8 +628,6 @@ export const actions = {
 			return res
 		})
 		await commit(GANNIGIRLS_FETCH.mutation, posts)
-
-
 
 		let lookBookFiles = await require.context(
 			'~/assets/content/lookBook/',
@@ -637,8 +641,6 @@ export const actions = {
 		})
 		await commit(LOOKBOOK_FETCH.mutation, lookBook)
 
-
-
 		let generalFiles = await require.context(
 			'~/assets/content/general/',
 			false,
@@ -651,13 +653,8 @@ export const actions = {
 		})
 		await commit(GENERAL_FETCH.mutation, general)
 
-
-
-
-
 		await commit(CONNECT_ASSETS.mutation)
 		await commit('collection/' + FILTER_COLLECTION.mutation)
 		await commit(INIT_PROGRESS.mutation)
-
 	}
 }
