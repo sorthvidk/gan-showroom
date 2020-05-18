@@ -200,6 +200,12 @@
 			&:hover {
 				background-color: $color-lightgrey;
 			}
+			img {
+				width: rem(20);
+				height: rem(20);
+				display: inline-flex;
+				animation: color-wheel 2s infinite linear;
+			}
 
 			&.add-to-wishlist,
 			&.download-wishlist {
@@ -228,6 +234,8 @@
 		.add-to-wishlist {
 			position: relative;
 			.icon {
+				position: relative;
+				z-index: 1;
 				position: absolute;
 				margin: 0;
 
@@ -246,13 +254,31 @@
 				}
 			}
 
+			&:after {
+				display: block;
+				content:'';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				display: inline-flex;
+				width: 0.001%;
+				background-color: $color-green;
+				z-index: 0;	
+			}
+
 			p {
+				position: relative;
+				z-index: 1;
 				padding-left: 0;
 				transition: padding-left 0.2s ease;
 			}
 
 			&.is-active {
-
+				&:after {
+					animation: dye-background 2s;
+					animation-iteration-count: 1;
+				}
 				p {
 					padding-left: rem(20);
 				}
@@ -263,9 +289,36 @@
 					animation-delay: 0.2s;
 					stroke-linejoin: round;
 				}
+
+				
 			}
 		}
 
+
+		@keyframes color-wheel {
+		  0% {
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    transform: rotate(360deg);
+		  }
+		}
+
+
+		@keyframes dye-background {
+		  0% {
+		    width: 0.001%;
+		  }
+		  40% {
+		    width: 100%;
+		  }
+		  60% {
+		    width: 100%;
+		  }
+		  100% {
+		    width: 0.001%;
+		  }
+		}
 
 		@keyframes checkmark-stroke {
 		  0% {

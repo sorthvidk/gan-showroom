@@ -219,7 +219,9 @@
 						v-if="hasHiddenAssets"
 						@click="showAllVariantsClickHandler"
 					>
-						<span class="icon">🟢</span>
+						<span class="icon">
+							<img src="/img/gan_color_wheel.png" alt="">
+						</span>
 						<p>Show all variants</p>
 					</button>
 					<button
