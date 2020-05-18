@@ -214,5 +214,57 @@
 		.add-to-wishlist + .view-wishlist {
 			border-left: rem(1) solid $color-black;
 		}
+
+		.add-to-wishlist {
+			position: relative;
+			.icon {
+				position: absolute;
+				margin: 0;
+
+				#checkmark {
+					fill: none;
+					stroke: #000;
+					stroke-linecap: round;
+					stroke-miterlimit: 10;
+					stroke-width: 10px;
+					stroke-dasharray: 400;
+					stroke-dashoffset: 400;
+				}
+				svg {
+					width: rem(15);
+					height: rem(15);
+				}
+			}
+
+			p {
+				padding-left: 0;
+				transition: padding-left 0.2s ease;
+			}
+
+			&.is-active {
+
+				p {
+					padding-left: rem(20);
+				}
+				#checkmark {
+					animation: checkmark-stroke 0.5s;
+					animation-fill-mode: forwards;  
+					animation-iteration-count: 1;
+					animation-delay: 0.2s;
+					stroke-linejoin: round;
+				}
+			}
+		}
+
+
+		@keyframes checkmark-stroke {
+		  0% {
+		    stroke-dashoffset: 400;
+		  }
+		  100% {
+		    stroke-dashoffset: 0;
+		  }
+		}
+
 	}
 }

@@ -211,6 +211,11 @@
 						:class="{'is-active': styleOnWishList}"
 						@click="addToWishListClickHandler"
 					>
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+								<path id="checkmark" d="M24.75 62l27.5 27.5 51-51"/>
+							</svg>
+						</span>
 						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
