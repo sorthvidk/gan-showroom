@@ -1,18 +1,21 @@
 <template>
-	<div class="wish-list__accordion" :class="{'is-active': isActive}">
+	<div
+		class="wish-list__accordion"
+		style="page-break-after: avoid;"
+		:class="{'is-active': isActive}"
+	>
 		<button class="trigger" @click="triggerHandler">
-			<img :src="imageUrl" alt="">
+			<img :src="imageUrl" alt />
 			<span>
 				<p>{{wishListItem.name}}</p>
 				<em>{{wishListItem.styleId}}</em>
 			</span>
 		</button>
-		
+
 		<div class="content" :key="isActive">
 			<div class="inner">
-					
 				<button class="button" @click="removeItemHandler">Remove from wishlist</button>
-				
+
 				<table>
 					<tbody>
 						<tr>
@@ -90,6 +93,10 @@ export default {
 		wishListItem: {
 			type: Object,
 			default: ''
+		},
+		largeImages: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
@@ -99,19 +106,25 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.wishListItem.assets[0], {width: 40});
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				this.wishListItem.assets[0],
+				!this.largeImages
+					? {
+							width: 40
+					  }
+					: {}
+			)
 		}
 	},
 	methods: {
-		...mapActions([
-			'collection/'+REMOVE_FROM_WISHLIST.action
-		]),
+		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
 		removeItemHandler() {
-			this['collection/'+REMOVE_FROM_WISHLIST.action](this.wishListItem);
+			this['collection/' + REMOVE_FROM_WISHLIST.action](this.wishListItem)
 		},
 		triggerHandler() {
-			this.isActive = !this.isActive;
+			this.isActive = !this.isActive
 		}
 	}
-};
+}
 </script>

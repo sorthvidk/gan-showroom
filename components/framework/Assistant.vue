@@ -1,21 +1,37 @@
 <template>
-	<section class="window window--tight window--assistant">
+	<section class="window window--tight window--assistant" :class="'assistant-mode--' + assistantMode">
 		<div class="window__top">
 			<span class="title">🤖 Desktop assistant</span>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!assistantExpanded">➕</span>
-				<span v-if="assistantExpanded">➖</span>
+				<span v-if="!assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+					</svg>
+				</span>
+				<span v-if="assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path d="M0 7h15v1H0V7z"/>
+					</svg>
+				</span>
 				<p>{{filterStatusText}}</p>
 			</button>
 		</div>
 
 		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!assistantExpanded">➕</span>
-				<span v-if="assistantExpanded">➖</span>
+				<span v-if="!assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+					</svg>
+				</span>
+				<span v-if="assistantExpanded" class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+					  <path d="M0 7h15v1H0V7z"/>
+					</svg>
+				</span>
 				<p>{{currentStyle.name}}</p>
 			</button>
 			<button class="window-button previous" @click="previousStyleHandler">
@@ -181,7 +197,7 @@
 
 				<div class="assistant__content" v-if="assistantMode == 3">
 					<div class="assistant__text">
-						<p>Do you have any preferences to the collection? choose from the options here!</p>
+						<p>Do you have any preferences to the collection? Choose from the options here!</p>
 					</div>
 				</div>
 
@@ -211,6 +227,11 @@
 						:class="{'is-active': styleOnWishList}"
 						@click="addToWishListClickHandler"
 					>
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+								<path id="checkmark" d="M24.75 62l27.5 27.5 51-51"/>
+							</svg>
+						</span>
 						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
@@ -228,8 +249,17 @@
 					<!-- <button class="button download-wishlist" @click="downloadWishListClickHandler">
 						<p>↓ Download wishlist</p>
 					</button>-->
-					<a class="button download-wishlist" href="//pdfcrowd.com/url_to_pdf/">
-						<p>↓ Download wishlist</p>
+					<a
+						class="button download-wishlist"
+						@click="downloadWishListClickHandler"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+					>	
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+						  <path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"/>
+						</svg>
+					</span>
+						<p>Download wishlist</p>
 					</a>
 					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>
@@ -286,8 +316,7 @@ export default {
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter,
-			completedPct: state => state.collection.completedPct
+			activeFilter: state => state.collection.activeFilter
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -371,7 +400,7 @@ export default {
 			}
 
 			if (noRelevantAssistantContent) {
-				if (this.completedPct > 0) {
+				if (this.wishList.length > 0) {
 					this.assistantMode = AssistantModes.COLLECTION_SEEN
 				} else {
 					this.assistantMode = AssistantModes.WELCOME
@@ -423,7 +452,8 @@ export default {
 		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			// window.print()
+			history.pushState({}, '', this.recieptUrl)
+			// setTimeout(() => history.back(), 2000)
 		},
 		shareWishListClickHandler() {
 			//SHARE

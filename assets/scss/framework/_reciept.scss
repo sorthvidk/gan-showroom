@@ -73,7 +73,7 @@
 			all: unset;
 			width: 100%;
 
-			@include mq($from: screen-md) {
+			@include mq($from: screen-xs) {
 				width: 57%;
 			}
 
