@@ -14,9 +14,58 @@
 				</span>
 			</header>		
 			<div class="window__content">
-				<div>					
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
+				<div>
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
 				</div>
 
 				<div>
@@ -36,19 +85,67 @@
 				</div>
 
 				<div>					
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
-					<img src="/img/dance.gif" alt="">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+					<img src="/img/hamster3.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+					<img src="/img/hamster4.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+					<img src="/img/hamster2.gif" alt="hamster">
+
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
+					<img src="/img/hamster1.gif" alt="hamster">
 				</div>
 			</div>
 		</div>
@@ -58,6 +155,8 @@
 <script>
 
 import getCalendarLinks from '~/utils/get-calendar-links'
+import addMediaChangeListener from '~/utils/media-change'
+import ViewportSizes from '~/model/viewport-sizes'
 
 export default {
 	head() {
@@ -76,10 +175,28 @@ export default {
 	},
 	data() {
 		return {
-			calendarLinks: null
+			calendarLinks: null,
+			viewPortSize: ViewportSizes.SMALL
+		}
+	},
+	methods: {
+		isSmallViewport() {
+			this.viewPortSize = ViewportSizes.SMALL
+		},
+		isLargeViewport() {
+			this.viewPortSize = ViewportSizes.LARGE
 		}
 	},
 	mounted() {
+		let isMobile = addMediaChangeListener(
+			this.isSmallViewport,
+			this.isLargeViewport
+		)
+		if (!isMobile) {
+			this.viewPortSize = ViewportSizes.LARGE
+		}
+
+
 		var countdownDays = document.querySelector('#countdownDays'),
 			countdownHours = document.querySelector('#countdownHours'),
 			countdownMinutes = document.querySelector('#countdownMinutes'),

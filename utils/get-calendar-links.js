@@ -10,7 +10,6 @@ export default function(params) {
 var MS_IN_MINUTES = 60 * 1000;
 
 var formatTime = function(date) {
-  console.log("date",date)
   return date.toISOString().replace(/-|:|\.\d+/g, '');
 };
 
