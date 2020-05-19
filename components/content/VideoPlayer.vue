@@ -10,7 +10,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { PLAY_VIDEO } from '~/model/constants'
+import { FORCE_STOP_MUSIC } from '~/model/constants'
 
 export default {
 	name: 'video-player',
@@ -58,10 +58,10 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([PLAY_VIDEO.action])
+		...mapActions([FORCE_STOP_MUSIC.action])
 	},
 	mounted() {
-		if (!this.muted) this[PLAY_VIDEO.action]()
+		if (!this.muted) this[FORCE_STOP_MUSIC.action]()
 	}
 };
 </script>

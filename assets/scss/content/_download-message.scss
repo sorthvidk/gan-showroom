@@ -1,0 +1,49 @@
+.download-message {
+	animation: message-blink 2.6s;
+	animation-fill-mode: forwards;  
+	animation-iteration-count: 1;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.4);
+	z-index: $z-index-message;
+
+	.window {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		max-width: rem(355);
+
+		@include mq($from: screen-xxxs) {
+			top: rem(20);
+			left: rem(20);
+			right: rem(20);			
+		}
+
+		@include mq($from: screen-md) {
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+			right: auto;
+		}
+
+		&__content {
+			padding: rem(40);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				margin-bottom: rem(20);
+			}
+		}
+	}	
+		
+}

@@ -53,8 +53,20 @@
 			</svg>
 		</div>
 
-		<div class="clipboard-message" v-if="clipBoardCopyComplete">
+		<div class="clipboard-message" v-if="showClipboardMessage">
 			<p>Copied to clipboard</p>
+		</div>
+
+		<div class="download-message" v-if="showDownloadMessage">
+			<div class="window window--no-status window--tight">
+				<header class="window__top">
+					<span class="title">Please wait</span>
+				</header>
+				<div class="window__content">
+					<img src="/img/file-transfer.gif" alt="">
+					<p>Your download is being prepared...</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -62,7 +74,12 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { KEYPRESS, MOUSEMOVE, CLIPBOARD_COPY } from '~/model/constants'
+import { 
+	KEYPRESS, 
+	MOUSEMOVE, 
+	CLIPBOARD_COPY,
+	DOWNLOAD_PREPARING
+} from '~/model/constants'
 
 import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
@@ -88,7 +105,8 @@ export default {
 		...mapState({
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete
+			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
+			downloadPreparing: state => state.downloadPreparing
 		}),
 		desktopIcons() {
 			return this.shortcutList.filter(s => !s.marqueeLink)
@@ -105,16 +123,30 @@ export default {
 			} else {
 				this.showClipboardMessage = false
 			}
+		},
+		downloadPreparing(newVal) {
+			if (newVal) {
+				this.showDownloadMessage = true
+				this.startDownloadTimeout()
+			} else {
+				this.showDownloadMessage = false
+			}
 		}
 	},
 	data() {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
-			showClipboardMessage: false
+			showClipboardMessage: false,
+			showDownloadMessage: false
 		}
 	},
 	methods: {
-		...mapActions([KEYPRESS.action, MOUSEMOVE.action, CLIPBOARD_COPY.action]),
+		...mapActions([
+			KEYPRESS.action, 
+			MOUSEMOVE.action, 
+			CLIPBOARD_COPY.action,
+			DOWNLOAD_PREPARING.action
+		]),
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
 		},
@@ -124,6 +156,11 @@ export default {
 		startClipboardTimeout() {
 			setTimeout(() => {
 				this[CLIPBOARD_COPY.action](false)
+			}, 3000)
+		},
+		startDownloadTimeout() {
+			setTimeout(() => {
+				this[DOWNLOAD_PREPARING.action](false)
 			}, 3000)
 		}
 	},
