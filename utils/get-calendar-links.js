@@ -36,7 +36,7 @@ var calendarGenerators = {
       '&sprop=&sprop=name:'
     ].join(''));
     return '<a class="icon-google" target="_blank" href="' +
-      href + '">Google Calendar</a>';
+      href + '">Add to Google Calendar</a>';
   },
 
   yahoo: function(event) {
@@ -69,7 +69,7 @@ var calendarGenerators = {
     ].join(''));
 
     return '<a class="icon-yahoo" target="_blank" href="' +
-      href + '">Yahoo! Calendar</a>';
+      href + '">Add to Yahoo! Calendar</a>';
   },
 
   ics: function(event, eClass, calendarName) {
@@ -91,7 +91,7 @@ var calendarGenerators = {
         'END:VCALENDAR'].join('\n'));
 
     return '<a class="' + eClass + '" target="_blank" href="' +
-      href + '">' + calendarName + ' Calendar</a>';
+      href + '">Add to ' + calendarName + ' Calendar</a>';
   },
 
   ical: function(event) {

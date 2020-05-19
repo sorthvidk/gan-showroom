@@ -1,0 +1,116 @@
+.desktop--countdown {
+	.window {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		max-width: none;
+
+		@include mq($from: screen-xxxs) {
+			top: rem(20);
+			left: rem(20);
+			right: rem(20);
+			bottom: rem(60);			
+		}
+		@include mq($from: screen-md) {
+			max-width: rem(1600);
+			min-width: 80vw;
+			transform: translateX(-50%);
+			top: 10vh;
+			left: 50%;
+			right: auto;
+			bottom: 10vh;
+		}
+		@include mq($from: screen-xxxl) {
+			min-width: 60vw;
+		}
+
+	}
+	.window__content div {
+		text-align: center;
+	}
+	h2 {
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 168%;
+
+		font-size: rem(50);
+		@include mq($from: screen-sm) {
+			font-weight: 500;
+			font-size: rem(78);
+		}
+		/* identical to box height, or rem(132) */
+
+		text-align: center;
+		letter-spacing: -0.03em;
+
+		/* Black */
+
+		color: #000000;
+	}
+	h3 {
+		font-family: Times New Roman;
+		font-style: normal;
+		font-weight: normal;
+		font-size: rem(20);
+
+		@include mq($from: screen-sm) {
+			font-size: rem(26);
+			line-height: 168%;
+		}
+		/* identical to box height, or rem(44) */
+
+		text-align: center;
+		letter-spacing: -0.03em;
+
+		/* Blue */
+
+		color: #1400FF;
+		
+		span {
+			display: block;
+			@include mq($from: screen-sm) {
+				display: inline;
+			}
+		}
+
+		span:first-child {
+			margin-bottom: rem(20);
+		}
+
+		span + span {
+			margin-top: rem(10);
+			@include mq($from: screen-sm) {
+				margin-top: 0;
+			}
+		}
+		a {
+			font-size: rem(18);
+			font-weight: 600;
+			display: block;
+			@include mq($from: screen-sm) {
+				display: inline-block;
+			}
+		}
+	}
+
+	p {
+		max-width: rem(800);
+		margin: rem(30) auto rem(40);
+		font-family: Times New Roman;
+		font-style: normal;
+		font-weight: normal;
+		font-size: rem(14);
+		line-height: rem(21);
+		/* or 150% */
+
+		text-align: center;
+		letter-spacing: -0.03em;
+
+		/* Black */
+
+		color: #000000;
+	}
+}

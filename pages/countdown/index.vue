@@ -1,5 +1,5 @@
 <template>
-	<div class="desktop" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
+	<div class="desktop desktop--countdown" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
 		<div class="window window--no-status">
 			<header class="window__top">
 				<span class="title">GANNI Showroom Countdown</span>
@@ -25,7 +25,7 @@
 					</h2>
 
 					<h3>
-						Soon you will be able to enter Ganni Virtual Showroom <br>
+						<span>Soon you will be able to enter Ganni Virtual Showroom</span> <br>
 						<span v-if="calendarLinks && calendarLinks.google" v-html="calendarLinks.google"></span>
 						<span v-if="calendarLinks && calendarLinks.yahoo" v-html="calendarLinks.yahoo"></span>
 						<span v-if="calendarLinks && calendarLinks.ical" v-html="calendarLinks.ical"></span>
@@ -54,77 +54,6 @@
 		</div>
 	</div>
 </template>
-
-<style>
-	.window {
-		position: absolute;
-		top: 10vh;
-		left: 50%;		
-		bottom: 10vh;
-		-webkit-transform: translateX(-50%);
-		-ms-transform: translateX(-50%);
-		-o-transform: translateX(-50%);
-		transform: translateX(-50%);
-		max-width: rem(1600);
-		min-width: 60vw;
-
-	}
-	.window__content div {
-		text-align: center;
-	}
-	h2 {
-		font-family: Helvetica Neue;
-		font-style: normal;
-		font-weight: 500;
-		font-size: 78.3659px;
-		line-height: 168%;
-		/* identical to box height, or 132px */
-
-		text-align: center;
-		letter-spacing: -0.03em;
-
-		/* Black */
-
-		color: #000000;
-	}
-	h3 {
-		font-family: Times New Roman;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 26px;
-		line-height: 168%;
-		/* identical to box height, or 44px */
-
-		text-align: center;
-		letter-spacing: -0.03em;
-
-		/* Blue */
-
-		color: #1400FF;
-	}
-	h3 a {
-		font-size: 18px;
-		font-weight: 600;
-	}
-
-	p {
-		max-width: rem(800);
-		margin: 0 auto rem(40);
-		font-family: Times New Roman;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 13.9317px;
-		line-height: 21px;
-		/* or 150% */
-
-		text-align: center;
-		letter-spacing: -0.03em;
-
-		/* Black */
-
-		color: #000000;
-	}
-</style>
 
 <script>
 
