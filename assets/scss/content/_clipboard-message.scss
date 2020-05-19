@@ -1,0 +1,65 @@
+.clipboard-message {
+	position: fixed;
+	top: rem(40);
+	left: 0;
+	right: 0;
+	z-index: $z-index-message;
+
+	@include mq($from: screen-md) {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	p {
+		animation: message-blink 2.6s;
+		animation-fill-mode: forwards;  
+		animation-iteration-count: 1;
+
+		display: block;
+		font-weight: 500;
+		font-size: rem(60);
+		line-height: 1.1;
+		
+		text-align: center;
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+
+		color: $color-lime;
+		
+		@include mq($from: screen-md) {
+			font-size: rem(127);
+		}
+		@include mq($from: screen-xxl) {
+			white-space: nowrap;
+		}
+	}
+
+
+
+		@keyframes message-blink {
+		  0% {
+		    opacity: 0;
+		  }
+		  10% {
+		    opacity: 1;
+		  }
+		  20% {
+		    opacity: 0;
+		  }
+		  30% {
+		    opacity: 1;
+		  }
+		  40% {
+		    opacity: 0;
+		  }
+		  50% {
+		    opacity: 1;
+		  }
+		  80% {
+		    opacity: 1;
+		  }
+		  100% {
+		    opacity: 0;
+		  }
+		}
+}

@@ -202,8 +202,12 @@
 				</div>
 
 				<div class="assistant__content" v-if="assistantMode == 4">
-					<div class="assistant__text">
+					<div class="assistant__text" v-if="!shareUrl">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue.</p>
+					</div>
+					<div class="assistant__text" v-if="shareUrl">
+						<p>Your Wishlist link</p>
+						<strong>{{shareUrl}}</strong>
 					</div>
 				</div>
 
@@ -256,16 +260,17 @@
 						@click="downloadWishListClickHandler"
 						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
 					>	
-					<span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-						  <path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"/>
-						</svg>
-					</span>
+						<span class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+							  <path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"/>
+							</svg>
+						</span>
 						<p>Download wishlist</p>
 					</a>
-					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
+
+					<button @click="shareWishListClickHandler" class="button share-wishlist">
 						<p>Share wishlist</p>
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -283,13 +288,15 @@ import {
 	CLOSE_WINDOW_GROUP,
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
-	OPEN_WISH_LIST
+	OPEN_WISH_LIST,
+	CLIPBOARD_COPY
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
 import ViewportSizes from '~/model/viewport-sizes'
 import AssistantModes from '~/model/assistant-modes'
 import getAssetType from '~/utils/asset-type'
+import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
 import isMobile from '~/utils/is-mobile'
 import FilterButton from '~/components/content/FilterButton.vue'
@@ -308,7 +315,8 @@ export default {
 			currentStyle: null,
 			hiddenAssetContent: [],
 			associatedWindowGroupId: null,
-			filterName: null
+			filterName: null,
+			shareUrl: null
 		}
 	},
 	computed: {
@@ -337,8 +345,8 @@ export default {
 			if (this.filterName) return this.filterName
 			return 'Filter'
 		},
-		recieptUrl() {
-			return `/reciept/?styles=${this.wishList
+		receiptUrl() {
+			return `${window.location}wishlist/?styles=${this.wishList
 				.map(style => style.styleId)
 				.join(',')}`
 		}
@@ -366,6 +374,7 @@ export default {
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
+			this.shareUrl = null
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -415,6 +424,7 @@ export default {
 			OPEN_CONTENT.action,
 			CLOSE_WINDOW_GROUP.action,
 			OPEN_WISH_LIST.action,
+			CLIPBOARD_COPY.action,			
 			'collection/' + ALL_ASSETS_VISIBLE.action,
 			'collection/' + SET_CURRENT_FILTER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
@@ -454,11 +464,17 @@ export default {
 		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			history.pushState({}, '', this.recieptUrl)
+			history.pushState({}, '', this.receiptUrl)
 			// setTimeout(() => history.back(), 2000)
 		},
 		shareWishListClickHandler() {
-			//SHARE
+			console.log('Share wishlist',this.receiptUrl)
+			copyToClipboard(this.receiptUrl, this.copyToClipboardComplete.bind(this) );
+		},
+		copyToClipboardComplete(success) {
+			console.log("copyToClipboardComplete. success?",success)
+			this.shareUrl = this.receiptUrl
+			this[CLIPBOARD_COPY.action](success);
 		},
 		parseAssets() {
 			let al = (this.currentStyle && this.currentStyle.assets.length) || 0
@@ -506,5 +522,5 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}
-}
+};
 </script>
