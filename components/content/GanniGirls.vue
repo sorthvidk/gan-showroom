@@ -3,7 +3,7 @@
 		<div class="ganni-girls" :style="backgroundStyle">
 			<div v-for="(post, key) in content.posts" class="ganni-girls__post" :key="'post'+key">
 				<div class="thumb">
-					<img :src="post.thumbnailUrl" alt="thumb">
+					<img v-lazy="post.thumbnailUrl" alt="thumb">
 				</div>
 				<div class="content">
 					<div>
@@ -11,7 +11,7 @@
 						<span>{{post.postedDate}}</span>
 					</div>
 
-					<img v-if="post.type === 'image'" :src="post.cloudinaryUrl" alt=""/>
+					<img v-if="post.type === 'image'" v-lazy="post.cloudinaryUrl" alt=""/>
 					<video v-if="post.type === 'video'" :src="post.cloudinaryUrl" preload muted autoplay controls></video>
 
 					<h3>{{post.title}}</h3>

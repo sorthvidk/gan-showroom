@@ -1,6 +1,6 @@
 <template>
 	<div class="gallery-image">
-		<img :src="imageUrl" alt="img">
+		<img v-lazy="imageUrl" alt="img">
 	</div>
 </template>
 

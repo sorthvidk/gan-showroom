@@ -1,6 +1,6 @@
 <template>
 	<button class="collection-item" @click.stop="onItemClick">
-		<img :src="imageUrl" alt="lorem">
+		<img v-lazy="imageUrl" alt="imageName">
 		<p>{{imageName}}</p>
 		<span v-if="responsible">🌍</span>
 	</button>
