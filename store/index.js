@@ -226,6 +226,8 @@ export const mutations = {
 			// placed here b/c they changes name of the key
 			newWindow.contentName = contentName
 			newWindow.contentType = contentType
+			newWindow.windowProps.nthChild = windowGroup.groupSize
+			// console.log('group size', windowGroup)
 
 			state.windowList.push(newWindow)
 			state.content.list.push(content)

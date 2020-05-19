@@ -8,7 +8,7 @@
 
 		<div class="desktop__shortcuts">
 			<shortcut
-				v-for="item in desktopIcons"
+				v-for="(item, nthChild) in desktopIcons"
 				:key="item.shortcutId"
 				:position-h="item.posH"
 				:position-v="item.posV"
@@ -18,6 +18,7 @@
 				:action="item.action"
 				:action-param="item.actionParam"
 				:window-content="item.windowContent"
+				:nth-child="nthChild"
 			/>
 		</div>
 
