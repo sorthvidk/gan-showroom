@@ -1,0 +1,21 @@
+/**
+* for downloading/printing the wishlist
+* creates a messed up, print-friendly, version of the wishlist-accordion
+*/
+.receipt {
+	&__title {
+		@include megatype();
+		font-size: 12.85vw; // fills the 'screen'
+		line-height: 1;
+		font-weight: 500;
+		border-bottom: 1px solid;
+	}
+
+	* {
+		border-collapse: collapse;
+	}
+
+	&-item {
+		border-bottom: 1px solid;
+	}
+}

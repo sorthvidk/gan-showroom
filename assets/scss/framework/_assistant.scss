@@ -46,6 +46,10 @@
 				height: rem(20);
 				margin-right: rem(10);
 			}
+			svg {
+				width: rem(15);
+				height: rem(15);
+			}
 			p {
 				@include bodytext();
 				text-decoration: underline;
@@ -94,6 +98,14 @@
 
 		p {
 			@include bodytext();
+		}
+		strong {
+			display: block;
+			margin-top: rem(5);
+			font-family: Times New Roman;
+			font-size: rem(15);
+			line-height: rem(17);
+			color: $color-blue;
 		}
 	}
 
@@ -189,12 +201,19 @@
 
 		.button {
 			@include full-width-button();
-			flex: 1 0 50%;
+			flex: 0 0 50%;
 			border-top: rem(1) solid $color-black;
 			text-align: left;
+			box-sizing: border-box;
 
 			&:hover {
 				background-color: $color-lightgrey;
+			}
+			img {
+				width: rem(20);
+				height: rem(20);
+				display: inline-flex;
+				animation: color-wheel 2s infinite linear;
 			}
 
 			&.add-to-wishlist,
@@ -204,15 +223,129 @@
 					background-color: lighten($color-yellow, 20%);
 				}
 			}
-			&.view-wishlist {
+			&.view-wishlist,
+			&.share-wishlist {
 				color: $color-blue;
 			}
 			&.show-variants {
 				flex: 0 0 100%;
 			}
 		}
-		.add-to-wishlist + .view-wishlist {
+
+		.add-to-wishlist + .view-wishlist,
+		.download-wishlist + .share-wishlist {
 			border-left: rem(1) solid $color-black;
 		}
+		.download-wishlist {
+			.icon {
+				margin-right: 0;
+			}
+			svg {
+				width: rem(11);
+				height: rem(11);
+			}
+		}
+		.view-wishlist:first-child {
+			flex: 0 0 100%;
+		}
+
+		.add-to-wishlist {
+			position: relative;
+			.icon {
+				position: relative;
+				z-index: 1;
+				position: absolute;
+				margin: 0;
+
+				#checkmark {
+					fill: none;
+					stroke: #000;
+					stroke-linecap: round;
+					stroke-miterlimit: 10;
+					stroke-width: 5px;
+					stroke-dasharray: 400;
+					stroke-dashoffset: 400;
+				}
+				svg {
+					width: rem(20);
+					height: rem(20);
+				}
+			}
+
+			&:after {
+				display: block;
+				content:'';
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				display: inline-flex;
+				width: 0.001%;
+				background-color: $color-green;
+				z-index: 0;	
+			}
+
+			p {
+				position: relative;
+				z-index: 1;
+				padding-left: 0;
+				transition: padding-left 0.2s ease;
+			}
+
+			&.is-active {
+				&:after {
+					animation: dye-background 2s;
+					animation-iteration-count: 1;
+				}
+				p {
+					padding-left: rem(20);
+				}
+				#checkmark {
+					animation: checkmark-stroke 0.5s;
+					animation-fill-mode: forwards;  
+					animation-iteration-count: 1;
+					animation-delay: 0.2s;
+					stroke-linejoin: round;
+				}
+
+				
+			}
+		}
+
+
+		@keyframes color-wheel {
+		  0% {
+		    transform: rotate(0deg);
+		  }
+		  100% {
+		    transform: rotate(360deg);
+		  }
+		}
+
+
+		@keyframes dye-background {
+		  0% {
+		    width: 0.001%;
+		  }
+		  40% {
+		    width: 100%;
+		  }
+		  60% {
+		    width: 100%;
+		  }
+		  100% {
+		    width: 0.001%;
+		  }
+		}
+
+		@keyframes checkmark-stroke {
+		  0% {
+		    stroke-dashoffset: 400;
+		  }
+		  100% {
+		    stroke-dashoffset: 0;
+		  }
+		}
+
 	}
 }
