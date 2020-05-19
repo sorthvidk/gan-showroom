@@ -1,4 +1,5 @@
 import {
+	LOGIN,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -31,13 +32,11 @@ import _ from 'lodash'
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import getAssetType from '~/utils/asset-type'
-import isMobile from '~/utils/is-mobile'
-
-const WINDOW_CHROME_HEIGHT = 71
-const WINDOW_CHROME_WIDTH = 2
 
 export const state = () => ({
 	hasData: false,
+	loggedin: false,
+	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
 
 	progressItems: {},
 	progressPct: 0,
@@ -82,6 +81,11 @@ export const state = () => ({
 
 export const mutations = {
 	// Baseline content to cms
+
+	[LOGIN.mutation](state, key) {
+		console.log('login mutation')
+		state.loggedin = key
+	},
 
 	[KEYPRESS.mutation](state, key) {
 		state.keyPressed = key
@@ -472,6 +476,10 @@ export const actions = {
 	//first action, injects assets into collection
 	[CONNECT_ASSETS.action]({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
+	},
+
+	[LOGIN.action]({ commit }, authorized) {
+		commit(LOGIN.mutation, authorized)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)
