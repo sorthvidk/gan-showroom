@@ -1,44 +1,23 @@
 /* --- FONTS --- */
 $font-sansserif: Helvetica Neue, 'Roboto', Arial, monaco, monospace;
-$font-typewriter: Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
-
+$font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 
 /* --- COLORS --- */
 $color-black: #000000;
-$color-white: #FFFFFF;
-$color-darkgrey: #4A4A49;
-$color-grey: #C6C6C6;
-$color-lightgrey: #EDEDED;
-$color-salmon: #FBD5C5;
-$color-yellow: #FFFF00;
-$color-green: #00C808;
-$color-lime: #24FF00;
-$color-blue: #1400FF;
-
+$color-white: #ffffff;
+$color-darkgrey: #4a4a49;
+$color-grey: #c6c6c6;
+$color-lightgrey: #ededed;
+$color-salmon: #fbd5c5;
+$color-orange: #ff8266;
+$color-yellow: #ffff00;
+$color-lightyellow: #ffe76b;
+$color-green: #00c808;
+$color-lime: #24ff00;
+$color-blue: #1400ff;
+$color-purple: #bd00ff;
 
 $z-index-assistant: 4000;
 $z-index-gallery: 4500;
 $z-index-support: 5000;
 $z-index-message: 6000;
-
-
-
-
-
-
-
-
-@keyframes message-blink {
-  0% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
