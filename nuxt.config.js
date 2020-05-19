@@ -77,7 +77,7 @@ export default {
 		 */
 		devtools: true,
 		analyze: false, // only for debugging
-		extend (config, ctx) {
+		extend(config, ctx) {
 			// console.log('config.entry: ', config.entry);
 		},
 		postcss: {
@@ -88,7 +88,7 @@ export default {
 			preset: {
 				// Change the postcss-preset-env settings
 				autoprefixer: {
-					browsers: ['last 4 versions', '> 1%', 'ie 6-8'],
+					// browsers: ['last 4 versions', '> 1%', 'ie 6-8'],
 					// browsers: ['defaults'],
 					grid: true
 				}

@@ -90,7 +90,7 @@ export default {
 		},
 		animateIn(el) {
 			TweenLite.to(el, 0.3, {
-				delay: Math.floor(Math.random() * 10 /*this.nthChild*/) / 15,
+				delay: Math.floor(Math.random() * 10 /*this.nthChild*/) / 15 + 1,
 				scale: 1,
 				opacity: 1,
 				ease: 'power4.inOut'
