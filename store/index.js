@@ -14,7 +14,7 @@ import {
 	MOUSEMOVE,
 	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
-	PLAY_VIDEO,
+	FORCE_STOP_MUSIC,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -23,7 +23,8 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	CLIPBOARD_COPY
+	CLIPBOARD_COPY,
+	DOWNLOAD_PREPARING
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -76,7 +77,8 @@ export const state = () => ({
 		}
 	],
 
-	clipBoardCopyComplete: false
+	clipBoardCopyComplete: false,
+	downloadPreparing: false
 })
 
 export const mutations = {
@@ -461,14 +463,19 @@ export const mutations = {
 		state.musicPlaying = playing
 	},
 
-	[PLAY_VIDEO.mutation](state, playing) {
-		console.warn('PLAY_VIDEO | pause music')
+	[FORCE_STOP_MUSIC.mutation](state, playing) {
+		console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
 	},
 
-	[CLIPBOARD_COPY.mutation](state, complete) {
+	[CLIPBOARD_COPY.mutation](state, value) {
 		console.warn('CLIPBOARD_COPY')
-		state.clipBoardCopyComplete = complete
+		state.clipBoardCopyComplete = value
+	},
+
+	[DOWNLOAD_PREPARING.mutation](state, value) {
+		console.warn('DOWNLOAD_PREPARING')
+		state.downloadPreparing = value
 	}
 }
 
@@ -578,8 +585,8 @@ export const actions = {
 		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
 		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
 	},
-	[PLAY_VIDEO.action]({ commit }) {
-		commit(PLAY_VIDEO.mutation)
+	[FORCE_STOP_MUSIC.action]({ commit }) {
+		commit(FORCE_STOP_MUSIC.mutation)
 	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {
@@ -594,8 +601,11 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
-	[CLIPBOARD_COPY.action]({ commit }, success) {
-		commit(CLIPBOARD_COPY.mutation, success)
+	[CLIPBOARD_COPY.action]({ commit }, value) {
+		commit(CLIPBOARD_COPY.mutation, value)
+	},
+	[DOWNLOAD_PREPARING.action]({ commit }, value) {
+		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
