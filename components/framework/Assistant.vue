@@ -207,7 +207,7 @@
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
-						<strong>{{shareUrl}}</strong>
+						<strong @click="shareUrlClickHandler">{{shareUrl}}</strong>
 					</div>
 				</div>
 
@@ -252,9 +252,6 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 4">
-					<!-- <button class="button download-wishlist" @click="downloadWishListClickHandler">
-						<p>↓ Download wishlist</p>
-					</button>-->
 					<a
 						class="button download-wishlist"
 						@click="downloadWishListClickHandler"
@@ -269,7 +266,8 @@
 					</a>
 
 					<button @click="shareWishListClickHandler" class="button share-wishlist">
-						<p>Share wishlist</p>
+						<p v-if="!showClipboardMessage">Share wishlist</p>
+						<p v-if="showClipboardMessage" :style="{color: '#1DD000', textDecoration: 'none'}">Link copied</p>
 					</button>
 				</div>
 			</div>
@@ -316,7 +314,8 @@ export default {
 			hiddenAssetContent: [],
 			associatedWindowGroupId: null,
 			filterName: null,
-			shareUrl: null
+			shareUrl: null,
+			showClipboardMessage: false
 		}
 	},
 	computed: {
@@ -326,7 +325,8 @@ export default {
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter
+			activeFilter: state => state.collection.activeFilter,
+			clipBoardCopyComplete: state => state.clipBoardCopyComplete
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -352,6 +352,9 @@ export default {
 		}
 	},
 	watch: {
+		clipBoardCopyComplete(newVal) {
+			this.showClipboardMessage = newVal
+		},
 		keyPressed(event) {
 			if (event.key === 'ArrowLeft') {
 				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
@@ -510,6 +513,23 @@ export default {
 		},
 		toggleContentHandler() {
 			this.assistantExpanded = !this.assistantExpanded
+		},
+		shareUrlClickHandler(event) {
+			let node = event.currentTarget;
+
+		    if (document.body.createTextRange) {
+		        const range = document.body.createTextRange();
+		        range.moveToElementText(node);
+		        range.select();
+		    } else if (window.getSelection) {
+		        const selection = window.getSelection();
+		        const range = document.createRange();
+		        range.selectNodeContents(node);
+		        selection.removeAllRanges();
+		        selection.addRange(range);
+		    } else {
+		        console.warn("Could not select text in node: Unsupported browser.");
+		    }
 		}
 	},
 	mounted() {

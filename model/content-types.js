@@ -185,7 +185,7 @@ export default {
 		contentScore: 10,
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 460 + WINDOW_DEFAULT_CHROME_WIDTH,
+			largeWidth: 620 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,

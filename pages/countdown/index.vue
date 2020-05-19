@@ -207,7 +207,7 @@ export default {
 			hour = minute * 60,
 			day = hour * 24;
 
-		var countDown = new Date('Jun 9, 2020 00:00:00').getTime(),
+		var countDown = new Date('Jun 9, 2020 12:00').getTime(),
 			interval = setInterval(function() {
 				let now = new Date().getTime(),
 				distance = countDown - now;
@@ -232,7 +232,7 @@ export default {
 
 		let data = {
 		    // Event title
-		    title: 'Get on the front page of HN',
+		    title: 'Ganni Showroom Opening',
 
 		    // Event start date
 		    start: new Date('June 9, 2020 12:00'),
@@ -245,10 +245,10 @@ export default {
 		    end: new Date('June 9, 2020 13:00'),     
 
 		    // Event Address
-		    address: 'The internet',
+		    address: 'online',
 
 		    // Event Description
-		    description: 'Get on the front page of HN, then prepare for world domination.'
+		    description: 'Browse the new GANNI Showroom and check out the PS21 collection'
 		}
 
 		let CL = getCalendarLinks({data: data});
