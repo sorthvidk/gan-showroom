@@ -26,7 +26,10 @@ import {
 	OPEN_CONTENT,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT
+	OPEN_STYLE_CONTENT,
+
+
+	CLIPBOARD_COPY
 
 } from '~/model/constants'
 
@@ -79,7 +82,9 @@ export const state = () => ({
 			title: 'Track_06-Haddaway-What_is_love.mp3',
 			src: `/audio/What-Is-Love.mp3`
 		}
-	]
+	],
+
+	clipBoardCopyComplete: false
 })
 
 export const mutations = {
@@ -441,6 +446,11 @@ export const mutations = {
 	[PLAY_VIDEO.mutation](state, playing) {
 		console.warn('PLAY_VIDEO | pause music')
 		state.musicPlaying = false
+	},
+
+	[CLIPBOARD_COPY.mutation](state, complete) {
+		console.warn('CLIPBOARD_COPY')
+		state.clipBoardCopyComplete = complete
 	}
 }
 
@@ -546,16 +556,16 @@ export const actions = {
 				title: 'Your wishlist',
 				contentId: 'wish-list',
 				type: ContentTypes.wishList,
-				canOverride: false,
-				windowProps: {
-					modifierClass: 'window--wish-list'
-				}
+				canOverride: false
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
 
+	[CLIPBOARD_COPY.action]({ commit }, success) {
+		commit(CLIPBOARD_COPY.mutation, success)
+	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
