@@ -1,7 +1,7 @@
 <template>
 	<div class="hampster-dance">
 		<span v-for="n in iterations">			
-			<img v-for="(item,key) in hamsterList" :src="danceUrl(item)" alt="'hamster'+item" :key="'hamster'+n+key" />
+			<img v-for="(item,key) in hamsterList" v-lazy="danceUrl(item)" alt="'hamster'+item" :key="'hamster'+n+key" />
 		</span>
 	</div>
 </template>
