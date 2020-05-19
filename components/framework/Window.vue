@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section class="window-container" :style="{position: 'relative', zIndex: zIndexStyle}">
+		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
 			<!-- can't attach listener to vue-draggable -->
 			<vue-draggable-resizable
 				ref="draggableResizable"
@@ -163,9 +163,13 @@ export default {
 		},
 		groupId: {
 			type: String
+		},
+		nthChild: {
+			type: Number
 		}
 	},
 	computed: {
+		...mapState(['mousepos']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -189,8 +193,15 @@ export default {
 			return this.positionZ
 		},
 		transformOriginStyle() {
+			// in use?
 			return this.x + 'px ' + this.y + 'px'
 		},
+		transformOrigin() {
+			return `${this.mousepos.x}px ${this.mousepos.y}px`
+		},
+		// transitionDelay() {
+		// 	return `${this.nthChild / 5}s`
+		// },
 		concatClassName() {
 			let cn = 'window'
 			if (this.modifierClass != '') cn += ' ' + this.modifierClass
@@ -201,7 +212,7 @@ export default {
 	},
 	data: function() {
 		return {
-			windowRef: null,
+			// windowRef: null,
 
 			resetPositionDistance: 40,
 			maximizeOffset: 0,
@@ -323,19 +334,24 @@ export default {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
 		beforeAnimateIn(el) {
-			TweenLite.set(el, { scale: 0, opacity: 0 })
+			TweenLite.set(el, { scale: 0, opacity: 0.6 })
 		},
 		animateIn(el) {
-			TweenLite.to(el, 0.2, { scale: 1, opacity: 1 })
+			TweenLite.to(el, 0.3, {
+				delay: this.nthChild / 7,
+				scale: 1,
+				opacity: 1,
+				ease: 'power4.inOut'
+			})
 		},
 		animateOut(el, done) {
-			TweenLite.to(el, 0.2, { scale: 0, opacity: 0 })
+			TweenLite.to(el, 0.3, { scale: 0, opacity: 0 })
 			done()
 		}
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
-		this.windowRef = this.$el.querySelector('.window')
+		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
 	}
 }
 </script>
