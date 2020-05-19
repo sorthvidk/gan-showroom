@@ -8,6 +8,11 @@
 		"Jonas Landt <landt@sorthvid.net>",
 		"Erik Thalen <erik@sorthvid.net>"
 	],
+	"browserslist": [
+		"last 4 versions",
+		"> 1%",
+		"ie 6-8"
+	],
 	"private": true,
 	"scripts": {
 		"dev": "nuxt",
@@ -26,12 +31,14 @@
 		"@nuxtjs/markdownit": "^1.2.6",
 		"cloudinary-core": "^2.8.2",
 		"gsap": "^2.1.2",
+		"hash.js": "^1.1.7",
 		"intersection-observer": "^0.5.1",
 		"lazysizes": "^5.2.0",
 		"lodash": "4.17.4",
 		"nuxt": "^2.11.0",
 		"nuxt-polyfill": "^1.0.3",
 		"vue-draggable-resizable": "^2.1.2",
+		"vue-typer": "^1.2.0",
 		"vuex-persistedstate": "^3.0.1"
 	},
 	"devDependencies": {
