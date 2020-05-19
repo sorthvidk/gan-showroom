@@ -41,6 +41,7 @@ export const state = () => ({
 
 	progressItems: {},
 	progressPct: 0,
+	progressMax: 0,
 
 	windowList: [],
 	windowGroupList: [],
@@ -135,8 +136,6 @@ export const mutations = {
 	[CONNECT_ASSETS.mutation](state) {
 		if (state.collection.assetsConnected) return false
 
-		console.warn('CONNECT_ASSETS')
-
 		let al = state.assets.list.length
 
 		for (var i = 0; i < al; i++) {
@@ -181,6 +180,21 @@ export const mutations = {
 		Object.keys(ContentTypes).forEach(type => {
 			state.progressItems[type] = false
 		})
+
+		Object.keys(ContentTypes).forEach(type => {
+			state.progressItems[type] = {
+				complete: false,
+				score: ContentTypes[type].contentScore
+			}
+		})
+
+		let pIA = Object.entries(state.progressItems)
+		let pIL = pIA.length
+		let pM = 0
+		for (let [key, value] of pIA) {
+			pM += value.score
+		}
+		state.progressMax = pM
 
 		console.warn('INIT_PROGRESS', state.progressItems)
 		state.progressPct = 0
@@ -242,21 +256,22 @@ export const mutations = {
 			state.topMostWindow = newWindow
 
 			//FLAG PROGRESS!
-			state.progressItems[contentType.name] = true
+			state.progressItems[contentType.name].complete = true
 		})
 
 		//only add the group if it has content
 		if (windowGroup.groupSize > 0 && !params.addToGroupId)
 			state.windowGroupList.push(windowGroup)
 
-		let pIC = 0
+		//calculate progress
 		let pIA = Object.entries(state.progressItems)
 		let pIL = pIA.length
+		let pIC = 0
 		for (let [key, value] of pIA) {
-			if (value == true) pIC++
+			if (value.complete) pIC += value.score
 		}
 
-		state.progressPct = Math.round((pIC / pIL) * 100)
+		state.progressPct = Math.round((pIC / state.progressMax) * 100)
 	},
 	/*
 	 *	Save window position and size values
