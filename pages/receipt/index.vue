@@ -1,14 +1,14 @@
 <template>
-	<reciept />
+	<receipt />
 </template>
 
 
 <script>
-import Reciept from '~/components/framework/Reciept.vue'
+import Receipt from '~/components/framework/Receipt.vue'
 
 export default {
 	components: {
-		Reciept
+		Receipt
 	},
 	head() {
 		return {

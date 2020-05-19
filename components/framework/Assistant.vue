@@ -261,7 +261,7 @@
 					</span>
 						<p>Download wishlist</p>
 					</a>
-					<a :href="recieptUrl" target="_blank" class="button share-wishlist">
+					<a :href="receiptUrl" target="_blank" class="button share-wishlist">
 						<p>Share wishlist</p>
 					</a>
 				</div>
@@ -335,8 +335,8 @@ export default {
 			if (this.filterName) return this.filterName
 			return 'Filter'
 		},
-		recieptUrl() {
-			return `/reciept/?styles=${this.wishList
+		receiptUrl() {
+			return `/receipt/?styles=${this.wishList
 				.map(style => style.styleId)
 				.join(',')}`
 		}
@@ -452,7 +452,7 @@ export default {
 		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			history.pushState({}, '', this.recieptUrl)
+			history.pushState({}, '', this.receiptUrl)
 			// setTimeout(() => history.back(), 2000)
 		},
 		shareWishListClickHandler() {
@@ -504,5 +504,5 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}
-}
+};
 </script>

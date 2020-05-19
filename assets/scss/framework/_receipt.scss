@@ -2,7 +2,7 @@
 * for downloading/printing the wishlist
 * creates a messed up, print-friendly, version of the wishlist-accordion
 */
-.reciept {
+.receipt {
 	&__title {
 		@include megatype();
 		font-size: 12.85vw; // fills the 'screen'
