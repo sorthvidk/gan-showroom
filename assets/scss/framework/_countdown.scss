@@ -25,11 +25,18 @@
 		@include mq($from: screen-xxxl) {
 			min-width: 60vw;
 		}
+		&__top {
+			.button {
+				box-sizing: border-box;
+			}
+		}
 
+		&__content div {
+			text-align: center;
+		}
 	}
-	.window__content div {
-		text-align: center;
-	}
+
+	
 	h2 {
 		font-family: Helvetica Neue;
 		font-style: normal;
