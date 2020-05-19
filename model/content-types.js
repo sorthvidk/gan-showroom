@@ -14,6 +14,7 @@ export default {
 	collection: {
 		name: 'collection',
 		contentComponent: 'collection',
+		contentScore: 20,
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -26,6 +27,7 @@ export default {
 	films: {
 		name: 'films',
 		contentComponent: 'films',
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -38,6 +40,7 @@ export default {
 	musicPlayer: {
 		name: 'musicPlayer',
 		contentComponent: 'music-player',
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -54,6 +57,7 @@ export default {
 	textFile: {
 		name: 'textFile',
 		contentComponent: 'text-reader',
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -67,6 +71,7 @@ export default {
 	imagePortrait: {
 		name: 'imagePortrait',
 		contentComponent: 'single-image',
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultStatusComponentProps: {
@@ -83,6 +88,7 @@ export default {
 	imageLandscape: {
 		name: 'imageLandscape',
 		contentComponent: 'single-image',
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultStatusComponentProps: {
@@ -99,6 +105,7 @@ export default {
 	imageSquare: {
 		name: 'imageSquare',
 		contentComponent: 'single-image',
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultStatusComponentProps: {
@@ -115,6 +122,7 @@ export default {
 	videoPortrait: {
 		name: 'videoPortrait',
 		contentComponent: 'single-video',
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
@@ -129,6 +137,7 @@ export default {
 	videoLandscape: {
 		name: 'videoLandscape',
 		contentComponent: 'single-video',
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
@@ -143,6 +152,7 @@ export default {
 	gallery: {
 		name: 'gallery',
 		contentComponent: 'gallery',
+		contentScore: 0,
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
@@ -158,19 +168,21 @@ export default {
 	wishList: {
 		name: 'wishList',
 		contentComponent: 'wish-list',
+		contentScore: 20,
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400,
+			smallHeight: 400,	
 			modifierClass: 'window--wish-list'
 		}
 	},
 	hampsterDance: {
 		name: 'hampsterDance',
 		contentComponent: 'hampster-dance',
+		contentScore: 10,
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 460 + WINDOW_DEFAULT_CHROME_WIDTH,
@@ -183,6 +195,7 @@ export default {
 	ganniGirls: {
 		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
+		contentScore: 10,
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
@@ -195,6 +208,7 @@ export default {
 	lookBook: {
 		name: 'lookBook',
 		contentComponent: 'look-book',
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {

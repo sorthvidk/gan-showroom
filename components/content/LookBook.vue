@@ -2,7 +2,7 @@
 	<transition name="fade">
 		<div class="look-book">
 			<div class="look-book__item" v-for="(item,index) in content" :key="'lookbook'+index">
-				<img :src="imageUrl(index)" alt="lookbook">				
+				<img v-lazy="imageUrl(index)" alt="lookbook">				
 			</div>
 		</div>
 	</transition>

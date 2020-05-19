@@ -1,16 +1,19 @@
 <template>
-	<button
-		@click="onClick"
-		class="shortcut"
-		:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
-	>
-		<span class="icon">{{icon}}</span>
-		<span class="text">{{label}}</span>
-	</button>
+	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
+		<button
+			@click="onClick"
+			class="shortcut"
+			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
+		>
+			<span class="icon">{{icon}}</span>
+			<span class="text">{{label}}</span>
+		</button>
+	</transition>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
+import { TweenLite } from 'gsap'
 import { OPEN_CONTENT } from '~/model/constants'
 
 export default {
@@ -55,6 +58,9 @@ export default {
 			type: String,
 			default: null,
 			required: false
+		},
+		nthChild: {
+			type: Number
 		}
 	},
 	computed: {
@@ -78,6 +84,17 @@ export default {
 					else this.$store.dispatch(this.action)
 				}
 			}, 500)
+		},
+		beforeAnimateIn(el) {
+			TweenLite.set(el, { scale: 0, opacity: 0 })
+		},
+		animateIn(el) {
+			TweenLite.to(el, 0.3, {
+				delay: Math.floor(Math.random() * 10 /*this.nthChild*/) / 15,
+				scale: 1,
+				opacity: 1,
+				ease: 'power4.inOut'
+			})
 		}
 	}
 }

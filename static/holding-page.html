@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>GANNI Showroom 2020</title>	
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<img src="/img/dance.gif" alt="">
+		<img src="/img/dance.gif" alt="">
+		<img src="/img/dance.gif" alt="">
+
+		<div>
+			<h2>
+				<ul>
+					<li><span id="countdownDays"></span></li>
+					<li><span id="countdownHours"></span></li>
+					<li><span id="countdownMinutes"></span></li>
+					<li><span id="countdownSeconds"></span></li>
+				</ul>
+			</h2>
+
+			<h3><a href="#add-to-calendar">Soon you will be able to enter Ganni Virtual Showroom</a></h3>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi distinctio delectus unde, excepturi possimus qui necessitatibus ducimus, mollitia ex hic. Nostrum eligendi, exercitationem cum, maxime necessitatibus fuga eum dicta.</p>
+		</div>
+
+		<img src="/img/dance.gif" alt="">
+		<img src="/img/dance.gif" alt="">
+		<img src="/img/dance.gif" alt="">
+
+		<script>
+			var countdownDays = document.querySelector('#countdownDays'),
+				countdownHours = document.querySelector('#countdownHours'),
+				countdownMinutes = document.querySelector('#countdownMinutes'),
+				countdownSeconds = document.querySelector('#countdownSeconds'),
+
+			var second = 1000,
+				minute = second * 60,
+				hour = minute * 60,
+				day = hour * 24;
+
+			var countDown = new Date('Jun 9, 2020 00:00:00').getTime(),
+				interval = setInterval(function() {
+					let now = new Date().getTime(),
+					distance = countDown - now;
+
+					countdownDays.innerText = Math.floor(distance / (day)),
+					countdownHours.innerText = Math.floor((distance % (day)) / (hour)),
+					countdownMinutes.innerText = Math.floor((distance % (hour)) / (minute)),
+					countdownSeconds.innerText = Math.floor((distance % (minute)) / second);
+			}, second);
+		</script>
+	</body>
+</html>
