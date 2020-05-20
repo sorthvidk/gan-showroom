@@ -305,6 +305,8 @@ import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
 import getShortUrl from '~/utils/get-short-url'
 import isMobile from '~/utils/is-mobile'
+import sendTracking from '~/utils/send-tracking'
+
 
 export default {
 	name: 'assistant',
@@ -471,7 +473,10 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
+
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+
+				sendTracking('Add to wish list',this.currentStyle.styleId)
 				
 				this.styleHasBeenAdded = true
 				setTimeout(()=> {
@@ -495,6 +500,8 @@ export default {
 				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
 
 				copyToClipboard(this.shortenedReceiptUrl, this.copyToClipboardComplete.bind(this) );
+				let wLS = this.wishList.map(style => style.styleId).join(',')
+				sendTracking('Share wish list',wLS)
 			});
 		},
 		copyToClipboardComplete(success) {
