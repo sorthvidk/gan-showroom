@@ -28,6 +28,15 @@
 		&__top {
 			.button {
 				box-sizing: border-box;
+				cursor: default;
+
+				background-color: $color-grey;
+				&:hover {
+					background-color:  $color-grey;
+				}
+				.icon {
+					fill: $color-lightgrey;
+				}
 			}
 		}
 
