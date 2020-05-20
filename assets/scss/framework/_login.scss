@@ -1,11 +1,14 @@
 // transition between slides
 .slide-transition-enter-active,
 .slide-transition-leave-active {
-	transition: opacity 0.1s ease;
+	transition: all 1s ease;
 }
-.slide-transition-enter,
+
 .slide-transition-leave-to {
-	opacity: 0;
+	transform: translateX(-100%);
+}
+.slide-transition-enter {
+	transform: translateX(100%);
 }
 
 .startup-transition-enter-active,
@@ -32,9 +35,9 @@
 	height: 100vh;
 	image-rendering: pixelated;
 
-	overflow: hidden;
-
 	> * {
+		overflow: hidden;
+		position: absolute;
 		width: inherit;
 		height: inherit;
 	}
