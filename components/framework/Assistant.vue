@@ -134,7 +134,9 @@
 					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
-						<!-- <p>{{currentStyle.description}}</p> -->
+						
+						<span v-if="currentStyle.responsible" class="responsible"> I am a certified responsible material </span>		
+
 						<table>
 							<tbody>
 								<tr>
@@ -149,12 +151,7 @@
 
 								<tr>
 									<th>Materiel</th>
-									<td>
-										{{currentStyle.material}}
-										<span v-if="currentStyle.responsible">
-											I am a certified responsible material
-										</span>										
-									</td>
+									<td>{{currentStyle.material}}</td>
 								</tr>
 								<tr>
 									<th>Style #</th>
@@ -231,6 +228,12 @@
 				<!-- ####################### CTA ####################### -->
 
 
+				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						<p>{{viewWishListButtonLabel}}</p>
+					</button>
+				</div>
+
 				<div class="assistant__ctas" v-if="assistantMode == 1">
 					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
@@ -262,7 +265,7 @@
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-								<path id="checkmark" d="M24.75 62l27.5 27.5 51-51" />
+								<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
 						<p>{{addToWishListButtonLabel}}</p>
