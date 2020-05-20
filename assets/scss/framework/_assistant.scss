@@ -292,14 +292,17 @@
 				transition: padding-left 0.2s ease;
 			}
 
-			&.is-active {
+			&.is-animating {
 				&:after {
 					animation: dye-background 2s;
 					animation-iteration-count: 1;
 				}
+			}
+
+			&.is-active {
 				p {
 					padding-left: rem(20);
-				}
+				}				
 				#checkmark {
 					animation: checkmark-stroke 0.5s;
 					animation-fill-mode: forwards;  
@@ -307,8 +310,6 @@
 					animation-delay: 0.2s;
 					stroke-linejoin: round;
 				}
-
-				
 			}
 		}
 

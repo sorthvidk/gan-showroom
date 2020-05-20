@@ -210,7 +210,7 @@
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
-						<strong @click="shareUrlClickHandler">{{shareUrl}}</strong>
+						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
 					</div>
 				</div>
 
@@ -233,7 +233,7 @@
 					</button>
 					<button
 						class="button add-to-wishlist"
-						:class="{'is-active': styleOnWishList}"
+						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
 						<span class="icon">
@@ -294,14 +294,17 @@ import {
 	DOWNLOAD_PREPARING
 } from '~/model/constants'
 
+import FilterButton from '~/components/content/FilterButton.vue'
+
 import ContentTypes from '~/model/content-types'
 import ViewportSizes from '~/model/viewport-sizes'
 import AssistantModes from '~/model/assistant-modes'
+
 import getAssetType from '~/utils/asset-type'
 import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
+import getShortUrl from '~/utils/get-short-url'
 import isMobile from '~/utils/is-mobile'
-import FilterButton from '~/components/content/FilterButton.vue'
 
 export default {
 	name: 'assistant',
@@ -319,7 +322,9 @@ export default {
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
-			showClipboardMessage: false
+			showClipboardMessage: false,
+			styleHasBeenAdded: false,
+			shortenedReceiptUrl: null
 		}
 	},
 	computed: {
@@ -336,7 +341,7 @@ export default {
 			return `View wishlist (${this.wishList.length})`
 		},
 		addToWishListButtonLabel() {
-			// if (this.styleOnWishList) return 'Remove from list'
+			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
 		},
 		styleOnWishList() {
@@ -382,6 +387,7 @@ export default {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
+			this.styleHasBeenAdded = false
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -466,6 +472,11 @@ export default {
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+				
+				this.styleHasBeenAdded = true
+				setTimeout(()=> {
+					this.styleHasBeenAdded = false
+				}, 4000)
 			} else {
 				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
@@ -477,8 +488,14 @@ export default {
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist', this.receiptUrl)
-			copyToClipboard(this.receiptUrl, this.copyToClipboardComplete.bind(this))
+			console.log('Share wishlist',this.receiptUrl)
+						
+			getShortUrl(this.receiptUrl).then((shortenedUrl)=>{
+				console.log("shortenedUrl", shortenedUrl)
+				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
+
+				copyToClipboard(this.shortenedReceiptUrl, this.copyToClipboardComplete.bind(this) );
+			});
 		},
 		copyToClipboardComplete(success) {
 			console.log('copyToClipboardComplete. success?', success)

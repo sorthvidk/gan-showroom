@@ -1,0 +1,64 @@
+.cookieControl {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	h3 {
+		@include headline();
+		margin-bottom: rem(10);
+	}
+	a, p {
+		@include bodytext();
+	}
+
+	button {
+		display: block;
+
+		@include headline();
+		color: $color-blue;
+		text-decoration: underline;
+	}
+
+	&__Bar {
+	}
+	&__BarContainer {
+		display: flex;
+		justify-content: space-between;
+
+		background-color: $color-lime;
+		color: $color-black;
+		padding: rem(30);
+		
+		div {
+			flex: 0 0 50%;
+		}
+		
+	}
+
+	&__BarButtons {
+		flex: 0 0 50%;
+		
+		button + button {
+			margin-top: rem(10);
+		}
+	}
+
+	&__Modal {
+
+		background-color: $color-salmon;
+		color: $color-black;
+		padding: rem(30);
+
+		&Content {
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+		}
+		&Close {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
