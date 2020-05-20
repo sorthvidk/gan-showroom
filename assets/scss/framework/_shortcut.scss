@@ -26,10 +26,6 @@
 		flex: 0 0 100%;
 	}
 
-	&:hover {
-		opacity: 0.7;
-	}
-
 	.icon {
 		display: inline-block;
 		font-size: rem(60);
@@ -46,5 +42,16 @@
 		background-color: $color-white;
 		padding: rem(2) rem(5);
 		white-space: nowrap;
+	}
+	&:hover {
+		.text {
+			background-color: $color-grey;
+		}
+	}
+
+	&:active {
+		.text {
+			background-color: $color-yellow;
+		}
 	}
 }

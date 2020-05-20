@@ -1,5 +1,8 @@
 <template>
-	<section class="window window--tight window--assistant" :class="'assistant-mode--' + assistantMode">
+	<section
+		class="window window--tight window--assistant"
+		:class="'assistant-mode--' + assistantMode"
+	>
 		<div class="window__top">
 			<span class="title">🤖 Desktop assistant</span>
 		</div>
@@ -8,12 +11,12 @@
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
 					</svg>
 				</span>
 				<span v-if="assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-					  <path d="M0 7h15v1H0V7z"/>
+						<path d="M0 7h15v1H0V7z" />
 					</svg>
 				</span>
 				<p>{{filterStatusText}}</p>
@@ -24,12 +27,12 @@
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-					  <path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
 					</svg>
 				</span>
 				<span v-if="assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-					  <path d="M0 7h15v1H0V7z"/>
+						<path d="M0 7h15v1H0V7z" />
 					</svg>
 				</span>
 				<p>{{currentStyle.name}}</p>
@@ -207,7 +210,7 @@
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
-						<strong @click="shareUrlClickHandler">{{shareUrl}}</strong>
+						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
 					</div>
 				</div>
 
@@ -224,18 +227,18 @@
 						@click="showAllVariantsClickHandler"
 					>
 						<span class="icon">
-							<img src="/img/gan_color_wheel.png" alt="">
+							<img src="/img/gan_color_wheel.png" alt />
 						</span>
 						<p>Show all variants</p>
 					</button>
 					<button
 						class="button add-to-wishlist"
-						:class="{'is-active': styleOnWishList}"
+						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-								<path id="checkmark" d="M24.75 62l27.5 27.5 51-51"/>
+								<path id="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
 						<p>{{addToWishListButtonLabel}}</p>
@@ -256,10 +259,10 @@
 						class="button download-wishlist"
 						@click="downloadWishListClickHandler"
 						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
-					>	
+					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-							  <path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"/>
+								<path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z" />
 							</svg>
 						</span>
 						<p>Download wishlist</p>
@@ -291,14 +294,19 @@ import {
 	DOWNLOAD_PREPARING
 } from '~/model/constants'
 
+import FilterButton from '~/components/content/FilterButton.vue'
+
 import ContentTypes from '~/model/content-types'
 import ViewportSizes from '~/model/viewport-sizes'
 import AssistantModes from '~/model/assistant-modes'
+
 import getAssetType from '~/utils/asset-type'
 import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
+import getShortUrl from '~/utils/get-short-url'
 import isMobile from '~/utils/is-mobile'
-import FilterButton from '~/components/content/FilterButton.vue'
+import sendTracking from '~/utils/send-tracking'
+
 
 export default {
 	name: 'assistant',
@@ -316,7 +324,9 @@ export default {
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
-			showClipboardMessage: false
+			showClipboardMessage: false,
+			styleHasBeenAdded: false,
+			shortenedReceiptUrl: null
 		}
 	},
 	computed: {
@@ -333,7 +343,7 @@ export default {
 			return `View wishlist (${this.wishList.length})`
 		},
 		addToWishListButtonLabel() {
-			// if (this.styleOnWishList) return 'Remove from list'
+			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
 		},
 		styleOnWishList() {
@@ -379,6 +389,7 @@ export default {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
+			this.styleHasBeenAdded = false
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -462,7 +473,15 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
+
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+
+				sendTracking('Add to wish list',this.currentStyle.styleId)
+				
+				this.styleHasBeenAdded = true
+				setTimeout(()=> {
+					this.styleHasBeenAdded = false
+				}, 4000)
 			} else {
 				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
@@ -470,17 +489,25 @@ export default {
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
 			history.pushState({}, '', this.receiptUrl)
-			// setTimeout(() => history.back(), 2000)
-			this[DOWNLOAD_PREPARING.action](true);
+			setTimeout(() => history.back(), 30000) // revert url after 30 sec
+			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
 			console.log('Share wishlist',this.receiptUrl)
-			copyToClipboard(this.receiptUrl, this.copyToClipboardComplete.bind(this) );
+						
+			getShortUrl(this.receiptUrl).then((shortenedUrl)=>{
+				console.log("shortenedUrl", shortenedUrl)
+				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
+
+				copyToClipboard(this.shortenedReceiptUrl, this.copyToClipboardComplete.bind(this) );
+				let wLS = this.wishList.map(style => style.styleId).join(',')
+				sendTracking('Share wish list',wLS)
+			});
 		},
 		copyToClipboardComplete(success) {
-			console.log("copyToClipboardComplete. success?",success)
+			console.log('copyToClipboardComplete. success?', success)
 			this.shareUrl = this.receiptUrl
-			this[CLIPBOARD_COPY.action](success);			
+			this[CLIPBOARD_COPY.action](success)
 		},
 		parseAssets() {
 			let al = (this.currentStyle && this.currentStyle.assets.length) || 0
@@ -518,21 +545,21 @@ export default {
 			this.assistantExpanded = !this.assistantExpanded
 		},
 		shareUrlClickHandler(event) {
-			let node = event.currentTarget;
+			let node = event.currentTarget
 
-		    if (document.body.createTextRange) {
-		        const range = document.body.createTextRange();
-		        range.moveToElementText(node);
-		        range.select();
-		    } else if (window.getSelection) {
-		        const selection = window.getSelection();
-		        const range = document.createRange();
-		        range.selectNodeContents(node);
-		        selection.removeAllRanges();
-		        selection.addRange(range);
-		    } else {
-		        console.warn("Could not select text in node: Unsupported browser.");
-		    }
+			if (document.body.createTextRange) {
+				const range = document.body.createTextRange()
+				range.moveToElementText(node)
+				range.select()
+			} else if (window.getSelection) {
+				const selection = window.getSelection()
+				const range = document.createRange()
+				range.selectNodeContents(node)
+				selection.removeAllRanges()
+				selection.addRange(range)
+			} else {
+				console.warn('Could not select text in node: Unsupported browser.')
+			}
 		}
 	},
 	mounted() {
@@ -545,5 +572,5 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}
-};
+}
 </script>

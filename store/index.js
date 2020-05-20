@@ -85,7 +85,6 @@ export const mutations = {
 	// Baseline content to cms
 
 	[LOGIN.mutation](state, key) {
-		console.log('login mutation')
 		state.loggedin = key
 	},
 
@@ -607,6 +606,7 @@ export const actions = {
 	[DOWNLOAD_PREPARING.action]({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
+
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 

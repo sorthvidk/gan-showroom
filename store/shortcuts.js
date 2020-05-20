@@ -178,7 +178,8 @@ export const state = () => ({
 		},
 		{
 			marqueeLink: true,
-			label: 'Check out the Leopards!',
+			text: 'Take a look at this ',
+			label: 'Leopards!',
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: 'LEOPARD PRINT',
 			windowContent: [
@@ -192,7 +193,8 @@ export const state = () => ({
 		},
 		{
 			marqueeLink: true,
-			label: 'Or take a look at hampster dance',
+			text: 'Or this ',
+			label: 'hampster dance',
 			windowContent: [
 				{
 					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
@@ -203,7 +205,8 @@ export const state = () => ({
 		},
 		{
 			marqueeLink: true,
-			label: `Here's a really cool dress`,
+			text: 'Also this ',
+			label: `cool dress`,
 			actionParam: 'F8907234'
 		}
 	]

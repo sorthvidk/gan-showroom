@@ -8,6 +8,9 @@
 <script>
 
 export default {
-	name: 'default'
+	name: 'default',
+	mounted() {
+		window.$gtm = this.$gtm
+	}
 };
 </script>

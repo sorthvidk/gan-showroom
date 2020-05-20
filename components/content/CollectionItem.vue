@@ -11,9 +11,11 @@
 
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
-import getCloudinaryUrl from '~/utils/cloudinary-url'
 import CollectionItemModel from '~/model/collection-item'
 import capitalize from 'lodash/capitalize'
+
+import getCloudinaryUrl from '~/utils/cloudinary-url'
+import sendTracking from '~/utils/send-tracking'
 
 export default {
 	name:'collectionItem',
@@ -32,7 +34,9 @@ export default {
 			OPEN_STYLE_CONTENT.action
 		]),		
 		onItemClick() {
-			this[OPEN_STYLE_CONTENT.action]( this.styleId );
+			sendTracking('Product click',this.styleId)
+			
+			this[OPEN_STYLE_CONTENT.action]( this.styleId )
 		}
 	}
 };
