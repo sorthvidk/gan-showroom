@@ -201,7 +201,6 @@
 
 		.button {
 			@include full-width-button();
-			flex: 0 0 50%;
 			border-top: rem(1) solid $color-black;
 			text-align: left;
 			box-sizing: border-box;
@@ -227,15 +226,19 @@
 			&.share-wishlist {
 				color: $color-blue;
 			}
-			&.show-variants {
-				flex: 0 0 100%;
+			
+
+			flex: 0 0 100%;
+
+			&--half {
+				flex: 0 0 50%;
+				border-right: rem(1) solid $color-black;
 			}
 		}
-
-		.add-to-wishlist + .view-wishlist,
-		.download-wishlist + .share-wishlist {
-			border-left: rem(1) solid $color-black;
+		.button--half + .button--half {
+			border-right: 0;
 		}
+
 		.download-wishlist {
 			.icon {
 				margin-right: 0;
@@ -244,9 +247,6 @@
 				width: rem(11);
 				height: rem(11);
 			}
-		}
-		.view-wishlist:first-child {
-			flex: 0 0 100%;
 		}
 
 		.add-to-wishlist {

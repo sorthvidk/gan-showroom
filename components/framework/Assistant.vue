@@ -7,6 +7,11 @@
 			<span class="title">🤖 Desktop assistant</span>
 		</div>
 
+
+
+		<!-- ####################### STATUS ####################### -->
+
+
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
@@ -90,6 +95,11 @@
 		</div>
 
 		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
+		
+
+
+
+		<!-- ####################### CONTENT ####################### -->
 
 		<div class="window__content">
 			<div class="assistant">
@@ -139,7 +149,12 @@
 
 								<tr>
 									<th>Materiel</th>
-									<td>{{currentStyle.material}}</td>
+									<td>
+										{{currentStyle.material}}
+										<span v-if="currentStyle.responsible">
+											I am a certified responsible material
+										</span>										
+									</td>
 								</tr>
 								<tr>
 									<th>Style #</th>
@@ -152,10 +167,6 @@
 								<tr>
 									<th>Program name</th>
 									<td>{{currentStyle.programName}}</td>
-								</tr>
-								<tr v-if="currentStyle.responsible">
-									<th>Responsible</th>
-									<td>This style is responsible</td>
 								</tr>
 
 								<tr>
@@ -214,10 +225,23 @@
 					</div>
 				</div>
 
+
+
+
+				<!-- ####################### CTA ####################### -->
+
+
 				<div class="assistant__ctas" v-if="assistantMode == 1">
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
+					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
+
+					<a 
+						class="button download-collection button--half" 
+						@click="downloadCollectionClickHandler"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm">
+						<p>Download collection</p>
+					</a>
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 2">
@@ -232,7 +256,7 @@
 						<p>Show all variants</p>
 					</button>
 					<button
-						class="button add-to-wishlist"
+						class="button add-to-wishlist button--half"
 						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
@@ -243,7 +267,7 @@
 						</span>
 						<p>{{addToWishListButtonLabel}}</p>
 					</button>
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
+					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>
@@ -256,7 +280,7 @@
 
 				<div class="assistant__ctas" v-if="assistantMode == 4">
 					<a
-						class="button download-wishlist"
+						class="button download-wishlist button--half"
 						@click="downloadWishListClickHandler"
 						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
 					>
@@ -268,7 +292,7 @@
 						<p>Download wishlist</p>
 					</a>
 
-					<button @click="shareWishListClickHandler" class="button share-wishlist">
+					<button @click="shareWishListClickHandler" class="button share-wishlist button--half">
 						<p v-if="!showClipboardMessage">Share wishlist</p>
 						<p v-if="showClipboardMessage" :style="{color: '#1DD000', textDecoration: 'none'}">Link copied</p>
 					</button>
@@ -356,8 +380,13 @@ export default {
 			if (this.filterName) return this.filterName
 			return 'Filter'
 		},
-		receiptUrl() {
-			return `${window.location}wishlist/?styles=${this.wishList
+		wishListUrl() {
+			return `${window.location}export/?styles=${this.wishList
+				.map(style => style.styleId)
+				.join(',')}`
+		},
+		collectionUrl() {
+			return `${window.location}export/?styles=${this.currentStyles
 				.map(style => style.styleId)
 				.join(',')}`
 		}
@@ -486,16 +515,22 @@ export default {
 				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
+		downloadCollectionClickHandler() {
+			console.log('Download collection')
+			history.pushState({}, '', this.collectionUrl)
+			setTimeout(() => history.back(), 30000) // revert url after 30 sec
+			this[DOWNLOAD_PREPARING.action](true)
+		},
 		downloadWishListClickHandler() {
 			console.log('Download wishlist')
-			history.pushState({}, '', this.receiptUrl)
+			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist',this.receiptUrl)
+			console.log('Share wishlist',this.wishListUrl)
 						
-			getShortUrl(this.receiptUrl).then((shortenedUrl)=>{
+			getShortUrl(this.wishListUrl).then((shortenedUrl)=>{
 				console.log("shortenedUrl", shortenedUrl)
 				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
 
@@ -506,7 +541,7 @@ export default {
 		},
 		copyToClipboardComplete(success) {
 			console.log('copyToClipboardComplete. success?', success)
-			this.shareUrl = this.receiptUrl
+			this.shareUrl = this.wishListUrl
 			this[CLIPBOARD_COPY.action](success)
 		},
 		parseAssets() {
