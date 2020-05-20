@@ -2,7 +2,12 @@
 	<button class="collection-item" @click.stop="onItemClick">
 		<img v-lazy="imageUrl" alt="imageName">
 		<p>{{imageName}}</p>
-		<span v-if="responsible">🌍</span>
+		<span class="responsible" v-if="responsible">🌍</span>
+		<span class="on-wishlist" v-if="onWishList">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+				<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
+			</svg>
+		</span>
 	</button>
 </template>
 
@@ -21,12 +26,18 @@ export default {
 	name:'collectionItem',
 	props: CollectionItemModel,
 	computed: {
+		...mapState({
+			wishList: state => state.collection.wishList
+		}),
 		imageUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.assets[0], {width: 196} );
 		},
 		imageName() {
 			if ( this.assets[0] ) return this.name;
 			return this.name+' | 0 assets, can\'t open' ;
+		},
+		onWishList() {
+			return this.wishList.filter((e)=>e.styleId === this.styleId).length > 0
 		}
 	},
 	methods: {		

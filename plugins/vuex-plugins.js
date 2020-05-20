@@ -1,11 +1,17 @@
 import createPersistedState from 'vuex-persistedstate'
 
 
-// JPL: NOT YET!
-// export default ({store}) => {
-//   window.onNuxtReady(() => {
-//     createPersistedState({
-//         key: 'gannishowroom'
-//     })(store)
-//   })
-// }
+export default ({store}) => {
+  window.onNuxtReady(() => {
+    createPersistedState({
+        key: 'gannishowroom',
+		paths: [
+			'loggedin',
+			'progressItems',
+			'progressMax',
+			'progressPct',
+			'collection.wishList'
+		]
+    })(store)
+  })
+}
