@@ -1,7 +1,8 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
 		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
-			<!-- can't attach listener to vue-draggable -->
+			
+			
 			<vue-draggable-resizable
 				ref="draggableResizable"
 				:class-name="concatClassName"

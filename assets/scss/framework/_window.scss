@@ -24,12 +24,6 @@
 			background-color: lighten($color-lightgrey, 5%);
 		}
 	}
-	&:hover {
-		.handle {
-			display: block !important;
-		}
-	}
-
 	&.is-dragging {
 		.title {
 			cursor: grabbing;
@@ -123,12 +117,20 @@
 		@include custom-scrollbar();
 	}
 
+	&:hover {
+		.handle {
+			display: block !important;
+		}
+	}
+
 	&--tight {
 		#{$module}__content {
 			overflow: visible;
 		}
-		.handle {
-			display: none;
+		&:hover {
+			.handle {
+				display: none !important;
+			}
 		}
 	}
 
