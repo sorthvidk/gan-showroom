@@ -57,55 +57,12 @@ export default function(state, currentWindow, groupId) {
 		windowProps.height ||
 		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight']
 
-	// const ifDefinedElse = (v, d) => v !== undefined ? v : d !== undefined ? d : null
-
-	let newWindowProps = {
-		sizeW: sizeW,
-		sizeH: sizeH,
-		positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
-		positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH)
-		// noStatus: ifDefinedElse(windowProps.noStatus, defaultWindowProps.noStatus)
-	}
-
-	let noStatus
-	if (typeof windowProps.noStatus == 'boolean') noStatus = windowProps.noStatus
-	else if (typeof defaultWindowProps.noStatus == 'boolean')
-		noStatus = defaultWindowProps.noStatus
-	else noStatus = null
-
-	let modifierClass
-	if (typeof windowProps.modifierClass == 'string')
-		modifierClass = windowProps.modifierClass
-	else if (typeof defaultWindowProps.modifierClass == 'string')
-		modifierClass = defaultWindowProps.modifierClass
-	else modifierClass = null
-
-	let isMaximized
-	if (typeof windowProps.isMaximized == 'boolean')
-		isMaximized = windowProps.isMaximized
-	else if (typeof defaultWindowProps.isMaximized == 'boolean')
-		isMaximized = defaultWindowProps.isMaximized
-	else isMaximized = null
-
-	let canResize
-	if (typeof windowProps.canResize == 'boolean')
-		canResize = windowProps.canResize
-	else if (typeof defaultWindowProps.canResize == 'boolean')
-		canResize = defaultWindowProps.canResize
-	else canResize = null
-
-	let noPlacement
-	if (typeof windowProps.noPlacement == 'boolean')
-		noPlacement = windowProps.noPlacement
-	else if (typeof defaultWindowProps.noPlacement == 'boolean')
-		noPlacement = defaultWindowProps.noPlacement
-	else noPlacement = null
-
-	if (noStatus) newWindowProps.noStatus = noStatus
-	if (modifierClass) newWindowProps.modifierClass = modifierClass
-	if (isMaximized) newWindowProps.isMaximized = isMaximized
-	if (canResize) newWindowProps.canResize = canResize
-	if (noPlacement) newWindowProps.noPlacement = noPlacement
+	const ifDefined = v =>
+		windowProps[v] !== undefined
+			? windowProps[v]
+			: defaultWindowProps[v] !== undefined
+			? defaultWindowProps[v]
+			: null
 
 	return {
 		...currentWindow,
@@ -117,6 +74,16 @@ export default function(state, currentWindow, groupId) {
 
 		positionZ: windowProps.positionZ || state.highestZIndex + 1,
 
-		windowProps: newWindowProps
+		windowProps: {
+			sizeW: sizeW,
+			sizeH: sizeH,
+			positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
+			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH),
+			noStatus: ifDefined('noStatus'),
+			canResize: ifDefined('canResize'),
+			modifierClass: ifDefined('modifierClass'),
+			isMaximized: ifDefined('isMaximized'),
+			noPlacement: ifDefined('noPlacement')
+		}
 	}
 }

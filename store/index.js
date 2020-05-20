@@ -85,7 +85,6 @@ export const mutations = {
 	// Baseline content to cms
 
 	[LOGIN.mutation](state, key) {
-		console.log('login mutation')
 		state.loggedin = key
 	},
 
