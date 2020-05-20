@@ -63,9 +63,9 @@
 
 			outline: none;
 
-			&.invalid {
-				color: red;
-			}
+			// &.invalid {
+			// 	color: red;
+			// }
 
 			&::placeholder {
 				color: $color-lightyellow;

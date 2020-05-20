@@ -1,11 +1,11 @@
 <template>
 	<div class="login-input" :style="{ backgroundImage: 'url(/img/login-bg.jpg)' }">
-		<form @submit.prevent="submit" class="form">
+		<form ref="form" @submit.prevent="submit" class="form">
 			<input
 				:class="valid ? '' : 'invalid'"
 				@blur="isBlur"
 				@focus="isFocus = true"
-				@input="valid = true"
+				@input="submit"
 				autocomplete="new-password"
 				class="form__input"
 				id="password"
@@ -37,7 +37,6 @@ export default {
 	methods: {
 		...mapActions([LOGIN.action]),
 		submit(e) {
-			const input = e.currentTarget[0]
 			const valid =
 				hash
 					.sha256()
@@ -45,12 +44,14 @@ export default {
 					.digest('hex') === this.password
 
 			if (valid) {
-				input.setCustomValidity('')
-				document.body.classList.remove('is-fixed')
+				// this.$refs.passwordInput.setCustomValidity('')
+				// document.body.classList.remove('is-fixed')
 				this.playSound()
-			} else {
-				input.setCustomValidity('wrong password')
 			}
+			// else {
+			// 	this.$refs.passwordInput.setCustomValidity('wrong password')
+			// }
+
 			this[LOGIN.action](valid)
 			this.valid = valid
 		},
@@ -68,7 +69,6 @@ export default {
 			const audio = new Audio('/audio/ganni_boot.mp3')
 			audio.addEventListener('loadeddata', () => audio.play())
 		}
-	},
-	mounted() {}
+	}
 }
 </script>
