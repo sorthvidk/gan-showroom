@@ -7,10 +7,7 @@
 			<span class="title">🤖 Desktop assistant</span>
 		</div>
 
-
-
 		<!-- ####################### STATUS ####################### -->
-
 
 		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
 			<button class="button expand" @click="toggleContentHandler">
@@ -95,9 +92,6 @@
 		</div>
 
 		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
-		
-
-
 
 		<!-- ####################### CONTENT ####################### -->
 
@@ -134,8 +128,11 @@
 					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
-						
-						<span v-if="currentStyle.responsible" class="responsible"> I am a certified responsible material </span>		
+						<span v-if="currentStyle.responsible" class="responsible">
+							<div>I am a certified responsible material —&nbsp;</div>
+							<div>I am a certified responsible material —&nbsp;</div>
+							<div>I am a certified responsible material —&nbsp;</div>
+						</span>
 
 						<table>
 							<tbody>
@@ -222,11 +219,7 @@
 					</div>
 				</div>
 
-
-
-
 				<!-- ####################### CTA ####################### -->
-
 
 				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
@@ -239,10 +232,11 @@
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 
-					<a 
-						class="button download-collection button--half" 
+					<a
+						class="button download-collection button--half"
 						@click="downloadCollectionClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm">
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+					>
 						<p>Download collection</p>
 					</a>
 				</div>
@@ -333,7 +327,6 @@ import addMediaChangeListener from '~/utils/media-change'
 import getShortUrl from '~/utils/get-short-url'
 import isMobile from '~/utils/is-mobile'
 import sendTracking from '~/utils/send-tracking'
-
 
 export default {
 	name: 'assistant',
@@ -505,13 +498,12 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
-
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
 
-				sendTracking('Add to wish list',this.currentStyle.styleId)
-				
+				sendTracking('Add to wish list', this.currentStyle.styleId)
+
 				this.styleHasBeenAdded = true
-				setTimeout(()=> {
+				setTimeout(() => {
 					this.styleHasBeenAdded = false
 				}, 4000)
 			} else {
@@ -531,16 +523,20 @@ export default {
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist',this.wishListUrl)
-						
-			getShortUrl(this.wishListUrl).then((shortenedUrl)=>{
-				console.log("shortenedUrl", shortenedUrl)
-				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
+			console.log('Share wishlist', this.wishListUrl)
 
-				copyToClipboard(this.shortenedReceiptUrl, this.copyToClipboardComplete.bind(this) );
+			getShortUrl(this.wishListUrl).then(shortenedUrl => {
+				console.log('shortenedUrl', shortenedUrl)
+				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
+					this.shortenedReceiptUrl = shortenedUrl
+
+				copyToClipboard(
+					this.shortenedReceiptUrl,
+					this.copyToClipboardComplete.bind(this)
+				)
 				let wLS = this.wishList.map(style => style.styleId).join(',')
-				sendTracking('Share wish list',wLS)
-			});
+				sendTracking('Share wish list', wLS)
+			})
 		},
 		copyToClipboardComplete(success) {
 			console.log('copyToClipboardComplete. success?', success)
