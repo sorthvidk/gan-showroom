@@ -7,6 +7,8 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { SET_CURRENT_FILTER } from '~/model/constants'
 
+import sendTracking from '~/utils/send-tracking'
+
 export default {
 	name:'filter-button',
 	props: {
@@ -43,7 +45,9 @@ export default {
 				this['collection/'+SET_CURRENT_FILTER.action]();
 			}
 			else {
-				this['collection/'+SET_CURRENT_FILTER.action](this.filterId);				
+				this['collection/'+SET_CURRENT_FILTER.action](this.filterId);	
+
+				sendTracking('Filter added',this.filterId)
 			}
 		}
 	}
