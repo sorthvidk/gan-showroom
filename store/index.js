@@ -36,7 +36,7 @@ import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
 	hasData: false,
-	loggedin: false,
+	loggedin: true, // don't show on localhost
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
 
 	progressItems: {},
@@ -85,7 +85,6 @@ export const mutations = {
 	// Baseline content to cms
 
 	[LOGIN.mutation](state, key) {
-		console.log('login mutation')
 		state.loggedin = key
 	},
 
