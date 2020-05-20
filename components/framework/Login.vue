@@ -27,8 +27,7 @@ export default {
 			return [
 				{
 					type: 'one',
-					backgroundImage: 'url(/img/login-slide-0.jpg)',
-					text: ''
+					backgroundImage: 'url(/img/login-slide-0.jpg)'
 				},
 				{
 					type: 'two',

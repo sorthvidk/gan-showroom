@@ -38,35 +38,41 @@
 		width: inherit;
 		height: inherit;
 	}
+}
 
-	&-input {
+.login-input {
+	display: flex;
+	align-items: flex-end;
+	height: 100vh;
+
+	background-size: cover;
+
+	.form {
 		display: flex;
-		align-items: flex-end;
-		height: 100vh;
+		justify-content: center;
 
-		background-size: cover;
+		&__input {
+			font-family: $font-sansserif;
+			font-weight: 500;
+			border: none;
+			background: none;
+			font-size: 10vw;
+			width: 75%;
+			text-align: center;
+			color: $color-lime;
 
-		.form {
-			display: flex;
-			justify-content: center;
+			outline: none;
 
-			&__input {
-				font-family: $font-sansserif;
-				font-weight: 500;
-				border: none;
-				background: none;
-				font-size: 10vw;
-				width: 75%;
-				text-align: center;
-				color: $color-lime;
+			&.invalid {
+				color: red;
+			}
 
-				&.invalid {
-					color: red;
-				}
+			&::placeholder {
+				color: $color-lightyellow;
+			}
 
-				&::placeholder {
-					color: $color-lightyellow;
-				}
+			&:focus::placeholder {
+				color: $color-lightgrey;
 			}
 		}
 	}
