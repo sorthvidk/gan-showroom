@@ -212,7 +212,7 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
+			largeWidth: 400 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400
