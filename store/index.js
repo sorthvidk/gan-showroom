@@ -36,7 +36,7 @@ import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
 	hasData: false,
-	loggedin: true, // don't show on localhost
+	loggedin: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
 
 	progressItems: {},
