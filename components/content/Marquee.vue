@@ -2,11 +2,10 @@
 	<div ref="marquee" class="marquee" data-speed="1" data-pausable="true">
 		<!-- loop a couple of times to make them fill the screen -->
 		<p v-for="i in 5" :key="i">
-			<button
-				v-for="button in marqueeLinks"
-				:key="button.label"
-				@click="openWindow(button)"
-			>{{ button.label }}</button>
+			<span v-for="link in marqueeLinks" :key="link.label">
+				{{ link.text }}
+				<button @click="openWindow(link)">{{ link.label }}</button>
+			</span>
 		</p>
 	</div>
 </template>
