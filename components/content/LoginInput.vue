@@ -1,5 +1,5 @@
 <template>
-	<div class="login-input" :style="{ backgroundImage: 'url(/img/login-bg.jpg)' }">
+	<div class="login-input" v-lazy:background-image="backgroundImageObj">
 		<form ref="form" @submit.prevent="submit" class="form">
 			<input
 				:class="valid ? '' : 'invalid'"
@@ -30,7 +30,11 @@ export default {
 		return {
 			pwd: '',
 			valid: true,
-			isFocus: false
+			isFocus: false,
+			backgroundImageObj: {
+				src: '/img/login-bg.jpg',
+				loading: '/img/350x150.png'
+			}
 		}
 	},
 	computed: mapState(['loggedin', 'password']),
@@ -42,10 +46,6 @@ export default {
 					.sha256()
 					.update(this.pwd)
 					.digest('hex') === this.password
-
-			if (valid) {
-				this.playSound()
-			}
 
 			this[LOGIN.action](valid)
 			this.valid = valid

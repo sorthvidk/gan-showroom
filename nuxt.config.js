@@ -66,9 +66,12 @@ export default {
 	 */
 	modules: [
 		'@nuxtjs/markdownit',
-		['nuxt-cookie-control', {
-			css: false
-		}]
+		[
+			'nuxt-cookie-control',
+			{
+				css: false
+			}
+		]
 	],
 	markdownit: {
 		injected: true

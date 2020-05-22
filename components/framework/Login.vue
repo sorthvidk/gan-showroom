@@ -27,11 +27,11 @@ export default {
 			return [
 				{
 					type: 'one',
-					backgroundImage: 'url(/img/login-slide.jpg)'
+					backgroundImage: '/img/login-slide.jpg'
 				},
 				{
 					type: 'two',
-					backgroundImage: 'url(/img/login-slide-2.jpg)',
+					backgroundImage: '/img/login-slide-2.jpg',
 					text: `There are many\nvariations of\npassages of\nwords which\ndon't look even`
 				}
 			]
@@ -43,5 +43,5 @@ export default {
 		}
 	},
 	mounted() {}
-};
+}
 </script>
