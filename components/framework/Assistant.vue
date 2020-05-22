@@ -235,7 +235,7 @@
 					<a
 						class="button download-collection button--half"
 						@click="downloadCollectionClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm"
 					>
 						<p>Download collection</p>
 					</a>
