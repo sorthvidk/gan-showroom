@@ -10,15 +10,15 @@
   "drop": "November",
   "programName": "Stripe cotton",
   "index": 0,
+  "responsible": true,
   "wholesalePriceEUR": 110,
   "wholesalePriceDKK": 800,
   "wholesalePriceUSD": 170,
   "filters": [
-    "LEOPARD PRINT"
+    "rtw1"
   ],
   "retailPriceEUR": 140,
   "description": "Qui voluptatibus consequuntur tempore nam accusantium quam assumenda.",
-  "responsible": true,
   "retailPriceDKK": 1000,
   "colorId": "699"
 }
