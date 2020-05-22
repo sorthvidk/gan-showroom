@@ -10,15 +10,15 @@
   "drop": "November",
   "programName": "Stripe cotton",
   "index": 0,
+  "responsible": false,
   "wholesalePriceEUR": 110,
   "wholesalePriceDKK": 800,
   "wholesalePriceUSD": 140,
   "filters": [
-    "TOPS"
+    "rtw8"
   ],
   "retailPriceEUR": 140,
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.",
-  "responsible": false,
   "retailPriceDKK": 1000,
   "colorId": "699"
 }
