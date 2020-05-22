@@ -64,24 +64,21 @@
 						<span class="title">Please wait</span>
 					</header>
 					<div class="window__content">
-						<img src="/img/file-transfer.gif" alt="">
+						<img src="/img/file-transfer.gif" alt />
 						<p>Your download is being prepared...</p>
 					</div>
 				</div>
 			</div>
-
-
-
 		</div>
-	</transition>	
+	</transition>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { 
-	KEYPRESS, 
-	MOUSEMOVE, 
+import {
+	KEYPRESS,
+	MOUSEMOVE,
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING
 } from '~/model/constants'
@@ -147,8 +144,8 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			KEYPRESS.action, 
-			MOUSEMOVE.action, 
+			KEYPRESS.action,
+			MOUSEMOVE.action,
 			CLIPBOARD_COPY.action,
 			DOWNLOAD_PREPARING.action
 		]),
@@ -167,6 +164,10 @@ export default {
 			setTimeout(() => {
 				this[DOWNLOAD_PREPARING.action](false)
 			}, 3000)
+		},
+		playSound() {
+			const audio = new Audio('/audio/ganni_boot.mp3')
+			audio.addEventListener('loadeddata', () => audio.play())
 		}
 	},
 	mounted() {
@@ -183,6 +184,8 @@ export default {
 			this.isLargeViewport
 		)
 		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
+
+		this.playSound()
 	}
 }
 </script>

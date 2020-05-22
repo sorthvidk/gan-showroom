@@ -1,8 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
 		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
-			
-			
 			<vue-draggable-resizable
 				ref="draggableResizable"
 				:class-name="concatClassName"
@@ -353,7 +351,6 @@ export default {
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
-		console.log('resize', this.canResize)
 	}
 }
 </script>
