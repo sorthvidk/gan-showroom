@@ -279,7 +279,7 @@
 					<a
 						class="button download-wishlist button--half"
 						@click="downloadWishListClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm"
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
