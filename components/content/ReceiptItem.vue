@@ -5,12 +5,12 @@
 				<td rowspan="4" class="image">
 					<img style="width: 4cm;" :src="receiptItem.assets[0].cloudinaryUrl" alt />
 				</td>
-				<td class="title">{{receiptItem.name}}</td>
+				<td colspan="2" class="title">{{receiptItem.name}}</td>
 			</tr>
 			<!-- <tr>
 			</tr>-->
 			<tr style="height: 1em;">
-				<td style="color: #666;">Color</td>
+				<td style="color: #666; padding-right: 5em;">Color</td>
 				<td>{{receiptItem.colorNames}}</td>
 				<!-- <th>Program #</th> -->
 			</tr>
