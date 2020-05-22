@@ -9,6 +9,7 @@ const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const MOBILE_GUTTERS_HORIZONTAL = 10 // left margin
 const MOBILE_GUTTERS_VERTICAL = 10 + (10 + 45) //top + (bottom + navbar)
 
+// returns mobile_gutter if the window size is larger than 375
 const safelyPlaceAt = (place, sizeW) =>
 	place + sizeW > 375 ? MOBILE_GUTTERS_HORIZONTAL : place
 
@@ -20,7 +21,7 @@ export const placementX = (state, sizeW) => {
 	const placements = [gutter, gutter * 2, gutter * 3, gutter * 4]
 
 	return isMobile() && sizeW > LARGE_WINDOW
-		? MOBILE_GUTTERS_HORIZONTAL // place all to the left
+		? MOBILE_GUTTERS_HORIZONTAL // place all the way to the left
 		: isMobile()
 		? safelyPlaceAt(
 				MOBILE_GUTTERS_HORIZONTAL + (state.windowList.length % 4) * 15,
@@ -38,11 +39,18 @@ export const placementX = (state, sizeW) => {
 export const placementY = (state, sizeH) => {
 	return isMobile()
 		? 50 + state.windowList.length * 15
-		: random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
+		: Math.max(
+				0,
+				random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
+		  )
 }
 
 export default function(state, currentWindow, groupId) {
-	const { statusComponentProps = {}, windowProps = {} } = currentWindow
+	const {
+		windowProps = {},
+		type: contentType,
+		title: contentName
+	} = currentWindow
 
 	const {
 		contentComponent,
@@ -68,6 +76,9 @@ export default function(state, currentWindow, groupId) {
 		...currentWindow,
 		windowId: '' + getUniqueId(),
 		groupId,
+
+		contentType,
+		contentName,
 
 		contentComponent,
 		statusComponent,

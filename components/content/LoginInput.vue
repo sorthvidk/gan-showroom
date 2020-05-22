@@ -44,30 +44,19 @@ export default {
 					.digest('hex') === this.password
 
 			if (valid) {
-				// this.$refs.passwordInput.setCustomValidity('')
-				// document.body.classList.remove('is-fixed')
 				this.playSound()
 			}
-			// else {
-			// 	this.$refs.passwordInput.setCustomValidity('wrong password')
-			// }
 
 			this[LOGIN.action](valid)
 			this.valid = valid
 		},
 		isBlur(e) {
 			if (this.loggedin) return
-			const input = e.currentTarget
-			input.setCustomValidity('')
 			this.valid = true
 
 			if (!this.pwd) {
 				this.isFocus = false
 			}
-		},
-		playSound() {
-			const audio = new Audio('/audio/ganni_boot.mp3')
-			audio.addEventListener('loadeddata', () => audio.play())
 		}
 	}
 }

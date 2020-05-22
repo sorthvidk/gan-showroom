@@ -16,6 +16,28 @@
 	}
 
 	&-item {
+		page-break-inside: avoid;
+		width: 100%;
 		border-bottom: 1px solid;
+		text-align: left;
+
+		&__content {
+			display: block;
+			padding: 1em;
+
+			.image {
+				vertical-align: middle;
+				padding-right: 1em;
+			}
+
+			.title {
+				font-size: 2em;
+				height: 5cm;
+			}
+
+			.bottom {
+				height: 1em;
+			}
+		}
 	}
 }

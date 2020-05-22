@@ -224,8 +224,6 @@ export const mutations = {
 
 		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
-			const contentType = content.type
-			const contentName = content.title
 
 			const hasSame = prop => x => x[prop] === content[prop]
 			const hasNotSame = prop => x => x[prop] !== content[prop]
@@ -242,11 +240,7 @@ export const mutations = {
 			if (alreadyExists) return
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
-			// placed here b/c they changes name of the key
-			newWindow.contentName = contentName
-			newWindow.contentType = contentType
 			newWindow.windowProps.nthChild = windowGroup.groupSize
-			// console.log('group size', windowGroup)
 
 			state.windowList.push(newWindow)
 			state.content.list.push(content)
@@ -261,7 +255,7 @@ export const mutations = {
 			state.topMostWindow = newWindow
 
 			//FLAG PROGRESS!
-			state.progressItems[contentType.name].complete = true
+			state.progressItems[newWindow.contentType.name].complete = true
 		})
 
 		//only add the group if it has content
@@ -606,7 +600,6 @@ export const actions = {
 	[DOWNLOAD_PREPARING.action]({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
-
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
