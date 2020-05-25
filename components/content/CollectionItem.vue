@@ -1,6 +1,6 @@
 <template>
 	<button class="collection-item" @click.stop="onItemClick">
-		<img v-lazy="imageUrl" alt="imageName">
+		<img v-lazy="imageUrl" alt="imageName" />
 		<p>{{imageName}}</p>
 		<span class="responsible" v-if="responsible">🌍</span>
 		<span class="on-wishlist" v-if="onWishList">
@@ -13,7 +13,6 @@
 
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
@@ -23,33 +22,35 @@ import getCloudinaryUrl from '~/utils/cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
 
 export default {
-	name:'collectionItem',
+	name: 'collectionItem',
 	props: CollectionItemModel,
 	computed: {
 		...mapState({
 			wishList: state => state.collection.wishList
 		}),
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.assets[0], {width: 196} );
+			return {
+				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 196 }),
+				loading: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
+					width: 10
+				})
+			}
 		},
 		imageName() {
-			if ( this.assets[0] ) return this.name;
-			return this.name+' | 0 assets, can\'t open' ;
+			if (this.assets[0]) return this.name
+			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.filter((e)=>e.styleId === this.styleId).length > 0
+			return this.wishList.filter(e => e.styleId === this.styleId).length > 0
 		}
 	},
-	methods: {		
-		...mapActions([
-			OPEN_STYLE_CONTENT.action
-		]),		
+	methods: {
+		...mapActions([OPEN_STYLE_CONTENT.action]),
 		onItemClick() {
-			sendTracking('Product click',this.styleId)
-			
-			this[OPEN_STYLE_CONTENT.action]( this.styleId )
+			sendTracking('Product click', this.styleId)
+
+			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		}
 	}
-};
-
+}
 </script>
