@@ -49,8 +49,6 @@ export const state = () => ({
 	topMostWindow: null,
 
 	keyPressed: null,
-	zIndexes: [],
-	lowestZIndex: 0,
 	highestZIndex: 0,
 
 	musicPlayerOpen: false,
