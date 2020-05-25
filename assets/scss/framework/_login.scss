@@ -2,13 +2,27 @@
 .slide-transition-enter-active,
 .slide-transition-leave-active {
 	transition: all 1s ease;
+
+	> * {
+		transition: all 1s ease;
+	}
 }
 
 .slide-transition-leave-to {
-	transform: translateX(-100%);
+	transform: translateX(-10%);
+	opacity: 0;
+
+	> * {
+		transform: translateX(-100%);
+	}
 }
 .slide-transition-enter {
-	transform: translateX(100%);
+	transform: translateX(10%);
+	opacity: 0;
+
+	> * {
+		transform: translateX(100%);
+	}
 }
 
 .startup-transition-enter-active,
@@ -22,6 +36,9 @@
 
 // style the 'vue-typer' text
 .vue-typer {
+	width: 100%;
+	height: 100%;
+
 	.custom.char {
 		&.typed {
 			color: currentColor;

@@ -15,7 +15,7 @@ export default {
 	props: {
 		type: {
 			type: String,
-			default: 'typing',
+			default: 'two',
 			required: false
 		},
 		text: {
