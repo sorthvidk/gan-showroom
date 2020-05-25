@@ -10,15 +10,15 @@
   "drop": "TEST",
   "programName": "TEST",
   "index": 0,
+  "responsible": false,
   "wholesalePriceEUR": 1,
   "wholesalePriceDKK": 1,
   "wholesalePriceUSD": -2,
   "filters": [
-    "TEST"
+    "rtw1"
   ],
   "retailPriceEUR": 1,
   "description": "TEST",
-  "responsible": false,
   "retailPriceDKK": 1,
   "colorId": "TEST"
 }

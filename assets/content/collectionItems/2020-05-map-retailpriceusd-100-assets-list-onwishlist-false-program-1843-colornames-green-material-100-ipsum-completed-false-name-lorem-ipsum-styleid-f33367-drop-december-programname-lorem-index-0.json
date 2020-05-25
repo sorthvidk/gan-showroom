@@ -14,7 +14,9 @@
   "wholesalePriceEUR": 100,
   "wholesalePriceDKK": 100,
   "wholesalePriceUSD": 100,
-  "filters": [],
+  "filters": [
+    "acc1"
+  ],
   "retailPriceEUR": 100,
   "description": "Test test test",
   "retailPriceDKK": 100,
