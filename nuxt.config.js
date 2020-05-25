@@ -5,6 +5,9 @@ export default {
 	 */
 	head: {
 		title: process.env.npm_package_name || '',
+		htmlAttrs: {
+			lang: 'en'
+		},
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -66,9 +69,12 @@ export default {
 	 */
 	modules: [
 		'@nuxtjs/markdownit',
-		['nuxt-cookie-control', {
-			css: false
-		}]
+		[
+			'nuxt-cookie-control',
+			{
+				css: false
+			}
+		]
 	],
 	markdownit: {
 		injected: true
@@ -82,7 +88,7 @@ export default {
 		 */
 		devtools: true,
 		analyze: false, // only for debugging
-		extend(config, ctx) {
+		extend (config, ctx) {
 			// console.log('config.entry: ', config.entry);
 		},
 		postcss: {
