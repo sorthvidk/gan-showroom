@@ -1,9 +1,9 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1589794675/collection/F4478-687-landscape_kvyl6j.png",
-  "styleId": "TEST",
+  "styleId": "F33367",
   "name": "Bjerre",
   "type": "image",
   "assetId": "Tobias"
