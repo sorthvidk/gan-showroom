@@ -166,7 +166,7 @@ export const state = () => ({
 			posH: 12,
 			posV: 5,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'LEOPARD PRINT',
+			actionParam: 'misc4',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
@@ -181,7 +181,7 @@ export const state = () => ({
 			text: 'Take a look at this ',
 			label: 'Leopards!',
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'LEOPARD PRINT',
+			actionParam: 'misc4',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',

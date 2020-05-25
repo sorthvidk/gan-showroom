@@ -52,7 +52,6 @@
 			overflow: hidden;
 			border-bottom: rem(1) solid $color-black;
 
-			display: block;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			text-align: center;
@@ -60,6 +59,10 @@
 			@include windowtitle();
 
 			cursor: grab;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		.button {
 			@include window-button();

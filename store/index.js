@@ -32,6 +32,7 @@ import _ from 'lodash'
 
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
+import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
@@ -240,6 +241,7 @@ export const mutations = {
 			if (alreadyExists) return
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
+			console.log("newWindow.windowProps",newWindow.windowProps)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
 
 			state.windowList.push(newWindow)
@@ -248,9 +250,6 @@ export const mutations = {
 			windowGroup.windowIds.push(newWindow.windowId)
 			windowGroup.contentIds.push(newWindow.contentId)
 			windowGroup.groupSize++
-
-			state.zIndexes.push(newWindow.positionZ)
-			state.highestZIndex++
 
 			state.topMostWindow = newWindow
 
@@ -271,6 +270,16 @@ export const mutations = {
 		}
 
 		state.progressPct = Math.round((pIC / state.progressMax) * 100)
+
+
+		let wll = state.windowList.length
+
+		console.log("state.windowList 1",state.windowList[0].positionZ,state.windowList[wll - 1].positionZ)
+		state.windowList = resetZOrder(state.windowList)
+		state.highestZIndex = state.windowList[wll - 1].positionZ;
+
+		console.log("state.highestZIndex",state.highestZIndex)
+		console.log("state.windowList 2",state.windowList[0].positionZ,state.windowList[wll - 1].positionZ)
 	},
 	/*
 	 *	Save window position and size values
@@ -290,19 +299,8 @@ export const mutations = {
 	 */
 	[TOPMOST_WINDOW.mutation](state, windowId) {
 		console.warn('TOPMOST_WINDOW', windowId)
+		let wll = state.windowList.length
 
-		let windowsLength = state.windowList.length
-		let newZIndexes = []
-
-		for (var i = 0; i < windowsLength; i++) {
-			let currentWindow = state.windowList[i]
-			newZIndexes.push(currentWindow.positionZ)
-		}
-		//console.log("zIndexes before",state.zIndexes)
-		newZIndexes.sort(function(a, b) {
-			return a - b
-		})
-		state.zIndexes = newZIndexes
 		//console.log("zIndexes after",state.zIndexes)
 
 		let matchingWindow = state.windowList.filter(
@@ -311,9 +309,9 @@ export const mutations = {
 		//console.log("current z", matchingWindow.positionZ )
 
 		if (matchingWindow) {
-			state.highestZIndex = matchingWindow.positionZ
-			matchingWindow.positionZ = state.zIndexes[windowsLength - 1] + 1
-
+			matchingWindow.positionZ = state.highestZIndex+1
+			state.windowList = resetZOrder(state.windowList)
+			state.highestZIndex = state.windowList[wll - 1].positionZ;
 			state.topMostWindow = matchingWindow
 		}
 	},
@@ -330,18 +328,6 @@ export const mutations = {
 		let currentWindow = state.windowList.filter(
 			e => e.windowId === ids.windowId
 		)[0]
-
-		let searchZ = currentWindow.positionZ
-		if (searchZ == state.lowestZIndex) {
-			//if closing window was lowest, set lowest current index to next lowest window
-			state.lowestZIndex = state.zIndexes.shift()
-		} else if (searchZ == state.highestZIndex) {
-			//if closing window was highest, set highest current index to next highest window
-			state.highestZIndex = state.zIndexes.pop()
-		} else {
-			//just remove index
-			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1)
-		}
 
 		//remove window
 		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
@@ -365,12 +351,14 @@ export const mutations = {
 			}
 		}
 
-		if (state.windowGroupList.length == 0) {
-			state.highestZIndex = 0
-			state.lowestZIndex = 0
-		}
-
+		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
+		
+		if (wll == 0) {
+			state.highestZIndex = 0
+		} else {
+			state.highestZIndex = state.windowList[wll - 1].positionZ;
+		}		
 		state.topMostWindow = state.windowList[wll - 1]
 
 		console.warn(
@@ -410,25 +398,11 @@ export const mutations = {
 			let currentWindow = state.windowList.filter(
 				e => e.windowId === ids.windowId
 			)[0]
-			if (currentWindow) {
-				let searchZ = currentWindow.positionZ
-				//if closing window was lowest, set lowest current index to next lowest window
-				if (searchZ == state.lowestZIndex) {
-					//remove first element
-					state.lowestZIndex = state.zIndexes.shift()
-				}
-				//if closing window was highest, set highest current index to next highest window
-				else if (searchZ == state.highestZIndex) {
-					state.highestZIndex = state.zIndexes.pop()
-				} else {
-					//just remove index
-					state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1)
-				}
-			}
 			state.windowList = state.windowList.filter(
 				e => e.windowId !== ids.windowId
 			)
 		}
+		
 
 		state.windowGroupList.pop() //remove that group
 		console.warn(
@@ -438,12 +412,14 @@ export const mutations = {
 				(params && params.styleWindowGroup)
 		)
 
-		if (state.windowGroupList.length == 0) {
-			state.highestZIndex = 0
-			state.lowestZIndex = 0
-		}
-
+		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
+		
+		if (wll == 0) {
+			state.highestZIndex = 0
+		} else {
+			state.highestZIndex = state.windowList[wll - 1].positionZ;
+		}		
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
@@ -558,13 +534,6 @@ export const actions = {
 				contentComponentProps: {
 					styleId: asset.styleId,
 					focusedAssetId: asset.assetId
-				},
-				windowProps: {
-					positionZ: 4500,
-					noStatus: true,
-					isMaximized: true,
-					canResize: false,
-					modifierClass: 'window--gallery'
 				}
 			}
 		]
@@ -583,7 +552,7 @@ export const actions = {
 	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {
-		let galleryContent = [
+		let wishListContent = [
 			{
 				title: 'Your wishlist',
 				contentId: 'wish-list',
@@ -591,7 +560,7 @@ export const actions = {
 				canOverride: false
 			}
 		]
-		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
+		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
 	},
 
 	[CLIPBOARD_COPY.action]({ commit }, value) {
