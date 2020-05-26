@@ -46,11 +46,9 @@ export default {
 					href:
 						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
 				}
-			]
+			],
+			title: 'GANNI space - our digital showroom'
 		}
 	},
-	mounted() {
-		// getShortUrl('https://docs.google.com/spreadsheets/d/16N3rdfFBeB9VKvNL98fKTk55mrST0QalrtUMqku3ZIk/edit').then((e)=>console.warn("SHORT URL???", e))
-	}
-}
+};
 </script>

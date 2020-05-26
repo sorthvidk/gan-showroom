@@ -149,8 +149,8 @@ export const state = () => ({
 			shortcutId: 'hampster-dance',
 			icon: '🐹',
 			label: 'Hampster Dance',
-			posH: 12,
-			posV: 4,
+			posH: 11,
+			posV: 7,
 			windowContent: [
 				{
 					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
@@ -164,7 +164,7 @@ export const state = () => ({
 			icon: '🐯',
 			label: 'Animal Print',
 			posH: 12,
-			posV: 5,
+			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: 'misc4',
 			windowContent: [

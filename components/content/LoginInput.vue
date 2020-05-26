@@ -57,6 +57,11 @@ export default {
 			if (!this.pwd) {
 				this.isFocus = false
 			}
+		},
+		playSound() {
+			const audio = new Audio('/audio/ganni_boot.mp3')
+			audio.volume = 0.5
+			audio.addEventListener('loadeddata', () => {audio.volume=0.5;audio.play();})
 		}
 	}
 }
