@@ -2,7 +2,7 @@
 	<div class="desktop desktop--countdown" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
 		<div class="window window--no-status">
 			<header class="window__top">
-				<span class="title">GANNI Showroom Countdown</span>
+				<span class="title">GANNI Space Countdown</span>
 				<span class="button close">
 					<span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -15,48 +15,6 @@
 			</header>
 			<div class="window__content">
 				<div>
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
 					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
@@ -64,20 +22,52 @@
 
 					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
 					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" alt="hamster" />
+					<img src="/img/hamster3.gif" alt="hamster" />
+					<img src="/img/hamster3.gif" alt="hamster" />
+
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" alt="hamster" />
+
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" alt="hamster" />
+					<img src="/img/hamster4.gif" alt="hamster" />
+
+					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" alt="hamster" />
+
+					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" alt="hamster" />
+					<img src="/img/hamster2.gif" alt="hamster" />
+
 					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 				</div>
 
 				<div>
 					<h2>
-						<span id="countdownDays">00</span>:
-						<span id="countdownHours">00</span>:
-						<span id="countdownMinutes">00</span>:
-						<span id="countdownSeconds">00</span>
+						<span id="countdownDays">00</span>:<span id="countdownHours">00</span>:<span id="countdownMinutes">00</span>:<span id="countdownSeconds">00</span>
 					</h2>
 
 					<h3>
-						<span>Soon you will be able to enter Ganni Virtual Showroom</span>
+						<span>Soon you will be able to enter GANNI space - our digital showroom</span>
 						<br />
 						<span v-if="calendarLinks && calendarLinks.google" v-html="calendarLinks.google"></span>
 						<span v-if="calendarLinks && calendarLinks.yahoo" v-html="calendarLinks.yahoo"></span>
@@ -216,7 +206,8 @@ export default {
 					href:
 						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
 				}
-			]
+			],
+			title: 'GANNI Space Countdown'
 		}
 	},
 	data() {
@@ -252,7 +243,7 @@ export default {
 			hour = minute * 60,
 			day = hour * 24
 
-		var countDown = new Date('Jun 9, 2020 12:00').getTime(),
+		var countDown = new Date('Jun 11, 2020 12:00').getTime(),
 			interval = setInterval(function() {
 				let now = new Date().getTime(),
 					distance = countDown - now
@@ -277,28 +268,28 @@ export default {
 
 		let data = {
 			// Event title
-			title: 'Ganni Showroom Opening',
+			title: 'GANNI Space is now open',
 
 			// Event start date
-			start: new Date('June 9, 2020 12:00'),
+			start: new Date('June 11, 2020 12:00'),
 
 			// Event duration (IN MINUTES)
 			duration: 60,
 
 			// You can also choose to set an end time
 			// If an end time is set, this will take precedence over duration
-			end: new Date('June 9, 2020 13:00'),
+			end: new Date('June 11, 2020 13:00'),
 
 			// Event Address
-			address: 'online',
+			address: 'https://gannispace.com/',
 
 			// Event Description
 			description:
-				'Browse the new GANNI Showroom and check out the PS21 collection'
+				'We look forward to welcoming you into the GANNI space - our digital showroom for the upcoming season.'
 		}
 
 		let CL = getCalendarLinks({ data: data })
 		this.calendarLinks = CL
 	}
-}
+};
 </script>
