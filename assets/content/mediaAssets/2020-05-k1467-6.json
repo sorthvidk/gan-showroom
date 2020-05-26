@@ -1,7 +1,7 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1590431371/collection/Lookbook%20images/F5565_-_K1467_200519_GANNI_ND_12_097_c55r9a.jpg",
   "assetId": "K1467 6",
   "styleId": "TEST 2",
