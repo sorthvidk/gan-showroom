@@ -22,7 +22,7 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset);
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {width: 1000});
 		}
 	},
 	mounted() {
