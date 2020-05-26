@@ -1,6 +1,6 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
+		<section :class="wrapperClass" :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
 			<vue-draggable-resizable
 				ref="draggableResizable"
 				:class-name="concatClassName"
@@ -112,6 +112,10 @@ export default {
 			type: Boolean,
 			default: true
 		},
+		canReorder: {
+			type: Boolean,
+			default: true
+		},
 
 		contentComponent: {
 			type: String,
@@ -207,6 +211,11 @@ export default {
 			if (this.noStatus) cn += ' window--no-status'
 
 			return cn
+		},
+		wrapperClass() {
+			let cn = 'window'
+			if (this.modifierClass != '') cn = this.modifierClass
+			return cn + '__wrapper'
 		}
 	},
 	data: function() {
@@ -246,7 +255,10 @@ export default {
 			})
 		},
 		contentActivateHandler(e) {
-			this[TOPMOST_WINDOW.action](this.windowId)
+			console.log('contentActivateHandler',this.canReorder)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		titleClick() {
 			if (!this.canResize) return false
@@ -294,7 +306,9 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		onResizeStop() {
 			this.isMaximized = false
@@ -303,7 +317,9 @@ export default {
 		onDrag(x, y) {
 			this.x = x
 			this.y = y
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		onDragStop() {
 			this.constrain()
@@ -327,7 +343,9 @@ export default {
 					sizeH: this.h
 				}
 			})
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);

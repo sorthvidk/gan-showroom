@@ -235,7 +235,7 @@
 					<a
 						class="button download-collection button--half"
 						@click="downloadCollectionClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+						:href="pdfDownloadLink"
 					>
 						<p>Download collection</p>
 					</a>
@@ -279,7 +279,7 @@
 					<a
 						class="button download-wishlist button--half"
 						@click="downloadWishListClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+						:href="pdfDownloadLink"
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
@@ -346,7 +346,9 @@ export default {
 			shareUrl: null,
 			showClipboardMessage: false,
 			styleHasBeenAdded: false,
-			shortenedReceiptUrl: null
+			shortenedReceiptUrl: null,
+			pdfDownloadLink:
+				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
 		}
 	},
 	computed: {

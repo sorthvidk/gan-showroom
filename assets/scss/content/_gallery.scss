@@ -18,6 +18,9 @@
 			left: 50vw;
 			transform: translateX(-50%) !important;
 		}
+		&__wrapper {
+			z-index: $z-index-gallery !important;
+		}
 	}
 }
 

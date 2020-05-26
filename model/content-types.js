@@ -162,6 +162,7 @@ export default {
 			noStatus: true,
 			isMaximized: true,
 			canResize: false,
+			canReorder: false,
 			modifierClass: 'window--gallery'
 		}
 	},

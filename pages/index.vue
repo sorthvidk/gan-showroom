@@ -5,11 +5,10 @@
 			<desktop v-else />
 		</transition>
 
-
 		<CookieControl>
 			<template v-slot:bar>
 				<h3>GANNI Showroom uses cookies</h3>
-				<p>We track your interactions. That's all. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere odio ipsum reprehenderit nobis quam incidunt praesentium, cupiditate, beatae expedita? Natus harum autem eum accusamus labore, quod nemo deserunt, quos optio.</p>				
+				<p>We track your interactions. That's all. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere odio ipsum reprehenderit nobis quam incidunt praesentium, cupiditate, beatae expedita? Natus harum autem eum accusamus labore, quod nemo deserunt, quos optio.</p>
 			</template>
 
 			<template v-slot:modal>
