@@ -148,7 +148,8 @@ export const mutations = {
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
-			style.assets.push(asset)
+			if ( !style ) console.warn('NO STYLE', asset.styleId)
+			else style.assets.push(asset)
 		}
 
 		//sort style assets to have onTop asset first in assets array

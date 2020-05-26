@@ -67,7 +67,8 @@ export default {
 		},
 		playSound() {
 			const audio = new Audio('/audio/ganni_boot.mp3')
-			audio.addEventListener('loadeddata', () => audio.play())
+			audio.volume = 0.5
+			audio.addEventListener('loadeddata', () => {audio.volume=0.5;audio.play();})
 		}
 	}
 }
