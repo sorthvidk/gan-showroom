@@ -147,7 +147,7 @@ export const mutations = {
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
-			if ( !style ) console.warn('NO STYLE', asset.styleId)
+			if ( !style || !style.assets ) console.warn('NO STYLE FOR ASSET | styleId: "'+asset.styleId+'"')
 			else style.assets.push(asset)
 		}
 

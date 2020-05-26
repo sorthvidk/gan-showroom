@@ -9,7 +9,7 @@ export default function(windowList) {
 	
 	for (var j = 0; j < windowsLength; j++) {
 		sortedWindowList[j].positionZ = j;
-		console.log(sortedWindowList[j].positionZ)
+		// console.log(sortedWindowList[j].positionZ)
 	}
 	return sortedWindowList;
 }
