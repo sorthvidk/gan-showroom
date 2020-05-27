@@ -165,6 +165,14 @@ export const mutations = {
 				if (stateFilter) stateFilter.styleIds.push(style.styleId)
 			}
 		}
+		console.log("before",state.list[0].styleId,state.list[1].styleId,state.list[2].styleId)
+		
+		state.list = state.list.sort((a, b) =>
+			a.weight > b.weight ? -1 : 1
+		)
+
+		console.log("after",state.list[0].styleId,state.list[1].styleId,state.list[2].styleId)
+
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list
@@ -203,6 +211,9 @@ export const mutations = {
 				addedStyle.index = i
 				newCurrentStyles.push(addedStyle)
 			}
+			newCurrentStyles = newCurrentStyles.sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
 			state.currentStyles = newCurrentStyles
 		}
 	}

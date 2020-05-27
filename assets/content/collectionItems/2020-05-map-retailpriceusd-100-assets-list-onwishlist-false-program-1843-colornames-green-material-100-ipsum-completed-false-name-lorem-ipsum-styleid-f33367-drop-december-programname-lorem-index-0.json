@@ -20,5 +20,6 @@
   "retailPriceEUR": 100,
   "description": "Test test test",
   "retailPriceDKK": 100,
-  "colorId": "822"
+  "colorId": "822",
+  "weight": 1
 }
