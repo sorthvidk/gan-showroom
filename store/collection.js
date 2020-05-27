@@ -27,12 +27,14 @@ export const state = () => ({
 		{
 			filterId: 'c1',
 			name: 'Tops',
-			styleIds: []
+			styleIds: [],
+			order:1
 		},
 		{
 			filterId: 'c2',
 			name: 'Animal print',
-			styleIds: []
+			styleIds: [],
+			order:2
 		}
 	],
 
@@ -167,6 +169,9 @@ export const mutations = {
 		}
 		console.log("before",state.list[0].styleId,state.list[1].styleId,state.list[2].styleId)
 		
+		state.filters = state.filters.sort((a, b) =>
+			a.order > b.order ? 1 : -1
+		)
 		state.list = state.list.sort((a, b) =>
 			a.weight > b.weight ? -1 : 1
 		)
