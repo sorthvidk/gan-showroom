@@ -28,13 +28,46 @@
 		overflow: hidden;
 		overflow-y: auto;
 		@include custom-scrollbar();
+		&__item {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: nowrap;
+			max-width: 100%;
+
+			&:hover {
+				background-color: $color-lightgrey;
+
+				.remove {
+					opacity: 1;				
+				}
+			}
+			&.is-active {
+				background-color: $color-lightgrey;
+			}			
+		}
 
 		.button {
 			cursor: pointer;
-			padding: rem(8) rem(12);
-			width: 100%;
-			display: flex;
+			display: inline-flex;
 			align-items: center;
+
+		}
+		.remove {
+			padding: rem(8) 0;
+			justify-content: center;
+			flex: 0 0 rem(30);
+			svg {
+				width: rem(30);
+				height: rem(30);
+			}
+			opacity: 0;
+			transition: opacity 0.1s ease;
+		}
+		.activate {
+			padding: rem(8) 0 rem(8) rem(12);
+			box-sizing: border-box;
+			flex: 0 0 rem(185);
+			justify-content: flex-start;
 
 			img {
 				display: inline-block;
@@ -42,11 +75,12 @@
 				max-width: rem(20);
 				margin-right: rem(10);
 			}
-			&:hover {
-				background-color: $color-lightgrey;
-			}
-			&.is-active {
-				background-color: $color-lightgrey;
+			p {
+				overflow: hidden;
+				width: rem(185 + - 12 - 20 - 10);
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-align: left;
 			}
 		}
 	}
@@ -80,8 +114,9 @@
 			@include bodytext();
 			font-size: rem(12);
 			text-decoration: underline;
-			font-weight: 500;
+			font-weight: $weight-medium;
 			margin-bottom: rem(20);
+			color: $color-blue;
 		}
 
 		.single-image {
@@ -134,7 +169,7 @@
 				@include bodytext();
 				font-size: rem(12);
 				text-decoration: underline;
-				font-weight: 500;
+				font-weight: $weight-medium;
 				margin-bottom: rem(20);
 				color: $color-darkgrey;
 			}

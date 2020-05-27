@@ -16,7 +16,7 @@
 }
 
 /* --- FONTS --- */
-$font-sansserif: 'Helvetica Neue', 'Roboto', Arial, monaco, monospace;
+$font-sansserif: 'Roboto', Arial, monaco, monospace;
 $font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 
 /* --- COLORS --- */
@@ -38,3 +38,7 @@ $z-index-assistant: 4000;
 $z-index-support: 5000;
 $z-index-gallery: 6000;
 $z-index-message: 9000;
+
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-bold: 600;

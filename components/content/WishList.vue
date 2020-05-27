@@ -1,15 +1,19 @@
 <template>
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="viewPortSize == 1">
-			<div v-for="(item, index) in wishList" :key="'wishListItem'+index">
-				<button
-					v-if="item.assets && item.assets.length > 0"
-					class="button"
-					:class="{'is-active': currentWishListIndex == index}"
-					@click="overviewItemHandler(index)"
-				>
+			<div class="wish-list__overview__item" v-for="(item, index) in wishList" :key="'wishListItem'+index" :class="{'is-active': currentWishListIndex == index}">
+				<button v-if="item.assets && item.assets.length > 0" class="button activate" @click="overviewItemActivateHandler(index)">
 					<img :src="getImageUrl(index)" alt />
 					<p>{{item.name}}</p>
+				</button>
+				<button class="button remove" @click.stop="overviewItemRemoveHandler(index)">
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							<path
+								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+							/>
+						</svg>
+					</span>
 				</button>
 			</div>
 		</div>
@@ -143,9 +147,15 @@ export default {
 	},
 	methods: {
 		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
-		overviewItemHandler(key) {
+		overviewItemActivateHandler(key) {
 			this.currentWishListIndex = key
 		},
+		overviewItemRemoveHandler(key) {
+			let removeItem = this.wishList[key]
+			this.currentWishListIndex = 0
+			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+		},
+
 		removeItemHandler() {
 			let removeItem = this.currentWishListItem
 			this.currentWishListIndex = 0
