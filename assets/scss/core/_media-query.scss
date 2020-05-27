@@ -41,6 +41,11 @@ $mq-breakpoints: (
 );
 
 
+$mq-breakpoint-names: (
+	'xxxs', 'xxs', 'xs', 'sm', 'sm-plus', 'md', 'lg', 'xl', 'xxl', 'xxxl'
+);
+
+
 // ----------
 // Tiny schema of pixel resolutions for devices
 //
