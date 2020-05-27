@@ -145,6 +145,14 @@ collections:
           widget: "boolean",
           hint: "Check to show style as responsible",
         }
+      - {
+          label: "Weight",
+          name: "weight",
+          widget: "number",
+          hint: "Sorting parameter. The higher the number, the closer to the top of the collection folder.",
+          required: true,
+          default: 1
+        }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }
       - { name: "onWishList", default: false, widget: "hidden" }

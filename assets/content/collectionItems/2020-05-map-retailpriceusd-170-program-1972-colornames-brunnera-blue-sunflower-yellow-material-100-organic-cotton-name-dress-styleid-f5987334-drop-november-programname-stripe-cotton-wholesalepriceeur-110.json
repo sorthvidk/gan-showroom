@@ -20,5 +20,6 @@
   "retailPriceEUR": 140,
   "description": "Odio repellendus, fugit fuga. Consectetur natus, dolorem amet aperiam.",
   "retailPriceDKK": 1000,
-  "colorId": "699"
+  "colorId": "699",
+  "weight": 100
 }

@@ -20,5 +20,6 @@
   "retailPriceEUR": 140,
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eos, labore autem nostrum.",
   "retailPriceDKK": 1000,
-  "colorId": "699"
+  "colorId": "699",
+  "weight": 8
 }
