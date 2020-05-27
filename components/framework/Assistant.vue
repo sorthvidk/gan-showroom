@@ -118,6 +118,7 @@
 								:name="item.name"
 								:filter-id="item.filterId"
 							/>
+							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
 						</div>
 					</div>
 				</div>
