@@ -15,49 +15,64 @@
 			</header>
 			<div class="window__content">
 				<div>
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxl" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
 
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 				</div>
 
@@ -84,51 +99,51 @@
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
 					<img src="/img/hamster2.gif" alt="hamster" />
@@ -136,51 +151,51 @@
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster3.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 					<img src="/img/hamster3.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
 
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster4.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 					<img src="/img/hamster4.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster2.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 					<img src="/img/hamster2.gif" alt="hamster" />
 
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
-					<img src="/img/hamster1.gif" v-if="viewPortSize == 1" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
+					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
 					<img src="/img/hamster1.gif" alt="hamster" />
 				</div>
 			</div>
