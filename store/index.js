@@ -39,7 +39,7 @@ import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
 	
-	wallpaperIndex: null,
+	wallpaperIndex: 1,
 	wallpaperCount: 6,
 
 	loggedIn: false,
