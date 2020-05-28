@@ -45,9 +45,9 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 320,
+			smallWidth: 350,
 			largeHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 100,
+			smallHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			noStatus: true,
 			canResize: false,
 			noPlacement: true,
@@ -176,7 +176,7 @@ export default {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400,	
+			smallHeight: 400,
 			modifierClass: 'window--wish-list'
 		}
 	},
