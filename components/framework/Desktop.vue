@@ -1,7 +1,8 @@
 <template>
+	<transition name="startup-transition" mode="out-in">
 	<!-- transition is placed in pages/index.vue -->
 	<!-- <transition name="startup-transition" mode="out-in"> -->
-	<div class="desktop" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
+	<div class="desktop" v-lazy:background-image="backgroundImageObj">
 		<progress-bar
 			:text-start="'Start diving into the PS21 digital universe.'"
 			:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'"
@@ -74,12 +75,14 @@
 		</div>
 	</div>
 	<!-- </transition> -->
+	</transition>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
 import {
+	WALLPAPER_CHANGE,
 	KEYPRESS,
 	MOUSEMOVE,
 	CLIPBOARD_COPY,
@@ -109,6 +112,7 @@ export default {
 	},
 	computed: {
 		...mapState({
+			wallpaperIndex: state => state.wallpaperIndex,
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
@@ -119,6 +123,12 @@ export default {
 		},
 		marqueeLinks() {
 			return this.shortcutList.filter(s => s.type == ShortcutTypes.MARQUEE)
+		},
+		backgroundImageObj() {
+			return {
+				src: `/img/wallpapers/wallpaper${this.wallpaperIndex}.jpg`,
+				loading: '/img/login-slide.jpg'
+			}
 		}
 	},
 	watch: {
@@ -148,6 +158,7 @@ export default {
 	},
 	methods: {
 		...mapActions([
+			WALLPAPER_CHANGE.action,
 			KEYPRESS.action,
 			MOUSEMOVE.action,
 			CLIPBOARD_COPY.action,
@@ -177,6 +188,8 @@ export default {
 	mounted() {
 		window.addEventListener('keyup', event => {
 			this[KEYPRESS.action](event)
+				console.log("event.code",event.code)
+			// if ( event.code === )
 		})
 
 		window.addEventListener('mousemove', event => {
@@ -189,7 +202,10 @@ export default {
 		)
 		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
-		this.playSound()
+		// JPL only on login
+		// this.playSound()
+
+		this[WALLPAPER_CHANGE.action]()
 	}
 }
 </script>

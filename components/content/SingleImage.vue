@@ -1,5 +1,5 @@
 <template>
-	<div class="single-image" :class="{'is-interactive': this.belongsToStyle}">
+	<div class="single-image" :class="{'is-interactive': belongsToStyle && inFocus }">
 		<transition name="fade">
 			<img :src="assetUrl" alt="img" @click="clickHandler">
 		</transition>
@@ -8,11 +8,15 @@
 
 <script>
 
+
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_GALLERY } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name:'single-image',
 	props: {
 		asset: {
@@ -37,7 +41,7 @@ export default {
 			OPEN_GALLERY.action
 		]),	
 		clickHandler() {
-			if ( this.belongsToStyle ) {
+			if ( this.belongsToStyle && this.inFocus ) {
 				this[OPEN_GALLERY.action](this.asset);
 			}
 		}

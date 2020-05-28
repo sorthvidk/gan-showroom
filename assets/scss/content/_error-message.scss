@@ -1,0 +1,34 @@
+.error-message {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: $z-index-message;
+
+
+	p {
+		display: block;
+		font-weight: $weight-medium;
+		font-size: rem(60);
+		line-height: 1.1;
+		text-align: center;
+		
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+
+		color: $color-red;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		
+		@include mq($from: screen-sm) {
+			font-size: 12vw;
+		}
+		@include mq($from: screen-md) {
+			font-size: 7vw;
+			white-space: nowrap;
+		}
+	}
+}

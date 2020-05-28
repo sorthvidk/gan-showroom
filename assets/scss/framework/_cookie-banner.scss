@@ -1,0 +1,50 @@
+.cookie-banner {
+	animation: cookie-animation 0.5s;
+	animation-delay: 3s;
+	animation-fill-mode: forwards;  
+	animation-iteration-count: 1;
+
+    transform: translateY(100%);
+    
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: $z-index-cookies;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	background-color: $color-lime;
+	color: $color-black;
+	padding: rem(30);
+
+
+	h3 {
+		@include headline();
+		margin-bottom: rem(10);
+	}
+	a, p {
+		@include bodytext();
+	}
+
+	button {
+		display: block;
+
+		@include headline();
+		color: $color-blue;
+		text-decoration: underline;
+	}
+}
+
+
+
+@keyframes cookie-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

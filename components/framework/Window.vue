@@ -32,8 +32,7 @@
 				<div
 					v-if="!noStatus"
 					class="window__status"
-					@touchstart="contentActivateHandler"
-					@mouseDown="contentActivateHandler"
+					@click="contentActivateHandler"
 				>
 					<component :is="statusComponent" v-bind="{...statusComponentProps}" />
 				</div>
@@ -42,10 +41,9 @@
 
 				<div
 					class="window__content"
-					@touchstart="contentActivateHandler"
-					@mouseDown="contentActivateHandler"
+					@click="contentActivateHandler"
 				>
-					<component :is="contentComponent" v-bind="{...contentComponentProps}" />
+					<component :is="contentComponent" :parent-window-id="windowId" v-bind="{...contentComponentProps}" />
 				</div>
 			</vue-draggable-resizable>
 		</section>
@@ -255,7 +253,6 @@ export default {
 			})
 		},
 		contentActivateHandler(e) {
-			console.log('contentActivateHandler',this.canReorder)
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
 			}

@@ -24,7 +24,10 @@ import getAssetType from '~/utils/asset-type'
 import GalleryImage from '~/components/content/GalleryImage.vue'
 import GalleryVideo from '~/components/content/GalleryVideo.vue'
 
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name: 'gallery',
 	components: {
 		GalleryImage,

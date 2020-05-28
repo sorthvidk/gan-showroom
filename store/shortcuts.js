@@ -199,7 +199,7 @@ export const state = () => ({
 			posH: 11,
 			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'rtw4',
+			actionParam: 'misc5',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',

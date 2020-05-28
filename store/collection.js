@@ -167,17 +167,14 @@ export const mutations = {
 				if (stateFilter) stateFilter.styleIds.push(style.styleId)
 			}
 		}
-		console.log("before",state.list[0].styleId,state.list[1].styleId,state.list[2].styleId)
-		
+		//sort filters by order
 		state.filters = state.filters.sort((a, b) =>
 			a.order > b.order ? 1 : -1
 		)
+		//sort styles by weight
 		state.list = state.list.sort((a, b) =>
 			a.weight > b.weight ? -1 : 1
 		)
-
-		console.log("after",state.list[0].styleId,state.list[1].styleId,state.list[2].styleId)
-
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list

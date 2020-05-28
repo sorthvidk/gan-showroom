@@ -1,5 +1,7 @@
 import {
 	LOGIN,
+	COOKIES_ACCEPT,
+	WALLPAPER_CHANGE,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -36,8 +38,10 @@ import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	hasData: false,
-	loggedin: false,
+	wallpaperIndex: 0,
+	wallpaperCount: 6,
+
+	loggedIn: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
 
 	progressItems: {},
@@ -50,6 +54,8 @@ export const state = () => ({
 
 	keyPressed: null,
 	highestZIndex: 0,
+
+	cookiesAccepted: false,
 
 	musicPlayerOpen: false,
 	musicPlaying: false,
@@ -84,7 +90,19 @@ export const mutations = {
 	// Baseline content to cms
 
 	[LOGIN.mutation](state, key) {
-		state.loggedin = key
+		state.loggedIn = key
+		console.log('state.loggedIn', state.loggedIn)
+	},
+
+	[WALLPAPER_CHANGE.mutation](state) {
+		state.wallpaperIndex = state.wallpaperIndex + 1
+		if (state.wallpaperIndex > state.wallpaperCount) {
+			state.wallpaperIndex = 1
+		}
+	},
+
+	[COOKIES_ACCEPT.mutation](state) {
+		state.cookiesAccepted = true
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -202,7 +220,7 @@ export const mutations = {
 		}
 		state.progressMax = pM
 
-		console.warn('INIT_PROGRESS', state.progressItems)
+		// console.warn('INIT_PROGRESS', state.progressItems)
 		state.progressPct = 0
 	},
 	/*
@@ -241,7 +259,6 @@ export const mutations = {
 			if (alreadyExists) return
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
-			console.log('newWindow.windowProps', newWindow.windowProps)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
 
 			state.windowList.unshift(newWindow)
@@ -273,20 +290,8 @@ export const mutations = {
 
 		let wll = state.windowList.length
 
-		console.log(
-			'state.windowList 1',
-			state.windowList[0].positionZ,
-			state.windowList[wll - 1].positionZ
-		)
 		state.windowList = resetZOrder(state.windowList)
 		state.highestZIndex = state.windowList[wll - 1].positionZ
-
-		console.log('state.highestZIndex', state.highestZIndex)
-		console.log(
-			'state.windowList 2',
-			state.windowList[0].positionZ,
-			state.windowList[wll - 1].positionZ
-		)
 	},
 	/*
 	 *	Save window position and size values
@@ -462,6 +467,12 @@ export const actions = {
 
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
+	},
+	[WALLPAPER_CHANGE.action]({ commit }) {
+		commit(WALLPAPER_CHANGE.mutation)
+	},
+	[COOKIES_ACCEPT.action]({ commit }) {
+		commit(COOKIES_ACCEPT.mutation)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)

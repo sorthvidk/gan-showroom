@@ -14,8 +14,10 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import { FORCE_STOP_MUSIC } from '~/model/constants'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name: 'hampster-dance',
 	data() {
 		return {

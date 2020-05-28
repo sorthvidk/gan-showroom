@@ -1,5 +1,5 @@
 .desktop {
-	background-color: orange;
+	background-color: $color-black;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -19,7 +19,7 @@
 	}
 
 	&__shortcuts {
-		padding: rem(10);
+		padding: 0;
 		position: relative;
 		z-index: 10;
 		display: flex;
@@ -42,23 +42,10 @@
 		top: 0;
 		left: 0;
 	}
-
+	
 	.logo {
-		position: absolute;
-
-		left: rem(20);
-		right: rem(20);
-
-		bottom: rem(220);
-		
-		@include mq($from: screen-md) {
-			bottom: rem(80);
+		@include mq($until: screen-md) {
+			bottom: rem(220);
 		}
-		svg {
-			width: 100%;
-			height: auto;
-			fill: #1d1d1b;
-		}
-
 	}
 }
