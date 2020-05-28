@@ -1,8 +1,6 @@
 <template>
 	<div class="login" @click="nextSlide">
-		<transition name="slide-transition">
-			<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
-		</transition>
+		<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
 	</div>
 </template>
 

@@ -6,7 +6,8 @@ export default ({store}) => {
     createPersistedState({
         key: 'gannishowroom',
 		paths: [
-			'loggedin',
+			'loggedIn',
+			'cookiesAccepted',
 			'progressItems',
 			'progressMax',
 			'progressPct',

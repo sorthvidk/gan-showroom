@@ -47,7 +47,7 @@ export default {
 			else {
 				this['collection/'+SET_CURRENT_FILTER.action](this.filterId);	
 
-				sendTracking('Filter added',this.filterId)
+				sendTracking('Filter added',this.name)
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 <template>
+	<transition name="startup-transition" mode="out-in">
 	<!-- transition is placed in pages/index.vue -->
 	<!-- <transition name="startup-transition" mode="out-in"> -->
 	<div class="desktop" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
@@ -74,6 +75,7 @@
 		</div>
 	</div>
 	<!-- </transition> -->
+	</transition>
 </template>
 
 <script>
@@ -177,6 +179,8 @@ export default {
 	mounted() {
 		window.addEventListener('keyup', event => {
 			this[KEYPRESS.action](event)
+				console.log("event.code",event.code)
+			// if ( event.code === )
 		})
 
 		window.addEventListener('mousemove', event => {

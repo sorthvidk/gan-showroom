@@ -1,39 +1,34 @@
 <template>
 	<div style="background-color: #fbd5c5">
-		<transition name="startup-transition" mode="out-in">
-			<login v-if="!loggedin" />
-			<desktop v-else />
-		</transition>
+		<login v-if="!loggedIn" />
+		<desktop v-else />
 
-		<CookieControl>
-			<template v-slot:bar>
-				<h3>GANNI Showroom uses cookies</h3>
-				<p>We track your interactions. That's all. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere odio ipsum reprehenderit nobis quam incidunt praesentium, cupiditate, beatae expedita? Natus harum autem eum accusamus labore, quod nemo deserunt, quos optio.</p>
-			</template>
-
-			<template v-slot:modal>
-				<h3>Modal title</h3>
-				<p>Modal description</p>
-			</template>
-		</CookieControl>
+		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
 
 
 <script>
-import { mapState } from 'vuex'
+import { vuex, mapActions, mapState } from 'vuex'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
+import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
 export default {
 	components: {
 		Login,
-		Desktop
+		Desktop,
+		CookieBanner
 	},
-	computed: mapState(['loggedin']),
+	computed: {
+		...mapState({
+			loggedIn: state => state.loggedIn,
+			cookiesAccepted: state => state.cookiesAccepted
+		})
+	},
 	head() {
 		return {
 			script: [

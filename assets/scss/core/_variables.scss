@@ -1,22 +1,22 @@
-// only for testing
-@font-face {
-	font-family: 'Helvetica Neue';
-	font-weight: normal;
-	src: url('/font/HelveticaNeueLTPro-Roman.otf');
-}
-@font-face {
-	font-family: 'Helvetica Neue';
-	font-weight: 500;
-	src: url('/font/HelveticaNeueLTPro-Md.otf');
-}
-@font-face {
-	font-family: 'Helvetica Neue';
-	font-weight: 600;
-	src: url('/font/HelveticaNeueLTPro-Bd.otf');
-}
+// // only for testing
+// @font-face {
+// 	font-family: 'Helvetica Neue';
+// 	font-weight: normal;
+// 	src: url('/font/HelveticaNeueLTPro-Roman.otf');
+// }
+// @font-face {
+// 	font-family: 'Helvetica Neue';
+// 	font-weight: 500;
+// 	src: url('/font/HelveticaNeueLTPro-Md.otf');
+// }
+// @font-face {
+// 	font-family: 'Helvetica Neue';
+// 	font-weight: 600;
+// 	src: url('/font/HelveticaNeueLTPro-Bd.otf');
+// }
 
 /* --- FONTS --- */
-$font-sansserif: 'Roboto', Arial, monaco, monospace;
+$font-sansserif: 'Helvetica Neue', 'Roboto', Arial, monaco, monospace;
 $font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 
 /* --- COLORS --- */
@@ -33,11 +33,13 @@ $color-green: #00c808;
 $color-lime: #24ff00;
 $color-blue: #1400ff;
 $color-purple: #bd00ff;
+$color-red: #FF0000;
 
 $z-index-assistant: 4000;
 $z-index-support: 5000;
 $z-index-gallery: 6000;
 $z-index-message: 9000;
+$z-index-cookies: 9500;
 
 $weight-normal: 400;
 $weight-medium: 500;

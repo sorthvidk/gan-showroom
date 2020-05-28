@@ -6,10 +6,10 @@ const createMutation = type => ({
 	stateKey: camelCase(type)
 })
 
+export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
+
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
-export const COLLECTION_FILTERS_FETCH = createMutation(
-	'COLLECTION_FILTERS_FETCH'
-)
+export const COLLECTION_FILTERS_FETCH = createMutation('COLLECTION_FILTERS_FETCH')
 export const COLLECTION_ASSETS_FETCH = createMutation('COLLECTION_ASSETS_FETCH')
 export const FILMS_FETCH = createMutation('FILMS_FETCH')
 export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
