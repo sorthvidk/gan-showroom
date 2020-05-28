@@ -148,6 +148,20 @@ export default {
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
+	},	
+	videoSquare: {
+		name: 'videoSquare',
+		contentComponent: 'single-video',
+		contentScore: 0,
+		statusComponent: 'status-static',
+		allowedInstances: 100,
+		defaultWindowProps: {
+			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+			smallWidth: 320,
+			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 274,
+			modifierClass: 'window--tight'
+		}
 	},
 	gallery: {
 		name: 'gallery',
