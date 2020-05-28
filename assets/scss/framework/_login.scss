@@ -50,7 +50,7 @@
 	@include megatype();
 	width: 100%;
 	height: 100vh;
-	image-rendering: pixelated;
+	// image-rendering: pixelated;
 
 	position: relative;
 	z-index: 1;
@@ -65,27 +65,45 @@
 
 .login-input {
 	display: flex;
-	align-items: flex-end;
-	height: 100vh;
+	align-items: center;
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
 
 	background-size: cover;
+	
+	@include mq($from: screen-md) {
+		align-items: flex-end;
+	}
 
 	.form {
 		position: relative;
 		display: flex;
 		justify-content: center;
+		align-items: center;
+
+		height: 10vw;
+
+		margin-bottom: rem(80);
+		@include mq($from: screen-md) {
+			margin-bottom: 0;
+		}
 
 		&__input {
 			font-family: $font-sansserif;
+			padding: 0;
 			font-weight: 500;
 			border: none;
 			background: none;
-			font-size: 10vw;
+			font-size: 20vw;
 			width: 75%;
 			text-align: center;
 			color: $color-lime;
 
 			outline: none;
+
+			@include mq($from: screen-md) {
+				font-size: 10vw;
+			}
 
 			&.is-invalid {
 				color: $color-red;
@@ -102,18 +120,31 @@
 
 		button {
 			position: absolute;
-			right: 3vw;
-			bottom: 0;
-			top: 0;
-
-			width: 10vw;
-			height: 10vw;
-			align-items: center;
-			justify-content: center;
+			right: 5vw;
 			
-			font-size: 10vw;
+			top: 50%;
+			transform: translateY(-50%);
+
+			width: rem(80);
+			height: rem(80);
+
+			
 			font-weight: 600;
 			color: $color-lime;
+			
+			svg {
+				display: inline-flex;
+				width: rem(80);
+				height: rem(80);
+				fill: currentColor;
+			}
+
+			@include mq($from: screen-md) {
+				right: 3vw;
+				width: 10vw;
+				height: 10vw;
+				font-size: 10vw;
+			}
 
 			&.is-invalid {
 				color: $color-red;
@@ -121,7 +152,7 @@
 
 			display: none;
 			&.is-active {
-				display: inline-flex;
+				display: block;
 			}
 		}
 	}
@@ -143,12 +174,8 @@
 	transform: translateZ(0);
 
 	&.one {
-		color: $color-orange;
-
 		svg {
-			width: 100%;
-			height: auto;
-			fill: currentColor;
+			fill: $color-orange;
 		}
 	}
 

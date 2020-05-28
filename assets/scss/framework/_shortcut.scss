@@ -14,14 +14,12 @@
 	display: block;
 	text-align: center;
 
-	@include mq($from: screen-xxxs) {
-		max-height: rem(100);
-	}
 	@include mq($from: screen-xxs) {
-		max-height: rem(120);
+		max-height: rem(100);
 	}
 
 	@include mq($from: screen-xs) {
+		max-height: rem(120);
 		max-width: 20%;
 		flex: 0 0 20%;
 	}
