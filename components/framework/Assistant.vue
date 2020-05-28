@@ -434,6 +434,9 @@ export default {
 					case ContentTypes.imagePortrait.contentComponent:
 					case ContentTypes.imageLandscape.contentComponent:
 					case ContentTypes.imageSquare.contentComponent:
+					case ContentTypes.videoPortrait.contentComponent:
+					case ContentTypes.videoLandscape.contentComponent:
+					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
 							this.currentStyle = this.currentStyles.filter(
 								e => e.styleId === componentProps.asset.styleId

@@ -1,5 +1,5 @@
 <template>
-	<div class="single-video" :class="{'is-interactive': this.belongsToStyle}">
+	<div class="single-video" :class="{'is-interactive': belongsToStyle && inFocus }">
 		<transition name="fade">
 			<div @click="clickHandler">				
 				<video-player :video-url="assetUrl" v-bind="{...videoAttributes}"/>

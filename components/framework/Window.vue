@@ -253,8 +253,6 @@ export default {
 			})
 		},
 		contentActivateHandler(e) {
-			console.log('contentActivateHandler',this.canReorder)
-
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
 			}
