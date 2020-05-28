@@ -22,8 +22,11 @@
 			right: auto;
 			bottom: 10vh;
 		}
-		@include mq($from: screen-xxxl) {
-			min-width: 60vw;
+		@include mq($from: screen-xxl) {
+			min-width: 75vw;
+		}
+		@include mq($from: screen-xxxxl) {
+			min-width: 70vw;
 		}
 		&__top {
 			.button {
@@ -49,12 +52,20 @@
 	h2 {
 		font-family: Times New Roman;
 		font-style: normal;
-		font-weight: 600;
+		font-weight: 500;
 		line-height: 168%;
 
-		font-size: rem(50);
+		font-size: rem(55);
+		@include mq($from: screen-xxxs) {
+			font-size: rem(60);
+		}
+		@include mq($from: screen-xxs) {
+			font-size: rem(65);
+		}
+		@include mq($from: screen-xs) {
+			font-size: rem(72);
+		}
 		@include mq($from: screen-sm) {
-			font-weight: 500;
 			font-size: rem(78);
 		}
 		/* identical to box height, or rem(132) */
