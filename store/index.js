@@ -201,7 +201,7 @@ export const mutations = {
 		}
 		state.progressMax = pM
 
-		console.warn('INIT_PROGRESS', state.progressItems)
+		// console.warn('INIT_PROGRESS', state.progressItems)
 		state.progressPct = 0
 	},
 	/*
@@ -240,7 +240,6 @@ export const mutations = {
 			if (alreadyExists) return
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
-			console.log("newWindow.windowProps",newWindow.windowProps)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
 
 			state.windowList.push(newWindow)
@@ -273,12 +272,8 @@ export const mutations = {
 
 		let wll = state.windowList.length
 
-		console.log("state.windowList 1",state.windowList[0].positionZ,state.windowList[wll - 1].positionZ)
 		state.windowList = resetZOrder(state.windowList)
 		state.highestZIndex = state.windowList[wll - 1].positionZ;
-
-		console.log("state.highestZIndex",state.highestZIndex)
-		console.log("state.windowList 2",state.windowList[0].positionZ,state.windowList[wll - 1].positionZ)
 	},
 	/*
 	 *	Save window position and size values

@@ -7,13 +7,8 @@
 
 		<CookieControl>
 			<template v-slot:bar>
-				<h3>GANNI Showroom uses cookies</h3>
-				<p>We track your interactions. That's all. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere odio ipsum reprehenderit nobis quam incidunt praesentium, cupiditate, beatae expedita? Natus harum autem eum accusamus labore, quod nemo deserunt, quos optio.</p>
-			</template>
-
-			<template v-slot:modal>
-				<h3>Modal title</h3>
-				<p>Modal description</p>
+				<h3>GANNI USES COOKIES ON THIS WEBSITE</h3>
+				<p>We use cookies to analyse how our website is used and to simplify and improve your visit. If you continue to browse our website, you accept our use of cookies, in accordance with our <a href="https://www.ganni.com/en-gb/customer-service/cookies-2/cookie-policy.html" target="_blank">Cookie Policy</a>.</p>
 			</template>
 		</CookieControl>
 	</div>

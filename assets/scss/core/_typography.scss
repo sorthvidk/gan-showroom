@@ -34,9 +34,23 @@ em {
 	line-height: 1.27;
 }
 
+h2,
 h3 {
 	@include headline();
 }
 p {
+	@include bodytext();
+}
+
+.megatype {
+	@include megatype();
+}
+.headline {
+	@include headline();
+}
+.windowtitle {
+	@include windowtitle();
+}
+.bodytext {
 	@include bodytext();
 }

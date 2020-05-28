@@ -2,7 +2,7 @@
 	position: relative;
 	box-sizing: border-box;
 	padding: rem(20);
-	max-height: rem(120);
+	max-height: rem(75);
 	flex: 0 0 33%;
 	max-width: 33%;
 	display: inline-flex;
@@ -13,6 +13,13 @@
 	border: 0;
 	display: block;
 	text-align: center;
+
+	@include mq($from: screen-xxxs) {
+		max-height: rem(100);
+	}
+	@include mq($from: screen-xxs) {
+		max-height: rem(120);
+	}
 
 	@include mq($from: screen-xs) {
 		max-width: 20%;
