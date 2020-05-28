@@ -33,7 +33,7 @@
 
 			.title-marquee {
 				width: fit-content;
-				font-weight: bold;
+				font-weight: $weight-bold;
 				animation: swipe 10s linear infinite;
 			}
 		}

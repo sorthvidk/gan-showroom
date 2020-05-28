@@ -6,7 +6,7 @@
 
 <script>
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name:'gallery-video',

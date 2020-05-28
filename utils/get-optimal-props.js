@@ -49,7 +49,8 @@ export default function(state, currentWindow, groupId) {
 	const {
 		windowProps = {},
 		type: contentType,
-		title: contentName
+		title: contentName,
+		contentComponentProps
 	} = currentWindow
 
 	const {
@@ -65,22 +66,28 @@ export default function(state, currentWindow, groupId) {
 		windowProps.height ||
 		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight']
 
-	console.log("defaultWindowProps",defaultWindowProps)
-	
-	const conditionalAssignment = (obj,attr) => {
-		if ( typeof windowProps[attr] !== 'undefined' ) obj[attr] = windowProps[attr]
-		else if ( typeof defaultWindowProps[attr] !== 'undefined' ) obj[attr] = defaultWindowProps[attr]
+	console.log('defaultWindowProps', defaultWindowProps)
+
+	const conditionalAssignment = (obj, attr) => {
+		if (typeof windowProps[attr] !== 'undefined') obj[attr] = windowProps[attr]
+		else if (typeof defaultWindowProps[attr] !== 'undefined')
+			obj[attr] = defaultWindowProps[attr]
 	}
 
 	let optionalProps = {}
-	conditionalAssignment(optionalProps,'noStatus');
-	conditionalAssignment(optionalProps,'canReorder');
-	conditionalAssignment(optionalProps,'canResize');
-	conditionalAssignment(optionalProps,'modifierClass');
-	conditionalAssignment(optionalProps,'isMaximized');
-	conditionalAssignment(optionalProps,'noPlacement');
+	conditionalAssignment(optionalProps, 'noStatus')
+	conditionalAssignment(optionalProps, 'canReorder')
+	conditionalAssignment(optionalProps, 'canResize')
+	conditionalAssignment(optionalProps, 'modifierClass')
+	conditionalAssignment(optionalProps, 'isMaximized')
+	conditionalAssignment(optionalProps, 'noPlacement')
 
-	console.log("optionalProps",optionalProps)
+	console.log('optionalProps', optionalProps)
+
+	let onTop
+	if (contentComponentProps && contentComponentProps.asset) {
+		onTop = contentComponentProps.asset.onTop
+	}
 
 	return {
 		...currentWindow,
@@ -93,14 +100,14 @@ export default function(state, currentWindow, groupId) {
 		contentComponent,
 		statusComponent,
 
-		positionZ: windowProps.positionZ || state.highestZIndex + 1,
+		positionZ: onTop ? 500 : windowProps.positionZ || state.highestZIndex + 1,
 
 		windowProps: {
 			...optionalProps,
 			sizeW: sizeW,
 			sizeH: sizeH,
 			positionX: defaultWindowProps.noPlacement ? 0 : placementX(state, sizeW),
-			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH),			
+			positionY: defaultWindowProps.noPlacement ? 0 : placementY(state, sizeH)
 		}
 	}
 }

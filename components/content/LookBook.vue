@@ -13,7 +13,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 export default {
 	name:'look-book',
 	computed: {

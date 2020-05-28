@@ -37,12 +37,13 @@ $mq-breakpoints: (
 	screen-lg: 1150px,	// wrapper min-width
 	screen-xl: 1280px,	// medium desktop
 	screen-xxl: 1440px,	// large desktop
-	screen-xxxl: 1680px	// extra large desktop
+	screen-xxxl: 1680px,	// extra large desktop
+	screen-xxxxl: 1920px	// extra extra large desktop
 );
 
 
 $mq-breakpoint-names: (
-	'xxxs', 'xxs', 'xs', 'sm', 'sm-plus', 'md', 'lg', 'xl', 'xxl', 'xxxl'
+	'xxxs', 'xxs', 'xs', 'sm', 'sm-plus', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxl'
 );
 
 

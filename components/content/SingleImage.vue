@@ -10,7 +10,7 @@
 
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_GALLERY } from '~/model/constants'
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name:'single-image',

@@ -1,5 +1,5 @@
 strong {
-	font-weight: 700;
+	font-weight: $weight-bold;
 }
 
 em {
@@ -9,27 +9,28 @@ em {
 @mixin megatype() {
 	font-size: rem(50);
 	line-height: 1.2;
+	font-weight: $weight-normal;
 	letter-spacing: -0.03em;
 	text-transform: uppercase;
 }
 
 @mixin windowtitle() {
 	font-size: rem(15);
-	font-weight: 500;
+	font-weight: $weight-medium;
 	line-height: 1.2;
 	letter-spacing: -0.01em;
 }
 
 @mixin headline() {
 	font-size: rem(16);
-	font-weight: 500;
+	font-weight: $weight-medium;
 	line-height: 1.2;
 	letter-spacing: -0.01em;
 }
 
 @mixin bodytext() {
 	font-size: rem(11);
-	font-weight: 500;
+	font-weight: $weight-medium;
 	line-height: 1.27;
 }
 

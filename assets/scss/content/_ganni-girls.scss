@@ -84,7 +84,7 @@
 			}
 			h3 {
 				@include bodytext();
-				font-weight: 600;
+				font-weight: $weight-bold;
 				margin-bottom: rem(10);
 			}
 			p {
