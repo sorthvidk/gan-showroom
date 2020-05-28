@@ -1,5 +1,5 @@
 <template>
-	<div style="background-color: #fbd5c5">
+	<div>
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
@@ -17,9 +17,7 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import {
-	WALLPAPER_CHANGE
-} from '~/model/constants'
+import { WALLPAPER_CHANGE } from '~/model/constants'
 
 export default {
 	components: {
@@ -28,10 +26,7 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState({
-			loggedIn: state => state.loggedIn,
-			cookiesAccepted: state => state.cookiesAccepted
-		})
+		...mapState(['loggedIn', 'cookiesAccepted'])
 	},
 	head() {
 		return {
@@ -50,12 +45,10 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
-			WALLPAPER_CHANGE.action
-		]),
+		...mapActions([WALLPAPER_CHANGE.action])
 	},
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
 	}
-};
+}
 </script>

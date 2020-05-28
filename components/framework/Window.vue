@@ -1,6 +1,9 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :class="wrapperClass" :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
+		<section
+			:class="wrapperClass"
+			:style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }"
+		>
 			<vue-draggable-resizable
 				ref="draggableResizable"
 				:class-name="concatClassName"
@@ -29,21 +32,18 @@
 						</span>
 					</button>
 				</header>
-				<div
-					v-if="!noStatus"
-					class="window__status"
-					@click="contentActivateHandler"
-				>
+				<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
 					<component :is="statusComponent" v-bind="{...statusComponentProps}" />
 				</div>
 
 				<hr v-if="!noStatus" />
 
-				<div
-					class="window__content"
-					@click="contentActivateHandler"
-				>
-					<component :is="contentComponent" :parent-window-id="windowId" v-bind="{...contentComponentProps}" />
+				<div class="window__content" @click="contentActivateHandler">
+					<component
+						:is="contentComponent"
+						:parent-window-id="windowId"
+						v-bind="{...contentComponentProps}"
+					/>
 				</div>
 			</vue-draggable-resizable>
 		</section>
@@ -197,9 +197,9 @@ export default {
 			// in use?
 			return this.x + 'px ' + this.y + 'px'
 		},
-		transformOrigin() {
-			return `${this.mousepos.x}px ${this.mousepos.y}px`
-		},
+		// transformOrigin() {
+		// 	return `${this.mousepos.x}px ${this.mousepos.y}px`
+		// },
 		// transitionDelay() {
 		// 	return `${this.nthChild / 5}s`
 		// },
@@ -359,12 +359,13 @@ export default {
 			})
 		},
 		animateOut(el, done) {
-			TweenLite.to(el, 0.3, { scale: 0, opacity: 0 })
-			done()
+			TweenLite.to(el, 0.2, { scale: 0, opacity: 0.6, onComplete: done })
 		}
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
+		this.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
+
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
 	}
 }

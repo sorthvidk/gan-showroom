@@ -38,7 +38,6 @@ import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	
 	wallpaperIndex: 1,
 	wallpaperCount: 6,
 
@@ -49,8 +48,66 @@ export const state = () => ({
 	progressPct: 0,
 	progressMax: 0,
 
+	mousepos: { x: 0, y: 0 },
+
+	// is opened by Desktop.vue
 	windowList: [
-		// {"title":"Ganni FM","contentId":"ganni-fm","type":{"name":"musicPlayer","contentComponent":"music-player","contentScore":10,"statusComponent":"status-static","allowedInstances":1,"defaultWindowProps":{"largeWidth":320,"smallWidth":350,"largeHeight":143,"smallHeight":143,"noStatus":true,"canResize":false,"noPlacement":true,"modifierClass":"window--tight window--music-player music-player"}},"canOverride":true,"windowId":"yw175dqtd","groupId":"p38fpt2ss","contentType":{"name":"musicPlayer","contentComponent":"music-player","contentScore":10,"statusComponent":"status-static","allowedInstances":1,"defaultWindowProps":{"largeWidth":320,"smallWidth":350,"largeHeight":143,"smallHeight":143,"noStatus":true,"canResize":false,"noPlacement":true,"modifierClass":"window--tight window--music-player music-player"}},"contentName":"Ganni FM","contentComponent":"music-player","statusComponent":"status-static","positionZ":1,"windowProps":{"noStatus":true,"canResize":false,"modifierClass":"window--tight window--music-player music-player","noPlacement":true,"sizeW":320,"sizeH":143,"positionX":0,"positionY":0,"nthChild":0}}
+		// {
+		// 	title: 'Ganni FM',
+		// 	contentId: 'ganni-fm',
+		// 	type: {
+		// 		name: 'musicPlayer',
+		// 		contentComponent: 'music-player',
+		// 		contentScore: 10,
+		// 		statusComponent: 'status-static',
+		// 		allowedInstances: 1,
+		// 		defaultWindowProps: {
+		// 			largeWidth: 320,
+		// 			smallWidth: 350,
+		// 			largeHeight: 143,
+		// 			smallHeight: 143,
+		// 			noStatus: true,
+		// 			canResize: false,
+		// 			noPlacement: true,
+		// 			modifierClass: 'window--tight window--music-player music-player'
+		// 		}
+		// 	},
+		// 	canOverride: true,
+		// 	windowId: 'yw175dqtd',
+		// 	groupId: 'p38fpt2ss',
+		// 	contentType: {
+		// 		name: 'musicPlayer',
+		// 		contentComponent: 'music-player',
+		// 		contentScore: 10,
+		// 		statusComponent: 'status-static',
+		// 		allowedInstances: 1,
+		// 		defaultWindowProps: {
+		// 			largeWidth: 320,
+		// 			smallWidth: 350,
+		// 			largeHeight: 143,
+		// 			smallHeight: 143,
+		// 			noStatus: true,
+		// 			canResize: false,
+		// 			noPlacement: true,
+		// 			modifierClass: 'window--tight window--music-player music-player'
+		// 		}
+		// 	},
+		// 	contentName: 'Ganni FM',
+		// 	contentComponent: 'music-player',
+		// 	statusComponent: 'status-static',
+		// 	positionZ: 1,
+		// 	windowProps: {
+		// 		noStatus: true,
+		// 		canResize: false,
+		// 		modifierClass: 'window--tight window--music-player music-player',
+		// 		noPlacement: true,
+		// 		sizeW: 320,
+		// 		sizeH: 143,
+		// 		positionX: 0,
+		// 		positionY: 0,
+		// 		nthChild: 0
+		// 	}
+		// }
 	],
 	windowGroupList: [],
 	topMostWindow: null,
@@ -102,6 +159,7 @@ export const mutations = {
 		if (state.wallpaperIndex > state.wallpaperCount) {
 			state.wallpaperIndex = 1
 		}
+		console.log('state.wallpaperIndex', state.wallpaperIndex)
 	},
 
 	[COOKIES_ACCEPT.mutation](state) {
@@ -264,7 +322,7 @@ export const mutations = {
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
 
-			console.log(JSON.stringify(newWindow));
+			// console.log(JSON.stringify(newWindow))
 
 			state.windowList.unshift(newWindow)
 			state.content.list.unshift(content)
@@ -598,8 +656,6 @@ export const actions = {
 	// FETCH ALL CONTENT!
 
 	async nuxtServerInit({ commit, dispatch }) {
-
-		
 		let collectionFiles = await require.context(
 			'~/assets/content/collectionItems/',
 			false,
@@ -687,9 +743,5 @@ export const actions = {
 		await commit(CONNECT_ASSETS.mutation)
 		await commit('collection/' + FILTER_COLLECTION.mutation)
 		await commit(INIT_PROGRESS.mutation)
-
 	}
-
-
-
 }
