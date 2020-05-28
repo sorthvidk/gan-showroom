@@ -94,12 +94,12 @@ export const mutations = {
 
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
-		console.log("state.loggedIn",state.loggedIn)
+		console.log('state.loggedIn', state.loggedIn)
 	},
 
 	[WALLPAPER_CHANGE.mutation](state) {
-		state.wallpaperIndex = state.wallpaperIndex + 1;
-		if ( state.wallpaperIndex > state.wallpaperCount ) {
+		state.wallpaperIndex = state.wallpaperIndex + 1
+		if (state.wallpaperIndex > state.wallpaperCount) {
 			state.wallpaperIndex = 1
 		}
 	},
@@ -168,7 +168,8 @@ export const mutations = {
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
-			if ( !style || !style.assets ) console.warn('NO STYLE FOR ASSET | styleId: "'+asset.styleId+'"')
+			if (!style || !style.assets)
+				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
 			else style.assets.push(asset)
 		}
 
@@ -262,9 +263,11 @@ export const mutations = {
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
+
 			console.log(JSON.stringify(newWindow));
-			state.windowList.push(newWindow)
-			state.content.list.push(content)
+
+			state.windowList.unshift(newWindow)
+			state.content.list.unshift(content)
 
 			windowGroup.windowIds.push(newWindow.windowId)
 			windowGroup.contentIds.push(newWindow.contentId)
@@ -290,11 +293,10 @@ export const mutations = {
 
 		state.progressPct = Math.round((pIC / state.progressMax) * 100)
 
-
 		let wll = state.windowList.length
 
 		state.windowList = resetZOrder(state.windowList)
-		state.highestZIndex = state.windowList[wll - 1].positionZ;
+		state.highestZIndex = state.windowList[wll - 1].positionZ
 	},
 	/*
 	 *	Save window position and size values
@@ -324,9 +326,9 @@ export const mutations = {
 		//console.log("current z", matchingWindow.positionZ )
 
 		if (matchingWindow) {
-			matchingWindow.positionZ = state.highestZIndex+1
+			matchingWindow.positionZ = state.highestZIndex + 1
 			state.windowList = resetZOrder(state.windowList)
-			state.highestZIndex = state.windowList[wll - 1].positionZ;
+			state.highestZIndex = state.windowList[wll - 1].positionZ
 			state.topMostWindow = matchingWindow
 		}
 	},
@@ -368,12 +370,12 @@ export const mutations = {
 
 		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
-		
+
 		if (wll == 0) {
 			state.highestZIndex = 0
 		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ;
-		}		
+			state.highestZIndex = state.windowList[wll - 1].positionZ
+		}
 		state.topMostWindow = state.windowList[wll - 1]
 
 		console.warn(
@@ -417,7 +419,6 @@ export const mutations = {
 				e => e.windowId !== ids.windowId
 			)
 		}
-		
 
 		state.windowGroupList.pop() //remove that group
 		console.warn(
@@ -429,12 +430,12 @@ export const mutations = {
 
 		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
-		
+
 		if (wll == 0) {
 			state.highestZIndex = 0
 		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ;
-		}		
+			state.highestZIndex = state.windowList[wll - 1].positionZ
+		}
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
