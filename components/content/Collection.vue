@@ -10,7 +10,10 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import CollectionItem from '~/components/content/CollectionItem.vue'
 
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name:'collection',
 	components: {
 		CollectionItem

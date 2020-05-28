@@ -36,8 +36,10 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import { TOGGLE_MUSIC_PLAYER, MUSIC_PLAY_PAUSE } from '~/model/constants'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name: 'music-player',
 	data() {
 		return {
