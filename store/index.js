@@ -1,5 +1,6 @@
 import {
 	LOGIN,
+	COOKIES_ACCEPT,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -37,7 +38,7 @@ import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
 	hasData: false,
-	loggedin: false,
+	loggedIn: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
 
 	progressItems: {},
@@ -50,6 +51,8 @@ export const state = () => ({
 
 	keyPressed: null,
 	highestZIndex: 0,
+
+	cookiesAccepted: false,
 
 	musicPlayerOpen: false,
 	musicPlaying: false,
@@ -84,7 +87,12 @@ export const mutations = {
 	// Baseline content to cms
 
 	[LOGIN.mutation](state, key) {
-		state.loggedin = key
+		state.loggedIn = key
+		console.log("state.loggedIn",state.loggedIn)
+	},
+
+	[COOKIES_ACCEPT.mutation](state) {
+		state.cookiesAccepted = true
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -450,6 +458,9 @@ export const actions = {
 
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
+	},
+	[COOKIES_ACCEPT.action]({ commit }) {
+		commit(COOKIES_ACCEPT.mutation)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)

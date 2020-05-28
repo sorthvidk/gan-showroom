@@ -43,7 +43,12 @@ export default {
 			}
 		}
 	},
-	computed: mapState(['loggedin', 'password']),
+	computed: {
+		...mapState({
+			loggedIn: state => state.loggedIn,
+			password: state => state.password
+		})
+	},
 	methods: {
 		...mapActions([LOGIN.action]),
 
@@ -56,6 +61,7 @@ export default {
 
 			this[LOGIN.action](valid)
 			this.valid = valid
+			console.log("valid",this.valid)
 		},
 
 		loginInput(e) {
@@ -69,7 +75,7 @@ export default {
 		},
 
 		isBlur(e) {
-			if (this.loggedin) return
+			if (this.loggedIn) return
 			this.valid = true
 
 			if (!this.pwd) {
