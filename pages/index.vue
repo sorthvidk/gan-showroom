@@ -17,6 +17,10 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
+import {
+	WALLPAPER_CHANGE
+} from '~/model/constants'
+
 export default {
 	components: {
 		Login,
@@ -45,5 +49,13 @@ export default {
 			title: 'GANNI space - our digital showroom'
 		}
 	},
+	methods: {
+		...mapActions([
+			WALLPAPER_CHANGE.action
+		]),
+	},
+	mounted() {
+		this[WALLPAPER_CHANGE.action]()
+	}
 };
 </script>

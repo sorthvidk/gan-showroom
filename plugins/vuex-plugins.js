@@ -13,7 +13,10 @@ export default ({store}) => {
 			'progressMax',
 			'progressPct',
 			'collection.wishList'
-		]
+		],
+		rehydrated: store => {
+			console.log("rehydrated", store)
+		}
     })(store)
   })
 }

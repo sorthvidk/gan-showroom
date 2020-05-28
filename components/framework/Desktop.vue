@@ -82,7 +82,6 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 import {
-	WALLPAPER_CHANGE,
 	KEYPRESS,
 	MOUSEMOVE,
 	CLIPBOARD_COPY,
@@ -158,7 +157,6 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			WALLPAPER_CHANGE.action,
 			KEYPRESS.action,
 			MOUSEMOVE.action,
 			CLIPBOARD_COPY.action,
@@ -204,8 +202,6 @@ export default {
 
 		// JPL only on login
 		// this.playSound()
-
-		this[WALLPAPER_CHANGE.action]()
 	}
 }
 </script>
