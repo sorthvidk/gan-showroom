@@ -6,7 +6,7 @@
 
 <script>
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name:'gallery-image',

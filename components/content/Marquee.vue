@@ -13,6 +13,7 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT, OPEN_CONTENT } from '~/model/constants'
+import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'marquee',
@@ -26,7 +27,7 @@ export default {
 			shortcuts: state => state.shortcuts.list
 		}),
 		marqueeLinks() {
-			return this.shortcuts.filter(link => link.marqueeLink)
+			return this.shortcuts.filter(s => s.type === ShortcutTypes.MARQUEE)
 		}
 	},
 	methods: {

@@ -1,10 +1,12 @@
 import { SET_CURRENT_FILTER, TOGGLE_MUSIC_PLAYER } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import ShortcutTypes from '~/model/shortcut-types'
 
 export const state = () => ({
 	list: [
 		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '📁',
 			label: 'PS21 collection',
@@ -22,6 +24,8 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'films',
 			icon: '📹',
 			label: 'PS21 Films',
@@ -40,6 +44,8 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
 			icon: '🗂',
 			label: 'Private ♥️',
@@ -96,6 +102,8 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'music-player',
 			icon: '⚡️',
 			label: 'Ganni FM',
@@ -112,6 +120,8 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-girls',
 			icon: '👯‍♀️',
 			label: 'Ganni Girls',
@@ -129,6 +139,8 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
 			icon: '🤩',
 			label: 'LookBook',
@@ -146,11 +158,13 @@ export const state = () => ({
 			]
 		},
 		{
+
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'hampster-dance',
 			icon: '🐹',
 			label: 'Hampster Dance',
-			posH: 11,
-			posV: 7,
+			posH: 12,
+			posV: 6,
 			windowContent: [
 				{
 					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
@@ -160,6 +174,7 @@ export const state = () => ({
 			]
 		},
 		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'animal-print',
 			icon: '🐯',
 			label: 'Animal Print',
@@ -177,7 +192,35 @@ export const state = () => ({
 			]
 		},
 		{
-			marqueeLink: true,
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'jersey-shore',
+			icon: '🇯🇪',
+			label: 'Jersey Shore',
+			posH: 11,
+			posV: 7,
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'rtw4',
+			windowContent: [
+				{
+					title: 'PS21 collection 🔥',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
+					canOverride: true
+				}
+			]
+		},
+		{
+
+			type: ShortcutTypes.URL,
+			shortcutId: 'responsibility-report',
+			icon: '📄',
+			label: 'Responsibility (pdf)',
+			posH: 1,
+			posV: 7,
+			href: '/files/ganni-responsibility.pdf'			
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
 			text: 'Take a look at this ',
 			label: 'Leopards!',
 			action: 'collection/' + SET_CURRENT_FILTER.action,
@@ -192,7 +235,7 @@ export const state = () => ({
 			]
 		},
 		{
-			marqueeLink: true,
+			type: ShortcutTypes.MARQUEE,
 			text: 'Or this ',
 			label: 'hampster dance',
 			windowContent: [
@@ -204,7 +247,7 @@ export const state = () => ({
 			]
 		},
 		{
-			marqueeLink: true,
+			type: ShortcutTypes.MARQUEE,
 			text: 'Also this ',
 			label: `cool dress`,
 			actionParam: 'F8907234'

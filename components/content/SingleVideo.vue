@@ -13,7 +13,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_GALLERY } from '~/model/constants'
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name:'single-video',

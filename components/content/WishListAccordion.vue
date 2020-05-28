@@ -85,7 +85,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name: 'wish-list-accordion',

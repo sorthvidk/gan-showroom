@@ -114,7 +114,7 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'

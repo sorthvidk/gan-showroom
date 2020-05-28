@@ -12,6 +12,7 @@
 			<shortcut
 				v-for="(item, nthChild) in desktopIcons"
 				:key="item.shortcutId"
+				:type="item.type"
 				:position-h="item.posH"
 				:position-v="item.posV"
 				:icon="item.icon"
@@ -20,7 +21,8 @@
 				:action="item.action"
 				:action-param="item.actionParam"
 				:window-content="item.windowContent"
-				:nth-child="nthChild"
+				:href="item.href"
+				:nth-child="nthChild"				
 			/>
 		</div>
 
@@ -86,6 +88,7 @@ import {
 
 import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
+import ShortcutTypes from '~/model/shortcut-types'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
@@ -112,10 +115,10 @@ export default {
 			downloadPreparing: state => state.downloadPreparing
 		}),
 		desktopIcons() {
-			return this.shortcutList.filter(s => !s.marqueeLink)
+			return this.shortcutList.filter(s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL )
 		},
 		marqueeLinks() {
-			return this.shortcutList.filter(s => s.marqueeLink)
+			return this.shortcutList.filter(s => s.type == ShortcutTypes.MARQUEE)
 		}
 	},
 	watch: {

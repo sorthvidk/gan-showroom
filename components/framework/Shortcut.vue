@@ -15,6 +15,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { TweenLite } from 'gsap'
 import { OPEN_CONTENT } from '~/model/constants'
+import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
@@ -44,6 +45,11 @@ export default {
 			default: null,
 			required: true
 		},
+		type: {
+			type: Number,
+			default: -1,
+			required: true
+		},
 		windowContent: {
 			type: Array,
 			default: () => [],
@@ -55,6 +61,11 @@ export default {
 			required: false
 		},
 		actionParam: {
+			type: String,
+			default: null,
+			required: false
+		},
+		href: {
 			type: String,
 			default: null,
 			required: false
@@ -74,7 +85,13 @@ export default {
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
-			this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+
+			if ( this.type == ShortcutTypes.URL && this.href ) {
+				window.open(this.href,'_blank');				
+			}
+			else {
+				this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+			}
 
 			//TODO: Fix race condition!!
 			setTimeout(() => {
@@ -97,5 +114,5 @@ export default {
 			})
 		}
 	}
-}
+};
 </script>

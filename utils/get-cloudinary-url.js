@@ -9,11 +9,18 @@ export default function(cl, asset, tf={}) {
 
 		if ( asset.type === 'video' ) {			
 			transform.fetchFormat = 'auto' //may need to be h264?
-			transform.width = 608
-			transform.height = 342
-			if ( asset.aspect === 'portrait' ) {
-				transform.width = 274
-				transform.height = 417
+
+			let aspect = 342/608
+			if ( typeof transform.width != "undefined" ) {
+				transform.height = aspect*transform.width
+			}
+			else {
+				transform.width = 608
+				transform.height = 342
+				if ( asset.aspect === 'portrait' ) {
+					transform.width = 274
+					transform.height = 417
+				}
 			}
 			
 			resultUrl = cl.video_url(parseUrl, transform);

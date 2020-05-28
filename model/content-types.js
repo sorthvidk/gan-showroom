@@ -169,7 +169,7 @@ export default {
 	wishList: {
 		name: 'wishList',
 		contentComponent: 'wish-list',
-		contentScore: 20,
+		contentScore: 10,
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -196,7 +196,7 @@ export default {
 	ganniGirls: {
 		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
-		contentScore: 10,
+		contentScore: 15,
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
@@ -209,7 +209,7 @@ export default {
 	lookBook: {
 		name: 'lookBook',
 		contentComponent: 'look-book',
-		contentScore: 10,
+		contentScore: 15,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {

@@ -18,7 +18,7 @@ import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
 import capitalize from 'lodash/capitalize'
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
 
 export default {
