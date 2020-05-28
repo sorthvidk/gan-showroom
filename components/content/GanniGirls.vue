@@ -28,8 +28,10 @@ import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 
 import { vuex, mapActions, mapState } from 'vuex'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name:'ganni-girls',
 	computed: {
 		...mapState({

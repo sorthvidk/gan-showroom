@@ -7,6 +7,8 @@ const createMutation = type => ({
 })
 
 export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
+export const LOGIN = createMutation('LOGIN')
+export const WALLPAPER_CHANGE = createMutation('WALLPAPER_CHANGE')
 
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
 export const COLLECTION_FILTERS_FETCH = createMutation('COLLECTION_FILTERS_FETCH')
@@ -16,7 +18,6 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
-export const LOGIN = createMutation('LOGIN')
 export const KEYPRESS = createMutation('KEYPRESS')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')

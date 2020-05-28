@@ -44,21 +44,8 @@
 	}
 	
 	.logo {
-		position: absolute;
-
-		left: rem(20);
-		right: rem(20);
-
-		bottom: rem(220);
-		
-		@include mq($from: screen-md) {
-			bottom: rem(80);
+		@include mq($until: screen-md) {
+			bottom: rem(220);
 		}
-		svg {
-			width: 100%;
-			height: auto;
-			fill: #1d1d1b;
-		}
-
 	}
 }

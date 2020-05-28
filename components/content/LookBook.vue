@@ -14,7 +14,10 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name:'look-book',
 	computed: {
 		...mapState({

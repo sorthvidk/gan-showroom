@@ -121,7 +121,10 @@ import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
 
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name: 'wish-list',
 	components: {
 		WishListAccordion,
