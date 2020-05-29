@@ -3,6 +3,8 @@
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
+		<screensaver v-if="hidden" />
+
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
@@ -13,20 +15,22 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
+import Screensaver from '~/components/framework/Screensaver.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import { WALLPAPER_CHANGE } from '~/model/constants'
+import { WALLPAPER_CHANGE, VISIBILITY } from '~/model/constants'
 
 export default {
 	components: {
 		Login,
 		Desktop,
+		Screensaver,
 		CookieBanner
 	},
 	computed: {
-		...mapState(['loggedIn', 'cookiesAccepted'])
+		...mapState(['loggedIn', 'cookiesAccepted', 'hidden'])
 	},
 	head() {
 		return {
@@ -45,10 +49,24 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([WALLPAPER_CHANGE.action])
+		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action])
 	},
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
+
+		this.$visibility.change((evt, hidden) => {
+			if (hidden) {
+				this[VISIBILITY.action](hidden)
+			} else {
+				document.body.addEventListener(
+					'click',
+					() => {
+						this[VISIBILITY.action](hidden)
+					},
+					{ once: true }
+				)
+			}
+		})
 	}
 }
 </script>

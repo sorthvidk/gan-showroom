@@ -1,5 +1,6 @@
 import {
 	LOGIN,
+	VISIBILITY,
 	COOKIES_ACCEPT,
 	WALLPAPER_CHANGE,
 	COLLECTION_ITEMS_FETCH,
@@ -43,6 +44,8 @@ export const state = () => ({
 
 	loggedIn: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
+
+	hidden: false,
 
 	progressItems: {},
 	progressPct: 0,
@@ -152,6 +155,11 @@ export const mutations = {
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
 		console.log('state.loggedIn', state.loggedIn)
+	},
+
+	[VISIBILITY.mutation](state, key) {
+		state.hidden = key
+		console.log('screensaver', key)
 	},
 
 	[WALLPAPER_CHANGE.mutation](state) {
@@ -531,6 +539,11 @@ export const actions = {
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
 	},
+
+	[VISIBILITY.action]({ commit }, hidden) {
+		commit(VISIBILITY.mutation, hidden)
+	},
+
 	[WALLPAPER_CHANGE.action]({ commit }) {
 		commit(WALLPAPER_CHANGE.mutation)
 	},

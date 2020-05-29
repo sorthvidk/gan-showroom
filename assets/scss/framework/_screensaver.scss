@@ -1,0 +1,27 @@
+.screensaver {
+	&-transition-enter-active {
+		transition: none;
+	}
+
+	&-transition-leave-active {
+		transition: all 0.6s ease;
+	}
+
+	&-transition-leave-to,
+	&-transition-enter {
+		opacity: 0;
+	}
+
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 9999;
+
+	background: rgba($color-salmon, 0.9);
+
+	cursor: pointer;
+
+	svg {
+		width: 200px;
+	}
+}

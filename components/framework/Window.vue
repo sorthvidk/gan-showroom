@@ -232,6 +232,8 @@ export default {
 			w: this.computedSizeW,
 			h: this.computedSizeH,
 
+			transformOrigin: 0,
+
 			savedAttributes: {
 				x: 0,
 				y: 0,
