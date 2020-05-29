@@ -42,10 +42,16 @@
 		top: 0;
 		left: 0;
 	}
-	
+
 	.logo {
 		@include mq($until: screen-md) {
 			bottom: rem(220);
+		}
+	}
+
+	&.screensaver-running {
+		* {
+			animation-play-state: paused !important;
 		}
 	}
 }

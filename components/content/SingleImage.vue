@@ -1,5 +1,5 @@
 <template>
-	<div class="single-image" :class="{'is-interactive': this.belongsToStyle}">
+	<div class="single-image" :class="{'is-interactive': belongsToStyle && inFocus }">
 		<transition name="fade">
 			<img :src="assetUrl" alt="img" @click="clickHandler">
 		</transition>

@@ -15,9 +15,13 @@
 				v-model="pwd"
 				ref="passwordInput"
 			/>
-			<button :class="{'is-active': pwd.length > 0, 'is-invalid': showErrorMessage}" class="submit" @click.prevent="submitClickHandler">
+			<button
+				:class="{'is-active': pwd.length > 0, 'is-invalid': showErrorMessage}"
+				class="submit"
+				@click.prevent="submitClickHandler"
+			>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z"/>
+					<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
 				</svg>
 			</button>
 		</form>
@@ -65,7 +69,12 @@ export default {
 
 			this[LOGIN.action](valid)
 			this.valid = valid
-			console.log("valid",this.valid)
+
+			if (valid) {
+				this.playSound()
+			}
+
+			console.log('valid', this.valid)
 		},
 
 		loginInput(e) {
@@ -89,7 +98,10 @@ export default {
 
 		playSound() {
 			const audio = new Audio('/audio/ganni_boot.mp3')
-			audio.addEventListener('loadeddata', () => {audio.volume=0.4;audio.play();})
+			audio.addEventListener('loadeddata', () => {
+				audio.volume = 0.4
+				audio.play()
+			})
 		}
 	}
 }

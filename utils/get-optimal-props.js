@@ -66,8 +66,6 @@ export default function(state, currentWindow, groupId) {
 		windowProps.height ||
 		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight']
 
-	console.log('defaultWindowProps', defaultWindowProps)
-
 	const conditionalAssignment = (obj, attr) => {
 		if (typeof windowProps[attr] !== 'undefined') obj[attr] = windowProps[attr]
 		else if (typeof defaultWindowProps[attr] !== 'undefined')
@@ -81,8 +79,6 @@ export default function(state, currentWindow, groupId) {
 	conditionalAssignment(optionalProps, 'modifierClass')
 	conditionalAssignment(optionalProps, 'isMaximized')
 	conditionalAssignment(optionalProps, 'noPlacement')
-
-	console.log('optionalProps', optionalProps)
 
 	let onTop
 	if (contentComponentProps && contentComponentProps.asset) {

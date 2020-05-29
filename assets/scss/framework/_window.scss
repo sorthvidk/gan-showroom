@@ -130,6 +130,9 @@
 		#{$module}__content {
 			overflow: visible;
 		}
+		.handle {
+			display: none !important;
+		}
 		&:hover {
 			.handle {
 				display: none !important;
