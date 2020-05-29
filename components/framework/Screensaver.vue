@@ -72,7 +72,7 @@ export default {
 			var movementY = (posY = posY + velocityY)
 
 			logo.style.transform =
-				'translate(' + movementX + 'px, ' + movementY + 'px)'
+				'translate3d(' + movementX + 'px, ' + movementY + 'px, 0)'
 
 			checkBounds()
 		}

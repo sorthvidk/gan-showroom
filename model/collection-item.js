@@ -1,57 +1,71 @@
 export default {
-	styleId: { //unique identifier
+	styleId: {
+		//unique identifier
 		type: String,
 		default: null
 	},
-	name: { //"file name" human readable title
+	name: {
+		//"file name" human readable title
 		type: String,
 		default: null
 	},
-	program: { //series lvl 1
+	program: {
+		//series lvl 1
 		type: String,
 		default: null
 	},
-	programName: { //series lvl 2
+	programName: {
+		//series lvl 2
 		type: String,
 		default: null
 	},
-	material: { //textile
+	material: {
+		//textile
 		type: String,
 		default: null
 	},
-	drop: { //ready for order time
+	drop: {
+		//ready for order time
 		type: String,
 		default: null
 	},
-	colorNames: { // human readable
+	colorNames: {
+		// human readable
 		type: String,
 		default: null
 	},
-	colorId: { // human readable number
+	colorId: {
+		// human readable number
 		type: String,
 		default: null
 	},
-	wholesalePriceDKK: { //price in DKK
+	wholesalePriceDKK: {
+		//price in DKK
 		type: Number,
 		default: 0
 	},
-	wholesalePriceEUR: { //price in EUR
+	wholesalePriceEUR: {
+		//price in EUR
 		type: Number,
 		default: 0
 	},
-	wholesalePriceUSD: { //price in USD
+	wholesalePriceUSD: {
+		//price in USD
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceDKK: { //price in DKK
+	suggestedRetailPriceDKK: {
+		//price in DKK
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceEUR: { //price in EUR
+	suggestedRetailPriceEUR: {
+		//price in EUR
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceUSD: { //price in USD
+	suggestedRetailPriceUSD: {
+		//price in USD
 		type: Number,
 		default: 0
 	},
@@ -71,4 +85,4 @@ export default {
 		type: Boolean,
 		default: false
 	}
-};
+}

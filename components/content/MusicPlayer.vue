@@ -4,26 +4,28 @@
 			<p>Playing:</p>
 			<div>
 				<!-- print 5 times so it can be css-animated -->
-				<p
-					class="title-marquee"
-				>{{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}}</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
 			</div>
 		</div>
 		<div class="music-player__controls">
 			<button class="button prev" @click="playlist(-1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z"/>
+					<path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z" />
 				</svg>
 			</button>
 			<button class="button" @click="toggle">
-				<svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">					
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z"/>
+				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
 				<p v-else>►</p>
 			</button>
 			<button class="button next" @click="playlist(1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M15.1 21.2l6.1-6.1L15.1 9v5.1L10 9v12.2l5.1-5.1v5.1z"/>
+					<path d="M15.1 21.2l6.1-6.1L15.1 9v5.1L10 9v12.2l5.1-5.1v5.1z" />
 				</svg>
 			</button>
 		</div>
@@ -61,33 +63,41 @@ export default {
 	},
 	watch: {
 		keyPressed(event) {
-			if ( !this.musicPlayerOpen ) return false;
+			if (!this.musicPlayerOpen) return false
 
 			if (event.key === 'ArrowLeft') {
-				this.playlist(-1);
+				this.playlist(-1)
 			} else if (event.key === 'ArrowRight') {
 				this.playlist(1)
 			} else if (event.code === 'Space') {
-				if ( this.isPlaying ) this[MUSIC_PLAY_PAUSE.action](false)
+				if (this.musicPlaying) this[MUSIC_PLAY_PAUSE.action](false)
 				else this[MUSIC_PLAY_PAUSE.action](true)
 			}
-		},		
-		isPlaying(playing) {
-			if (this.isPlaying) {
+		},
+		musicPlaying(playing) {
+			if (this.musicPlaying) {
 				this.audio.play().catch(err => console.warn(err))
 				this.animate()
 			} else {
 				this.audio.pause()
 			}
+		},
+		hidden(hidden) {
+			if (hidden) {
+				this.audio.volume = 0
+			} else {
+				this.fadeIn()
+			}
 		}
 	},
 	computed: {
-		...mapState({
-			keyPressed: state => state.keyPressed,
-			isPlaying: state => state.musicPlaying,
-			musicPlayerOpen: state => state.musicPlayerOpen,
-			songs: state => state.songs
-		})
+		...mapState([
+			'keyPressed',
+			'musicPlaying',
+			'musicPlayerOpen',
+			'songs',
+			'hidden'
+		])
 	},
 	methods: {
 		...mapActions([TOGGLE_MUSIC_PLAYER.action, MUSIC_PLAY_PAUSE.action]),
@@ -105,15 +115,16 @@ export default {
 			this.playNewSong()
 		},
 		toggle() {
-			this[MUSIC_PLAY_PAUSE.action](!this.isPlaying)
+			this[MUSIC_PLAY_PAUSE.action](!this.musicPlaying)
 		},
 		playNewSong() {
 			this.audio.pause()
 			this.audio.src = this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
-				if (this.isPlaying) {
+				if (this.musicPlaying) {
 					this.audio.play().catch(err => console.warn(err))
+					this.fadeIn()
 				}
 			}, 100)
 		},
@@ -180,7 +191,7 @@ export default {
 			const renderFrame = () => {
 				// stop animation when no music and all the frequencies are at 0,
 				// creates smooth ending of animation
-				if (!this.isPlaying && this.dataArray.every(v => v === 0)) return
+				if (!this.musicPlaying && this.dataArray.every(v => v === 0)) return
 
 				requestAnimationFrame(renderFrame)
 
@@ -213,10 +224,22 @@ export default {
 				})
 			}
 			renderFrame()
+		},
+		fadeIn() {
+			let volume = 0
+			const loop = () => {
+				this.audio.volume = volume
+				volume += 0.005
+				if (volume <= 0.5) {
+					requestAnimationFrame(loop)
+				}
+			}
+			loop()
 		}
 	},
 	mounted() {
 		this.audio = new Audio(this.songs[0].src)
+		this.audio.volume = 0.5
 		this.audio.addEventListener(
 			'canplaythrough',
 			this.setLoadedState.bind(this),

@@ -5,7 +5,9 @@
 			class="shortcut"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>
-			<span class="icon">{{icon}}</span>
+			<span class="icon">
+				<img :src="icon" />
+			</span>
 			<span class="text">{{label}}</span>
 		</button>
 	</transition>
@@ -85,11 +87,9 @@ export default {
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
-
-			if ( this.type == ShortcutTypes.URL && this.href ) {
-				window.open(this.href,'_blank');				
-			}
-			else {
+			if (this.type == ShortcutTypes.URL && this.href) {
+				window.open(this.href, '_blank')
+			} else {
 				this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
 			}
 
@@ -114,5 +114,5 @@ export default {
 			})
 		}
 	}
-};
+}
 </script>

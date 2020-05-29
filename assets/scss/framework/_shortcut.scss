@@ -36,6 +36,11 @@
 		font-size: rem(60);
 		height: rem(60);
 		margin-bottom: rem(10);
+
+		img {
+			width: 60px;
+			height: auto;
+		}
 	}
 	.text {
 		display: inline-block;
