@@ -2,7 +2,11 @@
 	<transition name="startup-transition" mode="out-in">
 		<!-- transition is placed in pages/index.vue -->
 		<!-- <transition name="startup-transition" mode="out-in"> -->
-		<div class="desktop" v-lazy:background-image="backgroundImageObj">
+		<div
+			class="desktop"
+			:class="hidden && 'screensaver-running'"
+			v-lazy:background-image="backgroundImageObj"
+		>
 			<progress-bar
 				:text-start="'Start diving into the PS21 digital universe.'"
 				:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'"
@@ -118,7 +122,8 @@ export default {
 			windowList: state => state.windowList,
 			shortcutList: state => state.shortcuts.list,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
-			downloadPreparing: state => state.downloadPreparing
+			downloadPreparing: state => state.downloadPreparing,
+			hidden: state => state.hidden
 		}),
 		desktopIcons() {
 			return this.shortcutList.filter(
