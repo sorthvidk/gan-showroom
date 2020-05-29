@@ -11,27 +11,30 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
 	name: 'Screensaver',
+	computed: mapState(['hidden']),
 	mounted() {
 		var container = this.$refs.container
 		var logo = this.$refs.logo
 
-		var posX = 0
-		var posY = 0
-		var velocityX = 2.5
-		var velocityY = 2.5
+		var posX = Math.random() * window.innerWidth * 0.4
+		var posY = Math.random() * window.innerHeight * 0.4
+		var velocityX = 3
+		var velocityY = 2
 		var containerBcr = container.getBoundingClientRect()
 		var logoBcr = logo.getBoundingClientRect()
 
-		var init = function init() {
+		const init = () => {
 			window.addEventListener('resize', onResize)
 			logo.style.fill = getRandomColor()
 			logo.style.background = getRandomColor()
 			render()
 		}
 
-		var checkBounds = function checkBounds() {
+		const checkBounds = () => {
 			if (posX >= containerBcr.width - logoBcr.width || posX === 0) {
 				velocityX = velocityX * -1
 				logo.style.fill = getRandomColor()
@@ -45,7 +48,7 @@ export default {
 			}
 		}
 
-		var getRandomColor = function getRandomColor() {
+		const getRandomColor = () => {
 			return (
 				'#' +
 				Math.random()
@@ -54,12 +57,17 @@ export default {
 			)
 		}
 
-		var onResize = function onResize() {
+		const onResize = () => {
 			containerBcr = container.getBoundingClientRect()
 			logoBcr = logo.getBoundingClientRect()
 		}
 
-		var render = function render() {
+		const render = () => {
+			if (!this.hidden) {
+				return
+			}
+			window.requestAnimationFrame(render)
+
 			var movementX = (posX = posX + velocityX)
 			var movementY = (posY = posY + velocityY)
 
@@ -67,7 +75,6 @@ export default {
 				'translate(' + movementX + 'px, ' + movementY + 'px)'
 
 			checkBounds()
-			window.requestAnimationFrame(render)
 		}
 
 		init()

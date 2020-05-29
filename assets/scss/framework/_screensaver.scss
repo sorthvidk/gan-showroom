@@ -17,11 +17,15 @@
 	position: fixed;
 	z-index: 9999;
 
-	background: rgba($color-salmon, 0.9);
+	background: linear-gradient(
+		215deg,
+		rgba($color-darkgrey, 0.9),
+		rgba($color-black, 0.8)
+	);
 
 	cursor: pointer;
 
 	svg {
-		width: 200px;
+		width: 40vw;
 	}
 }

@@ -54,64 +54,7 @@ export const state = () => ({
 	mousepos: { x: 0, y: 0 },
 
 	// is opened by Desktop.vue
-	windowList: [
-		// {
-		// 	title: 'Ganni FM',
-		// 	contentId: 'ganni-fm',
-		// 	type: {
-		// 		name: 'musicPlayer',
-		// 		contentComponent: 'music-player',
-		// 		contentScore: 10,
-		// 		statusComponent: 'status-static',
-		// 		allowedInstances: 1,
-		// 		defaultWindowProps: {
-		// 			largeWidth: 320,
-		// 			smallWidth: 350,
-		// 			largeHeight: 143,
-		// 			smallHeight: 143,
-		// 			noStatus: true,
-		// 			canResize: false,
-		// 			noPlacement: true,
-		// 			modifierClass: 'window--tight window--music-player music-player'
-		// 		}
-		// 	},
-		// 	canOverride: true,
-		// 	windowId: 'yw175dqtd',
-		// 	groupId: 'p38fpt2ss',
-		// 	contentType: {
-		// 		name: 'musicPlayer',
-		// 		contentComponent: 'music-player',
-		// 		contentScore: 10,
-		// 		statusComponent: 'status-static',
-		// 		allowedInstances: 1,
-		// 		defaultWindowProps: {
-		// 			largeWidth: 320,
-		// 			smallWidth: 350,
-		// 			largeHeight: 143,
-		// 			smallHeight: 143,
-		// 			noStatus: true,
-		// 			canResize: false,
-		// 			noPlacement: true,
-		// 			modifierClass: 'window--tight window--music-player music-player'
-		// 		}
-		// 	},
-		// 	contentName: 'Ganni FM',
-		// 	contentComponent: 'music-player',
-		// 	statusComponent: 'status-static',
-		// 	positionZ: 1,
-		// 	windowProps: {
-		// 		noStatus: true,
-		// 		canResize: false,
-		// 		modifierClass: 'window--tight window--music-player music-player',
-		// 		noPlacement: true,
-		// 		sizeW: 320,
-		// 		sizeH: 143,
-		// 		positionX: 0,
-		// 		positionY: 0,
-		// 		nthChild: 0
-		// 	}
-		// }
-	],
+	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
 
@@ -159,7 +102,6 @@ export const mutations = {
 
 	[VISIBILITY.mutation](state, key) {
 		state.hidden = key
-		console.log('screensaver', key)
 	},
 
 	[WALLPAPER_CHANGE.mutation](state) {
