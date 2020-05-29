@@ -61,6 +61,7 @@ export const state = () => ({
 	keyPressed: null,
 	highestZIndex: 0,
 
+	rehydrated: false,
 	cookiesAccepted: false,
 
 	musicPlayerOpen: true,
@@ -94,6 +95,11 @@ export const state = () => ({
 
 export const mutations = {
 	// Baseline content to cms
+
+	// fired when nuxt has access to the store
+	rehydrated(state) {
+		state.rehydrated = true
+	},
 
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
