@@ -49,20 +49,26 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action])
+		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action]),
+		hideScreensaver(hidden) {
+			this[VISIBILITY.action](hidden)
+		}
 	},
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
 
 		this.$visibility.change((evt, hidden) => {
 			if (hidden) {
-				this[VISIBILITY.action](hidden)
+				this.hideScreensaver(hidden)
 			} else {
 				document.body.addEventListener(
 					'click',
-					() => {
-						this[VISIBILITY.action](hidden)
-					},
+					this.hideScreensaver.bind(this, hidden),
+					{ once: true }
+				)
+				document.body.addEventListener(
+					'mousemove',
+					this.hideScreensaver.bind(this, hidden),
 					{ once: true }
 				)
 			}
