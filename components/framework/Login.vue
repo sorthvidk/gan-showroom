@@ -1,5 +1,5 @@
 <template>
-	<div class="login" @click="nextSlide">
+	<div class="login" @click="dispatchNext(true)">
 		<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
 	</div>
 </template>
@@ -17,7 +17,8 @@ export default {
 	},
 	data() {
 		return {
-			current: 0
+			current: 0,
+			timeout: null
 		}
 	},
 	computed: {
@@ -36,10 +37,27 @@ export default {
 		}
 	},
 	methods: {
+		dispatchNext(immediate = false) {
+			this.debounce(this.nextSlide, 7000, immediate)()
+		},
 		nextSlide() {
 			this.current = Math.min(this.content.length, this.current + 1) // cap at slide-amount + 1
+			this.dispatchNext()
+		},
+		debounce(func, wait, immediate) {
+			return () => {
+				var later = () => {
+					this.timeout = null
+					func.apply(this)
+				}
+
+				clearTimeout(this.timeout)
+				this.timeout = setTimeout(later, immediate ? 0 : wait)
+			}
 		}
 	},
-	mounted() {}
+	mounted() {
+		this.dispatchNext()
+	}
 }
 </script>

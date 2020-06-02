@@ -1,6 +1,8 @@
 .marquee {
 	box-sizing: border-box;
 
+	font-family: $font-sansserif;
+
 	border-top: rem(1) solid $color-black;
 	border-bottom: rem(1) solid $color-black;
 	background-color: $color-white;
@@ -13,11 +15,9 @@
 	user-select: none;
 	cursor: pointer;
 
-	// display: none; // bugs the marquee
 	visibility: hidden;
 
 	@include mq($from: screen-md) {
-		// display: block;
 		visibility: visible;
 	}
 
@@ -41,6 +41,7 @@
 	button {
 		white-space: nowrap;
 		@include megatype();
+		font-family: inherit;
 	}
 
 	button {
