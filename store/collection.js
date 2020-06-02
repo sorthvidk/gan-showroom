@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
@@ -215,10 +213,7 @@ export const mutations = {
 				a.weight > b.weight ? -1 : 1
 			)
 
-			const nonDuplicates = _.uniq(newCurrentStyles, 'styleId')
-
-			console.log('newCurrentStyles', newCurrentStyles, nonDuplicates)
-			state.currentStyles = nonDuplicates
+			state.currentStyles = newCurrentStyles
 		}
 	}
 }
