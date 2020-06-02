@@ -1,4 +1,35 @@
+.window {
+	&--music-player {
+		
+	
+		&__wrapper {
+			position: fixed;
+			top: calc(100vh - 380px);
+			left: rem(10);
+			
+
+			@include mq($from: screen-xs) {
+				top: calc(100vh - 250px);
+			}
+
+			@include mq($from: screen-sm) {
+				width: rem(326);
+				left: calc(100vw - 370px);
+				top: calc(100vh - 230px);
+			}
+			@include mq($from: screen-md) {
+				right: auto;
+				top: calc(100vh - 230px);
+				left: rem(30);
+			}
+		}
+
+	}
+}
+
 .music-player {
+
+
 	background-color: $color-salmon;
 	user-select: none !important;
 	cursor: default;

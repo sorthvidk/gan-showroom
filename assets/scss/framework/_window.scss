@@ -13,8 +13,8 @@
 	left: 0;
 	z-index: 1;
 
-	max-width: calc(100vw - #{rem(20)});
-
+	max-width: calc(100vw - #{rem(22)}); //22 = gutters + borders 
+ 
 	@include mq($from: screen-md) {
 		max-width: none;
 	}
@@ -60,9 +60,8 @@
 
 			cursor: grab;
 
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			display: block;
+			text-align: center;
 		}
 		.button {
 			@include window-button();
@@ -171,29 +170,10 @@
 			cursor: default;
 		}
 
-		position: fixed;
-		top: calc(75vh - 350px);
-		left: rem(5);
-		right: rem(5);
-		bottom: rem(10);
-
-		@include mq($from: screen-xs) {
-			top: calc(70vh - 350px);
-		}
-
-		@include mq($from: screen-sm) {
-			right: auto;
-			left: rem(20);
-			width: rem(326);
-			bottom: rem(160);
-		}
-		@include mq($from: screen-md) {
-			left: rem(30);
-		}
-
 		#{$module}__content {
 			height: auto;
 		}
+		
 	}
 
 	.vdr {

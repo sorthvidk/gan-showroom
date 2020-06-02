@@ -13,4 +13,8 @@
 		height: auto;
 		fill: #1d1d1b;
 	}
+
+	&--no-blend {
+		mix-blend-mode: initial;
+	}
 }

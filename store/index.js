@@ -574,7 +574,7 @@ export const actions = {
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
 			{
-				title: 'Style gallery',
+				title: 'Zoom window',
 				contentId: 'gallery',
 				type: ContentTypes.gallery,
 				canOverride: true,
