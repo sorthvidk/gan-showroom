@@ -124,7 +124,8 @@ export default {
 			shortcutList: state => state.shortcuts.list,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
 			downloadPreparing: state => state.downloadPreparing,
-			hidden: state => state.hidden
+			hidden: state => state.hidden,
+			wishlist: state => state.collection.wishList
 		}),
 		desktopIcons() {
 			return this.shortcutList.filter(
@@ -231,12 +232,11 @@ export default {
 		)
 		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
-		// JPL only on login
-		// this.playSound()
-
 		if (!isMobile) {
 			this.openMusicPlayer()
 		}
+
+		this.$store.commit('isOnWishList')
 	},
 	created() {}
 }

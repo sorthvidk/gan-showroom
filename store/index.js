@@ -102,6 +102,13 @@ export const mutations = {
 		state.rehydrated = true
 	},
 
+	isOnWishList(state) {
+		state.collection.list.forEach(style => {
+			const sameStyleId = e => e.styleId === style.styleId
+			style.onWishList = state.collection.wishList.find(sameStyleId)
+		})
+	},
+
 	[RESET_STATE.mutation](state) {
 		state.collection.wishList = []
 		state.progressPct = 0
@@ -620,7 +627,7 @@ export const actions = {
 	[DOWNLOAD_PREPARING.action]({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
-	
+
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
 	},
