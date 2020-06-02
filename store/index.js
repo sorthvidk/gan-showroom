@@ -108,6 +108,9 @@ export const mutations = {
 		Object.keys(ContentTypes).forEach(type => {
 			state.progressItems[type].complete = false
 		})
+		state.loggedIn = false
+		state.wallpaperIndex = 1
+		state.cookiesAccepted = false
 	},
 
 	[LOGIN.mutation](state, key) {

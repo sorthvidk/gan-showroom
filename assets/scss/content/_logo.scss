@@ -6,15 +6,10 @@
 
 	
 	bottom: rem(80);
-	mix-blend-mode: luminosity;
 	
 	svg {
 		width: 100%;
 		height: auto;
-		fill: #1d1d1b;
-	}
-
-	&--no-blend {
-		mix-blend-mode: initial;
+		fill: $color-white;
 	}
 }
