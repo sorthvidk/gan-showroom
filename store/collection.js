@@ -213,8 +213,10 @@ export const mutations = {
 				a.weight > b.weight ? -1 : 1
 			)
 
-			console.log('newCurrentStyles', newCurrentStyles)
-			state.currentStyles = newCurrentStyles
+			const nonDuplicates = _.uniq(newCurrentStyles, 'styleId')
+
+			console.log('newCurrentStyles', newCurrentStyles, nonDuplicates)
+			state.currentStyles = nonDuplicates
 		}
 	}
 }
