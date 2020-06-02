@@ -1,7 +1,7 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1590997156/collection/Packshots/20.4/S1408_4704_177_2_mlc5xt.jpg",
   "assetId": "S1408 2",
   "styleId": "S1408",

@@ -187,9 +187,9 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'jersey-shore',
+			shortcutId: 'jersey-core',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'Jersey Shore',
+			label: 'Jersey Core',
 			posH: 11,
 			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,

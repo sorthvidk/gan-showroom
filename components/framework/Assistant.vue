@@ -4,7 +4,7 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top">
-			<span class="title">🤖 Desktop assistant</span>
+			<span class="title">Desktop assistant</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
@@ -465,6 +465,11 @@ export default {
 				} else {
 					this.assistantMode = AssistantModes.WELCOME
 				}
+			}
+		},
+		wishList(newVal) {
+			if ( newVal.length == 0 && this.assistantMode == AssistantModes.COLLECTION_SEEN ) {
+				this.assistantMode = AssistantModes.WELCOME
 			}
 		}
 	},

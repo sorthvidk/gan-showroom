@@ -86,6 +86,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 import {
+	RESET_STATE,
 	KEYPRESS,
 	MOUSEMOVE,
 	CLIPBOARD_COPY,
@@ -167,6 +168,7 @@ export default {
 	},
 	methods: {
 		...mapActions([
+			RESET_STATE.action,
 			KEYPRESS.action,
 			MOUSEMOVE.action,
 			CLIPBOARD_COPY.action,
@@ -212,8 +214,12 @@ export default {
 	mounted() {
 		window.addEventListener('keyup', event => {
 			this[KEYPRESS.action](event)
-			console.log('event.code', event.code)
-			// if ( event.code === )
+			
+		})
+		window.addEventListener('keydown', event => {
+			if (event.ctrlKey  &&  event.altKey  &&  event.code === "KeyR") {				
+				this[RESET_STATE.action](event)
+			}
 		})
 
 		window.addEventListener('mousemove', event => {
