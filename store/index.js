@@ -1,4 +1,5 @@
 import {
+	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
 	COOKIES_ACCEPT,
@@ -99,6 +100,10 @@ export const mutations = {
 	// fired when nuxt has access to the store
 	rehydrated(state) {
 		state.rehydrated = true
+	},
+
+	[RESET_STATE.mutation](state) {
+		state.collection.wishList = []		
 	},
 
 	[LOGIN.mutation](state, key) {
@@ -610,6 +615,10 @@ export const actions = {
 	},
 	[DOWNLOAD_PREPARING.action]({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
+	},
+	
+	[RESET_STATE.action]({ commit }) {
+		commit(RESET_STATE.mutation)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */

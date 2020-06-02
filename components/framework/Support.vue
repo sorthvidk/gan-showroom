@@ -1,7 +1,7 @@
 <template>
 	<section class="window window--tight window--support support" :class="{'is-active': !minimized}" v-cloak>
 		<header class="window__top">
-			<h1 class="title">☎️ Need support?</h1>
+			<h1 class="title">Need support?</h1>
 			<button class="button close" @click.stop="minimizeHandler">
 				<span class="icon" v-if="minimized">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
