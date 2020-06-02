@@ -214,10 +214,9 @@ export default {
 	mounted() {
 		window.addEventListener('keyup', event => {
 			this[KEYPRESS.action](event)
-			
 		})
 		window.addEventListener('keydown', event => {
-			if (event.ctrlKey  &&  event.altKey  &&  event.code === "KeyR") {				
+			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
 				this[RESET_STATE.action](event)
 			}
 		})
@@ -235,7 +234,9 @@ export default {
 		// JPL only on login
 		// this.playSound()
 
-		this.openMusicPlayer()
+		if (!isMobile) {
+			this.openMusicPlayer()
+		}
 	},
 	created() {}
 }
