@@ -26,7 +26,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'films',
-			icon: '/img/shortcuts/ps21.png',
+			icon: '/img/shortcuts/films.png',
 			label: 'PS21 Films',
 			posH: 2,
 			posV: 1,
@@ -211,6 +211,15 @@ export const state = () => ({
 			posH: 1,
 			posV: 7,
 			href: '/files/ganni-responsibility.pdf'
+		},
+		{
+			type: ShortcutTypes.URL,
+			shortcutId: 'ganni-software',
+			icon: '/img/shortcuts/ganni_software.png',
+			label: 'GANNI Software (pdf)',
+			posH: 2,
+			posV: 7,
+			href: '/files/ganni-software.pdf'
 		},
 		{
 			type: ShortcutTypes.MARQUEE,

@@ -100,8 +100,7 @@
 				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__text">
 						<h3>WELCOME TO DITTE’S DESKTOP</h3>
-						<p>Hey there, how’s it going? I’m your Desktop Assistant and I’ll be showing you around the place. Kick back, relax, pour a drink, explore – I’m here if you need me!<br>
-						Let’s go</p>
+						<p>Hey there, how’s it going? I’m your Desktop Assistant and I’ll be showing you around the place. Kick back, relax, pour a drink, explore – I’m here if you need me. Let’s go!</p>
 					</div>
 				</div>
 
