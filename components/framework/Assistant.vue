@@ -372,6 +372,7 @@ export default {
 			return 'Add to wishlist'
 		},
 		styleOnWishList() {
+			console.log("this.currentStyle.onWishList??", this.currentStyle.onWishList)
 			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
@@ -513,12 +514,14 @@ export default {
 			if (!this.styleOnWishList) {
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
 
-				sendTracking('Add to wish list', this.currentStyle.styleId)
 
 				this.styleHasBeenAdded = true
 				setTimeout(() => {
 					this.styleHasBeenAdded = false
 				}, 4000)
+
+
+				sendTracking('Add to wish list', this.currentStyle.styleId)
 			} else {
 				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
