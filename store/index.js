@@ -101,11 +101,11 @@ export const mutations = {
 	rehydrated(state) {
 		state.rehydrated = true
 		let cl = state.collection.list.length
-		console.warn("!!!!!!!!!REHYDRATED!!!!!!!!",cl,state.collection.wishList.length)
+		console.warn("STATE REHYDRATED",cl,state.collection.wishList.length)
 		for (var j = 0; j < cl; j++) {
 			let style = state.collection.list[j]
 			let styleAlreadyOnWishList = state.collection.wishList.filter(e => e.styleId === style.styleId)[0] ? true : false;
-			console.log(styleAlreadyOnWishList)
+			// console.log(styleAlreadyOnWishList)
 			style.onWishList = styleAlreadyOnWishList
 			if ( styleAlreadyOnWishList ) {
 				console.warn("ALREADY ON WISHLIST | "+style.styleId )
