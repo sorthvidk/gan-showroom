@@ -55,10 +55,14 @@ export default {
 			return []
 		},
 		images() {
-			return this.assets.filter(asset => asset.type === 'image')
+			let i = this.assets.filter(asset => asset.type === 'image')
+			console.warn("GALLERY | " + i.length + " IMAGES")
+			return i;
 		},
 		videos() {
-			return this.assets.filter(asset => asset.type === 'video')
+			let i = this.assets.filter(asset => asset.type === 'video')
+			console.warn("GALLERY | " + i.length + " VIDEOS")
+			return i;
 		}
 	},
 	methods: {}

@@ -11,7 +11,6 @@ export default {
 	},
 	program: {
 		//series lvl 1
-		type: String,
 		default: null
 	},
 	programName: {
@@ -36,7 +35,6 @@ export default {
 	},
 	colorId: {
 		// human readable number
-		type: String,
 		default: null
 	},
 	wholesalePriceDKK: {

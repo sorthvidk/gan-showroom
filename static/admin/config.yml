@@ -64,7 +64,7 @@ collections:
       - {
           label: "Program",
           name: "program",
-          widget: "string",
+          widget: "number",
           hint: "ID of program ex. '1972'",
         }
       - {
@@ -95,7 +95,7 @@ collections:
           label: "Color Id",
           name: "colorId",
           widget: "string",
-          hint: "ID of color ex. '699'",
+          hint: "IDs of colors ex. '568' or '699,844'",
         }
       - {
           label: "Wholesale Price DKK",

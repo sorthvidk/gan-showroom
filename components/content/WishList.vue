@@ -43,7 +43,7 @@
 								<td>{{currentWishListItem.colorNames}}</td>
 							</tr>
 							<tr>
-								<th>Materiel</th>
+								<th>Material</th>
 								<td>{{currentWishListItem.material}}</td>
 							</tr>
 							<tr>

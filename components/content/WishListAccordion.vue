@@ -23,7 +23,7 @@
 							<td>{{wishListItem.colorNames}}</td>
 						</tr>
 						<tr>
-							<th>Materiel</th>
+							<th>Material</th>
 							<td>{{wishListItem.material}}</td>
 						</tr>
 						<tr>
