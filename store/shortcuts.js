@@ -154,21 +154,6 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'hampster-dance',
-			icon: '/img/shortcuts/hamster_dance.png',
-			label: 'Hampster Dance',
-			posH: 12,
-			posV: 6,
-			windowContent: [
-				{
-					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
-					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
 			shortcutId: 'animal-print',
 			icon: '/img/shortcuts/animal_print.png',
 			label: 'Animal Print',
@@ -187,13 +172,31 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'jersey-core',
+			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'Jersey Core',
+			label: 'GANNI Software',
 			posH: 11,
 			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: 'misc5',
+			windowContent: [
+				{
+					title: 'PS21 collection 🔥',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
+					canOverride: true
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'accessories',
+			icon: '/img/shortcuts/acces.png',
+			label: 'Acces',
+			posH: 10,
+			posV: 7,
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'acc1',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
@@ -212,14 +215,30 @@ export const state = () => ({
 			posV: 7,
 			href: '/files/ganni-responsibility.pdf'
 		},
+
 		{
 			type: ShortcutTypes.URL,
-			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI Software (pdf)',
+			shortcutId: 'rails',
+			icon: '/img/shortcuts/rails.png',
+			label: 'Rails (pdf)',
 			posH: 2,
 			posV: 7,
-			href: '/files/ganni-software.pdf'
+			href: '/files/rails.pdf'
+		},		
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'hampster-dance',
+			icon: '/img/shortcuts/hamster_dance.png',
+			label: 'Hampster Dance',
+			posH: 12,
+			posV: 6,
+			windowContent: [
+				{
+					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
+					contentId: 'hampster-dance',
+					type: ContentTypes.hampsterDance
+				}
+			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
