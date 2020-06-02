@@ -1,1 +1,25 @@
-{"styleId":"A2723","filters":["acc2","acc5"],"name":"A2723_Packable Tote","program":5488,"programName":"Recycled Tech Fabric Bags","material":"100% Recycled Polyester Lining: 100% Recycled PL","drop":"November","colorNames":"Leopard","colorId":943,"wholesalePriceDKK":360,"wholesalePriceEUR":50,"wholesalePriceUSD":65,"retailPriceDKK":899,"retailPriceEUR":125,"retailPriceUSD":155,"responsible":true,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 155,
+  "assets": [],
+  "program": 5488,
+  "colorNames": "Leopard",
+  "material": "100% Recycled Polyester Lining: 100% Recycled PL",
+  "name": "A2723_Packable Tote",
+  "styleId": "A2723",
+  "drop": "November",
+  "programName": "Recycled Tech Fabric Bags",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 50,
+  "weight": 1,
+  "wholesalePriceDKK": 360,
+  "wholesalePriceUSD": 65,
+  "filters": [
+    "acc2",
+    "acc5",
+    "misc4"
+  ],
+  "retailPriceEUR": 125,
+  "retailPriceDKK": 899,
+  "colorId": 943
+}

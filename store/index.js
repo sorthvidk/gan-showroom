@@ -69,24 +69,24 @@ export const state = () => ({
 	musicPlaying: false,
 	songs: [
 		{
-			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
-			src: `/audio/Kylie-Minogue.mp3`
+			title: 'All Saints - Never Ever.mp3',
+			src: `/audio/1-01 Never Ever.mp3`
 		},
 		{
-			title: 'Pete-Hellers-Big-Love-Big-Love.mp3',
-			src: `/audio/Pete-Hellers-Big-Love-Big-Love.mp3`
+			title: 'Sugababes - Overload.mp3',
+			src: `/audio/1-01 Overload.mp3`
 		},
 		{
-			title: 'show_me_love.mp3',
-			src: `/audio/Robin-S-Show-Me-Love.mp3`
+			title: 'Nirvana - Come As You Are.mp3',
+			src: `/audio/1-03 Come As You Are.mp3`
 		},
 		{
-			title: '(BETTER_QUALITY)_320kbps_Moloko-Sing-It-Back.mp3',
-			src: `/audio/Moloko-Sing-It-Back.mp3`
+			title: 'Janet Jackson - Together Again.mp3',
+			src: `/audio/1-11 Together Again.mp3`
 		},
 		{
-			title: 'Track_06-Haddaway-What_is_love.mp3',
-			src: `/audio/What-Is-Love.mp3`
+			title: 'Madonna - Express Yourself.mp3',
+			src: `/audio/1-12 Express Yourself.mp3`
 		}
 	],
 
@@ -100,6 +100,17 @@ export const mutations = {
 	// fired when nuxt has access to the store
 	rehydrated(state) {
 		state.rehydrated = true
+		let cl = state.collection.list.length
+		console.warn("STATE REHYDRATED",cl,state.collection.wishList.length)
+		for (var j = 0; j < cl; j++) {
+			let style = state.collection.list[j]
+			let styleAlreadyOnWishList = state.collection.wishList.filter(e => e.styleId === style.styleId)[0] ? true : false;
+			// console.log(styleAlreadyOnWishList)
+			style.onWishList = styleAlreadyOnWishList
+			if ( styleAlreadyOnWishList ) {
+				console.warn("ALREADY ON WISHLIST | "+style.styleId )
+			}
+		}
 	},
 
 	isOnWishList(state) {
@@ -115,6 +126,9 @@ export const mutations = {
 		Object.keys(ContentTypes).forEach(type => {
 			state.progressItems[type].complete = false
 		})
+		state.loggedIn = false
+		state.wallpaperIndex = 1
+		state.cookiesAccepted = false
 	},
 
 	[LOGIN.mutation](state, key) {
@@ -223,6 +237,7 @@ export const mutations = {
 				a.onTop && !b.onTop ? -1 : 1
 			)
 			style.assets = sortedAssets
+			style.onWishList = false
 		}
 
 		//to ensure only one connection operation

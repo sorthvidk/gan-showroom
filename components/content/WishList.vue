@@ -27,7 +27,7 @@
 					v-if="currentWishListItem.assets && currentWishListItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
-					<single-image :asset="currentWishListItem.assets[0]" />
+					<single-image :asset="currentWishListItem.assets[0]" :parent-window-id="parentWindowId" />
 
 					<h3>{{currentWishListItem.name}}</h3>
 					<button class="button" @click="removeItemHandler">Move to trash</button>
@@ -171,7 +171,6 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		getImageUrl(index) {
-			console.error(index)
 			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0]);
 		}
 	},
