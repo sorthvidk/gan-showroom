@@ -99,8 +99,9 @@
 			<div class="assistant">
 				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__text">
-						<h3>Welcome!</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
+						<h3>WELCOME TO DITTE’S DESKTOP</h3>
+						<p>Hey there, how’s it going? I’m your Desktop Assistant and I’ll be showing you around the place. Kick back, relax, pour a drink, explore – I’m here if you need me!<br>
+						Let’s go</p>
 					</div>
 				</div>
 
@@ -110,7 +111,8 @@
 					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
 				>
 					<div class="assistant__filters">
-						<p>Do you have any preferences to the collection? choose from the options here!</p>
+						<h3>PS21 COLLECTION</h3>
+						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
 						<div class="assistant__filters__list">
 							<filter-button
 								v-for="(item, key) in filtersList"
@@ -149,7 +151,7 @@
 								</tr>
 
 								<tr>
-									<th>Materiel</th>
+									<th>Material</th>
 									<td>{{currentStyle.material}}</td>
 								</tr>
 								<tr>
@@ -207,13 +209,13 @@
 
 				<div class="assistant__content" v-if="assistantMode == 3">
 					<div class="assistant__text">
-						<p>Do you have any preferences to the collection? Choose from the options here!</p>
+						<p>You know the drill. Add your favourites to your wishlist. When you’re done you can download to see your favorites or share with your team</p>
 					</div>
 				</div>
 
 				<div class="assistant__content" v-if="assistantMode == 4">
 					<div class="assistant__text" v-if="!shareUrl">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue.</p>
+						<p>Me again. Don’t forget you’ve got items waiting for you in your wishlist. Have you explored the rest of Ditte’s desktop yet?</p>
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
@@ -272,12 +274,6 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 3">
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
-					</button>
-				</div>
-
-				<div class="assistant__ctas" v-if="assistantMode == 4">
 					<a
 						class="button download-wishlist button--half"
 						@click="downloadWishListClickHandler"
@@ -294,6 +290,12 @@
 					<button @click="shareWishListClickHandler" class="button share-wishlist button--half">
 						<p v-if="!showClipboardMessage">Share wishlist</p>
 						<p v-if="showClipboardMessage" :style="{color: '#1DD000', textDecoration: 'none'}">Link copied</p>
+					</button>
+				</div>
+
+				<div class="assistant__ctas" v-if="assistantMode == 4">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>
 			</div>
