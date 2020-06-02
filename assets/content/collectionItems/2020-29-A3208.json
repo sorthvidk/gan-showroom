@@ -1,1 +1,24 @@
-{"styleId":"A3208","filters":["acc1",""],"name":"A3208_Knee Socks","program":5553,"programName":"Polyamide Blend","material":"100% Polyamide","drop":"November","colorNames":"Olive Drab","colorId":780,"wholesalePriceDKK":100,"wholesalePriceEUR":14,"wholesalePriceUSD":19,"retailPriceDKK":249,"retailPriceEUR":35,"retailPriceUSD":45,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 45,
+  "assets": [],
+  "program": 5553,
+  "colorNames": "Toffee",
+  "material": "100% Polyamide",
+  "name": "A3208_Knee Socks",
+  "styleId": "A3208",
+  "drop": "November",
+  "programName": "Polyamide Blend",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 14,
+  "weight": 1,
+  "wholesalePriceDKK": 100,
+  "wholesalePriceUSD": 19,
+  "filters": [
+    "acc1",
+    ""
+  ],
+  "retailPriceEUR": 35,
+  "retailPriceDKK": 249,
+  "colorId": "896"
+}
