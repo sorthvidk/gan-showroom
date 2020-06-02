@@ -56,34 +56,32 @@ export const state = () => ({
 				{
 					title: 'Ditte image 1',
 					contentId: 'ditte-image1',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imageLandscape,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
 							defaultImageUrl:
-								'/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
+								'/img/ditte/ditte1.jpg'
 						}
 					},
 					windowProps: {
-						width: 242,
-						height: 459,
+						height: 304,
 						noStatus: true
 					}
 				},
 				{
 					title: 'Ditte image 2',
 					contentId: 'ditte-image2',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imageLandscape,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
 							defaultImageUrl:
-								'/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
+								'/img/ditte/ditte2.jpg'
 						}
 					},
 					windowProps: {
-						width: 262,
-						height: 424,
+						height: 304,
 						noStatus: true
 					}
 				},
@@ -173,7 +171,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ps21.png',
+			icon: '/img/shortcuts/ganni_software.png',
 			label: 'GANNI Software',
 			posH: 11,
 			posV: 7,
@@ -213,14 +211,14 @@ export const state = () => ({
 			label: 'Responsibility (pdf)',
 			posH: 1,
 			posV: 3,
-			href: '/files/ganni-responsibility.pdf'
+			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
 		},
 
 		{
 			type: ShortcutTypes.URL,
 			shortcutId: 'rails',
 			icon: '/img/shortcuts/rails.png',
-			label: 'Rails (pdf)',
+			label: 'Rails',
 			posH: 2,
 			posV: 3,
 			href: '/files/rails.pdf'
