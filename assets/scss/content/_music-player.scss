@@ -17,24 +17,20 @@
 		white-space: nowrap;
 
 		@keyframes swipe {
-			from {
-				transform: translateX(0);
-			}
 			to {
-				// manually prefixed, glitches in safari otherwise
-				transform: translateX(calc(-100% / 4.95)); // slight glitch with 5
-				transform: translateX(-webkit-calc(-100% / 4.95));
-				transform: translateX(-moz-calc(-100% / 4.95));
+				transform: translateX(-100%); // slight glitch with 5
 			}
 		}
 
 		div {
 			overflow: hidden;
+			display: flex;
 
 			.title-marquee {
 				width: fit-content;
 				font-weight: $weight-bold;
 				animation: swipe 10s linear infinite;
+				display: inline-flex;
 			}
 		}
 	}

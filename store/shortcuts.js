@@ -8,7 +8,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
-			icon: '📁',
+			icon: '/img/shortcuts/ps21.png',
 			label: 'PS21 collection',
 			posH: 1,
 			posV: 1,
@@ -24,10 +24,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'films',
-			icon: '📹',
+			icon: '/img/shortcuts/ps21.png',
 			label: 'PS21 Films',
 			posH: 2,
 			posV: 1,
@@ -44,10 +43,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
-			icon: '🗂',
+			icon: '/img/shortcuts/dittes_private.png',
 			label: 'Private ♥️',
 			posH: 4,
 			posV: 1,
@@ -102,10 +100,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'music-player',
-			icon: '⚡️',
+			icon: '/img/shortcuts/ganni_fm.png',
 			label: 'Ganni FM',
 			posH: 1,
 			posV: 2,
@@ -120,10 +117,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-girls',
-			icon: '👯‍♀️',
+			icon: '/img/shortcuts/ganni_girls.png',
 			label: 'Ganni Girls',
 			posH: 1,
 			posV: 5,
@@ -139,10 +135,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
-			icon: '🤩',
+			icon: '/img/shortcuts/look_book.png',
 			label: 'LookBook',
 			posH: 2,
 			posV: 5,
@@ -158,10 +153,9 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'hampster-dance',
-			icon: '🐹',
+			icon: '/img/shortcuts/hamster_dance.png',
 			label: 'Hampster Dance',
 			posH: 12,
 			posV: 6,
@@ -176,7 +170,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'animal-print',
-			icon: '🐯',
+			icon: '/img/shortcuts/animal_print.png',
 			label: 'Animal Print',
 			posH: 12,
 			posV: 7,
@@ -194,7 +188,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'jersey-shore',
-			icon: '🇯🇪',
+			icon: '/img/shortcuts/ps21.png',
 			label: 'Jersey Shore',
 			posH: 11,
 			posV: 7,
@@ -210,21 +204,20 @@ export const state = () => ({
 			]
 		},
 		{
-
 			type: ShortcutTypes.URL,
 			shortcutId: 'responsibility-report',
-			icon: '📄',
+			icon: '/img/shortcuts/responsible.png',
 			label: 'Responsibility (pdf)',
 			posH: 1,
 			posV: 7,
-			href: '/files/ganni-responsibility.pdf'			
+			href: '/files/ganni-responsibility.pdf'
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Take a look at this ',
-			label: 'Leopards!',
+			text: 'Welcome to the Ganni Space! Check out the ',
+			label: 'PS21 Collection',
 			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'misc4',
+			actionParam: '',
 			windowContent: [
 				{
 					title: 'PS21 collection 🔥',
@@ -236,21 +229,48 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Or this ',
-			label: 'hampster dance',
+			text: 'Take a look at the ',
+			label: 'Lookbook',
 			windowContent: [
 				{
-					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
-					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
+					title: 'Ganni LookBook',
+					contentId: 'look-book',
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Photo credit: Jakob Landvik'
+					}
 				}
 			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Also this ',
-			label: `cool dress`,
-			actionParam: 'F8907234'
+			text: 'Check out the ',
+			label: 'Design Darlings',
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'misc2',
+			windowContent: [
+				{
+					title: 'PS21 collection 🔥',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
+					canOverride: true
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Meet the  ',
+			label: 'Ganni girls',
+			windowContent: [
+				{
+					title: '#GanniGirls',
+					contentId: 'ganni-girls',
+					type: ContentTypes.ganniGirls,
+					statusComponentProps: {
+						text: 'http://#gannigirls.weblog/'
+					}
+				}
+			]
 		}
 	]
 })

@@ -1,5 +1,5 @@
 <template>
-	<nuxt />
+	<nuxt v-if="rehydrated" />
 </template>
 
 

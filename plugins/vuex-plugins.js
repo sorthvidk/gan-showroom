@@ -13,7 +13,10 @@ export default ({ store }) => {
 				'progressPct',
 				'collection.wishList'
 			],
-			rehydrated: store => (store.state.rehydrated = true)
+			rehydrated: store => {
+				/* Doesn't run on first page load */
+			},
+			assertStorage: () => store.commit('rehydrated')
 		})(store)
 	})
 }

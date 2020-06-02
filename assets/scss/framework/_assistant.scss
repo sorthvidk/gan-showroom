@@ -129,40 +129,6 @@
 			display: flex;
 			flex-wrap: wrap;
 			border-top: rem(1) solid $color-black;
-
-			.filter-button {
-				flex: 0 0 50%;
-				box-sizing: border-box;
-
-				background-color: $color-white;
-				border-bottom: rem(1) solid $color-black;
-				border-right: rem(1) solid $color-black;
-				padding: rem(10);
-				display: inline-flex;
-				align-items: center;
-				@include bodytext();
-				transition: all 0.2s ease;
-
-
-				&.is-active {
-					color: $color-white;
-					background-color: darken($color-grey, 12%);
-					@include bevel(true);
-				}
-
-				&:nth-child(2n) {
-					border-right: 0;
-				}
-				&:nth-last-child(-n + 2) {
-					border-bottom: 0;
-				}
-			}
-			button.filter-button{
-				cursor: pointer;
-				&:hover {
-					background-color: $color-lightgrey;
-				}
-			}
 		}
 	}
 	&__product-details {

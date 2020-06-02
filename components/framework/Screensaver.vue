@@ -35,13 +35,13 @@ export default {
 		}
 
 		const checkBounds = () => {
-			if (posX >= containerBcr.width - logoBcr.width || posX === 0) {
+			if (posX >= containerBcr.width - logoBcr.width || posX <= 0) {
 				velocityX = velocityX * -1
 				logo.style.fill = getRandomColor()
 				logo.style.background = getRandomColor()
 			}
 
-			if (posY >= containerBcr.height - logoBcr.height || posY === 0) {
+			if (posY >= containerBcr.height - logoBcr.height || posY <= 0) {
 				velocityY = velocityY * -1
 				logo.style.fill = getRandomColor()
 				logo.style.background = getRandomColor()
@@ -72,7 +72,7 @@ export default {
 			var movementY = (posY = posY + velocityY)
 
 			logo.style.transform =
-				'translate(' + movementX + 'px, ' + movementY + 'px)'
+				'translate3d(' + movementX + 'px, ' + movementY + 'px, 0)'
 
 			checkBounds()
 		}
