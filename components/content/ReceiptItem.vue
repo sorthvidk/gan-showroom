@@ -3,7 +3,7 @@
 		<tbody class="receipt-item__content">
 			<tr>
 				<td rowspan="4" class="image">
-					<img style="width: 3.5cm;" :src="receiptItem.assets[0].cloudinaryUrl" alt />
+					<img style="width: 3.5cm;" :src="imageUrl" alt />
 				</td>
 				<td colspan="2" class="title">{{receiptItem.name}}</td>
 			</tr>
@@ -24,12 +24,21 @@
 </template>
 
 <script>
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+
 export default {
 	name: 'receipt-item',
 	props: {
 		receiptItem: {
 			type: Object,
 			default: ''
+		}
+	},
+	computed: {
+		imageUrl() {
+			return getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
+				width: 196
+			})
 		}
 	}
 }
