@@ -8,6 +8,7 @@ Vue.use(VueLazyload)
 Vue.use(VueDraggableResizable)
 Vue.use(VueTyper)
 Vue.use(visibility)
+Vue.config.devtools = true
 
 import cloudinary from 'cloudinary-core'
 

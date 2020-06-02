@@ -124,8 +124,7 @@ export default {
 			shortcutList: state => state.shortcuts.list,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
 			downloadPreparing: state => state.downloadPreparing,
-			hidden: state => state.hidden,
-			wishlist: state => state.collection.wishList
+			hidden: state => state.hidden
 		}),
 		desktopIcons() {
 			return this.shortcutList.filter(
