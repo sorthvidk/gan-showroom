@@ -32,7 +32,7 @@ export const state = () => ({
 			posV: 1,
 			windowContent: [
 				{
-					title: 'PS21 films 📹',
+					title: 'PS21 films',
 					contentId: 'ps21-films',
 					type: ContentTypes.films,
 					canOverride: true,
@@ -46,7 +46,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
 			icon: '/img/shortcuts/dittes_private.png',
-			label: 'Private ♥️',
+			label: 'Private',
 			posH: 4,
 			posV: 1,
 			widthSpan: 2,
@@ -163,7 +163,7 @@ export const state = () => ({
 			actionParam: 'misc4',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -181,7 +181,7 @@ export const state = () => ({
 			actionParam: 'misc5',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -199,7 +199,7 @@ export const state = () => ({
 			actionParam: 'acc1',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -234,7 +234,7 @@ export const state = () => ({
 			posV: 6,
 			windowContent: [
 				{
-					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
+					title: 'Hampster Dance',
 					contentId: 'hampster-dance',
 					type: ContentTypes.hampsterDance
 				}
@@ -248,7 +248,7 @@ export const state = () => ({
 			actionParam: '',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -278,7 +278,7 @@ export const state = () => ({
 			actionParam: 'misc2',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true

@@ -17,7 +17,8 @@ export default {
 	},
 	data() {
 		return {
-			current: 0
+			current: 0,
+			timeoutHandle: null
 		}
 	},
 	computed: {
@@ -37,9 +38,15 @@ export default {
 	},
 	methods: {
 		nextSlide() {
+			clearTimeout(this.timeoutHandle);
 			this.current = Math.min(this.content.length, this.current + 1) // cap at slide-amount + 1
+			if ( this.current < this.content.length-1 ) {				
+				setTimeout(this.nextSlide.bind(this), 5000);
+			}
 		}
 	},
-	mounted() {}
-}
+	mounted() {
+		this.timeoutHandle = setTimeout(this.nextSlide.bind(this), 5000);
+	}
+};
 </script>
