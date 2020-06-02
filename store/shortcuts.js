@@ -47,7 +47,7 @@ export const state = () => ({
 			shortcutId: 'dittes-folder',
 			icon: '/img/shortcuts/dittes_private.png',
 			label: 'Private',
-			posH: 4,
+			posH: 3,
 			posV: 1,
 			widthSpan: 2,
 			action: null,
@@ -121,8 +121,8 @@ export const state = () => ({
 			shortcutId: 'ganni-girls',
 			icon: '/img/shortcuts/ganni_girls.png',
 			label: 'Ganni Girls',
-			posH: 1,
-			posV: 5,
+			posH: 2,
+			posV: 2,
 			windowContent: [
 				{
 					title: '#GanniGirls',
@@ -139,8 +139,8 @@ export const state = () => ({
 			shortcutId: 'look-book',
 			icon: '/img/shortcuts/look_book.png',
 			label: 'LookBook',
-			posH: 2,
-			posV: 5,
+			posH: 3,
+			posV: 2,
 			windowContent: [
 				{
 					title: 'Ganni LookBook',
@@ -193,8 +193,8 @@ export const state = () => ({
 			shortcutId: 'accessories',
 			icon: '/img/shortcuts/acces.png',
 			label: 'Acces',
-			posH: 10,
-			posV: 7,
+			posH: 11,
+			posV: 6,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: 'acc1',
 			windowContent: [
@@ -212,7 +212,7 @@ export const state = () => ({
 			icon: '/img/shortcuts/responsible.png',
 			label: 'Responsibility (pdf)',
 			posH: 1,
-			posV: 7,
+			posV: 3,
 			href: '/files/ganni-responsibility.pdf'
 		},
 
@@ -222,7 +222,7 @@ export const state = () => ({
 			icon: '/img/shortcuts/rails.png',
 			label: 'Rails (pdf)',
 			posH: 2,
-			posV: 7,
+			posV: 3,
 			href: '/files/rails.pdf'
 		},		
 		{
