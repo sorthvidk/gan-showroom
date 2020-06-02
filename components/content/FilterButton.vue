@@ -1,5 +1,5 @@
 <template>
-	<button class="filter-button" :class="{'is-active': isActive}" @click="clickHandler">{{name}}</button>
+	<button class="filter-button" :class="{'is-active': isActive}" @click="clickHandler"><span>{{name}}</span>&nbsp;<em>({{count}})</em></button>
 </template>
 
 <script>
@@ -14,11 +14,17 @@ export default {
 	props: {
 		name: {
 			type: String,
-			default: ''
+			default: '',
+			required: true
+		},
+		count: {
+			type: Number,
+			required: true
 		},
 		filterId: {
 			type: String,
-			default: ''
+			default: '',
+			required: true
 		}
 	},
 	watch: {

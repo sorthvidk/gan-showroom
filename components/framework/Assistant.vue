@@ -116,6 +116,7 @@
 								v-for="(item, key) in filtersList"
 								:key="key"
 								:name="item.name"
+								:count="item.styleIds.length"
 								:filter-id="item.filterId"
 							/>
 							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
