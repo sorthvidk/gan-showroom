@@ -103,7 +103,11 @@ export const mutations = {
 	},
 
 	[RESET_STATE.mutation](state) {
-		state.collection.wishList = []		
+		state.collection.wishList = []
+		state.progressPct = 0
+		Object.keys(ContentTypes).forEach(type => {
+			state.progressItems[type].complete = false
+		})
 	},
 
 	[LOGIN.mutation](state, key) {

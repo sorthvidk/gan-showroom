@@ -78,6 +78,14 @@
 }
 
 .assistant {
+
+	h3 {
+		@include headline();
+	}
+	p {
+		@include bodytext();
+	}
+
 	&__content {
 		overflow: hidden;
 		max-height: rem(180);
@@ -98,9 +106,6 @@
 		padding: rem(9) rem(10);
 		h3 {
 			margin-bottom: rem(10);
-		}
-		p {
-			@include bodytext();
 		}
 		strong {
 			display: block;
@@ -128,7 +133,6 @@
 		}
 		p {
 			padding: 0 rem(9) rem(10);
-			@include bodytext();
 		}
 		&__list {
 			display: flex;

@@ -12,7 +12,7 @@ export default function(cl, asset, tf={}) {
 
 			let aspect = 342/608
 			if ( typeof transform.width != "undefined" ) {
-				transform.height = aspect*transform.width
+				transform.height = Math.round(aspect*transform.width)
 			}
 			else {
 				transform.width = 608
