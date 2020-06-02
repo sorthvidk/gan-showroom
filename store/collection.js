@@ -28,13 +28,13 @@ export const state = () => ({
 			filterId: 'c1',
 			name: 'Tops',
 			styleIds: [],
-			order:1
+			order: 1
 		},
 		{
 			filterId: 'c2',
 			name: 'Animal print',
 			styleIds: [],
-			order:2
+			order: 2
 		}
 	],
 
@@ -168,13 +168,9 @@ export const mutations = {
 			}
 		}
 		//sort filters by order
-		state.filters = state.filters.sort((a, b) =>
-			a.order > b.order ? 1 : -1
-		)
+		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
 		//sort styles by weight
-		state.list = state.list.sort((a, b) =>
-			a.weight > b.weight ? -1 : 1
-		)
+		state.list = state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list
@@ -216,6 +212,8 @@ export const mutations = {
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
+
+			console.log('newCurrentStyles', newCurrentStyles)
 			state.currentStyles = newCurrentStyles
 		}
 	}
@@ -236,7 +234,11 @@ export const actions = {
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
@@ -252,7 +254,11 @@ export const actions = {
 		}
 	},
 	[SHOW_NEXT_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
