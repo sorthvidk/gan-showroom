@@ -32,7 +32,7 @@ export const state = () => ({
 			posV: 1,
 			windowContent: [
 				{
-					title: 'PS21 films 📹',
+					title: 'PS21 films',
 					contentId: 'ps21-films',
 					type: ContentTypes.films,
 					canOverride: true,
@@ -46,8 +46,8 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
 			icon: '/img/shortcuts/dittes_private.png',
-			label: 'Private ♥️',
-			posH: 4,
+			label: 'Private',
+			posH: 3,
 			posV: 1,
 			widthSpan: 2,
 			action: null,
@@ -56,34 +56,32 @@ export const state = () => ({
 				{
 					title: 'Ditte image 1',
 					contentId: 'ditte-image1',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imageLandscape,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
 							defaultImageUrl:
-								'/img/ditte/190808_GANNI_LANDVIK_SHOT_12_1260.jpg'
+								'/img/ditte/ditte1.jpg'
 						}
 					},
 					windowProps: {
-						width: 242,
-						height: 459,
+						height: 304,
 						noStatus: true
 					}
 				},
 				{
 					title: 'Ditte image 2',
 					contentId: 'ditte-image2',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imageLandscape,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
 							defaultImageUrl:
-								'/img/ditte/191101_Ganni_PF20_Jakob_04_0105_1.jpg'
+								'/img/ditte/ditte2.jpg'
 						}
 					},
 					windowProps: {
-						width: 262,
-						height: 424,
+						height: 304,
 						noStatus: true
 					}
 				},
@@ -121,8 +119,8 @@ export const state = () => ({
 			shortcutId: 'ganni-girls',
 			icon: '/img/shortcuts/ganni_girls.png',
 			label: 'Ganni Girls',
-			posH: 1,
-			posV: 5,
+			posH: 2,
+			posV: 2,
 			windowContent: [
 				{
 					title: '#GanniGirls',
@@ -139,8 +137,8 @@ export const state = () => ({
 			shortcutId: 'look-book',
 			icon: '/img/shortcuts/look_book.png',
 			label: 'LookBook',
-			posH: 2,
-			posV: 5,
+			posH: 3,
+			posV: 2,
 			windowContent: [
 				{
 					title: 'Ganni LookBook',
@@ -149,21 +147,6 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'Photo credit: Jakob Landvik'
 					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'hampster-dance',
-			icon: '/img/shortcuts/hamster_dance.png',
-			label: 'Hampster Dance',
-			posH: 12,
-			posV: 6,
-			windowContent: [
-				{
-					title: '🐹💃🐹💃 Hampster Dance! 💃🐹💃🐹',
-					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
 				}
 			]
 		},
@@ -178,7 +161,7 @@ export const state = () => ({
 			actionParam: 'misc4',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -187,16 +170,34 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'jersey-core',
-			icon: '/img/shortcuts/ps21.png',
-			label: 'Jersey Core',
+			shortcutId: 'ganni-software',
+			icon: '/img/shortcuts/ganni_software.png',
+			label: 'GANNI Software',
 			posH: 11,
 			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: 'misc5',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
+					contentId: 'ps21-collection',
+					type: ContentTypes.collection,
+					canOverride: true
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'accessories',
+			icon: '/img/shortcuts/acces.png',
+			label: 'Acces',
+			posH: 11,
+			posV: 6,
+			action: 'collection/' + SET_CURRENT_FILTER.action,
+			actionParam: 'acc1',
+			windowContent: [
+				{
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -209,17 +210,33 @@ export const state = () => ({
 			icon: '/img/shortcuts/responsible.png',
 			label: 'Responsibility (pdf)',
 			posH: 1,
-			posV: 7,
-			href: '/files/ganni-responsibility.pdf'
+			posV: 3,
+			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
 		},
+
 		{
 			type: ShortcutTypes.URL,
-			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI Software (pdf)',
+			shortcutId: 'rails',
+			icon: '/img/shortcuts/rails.png',
+			label: 'Rails',
 			posH: 2,
-			posV: 7,
-			href: '/files/ganni-software.pdf'
+			posV: 3,
+			href: '/files/rails.pdf'
+		},		
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'hampster-dance',
+			icon: '/img/shortcuts/hamster_dance.png',
+			label: 'Hampster Dance',
+			posH: 12,
+			posV: 6,
+			windowContent: [
+				{
+					title: 'Hampster Dance',
+					contentId: 'hampster-dance',
+					type: ContentTypes.hampsterDance
+				}
+			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
@@ -229,7 +246,7 @@ export const state = () => ({
 			actionParam: '',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
@@ -259,7 +276,7 @@ export const state = () => ({
 			actionParam: 'misc2',
 			windowContent: [
 				{
-					title: 'PS21 collection 🔥',
+					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					canOverride: true
