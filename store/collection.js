@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
