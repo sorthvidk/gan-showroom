@@ -98,6 +98,10 @@ export default {
 			type: String,
 			default: ''
 		},
+		wrapperClass: {
+			type: String,
+			default: ''
+		},
 		contentType: {
 			type: Object,
 			required: true
@@ -209,11 +213,6 @@ export default {
 			if (this.noStatus) cn += ' window--no-status'
 
 			return cn
-		},
-		wrapperClass() {
-			let cn = 'window'
-			if (this.modifierClass != '') cn = this.modifierClass
-			return cn + '__wrapper'
 		}
 	},
 	data: function() {

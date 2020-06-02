@@ -103,7 +103,11 @@ export const mutations = {
 	},
 
 	[RESET_STATE.mutation](state) {
-		state.collection.wishList = []		
+		state.collection.wishList = []
+		state.progressPct = 0
+		Object.keys(ContentTypes).forEach(type => {
+			state.progressItems[type].complete = false
+		})
 	},
 
 	[LOGIN.mutation](state, key) {
@@ -574,7 +578,7 @@ export const actions = {
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
 			{
-				title: 'Style gallery',
+				title: 'Zoom window',
 				contentId: 'gallery',
 				type: ContentTypes.gallery,
 				canOverride: true,

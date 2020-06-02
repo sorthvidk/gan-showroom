@@ -11,6 +11,7 @@
 	@include bodytext();
 	transition: all 0.2s ease;
 
+	width: 50%;
 
 	&.is-active {
 		color: $color-white;
@@ -26,7 +27,7 @@
 	}
 
 	span {
-		max-width: 80%;
+		// max-width: 80%;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -36,7 +37,7 @@
 	}
 }
 
-button.filter-button{
+button.filter-button {
 	cursor: pointer;
 	&:hover {
 		background-color: $color-lightgrey;

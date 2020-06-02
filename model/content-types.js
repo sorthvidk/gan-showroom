@@ -51,7 +51,8 @@ export default {
 			noStatus: true,
 			canResize: false,
 			noPlacement: true,
-			modifierClass: 'window--tight window--music-player music-player'
+			wrapperClass: 'window--music-player__wrapper',
+			modifierClass: 'window--music-player music-player window--tight'
 		}
 	},
 	textFile: {
@@ -177,6 +178,7 @@ export default {
 			isMaximized: true,
 			canResize: false,
 			canReorder: false,
+			wrapperClass: 'window--gallery__wrapper',
 			modifierClass: 'window--gallery'
 		}
 	},
@@ -191,6 +193,7 @@ export default {
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
+			wrapperClass: 'window--wish-list__wrapper',
 			modifierClass: 'window--wish-list'
 		}
 	},

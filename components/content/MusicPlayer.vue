@@ -19,9 +19,11 @@
 			</button>
 			<button class="button" @click="toggle">
 				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
+				  <path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
-				<p v-else>►</p>
+				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+				  <path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+				</svg>
 			</button>
 			<button class="button next" @click="playlist(1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">

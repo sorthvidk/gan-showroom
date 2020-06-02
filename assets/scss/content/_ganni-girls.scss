@@ -36,6 +36,7 @@
 			background-color: $color-white;
 			padding: 0 rem(10) rem(10);
 			font-family: $font-typewriter;
+			overflow: hidden;
 
 			&:before {
 				content:'';

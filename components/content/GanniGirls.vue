@@ -12,7 +12,7 @@
 					</div>
 
 					<img v-if="post.type === 'image'" v-lazy="getMediaUrl(post.type, post.cloudinaryUrl)" alt=""/>
-					<video v-if="post.type === 'video'" :src="getMediaUrl(post.type, post.cloudinaryUrl)" preload muted autoplay controls></video>
+					<video v-if="post.type === 'video'" :src="getMediaUrl(post.type, post.cloudinaryUrl)" preload muted controls></video>
 
 					<h3>{{post.title}}</h3>
 					<p>{{post.bodyText}}</p>

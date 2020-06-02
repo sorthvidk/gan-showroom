@@ -73,8 +73,6 @@ export default {
 			if (valid) {
 				this.playSound()
 			}
-
-			console.log('valid', this.valid)
 		},
 
 		loginInput(e) {

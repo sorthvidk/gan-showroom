@@ -76,6 +76,7 @@ export default function(state, currentWindow, groupId) {
 	conditionalAssignment(optionalProps, 'noStatus')
 	conditionalAssignment(optionalProps, 'canReorder')
 	conditionalAssignment(optionalProps, 'canResize')
+	conditionalAssignment(optionalProps, 'wrapperClass')
 	conditionalAssignment(optionalProps, 'modifierClass')
 	conditionalAssignment(optionalProps, 'isMaximized')
 	conditionalAssignment(optionalProps, 'noPlacement')
