@@ -5,7 +5,8 @@
 		<div
 			class="desktop"
 			:class="hidden && 'screensaver-running'"
-			v-lazy:background-image="backgroundImageObj"
+			v-lazy:background-image="webcamImage || backgroundImageObj"
+			:style="{backgroundSize: webcamImage && 'contain'}"
 		>
 			<progress-bar
 				:text-start="'Start diving into the PS21 digital universe.'"
@@ -123,7 +124,8 @@ export default {
 			shortcutList: state => state.shortcuts.list,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
 			downloadPreparing: state => state.downloadPreparing,
-			hidden: state => state.hidden
+			hidden: state => state.hidden,
+			webcamImage: state => state.webcamImage
 		}),
 		desktopIcons() {
 			return this.shortcutList.filter(
