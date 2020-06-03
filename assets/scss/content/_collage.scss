@@ -1,0 +1,39 @@
+.collage {
+	position: relative;
+
+	.head {
+		z-index: 1;
+
+		video {
+			position: absolute;
+			left: 175px;
+			z-index: 2;
+		}
+
+		img {
+			position: absolute;
+			opacity: 0;
+		}
+	}
+
+	.mannequin {
+		position: absolute;
+		top: -5px;
+		left: 24px;
+	}
+
+	button {
+		position: relative;
+		z-index: 2;
+		border: 1px solid;
+		background: lightgoldenrodyellow;
+
+		&:first-of-type {
+			background: lightgreen;
+		}
+
+		&:last-of-type {
+			background: lightcoral;
+		}
+	}
+}

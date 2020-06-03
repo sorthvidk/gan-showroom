@@ -69,6 +69,7 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import Collage from '~/components/content/Collage.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -91,7 +92,8 @@ export default {
 		MusicPlayer,
 		HampsterDance,
 		GanniGirls,
-		LookBook
+		LookBook,
+		Collage
 	},
 	props: {
 		modifierClass: {
