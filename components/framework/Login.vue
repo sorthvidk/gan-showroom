@@ -26,11 +26,13 @@ export default {
 			return [
 				{
 					type: 'one',
-					backgroundImage: '/img/login-slide.jpg'
+					backgroundImage: '/img/login-slide.jpg',
+					backgroundImageLow: '/img/login-slide_lo.jpg'
 				},
 				{
 					type: 'two',
 					backgroundImage: '/img/login-slide-2.jpg',
+					backgroundImageLow: '/img/login-slide-2_lo.jpg',
 					text: `There are many\nvariations of\npassages of\nwords which\ndon't look even`
 				}
 			]

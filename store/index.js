@@ -374,7 +374,6 @@ export const mutations = {
 			state.windowList = resetZOrder(state.windowList)
 			state.highestZIndex = state.windowList[wll - 1].positionZ
 			state.topMostWindow = matchingWindow
-			console.log('current z', matchingWindow, matchingWindow.positionZ)
 		}
 	},
 
@@ -736,10 +735,6 @@ export const actions = {
 		})
 		commit(GENERAL_FETCH.mutation, general)
 
-		console.log('DONE')
-
-		commit(CONNECT_ASSETS.mutation)
-		commit('collection/' + FILTER_COLLECTION.mutation)
-		commit(INIT_PROGRESS.mutation)
+		console.warn('NUXT SERVER INIT DONE')
 	}
 }
