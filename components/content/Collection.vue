@@ -1,5 +1,5 @@
 <template>
-	<div class="collection">
+	<div class="collection" :class="{'collection--fun': collectionLayout == 1}">
 		<collection-item v-for="(item, key) in collectionItems" :key="'collectionItem'+key" v-bind="{...item}" />
 	</div>
 </template>
@@ -20,8 +20,14 @@ export default {
 	},
 	computed: {
 		...mapState({
+			collectionLayout: state => state.collectionLayout,
 			collectionItems: state => state.collection.currentStyles
 		})
+	},
+	watch: {
+		collectionLayout(newVal) {
+			console.log("collectionLayout",newVal)
+		}
 	}
 };
 

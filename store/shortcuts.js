@@ -1,5 +1,6 @@
-import { SET_CURRENT_FILTER, TOGGLE_MUSIC_PLAYER } from '~/model/constants'
+import { SET_CURRENT_FILTER, TOGGLE_MUSIC_PLAYER, COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
 
+import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
 
@@ -12,8 +13,10 @@ export const state = () => ({
 			label: 'PS21 collection',
 			posH: 1,
 			posV: 1,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: '',
+			actions: [
+				{name:'collection/' + SET_CURRENT_FILTER.action, param:''},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
@@ -50,8 +53,6 @@ export const state = () => ({
 			posH: 3,
 			posV: 1,
 			widthSpan: 2,
-			action: null,
-			actionParam: null,
 			windowContent: [
 				{
 					title: 'Ditte image 1',
@@ -104,7 +105,9 @@ export const state = () => ({
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
-			action: TOGGLE_MUSIC_PLAYER.action,
+			actions: [
+				{name:TOGGLE_MUSIC_PLAYER.action}
+			],
 			windowContent: [
 				{
 					title: 'GANNI FM',
@@ -157,8 +160,10 @@ export const state = () => ({
 			label: 'Animal Print',
 			posH: 12,
 			posV: 7,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'misc4',
+			actions: [
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc4'},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
@@ -170,13 +175,15 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_software.png',
+			shortcutId: 'ganni-softwear',
+			icon: '/img/shortcuts/ganni_softwear.png',
 			label: 'GANNI Softwear',
 			posH: 11,
 			posV: 7,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'misc5',
+			actions: [
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc5'},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.FUN}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
@@ -193,8 +200,10 @@ export const state = () => ({
 			label: 'Acces',
 			posH: 11,
 			posV: 6,
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'acc1',
+			actions: [
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:'acc1'},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
@@ -242,8 +251,10 @@ export const state = () => ({
 			type: ShortcutTypes.MARQUEE,
 			text: 'Welcome to the GANNI Space! Check out the ',
 			label: 'PS21 Collection',
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: '',
+			actions: [
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:''},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
@@ -272,8 +283,9 @@ export const state = () => ({
 			type: ShortcutTypes.MARQUEE,
 			text: 'Check out the ',
 			label: 'Design Darlings',
-			action: 'collection/' + SET_CURRENT_FILTER.action,
-			actionParam: 'misc2',
+			actions: [
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc2'}
+			],
 			windowContent: [
 				{
 					title: 'PS21 collection',

@@ -53,4 +53,135 @@
 			@include bodytext();
 		}
 	}
+
+
+	&--fun {
+		max-width: rem(600);
+		margin: 0 auto;
+
+		.collection-item {
+			flex: 0 0 50%;
+			margin: rem(30) 0;
+
+			img {
+				width: 80%;
+			}
+
+			&:nth-child(6n-6) {
+				transform: rotateZ(90deg) translate(-5%, 0);
+			}
+			&:nth-child(6n-5) {
+				transform: rotateZ(0) translate(0,0);
+				animation: dangle infinite 2s ease-in-out;
+				transform-origin: top center;
+			}
+			&:nth-child(6n-4) {
+				transform: translate(20%, 0);
+			}
+			&:nth-child(6n-3) {
+				transform: rotateZ(180deg) translate(0, -10%);
+			}
+			&:nth-child(6n-2) {
+				transform: rotateZ(0) translate(0,0);
+				animation: pulse infinite 1s ease;
+				transform-origin: center center;
+			}
+			&:nth-child(6n-1) {
+				transform: rotateZ(0) translate(0,0);
+				animation: panning infinite 1s ease;
+				transform-origin: center center;
+			}
+
+			p {
+				display: none;
+			}
+			.responsible-icon {
+				display: none;
+			}
+			
+			transition: all 0.2s ease;
+
+			&:hover {
+				border-color: transparent;
+				opacity: 0.7;
+			}
+						
+			@keyframes dangle {
+			  0% {
+			    transform: rotateZ(-20deg);
+			  }
+			  50% {
+			    transform: rotateZ(20deg);
+			  }
+			  100% {
+			    transform: rotateZ(-20deg);
+			  }
+			}	
+			@keyframes pulse {
+			  0% {
+			    transform: scale(1);
+			  }
+			  40% {
+			    transform: scale(1);
+			  }
+			  60% {
+			    transform: scale(1.2);
+			  }
+			  70% {
+			    transform: scale(0.95);
+			  }
+			  100% {
+			    transform: scale(1);
+			  }
+			}			
+			@keyframes panning {
+			  0% {
+			    transform: translateX(-10%);
+			  }
+			  50% {
+			    transform: translateX(10%);
+			  }
+			  100% {
+			    transform: translateX(-10%);
+			  }
+			}	
+		}
+	}
+}
+
+.window__status--collection {
+	flex: 0 0 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	p {
+		@include bodytext();
+
+		flex: 1 1 100%;
+		overflow: hidden;
+		padding: rem(5) rem(10);
+
+		display: flex;
+		align-items: center;
+	}
+
+	.layout-buttons {
+		flex: 0 0 rem(60);
+		display: flex;
+		justify-content: center;
+
+		.button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 rem(35);
+			width: rem(35);
+			height: rem(35);
+
+			&.is-active {
+				background-color: $color-lime;
+			}
+		}
+	}
 }

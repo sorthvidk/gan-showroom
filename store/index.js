@@ -13,6 +13,7 @@ import {
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
+	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
 	MOUSEMOVE,
@@ -32,6 +33,7 @@ import {
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
 
 import getUniqueId from '~/utils/get-unique-id'
@@ -58,6 +60,8 @@ export const state = () => ({
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
+
+	collectionLayout: CollectionLayouts.GRID,
 
 	keyPressed: null,
 	highestZIndex: 0,
@@ -505,6 +509,11 @@ export const mutations = {
 	[DOWNLOAD_PREPARING.mutation](state, value) {
 		console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
+	},
+
+	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
+		console.warn('COLLECTION_LAYOUT_CHANGE')
+		state.collectionLayout = value
 	}
 }
 
@@ -644,6 +653,9 @@ export const actions = {
 
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
+	},
+	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
