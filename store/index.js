@@ -29,7 +29,8 @@ import {
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING
+	DOWNLOAD_PREPARING,
+	SAVE_AS_BACKGROUND
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -44,6 +45,7 @@ import getAssetType from '~/utils/asset-type'
 export const state = () => ({
 	wallpaperIndex: 1,
 	wallpaperCount: 6,
+	webcamImage: '',
 
 	loggedIn: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
@@ -104,17 +106,6 @@ export const mutations = {
 	// fired when nuxt has access to the store
 	rehydrated(state) {
 		state.rehydrated = true
-		// let cl = state.collection.list.length
-		// console.warn("STATE REHYDRATED",cl,state.collection.wishList.length)
-		// for (var j = 0; j < cl; j++) {
-		// 	let style = state.collection.list[j]
-		// 	let styleAlreadyOnWishList = state.collection.wishList.filter(e => e.styleId === style.styleId)[0] ? true : false;
-		// 	// console.log(styleAlreadyOnWishList)
-		// 	style.onWishList = styleAlreadyOnWishList
-		// 	if ( styleAlreadyOnWishList ) {
-		// 		console.warn("ALREADY ON WISHLIST | "+style.styleId )
-		// 	}
-		// }
 	},
 
 	isOnWishList(state) {
@@ -122,6 +113,11 @@ export const mutations = {
 			const sameStyleId = e => e.styleId === style.styleId
 			style.onWishList = state.collection.wishList.find(sameStyleId)
 		})
+	},
+
+	[SAVE_AS_BACKGROUND.mutation](state, img) {
+		console.log('new bg')
+		state.webcamImage = img
 	},
 
 	[RESET_STATE.mutation](state) {
@@ -525,6 +521,10 @@ export const actions = {
 
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
+	},
+
+	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
+		commit(SAVE_AS_BACKGROUND.mutation, img)
 	},
 
 	[VISIBILITY.action]({ commit }, hidden) {
