@@ -1,1 +1,23 @@
-{"styleId":"F5424","filters":[],"name":"F5424_Blouse","program":6107,"programName":"Crispy Jacquard","material":"82% Polyester, 18% Polyamide","drop":"November","colorNames":"Olive Drab","colorId":780,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"retailPriceDKK":1399,"retailPriceEUR":205,"retailPriceUSD":235,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6107,
+  "colorNames": "Olive Drab",
+  "material": "82% Polyester, 18% Polyamide",
+  "name": "F5424_Blouse",
+  "styleId": "F5424",
+  "drop": "November",
+  "programName": "Crispy Jacquard",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 74,
+  "weight": 1,
+  "wholesalePriceDKK": 500,
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 205,
+  "retailPriceDKK": 1399,
+  "colorId": 780
+}
