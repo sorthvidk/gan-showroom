@@ -202,7 +202,7 @@ export default {
 			this[OPEN_CONTENT.action]({
 				windowContent: [
 					{
-						title: 'Ganni FM',
+						title: 'GANNI FM',
 						contentId: 'ganni-fm',
 						type: ContentTypes.musicPlayer,
 						canOverride: true
