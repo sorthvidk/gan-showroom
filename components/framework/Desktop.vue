@@ -231,12 +231,11 @@ export default {
 		)
 		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
-		// JPL only on login
-		// this.playSound()
-
 		if (!isMobile) {
 			this.openMusicPlayer()
 		}
+
+		this.$store.commit('isOnWishList')
 	},
 	created() {}
 }

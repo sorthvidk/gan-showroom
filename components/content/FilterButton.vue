@@ -1,5 +1,5 @@
 <template>
-	<button class="filter-button" :class="{'is-active': isActive}" @click="clickHandler"><span>{{name}}</span>&nbsp;<em>({{count}})</em></button>
+	<button class="filter-button" :class="{'is-active': activeFilter.filterId === filterId}" @click="clickHandler"><span>{{name}}</span><em>({{count}})</em></button>
 </template>
 
 <script>
@@ -25,11 +25,6 @@ export default {
 			type: String,
 			default: '',
 			required: true
-		}
-	},
-	watch: {
-		activeFilter(newVal) {
-			this.isActive = newVal.filterId === this.filterId;
 		}
 	},
 	computed: {

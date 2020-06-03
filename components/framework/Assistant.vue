@@ -388,9 +388,8 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
-			return `${window.location}export/?styles=${this.currentStyles
-				.map(style => style.styleId)
-				.join(',')}`
+			// /export with no params shows all styles
+			return `${window.location}export`
 		}
 	},
 	watch: {
@@ -468,7 +467,10 @@ export default {
 			}
 		},
 		wishList(newVal) {
-			if ( newVal.length == 0 && this.assistantMode == AssistantModes.COLLECTION_SEEN ) {
+			if (
+				newVal.length == 0 &&
+				this.assistantMode == AssistantModes.COLLECTION_SEEN
+			) {
 				this.assistantMode = AssistantModes.WELCOME
 			}
 		}

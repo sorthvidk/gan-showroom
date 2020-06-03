@@ -9,6 +9,11 @@ Vue.use(VueDraggableResizable)
 Vue.use(VueTyper)
 Vue.use(visibility)
 
+/**
+ * todo: turn of when bugfixing is done
+ */
+Vue.config.devtools = true
+
 import cloudinary from 'cloudinary-core'
 
 const $cloudinary = new cloudinary.Cloudinary({

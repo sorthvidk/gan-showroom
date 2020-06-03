@@ -28,13 +28,13 @@ export const state = () => ({
 			filterId: 'c1',
 			name: 'Tops',
 			styleIds: [],
-			order:1
+			order: 1
 		},
 		{
 			filterId: 'c2',
 			name: 'Animal print',
 			styleIds: [],
-			order:2
+			order: 2
 		}
 	],
 
@@ -152,6 +152,8 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
+		console.warn("FILTER COLLECTION | state.filtersParsed:"+state.filtersParsed)
+		
 		if (state.filtersParsed) return false
 
 		let cl = state.list.length
@@ -167,14 +169,11 @@ export const mutations = {
 				if (stateFilter) stateFilter.styleIds.push(style.styleId)
 			}
 		}
+
 		//sort filters by order
-		state.filters = state.filters.sort((a, b) =>
-			a.order > b.order ? 1 : -1
-		)
+		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
 		//sort styles by weight
-		state.list = state.list.sort((a, b) =>
-			a.weight > b.weight ? -1 : 1
-		)
+		state.list = state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list
@@ -183,6 +182,7 @@ export const mutations = {
 			name: '',
 			styleIds: []
 		}
+
 		state.filtersParsed = true
 	},
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
@@ -202,8 +202,8 @@ export const mutations = {
 		} else {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
-
 			let styleIds = state.activeFilter.styleIds
+			console.warn("SET CURRENT FILTER | filterId:"+filterId+" | styleIds:"+styleIds)
 			let sil = styleIds.length
 			let newCurrentStyles = []
 
@@ -216,6 +216,7 @@ export const mutations = {
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
+
 			state.currentStyles = newCurrentStyles
 		}
 	}
@@ -236,7 +237,11 @@ export const actions = {
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
@@ -252,7 +257,11 @@ export const actions = {
 		}
 	},
 	[SHOW_NEXT_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 

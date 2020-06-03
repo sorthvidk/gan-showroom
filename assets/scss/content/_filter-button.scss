@@ -31,9 +31,12 @@
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		line-height: rem(1.27 * 11);
 	}
 	em {
+		margin-left: rem(5);
 		font-size: rem(10);
+		line-height: rem(1.27 * 11);
 	}
 }
 

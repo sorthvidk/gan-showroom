@@ -30,13 +30,18 @@ export default {
 			type: String,
 			default: '',
 			required: false
+		},
+		backgroundImageLow: {
+			type: String,
+			default: '',
+			required: false
 		}
 	},
 	data() {
 		return {
 			backgroundImageObj: {
 				src: this.backgroundImage,
-				loading: '/img/login-slide.jpg'
+				loading: this.backgroundImageLow
 			}
 		}
 	}

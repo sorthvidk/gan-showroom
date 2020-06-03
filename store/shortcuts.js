@@ -92,7 +92,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						text:
-							'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the Ganni team!'
+							'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the GANNI team!'
 					}
 				}
 			]
@@ -101,13 +101,13 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'music-player',
 			icon: '/img/shortcuts/ganni_fm.png',
-			label: 'Ganni FM',
+			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
 			action: TOGGLE_MUSIC_PLAYER.action,
 			windowContent: [
 				{
-					title: 'Ganni FM',
+					title: 'GANNI FM',
 					contentId: 'ganni-fm',
 					type: ContentTypes.musicPlayer,
 					canOverride: true
@@ -118,12 +118,12 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-girls',
 			icon: '/img/shortcuts/ganni_girls.png',
-			label: 'Ganni Girls',
+			label: 'GANNI Girls',
 			posH: 2,
 			posV: 2,
 			windowContent: [
 				{
-					title: '#GanniGirls',
+					title: '#GANNIGirls',
 					contentId: 'ganni-girls',
 					type: ContentTypes.ganniGirls,
 					statusComponentProps: {
@@ -141,7 +141,7 @@ export const state = () => ({
 			posV: 2,
 			windowContent: [
 				{
-					title: 'Ganni LookBook',
+					title: 'GANNI LookBook',
 					contentId: 'look-book',
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
@@ -172,7 +172,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI Software',
+			label: 'GANNI Softwear',
 			posH: 11,
 			posV: 7,
 			action: 'collection/' + SET_CURRENT_FILTER.action,
@@ -240,7 +240,7 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Welcome to the Ganni Space! Check out the ',
+			text: 'Welcome to the GANNI Space! Check out the ',
 			label: 'PS21 Collection',
 			action: 'collection/' + SET_CURRENT_FILTER.action,
 			actionParam: '',
@@ -259,7 +259,7 @@ export const state = () => ({
 			label: 'Lookbook',
 			windowContent: [
 				{
-					title: 'Ganni LookBook',
+					title: 'GANNI LookBook',
 					contentId: 'look-book',
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
@@ -286,10 +286,10 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Meet the  ',
-			label: 'Ganni girls',
+			label: 'GANNI girls',
 			windowContent: [
 				{
-					title: '#GanniGirls',
+					title: '#GANNIGirls',
 					contentId: 'ganni-girls',
 					type: ContentTypes.ganniGirls,
 					statusComponentProps: {
