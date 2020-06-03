@@ -59,5 +59,5 @@ export default {
 	mounted() {
 		this.dispatchNext()
 	}
-}
+};
 </script>

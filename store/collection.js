@@ -198,8 +198,8 @@ export const mutations = {
 		} else {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
-
 			let styleIds = state.activeFilter.styleIds
+			console.warn("SET CURRENT FILTER | filterId:"+filterId+" | styleIds:"+styleIds)
 			let sil = styleIds.length
 			let newCurrentStyles = []
 

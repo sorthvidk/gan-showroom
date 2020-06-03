@@ -90,17 +90,21 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
-				this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
-			}
-
-			//TODO: Fix race condition!!
-			setTimeout(() => {
 				if (this.action) {
 					if (this.actionParam)
 						this.$store.dispatch(this.action, this.actionParam)
 					else this.$store.dispatch(this.action)
+				
+					//TODO: Fix race condition!!
+					setTimeout(() => {
+						this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+					}, 500)
 				}
-			}, 500)
+				else {
+					this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+				}
+			}
+
 		},
 		beforeAnimateIn(el) {
 			TweenLite.set(el, { scale: 0, opacity: 0 })
