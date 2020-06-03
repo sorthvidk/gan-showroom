@@ -36,7 +36,7 @@ export default function(cl, asset, tf={}) {
 		resultUrl = '/img/under-construction.gif' //fallback
 	}
 
-	console.log('CLOUDINARY URL', parseUrl, transform, resultUrl)
+	// console.log('CLOUDINARY URL', parseUrl, transform, resultUrl)
 	
 	return resultUrl;
 }

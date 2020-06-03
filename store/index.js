@@ -662,7 +662,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
 
 		let filterFiles = await require.context(
 			'~/assets/content/collectionFilters/',
@@ -674,7 +674,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_FILTERS_FETCH.mutation, filters)
+		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
 		let assetFiles = await require.context(
 			'~/assets/content/mediaAssets/',
@@ -686,7 +686,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
 		let filmsFiles = await require.context(
 			'~/assets/content/films/',
@@ -698,7 +698,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(FILMS_FETCH.mutation, films)
+		commit(FILMS_FETCH.mutation, films)
 
 		let ganniGirlsFiles = await require.context(
 			'~/assets/content/ganniGirls/',
@@ -710,7 +710,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(GANNIGIRLS_FETCH.mutation, posts)
+		commit(GANNIGIRLS_FETCH.mutation, posts)
 
 		let lookBookFiles = await require.context(
 			'~/assets/content/lookBook/',
@@ -722,7 +722,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
 		let generalFiles = await require.context(
 			'~/assets/content/general/',
@@ -734,10 +734,12 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(GENERAL_FETCH.mutation, general)
+		commit(GENERAL_FETCH.mutation, general)
 
-		await commit(CONNECT_ASSETS.mutation)
-		await commit('collection/' + FILTER_COLLECTION.mutation)
-		await commit(INIT_PROGRESS.mutation)
+		console.log("DONE")
+
+		commit(CONNECT_ASSETS.mutation)
+		commit('collection/' + FILTER_COLLECTION.mutation)
+		commit(INIT_PROGRESS.mutation)
 	}
 }
