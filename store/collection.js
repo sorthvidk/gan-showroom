@@ -152,6 +152,8 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
+		console.warn("FILTER COLLECTION | state.filtersParsed:"+state.filtersParsed)
+		
 		if (state.filtersParsed) return false
 
 		let cl = state.list.length
@@ -167,6 +169,7 @@ export const mutations = {
 				if (stateFilter) stateFilter.styleIds.push(style.styleId)
 			}
 		}
+
 		//sort filters by order
 		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
 		//sort styles by weight
@@ -179,6 +182,7 @@ export const mutations = {
 			name: '',
 			styleIds: []
 		}
+
 		state.filtersParsed = true
 	},
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
