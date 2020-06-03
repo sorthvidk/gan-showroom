@@ -13,8 +13,8 @@
 	left: 0;
 	z-index: 1;
 
-	max-width: calc(100vw - #{rem(22)}); //22 = gutters + borders 
- 
+	max-width: calc(100vw - #{rem(22)}); //22 = gutters + borders
+
 	@include mq($from: screen-md) {
 		max-width: none;
 	}
@@ -173,7 +173,6 @@
 		#{$module}__content {
 			height: auto;
 		}
-		
 	}
 
 	.vdr {

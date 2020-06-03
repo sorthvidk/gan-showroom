@@ -1,5 +1,5 @@
 <template>
-	<button class="films-item" :class="{'is-playing':isPlaying}" @click="onItemClick">
+	<button class="films-item" :class="{'is-playing':isPlaying}" @click.stop="onItemClick">
 		<div class="films-item__poster">
 			<img :src="parsedPosterUrl" alt="lorem" />
 		</div>
