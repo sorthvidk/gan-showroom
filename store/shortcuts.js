@@ -299,7 +299,8 @@ export const state = () => ({
 			text: 'Check out the ',
 			label: 'Design Darlings',
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc2'}
+				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc2'},
+				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
 			],
 			windowContent: [
 				{

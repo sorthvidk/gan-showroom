@@ -655,6 +655,7 @@ export const actions = {
 		commit(RESET_STATE.mutation)
 	},
 	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+		console.log("value",value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 

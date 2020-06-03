@@ -89,8 +89,7 @@ export default {
 				if (this.actions) {
 					for (let i = 0; i < this.actions.length; i++) {
 						let action = this.actions[i]
-						console.log("DISPATCH "+action.name)
-						if (action.param)
+						if (typeof action.param != "undefined")
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					}

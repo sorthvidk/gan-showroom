@@ -39,7 +39,7 @@ export default {
 				if (link.actions) {
 					for (var i = link.actions.length - 1; i >= 0; i--) {
 						let action = link.actions[i]
-						if (action.param)
+						if (typeof action.param != "undefined")
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					}

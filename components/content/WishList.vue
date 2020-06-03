@@ -30,7 +30,7 @@
 					<single-image :asset="currentWishListItem.assets[0]" :parent-window-id="parentWindowId" />
 
 					<h3>{{currentWishListItem.name}}</h3>
-					<button class="button" @click="removeItemHandler">Move to trash</button>
+					<button class="button" @click="removeItemHandler">Remove from wishlist</button>
 
 					<table>
 						<tbody>

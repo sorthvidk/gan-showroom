@@ -3,17 +3,17 @@
 		<p>{{text}}</p>
 
 		<div class="layout-buttons">
-			<button class="button layout-fun" :class="{'is-active': collectionLayout == 1}" @click="layoutFunClickHandler">
+			<button class="button layout-grid" :class="{'is-active': collectionLayout == 0}" @click="layoutGridClickHandler">
 				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+					<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+					  <path stroke="#000" d="M7.5 7.5h6v6h-6zM15.5 7.5h6v6h-6zM7.5 15.5h6v6h-6zM15.5 15.5h6v6h-6z"/>
 					</svg>
 				</span>
 			</button>
-			<button class="button layout-grid" :class="{'is-active': collectionLayout == 0}" @click="layoutGridClickHandler">
+			<button class="button layout-fun" :class="{'is-active': collectionLayout == 1}" @click="layoutFunClickHandler">
 				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+					<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+					  <path stroke="#000" d="M8.5 8.5h6v6h-6zM8.5 16.5h6v6h-6zM16.5 12.5h6v6h-6z"/>
 					</svg>
 				</span>
 			</button>
