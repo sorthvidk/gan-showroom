@@ -2,9 +2,8 @@
 	<div>
 		<login v-if="!loggedIn" />
 		<desktop v-else />
-
-		<!-- JPL: Disabled for presentation -->
-		<!-- <screensaver v-if="hidden" /> -->
+		
+		<screensaver v-if="hidden" />
 
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
