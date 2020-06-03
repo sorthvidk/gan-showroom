@@ -1,3 +1,5 @@
+import sortArrayMultipleProps from "~/utils/sort-array-multiple"
+
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
@@ -174,8 +176,25 @@ export const mutations = {
 
 		//sort filters by order
 		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
+
 		//sort styles by weight
-		state.list = state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
+		// state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
+
+		// let l1 = [
+		// 	{weight:7,program:608},
+		// 	{weight:234,program:908},
+		// 	{weight:1,program:908},
+		// 	{weight:4,program:608},
+		// 	{weight:133,program:608},
+		// ]
+
+		// sortArrayMultipleProps(l1,'program','weight')
+		// console.table(l1)
+		
+
+		//sort styles by program desc and weight asc
+		state.list = sortArrayMultipleProps(state.list,'program','weight')
+
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list
