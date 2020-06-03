@@ -152,8 +152,10 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
-		console.warn("FILTER COLLECTION | state.filtersParsed:"+state.filtersParsed)
-		
+		console.warn(
+			'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
+		)
+
 		if (state.filtersParsed) return false
 
 		let cl = state.list.length
@@ -203,7 +205,9 @@ export const mutations = {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
 			let styleIds = state.activeFilter.styleIds
-			console.warn("SET CURRENT FILTER | filterId:"+filterId+" | styleIds:"+styleIds)
+			console.warn(
+				'SET CURRENT FILTER | filterId:' + filterId + ' | styleIds:' + styleIds
+			)
 			let sil = styleIds.length
 			let newCurrentStyles = []
 

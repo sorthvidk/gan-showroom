@@ -38,7 +38,7 @@
 
 				<hr v-if="!noStatus" />
 
-				<div class="window__content" @click="contentActivateHandler">
+				<div class="window__content" @click.self="contentActivateHandler">
 					<component
 						:is="contentComponent"
 						:parent-window-id="windowId"

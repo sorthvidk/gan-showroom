@@ -368,13 +368,13 @@ export const mutations = {
 		let matchingWindow = state.windowList.filter(
 			e => e.windowId === windowId
 		)[0]
-		//console.log("current z", matchingWindow.positionZ )
 
 		if (matchingWindow) {
 			matchingWindow.positionZ = state.highestZIndex + 1
 			state.windowList = resetZOrder(state.windowList)
 			state.highestZIndex = state.windowList[wll - 1].positionZ
 			state.topMostWindow = matchingWindow
+			console.log('current z', matchingWindow, matchingWindow.positionZ)
 		}
 	},
 
@@ -736,7 +736,7 @@ export const actions = {
 		})
 		commit(GENERAL_FETCH.mutation, general)
 
-		console.log("DONE")
+		console.log('DONE')
 
 		commit(CONNECT_ASSETS.mutation)
 		commit('collection/' + FILTER_COLLECTION.mutation)
