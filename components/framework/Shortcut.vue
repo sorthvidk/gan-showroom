@@ -57,13 +57,8 @@ export default {
 			default: () => [],
 			required: true
 		},
-		action: {
-			type: String,
-			default: null,
-			required: false
-		},
-		actionParam: {
-			type: String,
+		actions: {
+			type: Array,
 			default: null,
 			required: false
 		},
@@ -90,10 +85,15 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
-				if (this.action) {
-					if (this.actionParam)
-						this.$store.dispatch(this.action, this.actionParam)
-					else this.$store.dispatch(this.action)
+				console.log("ACTIONS???",this.actions)
+				if (this.actions) {
+					for (let i = 0; i < this.actions.length; i++) {
+						let action = this.actions[i]
+						console.log("DISPATCH "+action.name)
+						if (action.param)
+							this.$store.dispatch(action.name, action.param)
+						else this.$store.dispatch(action.name)
+					}
 				
 					//TODO: Fix race condition!!
 					setTimeout(() => {
