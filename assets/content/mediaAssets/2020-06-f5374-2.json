@@ -1,7 +1,7 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591030157/collection/Lookbook%20images/20.4%20Finals/F5374_F5394_qhnwom.jpg",
   "assetId": "F5374 2",
   "styleId": "F5374",
