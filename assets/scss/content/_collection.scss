@@ -61,35 +61,41 @@
 
 		.collection-item {
 			flex: 0 0 50%;
-			margin: rem(30) 0;
+			margin: rem(100) 0;
 
 			img {
 				width: 80%;
 			}
 
-			&:nth-child(6n-6) {
+			&:nth-child(8n+1) {
+				transform: rotateZ(0) translate(0,0);
+				animation: horiz-pan infinite 4s ease;
+			}
+			&:nth-child(8n+2) {
+				transform: translate(20%, 10%);
+			}
+			&:nth-child(8n+3) {
+				transform: rotateZ(180deg) translate(10%, -10%);
+			}
+			&:nth-child(8n+4) {
+				transform: rotateZ(0) translate(0,0);
+				animation: pulse infinite 2s ease 2s;
+				transform-origin: center center;
+			}
+			&:nth-child(8n+5) {
+				transform: rotateZ(0) translate(0,0);
+				animation: vertic-pan infinite 3s ease 0.5s;
+			}
+			&:nth-child(8n+6) {
 				transform: rotateZ(90deg) translate(-5%, 0);
 			}
-			&:nth-child(6n-5) {
+			&:nth-child(8n+7) {
 				transform: rotateZ(0) translate(0,0);
-				animation: dangle infinite 2s ease-in-out;
+				animation: dangle infinite 3s ease-in-out;
 				transform-origin: top center;
 			}
-			&:nth-child(6n-4) {
-				transform: translate(20%, 0);
-			}
-			&:nth-child(6n-3) {
-				transform: rotateZ(180deg) translate(0, -10%);
-			}
-			&:nth-child(6n-2) {
-				transform: rotateZ(0) translate(0,0);
-				animation: pulse infinite 1s ease;
-				transform-origin: center center;
-			}
-			&:nth-child(6n-1) {
-				transform: rotateZ(0) translate(0,0);
-				animation: panning infinite 1s ease;
-				transform-origin: center center;
+			&:nth-child(8n+8) {
+				transform: translate(-10%, 20%);
 			}
 
 			p {
@@ -119,30 +125,41 @@
 			}	
 			@keyframes pulse {
 			  0% {
-			    transform: scale(1);
+			    transform: scale(1) rotateZ(0deg);
 			  }
 			  40% {
-			    transform: scale(1);
+			    transform: scale(1) rotateZ(0deg);
 			  }
 			  60% {
-			    transform: scale(1.2);
+			    transform: scale(1.2) rotateZ(10deg);
 			  }
 			  70% {
-			    transform: scale(0.95);
+			    transform: scale(0.95) rotateZ(-2deg);
 			  }
 			  100% {
-			    transform: scale(1);
+			    transform: scale(1) rotateZ(0deg);
 			  }
 			}			
-			@keyframes panning {
+			@keyframes horiz-pan {
 			  0% {
-			    transform: translateX(-10%);
+			    transform: translateX(0);
 			  }
 			  50% {
-			    transform: translateX(10%);
+			    transform: translateX(-20%);
 			  }
 			  100% {
-			    transform: translateX(-10%);
+			    transform: translateX(0);
+			  }
+			}			
+			@keyframes vertic-pan {
+			  0% {
+			    transform: translateY(0);
+			  }
+			  50% {
+			    transform: translateY(20%);
+			  }
+			  100% {
+			    transform: translateY(0);
 			  }
 			}	
 		}

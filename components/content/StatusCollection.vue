@@ -3,8 +3,8 @@
 		<p>{{text}}</p>
 
 		<div class="layout-buttons">
-			<button class="button layout-fun" :class="{'is-active': collectionLayout == 1}" @click="layoutFunClickHandler">☺︎</button>
-			<button class="button layout-grid" :class="{'is-active': collectionLayout == 0}" @click="layoutGridClickHandler">⌗</button>
+			<button class="button layout-fun" :class="{'is-active': layout == 1}" @click="layoutFunClickHandler">☺︎</button>
+			<button class="button layout-grid" :class="{'is-active': layout == 0}" @click="layoutGridClickHandler">⌗</button>
 		</div>
 	</div>
 </template>
@@ -28,6 +28,16 @@ export default {
 		}),
 		text() {
 			return this.currentStyles.length + ' items';
+		}
+	},
+	data() {
+		return {
+			layout: CollectionLayouts.GRID
+		}
+	},
+	watch: {
+		collectionLayout(newVal) {
+			this.layout = newVal
 		}
 	},
 	methods: {
