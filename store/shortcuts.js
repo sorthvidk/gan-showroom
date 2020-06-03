@@ -61,8 +61,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/ditte1.jpg'
+							defaultImageUrl: '/img/ditte/ditte1.jpg'
 						}
 					},
 					windowProps: {
@@ -77,8 +76,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl:
-								'/img/ditte/ditte2.jpg'
+							defaultImageUrl: '/img/ditte/ditte2.jpg'
 						}
 					},
 					windowProps: {
@@ -231,7 +229,7 @@ export const state = () => ({
 			posH: 2,
 			posV: 3,
 			href: '/files/rails.pdf'
-		},		
+		},
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'hampster-dance',
@@ -247,6 +245,23 @@ export const state = () => ({
 				}
 			]
 		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collage',
+			icon: '/img/shortcuts/paint.png',
+			label: 'Collage',
+			posH: 10,
+			posV: 5,
+			windowContent: [
+				{
+					title: 'Collage',
+					contentId: 'collage',
+					type: ContentTypes.collage
+				}
+			]
+		},
+
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Welcome to the GANNI Space! Check out the ',

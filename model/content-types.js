@@ -149,7 +149,7 @@ export default {
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
-	},	
+	},
 	videoSquare: {
 		name: 'videoSquare',
 		contentComponent: 'single-video',
@@ -233,6 +233,19 @@ export default {
 			largeWidth: 400 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 400
+		}
+	},
+	collage: {
+		name: 'collage',
+		contentComponent: 'collage',
+		contentScore: 16,
+		statusComponent: 'status-static',
+		allowedInstances: 1,
+		defaultWindowProps: {
+			largeWidth: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
+			smallWidth: 353,
+			largeHeight: 550 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400
 		}
 	}
