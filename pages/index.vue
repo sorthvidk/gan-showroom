@@ -21,7 +21,13 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import { WALLPAPER_CHANGE, VISIBILITY } from '~/model/constants'
+import { 
+	CONNECT_ASSETS, 
+	FILTER_COLLECTION, 
+	INIT_PROGRESS, 
+	WALLPAPER_CHANGE, 
+	VISIBILITY 
+} from '~/model/constants'
 
 export default {
 	components: {
@@ -50,13 +56,23 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action]),
+		...mapActions([
+			WALLPAPER_CHANGE.action, 
+			VISIBILITY.action
+		]),
 		hideScreensaver(hidden) {
 			this[VISIBILITY.action](hidden)
 		}
 	},
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
+
+		console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
+
+		this.$store.commit(CONNECT_ASSETS.mutation)
+		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
+		this.$store.commit(INIT_PROGRESS.mutation)
+		
 
 		this.$visibility.change((evt, hidden) => {
 			if (hidden) {

@@ -47,7 +47,7 @@ export default {
 			showErrorMessage: false,
 			backgroundImageObj: {
 				src: '/img/login-bg.jpg',
-				loading: '/img/350x150.png'
+				loading: '/img/login-bg_lo.jpg'
 			}
 		}
 	},

@@ -736,10 +736,6 @@ export const actions = {
 		})
 		commit(GENERAL_FETCH.mutation, general)
 
-		console.log("DONE")
-
-		commit(CONNECT_ASSETS.mutation)
-		commit('collection/' + FILTER_COLLECTION.mutation)
-		commit(INIT_PROGRESS.mutation)
+		console.warn("NUXT SERVER INIT DONE")
 	}
 }
