@@ -1,1 +1,24 @@
-{"styleId":"F5581","filters":["rtw3",""],"name":"F5581_Jacket","program":6094,"programName":"Lamb Leather","material":"100% Lamb Leather","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":1280,"wholesalePriceEUR":178,"wholesalePriceUSD":219,"retailPriceDKK":3199,"retailPriceEUR":445,"retailPriceUSD":525,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 525,
+  "assets": [],
+  "program": 6094,
+  "colorNames": "Black",
+  "material": "100% Lamb Leather",
+  "name": "F5581_Jacket",
+  "styleId": "F5581",
+  "drop": "November",
+  "programName": "Lamb Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 178,
+  "weight": 1,
+  "wholesalePriceDKK": 1280,
+  "wholesalePriceUSD": 219,
+  "filters": [
+    "rtw3",
+    "misc2"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3199,
+  "colorId": 99
+}

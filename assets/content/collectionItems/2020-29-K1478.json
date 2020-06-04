@@ -1,1 +1,24 @@
-{"styleId":"K1478","filters":["rtw5",""],"name":"K1478_Frill Blouse","program":2498,"programName":"Rib Knit","material":"70% Recycled Wool, 20% Polyamide, 5% other","drop":"November","colorNames":"Phantom, Mole","colorId":"252, 897","wholesalePriceDKK":640,"wholesalePriceEUR":90,"wholesalePriceUSD":111,"retailPriceDKK":1599,"retailPriceEUR":225,"retailPriceUSD":265,"responsible":true,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 265,
+  "assets": [],
+  "program": 2498,
+  "colorNames": "Phantom, Mole",
+  "material": "70% Recycled Wool, 20% Polyamide, 5% other",
+  "name": "K1478_Frill Blouse",
+  "styleId": "K1478",
+  "drop": "November",
+  "programName": "Rib Knit",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 90,
+  "weight": 1,
+  "wholesalePriceDKK": 640,
+  "wholesalePriceUSD": 111,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 225,
+  "retailPriceDKK": 1599,
+  "colorId": "252, 897"
+}
