@@ -1,1 +1,24 @@
-{"styleId":"K1465","filters":["rtw5",""],"name":"K1465_Fitted Blouse","program":2499,"programName":"Glitter Knit","material":"80% Viscose, 20% Metallic fibers","drop":"November","colorNames":"Mole","colorId":897,"wholesalePriceDKK":600,"wholesalePriceEUR":86,"wholesalePriceUSD":103,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "program": 2499,
+  "colorNames": "Mole",
+  "material": "80% Viscose, 20% Metallic fibers",
+  "name": "K1465_Fitted Blouse",
+  "styleId": "K1465",
+  "drop": "November",
+  "programName": "Glitter Knit",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 86,
+  "weight": 1,
+  "wholesalePriceDKK": 600,
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 897
+}
