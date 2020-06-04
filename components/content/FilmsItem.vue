@@ -14,6 +14,8 @@ import ContentTypes from '~/model/content-types'
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_CONTENT } from '~/model/constants'
 
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+
 export default {
 	name: 'films-item',
 	props: {
@@ -41,7 +43,8 @@ export default {
 	},
 	computed: {
 		parsedPosterUrl() {
-			return this.$cloudinary.url(this.posterUrl)
+			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl,aspect:'landscape'}, {width: 310, height: 204});
+			// return this.$cloudinary.url(this.posterUrl)
 		}
 	},
 	methods: {

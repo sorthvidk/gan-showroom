@@ -32,7 +32,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 670 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 320,
+			smallWidth: 353,
 			largeHeight: 500 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			smallHeight: 400,
 			noStatus: true
@@ -46,7 +46,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 350,
+			smallWidth: 353,
 			largeHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			noStatus: true,
