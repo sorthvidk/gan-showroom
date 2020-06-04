@@ -210,6 +210,10 @@
 					<div class="assistant__text">
 						<p>You know the drill. Add your favourites to your wishlist. When you’re done you can download to see your favorites or share with your team</p>
 					</div>
+					<div class="assistant__text" v-if="shareUrl">
+						<p>Your Wishlist link</p>
+						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
+					</div>
 				</div>
 
 				<div class="assistant__content" v-if="assistantMode == 4">
