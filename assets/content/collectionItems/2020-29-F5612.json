@@ -1,1 +1,24 @@
-{"styleId":"F5612","filters":[],"name":"F5612_Mini Skirt","program":6105,"programName":"Washed Leather","material":"100% Goat Leather","drop":"November","colorNames":"Cognac","colorId":132,"wholesalePriceDKK":1000,"wholesalePriceEUR":138,"wholesalePriceUSD":178,"retailPriceDKK":2499,"retailPriceEUR":345,"retailPriceUSD":425,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "program": 6105,
+  "colorNames": "Cognac",
+  "material": "100% Goat Leather",
+  "name": "F5612_Mini Skirt",
+  "styleId": "F5612",
+  "drop": "November",
+  "programName": "Washed Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 138,
+  "weight": 1,
+  "wholesalePriceDKK": 1000,
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw6",
+    "misc2"
+  ],
+  "retailPriceEUR": 345,
+  "retailPriceDKK": 2499,
+  "colorId": 132
+}
