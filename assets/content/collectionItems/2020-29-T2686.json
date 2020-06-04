@@ -1,1 +1,22 @@
-{"styleId":"T2686","filters":[],"name":"T2686_Sweatshirt","program":3464,"programName":"Isoli","material":"50% Recycled Cot, 50% Recycled Poly","drop":"November","colorNames":"Black, Flame","colorId":"99, 307","wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 0,
+  "assets": [],
+  "onWishList": false,
+  "program": 3464,
+  "colorNames": "Black",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "name": "T2686_Sweatshirt",
+  "styleId": "T2686",
+  "drop": "November",
+  "programName": "Isoli",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 0,
+  "weight": 1,
+  "wholesalePriceDKK": 0,
+  "wholesalePriceUSD": 0,
+  "filters": [],
+  "retailPriceEUR": 0,
+  "retailPriceDKK": 0,
+  "colorId": "99"
+}
