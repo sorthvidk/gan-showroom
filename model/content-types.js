@@ -80,9 +80,9 @@ export default {
 		},
 		defaultWindowProps: {
 			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274,
+			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
 			largeHeight: 417 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 417,
+			smallHeight: 417 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			modifierClass: 'window--tight'
 		}
 	},
@@ -114,9 +114,9 @@ export default {
 		},
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 320,
-			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 274,
+			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+			largeHeight: 320 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			modifierClass: 'window--tight'
 		}
 	},
@@ -128,7 +128,7 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274,
+			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
 			largeHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			modifierClass: 'window--tight',
@@ -158,9 +158,9 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 320,
-			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 274,
+			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+			largeHeight: 320 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			smallHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
 			modifierClass: 'window--tight'
 		}
 	},

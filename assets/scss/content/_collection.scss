@@ -58,14 +58,38 @@
 
 	&--fun {
 		max-width: rem(600);
-		margin: 0 auto;
+
+		margin: 0 rem(20);
+		@include mq($from: screen-sm) {
+			margin: 0 auto;
+		}
 
 		.collection-item {
 			flex: 0 0 50%;
-			margin: rem(80) 0;
+			margin: rem(40) 0;
+			@include mq($from: screen-sm) {
+				margin: rem(80) 0;
+			}
 
 			img {
 				width: 80%;
+			}
+			.on-wishlist {
+				right: calc(10% + #{rem(5)});
+			}
+
+			p {
+				display: none;
+			}
+			.responsible-icon {
+				left: calc(10% + #{rem(5)});
+			}
+			
+			transition: all 0.2s ease;
+
+			&:hover {
+				border-color: transparent;
+				opacity: 0.7;
 			}
 
 			&:nth-child(8n+1) {
@@ -99,19 +123,6 @@
 				transform: translate(10%, -50%);
 			}
 
-			p {
-				display: none;
-			}
-			.responsible-icon {
-				display: none;
-			}
-			
-			transition: all 0.2s ease;
-
-			&:hover {
-				border-color: transparent;
-				opacity: 0.7;
-			}
 						
 			@keyframes dangle {
 			  0% {
@@ -193,8 +204,8 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			flex: 0 0 rem(35);
-			width: rem(35);
+			flex: 0 0 rem(30);
+			width: rem(30);
 			height: rem(35);
 
 			.icon {
@@ -211,8 +222,10 @@
 			&:hover {
 				background-color: $color-lightgrey;
 			}
+				
+			opacity: 0.5;
 			&.is-active {
-				opacity: 0.5;
+				opacity: 1;
 			}
 		}
 	}

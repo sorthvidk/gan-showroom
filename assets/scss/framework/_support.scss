@@ -83,19 +83,33 @@
 
 	&__footer {
 		padding: rem(9) rem(10);
-		padding-left: rem(70);
+		padding-left: rem(40);
 		a {
-			display: block;
 			@include windowtitle();
+			display: inline-flex;
 			text-decoration: none;
+			align-items: center;
+
 			em {
 				text-decoration: underline;
 				margin-left: rem(5);
 			}
 		}
 		a + a {
-			margin-top: rem(5);
+			margin-top: rem(-10);
 		}
 		
+	}
+
+	.icon {
+		width: rem(30);
+		height: rem(30);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			width: rem(30);
+			height: rem(30);
+		}
 	}
 }
