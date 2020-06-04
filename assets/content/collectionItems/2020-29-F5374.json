@@ -1,1 +1,24 @@
-{"styleId":"F5374","filters":["rtw3","acc5"],"name":"F5374_Jacket","program":6138,"programName":"Tech Down","material":"100% Polyester, with down filling","drop":"November","colorNames":"Black, Flame","colorId":"99, 307","wholesalePriceDKK":928,"wholesalePriceEUR":134,"wholesalePriceUSD":178,"retailPriceDKK":2599,"retailPriceEUR":375,"retailPriceUSD":425,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "program": 6138,
+  "colorNames": "Black, Flame",
+  "material": "100% Polyester, with down filling",
+  "name": "F5374_Jacket",
+  "styleId": "F5374",
+  "drop": "November",
+  "programName": "Tech Down",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 134,
+  "weight": 1,
+  "wholesalePriceDKK": 928,
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw3",
+    "misc2"
+  ],
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2599,
+  "colorId": "99, 307"
+}
