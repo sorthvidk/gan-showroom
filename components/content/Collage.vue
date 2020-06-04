@@ -1,6 +1,17 @@
 <template>
-	<div class="collage">
-		<div class="head" v-if="!photo">
+	<div ref="collage" class="collage">
+		<button
+			@mouseenter="openPhotobooth = true"
+			@mouseleave="openPhotobooth = false"
+			@click="takePhoto"
+		>Take photo</button>
+		<button @click="savePhoto">Save photo</button>
+		<button @click="saveAsBG">Make background</button>
+		<p>Change hat</p>
+		<button @click="change('hats', 0)">←</button>
+		<button @click="change('hats', 1)">→</button>
+
+		<div class="head" v-show="openPhotobooth">
 			<vue-web-cam
 				ref="webcam"
 				:width="this.webcamWidth"
@@ -11,11 +22,6 @@
 		</div>
 
 		<div id="container"></div>
-
-		<button @click="takePhoto">Take photo</button>
-		<button @click="takeNewPhoto">Take another photo</button>
-		<button @click="savePhoto">Save photo</button>
-		<button @click="saveAsBG">Make background</button>
 	</div>
 </template>
 
@@ -28,16 +34,63 @@ export default {
 	data() {
 		return {
 			webcamWidth: 300,
-			webcamHeight: 240,
+			webcamHeight: 220,
 			stageWidth: 500,
 			stageHeight: 500,
-			dpi: 2,
-			photo: null
+			webcamImageOffset: 150,
+
+			openPhotobooth: false,
+			photo: null,
+
+			clothes: {
+				hats: [
+					{
+						src: '/img/collage/hat.png',
+						y: 100,
+						x: 50,
+						width: 100,
+						height: 75
+					},
+					{
+						src: '/img/collage/hat2.png',
+						y: 100,
+						x: 50,
+						width: 130,
+						height: 75
+					},
+					{
+						src: '/img/collage/hat3.png',
+						y: 100,
+						x: 50,
+						width: 100,
+						height: 75
+					}
+				],
+				tops: [
+					{
+						src: '/img/collage/dress.png',
+						y: 50,
+						x: 24,
+						width: 240,
+						height: 300
+					}
+				],
+				shoes: [
+					{
+						src: '/img/collage/boots.png',
+						y: 300,
+						x: 100,
+						width: 110,
+						height: 100
+					}
+				]
+			}
 		}
 	},
 	methods: {
 		...mapActions([SAVE_AS_BACKGROUND.action]),
 		insertPhoto({
+			id,
 			src,
 			y = 0,
 			x = 0,
@@ -52,6 +105,7 @@ export default {
 				let output
 
 				const img = new this.$Konva.Image({
+					id: !round && id,
 					image,
 					x,
 					y,
@@ -61,8 +115,15 @@ export default {
 				})
 				if (round) {
 					var group = new Konva.Group({
-						clipFunc: function(ctx) {
-							ctx.arc(300, 120, 75, 0, Math.PI * 2, false)
+						clipFunc: ctx => {
+							ctx.arc(
+								(this.webcamWidth + this.webcamImageOffset) / 2,
+								this.webcamHeight / 4,
+								35,
+								0,
+								Math.PI * 2,
+								false
+							)
 						},
 						draggable
 					})
@@ -93,18 +154,16 @@ export default {
 			image.src = src
 		},
 		takePhoto() {
+			this.openPhotobooth = false
 			this.photo = this.$refs.webcam.capture()
 			this.insertPhoto({
 				src: this.photo,
 				y: 0,
-				x: 150,
-				width: this.webcamWidth,
-				height: this.webcamHeight,
+				x: this.webcamImageOffset,
+				width: this.webcamWidth / 2,
+				height: this.webcamHeight / 2,
 				round: true
 			})
-		},
-		takeNewPhoto() {
-			this.photo = null
 		},
 		savePhoto() {
 			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
@@ -112,7 +171,6 @@ export default {
 		},
 		saveAsBG() {
 			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
-
 			this[SAVE_AS_BACKGROUND.action](dataURL)
 		},
 		downloadURI(uri, name) {
@@ -125,18 +183,54 @@ export default {
 			document.body.removeChild(link)
 			link.remove()
 		},
-		fitStageIntoParentContainer() {
+		fitScreen() {
 			var container = this.$el.parentElement
-
 			// now we need to fit stage into parent
 			var containerWidth = container.offsetWidth
 			// to do this we need to scale the stage
 			var scale = containerWidth / this.stageWidth
-
 			this.stage.width(this.stageWidth * scale)
 			this.stage.height(this.stageHeight * scale)
 			this.stage.scale({ x: scale, y: scale })
 			this.stage.draw()
+		},
+		removeAndReturnOldKonvoImage(x) {
+			return this.clothes[x].reduce((acc, garment) => {
+				const existing = this.layer.children.filter(
+					child =>
+						child.attrs.image && child.attrs.image.src.includes(garment.src)
+				)[0]
+				if (existing) {
+					acc = existing
+					existing.destroy()
+					this.layer.draw()
+				}
+				return acc
+			}, this.clothes[x][0])
+		},
+		change(x, next) {
+			const oldKonvoImage = this.removeAndReturnOldKonvoImage(x)
+			const oldPlacement = {
+				x: oldKonvoImage.attrs.x,
+				y: oldKonvoImage.attrs.y
+			}
+			const oldImage = this.clothes[x].find(garment =>
+				oldKonvoImage.attrs.image.src.includes(garment.src)
+			)
+			const oldIndex = this.clothes[x].reduce(
+				(index, garment, i) => (garment.src === oldImage.src ? i : index),
+				0
+			)
+
+			const plusOneOrFirst = () =>
+				oldIndex === this.clothes[x].length - 1 ? 0 : oldIndex + 1
+			const minusOneOrLast = () =>
+				oldIndex === 0 ? this.clothes[x].length - 1 : oldIndex - 1
+
+			const newIndex = next ? plusOneOrFirst() : minusOneOrLast()
+			const newImage = this.clothes[x][newIndex]
+			Object.assign(newImage, oldPlacement)
+			this.insertPhoto(newImage)
 		}
 	},
 	mounted() {
@@ -149,6 +243,7 @@ export default {
 		this.layer = new this.$Konva.Layer()
 		this.stage.add(this.layer)
 
+		// bg
 		this.insertPhoto({
 			src: '/img/collage/f4003b.png',
 			y: 0,
@@ -158,36 +253,12 @@ export default {
 			draggable: false
 		})
 
-		this.insertPhoto({
-			src: '/img/collage/dress.png',
-			y: 50,
-			x: 24,
-			width: 240,
-			height: 300
+		/**
+		 * Add first image of each category
+		 */
+		Object.entries(this.clothes).forEach(([category, clothes]) => {
+			this.insertPhoto(clothes[0])
 		})
-
-		this.insertPhoto({
-			src: '/img/collage/hat.png',
-			y: 100,
-			x: 50,
-			width: 100,
-			height: 75
-		})
-
-		this.insertPhoto({
-			src: '/img/collage/boots.png',
-			y: 300,
-			x: 100,
-			width: 110,
-			height: 100
-		})
-
-		this.fitStageIntoParentContainer()
-		// adapt the stage on any window resize
-		window.addEventListener(
-			'resize',
-			this.fitStageIntoParentContainer.bind(this)
-		)
 	}
 }
 </script>
