@@ -1,1 +1,24 @@
-{"styleId":"F5767","filters":["rtw2",""],"name":"F5767_Midi Skirt","program":6129,"programName":"Washed Denim","material":"","drop":"November","colorNames":"Phantom","colorId":252,"wholesalePriceDKK":518,"wholesalePriceEUR":76,"wholesalePriceUSD":98,"retailPriceDKK":1399,"retailPriceEUR":205,"retailPriceUSD":235,"responsible":true,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6129,
+  "colorNames": "Phantom",
+  "material": " ",
+  "name": "F5767_Midi Skirt",
+  "styleId": "F5767",
+  "drop": "November",
+  "programName": "Washed Denim",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 76,
+  "weight": 1,
+  "wholesalePriceDKK": 518,
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw2",
+    "misc2"
+  ],
+  "retailPriceEUR": 205,
+  "retailPriceDKK": 1399,
+  "colorId": 252
+}
