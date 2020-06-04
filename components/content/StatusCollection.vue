@@ -13,7 +13,7 @@
 			<button class="button layout-fun" :class="{'is-active': collectionLayout == 1}" @click="layoutFunClickHandler">
 				<span class="icon">
 					<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-					  <path stroke="#000" d="M8.5 8.5h6v6h-6zM8.5 16.5h6v6h-6zM16.5 12.5h6v6h-6z"/>
+					  <path stroke="#000" d="M8.5 7.5h6v6h-6zM8.5 15.5h6v6h-6zM16.5 11.5h6v6h-6z"/>
 					</svg>
 				</span>
 			</button>

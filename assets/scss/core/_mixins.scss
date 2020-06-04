@@ -83,6 +83,10 @@
 	}
 	p {
 		@include link();
+		white-space: nowrap;
+		max-width: rem(110);
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 

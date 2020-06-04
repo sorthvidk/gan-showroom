@@ -2,7 +2,7 @@
 	&--music-player {
 		&__wrapper {
 			position: fixed;
-			top: calc(100vh - 380px);
+			top: calc(100vh - 310px);
 			left: rem(10);
 
 			@include mq($from: screen-xs) {

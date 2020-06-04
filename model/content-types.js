@@ -21,7 +21,7 @@ export default {
 			largeWidth: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 460
+			smallHeight: 355
 		}
 	},
 	films: {
@@ -32,9 +32,10 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 670 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 320,
+			smallWidth: 353,
 			largeHeight: 500 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400
+			smallHeight: 400,
+			noStatus: true
 		}
 	},
 	musicPlayer: {
@@ -45,7 +46,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 350,
+			smallWidth: 353,
 			largeHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			noStatus: true,
@@ -63,7 +64,7 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 350,
+			smallWidth: 300,
 			largeHeight: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			smallHeight: 300,
 			noStatus: true
@@ -145,7 +146,7 @@ export default {
 			largeWidth: 608 + WINDOW_TIGHT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 200 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			smallHeight: 199 + WINDOW_NOSTATUS_CHROME_HEIGHT,
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -220,7 +221,7 @@ export default {
 			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400
+			smallHeight: 355
 		}
 	},
 	lookBook: {
@@ -233,7 +234,7 @@ export default {
 			largeWidth: 400 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400
+			smallHeight: 355
 		}
 	},
 	collage: {

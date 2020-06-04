@@ -23,14 +23,14 @@
 			</div>
 
 			<footer class="support__footer">
-				<a href="tel:004511223344">
+				<a href="tel:+46739825022">
 					<span class="icon">
 						<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 						  <path fill="#000" d="M8 17h3v1H8zM7 23h5v1H7zM7 18h5v5H7zM6 19h1v4H6zM16 9h1v2h-1zM17 9h7v2h-7zM18 7h5v2h-5z"/>
 						  <path fill="#000" d="M19 6h3v4h-3zM12 18h1v4h-1zM13 17h1v4h-1zM14 16h1v4h-1zM22 10h1v3h-1zM15 15h1v4h-1zM16 14h1v4h-1zM17 11h2v5h-2zM19 11h2v3h-2zM21 11h1v3h-1zM17 8h1v1h-1zM17 7h1v1h-1zM17 16h1v1h-1zM19 14h1v1h-1z"/>
 						</svg>
 					</span>
-					<em>+45 11 22 33 44</em>
+					<em>+46 73 982 50 22</em>
 				</a>
 				<a :href="emailUrl">
 					<span class="icon">

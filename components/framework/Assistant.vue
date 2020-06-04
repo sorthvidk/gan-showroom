@@ -240,7 +240,7 @@
 						@click="downloadCollectionClickHandler"
 						:href="pdfDownloadLink"
 					>
-						<p>Download collection</p>
+						<p>{{downloadCollectionButtonLabel}}</p>
 					</a>
 				</div>
 
@@ -371,8 +371,13 @@ export default {
 			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
 		},
+		downloadCollectionButtonLabel() {
+			if ( this.activeFilter.filterId ) {
+				return 'Download '+this.activeFilter.name
+			}
+			return 'Download all'
+		},
 		styleOnWishList() {
-			console.log("this.currentStyle.onWishList??", this.currentStyle.onWishList)
 			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
@@ -388,6 +393,9 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
+			if ( this.activeFilter.filterId ) {				
+				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			}
 			// /export with no params shows all styles
 			return `${window.location}export`
 		}
