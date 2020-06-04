@@ -19,7 +19,7 @@
 		<main class="window__content" v-if="!minimized" v-cloak>
 			<div class="support__content">
 				<img :src="avatar" />
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum tellus sed arcu fringilla, ut dictum leo luctus. Nunc non lectus et enim pellentesque suscipit.</p>
+				<p>At Ganni we're always here for you. Got a question? Just reach out.</p>
 			</div>
 
 			<footer class="support__footer">
@@ -32,7 +32,7 @@
 					</span>
 					<em>+45 11 22 33 44</em>
 				</a>
-				<a href="mailto:support@ganni.com">
+				<a :href="emailUrl">
 					<span class="icon">
 						<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 						  <path stroke="#000" d="M6.5 7.5h17v14h-17z"/>
@@ -59,7 +59,15 @@ export default {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
 			minimized: true,
-			avatar: '/img/avatar2.png'
+			avatar: '/img/avatar2.png'			
+		}
+	},
+	computed: {
+		emailUrl() {
+			let subject = encodeURIComponent("Quick question. I really have to know...")
+			let body = encodeURIComponent("Dear GANNI,\n\nI'm loving exploring Ditte's Desktop! It is _________\n\nI have a question about _________\n\nSpeak soon!\n\nLove <3")
+			let u = `mailto:support@ganni.com?subject=${subject}&body=${body}`
+			return u
 		}
 	},
 	methods: {

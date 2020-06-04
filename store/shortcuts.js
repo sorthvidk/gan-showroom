@@ -156,8 +156,8 @@ export const state = () => ({
 			shortcutId: 'animal-print',
 			icon: '/img/shortcuts/animal_print.png',
 			label: 'Animal Print',
-			posH: 12,
-			posV: 7,
+			posH: 10,
+			posV: 6,
 			actions: [
 				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc4'},
 				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
@@ -177,7 +177,7 @@ export const state = () => ({
 			icon: '/img/shortcuts/ganni_softwear.png',
 			label: 'GANNI Softwear',
 			posH: 11,
-			posV: 7,
+			posV: 6,
 			actions: [
 				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc5'},
 				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.FUN}
@@ -196,7 +196,7 @@ export const state = () => ({
 			shortcutId: 'accessories',
 			icon: '/img/shortcuts/acces.png',
 			label: 'Acces',
-			posH: 11,
+			posH: 12,
 			posV: 6,
 			actions: [
 				{name:'collection/' +SET_CURRENT_FILTER.action, param:'acc1'},
@@ -236,7 +236,7 @@ export const state = () => ({
 			icon: '/img/shortcuts/hamster_dance.png',
 			label: 'Hampster Dance',
 			posH: 12,
-			posV: 6,
+			posV: 5,
 			windowContent: [
 				{
 					title: 'Hampster Dance',
@@ -251,7 +251,7 @@ export const state = () => ({
 			shortcutId: 'collage',
 			icon: '/img/shortcuts/paint.png',
 			label: 'Collage',
-			posH: 10,
+			posH: 11,
 			posV: 5,
 			windowContent: [
 				{
