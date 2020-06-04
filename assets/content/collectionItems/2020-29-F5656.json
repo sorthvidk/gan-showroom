@@ -1,1 +1,22 @@
-{"styleId":"F5656","filters":[],"name":"F5656_Smock Top","program":6096,"programName":"Printed Cotton Poplin","material":"100% Organic Cotton","drop":"November","colorNames":"Cognac, Leopard","colorId":"132, 943","wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "onWishList": false,
+  "program": 6096,
+  "colorNames": "Leopard",
+  "material": "100% Organic Cotton",
+  "name": "F5656_Smock Top",
+  "styleId": "F5656",
+  "drop": "November",
+  "programName": "Printed Cotton Poplin",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 1,
+  "wholesalePriceDKK": 357,
+  "wholesalePriceUSD": 69,
+  "filters": [],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": "943"
+}
