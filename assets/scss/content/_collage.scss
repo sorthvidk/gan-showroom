@@ -41,33 +41,20 @@
 		}
 	}
 
-	// #container {
-	// 	width: 100%;
-	// 	height: 100%;
-	// }
-
-	// .konvajs-content {
-	// 	width: 100% !important;
-	// 	height: 100% !important;
-
-	// 	canvas {
-	// 		width: 100% !important;
-	// 		height: auto !important;
-	// 	}
-	// }
+	p {
+		@include bodytext();
+	}
 
 	button {
+		@include bodytext();
+		padding: rem(5);
 		position: relative;
 		z-index: 2;
 		border: 1px solid;
-		background: lightgoldenrodyellow;
+		background: $color-lightgrey;
 
 		&:first-of-type {
-			background: lightgreen;
-		}
-
-		&:last-of-type {
-			background: lightcoral;
+			background: $color-lime;
 		}
 	}
 }

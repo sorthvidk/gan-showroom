@@ -245,9 +245,10 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			largeWidth: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
+			smallWidth: 350,
 			largeHeight: 550 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400
+			smallHeight: 250,
+			noStatus: true
 		}
 	}
 }

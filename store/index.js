@@ -116,7 +116,6 @@ export const mutations = {
 	},
 
 	[SAVE_AS_BACKGROUND.mutation](state, img) {
-		console.log('new bg')
 		state.webcamImage = img
 	},
 
@@ -655,7 +654,7 @@ export const actions = {
 		commit(RESET_STATE.mutation)
 	},
 	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		console.log("value",value)
+		console.log('value', value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 

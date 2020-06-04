@@ -43,6 +43,7 @@
 						:is="contentComponent"
 						:parent-window-id="windowId"
 						v-bind="{...contentComponentProps}"
+						ref="contentComponent"
 					/>
 				</div>
 			</vue-draggable-resizable>
@@ -313,6 +314,11 @@ export default {
 		onResizeStop() {
 			this.isMaximized = false
 			this.constrain()
+
+			// used for the collage
+			if (typeof this.$refs.contentComponent.fitScreen === 'function') {
+				this.$refs.contentComponent.fitScreen()
+			}
 		},
 		onDrag(x, y) {
 			this.x = x
