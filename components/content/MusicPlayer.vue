@@ -231,7 +231,7 @@ export default {
 			let volume = 0
 			const loop = () => {
 				this.audio.volume = volume
-				volume += 0.005
+				volume += 0.01
 				if (volume <= 0.5) {
 					requestAnimationFrame(loop)
 				}

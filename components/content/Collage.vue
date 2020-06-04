@@ -1,14 +1,13 @@
 <template>
 	<div class="collage">
-		<div class="head">
+		<div class="head" v-if="!photo">
 			<vue-web-cam
 				ref="webcam"
-				v-if="!photo"
 				:width="this.webcamWidth"
 				:height="this.webcamHeight"
 				:selectFirstDevice="true"
 			/>
-			<img ref="image" :src="photo" />
+			<div class="mask"></div>
 		</div>
 
 		<div id="container"></div>
@@ -16,126 +15,179 @@
 		<button @click="takePhoto">Take photo</button>
 		<button @click="takeNewPhoto">Take another photo</button>
 		<button @click="savePhoto">Save photo</button>
+		<button @click="saveAsBG">Make background</button>
 	</div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { SAVE_AS_BACKGROUND } from '~/model/constants'
+
 export default {
 	name: 'collage',
 	data() {
 		return {
-			webcamWidth: 150,
-			webcamHeight: 115,
+			webcamWidth: 300,
+			webcamHeight: 240,
+			stageWidth: 500,
+			stageHeight: 500,
 			dpi: 2,
 			photo: null
 		}
 	},
 	methods: {
-		insertPhotoToCanvas({
+		...mapActions([SAVE_AS_BACKGROUND.action]),
+		insertPhoto({
 			src,
-			top = 0,
-			left = 0,
+			y = 0,
+			x = 0,
 			width,
 			height,
-			draggable = true
+			draggable = true,
+			round = false
 		}) {
 			const image = new Image()
 
 			image.onload = () => {
+				let output
+
 				const img = new this.$Konva.Image({
 					image,
-					x: left,
-					y: top,
-					width: width,
-					height: height,
-					draggable
+					x,
+					y,
+					width,
+					height,
+					draggable: draggable && !round
 				})
-				img.on('mouseover', () => (document.body.style.cursor = 'pointer'))
-				img.on('mouseout', () => (document.body.style.cursor = 'default'))
-				img.on('dragstart', e => {
+				if (round) {
+					var group = new Konva.Group({
+						clipFunc: function(ctx) {
+							ctx.arc(300, 120, 75, 0, Math.PI * 2, false)
+						},
+						draggable
+					})
+					group.add(img)
+					output = group
+				} else {
+					output = img
+				}
+				/**
+				 * Add eventlisteners
+				 */
+				output.on('mouseover', () => (document.body.style.cursor = 'pointer'))
+				output.on('mouseout', () => (document.body.style.cursor = 'default'))
+				output.on('dragstart', e => {
 					e.target.moveToTop()
 					this.layer.draw()
 				})
-				img.on('dblclick dbltap', e => {
+				output.on('dblclick dbltap', e => {
 					e.target.destroy()
 					this.layer.draw()
 				})
-				this.layer.add(img)
+				/**
+				 * Add to the scene
+				 */
+				this.layer.add(output)
 				this.layer.draw()
 			}
 			image.src = src
 		},
 		takePhoto() {
 			this.photo = this.$refs.webcam.capture()
-			this.insertPhotoToCanvas({
+			this.insertPhoto({
 				src: this.photo,
-				top: 0,
-				left: 175,
+				y: 0,
+				x: 150,
 				width: this.webcamWidth,
-				height: this.webcamHeight
+				height: this.webcamHeight,
+				round: true
 			})
 		},
 		takeNewPhoto() {
 			this.photo = null
 		},
 		savePhoto() {
-			// function from https://stackoverflow.com/a/15832662/512042
-			function downloadURI(uri, name) {
-				var link = document.createElement('a')
-				link.download = name
-				link.href = uri
-				document.body.appendChild(link)
-				link.click()
-				document.body.removeChild(link)
-				link.remove()
-			}
+			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
+			this.downloadURI(dataURL, 'stage.png')
+		},
+		saveAsBG() {
+			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
 
-			var dataURL = this.stage.toDataURL({ pixelRatio: 3 })
-			downloadURI(dataURL, 'stage.png')
+			this[SAVE_AS_BACKGROUND.action](dataURL)
+		},
+		downloadURI(uri, name) {
+			// function from https://stackoverflow.com/a/15832662/512042
+			var link = document.createElement('a')
+			link.download = name
+			link.href = uri
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
+			link.remove()
+		},
+		fitStageIntoParentContainer() {
+			var container = this.$el.parentElement
+
+			// now we need to fit stage into parent
+			var containerWidth = container.offsetWidth
+			// to do this we need to scale the stage
+			var scale = containerWidth / this.stageWidth
+
+			this.stage.width(this.stageWidth * scale)
+			this.stage.height(this.stageHeight * scale)
+			this.stage.scale({ x: scale, y: scale })
+			this.stage.draw()
 		}
 	},
 	mounted() {
 		this.stage = new this.$Konva.Stage({
 			container: 'container',
-			width: 500,
-			height: 500
+			width: this.stageWidth,
+			height: this.stageHeight
 		})
 
 		this.layer = new this.$Konva.Layer()
 		this.stage.add(this.layer)
 
-		this.insertPhotoToCanvas({
+		this.insertPhoto({
 			src: '/img/collage/f4003b.png',
-			top: -5,
-			left: 24,
-			width: 500,
-			height: 500,
+			y: 0,
+			x: 0,
+			width: this.stageWidth,
+			height: this.stageHeight,
 			draggable: false
 		})
 
-		this.insertPhotoToCanvas({
+		this.insertPhoto({
 			src: '/img/collage/dress.png',
-			top: 50,
-			left: 24,
+			y: 50,
+			x: 24,
 			width: 240,
 			height: 300
 		})
 
-		this.insertPhotoToCanvas({
+		this.insertPhoto({
 			src: '/img/collage/hat.png',
-			top: 100,
-			left: 50,
-			width: 140,
-			height: 100
+			y: 100,
+			x: 50,
+			width: 100,
+			height: 75
 		})
 
-		this.insertPhotoToCanvas({
+		this.insertPhoto({
 			src: '/img/collage/boots.png',
-			top: 300,
-			left: 100,
+			y: 300,
+			x: 100,
 			width: 110,
 			height: 100
 		})
+
+		this.fitStageIntoParentContainer()
+		// adapt the stage on any window resize
+		window.addEventListener(
+			'resize',
+			this.fitStageIntoParentContainer.bind(this)
+		)
 	}
 }
 </script>
