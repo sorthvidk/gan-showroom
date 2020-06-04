@@ -1,1 +1,24 @@
-{"styleId":"F5491","filters":["rtw1",""],"name":"F5491_Fitted Dress","program":6131,"programName":"Silk Stretch Satin","material":"92% Silk, 8% Elastane","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":1440,"wholesalePriceEUR":198,"wholesalePriceUSD":248,"retailPriceDKK":3599,"retailPriceEUR":495,"retailPriceUSD":595,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 595,
+  "assets": [],
+  "program": 6131,
+  "colorNames": "Flame",
+  "material": "92% Silk, 8% Elastane",
+  "name": "F5491_Fitted Dress",
+  "styleId": "F5491",
+  "drop": "November",
+  "programName": "Silk Stretch Satin",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 198,
+  "weight": 1,
+  "wholesalePriceDKK": 1440,
+  "wholesalePriceUSD": 248,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 495,
+  "retailPriceDKK": 3599,
+  "colorId": 307
+}
