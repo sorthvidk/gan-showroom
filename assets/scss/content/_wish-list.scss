@@ -110,13 +110,10 @@
 		}
 
 		.button {
-			display: inline-flex;
-			@include bodytext();
+			@include link();
 			font-size: rem(12);
-			text-decoration: underline;
-			font-weight: $weight-medium;
+			display: inline-flex;
 			margin-bottom: rem(20);
-			color: $color-blue;
 		}
 
 		.single-image {
@@ -166,12 +163,8 @@
 
 			.button {
 				display: inline-flex;
-				@include bodytext();
-				font-size: rem(12);
-				text-decoration: underline;
-				font-weight: $weight-medium;
 				margin-bottom: rem(20);
-				color: $color-blue;
+				@include link();
 			}
 
 			.inner {

@@ -82,8 +82,7 @@
 		margin-right: rem(10);
 	}
 	p {
-		@include bodytext();
-		text-decoration: underline;
+		@include link();
 	}
 }
 

@@ -34,6 +34,14 @@ em {
 	line-height: 1.27;
 }
 
+@mixin link() {
+	font-size: rem(11);
+	font-weight: $weight-medium;
+	color: $color-blue;
+	line-height: 1.27;
+	text-decoration: underline;
+}
+
 h2,
 h3 {
 	@include headline();
