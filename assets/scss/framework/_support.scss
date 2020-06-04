@@ -82,21 +82,27 @@
 	}
 
 	&__footer {
-		padding: rem(9) rem(10);
+		padding: 0 rem(10) rem(9);
 		padding-left: rem(40);
+
+		@include mq($from: screen-sm) {
+			padding: rem(9) rem(10);
+		}
 		a {
 			@include windowtitle();
-			display: inline-flex;
 			text-decoration: none;
 			align-items: center;
 
+			display: flex;
 			em {
 				text-decoration: underline;
 				margin-left: rem(5);
 			}
 		}
 		a + a {
-			margin-top: rem(-10);
+			@include mq($from: screen-md) {
+				margin-top: rem(-10);
+			}
 		}
 		
 	}

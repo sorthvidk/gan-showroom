@@ -21,7 +21,7 @@ export default {
 			largeWidth: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
 			smallWidth: 353,
 			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 420
+			smallHeight: 460
 		}
 	},
 	films: {
