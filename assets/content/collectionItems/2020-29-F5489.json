@@ -1,1 +1,24 @@
-{"styleId":"F5489","filters":["rtw1",""],"name":"F5489_Dress","program":6120,"programName":"Wool Suiting","material":"55% Wool, 45% polyester","drop":"November","colorNames":"Phantom","colorId":252,"wholesalePriceDKK":1035,"wholesalePriceEUR":142,"wholesalePriceUSD":198,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"responsible":false,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6120,
+  "colorNames": "Phantom",
+  "material": "55% Wool, 45% polyester",
+  "name": "F5489_Dress",
+  "styleId": "F5489",
+  "drop": "November",
+  "programName": "Wool Suiting",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 142,
+  "weight": 1,
+  "wholesalePriceDKK": 1035,
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 252
+}
