@@ -1,4 +1,8 @@
-import { SET_CURRENT_FILTER, TOGGLE_MUSIC_PLAYER, COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
+import {
+	SET_CURRENT_FILTER,
+	TOGGLE_MUSIC_PLAYER,
+	COLLECTION_LAYOUT_CHANGE
+} from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
@@ -14,8 +18,8 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			actions: [
-				{name:'collection/' + SET_CURRENT_FILTER.action, param:''},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
 			],
 			windowContent: [
 				{
@@ -103,9 +107,6 @@ export const state = () => ({
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
-			actions: [
-				{name:TOGGLE_MUSIC_PLAYER.action}
-			],
 			windowContent: [
 				{
 					title: 'GANNI FM',
@@ -159,8 +160,8 @@ export const state = () => ({
 			posH: 10,
 			posV: 6,
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc4'},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc4' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
 			],
 			windowContent: [
 				{
@@ -179,8 +180,8 @@ export const state = () => ({
 			posH: 11,
 			posV: 6,
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc5'},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.FUN}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc5' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
 			],
 			windowContent: [
 				{
@@ -199,8 +200,8 @@ export const state = () => ({
 			posH: 12,
 			posV: 6,
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:'acc1'},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'acc1' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
 			],
 			windowContent: [
 				{
@@ -267,8 +268,8 @@ export const state = () => ({
 			text: 'Welcome to the GANNI Space! Check out the ',
 			label: 'PS21 Collection',
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:''},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
 			],
 			windowContent: [
 				{
@@ -299,8 +300,8 @@ export const state = () => ({
 			text: 'Check out the ',
 			label: 'Design Darlings',
 			actions: [
-				{name:'collection/' +SET_CURRENT_FILTER.action, param:'misc2'},
-				{name: COLLECTION_LAYOUT_CHANGE.action, param:CollectionLayouts.GRID}
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc2' },
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
 			],
 			windowContent: [
 				{

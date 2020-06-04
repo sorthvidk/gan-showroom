@@ -17,7 +17,6 @@ import {
 	INIT_PROGRESS,
 	KEYPRESS,
 	MOUSEMOVE,
-	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
 	FORCE_STOP_MUSIC,
 	TOPMOST_WINDOW,
@@ -48,7 +47,7 @@ export const state = () => ({
 	webcamImage: '',
 
 	loggedIn: false,
-	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
+	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
 
 	hidden: false,
 
@@ -58,7 +57,6 @@ export const state = () => ({
 
 	mousepos: { x: 0, y: 0 },
 
-	// is opened by Desktop.vue
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
@@ -71,7 +69,6 @@ export const state = () => ({
 	rehydrated: false,
 	cookiesAccepted: false,
 
-	musicPlayerOpen: true,
 	musicPlaying: false,
 	songs: [
 		{
@@ -308,10 +305,8 @@ export const mutations = {
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
 			newWindow.windowProps.nthChild = windowGroup.groupSize
 
-			// console.log(JSON.stringify(newWindow))
-
 			state.windowList.unshift(newWindow)
-			state.content.list.unshift(content)
+			state.content.list.unshift(newWindow)
 
 			windowGroup.windowIds.push(newWindow.windowId)
 			windowGroup.contentIds.push(newWindow.contentId)
@@ -482,10 +477,6 @@ export const mutations = {
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
-	[TOGGLE_MUSIC_PLAYER.mutation](state) {
-		state.musicPlayerOpen = !state.musicPlayerOpen
-	},
-
 	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
 		console.warn('MUSIC_PLAY_PAUSE', playing)
 		state.musicPlaying = playing
@@ -618,9 +609,6 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
-	},
-	[TOGGLE_MUSIC_PLAYER.action]({ commit }, openState) {
-		commit(TOGGLE_MUSIC_PLAYER.mutation, openState)
 	},
 	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
 		console.log('playing', playing)
