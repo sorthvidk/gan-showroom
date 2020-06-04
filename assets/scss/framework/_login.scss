@@ -36,6 +36,7 @@
 
 // style the 'vue-typer' text
 .vue-typer {
+	padding-bottom: rem(80);
 	width: 100%;
 	// height: 100%;
 
@@ -50,6 +51,8 @@
 	@include megatype();
 	width: 100%;
 	height: 100vh;
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
 	// image-rendering: pixelated;
 
 	position: relative;
@@ -181,6 +184,12 @@
 	}
 
 	.logo {
-		bottom: rem(20);
+		top: auto;
+		bottom: rem(80);
+
+		svg {
+			opacity: 1;
+			fill: $color-lime;
+		}
 	}
 }

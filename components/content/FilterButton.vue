@@ -32,17 +32,12 @@ export default {
 			activeFilter: state => state.collection.activeFilter,
 		})
 	},
-	data() {
-		return {
-			isActive: false
-		}
-	},
 	methods: {
 		...mapActions([
 			'collection/'+SET_CURRENT_FILTER.action
 		]),
 		clickHandler() {
-			if ( this.isActive ) {
+			if ( this.activeFilter.filterId === this.filterId ) {
 				this['collection/'+SET_CURRENT_FILTER.action]();
 			}
 			else {

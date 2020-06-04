@@ -1,10 +1,10 @@
 .shortcut {
 	position: relative;
 	box-sizing: border-box;
-	padding: rem(20);
+	padding: rem(10) rem(20);
 	max-height: rem(75);
-	flex: 0 0 33%;
-	max-width: 33%;
+	flex: 0 0 25%;
+	max-width: 25%;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -19,6 +19,7 @@
 	}
 
 	@include mq($from: screen-xs) {
+		padding: rem(20);
 		max-height: rem(120);
 		max-width: 20%;
 		flex: 0 0 20%;
@@ -57,13 +58,22 @@
 	.text {
 		display: inline-block;
 		position: absolute;
-		top: 70%;
+		top: 80%;
 		left: 50%;
 		transform: translateX(-50%);
 		@include bodytext();
 		background-color: $color-white;
 		padding: rem(2) rem(5);
 		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 60%;
+		overflow: hidden;
+		
+		@include mq($from: screen-xxs) {
+			top: 70%;
+			max-width: none;
+			overflow: visible;
+		}
 	}
 	&:hover {
 		.text {

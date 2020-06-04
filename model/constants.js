@@ -9,11 +9,14 @@ const createMutation = type => ({
 export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
 export const LOGIN = createMutation('LOGIN')
 export const WALLPAPER_CHANGE = createMutation('WALLPAPER_CHANGE')
+export const SAVE_AS_BACKGROUND = createMutation('SAVE_AS_BACKGROUND')
 export const VISIBILITY = createMutation('VISIBILITY')
 export const RESET_STATE = createMutation('RESET_STATE')
 
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
-export const COLLECTION_FILTERS_FETCH = createMutation('COLLECTION_FILTERS_FETCH')
+export const COLLECTION_FILTERS_FETCH = createMutation(
+	'COLLECTION_FILTERS_FETCH'
+)
 export const COLLECTION_ASSETS_FETCH = createMutation('COLLECTION_ASSETS_FETCH')
 export const FILMS_FETCH = createMutation('FILMS_FETCH')
 export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
@@ -25,6 +28,9 @@ export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
 export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION')
+export const COLLECTION_LAYOUT_CHANGE = createMutation(
+	'COLLECTION_LAYOUT_CHANGE'
+)
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW')
 export const CLOSE_WINDOW = createMutation('CLOSE_WINDOW')
 export const UPDATE_WINDOW = createMutation('UPDATE_WINDOW')

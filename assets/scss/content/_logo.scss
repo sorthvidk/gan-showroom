@@ -4,12 +4,21 @@
 	left: rem(20);
 	right: rem(20);
 
+	top: rem(60);
 	
-	bottom: rem(80);
+	@include mq($from: screen-md) {
+		top: auto;
+		bottom: rem(80);
+	}
 	
 	svg {
 		width: 100%;
 		height: auto;
 		fill: $color-white;
+		opacity: 0.6;
+	}
+	img {
+		width: 100%;
+		height: auto;
 	}
 }

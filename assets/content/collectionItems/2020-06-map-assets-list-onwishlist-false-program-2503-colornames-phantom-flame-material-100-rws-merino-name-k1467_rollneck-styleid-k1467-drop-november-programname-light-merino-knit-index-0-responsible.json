@@ -12,7 +12,8 @@
   "responsible": false,
   "weight": 1,
   "filters": [
-    "rtw5"
+    "rtw5",
+    "misc5"
   ],
   "colorId": "252, 307"
 }

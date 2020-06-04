@@ -4046,6 +4046,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
 
+konva@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/konva/-/konva-6.0.0.tgz#9b3d13a4622f353c4ce736fbf1fa4b6483240649"
+
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"
@@ -7275,7 +7279,13 @@ vue-visibility-change@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vue-visibility-change/-/vue-visibility-change-1.2.1.tgz#d18008bf4f1de2c947afe5441ee044b9e9c60141"
 
-vue@^2.6.11:
+vue-web-cam@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/vue-web-cam/-/vue-web-cam-1.9.0.tgz#5a27ed21ca3c7272fbbf170e07b26951a515a93f"
+  dependencies:
+    vue "^2.6.10"
+
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
 

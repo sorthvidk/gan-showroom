@@ -19,10 +19,10 @@
 			</button>
 			<button class="button" @click="toggle">
 				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
+					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
 				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
 				</svg>
 			</button>
 			<button class="button next" @click="playlist(1)">
@@ -231,7 +231,7 @@ export default {
 			let volume = 0
 			const loop = () => {
 				this.audio.volume = volume
-				volume += 0.005
+				volume += 0.01
 				if (volume <= 0.5) {
 					requestAnimationFrame(loop)
 				}
@@ -247,6 +247,7 @@ export default {
 			this.setLoadedState.bind(this),
 			{ once: true }
 		)
+		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
 	},
 	beforeDestroy() {
 		this.audio.pause()

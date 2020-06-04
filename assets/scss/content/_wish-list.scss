@@ -71,13 +71,14 @@
 
 			img {
 				display: inline-block;
-				flex: 0 0 rem(20);
-				max-width: rem(20);
+				flex: 0 0 rem(25);
+				max-width: rem(25);
 				margin-right: rem(10);
 			}
 			p {
+				font-size: rem(13);
 				overflow: hidden;
-				width: rem(185 + - 12 - 20 - 10);
+				width: rem(185 + - 12 - 25 - 10);
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				text-align: left;

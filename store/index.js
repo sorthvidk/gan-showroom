@@ -13,6 +13,7 @@ import {
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
+	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
 	MOUSEMOVE,
@@ -28,10 +29,12 @@ import {
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING
+	DOWNLOAD_PREPARING,
+	SAVE_AS_BACKGROUND
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
 
 import getUniqueId from '~/utils/get-unique-id'
@@ -42,6 +45,7 @@ import getAssetType from '~/utils/asset-type'
 export const state = () => ({
 	wallpaperIndex: 1,
 	wallpaperCount: 6,
+	webcamImage: '',
 
 	loggedIn: false,
 	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
@@ -58,6 +62,8 @@ export const state = () => ({
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
+
+	collectionLayout: CollectionLayouts.GRID,
 
 	keyPressed: null,
 	highestZIndex: 0,
@@ -100,17 +106,6 @@ export const mutations = {
 	// fired when nuxt has access to the store
 	rehydrated(state) {
 		state.rehydrated = true
-		// let cl = state.collection.list.length
-		// console.warn("STATE REHYDRATED",cl,state.collection.wishList.length)
-		// for (var j = 0; j < cl; j++) {
-		// 	let style = state.collection.list[j]
-		// 	let styleAlreadyOnWishList = state.collection.wishList.filter(e => e.styleId === style.styleId)[0] ? true : false;
-		// 	// console.log(styleAlreadyOnWishList)
-		// 	style.onWishList = styleAlreadyOnWishList
-		// 	if ( styleAlreadyOnWishList ) {
-		// 		console.warn("ALREADY ON WISHLIST | "+style.styleId )
-		// 	}
-		// }
 	},
 
 	isOnWishList(state) {
@@ -118,6 +113,10 @@ export const mutations = {
 			const sameStyleId = e => e.styleId === style.styleId
 			style.onWishList = state.collection.wishList.find(sameStyleId)
 		})
+	},
+
+	[SAVE_AS_BACKGROUND.mutation](state, img) {
+		state.webcamImage = img
 	},
 
 	[RESET_STATE.mutation](state) {
@@ -368,7 +367,6 @@ export const mutations = {
 		let matchingWindow = state.windowList.filter(
 			e => e.windowId === windowId
 		)[0]
-		//console.log("current z", matchingWindow.positionZ )
 
 		if (matchingWindow) {
 			matchingWindow.positionZ = state.highestZIndex + 1
@@ -506,6 +504,11 @@ export const mutations = {
 	[DOWNLOAD_PREPARING.mutation](state, value) {
 		console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
+	},
+
+	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
+		console.warn('COLLECTION_LAYOUT_CHANGE')
+		state.collectionLayout = value
 	}
 }
 
@@ -517,6 +520,10 @@ export const actions = {
 
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
+	},
+
+	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
+		commit(SAVE_AS_BACKGROUND.mutation, img)
 	},
 
 	[VISIBILITY.action]({ commit }, hidden) {
@@ -646,6 +653,10 @@ export const actions = {
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
 	},
+	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+		console.log('value', value)
+		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
+	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
@@ -736,6 +747,6 @@ export const actions = {
 		})
 		commit(GENERAL_FETCH.mutation, general)
 
-		console.warn("NUXT SERVER INIT DONE")
+		console.warn('NUXT SERVER INIT DONE')
 	}
 }

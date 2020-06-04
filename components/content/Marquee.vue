@@ -36,16 +36,22 @@ export default {
 			if (!link.windowContent) {
 				this[OPEN_STYLE_CONTENT.action](link.actionParam)
 			} else {
-				this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
-
-				//TODO: Fix race condition!!
-				setTimeout(() => {
-					if (link.action) {
-						if (link.actionParam)
-							this.$store.dispatch(link.action, link.actionParam)
-						else this.$store.dispatch(link.action)
+				if (link.actions) {
+					for (var i = link.actions.length - 1; i >= 0; i--) {
+						let action = link.actions[i]
+						if (typeof action.param != "undefined")
+							this.$store.dispatch(action.name, action.param)
+						else this.$store.dispatch(action.name)
 					}
-				}, 500)
+					
+					//TODO: Fix race condition!!
+					setTimeout(() => {
+						this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
+					}, 500)
+				}
+				else {
+					this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
+				}
 			}
 		}
 	},

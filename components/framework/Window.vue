@@ -43,6 +43,7 @@
 						:is="contentComponent"
 						:parent-window-id="windowId"
 						v-bind="{...contentComponentProps}"
+						ref="contentComponent"
 					/>
 				</div>
 			</vue-draggable-resizable>
@@ -69,6 +70,7 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import Collage from '~/components/content/Collage.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -91,7 +93,8 @@ export default {
 		MusicPlayer,
 		HampsterDance,
 		GanniGirls,
-		LookBook
+		LookBook,
+		Collage
 	},
 	props: {
 		modifierClass: {
@@ -311,6 +314,11 @@ export default {
 		onResizeStop() {
 			this.isMaximized = false
 			this.constrain()
+
+			// used for the collage
+			if (typeof this.$refs.contentComponent.fitScreen === 'function') {
+				this.$refs.contentComponent.fitScreen()
+			}
 		},
 		onDrag(x, y) {
 			this.x = x
