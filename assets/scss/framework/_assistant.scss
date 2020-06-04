@@ -51,7 +51,7 @@
 				height: rem(15);
 			}
 			p {
-				@include bodytext();
+				color: $color-black;
 				text-decoration: underline;
 			}
 		}

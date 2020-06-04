@@ -2,6 +2,7 @@
 	background-size: cover;
 	padding: rem(10);
 	min-height: 100%;
+	background-color: $color-lightgrey;
 	
 	@include mq($from: screen-md) {
 		padding: rem(30);
