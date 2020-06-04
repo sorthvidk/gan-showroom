@@ -1,1 +1,22 @@
-{"styleId":"T2714","filters":[],"name":"T2714_Pullover","program":3461,"programName":"Striped Cotton Jersey","material":"100% Organic cotton","drop":"November","colorNames":"Flame, Heather, Spring Bouquet","colorId":"307, 694, 781","wholesalePriceDKK":285,"wholesalePriceEUR":42,"wholesalePriceUSD":57,"retailPriceDKK":799,"retailPriceEUR":115,"retailPriceUSD":135,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 135,
+  "assets": [],
+  "onWishList": false,
+  "program": 3461,
+  "colorNames": "Flame, Heather",
+  "material": "100% Organic cotton",
+  "name": "T2714_Pullover",
+  "styleId": "T2714",
+  "drop": "November",
+  "programName": "Striped Cotton Jersey",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 42,
+  "weight": 1,
+  "wholesalePriceDKK": 285,
+  "wholesalePriceUSD": 57,
+  "filters": [],
+  "retailPriceEUR": 115,
+  "retailPriceDKK": 799,
+  "colorId": "307, 694"
+}
