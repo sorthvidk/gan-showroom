@@ -10,7 +10,7 @@
 		top: auto;
 		left: rem(10);
 		right: rem(10);
-		bottom: rem(45 + 10 + 30); //ios navbar + gutter + support (heights)
+		bottom: rem(10 + 30); //ios navbar + gutter + support (heights)
 
 		@include mq($from: screen-sm) {
 			bottom: rem(20);

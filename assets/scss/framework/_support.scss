@@ -16,7 +16,7 @@
 		top: auto;
 		left: rem(10);
 		right: rem(10);
-		bottom: rem(45 + 10);
+		bottom: rem(10);
 
 		@include mq($from: screen-sm) {
 			border-bottom: rem(1) solid $color-black;
