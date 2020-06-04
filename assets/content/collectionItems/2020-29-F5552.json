@@ -1,1 +1,24 @@
-{"styleId":"F5552","filters":["rtw1",""],"name":"F5552_Oversized Dress","program":6132,"programName":"Stripe Cotton","material":"100% Organic Cotton","drop":"November","colorNames":"Bright White, Phantom","colorId":"151, 252","wholesalePriceDKK":750,"wholesalePriceEUR":102,"wholesalePriceUSD":144,"retailPriceDKK":2099,"retailPriceEUR":285,"retailPriceUSD":345,"responsible":true,"weight":1,"assets":[],"index":null}
+{
+  "retailPriceUSD": 345,
+  "assets": [],
+  "program": 6132,
+  "colorNames": "Bright White, Phantom",
+  "material": "100% Organic Cotton",
+  "name": "F5552_Oversized Dress",
+  "styleId": "F5552",
+  "drop": "November",
+  "programName": "Stripe Cotton",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 102,
+  "weight": 1,
+  "wholesalePriceDKK": 750,
+  "wholesalePriceUSD": 144,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 285,
+  "retailPriceDKK": 2099,
+  "colorId": "151, 252"
+}
