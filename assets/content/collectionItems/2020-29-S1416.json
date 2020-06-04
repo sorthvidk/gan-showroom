@@ -1,1 +1,25 @@
-{"styleId":"S1416","filters":["acc3",""],"name":"S1416_Mid Chelsea Boot","program":4682,"programName":"Calf Leather","material":"100% Calf Leather Sole: Rubber","drop":"November","colorNames":"Black, Egret, Tiger's Eye","colorId":"99, 135, 177","wholesalePriceDKK":1080,"wholesalePriceEUR":150,"wholesalePriceUSD":186,"retailPriceDKK":2699,"retailPriceEUR":375,"retailPriceUSD":445,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 445,
+  "assets": [],
+  "onWishList": false,
+  "program": 4682,
+  "colorNames": "Egret, Tiger's Eye",
+  "material": "100% Calf Leather Sole: Rubber",
+  "name": "S1416_Mid Chelsea Boot",
+  "styleId": "S1416",
+  "drop": "November",
+  "programName": "Calf Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 150,
+  "weight": 1,
+  "wholesalePriceDKK": 1080,
+  "wholesalePriceUSD": 186,
+  "filters": [
+    "acc3",
+    ""
+  ],
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2699,
+  "colorId": "135, 177"
+}
