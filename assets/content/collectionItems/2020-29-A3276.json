@@ -1,1 +1,24 @@
-{"styleId":"A3276","filters":[],"name":"A3276_Purse","program":5652,"programName":"Crystals","material":"100% Polyester w. sequins and beads","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":400,"wholesalePriceEUR":58,"wholesalePriceUSD":69,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "onWishList": false,
+  "program": 5652,
+  "colorNames": "Black",
+  "material": "100% Polyester w. sequins and beads",
+  "name": "A3276_Purse",
+  "styleId": "A3276",
+  "drop": "November",
+  "programName": "Crystals",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 58,
+  "weight": 1,
+  "wholesalePriceDKK": 400,
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "acc2"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 99
+}
