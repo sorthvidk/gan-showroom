@@ -1,1 +1,24 @@
-{"styleId":"F5416","filters":[],"name":"F5416_Shirt","program":6098,"programName":"Printed Crepe","material":"53% Viscose, 47% Ecovero Viscose","drop":"November","colorNames":"Mole","colorId":897,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"retailPriceDKK":1399,"retailPriceEUR":205,"retailPriceUSD":235,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "onWishList": false,
+  "program": 6098,
+  "colorNames": "Mole",
+  "material": "53% Viscose, 47% Ecovero Viscose",
+  "name": "F5416_Shirt",
+  "styleId": "F5416",
+  "drop": "November",
+  "programName": "Printed Crepe",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 1,
+  "wholesalePriceDKK": 500,
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 897
+}
