@@ -1,1 +1,25 @@
-{"styleId":"F5470","filters":["rtw3",""],"name":"F5470_Oversized Coat","program":6091,"programName":"Structured Wool","material":"75% Recycled wool, 35% Polyamide","drop":"November","colorNames":"Tiger's Eye, Sky Captain","colorId":"177, 683","wholesalePriceDKK":1714,"wholesalePriceEUR":231,"wholesalePriceUSD":332,"retailPriceDKK":4799,"retailPriceEUR":645,"retailPriceUSD":795,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 795,
+  "assets": [],
+  "onWishList": false,
+  "program": 6091,
+  "colorNames": "Tiger's Eye",
+  "material": "75% Recycled wool, 35% Polyamide",
+  "name": "F5470_Oversized Coat",
+  "styleId": "F5470",
+  "drop": "November",
+  "programName": "Structured Wool",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 231,
+  "weight": 1,
+  "wholesalePriceDKK": 1713,
+  "wholesalePriceUSD": 332,
+  "filters": [
+    "rtw3",
+    ""
+  ],
+  "retailPriceEUR": 645,
+  "retailPriceDKK": 4799,
+  "colorId": "177"
+}
