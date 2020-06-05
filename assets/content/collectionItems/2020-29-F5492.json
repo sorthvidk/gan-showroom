@@ -1,8 +1,9 @@
 {
   "retailPriceUSD": 325,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6131,
-  "colorNames": "Flame",
+  "colorNames": "Flame, Black",
   "material": "92% Silk, 8% Elastane",
   "name": "F5492_Fitted Top",
   "styleId": "F5492",
@@ -20,5 +21,5 @@
   ],
   "retailPriceEUR": 265,
   "retailPriceDKK": 1899,
-  "colorId": 307
+  "colorId": "307, 099"
 }
