@@ -40,6 +40,9 @@
 		img {
 			width: 100%;
 			background-color: $color-lightgrey;
+			@include mq($from: screen-md) {
+				height: rem(298);
+			}
 		}
 
 		p {
