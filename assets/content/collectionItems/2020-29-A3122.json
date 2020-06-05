@@ -1,1 +1,24 @@
-{"styleId":"A3122","filters":[],"name":"A3122_Halterneck Bikini Top","program":5609,"programName":"Recycled Textured","material":"92% Recycled PA, 8% Elastane 92%rec polyeste8% ela","drop":"November","colorNames":"Chambray Blue","colorId":570,"wholesalePriceDKK":320,"wholesalePriceEUR":46,"wholesalePriceUSD":57,"retailPriceDKK":799,"retailPriceEUR":115,"retailPriceUSD":135,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 135,
+  "assets": [],
+  "onWishList": false,
+  "program": 5609,
+  "colorNames": "Chambray Blue",
+  "material": "92% Recycled PA, 8% Elastane",
+  "name": "A3122_Halterneck Bikini Top",
+  "styleId": "A3122",
+  "drop": "November",
+  "programName": "Recycled Textured",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 46,
+  "weight": 1,
+  "wholesalePriceDKK": 320,
+  "wholesalePriceUSD": 57,
+  "filters": [
+    "acc4"
+  ],
+  "retailPriceEUR": 115,
+  "retailPriceDKK": 799,
+  "colorId": 570
+}
