@@ -2,7 +2,7 @@
 	<main class="window__content">
 		<div class="music-player__top">
 			<p>Playing:</p>
-			<div>
+			<div :key="songs[current].title">
 				<!-- print 5 times so it can be css-animated -->
 				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
 				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
@@ -39,7 +39,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import { TOGGLE_MUSIC_PLAYER, MUSIC_PLAY_PAUSE } from '~/model/constants'
+import { MUSIC_PLAY_PAUSE } from '~/model/constants'
 import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
@@ -65,7 +65,8 @@ export default {
 	},
 	watch: {
 		keyPressed(event) {
-			if (!this.musicPlayerOpen) return false
+			// only respond to keys when is focus
+			if (this.$parent.$parent.windowId !== this.topMostWindow.windowId) return
 
 			if (event.key === 'ArrowLeft') {
 				this.playlist(-1)
@@ -92,20 +93,15 @@ export default {
 			}
 		}
 	},
-	computed: {
-		...mapState([
-			'keyPressed',
-			'musicPlaying',
-			'musicPlayerOpen',
-			'songs',
-			'hidden'
-		])
-	},
+	computed: mapState([
+		'keyPressed',
+		'musicPlaying',
+		'songs',
+		'hidden',
+		'topMostWindow'
+	]),
 	methods: {
-		...mapActions([TOGGLE_MUSIC_PLAYER.action, MUSIC_PLAY_PAUSE.action]),
-		closeHandler() {
-			this[TOGGLE_MUSIC_PLAYER.action]() // state handles the toggling
-		},
+		...mapActions([MUSIC_PLAY_PAUSE.action]),
 		playlist(n) {
 			const newCurrent = this.current + n
 			this.current =
@@ -248,6 +244,8 @@ export default {
 			{ once: true }
 		)
 		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
+
+		console.log('music', this)
 	},
 	beforeDestroy() {
 		this.audio.pause()

@@ -1,12 +1,9 @@
 .window {
 	&--music-player {
-		
-	
 		&__wrapper {
 			position: fixed;
 			top: calc(100vh - 310px);
 			left: rem(10);
-			
 
 			@include mq($from: screen-xs) {
 				top: calc(100vh - 250px);
@@ -23,13 +20,10 @@
 				left: rem(30);
 			}
 		}
-
 	}
 }
 
 .music-player {
-
-
 	background-color: $color-salmon;
 	user-select: none !important;
 	cursor: default;
@@ -58,7 +52,8 @@
 			display: flex;
 
 			.title-marquee {
-				width: fit-content;
+				will-change: transform;
+				// width: fit-content;
 				font-weight: $weight-bold;
 				animation: swipe 10s linear infinite;
 				display: inline-flex;

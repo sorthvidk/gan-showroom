@@ -1,3 +1,14 @@
+.window-animation-enter-active,
+.window-animation-leave-active {
+	transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.window-animation-enter,
+.window-animation-leave-to {
+	transform: scale(0);
+	opacity: 0.6;
+}
+
 .window {
 	$chrome-height: 70;
 	$chrome-height-no-status: 30;
@@ -110,7 +121,6 @@
 				background-color: $color-lightgrey;
 			}
 		}
-		
 	}
 	&__content {
 		overflow-x: hidden;
