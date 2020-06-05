@@ -25,7 +25,6 @@
 }
 
 .gallery {
-	background-color: $color-grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,5 +52,10 @@
 
 	&__item + &__item {
 		border-top: rem(1) solid $color-black;
+	}
+
+	&-image,
+	&-video {
+		background: url('/img/spinner_44x44.gif') no-repeat center center;
 	}
 }
