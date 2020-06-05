@@ -1,1 +1,24 @@
-{"styleId":"F5593","filters":[],"name":"F5593_Oversized Blouse","program":6103,"programName":"Pleated Satin","material":"100% Polyester","drop":"November","colorNames":"Black, Pale Lilac","colorId":"99, 500","wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "onWishList": false,
+  "program": 6103,
+  "colorNames": "Black",
+  "material": "100% Polyester",
+  "name": "F5593_Oversized Blouse",
+  "styleId": "F5593",
+  "drop": "November",
+  "programName": "Pleated Satin",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 56,
+  "weight": 1,
+  "wholesalePriceDKK": 393,
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": "99"
+}

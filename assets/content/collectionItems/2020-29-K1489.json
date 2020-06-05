@@ -1,1 +1,25 @@
-{"styleId":"K1489","filters":["rtw5",""],"name":"K1489_Vest","program":2498,"programName":"Rib Knit","material":"70% Recycled Wool, 20% Polyamide, 5% other","drop":"November","colorNames":"Dutch Blue, Mole","colorId":"710, 897","wholesalePriceDKK":480,"wholesalePriceEUR":70,"wholesalePriceUSD":86,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":205,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 205,
+  "assets": [],
+  "onWishList": false,
+  "program": 2498,
+  "colorNames": "Dutch Blue",
+  "material": "70% Recycled Wool, 20% Polyamide, 5% other",
+  "name": "K1489_Vest",
+  "styleId": "K1489",
+  "drop": "November",
+  "programName": "Rib Knit",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 70,
+  "weight": 1,
+  "wholesalePriceDKK": 480,
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw5",
+    ""
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": "710"
+}

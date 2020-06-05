@@ -1,1 +1,22 @@
-{"styleId":"F5772","filters":[],"name":"F5772_Shirt","program":6131,"programName":"Silk Stretch Satin","material":"92% Silk, 8% Elastane","drop":"November","colorNames":"Black, Flame","colorId":"99, 307","wholesalePriceDKK":880,"wholesalePriceEUR":122,"wholesalePriceUSD":157,"retailPriceDKK":2199,"retailPriceEUR":305,"retailPriceUSD":375,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "onWishList": false,
+  "program": 6131,
+  "colorNames": "Flame",
+  "material": "92% Silk, 8% Elastane",
+  "name": "F5772_Shirt",
+  "styleId": "F5772",
+  "drop": "November",
+  "programName": "Silk Stretch Satin",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 122,
+  "weight": 1,
+  "wholesalePriceDKK": 880,
+  "wholesalePriceUSD": 157,
+  "filters": [],
+  "retailPriceEUR": 305,
+  "retailPriceDKK": 2199,
+  "colorId": "307"
+}
