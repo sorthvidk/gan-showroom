@@ -1,1 +1,25 @@
-{"styleId":"F5467","filters":["rtw2",""],"name":"F5467_Mini Skirt","program":6151,"programName":"Stripe Padded Denim","material":"w. 100% Polyester Padding?","drop":"November","colorNames":"Rinse","colorId":77,"wholesalePriceDKK":481,"wholesalePriceEUR":69,"wholesalePriceUSD":90,"retailPriceDKK":1299,"retailPriceEUR":185,"retailPriceUSD":215,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 215,
+  "assets": [],
+  "onWishList": false,
+  "program": 6151,
+  "colorNames": "Indigo",
+  "material": "100% Organic Cotton, 100% Polyester Padding",
+  "name": "F5467_Mini Skirt",
+  "styleId": "F5467",
+  "drop": "November",
+  "programName": "Raw Padded Denim",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 69,
+  "weight": 1,
+  "wholesalePriceDKK": 481,
+  "wholesalePriceUSD": 90,
+  "filters": [
+    "rtw2",
+    "rtw6"
+  ],
+  "retailPriceEUR": 185,
+  "retailPriceDKK": 1299,
+  "colorId": "677"
+}
