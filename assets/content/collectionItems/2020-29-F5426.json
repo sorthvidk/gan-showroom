@@ -1,1 +1,24 @@
-{"styleId":"F5426","filters":[],"name":"F5426_Skirt","program":6107,"programName":"Crispy Jacquard","material":"82% Polyester, 18% Polyamide","drop":"November","colorNames":"Olive Drab","colorId":780,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":205,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 205,
+  "assets": [],
+  "onWishList": false,
+  "program": 6107,
+  "colorNames": "Olive Drab",
+  "material": "82% Polyester, 18% Polyamide",
+  "name": "F5426_Skirt",
+  "styleId": "F5426",
+  "drop": "November",
+  "programName": "Crispy Jacquard",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 63,
+  "weight": 1,
+  "wholesalePriceDKK": 428,
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw6"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 780
+}
