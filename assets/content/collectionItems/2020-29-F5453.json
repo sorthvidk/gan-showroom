@@ -1,1 +1,25 @@
-{"styleId":"F5453","filters":[],"name":"F5453_Frill Shirt","program":6096,"programName":"Printed Cotton Poplin","material":"100% Organic Cotton","drop":"November","colorNames":"Bright White, Leopard","colorId":"151, 943","wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":205,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 205,
+  "assets": [],
+  "onWishList": false,
+  "program": 6096,
+  "colorNames": "Bright White, Leopard",
+  "material": "100% Organic Cotton",
+  "name": "F5453_Frill Shirt",
+  "styleId": "F5453",
+  "drop": "November",
+  "programName": "Printed Cotton Poplin",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 1,
+  "wholesalePriceDKK": 428,
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8",
+    "misc1"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": "151, 943"
+}
