@@ -1,1 +1,24 @@
-{"styleId":"A3123","filters":[],"name":"A3123_Midrise Bikini Briefs","program":5609,"programName":"Recycled Textured","material":"92% Recycled PA, 8% Elastane 92%rec polyeste8% ela","drop":"November","colorNames":"Chambray Blue","colorId":570,"wholesalePriceDKK":200,"wholesalePriceEUR":30,"wholesalePriceUSD":36,"retailPriceDKK":499,"retailPriceEUR":75,"retailPriceUSD":85,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 85,
+  "assets": [],
+  "onWishList": false,
+  "program": 5609,
+  "colorNames": "Chambray Blue",
+  "material": "92% Recycled PA, 8% Elastane 92%rec polyeste8% ela",
+  "name": "A3123_Midrise Bikini Briefs",
+  "styleId": "A3123",
+  "drop": "November",
+  "programName": "Recycled Textured",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 30,
+  "weight": 1,
+  "wholesalePriceDKK": 200,
+  "wholesalePriceUSD": 36,
+  "filters": [
+    "acc4"
+  ],
+  "retailPriceEUR": 75,
+  "retailPriceDKK": 499,
+  "colorId": 570
+}

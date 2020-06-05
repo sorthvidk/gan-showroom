@@ -1,1 +1,24 @@
-{"styleId":"A3270","filters":[],"name":"A3270_Ruched Purse","program":5653,"programName":"Metallic Leather","material":"","drop":"November","colorNames":"Gold","colorId":339,"wholesalePriceDKK":880,"wholesalePriceEUR":122,"wholesalePriceUSD":157,"retailPriceDKK":2199,"retailPriceEUR":305,"retailPriceUSD":375,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "onWishList": false,
+  "program": 5653,
+  "colorNames": "Gold",
+  "material": "100% calf leather, 100% cotton twill lining",
+  "name": "A3270_Ruched Purse",
+  "styleId": "A3270",
+  "drop": "November",
+  "programName": "Metallic Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 122,
+  "weight": 1,
+  "wholesalePriceDKK": 880,
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "acc2"
+  ],
+  "retailPriceEUR": 305,
+  "retailPriceDKK": 2199,
+  "colorId": 339
+}

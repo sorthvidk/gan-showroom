@@ -1,1 +1,24 @@
-{"styleId":"F5390","filters":[],"name":"F5390_Oversized Blazer","program":6111,"programName":"Outerwear Nylon","material":"100% Recycled Nylon","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":678,"wholesalePriceEUR":95,"wholesalePriceUSD":136,"retailPriceDKK":1899,"retailPriceEUR":265,"retailPriceUSD":325,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 325,
+  "assets": [],
+  "onWishList": false,
+  "program": 6111,
+  "colorNames": "Black",
+  "material": "100% Recycled Nylon",
+  "name": "F5390_Oversized Blazer",
+  "styleId": "F5390",
+  "drop": "November",
+  "programName": "Outerwear Nylon",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 95,
+  "weight": 1,
+  "wholesalePriceDKK": 678,
+  "wholesalePriceUSD": 136,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 265,
+  "retailPriceDKK": 1899,
+  "colorId": 99
+}
