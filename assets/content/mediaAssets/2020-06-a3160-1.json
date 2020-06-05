@@ -1,7 +1,7 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "assetId": "A3160 2",
   "styleId": "A3160",
   "name": "A3160 Small Bag",
