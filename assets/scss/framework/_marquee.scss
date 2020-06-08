@@ -3,9 +3,8 @@
 
 	font-family: $font-sansserif;
 
-	border-top: rem(1) solid $color-black;
-	border-bottom: rem(1) solid $color-black;
-	background-color: $color-white;
+	background-color: $color-black;
+	color: $color-yellow;
 	height: rem(60);
 
 	display: flex;
@@ -45,8 +44,7 @@
 	}
 
 	button {
-		margin-right: rem(20);
-		border-bottom: rem(3) solid black;
+		border-bottom: rem(3) solid currentColor;
     	line-height: 0.9;
 	}
 }

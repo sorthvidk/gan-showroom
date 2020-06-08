@@ -18,7 +18,7 @@
 		cursor: pointer;
 		transition: border 0.3s ease;
 
-		@include mq($from: screen-xxxs) {
+		@include mq($from: screen-xxs) {
 			flex: 0 0 rem(156);
 		}
 		@include mq($from: screen-md) {
