@@ -9,7 +9,7 @@ em {
 @mixin megatype() {
 	font-size: rem(50);
 	line-height: 1.2;
-	font-weight: $weight-normal;
+	font-weight: $weight-medium;
 	letter-spacing: -0.03em;
 	text-transform: uppercase;
 }

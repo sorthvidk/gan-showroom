@@ -3,7 +3,7 @@
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 		
-		<screensaver v-if="hidden" />
+		<screensaver v-if="screenSaverVisible"/>
 
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
@@ -36,7 +36,11 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState(['loggedIn', 'cookiesAccepted', 'hidden'])
+		...mapState([
+			'loggedIn', 
+			'cookiesAccepted', 
+			'appTabUnfocused'
+		])
 	},
 	head() {
 		return {
@@ -54,13 +58,39 @@ export default {
 			title: 'GANNI space - our digital showroom'
 		}
 	},
+	data() {
+		return {
+			screenSaverTimeout: null,
+			screenSaverVisible: false,
+			countdownTime: 60000
+		}
+	},
 	methods: {
 		...mapActions([
 			WALLPAPER_CHANGE.action, 
 			VISIBILITY.action
 		]),
-		hideScreensaver(hidden) {
-			this[VISIBILITY.action](hidden)
+		toggleScreenSaver(appTabUnfocused) {
+			console.warn("TOGGLE SCREENSAVER | appTabUnfocused:"+appTabUnfocused)
+			this[VISIBILITY.action](appTabUnfocused)
+
+			if ( appTabUnfocused ) {
+				this.startScreenSaverCountdown();
+			}
+			else {				
+				this.screenSaverVisible = false; 
+				clearTimeout(this.screenSaverTimeout)
+			}
+		},
+		startScreenSaverCountdown() {
+			console.warn("START SCREENSAVER COUNTDOWN")
+
+			this.screenSaverVisible = false; 
+			clearTimeout(this.screenSaverTimeout)
+			this.screenSaverTimeout = setTimeout(()=> { 
+				console.warn("SHOW SCREENSAVER")
+				this.screenSaverVisible = true; 
+			}, this.countdownTime)
 		}
 	},
 	mounted() {
@@ -73,22 +103,16 @@ export default {
 		this.$store.commit(INIT_PROGRESS.mutation)
 		
 
-		this.$visibility.change((evt, hidden) => {
-			if (hidden) {
-				this.hideScreensaver(hidden)
-			} else {
-				document.body.addEventListener(
-					'click',
-					this.hideScreensaver.bind(this, hidden),
-					{ once: true }
-				)
-				document.body.addEventListener(
-					'mousemove',
-					this.hideScreensaver.bind(this, hidden),
-					{ once: true }
-				)
+
+		this.$visibility.change((evt, appTabUnfocused) => {
+			if (appTabUnfocused) {
+				this.toggleScreenSaver(appTabUnfocused)
 			}
 		})
+
+		//add clear timeout listeners
+		document.body.addEventListener('click', this.startScreenSaverCountdown.bind(this))
+		document.body.addEventListener('mousemove', this.startScreenSaverCountdown.bind(this))
 	}
 }
 </script>

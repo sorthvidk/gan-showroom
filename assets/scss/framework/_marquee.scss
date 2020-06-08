@@ -38,8 +38,8 @@
 
 	p,
 	button {
-		white-space: nowrap;
 		@include megatype();
+		white-space: nowrap;
 		font-family: inherit;
 	}
 

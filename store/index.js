@@ -49,7 +49,7 @@ export const state = () => ({
 	loggedIn: false,
 	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
 
-	hidden: false,
+	appTabUnfocused: true,
 
 	progressItems: {},
 	progressPct: 0,
