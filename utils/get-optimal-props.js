@@ -1,5 +1,7 @@
 import isMobile from '~/utils/is-mobile'
+import getViewportSize from '~/utils/get-viewport-size'
 import getUniqueId from '~/utils/get-unique-id'
+import ViewportSizes from '~/model/viewport-sizes'
 
 const LARGE_WINDOW = 320 // arbitary, kinda the size of a 'fullscreen' window of mobile
 const RIGHT_CLEARENCE = 320 // arbitary, used to not place windows on top of the assistant
@@ -59,12 +61,14 @@ export default function(state, currentWindow, groupId) {
 		defaultWindowProps
 	} = currentWindow.type
 
+	const viewportSize = getViewportSize()
+	
 	const sizeW =
 		windowProps.width ||
-		defaultWindowProps[isMobile() ? 'smallWidth' : 'largeWidth']
+		defaultWindowProps.sizes[viewportSize].w
 	const sizeH =
 		windowProps.height ||
-		defaultWindowProps[isMobile() ? 'smallHeight' : 'largeHeight']
+		defaultWindowProps.sizes[viewportSize].h
 
 	const conditionalAssignment = (obj, attr) => {
 		if (typeof windowProps[attr] !== 'undefined') obj[attr] = windowProps[attr]

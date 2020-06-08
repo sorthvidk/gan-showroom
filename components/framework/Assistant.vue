@@ -9,7 +9,7 @@
 
 		<!-- ####################### STATUS ####################### -->
 
-		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
+		<div class="window__status" v-if="assistantMode == 1 && viewPortSize.name == 'SMALL'">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -25,7 +25,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 0">
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'SMALL'">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -64,7 +64,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'">
 			<p>{{currentStyle.name}}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -91,7 +91,7 @@
 			</button>
 		</div>
 
-		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
+		<hr v-if="assistantMode == 2 && (viewPortSize.name == 'LARGE' || (viewPortSize.name == 'SMALL' && assistantExpanded))" />
 
 		<!-- ####################### CONTENT ####################### -->
 
@@ -107,7 +107,7 @@
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 1"
-					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__filters">
 						<h3>PS21 COLLECTION</h3>
@@ -128,7 +128,7 @@
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 2"
-					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
 						<span v-if="currentStyle.responsible" class="responsible">
@@ -367,7 +367,6 @@ import getAssetType from '~/utils/asset-type'
 import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
 import getShortUrl from '~/utils/get-short-url'
-import isMobile from '~/utils/is-mobile'
 import sendTracking from '~/utils/send-tracking'
 
 export default {
@@ -377,7 +376,7 @@ export default {
 	},
 	data() {
 		return {
-			assistantExpanded: true,
+			assistantExpanded: false,
 			viewPortSize: ViewportSizes.SMALL,
 			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
@@ -691,7 +690,7 @@ export default {
 			this.isLargeViewport
 		)
 		if (!isMobile) {
-			this.assistantExpanded = true
+			this.assistantExpanded = false
 			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}

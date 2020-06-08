@@ -10,6 +10,8 @@ const WINDOW_DEFAULT_CHROME_HEIGHT =
 	WINDOW_TOPBAR_BORDERS_HEIGHT + WINDOW_STATUSBAR_HR_HEIGHT
 const WINDOW_NOSTATUS_CHROME_HEIGHT = WINDOW_TOPBAR_BORDERS_HEIGHT
 
+import ViewportSizes from '~/model/viewport-sizes'
+
 export default {
 	collection: {
 		name: 'collection',
@@ -18,10 +20,11 @@ export default {
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 510 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 355
+			sizes: {
+				[ViewportSizes.XLARGE.name]: { w: 5 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH, h: 700 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: { w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH, h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 355}
+			}
 		}
 	},
 	films: {
@@ -31,10 +34,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 670 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 500 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: { w: 980 + WINDOW_DEFAULT_CHROME_WIDTH, h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: { w: 670 + WINDOW_DEFAULT_CHROME_WIDTH, h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 400}
+			},
 			noStatus: true
 		}
 	},
@@ -45,10 +49,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:WINDOW_NOSTATUS_CHROME_HEIGHT}
+			},
 			noStatus: true,
 			canResize: false,
 			noPlacement: true,
@@ -63,10 +68,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 300,
-			largeHeight: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 300,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:300, h:300}
+			},
 			noStatus: true
 		}
 	},
@@ -80,10 +86,11 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			largeHeight: 417 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 417 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:274, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT}
+			},
 			modifierClass: 'window--tight'
 		}
 	},
@@ -97,10 +104,11 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 417 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 232,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:417 + WINDOW_TIGHT_CHROME_WIDTH, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:417 + WINDOW_TIGHT_CHROME_WIDTH, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:232}
+			},
 			modifierClass: 'window--tight'
 		}
 	},
@@ -114,10 +122,11 @@ export default {
 			text: 'TIP! Click image to zoom.'
 		},
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			largeHeight: 320 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:274, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT}
+			},
 			modifierClass: 'window--tight'
 		}
 	},
@@ -128,10 +137,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			largeHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:274, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT}
+			},
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -143,10 +153,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 608 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT,
-			smallHeight: 199 + WINDOW_NOSTATUS_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:608 + WINDOW_TIGHT_CHROME_WIDTH, h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:608 + WINDOW_TIGHT_CHROME_WIDTH, h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:199 + WINDOW_NOSTATUS_CHROME_HEIGHT}
+			},
 			modifierClass: 'window--tight',
 			noStatus: true
 		}
@@ -158,10 +169,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 100,
 		defaultWindowProps: {
-			largeWidth: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-			smallWidth: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-			largeHeight: 320 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 274 + WINDOW_DEFAULT_CHROME_HEIGHT,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:274, h:274 + WINDOW_DEFAULT_CHROME_HEIGHT}
+			},
 			modifierClass: 'window--tight'
 		}
 	},
@@ -171,10 +183,11 @@ export default {
 		contentScore: 0,
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 600,
-			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 600,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:600, h:600}
+			},
 			noStatus: true,
 			isMaximized: true,
 			canResize: false,
@@ -190,10 +203,11 @@ export default {
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:400}
+			},
 			wrapperClass: 'window--wish-list__wrapper',
 			modifierClass: 'window--wish-list'
 		}
@@ -204,10 +218,11 @@ export default {
 		contentScore: 10,
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 620 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 400,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:620 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:620 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:400}
+			},
 			noStatus: true
 		}
 	},
@@ -218,10 +233,11 @@ export default {
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
-			largeWidth: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 355
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:355}
+			}
 		}
 	},
 	lookBook: {
@@ -231,10 +247,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 400 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 353,
-			largeHeight: 600 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 355
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 750 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:400 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:353, h:355}
+			}
 		}
 	},
 	collage: {
@@ -244,10 +261,11 @@ export default {
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
-			largeWidth: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
-			smallWidth: 350,
-			largeHeight: 550 + WINDOW_DEFAULT_CHROME_HEIGHT,
-			smallHeight: 250,
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.LARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT},
+				[ViewportSizes.SMALL.name]: {w:350, h:250}
+			},
 			noStatus: true
 		}
 	}

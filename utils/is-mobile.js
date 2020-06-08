@@ -1,4 +1,6 @@
-export default function(maxWidth=1023) {
-	let mobileViewport = window.matchMedia(`(max-width: ${maxWidth}px)`).matches;
+import ViewportSizes from '~/model/viewport-sizes'
+
+export default function() {
+	let mobileViewport = window.matchMedia(`(max-width: ${ViewportSizes.SMALL.boundHigh}px)`).matches;
 	return mobileViewport;
 };
