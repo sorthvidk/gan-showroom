@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 475,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6120,
   "colorNames": "Phantom",
   "material": "55% Wool, 45% polyester",
@@ -16,7 +17,8 @@
   "wholesalePriceUSD": 198,
   "filters": [
     "rtw1",
-    "misc2"
+    "misc2",
+    "rtw7"
   ],
   "retailPriceEUR": 395,
   "retailPriceDKK": 2899,

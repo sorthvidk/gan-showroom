@@ -1,1 +1,24 @@
-{"styleId":"A3199","filters":[],"name":"A3199_Ruched Purse","program":5620,"programName":"Napa","material":"","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":880,"wholesalePriceEUR":122,"wholesalePriceUSD":157,"retailPriceDKK":2199,"retailPriceEUR":305,"retailPriceUSD":375,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "onWishList": false,
+  "program": 5620,
+  "colorNames": "Black",
+  "material": " ",
+  "name": "A3199_Ruched Purse",
+  "styleId": "A3199",
+  "drop": "November",
+  "programName": "Napa",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 122,
+  "weight": 1,
+  "wholesalePriceDKK": 880,
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "acc2"
+  ],
+  "retailPriceEUR": 305,
+  "retailPriceDKK": 2199,
+  "colorId": 99
+}

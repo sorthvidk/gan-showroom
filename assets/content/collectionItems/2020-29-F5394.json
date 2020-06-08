@@ -1,1 +1,24 @@
-{"styleId":"F5394","filters":[],"name":"F5394_Mini Skirt","program":6119,"programName":"Double Wool","material":"60% Wool 25% Polyester 15% Acrylic","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":600,"wholesalePriceEUR":86,"wholesalePriceUSD":103,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "onWishList": false,
+  "program": 6119,
+  "colorNames": "Black",
+  "material": "60% Wool 25% Polyester 15% Acrylic",
+  "name": "F5394_Mini Skirt",
+  "styleId": "F5394",
+  "drop": "November",
+  "programName": "Double Wool",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 86,
+  "weight": 1,
+  "wholesalePriceDKK": 600,
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw6"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 99
+}

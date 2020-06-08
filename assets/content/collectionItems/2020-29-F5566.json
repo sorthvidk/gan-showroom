@@ -1,1 +1,24 @@
-{"styleId":"F5566","filters":[],"name":"F5566_Top","program":6102,"programName":"Heavy Crepe","material":"57% Rec Poly, 40% Poly, 3% Elastane","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "onWishList": false,
+  "program": 6102,
+  "colorNames": "Black",
+  "material": "57% Rec Poly, 40% Poly, 3% Elastane",
+  "name": "F5566_Top",
+  "styleId": "F5566",
+  "drop": "November",
+  "programName": "Heavy Crepe",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 1,
+  "wholesalePriceDKK": 357,
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 99
+}
