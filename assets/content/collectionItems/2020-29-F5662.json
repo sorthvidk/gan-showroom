@@ -1,1 +1,25 @@
-{"styleId":"F5662","filters":[],"name":"F5662_Blazer","program":6185,"programName":"Melange Suiting","material":"50% Viscose, 49% Polyester, 1% Elastane","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":893,"wholesalePriceEUR":124,"wholesalePriceUSD":178,"retailPriceDKK":2499,"retailPriceEUR":345,"retailPriceUSD":425,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "onWishList": false,
+  "program": 6185,
+  "colorNames": "Black",
+  "material": "50% Viscose, 49% Polyester, 1% Elastane",
+  "name": "F5662_Blazer",
+  "styleId": "F5662",
+  "drop": "November",
+  "programName": "Melange Suiting",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 124,
+  "weight": 1,
+  "wholesalePriceDKK": 893,
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw3",
+    "rtw7"
+  ],
+  "retailPriceEUR": 345,
+  "retailPriceDKK": 2499,
+  "colorId": 99
+}
