@@ -1,1 +1,24 @@
-{"styleId":"F5590","filters":[],"name":"F5590_Blouse","program":6103,"programName":"Pleated Satin","material":"100% Polyester","drop":"November","colorNames":"Black, Pale Lilac","colorId":"99, 500","wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "onWishList": false,
+  "program": 6103,
+  "colorNames": "Black, Pale Lilac",
+  "material": "100% Polyester",
+  "name": "F5590_Blouse",
+  "styleId": "F5590",
+  "drop": "November",
+  "programName": "Pleated Satin",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 52,
+  "weight": 1,
+  "wholesalePriceDKK": 357,
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": "99, 500"
+}
