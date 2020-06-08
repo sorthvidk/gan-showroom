@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 165,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6092,
   "colorNames": "Olive Drab, Bright White",
   "material": "100% Recycled Polyester",
@@ -11,10 +12,12 @@
   "index": null,
   "responsible": true,
   "wholesalePriceEUR": 52,
-  "weight": 130,
+  "weight": 1,
   "wholesalePriceDKK": 357,
   "wholesalePriceUSD": 69,
-  "filters": [],
+  "filters": [
+    "rtw8"
+  ],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
   "colorId": "780, 151"
