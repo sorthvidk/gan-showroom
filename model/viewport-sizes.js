@@ -1,4 +1,20 @@
 export default {
-	SMALL: 0, 
-	LARGE: 1
+	SMALL: {
+		id: 0,
+		name: 'SMALL',
+		boundLow: null,
+		boundHigh: 1023
+	}, 
+	LARGE: {
+		id: 0,
+		name: 'LARGE',
+		boundLow: 1024,
+		boundHigh: 1679
+	},  
+	XLARGE: {
+		id: 0,
+		name: 'XLARGE',
+		boundLow: 1680,
+		boundHigh: null
+	},
 };

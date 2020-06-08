@@ -10,7 +10,7 @@
 	.collection-item {
 		display: block;
 		padding: rem(5);
-		flex: 0 0 rem(156);
+		flex: 0 0 50%;
 		min-width: 0;
 		box-sizing: border-box;
 		border: rem(1) solid transparent;
@@ -18,6 +18,9 @@
 		cursor: pointer;
 		transition: border 0.3s ease;
 
+		@include mq($from: screen-xxxs) {
+			flex: 0 0 rem(156);
+		}
 		@include mq($from: screen-md) {
 			flex: 0 0 rem(208);
 		}

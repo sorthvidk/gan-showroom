@@ -51,7 +51,6 @@
 
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
-import isMobile from '~/utils/is-mobile'
 
 export default {
 	name: 'support',
@@ -82,8 +81,8 @@ export default {
 		}
 	},
 	mounted() {
-		addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
-		if ( !isMobile() ) {
+		let isMobile = addMediaChangeListener(this.isSmallViewport, this.isLargeViewport);
+		if ( !isMobile ) {
 			this.viewPortSize = ViewportSizes.LARGE;
 		}
 	}

@@ -53,7 +53,7 @@
 				<assistant />
 				<support />
 			</div>
-			<marquee v-if="viewPortSize == 1" />
+			<marquee v-if="viewPortSize.name == 'LARGE'" />
 
 			<div class="logo">
 				<img :src="'/img/ganni_logo_low.png'" alt="Logo" class="d-none d-block--xs" />
