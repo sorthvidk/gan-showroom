@@ -30,7 +30,7 @@ export default {
 		const init = () => {
 			window.addEventListener('resize', onResize)
 			logo.style.fill = getRandomColor()
-			logo.style.background = getRandomColor()
+			// logo.style.background = getRandomColor()
 			render()
 		}
 
@@ -38,13 +38,13 @@ export default {
 			if (posX >= containerBcr.width - logoBcr.width || posX <= 0) {
 				velocityX = velocityX * -1
 				logo.style.fill = getRandomColor()
-				logo.style.background = getRandomColor()
+				// logo.style.background = getRandomColor()
 			}
 
 			if (posY >= containerBcr.height - logoBcr.height || posY <= 0) {
 				velocityY = velocityY * -1
 				logo.style.fill = getRandomColor()
-				logo.style.background = getRandomColor()
+				// logo.style.background = getRandomColor()
 			}
 		}
 

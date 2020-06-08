@@ -14,6 +14,8 @@
 	display: block;
 	text-align: center;
 
+	user-select: none;
+
 	@include mq($from: screen-xxs) {
 		max-height: rem(100);
 	}
@@ -49,6 +51,8 @@
 			height: rem(60);
 			max-width: none;
 
+			image-rendering: pixelated;
+
 			// @include mq($from: screen-sm) {
 			// 	width: rem(100);
 			// 	height: rem(100);
@@ -68,7 +72,7 @@
 		text-overflow: ellipsis;
 		max-width: 60%;
 		overflow: hidden;
-		
+
 		@include mq($from: screen-xxs) {
 			top: 70%;
 			max-width: none;

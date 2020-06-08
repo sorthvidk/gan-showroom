@@ -244,8 +244,6 @@ export default {
 			{ once: true }
 		)
 		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
-
-		console.log('music', this)
 	},
 	beforeDestroy() {
 		this.audio.pause()
