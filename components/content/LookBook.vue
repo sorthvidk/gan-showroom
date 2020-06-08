@@ -26,7 +26,7 @@ export default {
 	},
 	methods: {
 		imageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.content[index], {width:400});
+			return getCloudinaryUrl(this.$cloudinary, this.content[index], {width:500});
 		}
 	}
 };

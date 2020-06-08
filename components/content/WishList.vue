@@ -1,6 +1,6 @@
 <template>
 	<div class="wish-list">
-		<div class="wish-list__overview" v-if="viewPortSize == 1">
+		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
 			<div class="wish-list__overview__item" v-for="(item, index) in wishList" :key="'wishListItem'+index" :class="{'is-active': currentWishListIndex == index}">
 				<button v-if="item.assets && item.assets.length > 0" class="button activate" @click="overviewItemActivateHandler(index)">
 					<img :src="getImageUrl(index)" alt />
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<transition name="fade" mode="in-out">
-			<div class="wish-list__details" v-if="viewPortSize == 1">
+			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
 				<div class="inner" v-if="wishList.length < 1">
 					<p>Your wish list is empty!</p>
 				</div>
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 		</transition>
-		<div v-if="viewPortSize == 0">
+		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
 				v-for="(item, key) in wishList"
 				:key="'wishListItem'+key"

@@ -45,7 +45,8 @@
 	}
 
 	button {
-		text-decoration: underline;
 		margin-right: rem(20);
+		border-bottom: rem(3) solid black;
+    	line-height: 0.9;
 	}
 }
