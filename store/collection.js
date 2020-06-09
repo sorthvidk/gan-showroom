@@ -163,14 +163,19 @@ export const mutations = {
 		let cl = state.list.length
 		for (var i = 0; i < cl; i++) {
 			let style = state.list[i]
-			let fl = style.filters.length
+			if ( typeof style.filters != "undefined" ) {
+				let fl = style.filters.length
 
-			for (var j = 0; j < fl; j++) {
-				let styleFilter = style.filters[j]
-				let stateFilter = state.filters.filter(
-					e => e.filterId === styleFilter
-				)[0]
-				if (stateFilter) stateFilter.styleIds.push(style.styleId)
+				for (var j = 0; j < fl; j++) {
+					let styleFilter = style.filters[j]
+					let stateFilter = state.filters.filter(
+						e => e.filterId === styleFilter
+					)[0]
+					if (stateFilter) stateFilter.styleIds.push(style.styleId)
+				}
+			}
+			else {
+				console.warn("NO FILTERS FOR STYLE: "+style.styleId)
 			}
 		}
 

@@ -7,7 +7,7 @@
 .wish-list {
 	@include mq($until: screen-sm) {
 		overflow: hidden;
-		overflow-y: auto;
+		overflow-y: scroll;
 		max-height: 100%;
 		@include custom-scrollbar();
 	}
@@ -71,14 +71,14 @@
 
 			img {
 				display: inline-block;
-				flex: 0 0 rem(25);
-				max-width: rem(25);
+				flex: 0 0 rem(30);
+				max-width: rem(30);
 				margin-right: rem(10);
 			}
 			p {
 				font-size: rem(13);
 				overflow: hidden;
-				width: rem(185 + - 12 - 25 - 10);
+				width: rem(185 + - 12 - 30 - 10);
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				text-align: left;
@@ -143,6 +143,7 @@
 			width: 100%;
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
 			span {
 				display: inline-block;
 				text-align: left;
@@ -155,6 +156,18 @@
 				flex: 0 0 rem(30);
 				max-width: rem(30);
 				margin-right: rem(15);
+			}
+			.icon {
+				flex: 0 0 rem(30);
+				max-width: rem(30);
+				margin-left: auto;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				svg {
+					width: rem(30);
+					height: rem(30);
+				}
 			}
 		}
 		.content {

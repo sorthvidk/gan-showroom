@@ -53,6 +53,7 @@ collections:
           searchFields: ["name"],
           valueField: "filterId",
           displayFields: ["name"],
+          default: [],
           hint: "List of filters, the style will appear under",
         }
       - {
