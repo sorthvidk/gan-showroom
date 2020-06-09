@@ -11,6 +11,7 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import { FORCE_STOP_MUSIC } from '~/model/constants'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name: 'video-player',
@@ -20,7 +21,7 @@ export default {
 			type: String,
 			required: true
 		},
-		posterUrl: {
+		poster: {
 			type: String,
 			required: false,
 			default: null
@@ -53,8 +54,8 @@ export default {
 			if ( this.controls ) attr.controls = "autoplay"
 			if ( this.loop ) attr.loop = "autoplay"
 			if ( this.muted ) attr.muted = "autoplay"
-
-			return attr;
+			if ( this.poster ) attr.poster = this.poster
+			return attr
 		}
 	},
 	methods: {

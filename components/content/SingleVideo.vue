@@ -2,7 +2,7 @@
 	<div class="single-video" :class="{'is-interactive': belongsToStyle && inFocus }">
 		<transition name="fade">
 			<div @click="clickHandler">				
-				<video-player :video-url="assetUrl" v-bind="{...videoAttributes}"/>
+				<video-player :video-url="assetUrl" v-bind="{...computedVideoAttributes}"/>
 			</div>
 		</transition>
 	</div>
@@ -26,6 +26,10 @@ export default {
 		asset: {
 			type: Object,
 			required: true
+		},
+		videoAttributes: {
+			type: Object,
+			required: false
 		}
 	},
 	computed: {
@@ -35,9 +39,11 @@ export default {
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset);
 		},
-		videoAttributes() {
+		computedVideoAttributes() {
+			if ( this.videoAttributes ) return this.videoAttributes;
+
 			if ( this.belongsToStyle ) {
-				return { 
+				return {
 					autoPlay:true, 
 					muted:true,
 					loop:true
@@ -45,7 +51,7 @@ export default {
 			}
 			else {
 				return { 
-					controls:true
+					controls: true
 				};
 			}
 		}

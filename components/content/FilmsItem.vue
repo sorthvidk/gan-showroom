@@ -1,7 +1,7 @@
 <template>
 	<button class="films-item" :class="{'is-playing':isPlaying}" @click.stop="onItemClick">
 		<div class="films-item__poster">
-			<img :src="parsedPosterUrl" alt="lorem" />
+			<img :src="parsedPosterUrlThumb" alt="lorem" />
 		</div>
 		<p>{{filmName}}</p>
 	</button>
@@ -42,9 +42,11 @@ export default {
 		}
 	},
 	computed: {
-		parsedPosterUrl() {
-			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl,aspect:'landscape'}, {width: 310, height: 204});
-			// return this.$cloudinary.url(this.posterUrl)
+		parsedPosterUrlThumb() {
+			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 310, height: 204});
+		},
+		parsedPosterUrlVideo() {
+			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 608,height: 342})
 		}
 	},
 	methods: {
@@ -60,9 +62,9 @@ export default {
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
 					contentComponentProps: {
-						asset: { cloudinaryUrl: this.cloudinaryUrl, type: 'video' },
+						asset: { cloudinaryUrl: this.cloudinaryUrl, type: 'video', aspect:'landscape' },
 						videoAttributes: {
-							posterUrl: this.posterUrl,
+							poster: this.parsedPosterUrlVideo,
 							autoPlay: false,
 							muted: false,
 							controls: true
