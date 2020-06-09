@@ -29,7 +29,11 @@ import {
 	OPEN_STYLE_CONTENT,
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
-	SAVE_AS_BACKGROUND
+	SAVE_AS_BACKGROUND,
+	COLLAGE_IS_OPEN,
+	SAVE_COLLAGE,
+	MAKE_BACKGROUND,
+	CHANGE_COLLAGE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -45,6 +49,11 @@ export const state = () => ({
 	wallpaperIndex: 1,
 	wallpaperCount: 6,
 	webcamImage: '',
+
+	collageIsOpen: false,
+	saveCollage: false,
+	makeBackground: false,
+	changeCollage: {},
 
 	loggedIn: false,
 	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
@@ -112,8 +121,24 @@ export const mutations = {
 		})
 	},
 
+	[SAVE_COLLAGE.mutation](state) {
+		state.saveCollage = !state.saveCollage
+	},
+
+	[MAKE_BACKGROUND.mutation](state) {
+		state.makeBackground = !state.makeBackground
+	},
+
+	[COLLAGE_IS_OPEN.mutation](state, open) {
+		state.collageIsOpen = open
+	},
+
 	[SAVE_AS_BACKGROUND.mutation](state, img) {
 		state.webcamImage = img
+	},
+
+	[CHANGE_COLLAGE.mutation](state, change) {
+		state.changeCollage = change
 	},
 
 	[RESET_STATE.mutation](state) {
@@ -511,6 +536,22 @@ export const actions = {
 
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
+	},
+
+	[SAVE_COLLAGE.action]({ commit }) {
+		commit(SAVE_COLLAGE.mutation)
+	},
+
+	[MAKE_BACKGROUND.action]({ commit }) {
+		commit(MAKE_BACKGROUND.mutation)
+	},
+
+	[COLLAGE_IS_OPEN.action]({ commit }, open) {
+		commit(COLLAGE_IS_OPEN.mutation, open)
+	},
+
+	[CHANGE_COLLAGE.action]({ commit }, change) {
+		commit(CHANGE_COLLAGE.mutation, change)
 	},
 
 	[SAVE_AS_BACKGROUND.action]({ commit }, img) {

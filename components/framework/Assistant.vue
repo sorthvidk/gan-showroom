@@ -226,6 +226,12 @@
 					</div>
 				</div>
 
+				<div class="assistant__content" v-if="assistantMode == 5">
+					<div class="assistant__text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
+					</div>
+				</div>
+
 				<!-- ####################### CTA ####################### -->
 
 				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
@@ -301,6 +307,32 @@
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 				</div>
+
+				<div class="assistant__ctas" v-if="assistantMode == 5">
+					<div class="collage-buttons">
+						<div class="row" v-for="item in ['headgear', 'background']" :key="item">
+							<p class="title">{{ item | capitalize }}</p>
+							<button class="button button--inline" @click="changeGarment(item, 1)">
+								<svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+									<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+								</svg>
+							</button>
+							<button class="button button--inline" @click="changeGarment(item, 0)">
+								<svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+									<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+								</svg>
+							</button>
+						</div>
+						<div class="row">
+							<button class="button button--half" @click="downloadImageClickHandler">
+								<p>Save image</p>
+							</button>
+							<button class="button button--half" @click="makeBackgroundClickHandler">
+								<p>Make background</p>
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -319,7 +351,10 @@ import {
 	SHOW_PREVIOUS_STYLE,
 	OPEN_WISH_LIST,
 	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING
+	DOWNLOAD_PREPARING,
+	SAVE_COLLAGE,
+	MAKE_BACKGROUND,
+	CHANGE_COLLAGE
 } from '~/model/constants'
 
 import FilterButton from '~/components/content/FilterButton.vue'
@@ -365,7 +400,8 @@ export default {
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
 			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete
+			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
+			collageIsOpen: state => state.collageIsOpen
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -375,8 +411,8 @@ export default {
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {
-			if ( this.activeFilter.filterId ) {
-				return 'Download '+this.activeFilter.name
+			if (this.activeFilter.filterId) {
+				return 'Download ' + this.activeFilter.name
 			}
 			return 'Download all'
 		},
@@ -396,7 +432,7 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
-			if ( this.activeFilter.filterId ) {				
+			if (this.activeFilter.filterId) {
 				return `${window.location}export/?styles=${this.activeFilter.filterId}`
 			}
 			// /export with no params shows all styles
@@ -484,6 +520,18 @@ export default {
 			) {
 				this.assistantMode = AssistantModes.WELCOME
 			}
+		},
+		collageIsOpen(open) {
+			if (open) {
+				this.assistantMode = AssistantModes.COLLAGE
+			}
+		}
+	},
+	filters: {
+		capitalize(value) {
+			if (!value) return ''
+			value = value.toString()
+			return value.charAt(0).toUpperCase() + value.slice(1)
 		}
 	},
 	methods: {
@@ -493,6 +541,9 @@ export default {
 			OPEN_WISH_LIST.action,
 			CLIPBOARD_COPY.action,
 			DOWNLOAD_PREPARING.action,
+			SAVE_COLLAGE.action,
+			MAKE_BACKGROUND.action,
+			CHANGE_COLLAGE.action,
 			'collection/' + ALL_ASSETS_VISIBLE.action,
 			'collection/' + SET_CURRENT_FILTER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
@@ -527,12 +578,10 @@ export default {
 			if (!this.styleOnWishList) {
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
 
-
 				this.styleHasBeenAdded = true
 				setTimeout(() => {
 					this.styleHasBeenAdded = false
 				}, 4000)
-
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)
 			} else {
@@ -623,6 +672,16 @@ export default {
 			} else {
 				console.warn('Could not select text in node: Unsupported browser.')
 			}
+		},
+		downloadImageClickHandler() {
+			this[SAVE_COLLAGE.action]()
+		},
+		makeBackgroundClickHandler() {
+			this[MAKE_BACKGROUND.action]()
+		},
+		changeGarment(type, val) {
+			// trigger used to inform watchers to re-run
+			this[CHANGE_COLLAGE.action]({ trigger: Math.random(), type, val })
 		}
 	},
 	mounted() {

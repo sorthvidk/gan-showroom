@@ -52,3 +52,8 @@ export const FORCE_STOP_MUSIC = createMutation('FORCE_STOP_MUSIC')
 export const MUSIC_PLAY_PAUSE = createMutation('MUSIC_PLAY_PAUSE')
 export const CLIPBOARD_COPY = createMutation('CLIPBOARD_COPY')
 export const DOWNLOAD_PREPARING = createMutation('DOWNLOAD_PREPARING')
+
+export const SAVE_COLLAGE = createMutation('SAVE_COLLAGE')
+export const MAKE_BACKGROUND = createMutation('MAKE_BACKGROUND')
+export const COLLAGE_IS_OPEN = createMutation('COLLAGE_IS_OPEN')
+export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
