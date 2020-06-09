@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "onWishList": false,
+  "program": 2497,
+  "colorNames": "Tiger's Eye",
+  "material": "90% Merino, 10% Cashmere",
+  "name": "K1482_Cardigan",
+  "styleId": "K1482",
+  "drop": "November",
+  "programName": "Cashmere Mix",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 138,
+  "weight": 1,
+  "wholesalePriceDKK": 1000,
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw5"
+  ],
+  "retailPriceEUR": 345,
+  "retailPriceDKK": 2499,
+  "colorId": "177"
+}
