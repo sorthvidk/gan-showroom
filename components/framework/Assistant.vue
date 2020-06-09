@@ -25,7 +25,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'SMALL'">
+		<div class="window__status" v-if="(assistantMode == 2) && viewPortSize.name == 'SMALL'">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -91,7 +91,9 @@
 			</button>
 		</div>
 
-		<hr v-if="assistantMode == 2 && (viewPortSize.name == 'LARGE' || (viewPortSize.name == 'SMALL' && assistantExpanded))" />
+		<hr
+			v-if="(assistantMode == 2) && (viewPortSize.name == 'LARGE' || (viewPortSize.name == 'SMALL' && assistantExpanded))"
+		/>
 
 		<!-- ####################### CONTENT ####################### -->
 
@@ -226,12 +228,6 @@
 					</div>
 				</div>
 
-				<div class="assistant__content" v-if="assistantMode == 5">
-					<div class="assistant__text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
-					</div>
-				</div>
-
 				<!-- ####################### CTA ####################### -->
 
 				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
@@ -308,28 +304,57 @@
 					</button>
 				</div>
 
-				<div class="assistant__ctas" v-if="assistantMode == 5">
-					<div class="collage-buttons">
-						<div class="row" v-for="item in ['headgear', 'background']" :key="item">
-							<p class="title">{{ item | capitalize }}</p>
-							<button class="button button--inline" @click="changeGarment(item, 1)">
-								<svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-									<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
-								</svg>
-							</button>
-							<button class="button button--inline" @click="changeGarment(item, 0)">
-								<svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-									<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
-								</svg>
-							</button>
+				<!-- ####################### COLLAGE ####################### -->
+
+				<div class="window__status" v-if="(assistantMode == 5) && viewPortSize.name == 'SMALL'">
+					<button class="button expand" @click="toggleContentHandler">
+						<span v-if="!assistantExpanded" class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
+							</svg>
+						</span>
+						<span v-if="assistantExpanded" class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+								<path d="M0 7h15v1H0V7z" />
+							</svg>
+						</span>
+						<p>Controls</p>
+					</button>
+				</div>
+
+				<div
+					class="assistant__content"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
+				>
+					<div class v-if="assistantMode == 5">
+						<div class="assistant__text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
 						</div>
-						<div class="row">
-							<button class="button button--half" @click="downloadImageClickHandler">
-								<p>Save image</p>
-							</button>
-							<button class="button button--half" @click="makeBackgroundClickHandler">
-								<p>Make background</p>
-							</button>
+					</div>
+
+					<div class="assistant__ctas" v-if="assistantMode == 5">
+						<div class="collage-buttons">
+							<div class="row" v-for="item in Object.keys(clothes)" :key="item">
+								<p class="title">{{ item | capitalize }}</p>
+								<button class="button button--inline" @click="changeGarment(item, 1)">
+									<svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+									</svg>
+								</button>
+								<button class="button button--inline" @click="changeGarment(item, 0)">
+									<svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+									</svg>
+								</button>
+							</div>
+							<div class="row">
+								<button class="button button--half" @click="downloadImageClickHandler">
+									<p>Save image</p>
+								</button>
+								<button class="button button--half" @click="makeBackgroundClickHandler">
+									<p>Make background</p>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -401,7 +426,8 @@ export default {
 			topMostWindow: state => state.topMostWindow,
 			activeFilter: state => state.collection.activeFilter,
 			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
-			collageIsOpen: state => state.collageIsOpen
+			collageIsOpen: state => state.collageIsOpen,
+			clothes: state => state.collage.clothes
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -497,6 +523,9 @@ export default {
 						break
 					case ContentTypes.wishList.contentComponent:
 						this.assistantMode = AssistantModes.WISHLIST
+						break
+					case ContentTypes.collage.contentComponent:
+						this.assistantMode = AssistantModes.COLLAGE
 						break
 					default:
 						//No window type found?

@@ -44,6 +44,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import { SAVE_AS_BACKGROUND, COLLAGE_IS_OPEN } from '~/model/constants'
+import isMobile from '~/utils/is-mobile'
 
 export default {
 	name: 'collage',
@@ -51,81 +52,20 @@ export default {
 		return {
 			webcamWidth: 300,
 			webcamHeight: 220,
-			stageWidth: 500,
-			stageHeight: 500,
+			stageWidth: isMobile() ? 350 : 530,
+			stageHeight: isMobile() ? 470 : 520,
 			webcamImageOffset: 150,
 
 			openPhotobooth: false,
 			photo: null,
 			photoTimer: false,
-			countdown: [3, 2, 1],
-
-			clothes: {
-				background: [
-					{
-						src: '/img/collage/background.jpg',
-						y: 0,
-						x: 0,
-						width: 500,
-						height: 500,
-
-						background: true
-					},
-					{
-						src: '/img/collage/runway.jpg',
-						y: 0,
-						x: 0,
-						width: 500,
-						height: 500,
-
-						background: true
-					}
-				],
-				headgear: [
-					{
-						src: '/img/collage/hat.png',
-						y: 100,
-						x: 50,
-						width: 100,
-						height: 75
-					},
-					{
-						src: '/img/collage/hat2.png',
-						y: 100,
-						x: 50,
-						width: 130,
-						height: 75
-					},
-					{
-						src: '/img/collage/hat3.png',
-						y: 100,
-						x: 50,
-						width: 100,
-						height: 75
-					}
-				],
-				tops: [
-					{
-						src: '/img/collage/dress.png',
-						y: 50,
-						x: 24,
-						width: 240,
-						height: 300
-					}
-				],
-				shoes: [
-					{
-						src: '/img/collage/boots.png',
-						y: 300,
-						x: 100,
-						width: 110,
-						height: 100
-					}
-				]
-			}
+			countdown: [3, 2, 1]
 		}
 	},
-	computed: mapState(['saveCollage', 'makeBackground', 'changeCollage']),
+	computed: {
+		...mapState(['saveCollage', 'makeBackground', 'changeCollage']),
+		...mapState('collage', ['clothes'])
+	},
 	watch: {
 		saveCollage() {
 			this.savePhoto()
@@ -155,6 +95,19 @@ export default {
 		}) {
 			const image = new Image()
 
+			const w =
+				typeof width === 'object'
+					? isMobile()
+						? width.mobile
+						: width.desktop
+					: width
+			const h =
+				typeof height === 'object'
+					? isMobile()
+						? height.mobile
+						: height.desktop
+					: height
+
 			image.onload = () => {
 				let output
 
@@ -162,8 +115,8 @@ export default {
 					image,
 					x,
 					y,
-					width,
-					height,
+					width: w,
+					height: h,
 					draggable: draggable && !round
 				})
 				if (round) {

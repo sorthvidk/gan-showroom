@@ -17,7 +17,7 @@ Vue.use(WebCam)
 /**
  * todo: turn of when bugfixing is done
  */
-Vue.config.devtools = true
+// Vue.config.devtools = true
 
 import cloudinary from 'cloudinary-core'
 

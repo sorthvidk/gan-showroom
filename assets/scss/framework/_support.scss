@@ -63,7 +63,6 @@
 		text-transform: initial;
 	}
 
-
 	&__content {
 		display: flex;
 		padding: rem(9) rem(10);
@@ -94,6 +93,8 @@
 			align-items: center;
 
 			display: flex;
+			margin-bottom: rem(10);
+
 			em {
 				text-decoration: underline;
 				margin-left: rem(5);
@@ -104,7 +105,6 @@
 				margin-top: rem(-10);
 			}
 		}
-		
 	}
 
 	.icon {
