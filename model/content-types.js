@@ -21,9 +21,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: { w: 5 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH, h: 700 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: { w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH, h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: { w: 353, h: 355}
+				[ViewportSizes.XLARGE.name]: {
+					w: 5 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 700 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
 			}
 		}
 	},
@@ -35,9 +41,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: { w: 980 + WINDOW_DEFAULT_CHROME_WIDTH, h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: { w: 670 + WINDOW_DEFAULT_CHROME_WIDTH, h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: { w: 353, h: 400}
+				[ViewportSizes.XLARGE.name]: {
+					w: 980 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 670 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			},
 			noStatus: true
 		}
@@ -50,9 +62,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:WINDOW_NOSTATUS_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: WINDOW_NOSTATUS_CHROME_HEIGHT }
 			},
 			noStatus: true,
 			canResize: false,
@@ -69,9 +87,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:300, h:300}
+				[ViewportSizes.XLARGE.name]: {
+					w: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 400 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 300, h: 300 }
 			},
 			noStatus: true
 		}
@@ -87,9 +111,18 @@ export default {
 		},
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:274, h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 274,
+					h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT
+				}
 			},
 			modifierClass: 'window--tight'
 		}
@@ -105,9 +138,15 @@ export default {
 		},
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:417 + WINDOW_TIGHT_CHROME_WIDTH, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:417 + WINDOW_TIGHT_CHROME_WIDTH, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:232}
+				[ViewportSizes.XLARGE.name]: {
+					w: 417 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 417 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 232 }
 			},
 			modifierClass: 'window--tight'
 		}
@@ -123,9 +162,18 @@ export default {
 		},
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:274, h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 274,
+					h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT
+				}
 			},
 			modifierClass: 'window--tight'
 		}
@@ -138,9 +186,18 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:274 + WINDOW_TIGHT_CHROME_WIDTH, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:274, h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 274,
+					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				}
 			},
 			modifierClass: 'window--tight',
 			noStatus: true
@@ -154,9 +211,18 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:608 + WINDOW_TIGHT_CHROME_WIDTH, h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:608 + WINDOW_TIGHT_CHROME_WIDTH, h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:199 + WINDOW_NOSTATUS_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 608 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 608 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 342 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 353,
+					h: 199 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				}
 			},
 			modifierClass: 'window--tight',
 			noStatus: true
@@ -170,9 +236,18 @@ export default {
 		allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:320 + WINDOW_TIGHT_CHROME_WIDTH, h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:274, h:274 + WINDOW_DEFAULT_CHROME_HEIGHT}
+				[ViewportSizes.XLARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 320 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 274,
+					h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT
+				}
 			},
 			modifierClass: 'window--tight'
 		}
@@ -184,9 +259,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:600 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:600, h:600}
+				[ViewportSizes.XLARGE.name]: {
+					w: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 600, h: 600 }
 			},
 			noStatus: true,
 			isMaximized: true,
@@ -204,9 +285,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:400}
+				[ViewportSizes.XLARGE.name]: {
+					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			},
 			wrapperClass: 'window--wish-list__wrapper',
 			modifierClass: 'window--wish-list'
@@ -219,9 +306,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:620 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:620 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:400}
+				[ViewportSizes.XLARGE.name]: {
+					w: 620 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 620 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			},
 			noStatus: true
 		}
@@ -234,9 +327,15 @@ export default {
 		statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:705 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:355}
+				[ViewportSizes.XLARGE.name]: {
+					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
 			}
 		}
 	},
@@ -248,9 +347,15 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 750 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:400 + WINDOW_DEFAULT_CHROME_WIDTH, h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:353, h:355}
+				[ViewportSizes.XLARGE.name]: {
+					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 750 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 400 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
 			}
 		}
 	},
@@ -262,11 +367,19 @@ export default {
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.LARGE.name]: {w:500 + WINDOW_DEFAULT_CHROME_WIDTH, h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT},
-				[ViewportSizes.SMALL.name]: {w:350, h:250}
+				[ViewportSizes.XLARGE.name]: {
+					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 350, h: 500 }
 			},
-			noStatus: true
+			noStatus: true,
+			canResize: false,
+			modifierClass: 'window--tight'
 		}
 	}
 }

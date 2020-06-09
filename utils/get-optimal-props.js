@@ -40,7 +40,7 @@ export const placementX = (state, sizeW) => {
 // returns a random value that takes the window size in account
 export const placementY = (state, sizeH) => {
 	return isMobile()
-		? 50 + state.windowList.length * 15
+		? 10 + state.windowList.length * 15
 		: Math.max(
 				0,
 				random(40, window.innerHeight - (sizeH || 0) - MOBILE_GUTTERS_VERTICAL)
@@ -62,13 +62,9 @@ export default function(state, currentWindow, groupId) {
 	} = currentWindow.type
 
 	const viewportSize = getViewportSize()
-	
-	const sizeW =
-		windowProps.width ||
-		defaultWindowProps.sizes[viewportSize].w
-	const sizeH =
-		windowProps.height ||
-		defaultWindowProps.sizes[viewportSize].h
+
+	const sizeW = windowProps.width || defaultWindowProps.sizes[viewportSize].w
+	const sizeH = windowProps.height || defaultWindowProps.sizes[viewportSize].h
 
 	const conditionalAssignment = (obj, attr) => {
 		if (typeof windowProps[attr] !== 'undefined') obj[attr] = windowProps[attr]

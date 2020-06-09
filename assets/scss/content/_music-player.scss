@@ -23,8 +23,11 @@
 	}
 }
 
-.music-player {
+.window--music-player .window__content {
 	background-color: $color-salmon;
+}
+
+.music-player {
 	user-select: none !important;
 	cursor: default;
 
