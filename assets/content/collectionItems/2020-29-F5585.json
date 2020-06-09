@@ -1,1 +1,24 @@
-{"styleId":"F5585","filters":[],"name":"F5585_Cropped Blouse","program":6100,"programName":"Seersucker Check","material":"44% POLY, 47% CO, 14% PA","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":205,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 205,
+  "assets": [],
+  "onWishList": false,
+  "program": 6100,
+  "colorNames": "Flame",
+  "material": "44% POLY, 47% CO, 14% PA",
+  "name": "F5585_Cropped Blouse",
+  "styleId": "F5585",
+  "drop": "November",
+  "programName": "Seersucker Check",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 1,
+  "wholesalePriceDKK": 428,
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 307
+}

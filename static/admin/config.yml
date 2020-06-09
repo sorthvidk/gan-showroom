@@ -352,13 +352,13 @@ collections:
           multiple: false,
           options: ["video", "image"],
           hint: "Either image or video",
+          default: "image",
         }
       - {
           label: "Cloudinary media reference",
           name: "cloudinaryUrl",
           widget: "image",
         }
-
   - name: "lookBook"
     summary: "Item {{itemId}}"
     label: "Lookbook item"
@@ -380,4 +380,13 @@ collections:
           label: "Cloudinary video reference",
           name: "cloudinaryUrl",
           widget: "image",
+        }
+      - {
+          label: "Media type",
+          name: "type",
+          widget: "select",
+          multiple: false,
+          options: ["video", "image"],
+          hint: "Either image or video",
+          default: "image",
         }

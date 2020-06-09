@@ -3,10 +3,10 @@
 
 	font-family: $font-sansserif;
 
-	border-top: rem(1) solid $color-black;
-	border-bottom: rem(1) solid $color-black;
 	background-color: $color-white;
+	color: $color-black;
 	height: rem(60);
+	border-top: rem(1) solid $color-black;
 
 	display: flex;
 	align-items: center;
@@ -39,14 +39,13 @@
 
 	p,
 	button {
-		white-space: nowrap;
 		@include megatype();
+		white-space: nowrap;
 		font-family: inherit;
 	}
 
 	button {
-		margin-right: rem(20);
-		border-bottom: rem(3) solid black;
+		border-bottom: rem(3) solid currentColor;
     	line-height: 0.9;
 	}
 }

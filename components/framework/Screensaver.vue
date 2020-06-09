@@ -14,8 +14,7 @@
 import { mapState } from 'vuex'
 
 export default {
-	name: 'Screensaver',
-	computed: mapState(['hidden']),
+	name: 'screensaver',
 	mounted() {
 		var container = this.$refs.container
 		var logo = this.$refs.logo
@@ -63,9 +62,6 @@ export default {
 		}
 
 		const render = () => {
-			if (!this.hidden) {
-				return
-			}
 			window.requestAnimationFrame(render)
 
 			var movementX = (posX = posX + velocityX)

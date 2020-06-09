@@ -1,1 +1,24 @@
-{"styleId":"F5596","filters":[],"name":"F5596_Shirt","program":6104,"programName":"Printed Georgette","material":"100% Viscose","drop":"November","colorNames":"Phantom","colorId":252,"wholesalePriceDKK":321,"wholesalePriceEUR":45,"wholesalePriceUSD":65,"retailPriceDKK":899,"retailPriceEUR":125,"retailPriceUSD":155,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 155,
+  "assets": [],
+  "onWishList": false,
+  "program": 6104,
+  "colorNames": "Phantom",
+  "material": "100% Viscose",
+  "name": "F5596_Shirt",
+  "styleId": "F5596",
+  "drop": "November",
+  "programName": "Printed Georgette",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 45,
+  "weight": 1,
+  "wholesalePriceDKK": 321,
+  "wholesalePriceUSD": 65,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 125,
+  "retailPriceDKK": 899,
+  "colorId": 252
+}

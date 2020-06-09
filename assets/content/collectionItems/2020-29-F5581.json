@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 525,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6094,
   "colorNames": "Black",
   "material": "100% Lamb Leather",
@@ -16,7 +17,8 @@
   "wholesalePriceUSD": 219,
   "filters": [
     "rtw3",
-    "misc2"
+    "misc2",
+    "misc3"
   ],
   "retailPriceEUR": 445,
   "retailPriceDKK": 3199,

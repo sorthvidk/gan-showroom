@@ -1,1 +1,25 @@
-{"styleId":"F5586","filters":["rtw1",""],"name":"F5586_Mini Dress","program":6100,"programName":"Seersucker Check","material":"44% POLY, 47% CO, 14% PA","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"retailPriceDKK":1399,"retailPriceEUR":205,"retailPriceUSD":235,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "onWishList": false,
+  "program": 6100,
+  "colorNames": "Flame",
+  "material": "44% POLY, 47% CO, 14% PA",
+  "name": "F5586_Mini Dress",
+  "styleId": "F5586",
+  "drop": "November",
+  "programName": "Seersucker Check",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 1,
+  "wholesalePriceDKK": 500,
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw1",
+    ""
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 307
+}

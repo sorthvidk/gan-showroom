@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 235,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6165,
   "colorNames": "Heather",
   "material": "44% POLY, 47% CO, 14% PA",
@@ -11,14 +12,14 @@
   "index": null,
   "responsible": true,
   "wholesalePriceEUR": 74,
-  "weight": 12,
+  "weight": 1,
   "wholesalePriceDKK": 500,
   "wholesalePriceUSD": 98,
   "filters": [
     "rtw1",
     ""
   ],
-  "retailPriceEUR": 205,
+  "retailPriceEUR": 195,
   "retailPriceDKK": 1399,
   "colorId": 694
 }

@@ -8,13 +8,15 @@
 	
 	
 	&__item {
-		display: block;
+		display: flex;
 		margin: 0 auto;
 		width: 100%;
 
-		img {
+		img, video {
 			display: block;
 			width: 100%;
+			max-width: 100%;
+			height: auto;
 		}	
 	}
 }

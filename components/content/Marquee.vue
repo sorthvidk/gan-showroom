@@ -3,8 +3,8 @@
 		<!-- loop a couple of times to make them fill the screen -->
 		<p v-for="i in 5" :key="i">
 			<span v-for="link in marqueeLinks" :key="link.label">
-				{{ link.text }}
-				<button @click="openWindow(link)">{{ link.label }}</button>
+				{{ link.text }} <button @click="openWindow(link)">{{ link.label }}</button>
+				&nbsp;&bull;&nbsp;
 			</span>
 		</p>
 	</div>

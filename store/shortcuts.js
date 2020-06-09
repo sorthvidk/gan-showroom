@@ -172,9 +172,9 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-softwear',
+			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ganni_softwear.png',
-			label: 'GANNI Softwear',
+			label: 'GANNI Software',
 			posH: 11,
 			posV: 6,
 			actions: [
