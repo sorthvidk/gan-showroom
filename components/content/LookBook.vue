@@ -2,7 +2,9 @@
 	<transition name="fade">
 		<div class="look-book">
 			<div class="look-book__item" v-for="(item,index) in content" :key="'lookbook'+index">
-				<img v-lazy="imageUrl(index)" alt="lookbook">				
+				<img v-if="item.type === 'image'" v-lazy="getMediaUrl(item.type, item.cloudinaryUrl)" alt=""/>
+				<video v-if="item.type === 'video'" :src="getMediaUrl(item.type, item.cloudinaryUrl)" preload muted controls></video>
+
 			</div>
 		</div>
 	</transition>
@@ -25,8 +27,8 @@ export default {
 		})
 	},
 	methods: {
-		imageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.content[index], {width:500});
+		getMediaUrl(type,cURL) {
+			return getCloudinaryUrl(this.$cloudinary, {type:type, cloudinaryUrl:cURL}, {width: 500});
 		}
 	}
 };

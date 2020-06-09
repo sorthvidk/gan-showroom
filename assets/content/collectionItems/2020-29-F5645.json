@@ -1,1 +1,24 @@
-{"styleId":"F5645","filters":[],"name":"F5645_Blouse","program":6098,"programName":"Printed Crepe","material":"53% Viscose, 47% Ecovero Viscose","drop":"November","colorNames":"Phantom","colorId":252,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":205,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 205,
+  "assets": [],
+  "onWishList": false,
+  "program": 6098,
+  "colorNames": "Phantom",
+  "material": "53% Viscose, 47% Ecovero Viscose",
+  "name": "F5645_Blouse",
+  "styleId": "F5645",
+  "drop": "November",
+  "programName": "Printed Crepe",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 1,
+  "wholesalePriceDKK": 428,
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 252
+}

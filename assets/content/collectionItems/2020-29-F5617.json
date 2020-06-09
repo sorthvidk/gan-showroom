@@ -1,1 +1,24 @@
-{"styleId":"F5617","filters":[],"name":"F5617_Blouse","program":6165,"programName":"Seersucker Check","material":"44% POLY, 47% CO, 14% PA","drop":"November","colorNames":"Heather","colorId":694,"wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "onWishList": false,
+  "program": 6165,
+  "colorNames": "Heather",
+  "material": "44% POLY, 47% CO, 14% PA",
+  "name": "F5617_Blouse",
+  "styleId": "F5617",
+  "drop": "November",
+  "programName": "Seersucker Check",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 1,
+  "wholesalePriceDKK": 393,
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 694
+}

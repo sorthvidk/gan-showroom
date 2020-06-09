@@ -1,1 +1,25 @@
-{"styleId":"F5681","filters":[],"name":"F5681_Pocket Pants","program":6185,"programName":"Melange Suiting","material":"50% Viscose, 49% Polyester, 1% Elastane","drop":"November","colorNames":"Black","colorId":99,"wholesalePriceDKK":535,"wholesalePriceEUR":77,"wholesalePriceUSD":103,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "onWishList": false,
+  "program": 6185,
+  "colorNames": "Black",
+  "material": "50% Viscose, 49% Polyester, 1% Elastane",
+  "name": "F5681_Pocket Pants",
+  "styleId": "F5681",
+  "drop": "November",
+  "programName": "Melange Suiting",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 77,
+  "weight": 1,
+  "wholesalePriceDKK": 535,
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw7",
+    "rtw9"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 99
+}

@@ -1,1 +1,24 @@
-{"styleId":"F5665","filters":[],"name":"F5665_Mini Skirt","program":6100,"programName":"Seersucker Check","material":"44% POLY, 47% CO, 14% PA","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":321,"wholesalePriceEUR":45,"wholesalePriceUSD":65,"retailPriceDKK":899,"retailPriceEUR":125,"retailPriceUSD":155,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 155,
+  "assets": [],
+  "onWishList": false,
+  "program": 6100,
+  "colorNames": "Flame",
+  "material": "44% POLY, 47% CO, 14% PA",
+  "name": "F5665_Mini Skirt",
+  "styleId": "F5665",
+  "drop": "November",
+  "programName": "Seersucker Check",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 45,
+  "weight": 1,
+  "wholesalePriceDKK": 321,
+  "wholesalePriceUSD": 65,
+  "filters": [
+    "rtw6"
+  ],
+  "retailPriceEUR": 125,
+  "retailPriceDKK": 899,
+  "colorId": 307
+}
