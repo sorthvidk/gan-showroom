@@ -1,1 +1,25 @@
-{"styleId":"A3275","filters":["acc2",""],"name":"A3275_Bumbag","program":5616,"programName":"Leather Trimmed Recycled Polyester","material":"90% Recycled Polyester 10% Recycled Leather","drop":"November","colorNames":"Phantom","colorId":252,"wholesalePriceDKK":440,"wholesalePriceEUR":62,"wholesalePriceUSD":78,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "onWishList": false,
+  "program": 5616,
+  "colorNames": "Phantom",
+  "material": "90% Recycled Polyester 10% Recycled Leather",
+  "name": "A3275_Bumbag",
+  "styleId": "A3275",
+  "drop": "November",
+  "programName": "Leather Trimmed Recycled Polyester",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 62,
+  "weight": 1,
+  "wholesalePriceDKK": 440,
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "acc2",
+    ""
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 252
+}
