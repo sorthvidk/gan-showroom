@@ -1,1 +1,25 @@
-{"styleId":"S1408","filters":["acc3",""],"name":"S1408_Wallaby Platform","program":4704,"programName":"Suede","material":"100% Cow Suede Sole: Rubber","drop":"November","colorNames":"Tiger's Eye","colorId":177,"wholesalePriceDKK":1080,"wholesalePriceEUR":150,"wholesalePriceUSD":186,"retailPriceDKK":2699,"retailPriceEUR":375,"retailPriceUSD":445,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 445,
+  "assets": [],
+  "onWishList": false,
+  "program": 4704,
+  "colorNames": "Tiger's Eye, Mole",
+  "material": "100% Cow Suede Sole: Rubber",
+  "name": "S1408_Wallaby Platform",
+  "styleId": "S1408",
+  "drop": "November",
+  "programName": "Suede",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 150,
+  "weight": 1,
+  "wholesalePriceDKK": 1080,
+  "wholesalePriceUSD": 186,
+  "filters": [
+    "acc3",
+    ""
+  ],
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2699,
+  "colorId": "177, 897"
+}
