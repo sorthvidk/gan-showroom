@@ -1,1 +1,25 @@
-{"styleId":"K1455","filters":["rtw5",""],"name":"K1455_Pullover - Striped","program":2500,"programName":"Soft Wool Knit","material":"","drop":"November","colorNames":"Heather","colorId":694,"wholesalePriceDKK":720,"wholesalePriceEUR":102,"wholesalePriceUSD":123,"retailPriceDKK":1799,"retailPriceEUR":255,"retailPriceUSD":295,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "onWishList": false,
+  "program": 2500,
+  "colorNames": "Heather",
+  "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
+  "name": "K1455_Pullover - Striped",
+  "styleId": "K1455",
+  "drop": "November",
+  "programName": "Soft Wool Knit",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 102,
+  "weight": 1,
+  "wholesalePriceDKK": 720,
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw5",
+    ""
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 694
+}
