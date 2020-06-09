@@ -3,7 +3,7 @@
   "assets": [],
   "onWishList": false,
   "program": 2498,
-  "colorNames": "Dutch Blue",
+  "colorNames": "Dutch Blue, Phantom",
   "material": "70% Recycled Wool, 20% Polyamide, 5% other",
   "name": "K1489_Vest",
   "styleId": "K1489",
@@ -14,12 +14,12 @@
   "wholesalePriceEUR": 70,
   "weight": 1,
   "wholesalePriceDKK": 480,
-  "wholesalePriceUSD": 86,
+  "wholesalePriceUSD": 84,
   "filters": [
     "rtw5",
     ""
   ],
   "retailPriceEUR": 175,
   "retailPriceDKK": 1199,
-  "colorId": "710"
+  "colorId": "710, 252"
 }
