@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 265,
+  "assets": [],
+  "onWishList": false,
+  "program": 6130,
+  "colorNames": "Denim",
+  "material": "100% Organic Cotton",
+  "name": "F5926_Mid-waist Slim Jeans",
+  "styleId": "F5926",
+  "drop": "November",
+  "programName": "Washed Denim",
+  "index": 0,
+  "responsible": true,
+  "wholesalePriceEUR": 84,
+  "weight": 1,
+  "wholesalePriceDKK": 592,
+  "wholesalePriceUSD": 111,
+  "filters": [
+    "rtw2"
+  ],
+  "retailPriceEUR": 225,
+  "retailPriceDKK": 1599,
+  "colorId": "630"
+}
