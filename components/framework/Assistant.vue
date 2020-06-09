@@ -618,22 +618,22 @@ export default {
 			}
 		},
 		downloadCollectionClickHandler() {
-			console.log('Download collection')
+			if ( window.GS_LOGS ) console.log('Download collection')
 			history.pushState({}, '', this.collectionUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		downloadWishListClickHandler() {
-			console.log('Download wishlist')
+			if ( window.GS_LOGS ) console.log('Download wishlist')
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist', this.wishListUrl)
+			if ( window.GS_LOGS ) console.log('Share wishlist', this.wishListUrl)
 
 			getShortUrl(this.wishListUrl).then(shortenedUrl => {
-				console.log('shortenedUrl', shortenedUrl)
+				if ( window.GS_LOGS ) console.log('shortenedUrl', shortenedUrl)
 				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
 					this.shortenedReceiptUrl = shortenedUrl
 
@@ -646,7 +646,7 @@ export default {
 			})
 		},
 		copyToClipboardComplete(success) {
-			console.log('copyToClipboardComplete. success?', success)
+			if ( window.GS_LOGS ) console.log('copyToClipboardComplete. success?', success)
 			this.shareUrl = this.wishListUrl
 			this[CLIPBOARD_COPY.action](success)
 		},

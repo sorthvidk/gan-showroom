@@ -85,7 +85,7 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
-				console.log("ACTIONS???",this.actions)
+				if ( window.GS_LOGS ) console.log("ACTIONS???",this.actions)
 				if (this.actions) {
 					for (let i = 0; i < this.actions.length; i++) {
 						let action = this.actions[i]

@@ -56,12 +56,10 @@ export default {
 		},
 		images() {
 			let i = this.assets.filter(asset => asset.type === 'image')
-			console.warn("GALLERY | " + i.length + " IMAGES")
 			return i;
 		},
 		videos() {
 			let i = this.assets.filter(asset => asset.type === 'video')
-			console.warn("GALLERY | " + i.length + " VIDEOS")
 			return i;
 		}
 	},

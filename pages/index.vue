@@ -71,7 +71,7 @@ export default {
 			VISIBILITY.action
 		]),
 		toggleScreenSaver(appTabUnfocused) {
-			console.warn("TOGGLE SCREENSAVER | appTabUnfocused:"+appTabUnfocused)
+			if ( window.GS_LOGS ) console.warn("TOGGLE SCREENSAVER | appTabUnfocused:"+appTabUnfocused)
 			this[VISIBILITY.action](appTabUnfocused)
 
 			if ( appTabUnfocused ) {
@@ -83,12 +83,12 @@ export default {
 			}
 		},
 		startScreenSaverCountdown() {
-			console.warn("START SCREENSAVER COUNTDOWN")
+			if ( window.GS_LOGS ) console.warn("START SCREENSAVER COUNTDOWN")
 
 			this.screenSaverVisible = false; 
 			clearTimeout(this.screenSaverTimeout)
 			this.screenSaverTimeout = setTimeout(()=> { 
-				console.warn("SHOW SCREENSAVER")
+				if ( window.GS_LOGS ) console.warn("SHOW SCREENSAVER")
 				this.screenSaverVisible = true; 
 			}, this.countdownTime)
 		}
@@ -96,7 +96,7 @@ export default {
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
 
-		console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
+		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)

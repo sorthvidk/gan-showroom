@@ -154,7 +154,7 @@ export const mutations = {
 
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
-		console.log('state.loggedIn', state.loggedIn)
+		if ( window.GS_LOGS ) console.log('state.loggedIn', state.loggedIn)
 	},
 
 	[VISIBILITY.mutation](state, key) {
@@ -166,7 +166,7 @@ export const mutations = {
 		if (state.wallpaperIndex > state.wallpaperCount) {
 			state.wallpaperIndex = 1
 		}
-		console.log('state.wallpaperIndex', state.wallpaperIndex)
+		if ( window.GS_LOGS ) console.log('state.wallpaperIndex', state.wallpaperIndex)
 	},
 
 	[COOKIES_ACCEPT.mutation](state) {
@@ -233,9 +233,8 @@ export const mutations = {
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
-			if (!style || !style.assets)
-				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
-			else style.assets.push(asset)
+			if (style && style.assets) style.assets.push(asset)
+			else if ( window.GS_LOGS ) console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
 		}
 
 		//sort style assets to have onTop asset first in assets array
@@ -289,7 +288,7 @@ export const mutations = {
 		}
 		state.progressMax = pM
 
-		// console.warn('INIT_PROGRESS', state.progressItems)
+		// if ( window.GS_LOGS ) console.warn('INIT_PROGRESS', state.progressItems)
 		state.progressPct = 0
 	},
 	/*
@@ -297,7 +296,7 @@ export const mutations = {
 	 *
 	 */
 	[OPEN_CONTENT.mutation](state, params) {
-		console.warn('OPEN_CONTENT', params)
+		if ( window.GS_LOGS ) console.warn('OPEN_CONTENT', params)
 
 		let windowGroup = params.addToGroupId
 			? state.windowGroupList.find(e => e.groupId === params.addToGroupId)
@@ -379,7 +378,7 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation](state, windowId) {
-		console.warn('TOPMOST_WINDOW', windowId)
+		if ( window.GS_LOGS ) console.warn('TOPMOST_WINDOW', windowId)
 		let wll = state.windowList.length
 
 		//console.log("zIndexes after",state.zIndexes)
@@ -441,7 +440,7 @@ export const mutations = {
 		}
 		state.topMostWindow = state.windowList[wll - 1]
 
-		console.warn(
+		if ( window.GS_LOGS ) console.warn(
 			'CLOSE_WINDOW | removed id:' +
 				ids.windowId +
 				', remaining windows: ' +
@@ -484,7 +483,7 @@ export const mutations = {
 		}
 
 		state.windowGroupList.pop() //remove that group
-		console.warn(
+		if ( window.GS_LOGS ) console.warn(
 			'CLOSE_WINDOW_GROUP | remaining groups: ' +
 				state.windowGroupList.length +
 				' | close style? ' +
@@ -503,27 +502,27 @@ export const mutations = {
 	},
 
 	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
-		console.warn('MUSIC_PLAY_PAUSE', playing)
+		if ( window.GS_LOGS ) console.warn('MUSIC_PLAY_PAUSE', playing)
 		state.musicPlaying = playing
 	},
 
 	[FORCE_STOP_MUSIC.mutation](state, playing) {
-		console.warn('FORCE_STOP_MUSIC | pause music')
+		if ( window.GS_LOGS ) console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
 	},
 
 	[CLIPBOARD_COPY.mutation](state, value) {
-		console.warn('CLIPBOARD_COPY')
+		if ( window.GS_LOGS ) console.warn('CLIPBOARD_COPY')
 		state.clipBoardCopyComplete = value
 	},
 
 	[DOWNLOAD_PREPARING.mutation](state, value) {
-		console.warn('DOWNLOAD_PREPARING')
+		if ( window.GS_LOGS ) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
 	},
 
 	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
-		console.warn('COLLECTION_LAYOUT_CHANGE')
+		if ( window.GS_LOGS ) console.warn('COLLECTION_LAYOUT_CHANGE')
 		state.collectionLayout = value
 	}
 }
@@ -652,7 +651,7 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
-		console.log('playing', playing)
+		if ( window.GS_LOGS ) console.log('playing', playing)
 		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
 		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
 	},
@@ -683,7 +682,7 @@ export const actions = {
 		commit(RESET_STATE.mutation)
 	},
 	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		console.log('value', value)
+		if ( window.GS_LOGS ) console.log('value', value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 
@@ -776,6 +775,6 @@ export const actions = {
 		})
 		commit(GENERAL_FETCH.mutation, general)
 
-		console.warn('NUXT SERVER INIT DONE')
+		console.log('NUXT SERVER INIT DONE')
 	}
 }
