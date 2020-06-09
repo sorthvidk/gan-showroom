@@ -62,7 +62,7 @@ export default {
 		return {
 			screenSaverTimeout: null,
 			screenSaverVisible: false,
-			countdownTime: 60000
+			countdownTime: 150000
 		}
 	},
 	methods: {
