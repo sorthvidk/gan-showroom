@@ -3,6 +3,7 @@
  */
 
 const scale = 4.5
+const scale2 = 2
 
 export const state = () => ({
 	clothes: {
@@ -24,16 +25,97 @@ export const state = () => ({
 				height: { mobile: 510, desktop: 800 },
 
 				layer: 'background'
-			}
-			// {
-			// 	src: '/img/collage/runway.jpg',
-			// 	y: 0,
-			// 	x: 0,
-			// 	width: { mobile: 360, desktop: 530 },
-			// 	height: { mobile: 510, desktop: 520 },
+			},
+			{
+				src: '/img/collage/bg1.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
 
-			// 	layer: 'background'
-			// }
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg2.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg3.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg4.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg5.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg6.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg7.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg8.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			},
+			{
+				src: '/img/collage/bg9.jpg',
+				y: { mobile: 0, desktop: -150 },
+				x: 0,
+				width: { mobile: 360, desktop: 1100 / scale2 },
+				height: { mobile: 510, desktop: 1400 / scale2 },
+
+				layer: 'background'
+			}
+		],
+		accessories: [
+			{
+				src: '/img/collage/bag.png',
+				width: 327 / scale,
+				height: 458 / scale,
+				y: 75,
+				x: 350
+			}
 		],
 		headgear: [
 			{
@@ -42,12 +124,12 @@ export const state = () => ({
 				height: 276 / scale,
 				y: 50,
 				x: 50
+			},
+			{
+				src: '/img/collage/hat1.png',
+				width: 547 / scale,
+				height: 311 / scale
 			}
-			// {
-			// 	src: '/img/collage/hat.png',
-			// 	width: 100,
-			// 	height: 75
-			// }
 		],
 		tops: [
 			{
@@ -105,11 +187,21 @@ export const state = () => ({
 		],
 		shoes: [
 			{
-				src: '/img/collage/boots.png',
+				src: '/img/collage/shoes1.png',
 				y: { mobile: 300, desktop: 300 },
 				x: { mobile: 200, desktop: 350 },
-				width: 110,
-				height: 100
+				width: 688 / scale,
+				height: 577 / scale
+			},
+			{
+				src: '/img/collage/shoes2.png',
+				width: 676 / scale,
+				height: 249 / scale
+			},
+			{
+				src: '/img/collage/shoes3.png',
+				width: 637 / scale,
+				height: 296 / scale
 			}
 		]
 	}

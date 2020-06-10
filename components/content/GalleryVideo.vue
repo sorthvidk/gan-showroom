@@ -25,7 +25,7 @@ export default {
 	},
 	computed: {
 		assetUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset, {width: 700});
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {width: 700}, 2);
 		}
 	},
 	mounted() {

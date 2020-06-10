@@ -37,7 +37,7 @@ export default {
 			return this.asset.styleId ? true : false;
 		},
 		assetUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset);
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {}, 2);
 		},
 		computedVideoAttributes() {
 			if ( this.videoAttributes ) return this.videoAttributes;
