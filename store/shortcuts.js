@@ -69,7 +69,8 @@ export const state = () => ({
 						}
 					},
 					windowProps: {
-						noStatus: true
+						noStatus: true,
+						height: 304
 					}
 				},
 				{
@@ -83,7 +84,8 @@ export const state = () => ({
 						}
 					},
 					windowProps: {
-						noStatus: true
+						noStatus: true,
+						height: 304
 					}
 				},
 				{

@@ -1,13 +1,16 @@
 export default function(cl, asset, tf={}) {
+
+	let pixelDensity = 2
+
 	let transform = tf
 	let resultUrl
 	let parseUrl
 	
 	if ( asset.cloudinaryUrl ) {
 		parseUrl = asset.cloudinaryUrl.split('upload/')[1]
-		transform.crop = 'scale'
 
 		if ( asset.type === 'video' ) {			
+			transform.crop = 'scale'
 			transform.fetchFormat = 'auto' //may need to be h264?
 
 			let aspect = 342/608
@@ -22,10 +25,17 @@ export default function(cl, asset, tf={}) {
 					transform.height = 417
 				}
 			}
-			
+			transform.width *= pixelDensity
+			transform.height *= pixelDensity
+
 			resultUrl = cl.video_url(parseUrl, transform);
 		}
 		else {
+			transform.crop = 'fill'
+
+			transform.width ? transform.width *= pixelDensity : null
+			transform.height ? transform.height *= pixelDensity : null
+
 			resultUrl = cl.url(parseUrl, transform);
 		}
 	}
