@@ -66,7 +66,7 @@
 
 			<div class="clipboard-message" v-if="showClipboardMessage">
 				<p>Copied to clipboard</p>
-			</div> 
+			</div>
 
 			<div class="download-message" v-if="showDownloadMessage">
 				<div class="window window--no-status window--tight">

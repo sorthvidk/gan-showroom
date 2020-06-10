@@ -1,6 +1,6 @@
 <template>
 	<div class="receipt">
-		<h1 class="receipt__title" style="font-weight: 500;">ganni wishlist</h1>
+		<h1 class="receipt__title" style="font-weight: 500;">ganni export</h1>
 		<receipt-item v-for="(item, key) in receiptStyles" :key="'receiptItem'+key" :receipt-item="item" />
 		<!-- <a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a> -->
 	</div>

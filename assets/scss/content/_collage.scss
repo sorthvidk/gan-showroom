@@ -27,35 +27,7 @@
 		@include bodytext();
 	}
 
-	button {
-		position: relative;
-		background: $color-lightgrey;
-
-		width: 100%;
-		height: 70px;
-
-		&:before {
-			background: $color-lime;
-			content: '';
-			height: 3.2rem;
-			width: 3.2rem;
-			border-radius: 50%;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		svg {
-			padding: 1rem;
-			margin-top: 0.25rem;
-			height: 1.6rem;
-			width: 1.6rem;
-			fill: $color-white;
-			position: relative;
-			z-index: 1;
-		}
-
+	.trigger {
 		&.photoTimer {
 			display: flex;
 			align-items: center;
@@ -80,12 +52,50 @@
 				}
 			}
 		}
+	}
+
+	button {
+		display: inline-block;
+		position: relative;
+		background: $color-lightgrey;
+
+		width: 49.5%;
+		height: 70px;
+
+		box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
 
 		@include mq($until: screen-md) {
 			position: absolute;
 			top: rem(15);
-			left: rem(15);
+			right: rem(15);
 			width: auto;
+
+			&.trigger {
+				left: rem(15);
+				right: auto;
+			}
+		}
+
+		&:before {
+			background: $color-lime;
+			content: '';
+			height: 3.2rem;
+			width: 3.2rem;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		svg {
+			padding: 1rem;
+			margin-top: 0.25rem;
+			height: 1.6rem;
+			width: 1.6rem;
+			fill: $color-white;
+			position: relative;
+			z-index: 1;
 		}
 	}
 }
