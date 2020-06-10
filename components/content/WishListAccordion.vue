@@ -74,15 +74,15 @@
 
 						<tr>
 							<th>Suggested retail price</th>
-							<td>DKK {{wishListItem.suggestedRetailPriceDKK}}</td>
+							<td>DKK {{wishListItem.retailPriceDKK}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>EUR {{wishListItem.suggestedRetailPriceEUR}}</td>
+							<td>EUR {{wishListItem.retailPriceEUR}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>USD {{wishListItem.suggestedRetailPriceUSD}}</td>
+							<td>USD {{wishListItem.retailPriceUSD}}</td>
 						</tr>
 					</tbody>
 				</table>

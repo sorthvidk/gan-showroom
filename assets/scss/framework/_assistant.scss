@@ -115,6 +115,16 @@
 			line-height: rem(17);
 			color: $color-blue;
 		}
+		ol {
+			li {
+				@include bodytext();
+				margin-left: rem(15);
+				list-style-type: decimal;
+			}
+			li + li {
+				margin-top: rem(5);
+			}
+		}
 	}
 
 	&__filters {

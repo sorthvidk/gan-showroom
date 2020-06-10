@@ -145,7 +145,7 @@ export const state = () => ({
 					contentId: 'look-book',
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
-						text: 'Photo credit: Jakob Landvik'
+						text: 'Photo credit: Josefine Seifert'
 					}
 				}
 			]
@@ -224,7 +224,7 @@ export const state = () => ({
 			type: ShortcutTypes.URL,
 			shortcutId: 'rails',
 			icon: '/img/shortcuts/rails.png',
-			label: 'Rails',
+			label: 'Rails (pdf)',
 			posH: 2,
 			posV: 3,
 			href: '/files/GANNI_PS21_Rails.pdf'
@@ -281,7 +281,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Take a look at the ',
-			label: 'Lookbook',
+			label: 'Elevated Lookbook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',

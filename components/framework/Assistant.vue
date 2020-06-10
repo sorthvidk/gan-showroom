@@ -193,15 +193,15 @@
 
 								<tr>
 									<th>Suggested retail price</th>
-									<td>DKK {{currentStyle.suggestedRetailPriceDKK}}</td>
+									<td>DKK {{currentStyle.retailPriceDKK}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>EUR {{currentStyle.suggestedRetailPriceEUR}}</td>
+									<td>EUR {{currentStyle.retailPriceEUR}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>USD {{currentStyle.suggestedRetailPriceUSD}}</td>
+									<td>USD {{currentStyle.retailPriceUSD}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -328,7 +328,11 @@
 				>
 					<div class v-if="assistantMode == 5">
 						<div class="assistant__text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
+							<ol>
+								<li>Take a portrait photo of yourself and upload it.</li>
+								<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
+								<li>Share looks with your team</li>
+							</ol>
 						</div>
 					</div>
 
