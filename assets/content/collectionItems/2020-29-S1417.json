@@ -1,1 +1,25 @@
-{"styleId":"S1417","filters":["acc3",""],"name":"S1417_City Boot","program":4628,"programName":"Recycled Rubber","material":"50% Recycled Rubber 50% Rubber","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":600,"wholesalePriceEUR":86,"wholesalePriceUSD":103,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "onWishList": false,
+  "program": 4628,
+  "colorNames": "Flame",
+  "material": "50% Recycled Rubber 50% Rubber",
+  "name": "S1417_City Boot",
+  "styleId": "S1417",
+  "drop": "November",
+  "programName": "Recycled Rubber",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 86,
+  "weight": 1,
+  "wholesalePriceDKK": 600,
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "acc3",
+    ""
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 307
+}
