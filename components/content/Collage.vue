@@ -143,10 +143,10 @@ export default {
 					e.target.moveToTop()
 					this.layer.draw()
 				})
-				output.on('dblclick dbltap', e => {
-					e.target.destroy()
-					this.layer.draw()
-				})
+				// output.on('dblclick dbltap', e => {
+				// 	e.target.destroy()
+				// 	this.layer.draw()
+				// })
 				/**
 				 * Add to the scene
 				 */
@@ -271,8 +271,6 @@ export default {
 		this.doll.setZIndex(2)
 		this.layer.setZIndex(3)
 		this.watermark.setZIndex(3)
-
-		// this[KONVA_STAGE.action](this.stage)
 
 		this.insertPhoto({
 			src: '/img/collage/doll.png',

@@ -3,7 +3,7 @@
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
-		<screensaver v-if="!screensaverActive" />
+		<screensaver v-if="screensaverActive" />
 
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
