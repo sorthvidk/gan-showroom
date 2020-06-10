@@ -3,7 +3,7 @@
   "assets": [],
   "onWishList": false,
   "program": 3464,
-  "colorNames": "Black, Pale Lilac",
+  "colorNames": "Pale Lilac",
   "material": "50% Recycled Cot, 50% Recycled Poly",
   "name": "T2685_Elasticated Pants",
   "styleId": "T2685",
@@ -20,5 +20,5 @@
   ],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
-  "colorId": "99, 500"
+  "colorId": "500"
 }
