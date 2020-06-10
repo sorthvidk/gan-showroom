@@ -2,8 +2,7 @@
 	<div class="video-player">
 		<video
 			:src="videoUrl"
-			v-bind="{...videoAttributes}"
-			preload
+			v-bind="{...videoAttributes}"			
 		></video>
 	</div>
 </template>
@@ -36,6 +35,16 @@ export default {
 			required: false,
 			default: false
 		},
+		playsInline: {
+			type: Boolean,
+			required: false,
+			default: true
+		},
+		preload: {
+			type: Boolean,
+			required: false,
+			default: true
+		},
 		controls: {
 			type: Boolean,
 			required: false,
@@ -51,9 +60,11 @@ export default {
 		videoAttributes() {
 			let attr = {}
 			if ( this.autoPlay ) attr.autoplay = "autoplay"
-			if ( this.controls ) attr.controls = "autoplay"
-			if ( this.loop ) attr.loop = "autoplay"
-			if ( this.muted ) attr.muted = "autoplay"
+			if ( this.controls ) attr.controls = "controls"
+			if ( this.loop ) attr.loop = "loop"
+			if ( this.muted ) attr.muted = "muted"
+			if ( this.preload ) attr.preload = "auto"
+			if ( this.playsInline ) attr.playsinline = "preload"
 			if ( this.poster ) attr.poster = this.poster
 			return attr
 		}

@@ -43,10 +43,26 @@
 		@include megatype();
 		white-space: nowrap;
 		font-family: inherit;
+		margin-top: 0;
 	}
 
 	button {
-		border-bottom: rem(3) solid currentColor;
-		line-height: 0.6;
+		position: relative;
+		&:after {
+			display: block;
+			content:'';
+			position: absolute;
+			top: 85%;
+			left: 0;
+			right: 0;
+			height: rem(3);
+			background-color: $color-black;
+		}
+		&:hover {
+			color: $color-blue;
+			&:after {
+				background-color: $color-blue;
+			}
+		}
 	}
 }

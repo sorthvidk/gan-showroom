@@ -16,7 +16,7 @@ export default {
 	collection: {
 		name: 'collection',
 		contentComponent: 'collection',
-		contentScore: 20,
+		contentScore: 25,
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -36,7 +36,7 @@ export default {
 	films: {
 		name: 'films',
 		contentComponent: 'films',
-		contentScore: 10,
+		contentScore: 15,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -362,7 +362,7 @@ export default {
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',
-		contentScore: 0,
+		contentScore: 15,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {

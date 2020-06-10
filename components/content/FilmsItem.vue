@@ -65,7 +65,8 @@ export default {
 						asset: { cloudinaryUrl: this.cloudinaryUrl, type: 'video', aspect:'landscape' },
 						videoAttributes: {
 							poster: this.parsedPosterUrlVideo,
-							autoPlay: true,
+							preload: false,
+							autoPlay: false,
 							muted: false,
 							controls: true
 						}
