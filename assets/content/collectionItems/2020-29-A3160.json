@@ -1,1 +1,25 @@
-{"styleId":"A3160","filters":["acc2",""],"name":"A3160_Small Bag","program":5575,"programName":"Recycled Leather","material":"100% Recycled Leather","drop":"November","colorNames":"Olive drab","colorId":459,"wholesalePriceDKK":600,"wholesalePriceEUR":86,"wholesalePriceUSD":103,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "onWishList": false,
+  "program": 5575,
+  "colorNames": "Olive drab",
+  "material": "100% Recycled Leather",
+  "name": "A3160_Small Bag",
+  "styleId": "A3160",
+  "drop": "November",
+  "programName": "Recycled Leather",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 86,
+  "weight": 1,
+  "wholesalePriceDKK": 600,
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "acc2",
+    ""
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 459
+}
