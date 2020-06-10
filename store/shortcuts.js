@@ -114,30 +114,30 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-girls',
-			icon: '/img/shortcuts/ganni_girls.png',
-			label: 'GANNI Girls',
-			posH: 2,
-			posV: 2,
-			windowContent: [
-				{
-					title: '#GANNIGirls',
-					contentId: 'ganni-girls',
-					type: ContentTypes.ganniGirls,
-					statusComponentProps: {
-						text: 'http://#gannigirls.weblog/'
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'ganni-girls',
+		// 	icon: '/img/shortcuts/ganni_girls.png',
+		// 	label: 'GANNI Girls',
+		// 	posH: 2,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: '#GANNIGirls',
+		// 			contentId: 'ganni-girls',
+		// 			type: ContentTypes.ganniGirls,
+		// 			statusComponentProps: {
+		// 				text: 'http://#gannigirls.weblog/'
+		// 			}
+		// 		}
+		// 	]
+		// },
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
 			icon: '/img/shortcuts/look_book.png',
 			label: 'LookBook',
-			posH: 3,
+			posH: 2,
 			posV: 2,
 			windowContent: [
 				{
@@ -310,21 +310,21 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Meet the  ',
-			label: 'GANNI girls',
-			windowContent: [
-				{
-					title: '#GANNIGirls',
-					contentId: 'ganni-girls',
-					type: ContentTypes.ganniGirls,
-					statusComponentProps: {
-						text: 'http://#gannigirls.weblog/'
-					}
-				}
-			]
-		}
+		// {
+		// 	type: ShortcutTypes.MARQUEE,
+		// 	text: 'Meet the  ',
+		// 	label: 'GANNI girls',
+		// 	windowContent: [
+		// 		{
+		// 			title: '#GANNIGirls',
+		// 			contentId: 'ganni-girls',
+		// 			type: ContentTypes.ganniGirls,
+		// 			statusComponentProps: {
+		// 				text: 'http://#gannigirls.weblog/'
+		// 			}
+		// 		}
+		// 	]
+		// }
 	]
 })
 

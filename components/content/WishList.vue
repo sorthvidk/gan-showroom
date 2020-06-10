@@ -171,7 +171,7 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		getImageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0]);
+			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0], {width: 30});
 		}
 	},
 	mounted() {
