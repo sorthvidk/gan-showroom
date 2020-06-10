@@ -1,1 +1,25 @@
-{"styleId":"A3188","filters":["acc1",""],"name":"A3188_Collar","program":6099,"programName":"Cotton Poplin","material":"100% Organic Cotton","drop":"November","colorNames":"Bright White","colorId":151,"wholesalePriceDKK":143,"wholesalePriceEUR":20,"wholesalePriceUSD":28,"retailPriceDKK":399,"retailPriceEUR":55,"retailPriceUSD":65,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 65,
+  "assets": [],
+  "onWishList": false,
+  "program": 6099,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "name": "A3188_Collar",
+  "styleId": "A3188",
+  "drop": "November",
+  "programName": "Cotton Poplin",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 20,
+  "weight": 1,
+  "wholesalePriceDKK": 143,
+  "wholesalePriceUSD": 28,
+  "filters": [
+    "acc1",
+    "misc1"
+  ],
+  "retailPriceEUR": 55,
+  "retailPriceDKK": 399,
+  "colorId": 151
+}
