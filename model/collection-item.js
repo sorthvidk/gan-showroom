@@ -52,17 +52,17 @@ export default {
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceDKK: {
+	retailPriceDKK: {
 		//price in DKK
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceEUR: {
+	retailPriceEUR: {
 		//price in EUR
 		type: Number,
 		default: 0
 	},
-	suggestedRetailPriceUSD: {
+	retailPriceUSD: {
 		//price in USD
 		type: Number,
 		default: 0

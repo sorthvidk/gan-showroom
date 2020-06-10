@@ -1,1 +1,25 @@
-{"styleId":"T2718","filters":["rtw1",""],"name":"T2718_Dress","program":3462,"programName":"Printed Mesh","material":"94% Polyamide, 6% Elastane","drop":"November","colorNames":"Olive Drab, Leopard","colorId":"780, 943","wholesalePriceDKK":678,"wholesalePriceEUR":95,"wholesalePriceUSD":136,"retailPriceDKK":1899,"retailPriceEUR":265,"retailPriceUSD":325,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 325,
+  "assets": [],
+  "onWishList": false,
+  "program": 3462,
+  "colorNames": "Olive Drab, Leopard",
+  "material": "94% Polyamide, 6% Elastane",
+  "name": "T2718_Dress",
+  "styleId": "T2718",
+  "drop": "November",
+  "programName": "Printed Mesh",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 95,
+  "weight": 1,
+  "wholesalePriceDKK": 678,
+  "wholesalePriceUSD": 136,
+  "filters": [
+    "rtw1",
+    "misc4"
+  ],
+  "retailPriceEUR": 265,
+  "retailPriceDKK": 1899,
+  "colorId": "780, 943"
+}

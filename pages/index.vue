@@ -56,7 +56,7 @@ export default {
 	},
 	data() {
 		return {
-			countdownTime: 15000,
+			countdownTime: 150000,
 			timeout: null
 		}
 	},
@@ -85,7 +85,7 @@ export default {
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
 
-		console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
+		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)

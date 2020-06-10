@@ -66,7 +66,7 @@
 
 			<div class="clipboard-message" v-if="showClipboardMessage">
 				<p>Copied to clipboard</p>
-			</div>
+			</div> 
 
 			<div class="download-message" v-if="showDownloadMessage">
 				<div class="window window--no-status window--tight">
@@ -74,7 +74,7 @@
 						<span class="title">Please wait</span>
 					</header>
 					<div class="window__content">
-						<img src="/img/file-transfer.gif" alt />
+						<img src="/img/ganni_popcorn_animation.gif" alt />
 						<p>Your download is being prepared...</p>
 					</div>
 				</div>

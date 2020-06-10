@@ -29,7 +29,7 @@ export default {
 					w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
 					h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
-				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
+				[ViewportSizes.SMALL.name]: { w: 353, h: 390 }
 			}
 		}
 	},
@@ -57,7 +57,7 @@ export default {
 	musicPlayer: {
 		name: 'musicPlayer',
 		contentComponent: 'music-player',
-		contentScore: 8,
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -82,7 +82,7 @@ export default {
 	textFile: {
 		name: 'textFile',
 		contentComponent: 'text-reader',
-		contentScore: 9,
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -280,7 +280,7 @@ export default {
 	wishList: {
 		name: 'wishList',
 		contentComponent: 'wish-list',
-		contentScore: 9,
+		contentScore: 10,
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -302,7 +302,7 @@ export default {
 	hampsterDance: {
 		name: 'hampsterDance',
 		contentComponent: 'hampster-dance',
-		contentScore: 9,
+		contentScore: 10,
 		allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
@@ -322,7 +322,7 @@ export default {
 	ganniGirls: {
 		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
-		contentScore: 12,
+		contentScore: 0,
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
@@ -342,7 +342,7 @@ export default {
 	lookBook: {
 		name: 'lookBook',
 		contentComponent: 'look-book',
-		contentScore: 12,
+		contentScore: 15,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -362,7 +362,7 @@ export default {
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',
-		contentScore: 11,
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {

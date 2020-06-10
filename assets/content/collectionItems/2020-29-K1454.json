@@ -1,1 +1,25 @@
-{"styleId":"K1454","filters":["rtw5",""],"name":"K1454_Cardigan","program":2500,"programName":"Soft Wool Knit","material":"","drop":"November","colorNames":"Egret, Tiger's Eye, Pastel Lilac","colorId":"135, 177, 722","wholesalePriceDKK":760,"wholesalePriceEUR":106,"wholesalePriceUSD":136,"retailPriceDKK":1899,"retailPriceEUR":265,"retailPriceUSD":325,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 325,
+  "assets": [],
+  "onWishList": false,
+  "program": 2500,
+  "colorNames": "Egret, Tiger's Eye, Pastel Lilac",
+  "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
+  "name": "K1454_Cardigan",
+  "styleId": "K1454",
+  "drop": "November",
+  "programName": "Soft Wool Knit",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 106,
+  "weight": 1,
+  "wholesalePriceDKK": 760,
+  "wholesalePriceUSD": 136,
+  "filters": [
+    "rtw5",
+    ""
+  ],
+  "retailPriceEUR": 265,
+  "retailPriceDKK": 1899,
+  "colorId": "135, 177, 722"
+}

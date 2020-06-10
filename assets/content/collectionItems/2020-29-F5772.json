@@ -15,8 +15,10 @@
   "weight": 1,
   "wholesalePriceDKK": 880,
   "wholesalePriceUSD": 157,
-  "filters": [],
-  "retailPriceEUR": 305,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 295,
   "retailPriceDKK": 2199,
   "colorId": "307"
 }

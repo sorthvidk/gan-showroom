@@ -1,1 +1,24 @@
-{"styleId":"T2687","filters":[],"name":"T2687_Dropped Shoulder Sweatshirt, Cat","program":3464,"programName":"Isoli","material":"50% Recycled Cot, 50% Recycled Poly","drop":"November","colorNames":"Brazilian Sand","colorId":196,"wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "onWishList": false,
+  "program": 3464,
+  "colorNames": "Brazilian Sand",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "name": "T2687_Dropped Shoulder Sweatshirt, Cat",
+  "styleId": "T2687",
+  "drop": "November",
+  "programName": "Isoli",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 1,
+  "wholesalePriceDKK": 393,
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw4"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 196
+}

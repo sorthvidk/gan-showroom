@@ -154,7 +154,7 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
-		console.warn(
+		if ( window.GS_LOGS ) console.warn(
 			'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
 		)
 
@@ -175,7 +175,7 @@ export const mutations = {
 				}
 			}
 			else {
-				console.warn("NO FILTERS FOR STYLE: "+style.styleId)
+				if ( window.GS_LOGS ) console.warn("NO FILTERS FOR STYLE: "+style.styleId)
 			}
 		}
 
@@ -229,7 +229,7 @@ export const mutations = {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
 			let styleIds = state.activeFilter.styleIds
-			console.warn(
+			if ( window.GS_LOGS ) console.warn(
 				'SET CURRENT FILTER | filterId:' + filterId + ' | styleIds:' + styleIds
 			)
 			let sil = styleIds.length

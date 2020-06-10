@@ -1,10 +1,11 @@
 {
   "retailPriceUSD": 375,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 2499,
   "colorNames": "Mole",
   "material": "80% Viscose, 20% Metallic fibers",
-  "name": "K1463_Loose Strap Dress",
+  "name": "K1463_Strap Dress",
   "styleId": "K1463",
   "drop": "November",
   "programName": "Glitter Knit",
@@ -19,7 +20,7 @@
     "rtw5",
     "misc2"
   ],
-  "retailPriceEUR": 305,
+  "retailPriceEUR": 295,
   "retailPriceDKK": 2199,
   "colorId": 897
 }

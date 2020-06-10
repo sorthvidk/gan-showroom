@@ -1,4 +1,5 @@
 {
+  "retailPriceUSD": 165,
   "assets": [],
   "onWishList": false,
   "program": 6045,
@@ -10,10 +11,15 @@
   "programName": "Cotton Poplin",
   "index": 0,
   "responsible": false,
+  "wholesalePriceEUR": 52,
   "weight": 1,
+  "wholesalePriceDKK": 357,
+  "wholesalePriceUSD": 69,
   "filters": [
     "rtw8",
     "misc1"
   ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
   "colorId": "151"
 }

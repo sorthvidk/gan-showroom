@@ -145,7 +145,7 @@ export const state = () => ({
 					contentId: 'look-book',
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
-						text: 'Photo credit: Jakob Landvik'
+						text: 'Photo credit: Josefine Seifert'
 					}
 				}
 			]
@@ -173,7 +173,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_softwear.png',
+			icon: '/img/shortcuts/ganni_software.png',
 			label: 'GANNI Software',
 			posH: 11,
 			posV: 6,
@@ -224,10 +224,10 @@ export const state = () => ({
 			type: ShortcutTypes.URL,
 			shortcutId: 'rails',
 			icon: '/img/shortcuts/rails.png',
-			label: 'Rails',
+			label: 'Rails (pdf)',
 			posH: 2,
 			posV: 3,
-			href: '/files/rails.pdf'
+			href: '/files/GANNI_PS21_Rails.pdf'
 		},
 		{
 			type: ShortcutTypes.WINDOW,
@@ -248,13 +248,13 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
-			icon: '/img/shortcuts/paint.png',
-			label: 'GANNI Dress Up',
+			label: 'PLAY DRESS UP',
+			icon: '/img/shortcuts/ganni_dressup.png',
 			posH: 11,
 			posV: 5,
 			windowContent: [
 				{
-					title: 'GANNI Dress Up',
+					title: 'PLAY DRESS UP',
 					contentId: 'collage',
 					type: ContentTypes.collage
 				}
@@ -281,7 +281,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Take a look at the ',
-			label: 'Lookbook',
+			label: 'Elevated Lookbook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',

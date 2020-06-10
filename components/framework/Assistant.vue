@@ -193,15 +193,15 @@
 
 								<tr>
 									<th>Suggested retail price</th>
-									<td>DKK {{currentStyle.suggestedRetailPriceDKK}}</td>
+									<td>DKK {{currentStyle.retailPriceDKK}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>EUR {{currentStyle.suggestedRetailPriceEUR}}</td>
+									<td>EUR {{currentStyle.retailPriceEUR}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>USD {{currentStyle.suggestedRetailPriceUSD}}</td>
+									<td>USD {{currentStyle.retailPriceUSD}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -326,8 +326,15 @@
 					class="assistant__content scroll"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
-					<div class="assistant__text" v-if="assistantMode == 5">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
+
+					<div class v-if="assistantMode == 5">
+						<div class="assistant__text">
+							<ol>
+								<li>Take a portrait photo of yourself and upload it.</li>
+								<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
+								<li>Share looks with your team</li>
+							</ol>
+						</div>
 					</div>
 
 					<div class="assistant__ctas" v-if="assistantMode == 5">
@@ -412,7 +419,7 @@ export default {
 			styleHasBeenAdded: false,
 			shortenedReceiptUrl: null,
 			pdfDownloadLink:
-				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
+				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
 		}
 	},
 	computed: {
@@ -483,7 +490,10 @@ export default {
 			}
 		},
 		activeFilter(newVal) {
-			if (newVal && newVal.name != '') this.filterName = newVal.name
+			if (newVal && newVal.name != '') {
+				this.filterName = newVal.name
+				this.assistantExpanded = false
+			}
 			else this.filterName = null
 		},
 		topMostWindow(newVal) {
@@ -616,22 +626,22 @@ export default {
 			}
 		},
 		downloadCollectionClickHandler() {
-			console.log('Download collection')
+			if ( window.GS_LOGS ) console.log('Download collection')
 			history.pushState({}, '', this.collectionUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		downloadWishListClickHandler() {
-			console.log('Download wishlist')
+			if ( window.GS_LOGS ) console.log('Download wishlist')
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist', this.wishListUrl)
+			if ( window.GS_LOGS ) console.log('Share wishlist', this.wishListUrl)
 
 			getShortUrl(this.wishListUrl).then(shortenedUrl => {
-				console.log('shortenedUrl', shortenedUrl)
+				if ( window.GS_LOGS ) console.log('shortenedUrl', shortenedUrl)
 				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
 					this.shortenedReceiptUrl = shortenedUrl
 
@@ -644,7 +654,7 @@ export default {
 			})
 		},
 		copyToClipboardComplete(success) {
-			console.log('copyToClipboardComplete. success?', success)
+			if ( window.GS_LOGS ) console.log('copyToClipboardComplete. success?', success)
 			this.shareUrl = this.wishListUrl
 			this[CLIPBOARD_COPY.action](success)
 		},
