@@ -1,1 +1,24 @@
-{"styleId":"T2692","filters":[],"name":"T2692_T-Shirt, White Cat","program":3475,"programName":"Basic Cotton Jersey","material":"100% Organic Cotton","drop":"November","colorNames":"Bright White","colorId":151,"wholesalePriceDKK":214,"wholesalePriceEUR":31,"wholesalePriceUSD":44,"retailPriceDKK":599,"retailPriceEUR":85,"retailPriceUSD":105,"responsible":true,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 105,
+  "assets": [],
+  "onWishList": false,
+  "program": 3475,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "name": "T2692_T-Shirt, White Cat",
+  "styleId": "T2692",
+  "drop": "November",
+  "programName": "Basic Cotton Jersey",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 31,
+  "weight": 1,
+  "wholesalePriceDKK": 214,
+  "wholesalePriceUSD": 44,
+  "filters": [
+    "rtw10"
+  ],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 151
+}
