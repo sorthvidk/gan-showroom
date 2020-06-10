@@ -152,7 +152,7 @@ export default {
 						clipFunc: ctx => {
 							ctx.arc(
 								isMobile()
-									? this.webcamImageRadius / 1.7
+									? this.webcamImageRadius / 3
 									: this.webcamImageRadius / 1.5,
 								this.webcamImageRadius / 2.1, // y
 								this.webcamImageRadius / 3, // radius
@@ -200,7 +200,7 @@ export default {
 					y: 0,
 					x: this.webcamImageOffset,
 					width: {
-						mobile: this.webcamImageRadius * 0.9,
+						mobile: this.webcamImageRadius * 0.75,
 						desktop: this.webcamImageRadius * 1.35
 					},
 					height: this.webcamImageRadius,
