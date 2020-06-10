@@ -1,10 +1,10 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591701543/collection/Elevated%20lookbook/ganni_el_js_25_wlptur.jpg",
-  "assetId": "S1460 3",
-  "styleId": "S1460",
-  "name": "S1460 Low Chelsea Boot",
+  "assetId": "F5454 3",
+  "styleId": "F5454",
+  "name": "F5454 Midi Dress",
   "type": "image"
 }
