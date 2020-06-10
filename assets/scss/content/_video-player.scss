@@ -5,15 +5,19 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	video {		
+
+	video {
+		position: relative;
 		outline: 0;
 		width: 100%;
 		height: auto;
 		max-height: 100%;
+		z-index: 1;
 	}
 
 	.poster {
 		position: absolute;
+		z-index: 2;
 		top: 0;
 		left: 0;
 		right: 0;

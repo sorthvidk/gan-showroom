@@ -6,7 +6,7 @@
 			v-bind="{...videoAttributes}"			
 		></video>
 		
-		<div class="poster">
+		<div class="poster" v-if="!loaded">
 			<img :src="poster" alt="poster" />
 			<em></em>
 			<span class="loader"></span>
