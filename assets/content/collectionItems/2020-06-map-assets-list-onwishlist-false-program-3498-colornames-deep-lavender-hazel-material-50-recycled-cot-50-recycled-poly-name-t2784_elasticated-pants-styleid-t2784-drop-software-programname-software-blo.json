@@ -1,4 +1,5 @@
 {
+  "retailPriceUSD": 195,
   "assets": [],
   "onWishList": false,
   "program": 3498,
@@ -10,9 +11,14 @@
   "programName": "Software Block Isoli",
   "index": 0,
   "responsible": true,
+  "wholesalePriceEUR": 63,
   "weight": 1,
+  "wholesalePriceDKK": 428,
+  "wholesalePriceUSD": 86,
   "filters": [
     "misc5"
   ],
+  "retailPriceEUR": 165,
+  "retailPriceDKK": 1199,
   "colorId": "732, 933"
 }
