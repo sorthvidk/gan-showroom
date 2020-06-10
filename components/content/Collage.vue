@@ -12,8 +12,9 @@
 
 		<div id="container"></div>
 
-		<button
-			class="trigger"
+		<div
+			title="Take photo"
+			class="trigger button"
 			:class="{ photoTimer }"
 			@mouseenter="openPhotobooth = true"
 			@mouseleave="openPhotobooth = false"
@@ -25,12 +26,12 @@
 					d="M469.3 106.7h-67.6c-8.6 0-16.6-3.4-22.7-9.4l-39-39a53 53 0 00-37.7-15.6h-92.6A53 53 0 00172 58.3l-39 39c-6 6-14.1 9.4-22.7 9.4H42.7A42.7 42.7 0 000 149.3v277.4a42.7 42.7 0 0042.7 42.6h426.6a42.7 42.7 0 0042.7-42.6V149.3a42.7 42.7 0 00-42.7-42.6zM256 405.3c-70.6 0-128-57.4-128-128s57.4-128 128-128 128 57.5 128 128-57.4 128-128 128zm170.7-192a21.4 21.4 0 110-42.7 21.4 21.4 0 010 42.7z"
 				/>
 			</svg>
-			<p
+			<span
 				v-else
 				v-for="count in countdown"
 				:class="count === photoTimer ? 'active' : ''"
 				:key="count"
-			>{{ count }}</p>
+			>{{ count }}</span>
 			<svg v-if="photoTimer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 				<path
 					d="M256 0a256 256 0 100 512 256 256 0 000-512zm0 480a224 224 0 110-448 224 224 0 010 448z"
@@ -39,8 +40,9 @@
 				<circle cx="336" cy="176" r="32" />
 				<path d="M368 256a112 112 0 11-224 0h-32a144 144 0 00288 0h-32z" />
 			</svg>
-		</button>
-		<button @click="getNextCamera">
+		</div>
+
+		<div title="Change camera" @click="getNextCamera" class="button">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 				<path
 					d="M256 0a10.6 10.6 0 00-6.7 19l53.4 42.7A10.7 10.7 0 00316 45l-26.6-21.3A235 235 0 01490.7 256a235 235 0 01-173.5 226.3 10.6 10.6 0 105.6 20.6A256.2 256.2 0 00512 256C512 114.8 397.2 0 256 0zM262.7 493l-53.4-42.7A10.7 10.7 0 00196 467l26.6 21.3A235 235 0 0121.3 256 235 235 0 01194.8 29.7 10.6 10.6 0 10189.2 9 256.2 256.2 0 000 256c0 141.2 114.8 256 256 256a10.6 10.6 0 006.7-19z"
@@ -53,7 +55,7 @@
 					d="M256 341.3a85.4 85.4 0 000-170.6 85.4 85.4 0 000 170.6zm0-149.3a64 64 0 11-.1 128.1A64 64 0 01256 192z"
 				/>
 			</svg>
-		</button>
+		</div>
 	</div>
 </template>
 
@@ -68,9 +70,12 @@ export default {
 		return {
 			webcamWidth: 300,
 			webcamHeight: 220,
+
+			webcamImageRadius: 130,
+			webcamImageOffset: 0,
+
 			stageWidth: isMobile() ? 350 : 530,
 			stageHeight: isMobile() ? 440 : 520,
-			webcamImageOffset: 150,
 
 			openPhotobooth: false,
 			photo: null,
@@ -101,7 +106,6 @@ export default {
 		setCameras(cameras) {
 			this.cameras = cameras
 			this.currentCameraIndex = 0
-			// console.log('cameras', cameras)
 		},
 		getNextCamera() {
 			this.currentCameraIndex =
@@ -111,7 +115,6 @@ export default {
 			this.$refs.webcam.changeCamera(
 				this.cameras[this.currentCameraIndex].deviceId
 			)
-			console.log(this.currentCameraIndex)
 		},
 		insertPhoto({
 			src,
@@ -142,15 +145,17 @@ export default {
 					y: top,
 					width: w,
 					height: h,
-					draggable: draggable && !round
+					draggable: draggable && !round && layer !== 'background'
 				})
 				if (round) {
 					var group = new Konva.Group({
 						clipFunc: ctx => {
 							ctx.arc(
-								(this.webcamWidth + this.webcamImageOffset) / 2,
-								this.webcamHeight / 4,
-								35,
+								isMobile()
+									? this.webcamImageRadius / 1.5
+									: this.webcamImageRadius / 1.5,
+								this.webcamImageRadius / 2.1, // y
+								this.webcamImageRadius / 3, // radius
 								0,
 								Math.PI * 2,
 								false
@@ -195,10 +200,10 @@ export default {
 					y: 0,
 					x: this.webcamImageOffset,
 					width: {
-						mobile: this.webcamWidth / 3,
-						desktop: this.webcamWidth / 2
+						mobile: this.webcamImageRadius,
+						desktop: this.webcamImageRadius * 1.35
 					},
-					height: this.webcamHeight / 2,
+					height: this.webcamImageRadius,
 					round: true
 				})
 			} else setTimeout(() => this.takePhotoWithTimer(time - 1), 1000)
@@ -307,11 +312,11 @@ export default {
 		this.watermark.setZIndex(3)
 
 		this.insertPhoto({
-			src: '/img/collage/doll.png',
+			src: '/img/collage/ballon.svg',
 			y: isMobile() ? 0 : 50,
 			x: isMobile() ? 0 : 100,
-			width: 350,
-			height: 450,
+			width: 80,
+			height: 240,
 			// draggable: false,
 			layer: 'doll'
 		})

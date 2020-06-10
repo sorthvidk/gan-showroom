@@ -70,7 +70,10 @@ export default {
 					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
 					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				},
-				[ViewportSizes.SMALL.name]: { w: 353, h: WINDOW_NOSTATUS_CHROME_HEIGHT }
+				[ViewportSizes.SMALL.name]: {
+					w: 353,
+					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
+				}
 			},
 			noStatus: true,
 			canResize: false,
