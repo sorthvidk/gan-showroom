@@ -1,9 +1,16 @@
 <template>
 	<div class="video-player">
 		<video
+			ref="videoElement"
 			:src="videoUrl"
 			v-bind="{...videoAttributes}"			
 		></video>
+		
+		<div class="poster">
+			<img :src="poster" alt="poster" />
+			<em></em>
+			<span class="loader"></span>
+		</div>
 	</div>
 </template>
 
@@ -56,6 +63,12 @@ export default {
 			default: false
 		}
 	},
+	data() {
+		return {
+			videoRef: null,
+			loaded: false
+		}
+	},
 	computed: {
 		videoAttributes() {
 			let attr = {}
@@ -70,10 +83,22 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([FORCE_STOP_MUSIC.action])
+		...mapActions([FORCE_STOP_MUSIC.action]),
+		videoDataHandler() {
+			console.log("readyState", this.videoRef.readyState)
+
+			if(this.videoRef.readyState >= 2) {
+				this.loaded = true
+			}
+		}
 	},
 	mounted() {
 		if (!this.muted) this[FORCE_STOP_MUSIC.action]()
+		
+		this.videoRef = this.$refs['videoElement']
+		if ( this.videoRef instanceof HTMLElement ) {
+			this.videoRef.addEventListener('loadeddata', this.videoDataHandler.bind(this))
+		}
 	}
 };
 </script>

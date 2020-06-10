@@ -5,9 +5,9 @@ export default function(cl, asset, tf={}) {
 	
 	if ( asset.cloudinaryUrl ) {
 		parseUrl = asset.cloudinaryUrl.split('upload/')[1]
-		transform.crop = 'scale'
 
 		if ( asset.type === 'video' ) {			
+			transform.crop = 'scale'
 			transform.fetchFormat = 'auto' //may need to be h264?
 
 			let aspect = 342/608
@@ -26,6 +26,7 @@ export default function(cl, asset, tf={}) {
 			resultUrl = cl.video_url(parseUrl, transform);
 		}
 		else {
+			transform.crop = 'fill'
 			resultUrl = cl.url(parseUrl, transform);
 		}
 	}
