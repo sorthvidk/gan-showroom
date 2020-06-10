@@ -43,17 +43,20 @@
 		</div>
 
 		<div title="Change camera" @click="getNextCamera" class="button">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-				<path
-					d="M256 0a10.6 10.6 0 00-6.7 19l53.4 42.7A10.7 10.7 0 00316 45l-26.6-21.3A235 235 0 01490.7 256a235 235 0 01-173.5 226.3 10.6 10.6 0 105.6 20.6A256.2 256.2 0 00512 256C512 114.8 397.2 0 256 0zM262.7 493l-53.4-42.7A10.7 10.7 0 00196 467l26.6 21.3A235 235 0 0121.3 256 235 235 0 01194.8 29.7 10.6 10.6 0 10189.2 9 256.2 256.2 0 000 256c0 141.2 114.8 256 256 256a10.6 10.6 0 006.7-19z"
-				/>
-				<path
-					d="M183.2 121.8c-4 4-9.5 6.2-15.1 6.2H128a42.7 42.7 0 00-42.7 42.7v170.6A42.7 42.7 0 00128 384h256a42.7 42.7 0 0042.7-42.7V170.7A42.7 42.7 0 00384 128h-40c-5.7 0-11.2-2.3-15.2-6.3l-13.2-13.2A43 43 0 00285.4 96h-58.8a43 43 0 00-30.2 12.5l-13.2 13.3zm28.3 1.8c4-4 9.5-6.3 15-6.3h59c5.5 0 11 2.3 15 6.3l13.2 13.2c8 8 19 12.5 30.2 12.5H384c11.8 0 21.3 9.6 21.3 21.4v170.6c0 11.8-9.5 21.4-21.3 21.4H128a21.4 21.4 0 01-21.3-21.4V170.7c0-11.8 9.5-21.4 21.3-21.4h40a43 43 0 0030.3-12.5l13.2-13.2z"
-				/>
-				<circle cx="362.7" cy="192" r="21.3" />
-				<path
-					d="M256 341.3a85.4 85.4 0 000-170.6 85.4 85.4 0 000 170.6zm0-149.3a64 64 0 11-.1 128.1A64 64 0 01256 192z"
-				/>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 32">
+				<g fill="#000" clip-path="url(#clip0)">
+					<path
+						d="M3.4 12.3l.7-.6c1.6-1.2 4-2.4 8.6-3.1V4.2a23 23 0 00-9.4 3.1c-1 .8-1.5 1.3-1.5 2.3 0 1 .5 1.8 1.6 2.7z"
+					/>
+					<path
+						d="M22.5 18.5c-4.7 0-9-.5-13.3-1.5C1.5 15.2.5 12.7.1 11.8c-.3 3.4 0 6 0 6.2.4 3 3.8 5.4 6.3 6.2a49.6 49.6 0 0016 2.9V32l9.4-9.3-9.3-9.3v5.1zM21.6 8c4.6 0 9.9.6 15 2.2 2.2.6 3.9 1.5 5.3 2.6 1-.4 2.3-1.5 2.1-2.6-.5-2.8-4.7-4.4-5.4-4.7-5.1-1.5-11.4-2-17-2V0l-5.8 5.8 5.8 5.8V8zM45.8 11.7c-.2 1.3-2.4 4-11.2 5.8v9c3.3-.7 7-2.5 9.2-4.3.8-.7 1.3-1.8 1.6-2.5 1-2.3.5-6.6.4-8z"
+					/>
+				</g>
+				<defs>
+					<clipPath id="clip0">
+						<path fill="#fff" d="M0 0h46v32H0z" />
+					</clipPath>
+				</defs>
 			</svg>
 		</div>
 	</div>
@@ -72,7 +75,7 @@ export default {
 			webcamHeight: 220,
 
 			webcamImageRadius: 130,
-			webcamImageOffset: 0,
+			webcamImageOffset: 100,
 
 			stageWidth: isMobile() ? 350 : 530,
 			stageHeight: isMobile() ? 440 : 520,
@@ -152,9 +155,9 @@ export default {
 						clipFunc: ctx => {
 							ctx.arc(
 								isMobile()
-									? this.webcamImageRadius / 3
-									: this.webcamImageRadius / 1.5,
-								this.webcamImageRadius / 2.1, // y
+									? this.webcamImageRadius / 3 + this.webcamImageOffset
+									: this.webcamImageRadius / 1.5 + this.webcamImageOffset,
+								this.webcamImageRadius / 2.1 + this.webcamImageOffset, // y
 								this.webcamImageRadius / 3, // radius
 								0,
 								Math.PI * 2,
@@ -197,7 +200,7 @@ export default {
 				this.photo = this.$refs.webcam.capture()
 				this.insertPhoto({
 					src: this.photo,
-					y: 0,
+					y: this.webcamImageOffset,
 					x: this.webcamImageOffset,
 					width: {
 						mobile: this.webcamImageRadius * 0.75,
@@ -313,8 +316,8 @@ export default {
 
 		this.insertPhoto({
 			src: '/img/collage/ballon.svg',
-			y: isMobile() ? 0 : 50,
-			x: isMobile() ? 0 : 100,
+			y: isMobile() ? 50 : 100,
+			x: isMobile() ? 100 : 230,
 			width: 80,
 			height: 240,
 			// draggable: false,

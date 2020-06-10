@@ -59,16 +59,41 @@
 		position: absolute;
 		background: $color-lightgrey;
 
-		width: 25%;
+		width: 70px;
 		height: 70px;
 		right: 0;
 
 		box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
 
+		svg {
+			padding: 1rem;
+			height: 1.6rem;
+			width: 1.6rem;
+			fill: $color-black;
+			position: relative;
+			z-index: 1;
+		}
+
 		&.trigger {
-			width: 73.5%;
+			width: calc(100% - 75px);
 			right: auto;
 			left: 0;
+
+			svg {
+				fill: $color-white;
+			}
+
+			&:before {
+				background: $color-lime;
+				content: '';
+				height: 3.2rem;
+				width: 3.2rem;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
 		}
 
 		@include mq($until: screen-md) {
@@ -82,27 +107,6 @@
 				left: rem(15);
 				right: auto;
 			}
-		}
-
-		&:before {
-			background: $color-lime;
-			content: '';
-			height: 3.2rem;
-			width: 3.2rem;
-			border-radius: 50%;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		svg {
-			padding: 1rem;
-			height: 1.6rem;
-			width: 1.6rem;
-			fill: $color-white;
-			position: relative;
-			z-index: 1;
 		}
 	}
 }
