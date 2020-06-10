@@ -29,9 +29,6 @@
 
 	.trigger {
 		&.photoTimer {
-			display: flex;
-			align-items: center;
-			justify-content: center;
 			background: $color-lime;
 			color: $color-white;
 
@@ -39,13 +36,14 @@
 				content: none;
 			}
 
-			p {
+			span {
+				display: inline-block;
 				font-family: $font-sansserif;
 				opacity: 0.7;
 				font-size: 3rem;
 				line-height: 0.5;
 				font-weight: 500;
-				margin: 0 0.5em;
+				margin: 0 0.35em;
 
 				&.active {
 					opacity: 1;
@@ -54,15 +52,24 @@
 		}
 	}
 
-	button {
-		display: inline-block;
-		position: relative;
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
 		background: $color-lightgrey;
 
-		width: 49.5%;
+		width: 25%;
 		height: 70px;
+		right: 0;
 
 		box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+
+		&.trigger {
+			width: 73.5%;
+			right: auto;
+			left: 0;
+		}
 
 		@include mq($until: screen-md) {
 			position: absolute;
@@ -71,6 +78,7 @@
 			width: auto;
 
 			&.trigger {
+				width: auto;
 				left: rem(15);
 				right: auto;
 			}
@@ -90,7 +98,6 @@
 
 		svg {
 			padding: 1rem;
-			margin-top: 0.25rem;
 			height: 1.6rem;
 			width: 1.6rem;
 			fill: $color-white;
