@@ -94,11 +94,19 @@
 
 		&.is-collapsed {
 			border-top: 0;
-			max-height: 0;
+			max-height: 0 !important;
 		}
 
 		&.scroll {
+			@include custom-scrollbar();
+			overflow: hidden;
 			overflow-y: auto;
+			max-height: rem(180);
+
+			@include mq($from: screen-md) {
+				max-height: none;
+				overflow: visible;
+			}
 		}
 
 		@include mq($from: screen-md) {
@@ -405,6 +413,19 @@
 			}
 			100% {
 				stroke-dashoffset: 0;
+			}
+		}
+	}
+
+	.collage-ctas {
+		display: flex;
+
+		button {
+			@include full-width-button();
+			width: 50%;
+
+			&:first-of-type {
+				border-right: 1px solid;
 			}
 		}
 	}

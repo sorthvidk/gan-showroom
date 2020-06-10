@@ -6,12 +6,14 @@
 				:width="this.webcamWidth"
 				:height="this.webcamHeight"
 				:selectFirstDevice="true"
+				@cameras="setCameras"
 			/>
 		</div>
 
 		<div id="container"></div>
 
 		<button
+			class="trigger"
 			:class="{ photoTimer }"
 			@mouseenter="openPhotobooth = true"
 			@mouseleave="openPhotobooth = false"
@@ -38,6 +40,20 @@
 				<path d="M368 256a112 112 0 11-224 0h-32a144 144 0 00288 0h-32z" />
 			</svg>
 		</button>
+		<button @click="getNextCamera">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+				<path
+					d="M256 0a10.6 10.6 0 00-6.7 19l53.4 42.7A10.7 10.7 0 00316 45l-26.6-21.3A235 235 0 01490.7 256a235 235 0 01-173.5 226.3 10.6 10.6 0 105.6 20.6A256.2 256.2 0 00512 256C512 114.8 397.2 0 256 0zM262.7 493l-53.4-42.7A10.7 10.7 0 00196 467l26.6 21.3A235 235 0 0121.3 256 235 235 0 01194.8 29.7 10.6 10.6 0 10189.2 9 256.2 256.2 0 000 256c0 141.2 114.8 256 256 256a10.6 10.6 0 006.7-19z"
+				/>
+				<path
+					d="M183.2 121.8c-4 4-9.5 6.2-15.1 6.2H128a42.7 42.7 0 00-42.7 42.7v170.6A42.7 42.7 0 00128 384h256a42.7 42.7 0 0042.7-42.7V170.7A42.7 42.7 0 00384 128h-40c-5.7 0-11.2-2.3-15.2-6.3l-13.2-13.2A43 43 0 00285.4 96h-58.8a43 43 0 00-30.2 12.5l-13.2 13.3zm28.3 1.8c4-4 9.5-6.3 15-6.3h59c5.5 0 11 2.3 15 6.3l13.2 13.2c8 8 19 12.5 30.2 12.5H384c11.8 0 21.3 9.6 21.3 21.4v170.6c0 11.8-9.5 21.4-21.3 21.4H128a21.4 21.4 0 01-21.3-21.4V170.7c0-11.8 9.5-21.4 21.3-21.4h40a43 43 0 0030.3-12.5l13.2-13.2z"
+				/>
+				<circle cx="362.7" cy="192" r="21.3" />
+				<path
+					d="M256 341.3a85.4 85.4 0 000-170.6 85.4 85.4 0 000 170.6zm0-149.3a64 64 0 11-.1 128.1A64 64 0 01256 192z"
+				/>
+			</svg>
+		</button>
 	</div>
 </template>
 
@@ -53,7 +69,7 @@ export default {
 			webcamWidth: 300,
 			webcamHeight: 220,
 			stageWidth: isMobile() ? 350 : 530,
-			stageHeight: isMobile() ? 510 : 520,
+			stageHeight: isMobile() ? 440 : 520,
 			webcamImageOffset: 150,
 
 			openPhotobooth: false,
@@ -82,6 +98,21 @@ export default {
 	},
 	methods: {
 		...mapActions([SAVE_AS_BACKGROUND.action, COLLAGE_IS_OPEN.action]),
+		setCameras(cameras) {
+			this.cameras = cameras
+			this.currentCameraIndex = 0
+			// console.log('cameras', cameras)
+		},
+		getNextCamera() {
+			this.currentCameraIndex =
+				this.currentCameraIndex + 1 < this.cameras.length
+					? this.currentCameraIndex + 1
+					: 0
+			this.$refs.webcam.changeCamera(
+				this.cameras[this.currentCameraIndex].deviceId
+			)
+			console.log(this.currentCameraIndex)
+		},
 		insertPhoto({
 			src,
 			y = 0,
@@ -163,7 +194,10 @@ export default {
 					src: this.photo,
 					y: 0,
 					x: this.webcamImageOffset,
-					width: this.webcamWidth / 2,
+					width: {
+						mobile: this.webcamWidth / 3,
+						desktop: this.webcamWidth / 2
+					},
 					height: this.webcamHeight / 2,
 					round: true
 				})

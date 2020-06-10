@@ -326,15 +326,12 @@
 					class="assistant__content scroll"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
-
-					<div class v-if="assistantMode == 5">
-						<div class="assistant__text">
-							<ol>
-								<li>Take a portrait photo of yourself and upload it.</li>
-								<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
-								<li>Share looks with your team</li>
-							</ol>
-						</div>
+					<div class="assistant__text" v-if="assistantMode == 5">
+						<ol>
+							<li>Take a portrait photo of yourself and upload it.</li>
+							<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
+							<li>Share looks with your team</li>
+						</ol>
 					</div>
 
 					<div class="assistant__ctas" v-if="assistantMode == 5">
@@ -352,16 +349,16 @@
 									</svg>
 								</button>
 							</div>
-							<div class="row">
-								<button class="button button--half" @click="downloadImageClickHandler">
-									<p>Save image</p>
-								</button>
-								<button class="button button--half" @click="makeBackgroundClickHandler">
-									<p>Make background</p>
-								</button>
-							</div>
 						</div>
 					</div>
+				</div>
+				<div class="row collage-ctas" v-if="assistantMode == 5">
+					<button class="button button--half" @click="downloadImageClickHandler">
+						<p>Save image</p>
+					</button>
+					<button class="button button--half" @click="makeBackgroundClickHandler">
+						<p>Make background</p>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -493,8 +490,7 @@ export default {
 			if (newVal && newVal.name != '') {
 				this.filterName = newVal.name
 				this.assistantExpanded = false
-			}
-			else this.filterName = null
+			} else this.filterName = null
 		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
@@ -626,22 +622,22 @@ export default {
 			}
 		},
 		downloadCollectionClickHandler() {
-			if ( window.GS_LOGS ) console.log('Download collection')
+			if (window.GS_LOGS) console.log('Download collection')
 			history.pushState({}, '', this.collectionUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		downloadWishListClickHandler() {
-			if ( window.GS_LOGS ) console.log('Download wishlist')
+			if (window.GS_LOGS) console.log('Download wishlist')
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			if ( window.GS_LOGS ) console.log('Share wishlist', this.wishListUrl)
+			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
 
 			getShortUrl(this.wishListUrl).then(shortenedUrl => {
-				if ( window.GS_LOGS ) console.log('shortenedUrl', shortenedUrl)
+				if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
 				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
 					this.shortenedReceiptUrl = shortenedUrl
 
@@ -654,7 +650,8 @@ export default {
 			})
 		},
 		copyToClipboardComplete(success) {
-			if ( window.GS_LOGS ) console.log('copyToClipboardComplete. success?', success)
+			if (window.GS_LOGS)
+				console.log('copyToClipboardComplete. success?', success)
 			this.shareUrl = this.wishListUrl
 			this[CLIPBOARD_COPY.action](success)
 		},

@@ -375,7 +375,7 @@ export default {
 					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
 					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
-				[ViewportSizes.SMALL.name]: { w: 350, h: 540 }
+				[ViewportSizes.SMALL.name]: { w: 350, h: 440 }
 			},
 			noStatus: true,
 			canResize: false,
