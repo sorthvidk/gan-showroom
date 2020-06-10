@@ -29,6 +29,7 @@
 
 	p {
 		animation: marquee 40s linear infinite;
+		margin-top: rem(10);
 	}
 
 	&:hover {
@@ -46,6 +47,6 @@
 
 	button {
 		border-bottom: rem(3) solid currentColor;
-    	line-height: 0.9;
+		line-height: 0.6;
 	}
 }

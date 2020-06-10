@@ -58,7 +58,7 @@ export const state = () => ({
 	loggedIn: false,
 	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
 
-	appTabUnfocused: true,
+	screensaverActive: false,
 
 	progressItems: {},
 	progressPct: 0,
@@ -158,7 +158,7 @@ export const mutations = {
 	},
 
 	[VISIBILITY.mutation](state, key) {
-		state.hidden = key
+		state.screensaverActive = key
 	},
 
 	[WALLPAPER_CHANGE.mutation](state) {

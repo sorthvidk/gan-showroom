@@ -15,7 +15,7 @@
 			:class="{ photoTimer }"
 			@mouseenter="openPhotobooth = true"
 			@mouseleave="openPhotobooth = false"
-			@click="takePhotoIn(3)"
+			@click="takePhotoWithTimer(3)"
 		>
 			<svg v-if="!photoTimer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 				<circle cx="256" cy="277.3" r="106.7" />
@@ -53,7 +53,7 @@ export default {
 			webcamWidth: 300,
 			webcamHeight: 220,
 			stageWidth: isMobile() ? 350 : 530,
-			stageHeight: isMobile() ? 470 : 520,
+			stageHeight: isMobile() ? 510 : 520,
 			webcamImageOffset: 150,
 
 			openPhotobooth: false,
@@ -90,31 +90,27 @@ export default {
 			height,
 			draggable = true,
 			round = false,
-			background = false,
-			doll = false
+			// background = false,
+			// doll = false,
+			layer = 'layer'
 		}) {
 			const image = new Image()
 
-			const w =
-				typeof width === 'object'
-					? isMobile()
-						? width.mobile
-						: width.desktop
-					: width
-			const h =
-				typeof height === 'object'
-					? isMobile()
-						? height.mobile
-						: height.desktop
-					: height
+			const extract = val =>
+				typeof val === 'object' ? (isMobile() ? val.mobile : val.desktop) : val
+
+			const w = extract(width)
+			const h = extract(height)
+			const left = extract(x)
+			const top = extract(y)
 
 			image.onload = () => {
 				let output
 
 				const img = new this.$Konva.Image({
 					image,
-					x,
-					y,
+					x: left,
+					y: top,
 					width: w,
 					height: h,
 					draggable: draggable && !round
@@ -154,20 +150,12 @@ export default {
 				/**
 				 * Add to the scene
 				 */
-				if (background) {
-					this.background.add(output)
-					this.background.draw()
-				} else if (doll) {
-					this.doll.add(output)
-					this.doll.draw()
-				} else {
-					this.layer.add(output)
-					this.layer.draw()
-				}
+				this[layer].add(output)
+				this[layer].draw()
 			}
 			image.src = src
 		},
-		takePhotoIn(time) {
+		takePhotoWithTimer(time) {
 			this.photoTimer = time
 			if (!time) {
 				this.openPhotobooth = false
@@ -181,7 +169,7 @@ export default {
 					height: this.webcamHeight / 2,
 					round: true
 				})
-			} else setTimeout(() => this.takePhotoIn(time - 1), 1000)
+			} else setTimeout(() => this.takePhotoWithTimer(time - 1), 1000)
 		},
 		savePhoto() {
 			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
@@ -213,6 +201,8 @@ export default {
 			this.stage.draw()
 		},
 		removeAndReturnOldKonvoImage(x) {
+			if (!this.clothes[x]) return
+
 			return this.clothes[x].reduce((acc, garment) => {
 				const layer = x === 'background' ? 'background' : 'layer'
 				const existing = this[layer].children.filter(
@@ -252,8 +242,8 @@ export default {
 
 			const newIndex = next ? plusOneOrFirst() : minusOneOrLast()
 			const newImage = this.clothes[x][newIndex]
-			Object.assign(newImage, oldPlacement)
-			this.insertPhoto(newImage)
+			const merged = { ...newImage, ...oldPlacement }
+			this.insertPhoto(merged)
 		}
 	},
 	mounted() {
@@ -274,20 +264,34 @@ export default {
 		this.layer = new this.$Konva.Layer()
 		this.stage.add(this.layer)
 
+		this.watermark = new this.$Konva.Layer()
+		this.stage.add(this.watermark)
+
 		this.background.setZIndex(1)
 		this.doll.setZIndex(2)
 		this.layer.setZIndex(3)
+		this.watermark.setZIndex(3)
 
 		// this[KONVA_STAGE.action](this.stage)
 
 		this.insertPhoto({
 			src: '/img/collage/doll.png',
-			y: 0,
-			x: 0,
+			y: isMobile() ? 0 : 50,
+			x: isMobile() ? 0 : 100,
 			width: 350,
 			height: 450,
 			// draggable: false,
-			doll: true
+			layer: 'doll'
+		})
+
+		this.insertPhoto({
+			src: '/img/collage/watermark.png',
+			y: 475,
+			x: 10,
+			width: 150,
+			height: 23,
+			draggable: false,
+			layer: 'watermark'
 		})
 
 		/**

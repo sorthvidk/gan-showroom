@@ -1,19 +1,22 @@
 // // only for testing
-// @font-face {
-// 	font-family: 'Helvetica Neue';
-// 	font-weight: normal;
-// 	src: url('/font/HelveticaNeueLTPro-Roman.otf');
-// }
-// @font-face {
-// 	font-family: 'Helvetica Neue';
-// 	font-weight: 500;
-// 	src: url('/font/HelveticaNeueLTPro-Md.otf');
-// }
-// @font-face {
-// 	font-family: 'Helvetica Neue';
-// 	font-weight: 600;
-// 	src: url('/font/HelveticaNeueLTPro-Bd.otf');
-// }
+@font-face {
+	font-family: 'Helvetica Neue';
+	font-weight: normal;
+	src: url('/font/HelveticaNeueLTPro-Roman/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Roman/font.woff') format('woff');
+}
+@font-face {
+	font-family: 'Helvetica Neue';
+	font-weight: 500;
+	src: url('/font/HelveticaNeueLTPro-Md/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Md/font.woff') format('woff');
+}
+@font-face {
+	font-family: 'Helvetica Neue';
+	font-weight: 600;
+	src: url('/font/HelveticaNeueLTPro-Bd/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Bd/font.woff') format('woff');
+}
 
 /* --- FONTS --- */
 $font-sansserif: 'Helvetica Neue', 'Roboto', Arial, monaco, monospace;

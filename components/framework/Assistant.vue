@@ -323,13 +323,11 @@
 				</div>
 
 				<div
-					class="assistant__content"
+					class="assistant__content scroll"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
-					<div class v-if="assistantMode == 5">
-						<div class="assistant__text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
-						</div>
+					<div class="assistant__text" v-if="assistantMode == 5">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula purus, convallis sed commodo in, iaculis id sapien. Aenean in urna nisi. Nunc feugiat faucibus nisl eu fringilla. Nulla non placerat dolor, sodales ornare lorem.</p>
 					</div>
 
 					<div class="assistant__ctas" v-if="assistantMode == 5">
