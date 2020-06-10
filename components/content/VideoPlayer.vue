@@ -85,8 +85,6 @@ export default {
 	methods: {
 		...mapActions([FORCE_STOP_MUSIC.action]),
 		videoDataHandler() {
-			console.log("readyState", this.videoRef.readyState)
-
 			if(this.videoRef.readyState >= 2) {
 				this.loaded = true
 			}

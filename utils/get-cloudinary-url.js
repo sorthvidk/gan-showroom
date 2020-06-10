@@ -1,6 +1,4 @@
-export default function(cl, asset, tf={}) {
-
-	let pixelDensity = 2
+export default function(cl, asset, tf={}, pixelDensity=1) {
 
 	let transform = tf
 	let resultUrl
@@ -25,6 +23,7 @@ export default function(cl, asset, tf={}) {
 					transform.height = 417
 				}
 			}
+
 			transform.width *= pixelDensity
 			transform.height *= pixelDensity
 
@@ -46,7 +45,8 @@ export default function(cl, asset, tf={}) {
 		resultUrl = '/img/under-construction.gif' //fallback
 	}
 
-	// console.log('CLOUDINARY URL', parseUrl, transform, resultUrl)
+	// if ( window.GS_LOGS ) console.log('CLOUDINARY URL', parseUrl, transform, resultUrl)
+	if ( window.GS_LOGS ) console.warn('CLOUDINARY URL: "' + resultUrl + '"')
 	
 	return resultUrl;
 }
