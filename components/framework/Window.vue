@@ -1,62 +1,55 @@
 <template>
-	<transition @before-appear="beforeAnimateIn" @appear="animateIn" @leave="animateOut">
-		<section :style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }">
-			
-			
-			<vue-draggable-resizable
-				ref="draggableResizable"
-				:class-name="concatClassName"
-				:resizable="computedResizable"
-				class-name-dragging="is-dragging"
-				@dragging="onDrag"
-				@dragstop="onDragStop"
-				@resizing="onResize"
-				@resizestop="onResizeStop"
-				:handles="['br']"
-				:drag-handle="'.title'"
-				:x="computedPositionX"
-				:y="computedPositionY"
-				:w="computedSizeW"
-				:h="computedSizeH"
-			>
-				<header class="window__top">
-					<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
-					<button class="button close" @click.stop="closeHandler">
-						<span class="icon">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-								<path
-									d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-								/>
-							</svg>
-						</span>
-					</button>
-				</header>
-				<div
-					v-if="!noStatus"
-					class="window__status"
-					@touchstart="contentActivateHandler"
-					@mouseDown="contentActivateHandler"
-				>
-					<component :is="statusComponent" v-bind="{...statusComponentProps}" />
-				</div>
+	<section
+		:class="wrapperClass"
+		:style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }"
+	>
+		<vue-draggable-resizable
+			ref="draggableResizable"
+			:class-name="concatClassName"
+			:resizable="computedResizable"
+			class-name-dragging="is-dragging"
+			@dragging="onDrag"
+			@dragstop="onDragStop"
+			@resizing="onResize"
+			@resizestop="onResizeStop"
+			:handles="['br']"
+			:drag-handle="'.title'"
+			:x="computedPositionX"
+			:y="computedPositionY"
+			:w="computedSizeW"
+			:h="computedSizeH"
+		>
+			<header class="window__top">
+				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
+				<button class="button close" @click.stop="closeHandler">
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							<path
+								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+							/>
+						</svg>
+					</span>
+				</button>
+			</header>
+			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
+				<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+			</div>
 
-				<hr v-if="!noStatus" />
+			<hr v-if="!noStatus" />
 
-				<div
-					class="window__content"
-					@touchstart="contentActivateHandler"
-					@mouseDown="contentActivateHandler"
-				>
-					<component :is="contentComponent" v-bind="{...contentComponentProps}" />
-				</div>
-			</vue-draggable-resizable>
-		</section>
-	</transition>
+			<div class="window__content" @click="contentActivateHandler">
+				<component
+					:is="contentComponent"
+					:parent-window-id="windowId"
+					v-bind="{...contentComponentProps}"
+					ref="contentComponent"
+				/>
+			</div>
+		</vue-draggable-resizable>
+	</section>
 </template>
 
 <script>
-import { Expo, TweenLite } from 'gsap'
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
@@ -73,6 +66,7 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import Collage from '~/components/content/Collage.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -95,10 +89,15 @@ export default {
 		MusicPlayer,
 		HampsterDance,
 		GanniGirls,
-		LookBook
+		LookBook,
+		Collage
 	},
 	props: {
 		modifierClass: {
+			type: String,
+			default: ''
+		},
+		wrapperClass: {
 			type: String,
 			default: ''
 		},
@@ -111,6 +110,10 @@ export default {
 			required: true
 		},
 		canResize: {
+			type: Boolean,
+			default: true
+		},
+		canReorder: {
 			type: Boolean,
 			default: true
 		},
@@ -170,7 +173,6 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(['mousepos']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -193,16 +195,6 @@ export default {
 		zIndexStyle() {
 			return this.positionZ
 		},
-		transformOriginStyle() {
-			// in use?
-			return this.x + 'px ' + this.y + 'px'
-		},
-		transformOrigin() {
-			return `${this.mousepos.x}px ${this.mousepos.y}px`
-		},
-		// transitionDelay() {
-		// 	return `${this.nthChild / 5}s`
-		// },
 		concatClassName() {
 			let cn = 'window'
 			if (this.modifierClass != '') cn += ' ' + this.modifierClass
@@ -213,8 +205,6 @@ export default {
 	},
 	data: function() {
 		return {
-			// windowRef: null,
-
 			resetPositionDistance: 40,
 			maximizeOffset: 0,
 			maximizeTimeoutHandle: -1,
@@ -226,6 +216,8 @@ export default {
 
 			w: this.computedSizeW,
 			h: this.computedSizeH,
+
+			transformOrigin: 0,
 
 			savedAttributes: {
 				x: 0,
@@ -248,7 +240,9 @@ export default {
 			})
 		},
 		contentActivateHandler(e) {
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		titleClick() {
 			if (!this.canResize) return false
@@ -296,16 +290,25 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		onResizeStop() {
 			this.isMaximized = false
 			this.constrain()
+
+			// used for the collage
+			if (typeof this.$refs.contentComponent.fitScreen === 'function') {
+				this.$refs.contentComponent.fitScreen()
+			}
 		},
 		onDrag(x, y) {
 			this.x = x
 			this.y = y
-			this[TOPMOST_WINDOW.action](this.windowId)
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
 		},
 		onDragStop() {
 			this.constrain()
@@ -329,31 +332,18 @@ export default {
 					sizeH: this.h
 				}
 			})
-			this[TOPMOST_WINDOW.action](this.windowId)
-		},
+			if (this.canReorder) {
+				this[TOPMOST_WINDOW.action](this.windowId)
+			}
+		}
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
-		beforeAnimateIn(el) {
-			TweenLite.set(el, { scale: 0, opacity: 0.6 })
-		},
-		animateIn(el) {
-			TweenLite.to(el, 0.3, {
-				delay: this.nthChild / 7,
-				scale: 1,
-				opacity: 1,
-				ease: 'power4.inOut'
-			})
-		},
-		animateOut(el, done) {
-			TweenLite.to(el, 0.3, { scale: 0, opacity: 0 })
-			done()
-		}
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
+
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
-		console.log('resize', this.canResize)
 	}
 }
 </script>

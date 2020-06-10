@@ -1,10 +1,12 @@
 .marquee {
 	box-sizing: border-box;
 
-	border-top: rem(1) solid $color-black;
-	border-bottom: rem(1) solid $color-black;
+	font-family: $font-sansserif;
+
 	background-color: $color-white;
+	color: $color-black;
 	height: rem(60);
+	border-top: rem(1) solid $color-black;
 
 	display: flex;
 	align-items: center;
@@ -13,11 +15,9 @@
 	user-select: none;
 	cursor: pointer;
 
-	// display: none; // bugs the marquee
 	visibility: hidden;
 
 	@include mq($from: screen-md) {
-		// display: block;
 		visibility: visible;
 	}
 
@@ -29,6 +29,7 @@
 
 	p {
 		animation: marquee 40s linear infinite;
+		margin-top: rem(10);
 	}
 
 	&:hover {
@@ -39,12 +40,29 @@
 
 	p,
 	button {
-		white-space: nowrap;
 		@include megatype();
+		white-space: nowrap;
+		font-family: inherit;
+		margin-top: 0;
 	}
 
 	button {
-		text-decoration: underline;
-		margin-right: rem(20);
+		position: relative;
+		&:after {
+			display: block;
+			content:'';
+			position: absolute;
+			top: 85%;
+			left: 0;
+			right: 0;
+			height: rem(3);
+			background-color: $color-black;
+		}
+		&:hover {
+			color: $color-blue;
+			&:after {
+				background-color: $color-blue;
+			}
+		}
 	}
 }

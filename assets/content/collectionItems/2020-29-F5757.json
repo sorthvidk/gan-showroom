@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 545,
+  "assets": [],
+  "onWishList": false,
+  "program": 6094,
+  "colorNames": "Port Royale",
+  "material": "100% Lamb Leather",
+  "name": "F5757_Shirt",
+  "styleId": "F5757",
+  "drop": "November",
+  "programName": "Lamb Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 178,
+  "weight": 1,
+  "wholesalePriceDKK": 1320,
+  "wholesalePriceUSD": 228,
+  "filters": [
+    "rtw8",
+    "misc3"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3299,
+  "colorId": 431
+}

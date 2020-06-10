@@ -53,6 +53,7 @@ collections:
           searchFields: ["name"],
           valueField: "filterId",
           displayFields: ["name"],
+          default: [],
           hint: "List of filters, the style will appear under",
         }
       - {
@@ -64,7 +65,7 @@ collections:
       - {
           label: "Program",
           name: "program",
-          widget: "string",
+          widget: "number",
           hint: "ID of program ex. '1972'",
         }
       - {
@@ -95,7 +96,7 @@ collections:
           label: "Color Id",
           name: "colorId",
           widget: "string",
-          hint: "ID of color ex. '699'",
+          hint: "IDs of colors ex. '568' or '699,844'",
         }
       - {
           label: "Wholesale Price DKK",
@@ -144,6 +145,15 @@ collections:
           name: "responsible",
           widget: "boolean",
           hint: "Check to show style as responsible",
+        }
+      - {
+          label: "Weight",
+          name: "weight",
+          widget: "number",
+          hint: "Sorting parameter. The higher the number, the closer to the top of the collection folder.",
+          required: true,
+          default: 1,
+          min: 1
         }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }
@@ -343,13 +353,13 @@ collections:
           multiple: false,
           options: ["video", "image"],
           hint: "Either image or video",
+          default: "image",
         }
       - {
           label: "Cloudinary media reference",
           name: "cloudinaryUrl",
           widget: "image",
         }
-
   - name: "lookBook"
     summary: "Item {{itemId}}"
     label: "Lookbook item"
@@ -371,4 +381,13 @@ collections:
           label: "Cloudinary video reference",
           name: "cloudinaryUrl",
           widget: "image",
+        }
+      - {
+          label: "Media type",
+          name: "type",
+          widget: "select",
+          multiple: false,
+          options: ["video", "image"],
+          hint: "Either image or video",
+          default: "image",
         }

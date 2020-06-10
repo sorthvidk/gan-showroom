@@ -9,12 +9,17 @@
 
 
 	.films-item {
-		flex: 0 1 rem(310);
+		flex: 0 0 50%;
 		padding: rem(5);
 		border: rem(1) solid transparent;
 		cursor: pointer;
 		box-sizing: border-box;
 		transition: border 0.3s ease;
+
+		@include mq($from: screen-md) {
+			flex: 0 1 rem(310);
+			height: 33%;
+		}
 		
 
 		&:hover {
@@ -23,7 +28,10 @@
 		&__poster {
 			display: block;
 			position: relative;
-				
+			img {
+				width: 100%;
+				height: 65.7%;
+			}
 			&:before,
 			&:after {
 				display: block;

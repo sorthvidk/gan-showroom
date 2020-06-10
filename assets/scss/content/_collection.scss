@@ -10,7 +10,7 @@
 	.collection-item {
 		display: block;
 		padding: rem(5);
-		flex: 0 0 rem(156);
+		flex: 0 0 50%;
 		min-width: 0;
 		box-sizing: border-box;
 		border: rem(1) solid transparent;
@@ -18,22 +18,15 @@
 		cursor: pointer;
 		transition: border 0.3s ease;
 
+		@include mq($from: screen-xxs) {
+			flex: 0 0 rem(156);
+		}
 		@include mq($from: screen-md) {
 			flex: 0 0 rem(208);
 		}
-	
 
 		&:hover {
 			border: rem(1) solid $color-black;
-		}
-
-		.responsible {
-			font-size: rem(20);
-			font-weight: 600;
-			position: absolute;
-			top: rem(5);
-			left: rem(5);
-			padding: rem(3);
 		}
 
 		.on-wishlist {
@@ -46,6 +39,15 @@
 				height: rem(20);
 			}
 		}
+
+		img {
+			width: 100%;
+			background-color: $color-lightgrey;
+			@include mq($from: screen-md) {
+				height: rem(298);
+			}
+		}
+
 		p {
 			max-width: 100%;
 			max-height: 1.27em;
@@ -56,6 +58,181 @@
 			display: block;
 			text-align: center;
 			@include bodytext();
+		}
+	}
+
+
+	&--fun {
+		max-width: rem(600);
+
+		margin: 0 rem(20);
+		@include mq($from: screen-sm) {
+			margin: 0 auto;
+		}
+
+		.collection-item {
+			flex: 0 0 50%;
+			margin: rem(40) 0;
+			@include mq($from: screen-sm) {
+				margin: rem(80) 0;
+			}
+
+			img {
+				width: 80%;
+			}
+			.on-wishlist {
+				right: calc(10% + #{rem(5)});
+			}
+
+			p {
+				display: none;
+			}
+			.responsible-icon {
+				left: calc(10% + #{rem(5)});
+			}
+			
+			transition: all 0.2s ease;
+
+			&:hover {
+				border-color: transparent;
+				opacity: 0.7;
+			}
+
+			&:nth-child(8n+1) {
+				transform: rotateZ(0) translate(0,0);
+				animation: horiz-pan infinite 4s ease;
+			}
+			&:nth-child(8n+2) {
+				transform: translate(20%, -20%);
+			}
+			&:nth-child(8n+3) {
+				transform: rotateZ(180deg) translate(-5%, 30%);
+			}
+			&:nth-child(8n+4) {
+				transform: rotateZ(0) translate(0,0);
+				animation: pulse infinite 2s ease 2s;
+				transform-origin: center center;
+			}
+			&:nth-child(8n+5) {
+				transform: rotateZ(0) translate(0,0);
+				animation: vertic-pan infinite 3s ease 0.5s;
+			}
+			&:nth-child(8n+6) {
+				transform: rotateZ(90deg) translate(-50%, -5%);
+			}
+			&:nth-child(8n+7) {
+				transform: rotateZ(0) translate(0,0);
+				animation: dangle infinite 3s ease-in-out;
+				transform-origin: top center;
+			}
+			&:nth-child(8n+8) {
+				transform: translate(10%, -50%);
+			}
+
+						
+			@keyframes dangle {
+			  0% {
+			    transform: rotateZ(-20deg);
+			  }
+			  50% {
+			    transform: rotateZ(20deg);
+			  }
+			  100% {
+			    transform: rotateZ(-20deg);
+			  }
+			}	
+			@keyframes pulse {
+			  0% {
+			    transform: scale(1) rotateZ(0deg);
+			  }
+			  40% {
+			    transform: scale(1) rotateZ(0deg);
+			  }
+			  60% {
+			    transform: scale(1.2) rotateZ(10deg);
+			  }
+			  70% {
+			    transform: scale(0.95) rotateZ(-2deg);
+			  }
+			  100% {
+			    transform: scale(1) rotateZ(0deg);
+			  }
+			}			
+			@keyframes horiz-pan {
+			  0% {
+			    transform: translateX(0);
+			  }
+			  50% {
+			    transform: translateX(-20%);
+			  }
+			  100% {
+			    transform: translateX(0);
+			  }
+			}			
+			@keyframes vertic-pan {
+			  0% {
+			    transform: translateY(0);
+			  }
+			  50% {
+			    transform: translateY(20%);
+			  }
+			  100% {
+			    transform: translateY(0);
+			  }
+			}	
+		}
+	}
+}
+
+.window__status--collection {
+	flex: 0 0 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	p {
+		@include bodytext();
+
+		flex: 1 1 100%;
+		overflow: hidden;
+		padding: rem(5) rem(10);
+
+		display: flex;
+		align-items: center;
+	}
+
+	.layout-buttons {
+		flex: 0 0 rem(60);
+		display: flex;
+		justify-content: center;
+
+		.button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 rem(30);
+			width: rem(30);
+			height: rem(35);
+
+			.icon {
+				width: rem(30);
+				height: rem(30);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				svg {
+					width: rem(30);
+					height: rem(30);
+				}
+			}
+			&:hover {
+				background-color: $color-lightgrey;
+			}
+				
+			opacity: 0.5;
+			&.is-active {
+				opacity: 1;
+			}
 		}
 	}
 }

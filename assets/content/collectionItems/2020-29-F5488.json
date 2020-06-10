@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 425,
+  "onWishList":false,"assets": [],
+  "program": 6120,
+  "colorNames": "Phantom",
+  "material": "55% Wool, 45% polyester",
+  "name": "F5488_Vest",
+  "styleId": "F5488",
+  "drop": "November",
+  "programName": "Wool Suiting",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 134,
+  "weight": 1,
+  "wholesalePriceDKK": 928,
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw7",
+    "misc2"
+  ],
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2599,
+  "colorId": 252
+}

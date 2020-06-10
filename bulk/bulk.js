@@ -3,13 +3,20 @@ const path = require('path')
 const fs = require('fs')
 
 const date = new Date()
+const patchCollection = item => {
+	return {
+		...item
+	}
+}
 file.forEach(item => {
 	// console.log(
 	// 	`${date.getFullYear()}-${date.getDate()}-${item['STYLE #']}}`,
 	// 	item
 	// )
 	fs.writeFile(
-		`./export/${date.getFullYear()}-${date.getDate()}-${item['STYLE #']}.json`,
+		`../assets/content/collectionItems/${date.getFullYear()}-${date.getDate()}-${
+			item['styleId']
+		}.json`,
 		JSON.stringify(item),
 		err => {
 			if (err) throw err

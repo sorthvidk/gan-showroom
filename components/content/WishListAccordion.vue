@@ -10,6 +10,16 @@
 				<p>{{wishListItem.name}}</p>
 				<em>{{wishListItem.styleId}}</em>
 			</span>
+			<span class="icon" v-if="isActive">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+				  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
+				</svg>
+			</span>
+			<span class="icon" v-if="!isActive">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+				  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
+				</svg>
+			</span>
 		</button>
 
 		<div class="content" :key="isActive">
@@ -23,7 +33,7 @@
 							<td>{{wishListItem.colorNames}}</td>
 						</tr>
 						<tr>
-							<th>Materiel</th>
+							<th>Material</th>
 							<td>{{wishListItem.material}}</td>
 						</tr>
 						<tr>
@@ -64,15 +74,15 @@
 
 						<tr>
 							<th>Suggested retail price</th>
-							<td>DKK {{wishListItem.suggestedRetailPriceDKK}}</td>
+							<td>DKK {{wishListItem.retailPriceDKK}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>EUR {{wishListItem.suggestedRetailPriceEUR}}</td>
+							<td>EUR {{wishListItem.retailPriceEUR}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>USD {{wishListItem.suggestedRetailPriceUSD}}</td>
+							<td>USD {{wishListItem.retailPriceUSD}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -85,7 +95,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name: 'wish-list-accordion',
@@ -109,11 +119,7 @@ export default {
 			return getCloudinaryUrl(
 				this.$cloudinary,
 				this.wishListItem.assets[0],
-				!this.largeImages
-					? {
-							width: 40
-					  }
-					: {}
+				!this.largeImages ? { width: 30 } : {}
 			)
 		}
 	},

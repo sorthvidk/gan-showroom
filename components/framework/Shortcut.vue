@@ -5,7 +5,9 @@
 			class="shortcut"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>
-			<span class="icon">{{icon}}</span>
+			<span class="icon">
+				<img :src="icon" />
+			</span>
 			<span class="text">{{label}}</span>
 		</button>
 	</transition>
@@ -15,6 +17,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { TweenLite } from 'gsap'
 import { OPEN_CONTENT } from '~/model/constants'
+import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
@@ -44,17 +47,22 @@ export default {
 			default: null,
 			required: true
 		},
+		type: {
+			type: Number,
+			default: -1,
+			required: true
+		},
 		windowContent: {
 			type: Array,
 			default: () => [],
 			required: true
 		},
-		action: {
-			type: String,
+		actions: {
+			type: Array,
 			default: null,
 			required: false
 		},
-		actionParam: {
+		href: {
 			type: String,
 			default: null,
 			required: false
@@ -74,16 +82,28 @@ export default {
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
-			this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
-
-			//TODO: Fix race condition!!
-			setTimeout(() => {
-				if (this.action) {
-					if (this.actionParam)
-						this.$store.dispatch(this.action, this.actionParam)
-					else this.$store.dispatch(this.action)
+			if (this.type == ShortcutTypes.URL && this.href) {
+				window.open(this.href, '_blank')
+			} else {
+				if ( window.GS_LOGS ) console.log("ACTIONS???",this.actions)
+				if (this.actions) {
+					for (let i = 0; i < this.actions.length; i++) {
+						let action = this.actions[i]
+						if (typeof action.param != "undefined")
+							this.$store.dispatch(action.name, action.param)
+						else this.$store.dispatch(action.name)
+					}
+				
+					//TODO: Fix race condition!!
+					setTimeout(() => {
+						this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+					}, 500)
 				}
-			}, 500)
+				else {
+					this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+				}
+			}
+
 		},
 		beforeAnimateIn(el) {
 			TweenLite.set(el, { scale: 0, opacity: 0 })

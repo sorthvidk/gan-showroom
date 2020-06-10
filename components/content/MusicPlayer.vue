@@ -2,28 +2,32 @@
 	<main class="window__content">
 		<div class="music-player__top">
 			<p>Playing:</p>
-			<div>
+			<div :key="songs[current].title">
 				<!-- print 5 times so it can be css-animated -->
-				<p
-					class="title-marquee"
-				>{{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}} — {{songs[current].title}}</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
 			</div>
 		</div>
 		<div class="music-player__controls">
 			<button class="button prev" @click="playlist(-1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z"/>
+					<path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z" />
 				</svg>
 			</button>
 			<button class="button" @click="toggle">
-				<svg v-if="isPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">					
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z"/>
+				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
-				<p v-else>►</p>
+				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+				</svg>
 			</button>
 			<button class="button next" @click="playlist(1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M15.1 21.2l6.1-6.1L15.1 9v5.1L10 9v12.2l5.1-5.1v5.1z"/>
+					<path d="M15.1 21.2l6.1-6.1L15.1 9v5.1L10 9v12.2l5.1-5.1v5.1z" />
 				</svg>
 			</button>
 		</div>
@@ -35,9 +39,11 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import { TOGGLE_MUSIC_PLAYER, MUSIC_PLAY_PAUSE } from '~/model/constants'
+import { MUSIC_PLAY_PAUSE } from '~/model/constants'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name: 'music-player',
 	data() {
 		return {
@@ -59,39 +65,43 @@ export default {
 	},
 	watch: {
 		keyPressed(event) {
-			if ( !this.musicPlayerOpen ) return false;
+			// only respond to keys when is focus
+			if (this.$parent.$parent.windowId !== this.topMostWindow.windowId) return
 
 			if (event.key === 'ArrowLeft') {
-				this.playlist(-1);
+				this.playlist(-1)
 			} else if (event.key === 'ArrowRight') {
 				this.playlist(1)
 			} else if (event.code === 'Space') {
-				if ( this.isPlaying ) this[MUSIC_PLAY_PAUSE.action](false)
+				if (this.musicPlaying) this[MUSIC_PLAY_PAUSE.action](false)
 				else this[MUSIC_PLAY_PAUSE.action](true)
 			}
-		},		
-		isPlaying(playing) {
-			if (this.isPlaying) {
+		},
+		musicPlaying(playing) {
+			if (this.musicPlaying) {
 				this.audio.play().catch(err => console.warn(err))
 				this.animate()
 			} else {
 				this.audio.pause()
 			}
+		},
+		appTabUnfocused(appTabUnfocused) {
+			if (appTabUnfocused) {
+				this.audio.volume = 0
+			} else {
+				this.fadeIn()
+			}
 		}
 	},
-	computed: {
-		...mapState({
-			keyPressed: state => state.keyPressed,
-			isPlaying: state => state.musicPlaying,
-			musicPlayerOpen: state => state.musicPlayerOpen,
-			songs: state => state.songs
-		})
-	},
+	computed: mapState([
+		'keyPressed',
+		'musicPlaying',
+		'songs',
+		'appTabUnfocused',
+		'topMostWindow'
+	]),
 	methods: {
-		...mapActions([TOGGLE_MUSIC_PLAYER.action, MUSIC_PLAY_PAUSE.action]),
-		closeHandler() {
-			this[TOGGLE_MUSIC_PLAYER.action]() // state handles the toggling
-		},
+		...mapActions([MUSIC_PLAY_PAUSE.action]),
 		playlist(n) {
 			const newCurrent = this.current + n
 			this.current =
@@ -103,15 +113,16 @@ export default {
 			this.playNewSong()
 		},
 		toggle() {
-			this[MUSIC_PLAY_PAUSE.action](!this.isPlaying)
+			this[MUSIC_PLAY_PAUSE.action](!this.musicPlaying)
 		},
 		playNewSong() {
 			this.audio.pause()
 			this.audio.src = this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
-				if (this.isPlaying) {
+				if (this.musicPlaying) {
 					this.audio.play().catch(err => console.warn(err))
+					this.fadeIn()
 				}
 			}, 100)
 		},
@@ -178,7 +189,7 @@ export default {
 			const renderFrame = () => {
 				// stop animation when no music and all the frequencies are at 0,
 				// creates smooth ending of animation
-				if (!this.isPlaying && this.dataArray.every(v => v === 0)) return
+				if (!this.musicPlaying && this.dataArray.every(v => v === 0)) return
 
 				requestAnimationFrame(renderFrame)
 
@@ -211,15 +222,28 @@ export default {
 				})
 			}
 			renderFrame()
+		},
+		fadeIn() {
+			let volume = 0
+			const loop = () => {
+				this.audio.volume = volume
+				volume += 0.01
+				if (volume <= 0.5) {
+					requestAnimationFrame(loop)
+				}
+			}
+			loop()
 		}
 	},
 	mounted() {
 		this.audio = new Audio(this.songs[0].src)
+		this.audio.volume = 0.5
 		this.audio.addEventListener(
 			'canplaythrough',
 			this.setLoadedState.bind(this),
 			{ once: true }
 		)
+		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
 	},
 	beforeDestroy() {
 		this.audio.pause()

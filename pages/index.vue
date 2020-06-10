@@ -1,268 +1,43 @@
 <template>
-	<div class="desktop desktop--countdown" :style="{backgroundImage: 'url(/img/sitebg.jpg)'}">
-		<div class="window window--no-status">
-			<header class="window__top">
-				<span class="title">GANNI Space Countdown</span>
-				<span class="button close">
-					<span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							<path
-								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-							/>
-						</svg>
-					</span>
-				</span>
-			</header>
-			<div class="window__content">
-				<div>
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
+	<div>
+		<login v-if="!loggedIn" />
+		<desktop v-else />
 
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
+		<screensaver v-if="screensaverActive" />
 
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--sm" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--xxxxl" alt="hamster" />
-				</div>
-
-				<div>
-					<h2>
-						<span id="countdownDays">00</span>:<span id="countdownHours">00</span>:<span id="countdownMinutes">00</span>:<span id="countdownSeconds">00</span>
-					</h2>
-
-					<h3>
-						<span>Soon you will be able to enter GANNI space - our digital showroom</span>
-						<br />
-						<span v-if="calendarLinks && calendarLinks.google" v-html="calendarLinks.google"></span>
-						<span v-if="calendarLinks && calendarLinks.yahoo" v-html="calendarLinks.yahoo"></span>
-						<span v-if="calendarLinks && calendarLinks.ical" v-html="calendarLinks.ical"></span>
-						<span v-if="calendarLinks && calendarLinks.outlook" v-html="calendarLinks.outlook"></span>
-					</h3>
-
-					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi distinctio delectus unde, excepturi possimus qui necessitatibus ducimus, mollitia ex hic. Nostrum eligendi, exercitationem cum, maxime necessitatibus fuga eum dicta.</p> -->
-				</div>
-
-				<div>
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-					<img src="/img/hamster3.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-					<img src="/img/hamster4.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-					<img src="/img/hamster2.gif" alt="hamster" />
-
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" class="d-none d-inline-block--md" alt="hamster" />
-					<img src="/img/hamster1.gif" alt="hamster" />
-				</div>
-			</div>
-		</div>
+		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
 
+
 <script>
-import getCalendarLinks from '~/utils/get-calendar-links'
-import addMediaChangeListener from '~/utils/media-change'
-import ViewportSizes from '~/model/viewport-sizes'
+import { vuex, mapActions, mapState } from 'vuex'
+
+import Login from '~/components/framework/Login.vue'
+import Desktop from '~/components/framework/Desktop.vue'
+import Screensaver from '~/components/framework/Screensaver.vue'
+import CookieBanner from '~/components/framework/CookieBanner.vue'
+
+import getShortUrl from '~/utils/get-short-url'
+
+import {
+	CONNECT_ASSETS,
+	FILTER_COLLECTION,
+	INIT_PROGRESS,
+	WALLPAPER_CHANGE,
+	VISIBILITY
+} from '~/model/constants'
 
 export default {
+	components: {
+		Login,
+		Desktop,
+		Screensaver,
+		CookieBanner
+	},
+	computed: {
+		...mapState(['loggedIn', 'cookiesAccepted', 'screensaverActive'])
+	},
 	head() {
 		return {
 			script: [
@@ -276,89 +51,61 @@ export default {
 						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
 				}
 			],
-			title: 'GANNI Space Countdown'
+			title: 'GANNI space - our digital showroom'
 		}
 	},
 	data() {
 		return {
-			calendarLinks: null,
-			viewPortSize: ViewportSizes.SMALL
+			countdownTime: 150000,
+			timeout: null
 		}
 	},
 	methods: {
-		isSmallViewport() {
-			this.viewPortSize = ViewportSizes.SMALL
+		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action]),
+		toggleScreenSaver(appTabUnfocused, immediate) {
+			this.debounce(
+				() => this[VISIBILITY.action](appTabUnfocused),
+				immediate ? 0 : this.countdownTime
+			)
 		},
-		isLargeViewport() {
-			this.viewPortSize = ViewportSizes.LARGE
+		/**
+		 * debounce,
+		 * run 'func' if debounce isn't called again within 'wait'-ms, or run immediately
+		 */
+		debounce(func, wait, immediate) {
+			var later = () => {
+				this.timeout = null
+				func.apply(this)
+			}
+
+			clearTimeout(this.timeout)
+			this.timeout = setTimeout(later, immediate ? 0 : wait)
 		}
 	},
 	mounted() {
-		let isMobile = addMediaChangeListener(
-			this.isSmallViewport,
-			this.isLargeViewport
+		this[WALLPAPER_CHANGE.action]()
+
+		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
+
+		this.$store.commit(CONNECT_ASSETS.mutation)
+		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
+		this.$store.commit(INIT_PROGRESS.mutation)
+
+		this.$visibility.change((evt, appTabUnfocused) => {
+			if (appTabUnfocused) {
+				this.toggleScreenSaver(appTabUnfocused)
+			}
+		})
+
+		//add clear timeout listeners
+		document.body.addEventListener(
+			'click',
+			this.toggleScreenSaver.bind(this, false, true)
 		)
-		if (!isMobile) {
-			this.viewPortSize = ViewportSizes.LARGE
-		}
-
-		var countdownDays = document.querySelector('#countdownDays'),
-			countdownHours = document.querySelector('#countdownHours'),
-			countdownMinutes = document.querySelector('#countdownMinutes'),
-			countdownSeconds = document.querySelector('#countdownSeconds')
-
-		var second = 1000,
-			minute = second * 60,
-			hour = minute * 60,
-			day = hour * 24
-
-		var countDown = new Date('Jun 11, 2020 12:00').getTime(),
-			interval = setInterval(function() {
-				let now = new Date().getTime(),
-					distance = countDown - now
-
-				countdownDays.innerText =
-					Math.floor(distance / day) < 10
-						? '0' + Math.floor(distance / day)
-						: Math.floor(distance / day)
-				countdownHours.innerText =
-					Math.floor((distance % day) / hour) < 10
-						? '0' + Math.floor((distance % day) / hour)
-						: Math.floor((distance % day) / hour)
-				countdownMinutes.innerText =
-					Math.floor((distance % hour) / minute) < 10
-						? '0' + Math.floor((distance % hour) / minute)
-						: Math.floor((distance % hour) / minute)
-				countdownSeconds.innerText =
-					Math.floor((distance % minute) / second) < 10
-						? '0' + Math.floor((distance % minute) / second)
-						: Math.floor((distance % minute) / second)
-			}, second)
-
-		let data = {
-			// Event title
-			title: 'GANNI Space is now open',
-
-			// Event start date
-			start: new Date('June 11, 2020 12:00'),
-
-			// Event duration (IN MINUTES)
-			duration: 60,
-
-			// You can also choose to set an end time
-			// If an end time is set, this will take precedence over duration
-			end: new Date('June 11, 2020 13:00'),
-
-			// Event Address
-			address: 'https://gannispace.com/',
-
-			// Event Description
-			description:
-				'We look forward to welcoming you into the GANNI space - our digital showroom for the upcoming season.'
-		}
-
-		let CL = getCalendarLinks({ data: data })
-		this.calendarLinks = CL
+		document.body.addEventListener(
+			'mousemove',
+			this.toggleScreenSaver.bind(this, false, true)
+		)
 	}
-};
+}
 </script>

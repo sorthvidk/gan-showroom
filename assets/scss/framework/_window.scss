@@ -1,3 +1,14 @@
+.window-animation-enter-active,
+.window-animation-leave-active {
+	transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.window-animation-enter,
+.window-animation-leave-to {
+	transform: scale(0);
+	opacity: 0.6;
+}
+
 .window {
 	$chrome-height: 70;
 	$chrome-height-no-status: 30;
@@ -13,7 +24,7 @@
 	left: 0;
 	z-index: 1;
 
-	max-width: calc(100vw - #{rem(20)});
+	max-width: calc(100vw - #{rem(22)}); //22 = gutters + borders
 
 	@include mq($from: screen-md) {
 		max-width: none;
@@ -45,6 +56,7 @@
 		background-color: $color-lightgrey;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 
 		.title {
 			flex: 1 1 100%;
@@ -52,7 +64,6 @@
 			overflow: hidden;
 			border-bottom: rem(1) solid $color-black;
 
-			display: block;
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			text-align: center;
@@ -60,6 +71,9 @@
 			@include windowtitle();
 
 			cursor: grab;
+
+			display: block;
+			text-align: center;
 		}
 		.button {
 			@include window-button();
@@ -127,6 +141,9 @@
 		#{$module}__content {
 			overflow: visible;
 		}
+		.handle {
+			display: none !important;
+		}
 		&:hover {
 			.handle {
 				display: none !important;
@@ -163,22 +180,6 @@
 
 		.title {
 			cursor: default;
-		}
-
-		position: fixed;
-		top: calc(100vh - 350px);
-		left: rem(10);
-		right: rem(10);
-		bottom: rem(10);
-
-		@include mq($from: screen-sm) {
-			right: auto;
-			left: rem(20);
-			width: rem(326);
-			bottom: rem(160);
-		}
-		@include mq($from: screen-md) {
-			left: rem(30);
 		}
 
 		#{$module}__content {

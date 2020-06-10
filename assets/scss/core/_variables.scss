@@ -1,5 +1,26 @@
+// // only for testing
+@font-face {
+	font-family: 'HellVetica';
+	font-weight: normal;
+	src: url('/font/HelveticaNeueLTPro-Roman/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Roman/font.woff') format('woff');
+}
+@font-face {
+	font-family: 'HellVetica';
+	font-weight: 500;
+	src: url('/font/HelveticaNeueLTPro-Md/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Md/font.woff') format('woff');
+}
+@font-face {
+	font-family: 'HellVetica' ;
+	font-weight: 600;
+	src: url('/font/HelveticaNeueLTPro-Bd/font.woff2') format('woff2'),
+		url('/font/HelveticaNeueLTPro-Bd/font.woff') format('woff');
+}
+
 /* --- FONTS --- */
-$font-sansserif: Helvetica Neue, 'Roboto', Arial, monaco, monospace;
+$font-sansserif: 'Helvetica Neue', 'HellVetica', 'Roboto', Arial, monaco, monospace;
+$font-serif: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;
 $font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 
 /* --- COLORS --- */
@@ -13,11 +34,20 @@ $color-orange: #ff8266;
 $color-yellow: #ffff00;
 $color-lightyellow: #ffe76b;
 $color-green: #00c808;
+$color-light-lime: #b3ff00;
 $color-lime: #24ff00;
 $color-blue: #1400ff;
 $color-purple: #bd00ff;
+$color-red: #ff0000;
+
+$color-medium-violet: #c32c85;
 
 $z-index-assistant: 4000;
-$z-index-gallery: 4500;
 $z-index-support: 5000;
-$z-index-message: 6000;
+$z-index-gallery: 6000;
+$z-index-message: 9000;
+$z-index-cookies: 9500;
+
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-bold: 600;

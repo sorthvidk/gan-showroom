@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 105,
+  "assets": [],
+  "onWishList": false,
+  "program": 3475,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "name": "T2731_T-Shirt, Smiley Yellow",
+  "styleId": "T2731",
+  "drop": "November",
+  "programName": "Basic Cotton Jersey",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 31,
+  "weight": 1,
+  "wholesalePriceDKK": 214,
+  "wholesalePriceUSD": 44,
+  "filters": [
+    "rtw10"
+  ],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 151
+}

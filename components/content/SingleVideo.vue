@@ -1,8 +1,8 @@
 <template>
-	<div class="single-video" :class="{'is-interactive': this.belongsToStyle}">
+	<div class="single-video" :class="{'is-interactive': belongsToStyle && inFocus }">
 		<transition name="fade">
 			<div @click="clickHandler">				
-				<video-player :video-url="assetUrl" v-bind="{...videoAttributes}"/>
+				<video-player :video-url="assetUrl" v-bind="{...computedVideoAttributes}"/>
 			</div>
 		</transition>
 	</div>
@@ -13,9 +13,11 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_GALLERY } from '~/model/constants'
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name:'single-video',
 	components: {
 		VideoPlayer
@@ -24,6 +26,10 @@ export default {
 		asset: {
 			type: Object,
 			required: true
+		},
+		videoAttributes: {
+			type: Object,
+			required: false
 		}
 	},
 	computed: {
@@ -33,9 +39,11 @@ export default {
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset);
 		},
-		videoAttributes() {
+		computedVideoAttributes() {
+			if ( this.videoAttributes ) return this.videoAttributes;
+
 			if ( this.belongsToStyle ) {
-				return { 
+				return {
 					autoPlay:true, 
 					muted:true,
 					loop:true
@@ -43,7 +51,7 @@ export default {
 			}
 			else {
 				return { 
-					controls:true
+					controls: true
 				};
 			}
 		}
@@ -53,7 +61,7 @@ export default {
 			OPEN_GALLERY.action
 		]),		
 		clickHandler() {
-			if ( this.belongsToStyle ) {
+			if ( this.belongsToStyle && this.inFocus ) {
 				this[OPEN_GALLERY.action](this.asset);
 			}
 		}

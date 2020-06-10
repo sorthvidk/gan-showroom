@@ -4,15 +4,12 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top">
-			<span class="title">🤖 Desktop assistant</span>
+			<span class="title">Desktop assistant</span>
 		</div>
-
-
 
 		<!-- ####################### STATUS ####################### -->
 
-
-		<div class="window__status" v-if="assistantMode == 1 && viewPortSize == 0">
+		<div class="window__status" v-if="assistantMode == 1 && viewPortSize.name == 'SMALL'">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -28,7 +25,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 0">
+		<div class="window__status" v-if="(assistantMode == 2) && viewPortSize.name == 'SMALL'">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -67,7 +64,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize == 1">
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'">
 			<p>{{currentStyle.name}}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -94,10 +91,9 @@
 			</button>
 		</div>
 
-		<hr v-if="assistantMode == 2 && (viewPortSize == 1 || (viewPortSize == 0 && assistantExpanded))" />
-		
-
-
+		<hr
+			v-if="(assistantMode == 2) && (viewPortSize.name == 'LARGE' || (viewPortSize.name == 'SMALL' && assistantExpanded))"
+		/>
 
 		<!-- ####################### CONTENT ####################### -->
 
@@ -105,25 +101,28 @@
 			<div class="assistant">
 				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__text">
-						<h3>Welcome!</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae vero sequi iusto, iste quisquam repellat consectetur reprehenderit illo velit esse dolorem atque tempore veniam possimus cum error nemo, aut optio!</p>
+						<h3>WELCOME TO DITTE’S DESKTOP</h3>
+						<p>Hey there, how’s it going? I’m your Desktop Assistant and I’ll be showing you around the place. Kick back, relax, pour a drink, explore – I’m here if you need me. Let’s go!</p>
 					</div>
 				</div>
 
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 1"
-					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__filters">
-						<p>Do you have any preferences to the collection? choose from the options here!</p>
+						<h3>PS21 COLLECTION</h3>
+						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
 						<div class="assistant__filters__list">
 							<filter-button
 								v-for="(item, key) in filtersList"
 								:key="key"
 								:name="item.name"
+								:count="item.styleIds.length"
 								:filter-id="item.filterId"
 							/>
+							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
 						</div>
 					</div>
 				</div>
@@ -131,11 +130,14 @@
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 2"
-					:class="{'is-collapsed': viewPortSize == 0 && !assistantExpanded}"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
-						
-						<span v-if="currentStyle.responsible" class="responsible"> I am a certified responsible material </span>		
+						<span v-if="currentStyle.responsible" class="responsible">
+							<div>I am a certified responsible material —&nbsp;</div>
+							<div>I am a certified responsible material —&nbsp;</div>
+							<div>I am a certified responsible material —&nbsp;</div>
+						</span>
 
 						<table>
 							<tbody>
@@ -150,7 +152,7 @@
 								</tr>
 
 								<tr>
-									<th>Materiel</th>
+									<th>Material</th>
 									<td>{{currentStyle.material}}</td>
 								</tr>
 								<tr>
@@ -191,15 +193,15 @@
 
 								<tr>
 									<th>Suggested retail price</th>
-									<td>DKK {{currentStyle.suggestedRetailPriceDKK}}</td>
+									<td>DKK {{currentStyle.retailPriceDKK}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>EUR {{currentStyle.suggestedRetailPriceEUR}}</td>
+									<td>EUR {{currentStyle.retailPriceEUR}}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>USD {{currentStyle.suggestedRetailPriceUSD}}</td>
+									<td>USD {{currentStyle.retailPriceUSD}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -208,13 +210,7 @@
 
 				<div class="assistant__content" v-if="assistantMode == 3">
 					<div class="assistant__text">
-						<p>Do you have any preferences to the collection? Choose from the options here!</p>
-					</div>
-				</div>
-
-				<div class="assistant__content" v-if="assistantMode == 4">
-					<div class="assistant__text" v-if="!shareUrl">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue.</p>
+						<p>You know the drill. Add your favourites to your wishlist. When you’re done you can download to see your favorites or share with your team</p>
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
@@ -222,11 +218,17 @@
 					</div>
 				</div>
 
-
-
+				<div class="assistant__content" v-if="assistantMode == 4">
+					<div class="assistant__text" v-if="!shareUrl">
+						<p>Me again. Don’t forget you’ve got items waiting for you in your wishlist. Have you explored the rest of Ditte’s desktop yet?</p>
+					</div>
+					<div class="assistant__text" v-if="shareUrl">
+						<p>Your Wishlist link</p>
+						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
+					</div>
+				</div>
 
 				<!-- ####################### CTA ####################### -->
-
 
 				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
@@ -239,11 +241,12 @@
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
 
-					<a 
-						class="button download-collection button--half" 
+					<a
+						class="button download-collection button--half"
 						@click="downloadCollectionClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm">
-						<p>Download collection</p>
+						:href="pdfDownloadLink"
+					>
+						<p>{{downloadCollectionButtonLabel}}</p>
 					</a>
 				</div>
 
@@ -276,16 +279,10 @@
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 3">
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
-					</button>
-				</div>
-
-				<div class="assistant__ctas" v-if="assistantMode == 4">
 					<a
 						class="button download-wishlist button--half"
 						@click="downloadWishListClickHandler"
-						href="//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm"
+						:href="pdfDownloadLink"
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
@@ -298,6 +295,69 @@
 					<button @click="shareWishListClickHandler" class="button share-wishlist button--half">
 						<p v-if="!showClipboardMessage">Share wishlist</p>
 						<p v-if="showClipboardMessage" :style="{color: '#1DD000', textDecoration: 'none'}">Link copied</p>
+					</button>
+				</div>
+
+				<div class="assistant__ctas" v-if="assistantMode == 4">
+					<button class="button view-wishlist" @click="viewWishListClickHandler">
+						<p>{{viewWishListButtonLabel}}</p>
+					</button>
+				</div>
+
+				<!-- ####################### COLLAGE ####################### -->
+
+				<div class="window__status" v-if="(assistantMode == 5) && viewPortSize.name == 'SMALL'">
+					<button class="button expand" @click="toggleContentHandler">
+						<span v-if="!assistantExpanded" class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
+							</svg>
+						</span>
+						<span v-if="assistantExpanded" class="icon">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+								<path d="M0 7h15v1H0V7z" />
+							</svg>
+						</span>
+						<p>Change clothes</p>
+					</button>
+				</div>
+
+				<div
+					class="assistant__content scroll"
+					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
+				>
+					<div class="assistant__text" v-if="assistantMode == 5">
+						<ol>
+							<li>Take a portrait photo of yourself and upload it.</li>
+							<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
+							<li>Share looks with your team</li>
+						</ol>
+					</div>
+
+					<div class="assistant__ctas" v-if="assistantMode == 5">
+						<div class="collage-buttons">
+							<div class="row" v-for="item in Object.keys(clothes)" :key="item">
+								<p class="title">{{ item | capitalize }}</p>
+								<button class="button button--inline" @click="changeGarment(item, 1)">
+									<svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+									</svg>
+								</button>
+								<button class="button button--inline" @click="changeGarment(item, 0)">
+									<svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row collage-ctas" v-if="assistantMode == 5">
+					<button class="button button--half" @click="downloadImageClickHandler">
+						<p>Save image</p>
+					</button>
+					<button class="button button--half" @click="makeBackgroundClickHandler">
+						<p>Make background</p>
 					</button>
 				</div>
 			</div>
@@ -318,7 +378,10 @@ import {
 	SHOW_PREVIOUS_STYLE,
 	OPEN_WISH_LIST,
 	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING
+	DOWNLOAD_PREPARING,
+	SAVE_COLLAGE,
+	MAKE_BACKGROUND,
+	CHANGE_COLLAGE
 } from '~/model/constants'
 
 import FilterButton from '~/components/content/FilterButton.vue'
@@ -331,9 +394,7 @@ import getAssetType from '~/utils/asset-type'
 import copyToClipboard from '~/utils/copy-to-clipboard'
 import addMediaChangeListener from '~/utils/media-change'
 import getShortUrl from '~/utils/get-short-url'
-import isMobile from '~/utils/is-mobile'
 import sendTracking from '~/utils/send-tracking'
-
 
 export default {
 	name: 'assistant',
@@ -342,7 +403,7 @@ export default {
 	},
 	data() {
 		return {
-			assistantExpanded: true,
+			assistantExpanded: false,
 			viewPortSize: ViewportSizes.SMALL,
 			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
@@ -353,7 +414,9 @@ export default {
 			shareUrl: null,
 			showClipboardMessage: false,
 			styleHasBeenAdded: false,
-			shortenedReceiptUrl: null
+			shortenedReceiptUrl: null,
+			pdfDownloadLink:
+				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
 		}
 	},
 	computed: {
@@ -364,7 +427,9 @@ export default {
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
 			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete
+			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
+			collageIsOpen: state => state.collageIsOpen,
+			clothes: state => state.collage.clothes
 		}),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -372,6 +437,12 @@ export default {
 		addToWishListButtonLabel() {
 			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
+		},
+		downloadCollectionButtonLabel() {
+			if (this.activeFilter.filterId) {
+				return 'Download ' + this.activeFilter.name
+			}
+			return 'Download all'
 		},
 		styleOnWishList() {
 			return this.currentStyle.onWishList
@@ -389,9 +460,11 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
-			return `${window.location}export/?styles=${this.currentStyles
-				.map(style => style.styleId)
-				.join(',')}`
+			if (this.activeFilter.filterId) {
+				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			}
+			// /export with no params shows all styles
+			return `${window.location}export`
 		}
 	},
 	watch: {
@@ -414,8 +487,10 @@ export default {
 			}
 		},
 		activeFilter(newVal) {
-			if (newVal && newVal.name != '') this.filterName = newVal.name
-			else this.filterName = null
+			if (newVal && newVal.name != '') {
+				this.filterName = newVal.name
+				this.assistantExpanded = false
+			} else this.filterName = null
 		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
@@ -438,6 +513,9 @@ export default {
 					case ContentTypes.imagePortrait.contentComponent:
 					case ContentTypes.imageLandscape.contentComponent:
 					case ContentTypes.imageSquare.contentComponent:
+					case ContentTypes.videoPortrait.contentComponent:
+					case ContentTypes.videoLandscape.contentComponent:
+					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
 							this.currentStyle = this.currentStyles.filter(
 								e => e.styleId === componentProps.asset.styleId
@@ -449,6 +527,9 @@ export default {
 						break
 					case ContentTypes.wishList.contentComponent:
 						this.assistantMode = AssistantModes.WISHLIST
+						break
+					case ContentTypes.collage.contentComponent:
+						this.assistantMode = AssistantModes.COLLAGE
 						break
 					default:
 						//No window type found?
@@ -464,6 +545,26 @@ export default {
 					this.assistantMode = AssistantModes.WELCOME
 				}
 			}
+		},
+		wishList(newVal) {
+			if (
+				newVal.length == 0 &&
+				this.assistantMode == AssistantModes.COLLECTION_SEEN
+			) {
+				this.assistantMode = AssistantModes.WELCOME
+			}
+		},
+		collageIsOpen(open) {
+			if (open) {
+				this.assistantMode = AssistantModes.COLLAGE
+			}
+		}
+	},
+	filters: {
+		capitalize(value) {
+			if (!value) return ''
+			value = value.toString()
+			return value.charAt(0).toUpperCase() + value.slice(1)
 		}
 	},
 	methods: {
@@ -473,6 +574,9 @@ export default {
 			OPEN_WISH_LIST.action,
 			CLIPBOARD_COPY.action,
 			DOWNLOAD_PREPARING.action,
+			SAVE_COLLAGE.action,
+			MAKE_BACKGROUND.action,
+			CHANGE_COLLAGE.action,
 			'collection/' + ALL_ASSETS_VISIBLE.action,
 			'collection/' + SET_CURRENT_FILTER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
@@ -505,45 +609,49 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
-
 				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
 
-				sendTracking('Add to wish list',this.currentStyle.styleId)
-				
 				this.styleHasBeenAdded = true
-				setTimeout(()=> {
+				setTimeout(() => {
 					this.styleHasBeenAdded = false
 				}, 4000)
+
+				sendTracking('Add to wish list', this.currentStyle.styleId)
 			} else {
 				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadCollectionClickHandler() {
-			console.log('Download collection')
+			if (window.GS_LOGS) console.log('Download collection')
 			history.pushState({}, '', this.collectionUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		downloadWishListClickHandler() {
-			console.log('Download wishlist')
+			if (window.GS_LOGS) console.log('Download wishlist')
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {
-			console.log('Share wishlist',this.wishListUrl)
-						
-			getShortUrl(this.wishListUrl).then((shortenedUrl)=>{
-				console.log("shortenedUrl", shortenedUrl)
-				if ( typeof shortenedUrl === 'string' && shortenedUrl != '' ) this.shortenedReceiptUrl = shortenedUrl
+			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
 
-				copyToClipboard(this.shortenedReceiptUrl, this.copyToClipboardComplete.bind(this) );
+			getShortUrl(this.wishListUrl).then(shortenedUrl => {
+				if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
+				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
+					this.shortenedReceiptUrl = shortenedUrl
+
+				copyToClipboard(
+					this.shortenedReceiptUrl,
+					this.copyToClipboardComplete.bind(this)
+				)
 				let wLS = this.wishList.map(style => style.styleId).join(',')
-				sendTracking('Share wish list',wLS)
-			});
+				sendTracking('Share wish list', wLS)
+			})
 		},
 		copyToClipboardComplete(success) {
-			console.log('copyToClipboardComplete. success?', success)
+			if (window.GS_LOGS)
+				console.log('copyToClipboardComplete. success?', success)
 			this.shareUrl = this.wishListUrl
 			this[CLIPBOARD_COPY.action](success)
 		},
@@ -598,6 +706,16 @@ export default {
 			} else {
 				console.warn('Could not select text in node: Unsupported browser.')
 			}
+		},
+		downloadImageClickHandler() {
+			this[SAVE_COLLAGE.action]()
+		},
+		makeBackgroundClickHandler() {
+			this[MAKE_BACKGROUND.action]()
+		},
+		changeGarment(type, val) {
+			// trigger used to inform watchers to re-run
+			this[CHANGE_COLLAGE.action]({ trigger: Math.random(), type, val })
 		}
 	},
 	mounted() {
@@ -606,7 +724,7 @@ export default {
 			this.isLargeViewport
 		)
 		if (!isMobile) {
-			this.assistantExpanded = true
+			this.assistantExpanded = false
 			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}

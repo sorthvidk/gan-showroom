@@ -1,10 +1,10 @@
 <template>
-	<button class="films-item" :class="{'is-playing':isPlaying}" @click="onItemClick">
+	<button class="films-item" :class="{'is-playing':isPlaying}" @click.stop="onItemClick">
 		<div class="films-item__poster">
-			<img :src="parsedPosterUrl" alt="lorem">
+			<img :src="parsedPosterUrlThumb" alt="lorem" />
 		</div>
 		<p>{{filmName}}</p>
-	</button>	
+	</button>
 </template>
 
 
@@ -14,8 +14,10 @@ import ContentTypes from '~/model/content-types'
 import { vuex, mapActions, mapState } from 'vuex'
 import { OPEN_CONTENT } from '~/model/constants'
 
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+
 export default {
-	name:'films-item',
+	name: 'films-item',
 	props: {
 		filmId: {
 			type: String,
@@ -40,34 +42,40 @@ export default {
 		}
 	},
 	computed: {
-		parsedPosterUrl() {
-			return this.$cloudinary.url(this.posterUrl);
+		parsedPosterUrlThumb() {
+			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 310, height: 204});
+		},
+		parsedPosterUrlVideo() {
+			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 608,height: 342})
 		}
 	},
 	methods: {
-		...mapActions([
-			OPEN_CONTENT.action
-		]),	
+		...mapActions([OPEN_CONTENT.action]),
 		onItemClick() {
-			let type = ContentTypes.videoLandscape;
+			let type = ContentTypes.videoLandscape
 
 			let videoContent = [
-				{					
+				{
 					title: this.filmName,
 					contentId: this.filmId,
 					type: type,
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
-					contentComponentProps: { 
-						asset: {cloudinaryUrl: this.cloudinaryUrl, type:'video'}, 
-						videoAttributes:{ posterUrl:this.posterUrl, autoPlay:false, muted:false, controls:true} 
+					contentComponentProps: {
+						asset: { cloudinaryUrl: this.cloudinaryUrl, type: 'video', aspect:'landscape' },
+						videoAttributes: {
+							poster: this.parsedPosterUrlVideo,
+							preload: true,
+							autoPlay: true,
+							muted: false,
+							controls: true
+						}
 					},
 					statusComponentProps: type.defaultStatusComponentProps
 				}
 			]
-			this[OPEN_CONTENT.action]( {windowContent:videoContent} );
+			this[OPEN_CONTENT.action]({ windowContent: videoContent })
 		}
 	}
-};
-
+}
 </script>

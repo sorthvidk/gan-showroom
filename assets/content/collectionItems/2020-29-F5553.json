@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 325,
+  "assets": [],
+  "onWishList": false,
+  "program": 6132,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "name": "F5553_Fitted Dress",
+  "styleId": "F5553",
+  "drop": "November",
+  "programName": "Stripe Cotton",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 95,
+  "weight": 1,
+  "wholesalePriceDKK": 678,
+  "wholesalePriceUSD": 136,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 265,
+  "retailPriceDKK": 1899,
+  "colorId": "151"
+}

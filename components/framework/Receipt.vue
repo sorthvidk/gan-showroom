@@ -1,14 +1,8 @@
 <template>
 	<div class="receipt">
-		<h1 class="receipt__title" style="font-weight: 500;">ganni wishlist</h1>
-		<!-- wish-list-accordion - when shown inside .receipt it's heavily restyled -->
-		<!-- <wish-list-accordion
-			v-for="(item, key) in receiptStyles"
-			:key="'wishListItem'+key"
-			:wish-list-item="item"
-		/>-->
+		<h1 class="receipt__title" style="font-weight: 500;">ganni export</h1>
 		<receipt-item v-for="(item, key) in receiptStyles" :key="'receiptItem'+key" :receipt-item="item" />
-		<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>
+		<!-- <a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a> -->
 	</div>
 </template>
 
@@ -61,5 +55,5 @@ export default {
 	mounted() {
 		this.parseUrl()
 	}
-};
+}
 </script>

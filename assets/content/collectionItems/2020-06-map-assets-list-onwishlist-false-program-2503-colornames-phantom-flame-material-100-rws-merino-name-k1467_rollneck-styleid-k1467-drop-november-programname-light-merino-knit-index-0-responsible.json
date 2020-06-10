@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 155,
+  "assets": [],
+  "onWishList": false,
+  "program": 2503,
+  "colorNames": "Phantom, Flame",
+  "material": "100% RWS Merino",
+  "name": "K1467_Rollneck",
+  "styleId": "K1467",
+  "drop": "November",
+  "programName": "Light Merino Knit",
+  "index": 0,
+  "responsible": true,
+  "wholesalePriceEUR": 50,
+  "weight": 1,
+  "wholesalePriceDKK": 360,
+  "wholesalePriceUSD": 65,
+  "filters": [
+    "rtw5"
+  ],
+  "retailPriceEUR": 125,
+  "retailPriceDKK": 899,
+  "colorId": "252, 307"
+}

@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 345,
+  "assets": [],
+  "onWishList": false,
+  "program": 6132,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "name": "F5552_Oversized Dress",
+  "styleId": "F5552",
+  "drop": "November",
+  "programName": "Stripe Cotton",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 102,
+  "weight": 1,
+  "wholesalePriceDKK": 750,
+  "wholesalePriceUSD": 144,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 285,
+  "retailPriceDKK": 2099,
+  "colorId": "151"
+}

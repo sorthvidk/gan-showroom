@@ -11,8 +11,8 @@
 						<span>{{post.postedDate}}</span>
 					</div>
 
-					<img v-if="post.type === 'image'" v-lazy="post.cloudinaryUrl" alt=""/>
-					<video v-if="post.type === 'video'" :src="post.cloudinaryUrl" preload muted autoplay controls></video>
+					<img v-if="post.type === 'image'" v-lazy="getMediaUrl(post.type, post.cloudinaryUrl)" alt=""/>
+					<video v-if="post.type === 'video'" :src="getMediaUrl(post.type, post.cloudinaryUrl)" preload muted controls></video>
 
 					<h3>{{post.title}}</h3>
 					<p>{{post.bodyText}}</p>
@@ -24,10 +24,14 @@
 
 <script>
 
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+
 
 import { vuex, mapActions, mapState } from 'vuex'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name:'ganni-girls',
 	computed: {
 		...mapState({
@@ -37,5 +41,10 @@ export default {
 			return {backgroundImage: `url(${this.content.bgImageUrl})`};
 		}
 	},
+	methods: {
+		getMediaUrl(type,cURL) {
+			return getCloudinaryUrl(this.$cloudinary, {type:type, cloudinaryUrl:cURL}, {width: 500});
+		}
+	}
 };
 </script>

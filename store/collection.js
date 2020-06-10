@@ -1,3 +1,5 @@
+import sortArrayMultipleProps from "~/utils/sort-array-multiple"
+
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
@@ -27,12 +29,14 @@ export const state = () => ({
 		{
 			filterId: 'c1',
 			name: 'Tops',
-			styleIds: []
+			styleIds: [],
+			order: 1
 		},
 		{
 			filterId: 'c2',
 			name: 'Animal print',
-			styleIds: []
+			styleIds: [],
+			order: 2
 		}
 	],
 
@@ -150,21 +154,52 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
+		if ( window.GS_LOGS ) console.warn(
+			'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
+		)
+
 		if (state.filtersParsed) return false
 
 		let cl = state.list.length
 		for (var i = 0; i < cl; i++) {
 			let style = state.list[i]
-			let fl = style.filters.length
+			if ( typeof style.filters != "undefined" ) {
+				let fl = style.filters.length
 
-			for (var j = 0; j < fl; j++) {
-				let styleFilter = style.filters[j]
-				let stateFilter = state.filters.filter(
-					e => e.filterId === styleFilter
-				)[0]
-				if (stateFilter) stateFilter.styleIds.push(style.styleId)
+				for (var j = 0; j < fl; j++) {
+					let styleFilter = style.filters[j]
+					let stateFilter = state.filters.filter(
+						e => e.filterId === styleFilter
+					)[0]
+					if (stateFilter) stateFilter.styleIds.push(style.styleId)
+				}
+			}
+			else {
+				if ( window.GS_LOGS ) console.warn("NO FILTERS FOR STYLE: "+style.styleId)
 			}
 		}
+
+		//sort filters by order
+		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
+
+		//sort styles by weight
+		// state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
+
+		// let l1 = [
+		// 	{weight:7,program:608},
+		// 	{weight:234,program:908},
+		// 	{weight:1,program:908},
+		// 	{weight:4,program:608},
+		// 	{weight:133,program:608},
+		// ]
+
+		// sortArrayMultipleProps(l1,'program','weight')
+		// console.table(l1)
+		
+
+		//sort styles by program desc and weight asc
+		state.list = sortArrayMultipleProps(state.list,'program','weight')
+
 
 		//set current subset of total collection to total collection
 		state.currentStyles = state.list
@@ -173,6 +208,7 @@ export const mutations = {
 			name: '',
 			styleIds: []
 		}
+
 		state.filtersParsed = true
 	},
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
@@ -192,8 +228,10 @@ export const mutations = {
 		} else {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
-
 			let styleIds = state.activeFilter.styleIds
+			if ( window.GS_LOGS ) console.warn(
+				'SET CURRENT FILTER | filterId:' + filterId + ' | styleIds:' + styleIds
+			)
 			let sil = styleIds.length
 			let newCurrentStyles = []
 
@@ -203,6 +241,10 @@ export const mutations = {
 				addedStyle.index = i
 				newCurrentStyles.push(addedStyle)
 			}
+			newCurrentStyles = newCurrentStyles.sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
+
 			state.currentStyles = newCurrentStyles
 		}
 	}
@@ -223,7 +265,11 @@ export const actions = {
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 
@@ -239,7 +285,11 @@ export const actions = {
 		}
 	},
 	[SHOW_NEXT_STYLE.action]({ commit, dispatch, state }, styleId) {
-		dispatch(CLOSE_WINDOW_GROUP.action, {styleWindowGroup: true}, { root: true })
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 

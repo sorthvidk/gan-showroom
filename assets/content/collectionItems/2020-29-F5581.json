@@ -1,0 +1,26 @@
+{
+  "retailPriceUSD": 525,
+  "assets": [],
+  "onWishList": false,
+  "program": 6094,
+  "colorNames": "Black",
+  "material": "100% Lamb Leather",
+  "name": "F5581_Jacket",
+  "styleId": "F5581",
+  "drop": "November",
+  "programName": "Lamb Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 178,
+  "weight": 1,
+  "wholesalePriceDKK": 1280,
+  "wholesalePriceUSD": 219,
+  "filters": [
+    "rtw3",
+    "misc2",
+    "misc3"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3199,
+  "colorId": 99
+}

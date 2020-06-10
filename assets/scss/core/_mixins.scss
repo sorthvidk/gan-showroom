@@ -82,8 +82,11 @@
 		margin-right: rem(10);
 	}
 	p {
-		@include bodytext();
-		text-decoration: underline;
+		@include link();
+		white-space: nowrap;
+		max-width: rem(110);
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 

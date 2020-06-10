@@ -18,11 +18,16 @@
 			left: 50vw;
 			transform: translateX(-50%) !important;
 		}
+		&__wrapper {
+			z-index: $z-index-gallery !important;
+		}
+		.window__top .title {
+			cursor: default;
+		}
 	}
 }
 
 .gallery {
-	background-color: $color-grey;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -50,5 +55,11 @@
 
 	&__item + &__item {
 		border-top: rem(1) solid $color-black;
+	}
+
+	&-image,
+	&-video {
+		background: url('/img/hourglass.gif') no-repeat center center;
+		background-size: 25%;
 	}
 }

@@ -1,20 +1,24 @@
 <template>
 	<div class="wish-list">
-		<div class="wish-list__overview" v-if="viewPortSize == 1">
-			<div v-for="(item, index) in wishList" :key="'wishListItem'+index">
-				<button
-					v-if="item.assets && item.assets.length > 0"
-					class="button"
-					:class="{'is-active': currentWishListIndex == index}"
-					@click="overviewItemHandler(index)"
-				>
+		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
+			<div class="wish-list__overview__item" v-for="(item, index) in wishList" :key="'wishListItem'+index" :class="{'is-active': currentWishListIndex == index}">
+				<button v-if="item.assets && item.assets.length > 0" class="button activate" @click="overviewItemActivateHandler(index)">
 					<img :src="getImageUrl(index)" alt />
 					<p>{{item.name}}</p>
+				</button>
+				<button class="button remove" @click.stop="overviewItemRemoveHandler(index)">
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							<path
+								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+							/>
+						</svg>
+					</span>
 				</button>
 			</div>
 		</div>
 		<transition name="fade" mode="in-out">
-			<div class="wish-list__details" v-if="viewPortSize == 1">
+			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
 				<div class="inner" v-if="wishList.length < 1">
 					<p>Your wish list is empty!</p>
 				</div>
@@ -23,10 +27,10 @@
 					v-if="currentWishListItem.assets && currentWishListItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
-					<single-image :asset="currentWishListItem.assets[0]" />
+					<single-image :asset="currentWishListItem.assets[0]" :parent-window-id="parentWindowId" />
 
 					<h3>{{currentWishListItem.name}}</h3>
-					<button class="button" @click="removeItemHandler">Move to trash</button>
+					<button class="button" @click="removeItemHandler">Remove from wishlist</button>
 
 					<table>
 						<tbody>
@@ -39,7 +43,7 @@
 								<td>{{currentWishListItem.colorNames}}</td>
 							</tr>
 							<tr>
-								<th>Materiel</th>
+								<th>Material</th>
 								<td>{{currentWishListItem.material}}</td>
 							</tr>
 							<tr>
@@ -80,22 +84,22 @@
 
 							<tr>
 								<th>Suggested retail price</th>
-								<td>DKK {{currentWishListItem.suggestedRetailPriceDKK}}</td>
+								<td>DKK {{currentWishListItem.retailPriceDKK}}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>EUR {{currentWishListItem.suggestedRetailPriceEUR}}</td>
+								<td>EUR {{currentWishListItem.retailPriceEUR}}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>USD {{currentWishListItem.suggestedRetailPriceUSD}}</td>
+								<td>USD {{currentWishListItem.retailPriceUSD}}</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</transition>
-		<div v-if="viewPortSize == 0">
+		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
 				v-for="(item, key) in wishList"
 				:key="'wishListItem'+key"
@@ -110,14 +114,17 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
 
+import WindowContent from '~/components/framework/WindowContent.vue'
+
 export default {
+	extends: WindowContent,
 	name: 'wish-list',
 	components: {
 		WishListAccordion,
@@ -143,9 +150,15 @@ export default {
 	},
 	methods: {
 		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
-		overviewItemHandler(key) {
+		overviewItemActivateHandler(key) {
 			this.currentWishListIndex = key
 		},
+		overviewItemRemoveHandler(key) {
+			let removeItem = this.wishList[key]
+			this.currentWishListIndex = 0
+			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+		},
+
 		removeItemHandler() {
 			let removeItem = this.currentWishListItem
 			this.currentWishListIndex = 0
@@ -158,8 +171,7 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		getImageUrl(index) {
-			console.error(index)
-			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0]);
+			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0], {width: 30});
 		}
 	},
 	mounted() {

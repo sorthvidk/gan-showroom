@@ -5,8 +5,9 @@
 @import 'core/normalize';
 @import 'core/display';
 
+@import 'framework/cookie-banner';
+@import 'framework/cookie-policy';
 @import 'framework/cookieControl';
-
 @import 'framework/login';
 @import 'framework/desktop';
 @import 'framework/shortcut';
@@ -17,7 +18,10 @@
 @import 'framework/marquee';
 @import 'framework/receipt';
 @import 'framework/countdown';
+@import 'framework/screensaver';
 
+@import 'content/collage';
+@import 'content/responsible-icon';
 @import 'content/music-player';
 @import 'content/collection';
 @import 'content/single-image';
@@ -29,5 +33,9 @@
 @import 'content/video-player';
 @import 'content/ganni-girls';
 @import 'content/look-book';
+@import 'content/logo';
+
+@import 'content/filter-button';
 @import 'content/clipboard-message';
 @import 'content/download-message';
+@import 'content/error-message';

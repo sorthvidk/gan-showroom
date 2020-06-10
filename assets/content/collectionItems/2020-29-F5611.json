@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 675,
+  "onWishList":false,"assets": [],
+  "program": 6105,
+  "colorNames": "Cognac",
+  "material": "100% Goat Leather",
+  "name": "F5611_Short Jacket",
+  "styleId": "F5611",
+  "drop": "November",
+  "programName": "Washed Leather",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 218,
+  "weight": 1,
+  "wholesalePriceDKK": 1600,
+  "wholesalePriceUSD": 282,
+  "filters": [
+    "rtw3",
+    "misc2"
+  ],
+  "retailPriceEUR": 545,
+  "retailPriceDKK": 3999,
+  "colorId": 132
+}

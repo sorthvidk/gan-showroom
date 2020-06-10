@@ -1,5 +1,33 @@
-.music-player {
+.window {
+	&--music-player {
+		&__wrapper {
+			position: fixed;
+			top: calc(100vh - 310px);
+			left: rem(10);
+
+			@include mq($from: screen-xs) {
+				top: calc(100vh - 250px);
+			}
+
+			@include mq($from: screen-sm) {
+				width: rem(326);
+				left: calc(100vw - 370px);
+				top: calc(100vh - 230px);
+			}
+			@include mq($from: screen-md) {
+				right: auto;
+				top: calc(100vh - 230px);
+				left: rem(30);
+			}
+		}
+	}
+}
+
+.window--music-player .window__content {
 	background-color: $color-salmon;
+}
+
+.music-player {
 	user-select: none !important;
 	cursor: default;
 
@@ -17,24 +45,21 @@
 		white-space: nowrap;
 
 		@keyframes swipe {
-			from {
-				transform: translateX(0);
-			}
 			to {
-				// manually prefixed, glitches in safari otherwise
-				transform: translateX(calc(-100% / 4.95)); // slight glitch with 5
-				transform: translateX(-webkit-calc(-100% / 4.95));
-				transform: translateX(-moz-calc(-100% / 4.95));
+				transform: translateX(-100%); // slight glitch with 5
 			}
 		}
 
 		div {
 			overflow: hidden;
+			display: flex;
 
 			.title-marquee {
-				width: fit-content;
-				font-weight: bold;
+				will-change: transform;
+				// width: fit-content;
+				font-weight: $weight-bold;
 				animation: swipe 10s linear infinite;
+				display: inline-flex;
 			}
 		}
 	}

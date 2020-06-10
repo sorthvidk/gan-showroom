@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "onWishList": false,
+  "program": 6111,
+  "colorNames": "Black",
+  "material": "100% Recycled Nylon",
+  "name": "F5388_Oversized Jacket",
+  "styleId": "F5388",
+  "drop": "November",
+  "programName": "Outerwear Nylon",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 109,
+  "weight": 1,
+  "wholesalePriceDKK": 785,
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "rtw3",
+    ""
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 99
+}

@@ -1,0 +1,41 @@
+.error-message {
+	position: fixed;
+	top: rem(30);
+	left: rem(30);
+	right: rem(30);
+
+	z-index: $z-index-message;
+
+	@include mq($from: screen-sm) {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+	p {
+		display: block;
+		font-weight: $weight-medium;
+		font-size: rem(60);
+		line-height: 1.1;
+		text-align: center;
+		
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
+
+		color: $color-red;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+		
+		@include mq($from: screen-sm) {
+			transform: translate(-50%,-50%);
+			font-size: 12vw;
+		}
+		@include mq($from: screen-md) {
+			font-size: 7vw;
+			white-space: nowrap;
+		}
+	}
+}

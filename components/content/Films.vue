@@ -9,8 +9,10 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 import FilmsItem from '~/components/content/FilmsItem.vue'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name:'films',
 	components: {
 		FilmsItem

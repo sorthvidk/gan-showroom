@@ -1,34 +1,44 @@
 <template>
-	<div class="receipt-item" style="padding: 1em;">
-		<img
-			style="width: 4cm; float: left; padding-bottom: 1em;"
-			:src="receiptItem.assets[0].cloudinaryUrl"
-			alt
-		/>
-
-		<p style="padding-left: 1em; font-size: 2em; float: left;">{{receiptItem.name}}</p>
-		<table width="100%" style="text-align: left;">
-			<tr style="color: #666;">
-				<th>Color</th>
-				<th>Style #</th>
-				<th>Program #</th>
+	<table class="receipt-item">
+		<tbody class="receipt-item__content">
+			<tr>
+				<td rowspan="4" class="image">
+					<img style="width: 3.5cm;" :src="imageUrl" alt />
+				</td>
+				<td colspan="2" class="title">{{receiptItem.name}}</td>
+			</tr>
+			<!-- <tr>
+			</tr>-->
+			<tr style="height: 1em;">
+				<td style="color: #666; padding-right: 5em;">Color</td>
+				<td>{{receiptItem.colorNames}}</td>
+				<!-- <th>Program #</th> -->
 			</tr>
 			<tr>
-				<th>{{receiptItem.styleId}}</th>
-				<th>{{receiptItem.colorNames}}</th>
-				<th>{{receiptItem.program}}</th>
+				<td class="bottom" style="color: #666;">Style #</td>
+				<td class="bottom">{{receiptItem.styleId}}</td>
+				<!-- <th>{{receiptItem.program}}</th> -->
 			</tr>
-		</table>
-	</div>
+		</tbody>
+	</table>
 </template>
 
 <script>
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+
 export default {
 	name: 'receipt-item',
 	props: {
 		receiptItem: {
 			type: Object,
 			default: ''
+		}
+	},
+	computed: {
+		imageUrl() {
+			return getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
+				width: 196
+			})
 		}
 	}
 }

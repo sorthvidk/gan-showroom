@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 495,
+  "assets": [],
+  "onWishList": false,
+  "program": 6185,
+  "colorNames": "Black",
+  "material": "50% Viscose, 49% Polyester, 1% Elastane",
+  "name": "F5661_Dress",
+  "styleId": "F5661",
+  "drop": "November",
+  "programName": "Melange Suiting",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 152,
+  "weight": 1,
+  "wholesalePriceDKK": 1071,
+  "wholesalePriceUSD": 207,
+  "filters": [
+    "rtw1",
+    "rtw7"
+  ],
+  "retailPriceEUR": 425,
+  "retailPriceDKK": 2999,
+  "colorId": 99
+}

@@ -2,6 +2,7 @@
 	background-size: cover;
 	padding: rem(10);
 	min-height: 100%;
+	background-color: $color-lightgrey;
 	
 	@include mq($from: screen-md) {
 		padding: rem(30);
@@ -36,6 +37,7 @@
 			background-color: $color-white;
 			padding: 0 rem(10) rem(10);
 			font-family: $font-typewriter;
+			overflow: hidden;
 
 			&:before {
 				content:'';
@@ -84,7 +86,7 @@
 			}
 			h3 {
 				@include bodytext();
-				font-weight: 600;
+				font-weight: $weight-bold;
 				margin-bottom: rem(10);
 			}
 			p {

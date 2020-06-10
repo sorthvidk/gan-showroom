@@ -1,5 +1,9 @@
 import {
+	RESET_STATE,
 	LOGIN,
+	VISIBILITY,
+	COOKIES_ACCEPT,
+	WALLPAPER_CHANGE,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -9,10 +13,10 @@ import {
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
+	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
 	MOUSEMOVE,
-	TOGGLE_MUSIC_PLAYER,
 	MUSIC_PLAY_PAUSE,
 	FORCE_STOP_MUSIC,
 	TOPMOST_WINDOW,
@@ -24,56 +28,77 @@ import {
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING
+	DOWNLOAD_PREPARING,
+	SAVE_AS_BACKGROUND,
+	COLLAGE_IS_OPEN,
+	SAVE_COLLAGE,
+	MAKE_BACKGROUND,
+	CHANGE_COLLAGE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
+import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
 
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
+import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	hasData: false,
-	loggedin: false,
-	password: '4c9886c623963308307d41bff8ae065ef8b2aff6c86eeb04227d4a8499ddd20e', // = ganni
+	wallpaperIndex: 1,
+	wallpaperCount: 6,
+	webcamImage: '',
+
+	collageIsOpen: false,
+	saveCollage: false,
+	makeBackground: false,
+	changeCollage: {},
+
+	loggedIn: false,
+	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+
+	screensaverActive: false,
 
 	progressItems: {},
 	progressPct: 0,
 	progressMax: 0,
 
+	mousepos: { x: 0, y: 0 },
+
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
 
+	collectionLayout: CollectionLayouts.GRID,
+
 	keyPressed: null,
-	zIndexes: [],
-	lowestZIndex: 0,
 	highestZIndex: 0,
 
-	musicPlayerOpen: false,
+	rehydrated: false,
+	cookiesAccepted: false,
+
 	musicPlaying: false,
 	songs: [
 		{
-			title: 'Dance Music Mix 2001 - Track 02 - Kylie Minogue.mp3',
-			src: `/audio/Kylie-Minogue.mp3`
+			title: 'All Saints - Never Ever.mp3',
+			src: `/audio/1-01 Never Ever.mp3`
 		},
 		{
-			title: 'Pete-Hellers-Big-Love-Big-Love.mp3',
-			src: `/audio/Pete-Hellers-Big-Love-Big-Love.mp3`
+			title: 'Sugababes - Overload.mp3',
+			src: `/audio/1-01 Overload.mp3`
 		},
 		{
-			title: 'show_me_love.mp3',
-			src: `/audio/Robin-S-Show-Me-Love.mp3`
+			title: 'Nirvana - Come As You Are.mp3',
+			src: `/audio/1-03 Come As You Are.mp3`
 		},
 		{
-			title: '(BETTER_QUALITY)_320kbps_Moloko-Sing-It-Back.mp3',
-			src: `/audio/Moloko-Sing-It-Back.mp3`
+			title: 'Janet Jackson - Together Again.mp3',
+			src: `/audio/1-11 Together Again.mp3`
 		},
 		{
-			title: 'Track_06-Haddaway-What_is_love.mp3',
-			src: `/audio/What-Is-Love.mp3`
+			title: 'Madonna - Express Yourself.mp3',
+			src: `/audio/1-12 Express Yourself.mp3`
 		}
 	],
 
@@ -84,8 +109,68 @@ export const state = () => ({
 export const mutations = {
 	// Baseline content to cms
 
+	// fired when nuxt has access to the store
+	rehydrated(state) {
+		state.rehydrated = true
+	},
+
+	isOnWishList(state) {
+		state.collection.list.forEach(style => {
+			const sameStyleId = e => e.styleId === style.styleId
+			style.onWishList = state.collection.wishList.find(sameStyleId)
+		})
+	},
+
+	[SAVE_COLLAGE.mutation](state) {
+		state.saveCollage = !state.saveCollage
+	},
+
+	[MAKE_BACKGROUND.mutation](state) {
+		state.makeBackground = !state.makeBackground
+	},
+
+	[COLLAGE_IS_OPEN.mutation](state, open) {
+		state.collageIsOpen = open
+	},
+
+	[SAVE_AS_BACKGROUND.mutation](state, img) {
+		state.webcamImage = img
+	},
+
+	[CHANGE_COLLAGE.mutation](state, change) {
+		state.changeCollage = change
+	},
+
+	[RESET_STATE.mutation](state) {
+		state.collection.wishList = []
+		state.progressPct = 0
+		Object.keys(ContentTypes).forEach(type => {
+			state.progressItems[type].complete = false
+		})
+		state.loggedIn = false
+		state.wallpaperIndex = 1
+		state.cookiesAccepted = false
+	},
+
 	[LOGIN.mutation](state, key) {
-		state.loggedin = key
+		state.loggedIn = key
+		if ( window.GS_LOGS ) console.log('state.loggedIn', state.loggedIn)
+	},
+
+	[VISIBILITY.mutation](state, key) {
+		state.screensaverActive = key
+	},
+
+	[WALLPAPER_CHANGE.mutation](state) {
+		state.wallpaperIndex = state.wallpaperIndex + 1
+		if (state.wallpaperIndex > state.wallpaperCount) {
+			state.wallpaperIndex = 1
+		}
+		if ( window.GS_LOGS ) console.log('state.wallpaperIndex', state.wallpaperIndex)
+	},
+
+	[COOKIES_ACCEPT.mutation](state) {
+		state.cookiesAccepted = true
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -148,7 +233,8 @@ export const mutations = {
 			let style = state.collection.list.filter(
 				e => e.styleId === asset.styleId
 			)[0]
-			style.assets.push(asset)
+			if (style && style.assets) style.assets.push(asset)
+			else if ( window.GS_LOGS ) console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
 		}
 
 		//sort style assets to have onTop asset first in assets array
@@ -171,6 +257,7 @@ export const mutations = {
 				a.onTop && !b.onTop ? -1 : 1
 			)
 			style.assets = sortedAssets
+			style.onWishList = false
 		}
 
 		//to ensure only one connection operation
@@ -201,7 +288,7 @@ export const mutations = {
 		}
 		state.progressMax = pM
 
-		console.warn('INIT_PROGRESS', state.progressItems)
+		// if ( window.GS_LOGS ) console.warn('INIT_PROGRESS', state.progressItems)
 		state.progressPct = 0
 	},
 	/*
@@ -209,7 +296,7 @@ export const mutations = {
 	 *
 	 */
 	[OPEN_CONTENT.mutation](state, params) {
-		console.warn('OPEN_CONTENT', params)
+		if ( window.GS_LOGS ) console.warn('OPEN_CONTENT', params)
 
 		let windowGroup = params.addToGroupId
 			? state.windowGroupList.find(e => e.groupId === params.addToGroupId)
@@ -224,8 +311,6 @@ export const mutations = {
 
 		params.windowContent.forEach(content => {
 			const { contentId, canOverride } = content
-			const contentType = content.type
-			const contentName = content.title
 
 			const hasSame = prop => x => x[prop] === content[prop]
 			const hasNotSame = prop => x => x[prop] !== content[prop]
@@ -242,26 +327,19 @@ export const mutations = {
 			if (alreadyExists) return
 
 			const newWindow = getOptimalProp(state, content, windowGroup.groupId)
-			// placed here b/c they changes name of the key
-			newWindow.contentName = contentName
-			newWindow.contentType = contentType
 			newWindow.windowProps.nthChild = windowGroup.groupSize
-			// console.log('group size', windowGroup)
 
-			state.windowList.push(newWindow)
-			state.content.list.push(content)
+			state.windowList.unshift(newWindow)
+			state.content.list.unshift(newWindow)
 
 			windowGroup.windowIds.push(newWindow.windowId)
 			windowGroup.contentIds.push(newWindow.contentId)
 			windowGroup.groupSize++
 
-			state.zIndexes.push(newWindow.positionZ)
-			state.highestZIndex++
-
 			state.topMostWindow = newWindow
 
 			//FLAG PROGRESS!
-			state.progressItems[contentType.name].complete = true
+			state.progressItems[newWindow.contentType.name].complete = true
 		})
 
 		//only add the group if it has content
@@ -277,6 +355,11 @@ export const mutations = {
 		}
 
 		state.progressPct = Math.round((pIC / state.progressMax) * 100)
+
+		let wll = state.windowList.length
+
+		state.windowList = resetZOrder(state.windowList)
+		state.highestZIndex = state.windowList[wll - 1].positionZ
 	},
 	/*
 	 *	Save window position and size values
@@ -295,31 +378,19 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation](state, windowId) {
-		console.warn('TOPMOST_WINDOW', windowId)
+		if ( window.GS_LOGS ) console.warn('TOPMOST_WINDOW', windowId)
+		let wll = state.windowList.length
 
-		let windowsLength = state.windowList.length
-		let newZIndexes = []
-
-		for (var i = 0; i < windowsLength; i++) {
-			let currentWindow = state.windowList[i]
-			newZIndexes.push(currentWindow.positionZ)
-		}
-		//console.log("zIndexes before",state.zIndexes)
-		newZIndexes.sort(function(a, b) {
-			return a - b
-		})
-		state.zIndexes = newZIndexes
 		//console.log("zIndexes after",state.zIndexes)
 
 		let matchingWindow = state.windowList.filter(
 			e => e.windowId === windowId
 		)[0]
-		//console.log("current z", matchingWindow.positionZ )
 
 		if (matchingWindow) {
-			state.highestZIndex = matchingWindow.positionZ
-			matchingWindow.positionZ = state.zIndexes[windowsLength - 1] + 1
-
+			matchingWindow.positionZ = state.highestZIndex + 1
+			state.windowList = resetZOrder(state.windowList)
+			state.highestZIndex = state.windowList[wll - 1].positionZ
 			state.topMostWindow = matchingWindow
 		}
 	},
@@ -336,18 +407,6 @@ export const mutations = {
 		let currentWindow = state.windowList.filter(
 			e => e.windowId === ids.windowId
 		)[0]
-
-		let searchZ = currentWindow.positionZ
-		if (searchZ == state.lowestZIndex) {
-			//if closing window was lowest, set lowest current index to next lowest window
-			state.lowestZIndex = state.zIndexes.shift()
-		} else if (searchZ == state.highestZIndex) {
-			//if closing window was highest, set highest current index to next highest window
-			state.highestZIndex = state.zIndexes.pop()
-		} else {
-			//just remove index
-			state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1)
-		}
 
 		//remove window
 		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
@@ -371,15 +430,17 @@ export const mutations = {
 			}
 		}
 
-		if (state.windowGroupList.length == 0) {
-			state.highestZIndex = 0
-			state.lowestZIndex = 0
-		}
-
+		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
+
+		if (wll == 0) {
+			state.highestZIndex = 0
+		} else {
+			state.highestZIndex = state.windowList[wll - 1].positionZ
+		}
 		state.topMostWindow = state.windowList[wll - 1]
 
-		console.warn(
+		if ( window.GS_LOGS ) console.warn(
 			'CLOSE_WINDOW | removed id:' +
 				ids.windowId +
 				', remaining windows: ' +
@@ -416,65 +477,53 @@ export const mutations = {
 			let currentWindow = state.windowList.filter(
 				e => e.windowId === ids.windowId
 			)[0]
-			if (currentWindow) {
-				let searchZ = currentWindow.positionZ
-				//if closing window was lowest, set lowest current index to next lowest window
-				if (searchZ == state.lowestZIndex) {
-					//remove first element
-					state.lowestZIndex = state.zIndexes.shift()
-				}
-				//if closing window was highest, set highest current index to next highest window
-				else if (searchZ == state.highestZIndex) {
-					state.highestZIndex = state.zIndexes.pop()
-				} else {
-					//just remove index
-					state.zIndexes.splice(state.zIndexes.indexOf(searchZ), 1)
-				}
-			}
 			state.windowList = state.windowList.filter(
 				e => e.windowId !== ids.windowId
 			)
 		}
 
 		state.windowGroupList.pop() //remove that group
-		console.warn(
+		if ( window.GS_LOGS ) console.warn(
 			'CLOSE_WINDOW_GROUP | remaining groups: ' +
 				state.windowGroupList.length +
 				' | close style? ' +
 				(params && params.styleWindowGroup)
 		)
 
-		if (state.windowGroupList.length == 0) {
-			state.highestZIndex = 0
-			state.lowestZIndex = 0
-		}
-
+		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
+
+		if (wll == 0) {
+			state.highestZIndex = 0
+		} else {
+			state.highestZIndex = state.windowList[wll - 1].positionZ
+		}
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
-	[TOGGLE_MUSIC_PLAYER.mutation](state) {
-		state.musicPlayerOpen = !state.musicPlayerOpen
-	},
-
 	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
-		console.warn('MUSIC_PLAY_PAUSE', playing)
+		if ( window.GS_LOGS ) console.warn('MUSIC_PLAY_PAUSE', playing)
 		state.musicPlaying = playing
 	},
 
 	[FORCE_STOP_MUSIC.mutation](state, playing) {
-		console.warn('FORCE_STOP_MUSIC | pause music')
+		if ( window.GS_LOGS ) console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
 	},
 
 	[CLIPBOARD_COPY.mutation](state, value) {
-		console.warn('CLIPBOARD_COPY')
+		if ( window.GS_LOGS ) console.warn('CLIPBOARD_COPY')
 		state.clipBoardCopyComplete = value
 	},
 
 	[DOWNLOAD_PREPARING.mutation](state, value) {
-		console.warn('DOWNLOAD_PREPARING')
+		if ( window.GS_LOGS ) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
+	},
+
+	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
+		if ( window.GS_LOGS ) console.warn('COLLECTION_LAYOUT_CHANGE')
+		state.collectionLayout = value
 	}
 }
 
@@ -487,8 +536,40 @@ export const actions = {
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
 	},
+
+	[SAVE_COLLAGE.action]({ commit }) {
+		commit(SAVE_COLLAGE.mutation)
+	},
+
+	[MAKE_BACKGROUND.action]({ commit }) {
+		commit(MAKE_BACKGROUND.mutation)
+	},
+
+	[COLLAGE_IS_OPEN.action]({ commit }, open) {
+		commit(COLLAGE_IS_OPEN.mutation, open)
+	},
+
+	[CHANGE_COLLAGE.action]({ commit }, change) {
+		commit(CHANGE_COLLAGE.mutation, change)
+	},
+
+	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
+		commit(SAVE_AS_BACKGROUND.mutation, img)
+	},
+
+	[VISIBILITY.action]({ commit }, hidden) {
+		commit(VISIBILITY.mutation, hidden)
+	},
+
+	[WALLPAPER_CHANGE.action]({ commit }) {
+		commit(WALLPAPER_CHANGE.mutation)
+	},
+	[COOKIES_ACCEPT.action]({ commit }) {
+		commit(COOKIES_ACCEPT.mutation)
+	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)
+		commit(WALLPAPER_CHANGE.mutation)
 	},
 
 	[KEYPRESS.action]({ commit }, event) {
@@ -557,30 +638,20 @@ export const actions = {
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
 			{
-				title: 'Style gallery',
+				title: 'Zoom window',
 				contentId: 'gallery',
 				type: ContentTypes.gallery,
 				canOverride: true,
 				contentComponentProps: {
 					styleId: asset.styleId,
 					focusedAssetId: asset.assetId
-				},
-				windowProps: {
-					positionZ: 4500,
-					noStatus: true,
-					isMaximized: true,
-					canResize: false,
-					modifierClass: 'window--gallery'
 				}
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-	[TOGGLE_MUSIC_PLAYER.action]({ commit }, openState) {
-		commit(TOGGLE_MUSIC_PLAYER.mutation, openState)
-	},
 	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
-		console.log('playing', playing)
+		if ( window.GS_LOGS ) console.log('playing', playing)
 		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
 		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
 	},
@@ -589,7 +660,7 @@ export const actions = {
 	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {
-		let galleryContent = [
+		let wishListContent = [
 			{
 				title: 'Your wishlist',
 				contentId: 'wish-list',
@@ -597,7 +668,7 @@ export const actions = {
 				canOverride: false
 			}
 		]
-		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
+		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
 	},
 
 	[CLIPBOARD_COPY.action]({ commit }, value) {
@@ -607,6 +678,13 @@ export const actions = {
 		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
 
+	[RESET_STATE.action]({ commit }) {
+		commit(RESET_STATE.mutation)
+	},
+	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+		if ( window.GS_LOGS ) console.log('value', value)
+		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
+	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
@@ -623,7 +701,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
 
 		let filterFiles = await require.context(
 			'~/assets/content/collectionFilters/',
@@ -635,7 +713,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_FILTERS_FETCH.mutation, filters)
+		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
 		let assetFiles = await require.context(
 			'~/assets/content/mediaAssets/',
@@ -647,7 +725,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
 		let filmsFiles = await require.context(
 			'~/assets/content/films/',
@@ -659,7 +737,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(FILMS_FETCH.mutation, films)
+		commit(FILMS_FETCH.mutation, films)
 
 		let ganniGirlsFiles = await require.context(
 			'~/assets/content/ganniGirls/',
@@ -671,7 +749,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(GANNIGIRLS_FETCH.mutation, posts)
+		commit(GANNIGIRLS_FETCH.mutation, posts)
 
 		let lookBookFiles = await require.context(
 			'~/assets/content/lookBook/',
@@ -683,7 +761,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(LOOKBOOK_FETCH.mutation, lookBook)
+		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
 		let generalFiles = await require.context(
 			'~/assets/content/general/',
@@ -695,10 +773,8 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		await commit(GENERAL_FETCH.mutation, general)
+		commit(GENERAL_FETCH.mutation, general)
 
-		await commit(CONNECT_ASSETS.mutation)
-		await commit('collection/' + FILTER_COLLECTION.mutation)
-		await commit(INIT_PROGRESS.mutation)
+		console.log('NUXT SERVER INIT DONE')
 	}
 }

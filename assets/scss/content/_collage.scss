@@ -1,0 +1,108 @@
+.collage {
+	position: relative;
+	height: 100%;
+
+	.head {
+		z-index: 1;
+		position: absolute;
+		left: 50%;
+		top: rem(45);
+		transform: translateX(-50%);
+
+		width: 150px;
+		height: 150px;
+		border-radius: 400px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 5px solid #24ff00;
+
+		video {
+			z-index: 2;
+		}
+	}
+
+	p {
+		@include bodytext();
+	}
+
+	.trigger {
+		&.photoTimer {
+			background: $color-lime;
+			color: $color-white;
+
+			&:before {
+				content: none;
+			}
+
+			span {
+				display: inline-block;
+				font-family: $font-sansserif;
+				opacity: 0.7;
+				font-size: 3rem;
+				line-height: 0.5;
+				font-weight: 500;
+				margin: 0 0.35em;
+
+				&.active {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		background: $color-lightgrey;
+
+		width: 25%;
+		height: 70px;
+		right: 0;
+
+		box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+
+		&.trigger {
+			width: 73.5%;
+			right: auto;
+			left: 0;
+		}
+
+		@include mq($until: screen-md) {
+			position: absolute;
+			top: rem(15);
+			right: rem(15);
+			width: auto;
+
+			&.trigger {
+				width: auto;
+				left: rem(15);
+				right: auto;
+			}
+		}
+
+		&:before {
+			background: $color-lime;
+			content: '';
+			height: 3.2rem;
+			width: 3.2rem;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		svg {
+			padding: 1rem;
+			height: 1.6rem;
+			width: 1.6rem;
+			fill: $color-white;
+			position: relative;
+			z-index: 1;
+		}
+	}
+}

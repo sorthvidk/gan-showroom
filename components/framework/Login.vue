@@ -1,8 +1,6 @@
 <template>
-	<div class="login" @click="nextSlide">
-		<transition name="slide-transition">
-			<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
-		</transition>
+	<div class="login" @click="dispatchNext(true)">
+		<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
 	</div>
 </template>
 
@@ -19,7 +17,8 @@ export default {
 	},
 	data() {
 		return {
-			current: 0
+			current: 0,
+			timeout: null
 		}
 	},
 	computed: {
@@ -27,21 +26,40 @@ export default {
 			return [
 				{
 					type: 'one',
-					backgroundImage: 'url(/img/login-slide.jpg)'
+					backgroundImage: '/img/login-slide.jpg',
+					backgroundImageLow: '/img/login-slide_lo.jpg'
 				},
 				{
 					type: 'two',
-					backgroundImage: 'url(/img/login-slide-2.jpg)',
-					text: `There are many\nvariations of\npassages of\nwords which\ndon't look even`
+					backgroundImage: '/img/login-slide-2.jpg',
+					backgroundImageLow: '/img/login-slide-2_lo.jpg',
+					text: `You are now entering\nGANNI Pre-Spring 21\n"Home Is Where The\nHeart Is” collection`
 				}
 			]
 		}
 	},
 	methods: {
+		dispatchNext(immediate = false) {
+			this.debounce(this.nextSlide, 7000, immediate)()
+		},
 		nextSlide() {
 			this.current = Math.min(this.content.length, this.current + 1) // cap at slide-amount + 1
+			this.dispatchNext()
+		},
+		debounce(func, wait, immediate) {
+			return () => {
+				var later = () => {
+					this.timeout = null
+					func.apply(this)
+				}
+
+				clearTimeout(this.timeout)
+				this.timeout = setTimeout(later, immediate ? 0 : wait)
+			}
 		}
 	},
-	mounted() {}
-};
+	mounted() {
+		this.dispatchNext()
+	}
+}
 </script>

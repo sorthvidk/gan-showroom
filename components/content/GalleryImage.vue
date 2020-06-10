@@ -6,7 +6,7 @@
 
 <script>
 
-import getCloudinaryUrl from '~/utils/cloudinary-url'
+import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name:'gallery-image',
@@ -22,7 +22,7 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset);
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {width: 1000});
 		}
 	},
 	mounted() {

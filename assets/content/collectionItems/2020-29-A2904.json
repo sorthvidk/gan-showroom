@@ -1,0 +1,26 @@
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "onWishList": false,
+  "program": 5488,
+  "colorNames": "Leopard",
+  "material": "100% Recycled Polyester Lining: 100% Recycled PL",
+  "name": "A2904_Backpack",
+  "styleId": "A2904",
+  "drop": "November",
+  "programName": "Recycled Tech Fabric Bags",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 82,
+  "weight": 1,
+  "wholesalePriceDKK": 560,
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "acc2",
+    "acc5",
+    "misc4"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 943
+}

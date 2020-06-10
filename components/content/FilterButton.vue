@@ -1,5 +1,5 @@
 <template>
-	<button class="filter-button" :class="{'is-active': isActive}" @click="clickHandler">{{name}}</button>
+	<button class="filter-button" :class="{'is-active': activeFilter.filterId === filterId}" @click="clickHandler"><span>{{name}}</span><em>({{count}})</em></button>
 </template>
 
 <script>
@@ -14,16 +14,17 @@ export default {
 	props: {
 		name: {
 			type: String,
-			default: ''
+			default: '',
+			required: true
+		},
+		count: {
+			type: Number,
+			required: true
 		},
 		filterId: {
 			type: String,
-			default: ''
-		}
-	},
-	watch: {
-		activeFilter(newVal) {
-			this.isActive = newVal.filterId === this.filterId;
+			default: '',
+			required: true
 		}
 	},
 	computed: {
@@ -31,23 +32,18 @@ export default {
 			activeFilter: state => state.collection.activeFilter,
 		})
 	},
-	data() {
-		return {
-			isActive: false
-		}
-	},
 	methods: {
 		...mapActions([
 			'collection/'+SET_CURRENT_FILTER.action
 		]),
 		clickHandler() {
-			if ( this.isActive ) {
+			if ( this.activeFilter.filterId === this.filterId ) {
 				this['collection/'+SET_CURRENT_FILTER.action]();
 			}
 			else {
 				this['collection/'+SET_CURRENT_FILTER.action](this.filterId);	
 
-				sendTracking('Filter added',this.filterId)
+				sendTracking('Filter added',this.name)
 			}
 		}
 	}

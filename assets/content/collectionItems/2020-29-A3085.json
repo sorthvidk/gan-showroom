@@ -1,0 +1,25 @@
+{
+  "retailPriceUSD": 85,
+  "assets": [],
+  "onWishList": false,
+  "program": 5503,
+  "colorNames": "Leopard",
+  "material": "90% Rayon, 10% Elastane",
+  "name": "A3085_Bandeau Top",
+  "styleId": "A3085",
+  "drop": "November",
+  "programName": "Rayon Underwear",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 30,
+  "weight": 1,
+  "wholesalePriceDKK": 200,
+  "wholesalePriceUSD": 36,
+  "filters": [
+    "acc6",
+    ""
+  ],
+  "retailPriceEUR": 75,
+  "retailPriceDKK": 499,
+  "colorId": "943"
+}

@@ -7,7 +7,7 @@
 .wish-list {
 	@include mq($until: screen-sm) {
 		overflow: hidden;
-		overflow-y: auto;
+		overflow-y: scroll;
 		max-height: 100%;
 		@include custom-scrollbar();
 	}
@@ -28,25 +28,60 @@
 		overflow: hidden;
 		overflow-y: auto;
 		@include custom-scrollbar();
-
-		.button {
-			cursor: pointer;
-			padding: rem(8) rem(12);
-			width: 100%;
+		&__item {
 			display: flex;
-			align-items: center;
+			justify-content: space-between;
+			flex-wrap: nowrap;
+			max-width: 100%;
 
-			img {
-				display: inline-block;
-				flex: 0 0 rem(20);
-				max-width: rem(20);
-				margin-right: rem(10);
-			}
 			&:hover {
 				background-color: $color-lightgrey;
+
+				.remove {
+					opacity: 1;				
+				}
 			}
 			&.is-active {
 				background-color: $color-lightgrey;
+			}			
+		}
+
+		.button {
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+
+		}
+		.remove {
+			padding: rem(8) 0;
+			justify-content: center;
+			flex: 0 0 rem(30);
+			svg {
+				width: rem(30);
+				height: rem(30);
+			}
+			opacity: 0;
+			transition: opacity 0.1s ease;
+		}
+		.activate {
+			padding: rem(8) 0 rem(8) rem(12);
+			box-sizing: border-box;
+			flex: 0 0 rem(185);
+			justify-content: flex-start;
+
+			img {
+				display: inline-block;
+				flex: 0 0 rem(30);
+				max-width: rem(30);
+				margin-right: rem(10);
+			}
+			p {
+				font-size: rem(13);
+				overflow: hidden;
+				width: rem(185 + - 12 - 30 - 10);
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-align: left;
 			}
 		}
 	}
@@ -76,11 +111,9 @@
 		}
 
 		.button {
-			display: inline-flex;
-			@include bodytext();
+			@include link();
 			font-size: rem(12);
-			text-decoration: underline;
-			font-weight: 500;
+			display: inline-flex;
 			margin-bottom: rem(20);
 		}
 
@@ -110,6 +143,7 @@
 			width: 100%;
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
 			span {
 				display: inline-block;
 				text-align: left;
@@ -123,6 +157,18 @@
 				max-width: rem(30);
 				margin-right: rem(15);
 			}
+			.icon {
+				flex: 0 0 rem(30);
+				max-width: rem(30);
+				margin-left: auto;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				svg {
+					width: rem(30);
+					height: rem(30);
+				}
+			}
 		}
 		.content {
 			overflow: hidden;
@@ -131,12 +177,8 @@
 
 			.button {
 				display: inline-flex;
-				@include bodytext();
-				font-size: rem(12);
-				text-decoration: underline;
-				font-weight: 500;
 				margin-bottom: rem(20);
-				color: $color-darkgrey;
+				@include link();
 			}
 
 			.inner {

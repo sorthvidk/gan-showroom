@@ -14,8 +14,10 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import { FORCE_STOP_MUSIC } from '~/model/constants'
+import WindowContent from '~/components/framework/WindowContent.vue'
 
 export default {
+	extends: WindowContent,
 	name: 'hampster-dance',
 	data() {
 		return {
@@ -36,18 +38,25 @@ export default {
 			if (this.el.scrollTop / this.el.offsetHeight > 0.75) {
 				this.iterations += 3
 			}
+		},
+		audioTimeUpdate() {
+			if(this.audio.currentTime > this.audio.duration - 1.2){
+		        this.audio.currentTime = 0.05
+		        this.audio.play()
+		    }
 		}
 	},
 	mounted() {
 		this.el = this.$parent.$el.querySelector('.window__content')
 		this.el.addEventListener('scroll', this.scrollListener.bind(this))
 		this[FORCE_STOP_MUSIC.action]()
-
-		this.audio.loop = true
+		this.audio.volume = 0.7
 		this.audio.play()
+		this.audio.addEventListener('timeupdate', this.audioTimeUpdate.bind(this) );
 	},
 	beforeDestroy() {
 		this.audio.pause()
+		this.audio.removeEventListener('timeupdate', this.audioTimeUpdate.bind(this) );
 		let l = this.el.removeEventListener(
 			'scroll',
 			this.scrollListener.bind(this)

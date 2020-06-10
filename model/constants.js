@@ -6,6 +6,13 @@ const createMutation = type => ({
 	stateKey: camelCase(type)
 })
 
+export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
+export const LOGIN = createMutation('LOGIN')
+export const WALLPAPER_CHANGE = createMutation('WALLPAPER_CHANGE')
+export const SAVE_AS_BACKGROUND = createMutation('SAVE_AS_BACKGROUND')
+export const VISIBILITY = createMutation('VISIBILITY')
+export const RESET_STATE = createMutation('RESET_STATE')
+
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
 export const COLLECTION_FILTERS_FETCH = createMutation(
 	'COLLECTION_FILTERS_FETCH'
@@ -16,12 +23,14 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
-export const LOGIN = createMutation('LOGIN')
 export const KEYPRESS = createMutation('KEYPRESS')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
 export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION')
+export const COLLECTION_LAYOUT_CHANGE = createMutation(
+	'COLLECTION_LAYOUT_CHANGE'
+)
 export const TOPMOST_WINDOW = createMutation('TOPMOST_WINDOW')
 export const CLOSE_WINDOW = createMutation('CLOSE_WINDOW')
 export const UPDATE_WINDOW = createMutation('UPDATE_WINDOW')
@@ -43,3 +52,8 @@ export const FORCE_STOP_MUSIC = createMutation('FORCE_STOP_MUSIC')
 export const MUSIC_PLAY_PAUSE = createMutation('MUSIC_PLAY_PAUSE')
 export const CLIPBOARD_COPY = createMutation('CLIPBOARD_COPY')
 export const DOWNLOAD_PREPARING = createMutation('DOWNLOAD_PREPARING')
+
+export const SAVE_COLLAGE = createMutation('SAVE_COLLAGE')
+export const MAKE_BACKGROUND = createMutation('MAKE_BACKGROUND')
+export const COLLAGE_IS_OPEN = createMutation('COLLAGE_IS_OPEN')
+export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
