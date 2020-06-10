@@ -227,7 +227,7 @@ export const state = () => ({
 			label: 'Rails',
 			posH: 2,
 			posV: 3,
-			href: '/files/rails.pdf'
+			href: '/files/GANNI_PS21_Rails.pdf'
 		},
 		{
 			type: ShortcutTypes.WINDOW,
