@@ -16,10 +16,10 @@ export const state = () => ({
 			},
 			{
 				src: '/img/collage/background.jpg',
-				y: 0,
+				y: { mobile: 0, desktop: -250 },
 				x: 0,
 				width: { mobile: 360, desktop: 530 },
-				height: { mobile: 510, desktop: 520 },
+				height: { mobile: 510, desktop: 800 },
 
 				layer: 'background'
 			},

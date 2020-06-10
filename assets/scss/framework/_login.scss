@@ -97,14 +97,13 @@
 			font-weight: 500;
 			border: none;
 			background: none;
-			
+
 			font-size: 10vw;
 			width: 75%;
 			text-align: center;
 			color: $color-lime;
 
 			outline: none;
-
 
 			&.is-invalid {
 				color: $color-red;
@@ -178,7 +177,7 @@
 
 	&.two {
 		color: $color-purple;
-		font-size: 10vmax;
+		font-size: 8vmax;
 	}
 
 	.logo {

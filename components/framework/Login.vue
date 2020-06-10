@@ -33,7 +33,7 @@ export default {
 					type: 'two',
 					backgroundImage: '/img/login-slide-2.jpg',
 					backgroundImageLow: '/img/login-slide-2_lo.jpg',
-					text: `There are many\nvariations of\npassages of\nwords which\ndon't look even`
+					text: `You are now entering\nGANNI Pre-Spring 21\n"Home Is Where The\nHeart Is” collection`
 				}
 			]
 		}
@@ -61,5 +61,5 @@ export default {
 	mounted() {
 		this.dispatchNext()
 	}
-};
+}
 </script>

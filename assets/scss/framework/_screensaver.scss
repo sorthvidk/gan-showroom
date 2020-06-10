@@ -28,6 +28,7 @@
 	svg {
 		position: fixed;
 		width: 50vw;
+		opacity: 0;
 	}
 	@for $i from 1 to 15 {
 		svg:nth-child(#{$i}) {

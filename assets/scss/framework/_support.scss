@@ -74,6 +74,8 @@
 			border-radius: rem(6);
 			height: rem(50);
 			max-width: rem(50);
+
+			object-fit: cover;
 		}
 		p {
 			@include bodytext();

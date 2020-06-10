@@ -83,7 +83,7 @@
 
 		@include mq($until: screen-md) {
 			position: absolute;
-			bottom: rem(15);
+			top: rem(15);
 			left: rem(15);
 			width: auto;
 		}
