@@ -173,7 +173,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_softwear.png',
+			icon: '/img/shortcuts/ganni_software.png',
 			label: 'GANNI Software',
 			posH: 11,
 			posV: 6,
@@ -248,13 +248,13 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
-			icon: '/img/shortcuts/paint.png',
-			label: 'Collage',
+			icon: '/img/shortcuts/ganni_dressup.png',
+			label: 'PLAY DRESS UP',
 			posH: 11,
 			posV: 5,
 			windowContent: [
 				{
-					title: 'Collage',
+					title: 'PLAY DRESS UP',
 					contentId: 'collage',
 					type: ContentTypes.collage
 				}

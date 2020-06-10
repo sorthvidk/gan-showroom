@@ -418,7 +418,7 @@ export default {
 			styleHasBeenAdded: false,
 			shortenedReceiptUrl: null,
 			pdfDownloadLink:
-				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-wishlist&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
+				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
 		}
 	},
 	computed: {
@@ -489,7 +489,10 @@ export default {
 			}
 		},
 		activeFilter(newVal) {
-			if (newVal && newVal.name != '') this.filterName = newVal.name
+			if (newVal && newVal.name != '') {
+				this.filterName = newVal.name
+				this.assistantExpanded = false
+			}
 			else this.filterName = null
 		},
 		topMostWindow(newVal) {

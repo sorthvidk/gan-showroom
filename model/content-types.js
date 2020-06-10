@@ -29,7 +29,7 @@ export default {
 					w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
 					h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
-				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
+				[ViewportSizes.SMALL.name]: { w: 353, h: 390 }
 			}
 		}
 	},
@@ -322,7 +322,7 @@ export default {
 	ganniGirls: {
 		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
-		contentScore: 15,
+		contentScore: 0,
 		allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
@@ -362,7 +362,7 @@ export default {
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',
-		contentScore: 16,
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
