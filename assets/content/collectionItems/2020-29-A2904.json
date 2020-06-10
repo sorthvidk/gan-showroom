@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 235,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 5488,
   "colorNames": "Leopard",
   "material": "100% Recycled Polyester Lining: 100% Recycled PL",
@@ -19,7 +20,7 @@
     "acc5",
     "misc4"
   ],
-  "retailPriceEUR": 205,
+  "retailPriceEUR": 195,
   "retailPriceDKK": 1399,
   "colorId": 943
 }

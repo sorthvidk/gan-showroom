@@ -1,1 +1,25 @@
-{"styleId":"S1401","filters":["acc3",""],"name":"S1401_Ruffle Strap Sandal","program":4702,"programName":"Napa","material":"100% Goat Leather","drop":"November","colorNames":"Black, Port Royale","colorId":"99, 431","wholesalePriceDKK":960,"wholesalePriceEUR":130,"wholesalePriceUSD":165,"retailPriceDKK":2399,"retailPriceEUR":325,"retailPriceUSD":395,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 395,
+  "assets": [],
+  "onWishList": false,
+  "program": 4702,
+  "colorNames": "Black",
+  "material": "100% Goat Leather",
+  "name": "S1401_Ruffle Strap Sandal",
+  "styleId": "S1401",
+  "drop": "November",
+  "programName": "Napa",
+  "index": null,
+  "responsible": false,
+  "wholesalePriceEUR": 130,
+  "weight": 1,
+  "wholesalePriceDKK": 960,
+  "wholesalePriceUSD": 165,
+  "filters": [
+    "acc3",
+    ""
+  ],
+  "retailPriceEUR": 325,
+  "retailPriceDKK": 2399,
+  "colorId": "99"
+}
