@@ -1,10 +1,10 @@
 {
   "aspect": "portrait",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591688831/collection/Packshots/20.4/A3057_5488_307_n9i4ae.jpg",
-  "assetId": "A3057 2",
-  "styleId": "A3057",
-  "name": "A3057 Drawstring Tote",
+  "assetId": "A3273 1",
+  "styleId": "A3273",
+  "name": "A3273 Drawstring Tote",
   "type": "image"
 }
