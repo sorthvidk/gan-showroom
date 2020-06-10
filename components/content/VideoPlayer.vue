@@ -64,7 +64,7 @@ export default {
 			if ( this.loop ) attr.loop = "loop"
 			if ( this.muted ) attr.muted = "muted"
 			if ( this.preload ) attr.preload = "auto"
-			if ( this.playsInline ) attr.playsinline = "preload"
+			if ( this.playsInline ) attr.playsinline = "playsinline"
 			if ( this.poster ) attr.poster = this.poster
 			return attr
 		}
