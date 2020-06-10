@@ -280,7 +280,7 @@ export default {
 	wishList: {
 		name: 'wishList',
 		contentComponent: 'wish-list',
-		contentScore: 10,
+		contentScore: 15,
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -362,7 +362,7 @@ export default {
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',
-		contentScore: 15,
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
