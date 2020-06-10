@@ -2,8 +2,8 @@
 	<div>
 		<login v-if="!loggedIn" />
 		<desktop v-else />
-		
-		<screensaver v-if="screenSaverVisible"/>
+
+		<screensaver v-if="screensaverActive" />
 
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
@@ -20,12 +20,12 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import { 
-	CONNECT_ASSETS, 
-	FILTER_COLLECTION, 
-	INIT_PROGRESS, 
-	WALLPAPER_CHANGE, 
-	VISIBILITY 
+import {
+	CONNECT_ASSETS,
+	FILTER_COLLECTION,
+	INIT_PROGRESS,
+	WALLPAPER_CHANGE,
+	VISIBILITY
 } from '~/model/constants'
 
 export default {
@@ -36,11 +36,7 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState([
-			'loggedIn', 
-			'cookiesAccepted', 
-			'appTabUnfocused'
-		])
+		...mapState(['loggedIn', 'cookiesAccepted', 'screensaverActive'])
 	},
 	head() {
 		return {
@@ -60,37 +56,30 @@ export default {
 	},
 	data() {
 		return {
-			screenSaverTimeout: null,
-			screenSaverVisible: false,
-			countdownTime: 150000
+			countdownTime: 150000,
+			timeout: null
 		}
 	},
 	methods: {
-		...mapActions([
-			WALLPAPER_CHANGE.action, 
-			VISIBILITY.action
-		]),
-		toggleScreenSaver(appTabUnfocused) {
-			if ( window.GS_LOGS ) console.warn("TOGGLE SCREENSAVER | appTabUnfocused:"+appTabUnfocused)
-			this[VISIBILITY.action](appTabUnfocused)
-
-			if ( appTabUnfocused ) {
-				this.startScreenSaverCountdown();
-			}
-			else {				
-				this.screenSaverVisible = false; 
-				clearTimeout(this.screenSaverTimeout)
-			}
+		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action]),
+		toggleScreenSaver(appTabUnfocused, immediate) {
+			this.debounce(
+				() => this[VISIBILITY.action](appTabUnfocused),
+				immediate ? 0 : this.countdownTime
+			)
 		},
-		startScreenSaverCountdown() {
-			if ( window.GS_LOGS ) console.warn("START SCREENSAVER COUNTDOWN")
+		/**
+		 * debounce,
+		 * run 'func' if debounce isn't called again within 'wait'-ms, or run immediately
+		 */
+		debounce(func, wait, immediate) {
+			var later = () => {
+				this.timeout = null
+				func.apply(this)
+			}
 
-			this.screenSaverVisible = false; 
-			clearTimeout(this.screenSaverTimeout)
-			this.screenSaverTimeout = setTimeout(()=> { 
-				if ( window.GS_LOGS ) console.warn("SHOW SCREENSAVER")
-				this.screenSaverVisible = true; 
-			}, this.countdownTime)
+			clearTimeout(this.timeout)
+			this.timeout = setTimeout(later, immediate ? 0 : wait)
 		}
 	},
 	mounted() {
@@ -101,8 +90,6 @@ export default {
 		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
 		this.$store.commit(INIT_PROGRESS.mutation)
-		
-
 
 		this.$visibility.change((evt, appTabUnfocused) => {
 			if (appTabUnfocused) {
@@ -111,8 +98,14 @@ export default {
 		})
 
 		//add clear timeout listeners
-		document.body.addEventListener('click', this.startScreenSaverCountdown.bind(this))
-		document.body.addEventListener('mousemove', this.startScreenSaverCountdown.bind(this))
+		document.body.addEventListener(
+			'click',
+			this.toggleScreenSaver.bind(this, false, true)
+		)
+		document.body.addEventListener(
+			'mousemove',
+			this.toggleScreenSaver.bind(this, false, true)
+		)
 	}
 }
 </script>

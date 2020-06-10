@@ -16,7 +16,7 @@ export default {
 	collection: {
 		name: 'collection',
 		contentComponent: 'collection',
-		contentScore: 20,
+		contentScore: 25,
 		statusComponent: 'status-collection',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -36,7 +36,7 @@ export default {
 	films: {
 		name: 'films',
 		contentComponent: 'films',
-		contentScore: 10,
+		contentScore: 15,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -57,7 +57,7 @@ export default {
 	musicPlayer: {
 		name: 'musicPlayer',
 		contentComponent: 'music-player',
-		contentScore: 10,
+		contentScore: 0,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -280,7 +280,7 @@ export default {
 	wishList: {
 		name: 'wishList',
 		contentComponent: 'wish-list',
-		contentScore: 10,
+		contentScore: 15,
 		statusComponent: 'status-wish-list',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -362,7 +362,7 @@ export default {
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',
-		contentScore: 0,
+		contentScore: 10,
 		statusComponent: 'status-static',
 		allowedInstances: 1,
 		defaultWindowProps: {
@@ -375,7 +375,7 @@ export default {
 					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
 					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
-				[ViewportSizes.SMALL.name]: { w: 350, h: 500 }
+				[ViewportSizes.SMALL.name]: { w: 350, h: 540 }
 			},
 			noStatus: true,
 			canResize: false,

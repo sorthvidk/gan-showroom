@@ -2,7 +2,7 @@
 	<transition name="startup-transition" mode="out-in">
 		<div
 			class="desktop"
-			:class="hidden && 'screensaver-running'"
+			:class="screensaverActive && 'screensaver-running'"
 			v-lazy:background-image="webcamImage || backgroundImageObj"
 			:style="{backgroundSize: webcamImage && '400px'}"
 		>
@@ -96,6 +96,7 @@ import {
 } from '~/model/constants'
 
 import addMediaChangeListener from '~/utils/media-change'
+
 import ViewportSizes from '~/model/viewport-sizes'
 import ShortcutTypes from '~/model/shortcut-types'
 
@@ -124,7 +125,7 @@ export default {
 			'windowList',
 			'clipBoardCopyComplete',
 			'downloadPreparing',
-			'hidden',
+			'screensaverActive',
 			'webcamImage',
 			'mousepos'
 		]),
@@ -194,13 +195,6 @@ export default {
 				this[DOWNLOAD_PREPARING.action](false)
 			}, 3000)
 		},
-		playSound() {
-			const audio = new Audio('/audio/ganni_boot.mp3')
-			audio.addEventListener('loadeddata', () => {
-				audio.volume = 0.4
-				audio.play()
-			})
-		},
 		openMusicPlayer() {
 			this[OPEN_CONTENT.action]({
 				windowContent: [
@@ -228,8 +222,19 @@ export default {
 			}
 		})
 
+		let timeout = null
 		window.addEventListener('mousemove', event => {
-			this[MOUSEMOVE.action](event)
+			const debounce = (func, wait, immediate) => {
+				var later = () => {
+					timeout = null
+					func.apply(this)
+				}
+
+				clearTimeout(timeout)
+				timeout = setTimeout(later, immediate ? 0 : wait)
+			}
+
+			debounce(() => this[MOUSEMOVE.action](event), 200)
 		})
 
 		let isMobile = addMediaChangeListener(

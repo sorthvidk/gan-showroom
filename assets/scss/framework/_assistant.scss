@@ -97,6 +97,10 @@
 			max-height: 0;
 		}
 
+		&.scroll {
+			overflow-y: auto;
+		}
+
 		@include mq($from: screen-md) {
 			border-top: 0;
 			max-height: none;

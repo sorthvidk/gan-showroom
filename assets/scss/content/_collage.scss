@@ -48,7 +48,7 @@
 
 		svg {
 			padding: 1rem;
-			margin-top: -0.1rem;
+			margin-top: 0.25rem;
 			height: 1.6rem;
 			width: 1.6rem;
 			fill: $color-white;
@@ -83,7 +83,7 @@
 
 		@include mq($until: screen-md) {
 			position: absolute;
-			bottom: rem(15);
+			top: rem(15);
 			left: rem(15);
 			width: auto;
 		}

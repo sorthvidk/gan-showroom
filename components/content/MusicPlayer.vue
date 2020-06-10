@@ -85,8 +85,8 @@ export default {
 				this.audio.pause()
 			}
 		},
-		hidden(hidden) {
-			if (hidden) {
+		appTabUnfocused(appTabUnfocused) {
+			if (appTabUnfocused) {
 				this.audio.volume = 0
 			} else {
 				this.fadeIn()
@@ -97,7 +97,7 @@ export default {
 		'keyPressed',
 		'musicPlaying',
 		'songs',
-		'hidden',
+		'appTabUnfocused',
 		'topMostWindow'
 	]),
 	methods: {

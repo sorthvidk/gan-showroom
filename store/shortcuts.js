@@ -159,7 +159,7 @@ export const state = () => ({
 			posV: 6,
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc4' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
 			],
 			windowContent: [
 				{
@@ -199,7 +199,7 @@ export const state = () => ({
 			posV: 6,
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'acc1' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
 			],
 			windowContent: [
 				{
@@ -248,8 +248,8 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
-			icon: '/img/shortcuts/ganni_dressup.png',
 			label: 'PLAY DRESS UP',
+			icon: '/img/shortcuts/ganni_dressup.png',
 			posH: 11,
 			posV: 5,
 			windowContent: [

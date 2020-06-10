@@ -21,6 +21,9 @@
 		&__wrapper {
 			z-index: $z-index-gallery !important;
 		}
+		.window__top .title {
+			cursor: default;
+		}
 	}
 }
 

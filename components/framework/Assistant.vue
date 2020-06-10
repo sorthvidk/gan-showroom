@@ -318,14 +318,15 @@
 								<path d="M0 7h15v1H0V7z" />
 							</svg>
 						</span>
-						<p>Controls</p>
+						<p>Change clothes</p>
 					</button>
 				</div>
 
 				<div
-					class="assistant__content"
+					class="assistant__content scroll"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
+
 					<div class v-if="assistantMode == 5">
 						<div class="assistant__text">
 							<ol>
