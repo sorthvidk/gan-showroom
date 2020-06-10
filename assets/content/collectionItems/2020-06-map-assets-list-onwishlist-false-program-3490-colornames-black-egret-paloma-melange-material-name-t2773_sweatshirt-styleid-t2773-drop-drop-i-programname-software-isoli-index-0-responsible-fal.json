@@ -2,11 +2,11 @@
   "assets": [],
   "onWishList": false,
   "program": 3490,
-  "colorNames": "Black, Egret, Paloma Melange",
+  "colorNames": "Black, Egret, Sweet Lilac, Paloma Melange",
   "material": " ",
   "name": "T2773_Sweatshirt",
   "styleId": "T2773",
-  "drop": "Drop I",
+  "drop": "SOFTWARE",
   "programName": "Software Isoli",
   "index": 0,
   "responsible": false,
@@ -14,5 +14,5 @@
   "filters": [
     "misc5"
   ],
-  "colorId": "99, 135, 921"
+  "colorId": "99, 135, 465, 921"
 }
