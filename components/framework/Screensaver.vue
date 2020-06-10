@@ -44,7 +44,7 @@ export default {
 
 		const color = this.getRandomColor()
 
-		var logos = this.$refs.logos.map((el, i) => ({
+		this.logos = this.$refs.logos.map((el, i) => ({
 			first: i === 0,
 			active: false,
 			el,
@@ -58,10 +58,10 @@ export default {
 
 		const addColor = () => {
 			const newColor = this.getRandomColor()
-			logos.forEach(logo => logo.colors.push(newColor))
+			this.logos.forEach(logo => logo.colors.push(newColor))
 		}
 
-		logos.forEach(logo => (logo.el.style.fill = logo.colors[0]))
+		this.logos.forEach(logo => (logo.el.style.fill = logo.colors[0]))
 
 		const init = () => {
 			window.addEventListener('resize', onResize)
@@ -95,15 +95,22 @@ export default {
 
 		const onResize = () => {
 			containerBcr = container.getBoundingClientRect()
-			logos.forEach(logo => (logo.bcr = logo.el.getBoundingClientRect()))
+			this.logos.forEach(logo => (logo.bcr = logo.el.getBoundingClientRect()))
+		}
+
+		const activate = logo => {
+			logo.active = true
+			logo.el.style.opacity = 1
 		}
 
 		let distance = 0
 		const render = time => {
 			window.requestAnimationFrame(render)
 
-			logos.forEach((logo, i) => {
-				logo.active = distance / (i * this.gap) > 1
+			this.logos.forEach((logo, i) => {
+				if (!logo.active && distance / (i * this.gap) > 1) {
+					activate(logo)
+				}
 
 				if (!logo.active) {
 					return

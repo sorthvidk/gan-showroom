@@ -318,7 +318,7 @@
 								<path d="M0 7h15v1H0V7z" />
 							</svg>
 						</span>
-						<p>Controls</p>
+						<p>Change clothes</p>
 					</button>
 				</div>
 

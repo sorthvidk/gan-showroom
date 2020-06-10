@@ -90,8 +90,6 @@ export default {
 			height,
 			draggable = true,
 			round = false,
-			// background = false,
-			// doll = false,
 			layer = 'layer'
 		}) {
 			const image = new Image()
@@ -242,7 +240,9 @@ export default {
 
 			const newIndex = next ? plusOneOrFirst() : minusOneOrLast()
 			const newImage = this.clothes[x][newIndex]
-			const merged = { ...newImage, ...oldPlacement }
+
+			const merged =
+				x === 'background' ? newImage : { ...newImage, ...oldPlacement }
 			this.insertPhoto(merged)
 		}
 	},
@@ -284,7 +284,7 @@ export default {
 
 		this.insertPhoto({
 			src: '/img/collage/watermark.png',
-			y: 475,
+			y: 485,
 			x: 10,
 			width: 150,
 			height: 23,
