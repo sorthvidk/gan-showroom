@@ -10,8 +10,9 @@
 		font-size: 14vw; // fills the 'screen'
 		line-height: 1;
 		font-weight: 500;
-		border-bottom: 1px solid;
+		// border-bottom: 1px solid;
 		margin-top: 1rem;
+		margin-bottom: -0.5rem;
 	}
 
 	* {
@@ -23,6 +24,10 @@
 		width: 100%;
 		border-bottom: 1px solid;
 		text-align: left;
+
+		&:first-of-type {
+			border-top: 1px solid;
+		}
 
 		&__content {
 			display: block;
