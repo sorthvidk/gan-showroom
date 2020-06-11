@@ -2,8 +2,8 @@ import {
 	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
+	COPYRIGHT_ACCEPT,
 	COOKIES_ACCEPT,
-	WALLPAPER_CHANGE,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -46,8 +46,6 @@ import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	wallpaperIndex: 1,
-	wallpaperCount: 6,
 	webcamImage: '',
 
 	collageIsOpen: false,
@@ -77,6 +75,7 @@ export const state = () => ({
 
 	rehydrated: false,
 	cookiesAccepted: false,
+	copyrightAccepted: false,
 
 	musicPlaying: false,
 	songs: [
@@ -148,8 +147,8 @@ export const mutations = {
 			state.progressItems[type].complete = false
 		})
 		state.loggedIn = false
-		state.wallpaperIndex = 1
 		state.cookiesAccepted = false
+		state.copyrightAccepted = false
 	},
 
 	[LOGIN.mutation](state, key) {
@@ -161,17 +160,13 @@ export const mutations = {
 		state.screensaverActive = key
 	},
 
-	[WALLPAPER_CHANGE.mutation](state) {
-		state.wallpaperIndex = state.wallpaperIndex + 1
-		if (state.wallpaperIndex > state.wallpaperCount) {
-			state.wallpaperIndex = 1
-		}
-		if (window.GS_LOGS)
-			console.log('state.wallpaperIndex', state.wallpaperIndex)
-	},
 
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
+	},
+
+	[COPYRIGHT_ACCEPT.mutation](state, value) {
+		state.copyrightAccepted = value
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -565,15 +560,14 @@ export const actions = {
 		commit(VISIBILITY.mutation, hidden)
 	},
 
-	[WALLPAPER_CHANGE.action]({ commit }) {
-		commit(WALLPAPER_CHANGE.mutation)
+	[COOKIES_ACCEPT.action]({ commit }, value) {
+		commit(COOKIES_ACCEPT.mutation, value)
 	},
-	[COOKIES_ACCEPT.action]({ commit }) {
-		commit(COOKIES_ACCEPT.mutation)
+	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
+		commit(COPYRIGHT_ACCEPT.mutation, value)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)
-		commit(WALLPAPER_CHANGE.mutation)
 	},
 
 	[KEYPRESS.action]({ commit }, event) {

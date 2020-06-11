@@ -10,7 +10,7 @@
   "drop": "November",
   "programName": "Stripe Cotton",
   "index": null,
-  "responsible": false,
+  "responsible": true,
   "wholesalePriceEUR": 56,
   "weight": 1,
   "wholesalePriceDKK": 393,

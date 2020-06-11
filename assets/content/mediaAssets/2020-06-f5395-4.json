@@ -1,10 +1,10 @@
 {
-  "aspect": "portrait",
+  "aspect": "landscape",
   "visible": true,
   "onTop": false,
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591030157/collection/Lookbook%20images/20.4%20Finals/F5395_K1468_kqp6qd.jpg",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/v1591795748/films/Looks/PS_LOOKBOOK_FILM19_V02_lvsabz.mp4",
   "assetId": "F5395 4",
   "styleId": "F5395",
   "name": "F5395 Oversized Coat",
-  "type": "image"
+  "type": "video"
 }

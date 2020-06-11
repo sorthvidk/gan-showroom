@@ -28,7 +28,7 @@ export default {
 	},
 	methods: {
 		getMediaUrl(type,cURL) {
-			return getCloudinaryUrl(this.$cloudinary, {type:type, cloudinaryUrl:cURL}, {width: 500});
+			return getCloudinaryUrl(this.$cloudinary, {type:type, cloudinaryUrl:cURL}, {width: 500}, 2);
 		}
 	}
 };
