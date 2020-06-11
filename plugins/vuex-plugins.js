@@ -7,6 +7,7 @@ export default ({ store }) => {
 			paths: [
 				'loggedIn',
 				'cookiesAccepted',
+				'copyrightAccepted',
 				'progressItems',
 				'progressMax',
 				'progressPct',

@@ -69,7 +69,7 @@ export const state = () => ({
 						}
 					},
 					statusComponentProps: {
-						text: '&copy; GANNI Space'
+						text: 'TIP! Hit ESC to close all'
 					}
 				},
 				{
@@ -83,21 +83,91 @@ export const state = () => ({
 						}
 					},
 					statusComponentProps: {
-						text: '&copy; GANNI Space'
+						text: 'TIP! Hit ESC to close all'
 					}
 				},
 				{
 					title: 'Ditte_inspiration_image_03',
 					contentId: 'ditte-image3',
-					type: ContentTypes.imageLandscape,
+					type: ContentTypes.imagePortrait,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte1.jpg'
+							defaultImageUrl: '/img/ditte/ditte3.jpg'
 						}
 					},
 					statusComponentProps: {
-						text: '&copy; GANNI Space'
+						text: 'TIP! Hit ESC to close all'
+					}
+				},
+				{
+					title: 'Ditte_inspiration_image_04',
+					contentId: 'ditte-image4',
+					type: ContentTypes.imagePortrait,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte4.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: 'TIP! Hit ESC to close all'
+					}
+				},
+				{
+					title: 'Ditte_inspiration_image_05',
+					contentId: 'ditte-image5',
+					type: ContentTypes.imagePortrait,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte5.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: 'TIP! Hit ESC to close all'
+					}
+				},
+				{
+					title: 'Ditte_inspiration_image_06',
+					contentId: 'ditte-image6',
+					type: ContentTypes.imagePortrait,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte6.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: 'TIP! Hit ESC to close all'
+					}
+				},
+				{
+					title: 'Ditte_inspiration_image_07',
+					contentId: 'ditte-image7',
+					type: ContentTypes.imagePortrait,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte7.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: 'TIP! Hit ESC to close all'
+					}
+				},
+				{
+					title: 'Ditte_inspiration_image_08',
+					contentId: 'ditte-image8',
+					type: ContentTypes.imagePortrait,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte8.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: 'TIP! Hit ESC to close all'
 					}
 				},
 				{

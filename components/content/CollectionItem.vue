@@ -35,7 +35,7 @@ export default {
 		}),
 		imageUrl() {
 			return {
-				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 196 }),
+				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 310 }),
 				loading: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
 					width: 10
 				})

@@ -2,6 +2,7 @@ import {
 	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
+	COPYRIGHT_ACCEPT,
 	COOKIES_ACCEPT,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
@@ -74,6 +75,7 @@ export const state = () => ({
 
 	rehydrated: false,
 	cookiesAccepted: false,
+	copyrightAccepted: false,
 
 	musicPlaying: false,
 	songs: [
@@ -146,6 +148,7 @@ export const mutations = {
 		})
 		state.loggedIn = false
 		state.cookiesAccepted = false
+		state.copyrightAccepted = false
 	},
 
 	[LOGIN.mutation](state, key) {
@@ -160,6 +163,10 @@ export const mutations = {
 
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
+	},
+
+	[COPYRIGHT_ACCEPT.mutation](state, value) {
+		state.copyrightAccepted = value
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -550,8 +557,11 @@ export const actions = {
 		commit(VISIBILITY.mutation, hidden)
 	},
 
-	[COOKIES_ACCEPT.action]({ commit }) {
-		commit(COOKIES_ACCEPT.mutation)
+	[COOKIES_ACCEPT.action]({ commit }, value) {
+		commit(COOKIES_ACCEPT.mutation, value)
+	},
+	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
+		commit(COPYRIGHT_ACCEPT.mutation, value)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)

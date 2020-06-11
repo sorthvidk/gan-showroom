@@ -1,0 +1,68 @@
+.copyright-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	z-index: $z-index-message;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.window {
+		max-width: rem(355);
+		position: static;
+		
+
+		@include mq($from: screen-xs) {
+			max-width: rem(400);
+		}
+
+		&__content {
+			background-color: $color-grey;
+			padding: rem(20) rem(30);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			.icon {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				svg {
+					flex: 0 0 rem(55);
+					width: rem(55);
+					height: rem(55);
+					display: inline-flex;
+
+					animation: rotate 3s infinite linear;				
+				}
+				p {
+					margin-left: rem(30);
+					@include bodytext();
+				}
+			}
+			.button {
+				@include window-button();
+				@include bevel();
+				color: $color-blue;
+				text-decoration: underline;
+				margin-top: rem(20);
+				padding: rem(6) rem(50) rem(10);
+				background-color: $color-grey;
+			}
+		}
+	}	
+		
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
