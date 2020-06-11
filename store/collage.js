@@ -97,6 +97,21 @@ export const state = () => ({
 				height: 458 / scale,
 				y: 75,
 				x: { mobile: 175, desktop: 350 }
+			},
+			{
+				src: '/img/collage/bag2.png',
+				width: 394 / scale,
+				height: 479 / scale
+			},
+			{
+				src: '/img/collage/top2.png',
+				width: 364 / scale,
+				height: 223 / scale
+			},
+			{
+				src: '/img/collage/top3.png',
+				width: 559 / scale,
+				height: 279 / scale
 			}
 		],
 		headgear: [
@@ -111,6 +126,16 @@ export const state = () => ({
 				src: '/img/collage/hat1.png',
 				width: 547 / scale,
 				height: 311 / scale
+			},
+			{
+				src: '/img/collage/hat.png',
+				width: 385 / scale,
+				height: 270 / scale
+			},
+			{
+				src: '/img/collage/barnie2.png',
+				width: 351 / scale,
+				height: 276 / scale
 			}
 		],
 		tops: [
@@ -165,6 +190,30 @@ export const state = () => ({
 				src: '/img/collage/shirt3.png',
 				width: 668 / scale,
 				height: 994 / scale
+			},
+			{
+				src: '/img/collage/t-shirt.png',
+				width: 689 / scale,
+				height: 641 / scale
+			},
+			{
+				src: '/img/collage/top.png',
+				width: 421 / scale,
+				height: 772 / scale
+			}
+		],
+		bottoms: [
+			{
+				src: '/img/collage/pants.png',
+				width: 486 / scale,
+				height: 986 / scale,
+				x: { mobile: 150, desktop: 200 },
+				y: { mobile: 100, desktop: 300 }
+			},
+			{
+				src: '/img/collage/dress7.png',
+				width: 592 / scale,
+				height: 826 / scale
 			}
 		],
 		shoes: [
@@ -189,6 +238,26 @@ export const state = () => ({
 				src: '/img/collage/shoes4.png',
 				width: 643 / scale,
 				height: 322 / scale
+			},
+			{
+				src: '/img/collage/shoes5.png',
+				width: 652 / scale,
+				height: 157 / scale
+			},
+			{
+				src: '/img/collage/socks1.png',
+				width: 643 / scale,
+				height: 531 / scale
+			},
+			{
+				src: '/img/collage/socks2.png',
+				width: 604 / scale,
+				height: 582 / scale
+			},
+			{
+				src: '/img/collage/socks3.png',
+				width: 585 / scale,
+				height: 611 / scale
 			}
 		]
 	}
