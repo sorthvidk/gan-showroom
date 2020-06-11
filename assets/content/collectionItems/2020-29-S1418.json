@@ -1,1 +1,25 @@
-{"styleId":"S1418","filters":["acc3",""],"name":"S1418_Country Boot","program":4628,"programName":"Recycled Rubber","material":"50% Recycled Rubber 50% Rubber","drop":"November","colorNames":"Flame","colorId":307,"wholesalePriceDKK":680,"wholesalePriceEUR":98,"wholesalePriceUSD":119,"retailPriceDKK":1699,"retailPriceEUR":245,"retailPriceUSD":285,"responsible":false,"weight":1,"onWishList":false,"assets":[],"index":null}
+{
+  "retailPriceUSD": 285,
+  "assets": [],
+  "onWishList": false,
+  "program": 4628,
+  "colorNames": "Flame",
+  "material": "50% Recycled Rubber 50% Rubber",
+  "name": "S1418_Country Boot",
+  "styleId": "S1418",
+  "drop": "November",
+  "programName": "Recycled Rubber",
+  "index": null,
+  "responsible": true,
+  "wholesalePriceEUR": 98,
+  "weight": 1,
+  "wholesalePriceDKK": 680,
+  "wholesalePriceUSD": 119,
+  "filters": [
+    "acc3",
+    ""
+  ],
+  "retailPriceEUR": 245,
+  "retailPriceDKK": 1699,
+  "colorId": 307
+}

@@ -1,10 +1,10 @@
 {
-  "aspect": "portrait",
+  "aspect": "landscape",
   "visible": true,
   "onTop": false,
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591030156/collection/Lookbook%20images/20.4%20Finals/F5661_vo8poj.jpg",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/v1591795742/films/Looks/PS_LOOKBOOK_FILM17_V03_rusvwz.mp4",
   "assetId": "F5661 4",
   "styleId": "F5661",
   "name": "F5661 Dress",
-  "type": "image"
+  "type": "video"
 }

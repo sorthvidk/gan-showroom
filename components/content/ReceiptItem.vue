@@ -19,6 +19,11 @@
 				<td class="bottom">{{receiptItem.styleId}}</td>
 				<!-- <th>{{receiptItem.program}}</th> -->
 			</tr>
+			<tr>
+				<td class="bottom" style="color: #666;">Program name</td>
+				<td class="bottom">{{receiptItem.programName}}</td>
+				<!-- <th>{{receiptItem.program}}</th> -->
+			</tr>
 		</tbody>
 	</table>
 </template>

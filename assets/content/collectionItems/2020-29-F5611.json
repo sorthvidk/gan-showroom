@@ -1,6 +1,7 @@
 {
   "retailPriceUSD": 675,
-  "onWishList":false,"assets": [],
+  "assets": [],
+  "onWishList": false,
   "program": 6105,
   "colorNames": "Cognac",
   "material": "100% Goat Leather",
@@ -16,7 +17,8 @@
   "wholesalePriceUSD": 282,
   "filters": [
     "rtw3",
-    "misc2"
+    "misc2",
+    "misc3"
   ],
   "retailPriceEUR": 545,
   "retailPriceDKK": 3999,

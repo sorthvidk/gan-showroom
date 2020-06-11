@@ -6,8 +6,8 @@ export default ({ store }) => {
 			key: 'gannishowroom',
 			paths: [
 				'loggedIn',
-				'wallpaperIndex',
 				'cookiesAccepted',
+				'copyrightAccepted',
 				'progressItems',
 				'progressMax',
 				'progressPct',

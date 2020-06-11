@@ -69,6 +69,9 @@
 		@include mq($from: screen-sm) {
 			margin: 0 auto;
 		}
+		@include mq($from: screen-xxl) {
+			max-width: rem(800);
+		}
 
 		.collection-item {
 			flex: 0 0 50%;
@@ -79,6 +82,9 @@
 
 			img {
 				width: 80%;
+				@include mq($from: screen-xxl) {
+					height: auto;
+				}
 			}
 			.on-wishlist {
 				right: calc(10% + #{rem(5)});
