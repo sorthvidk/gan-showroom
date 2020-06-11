@@ -154,7 +154,7 @@ export const mutations = {
 
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
-		if ( window.GS_LOGS ) console.log('state.loggedIn', state.loggedIn)
+		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
 	},
 
 	[VISIBILITY.mutation](state, key) {
@@ -166,7 +166,8 @@ export const mutations = {
 		if (state.wallpaperIndex > state.wallpaperCount) {
 			state.wallpaperIndex = 1
 		}
-		if ( window.GS_LOGS ) console.log('state.wallpaperIndex', state.wallpaperIndex)
+		if (window.GS_LOGS)
+			console.log('state.wallpaperIndex', state.wallpaperIndex)
 	},
 
 	[COOKIES_ACCEPT.mutation](state) {
@@ -234,7 +235,8 @@ export const mutations = {
 				e => e.styleId === asset.styleId
 			)[0]
 			if (style && style.assets) style.assets.push(asset)
-			else if ( window.GS_LOGS ) console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
+			else if (window.GS_LOGS)
+				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
 		}
 
 		//sort style assets to have onTop asset first in assets array
@@ -246,7 +248,7 @@ export const mutations = {
 					assetId: getUniqueId(),
 					styleId: style.styleId,
 					type: 'image',
-					name: 'dummy-image.jpg',
+					name: 'Asset pending',
 					aspect: 'portrait',
 					onTop: true,
 					visible: true,
@@ -296,7 +298,7 @@ export const mutations = {
 	 *
 	 */
 	[OPEN_CONTENT.mutation](state, params) {
-		if ( window.GS_LOGS ) console.warn('OPEN_CONTENT', params)
+		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
 
 		let windowGroup = params.addToGroupId
 			? state.windowGroupList.find(e => e.groupId === params.addToGroupId)
@@ -378,7 +380,7 @@ export const mutations = {
 	 *
 	 */
 	[TOPMOST_WINDOW.mutation](state, windowId) {
-		if ( window.GS_LOGS ) console.warn('TOPMOST_WINDOW', windowId)
+		if (window.GS_LOGS) console.warn('TOPMOST_WINDOW', windowId)
 		let wll = state.windowList.length
 
 		//console.log("zIndexes after",state.zIndexes)
@@ -440,12 +442,13 @@ export const mutations = {
 		}
 		state.topMostWindow = state.windowList[wll - 1]
 
-		if ( window.GS_LOGS ) console.warn(
-			'CLOSE_WINDOW | removed id:' +
-				ids.windowId +
-				', remaining windows: ' +
-				state.windowList.length
-		)
+		if (window.GS_LOGS)
+			console.warn(
+				'CLOSE_WINDOW | removed id:' +
+					ids.windowId +
+					', remaining windows: ' +
+					state.windowList.length
+			)
 	},
 	/*
 	 *	Close a window group. Closes the last added group.
@@ -483,12 +486,13 @@ export const mutations = {
 		}
 
 		state.windowGroupList.pop() //remove that group
-		if ( window.GS_LOGS ) console.warn(
-			'CLOSE_WINDOW_GROUP | remaining groups: ' +
-				state.windowGroupList.length +
-				' | close style? ' +
-				(params && params.styleWindowGroup)
-		)
+		if (window.GS_LOGS)
+			console.warn(
+				'CLOSE_WINDOW_GROUP | remaining groups: ' +
+					state.windowGroupList.length +
+					' | close style? ' +
+					(params && params.styleWindowGroup)
+			)
 
 		state.windowList = resetZOrder(state.windowList)
 		let wll = state.windowList.length
@@ -502,27 +506,27 @@ export const mutations = {
 	},
 
 	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
-		if ( window.GS_LOGS ) console.warn('MUSIC_PLAY_PAUSE', playing)
+		if (window.GS_LOGS) console.warn('MUSIC_PLAY_PAUSE', playing)
 		state.musicPlaying = playing
 	},
 
 	[FORCE_STOP_MUSIC.mutation](state, playing) {
-		if ( window.GS_LOGS ) console.warn('FORCE_STOP_MUSIC | pause music')
+		if (window.GS_LOGS) console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
 	},
 
 	[CLIPBOARD_COPY.mutation](state, value) {
-		if ( window.GS_LOGS ) console.warn('CLIPBOARD_COPY')
+		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')
 		state.clipBoardCopyComplete = value
 	},
 
 	[DOWNLOAD_PREPARING.mutation](state, value) {
-		if ( window.GS_LOGS ) console.warn('DOWNLOAD_PREPARING')
+		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
 	},
 
 	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
-		if ( window.GS_LOGS ) console.warn('COLLECTION_LAYOUT_CHANGE')
+		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
 		state.collectionLayout = value
 	}
 }
@@ -651,7 +655,7 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
-		if ( window.GS_LOGS ) console.log('playing', playing)
+		if (window.GS_LOGS) console.log('playing', playing)
 		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
 		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
 	},
@@ -682,7 +686,7 @@ export const actions = {
 		commit(RESET_STATE.mutation)
 	},
 	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		if ( window.GS_LOGS ) console.log('value', value)
+		if (window.GS_LOGS) console.log('value', value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 

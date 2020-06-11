@@ -51,7 +51,7 @@ export default {
 						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
 				}
 			],
-			title: 'GANNI space - our digital showroom'
+			title: 'GANNI space'
 		}
 	},
 	data() {
@@ -85,7 +85,7 @@ export default {
 	mounted() {
 		this[WALLPAPER_CHANGE.action]()
 
-		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
+		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)

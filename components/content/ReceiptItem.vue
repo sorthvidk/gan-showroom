@@ -3,7 +3,7 @@
 		<tbody class="receipt-item__content">
 			<tr>
 				<td rowspan="4" class="image">
-					<img style="width: 3.5cm;" :src="imageUrl" alt />
+					<img style="width: 3cm;" :src="imageUrl" alt />
 				</td>
 				<td colspan="2" class="title">{{receiptItem.name}}</td>
 			</tr>

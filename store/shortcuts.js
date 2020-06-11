@@ -19,7 +19,10 @@ export const state = () => ({
 			posV: 1,
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -59,7 +62,7 @@ export const state = () => ({
 			widthSpan: 2,
 			windowContent: [
 				{
-					title: 'Ditte image 1',
+					title: 'Ditte_inspiration_image_01',
 					contentId: 'ditte-image1',
 					type: ContentTypes.imageLandscape,
 					canOverride: false,
@@ -74,7 +77,7 @@ export const state = () => ({
 					}
 				},
 				{
-					title: 'Ditte image 2',
+					title: 'Ditte_inspiration_image_02',
 					contentId: 'ditte-image2',
 					type: ContentTypes.imageLandscape,
 					canOverride: false,
@@ -89,7 +92,7 @@ export const state = () => ({
 					}
 				},
 				{
-					title: 'Ditte letter',
+					title: 'Ditte_letter',
 					contentId: 'ditte-letter',
 					type: ContentTypes.textFile,
 					canOverride: false,
@@ -160,8 +163,14 @@ export const state = () => ({
 			posH: 10,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc4' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc4'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -180,8 +189,14 @@ export const state = () => ({
 			posH: 11,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc5' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc5'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -200,8 +215,14 @@ export const state = () => ({
 			posH: 12,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'acc1' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'acc1'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -269,7 +290,10 @@ export const state = () => ({
 			label: 'PS21 Collection',
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -300,8 +324,14 @@ export const state = () => ({
 			text: 'Check out the ',
 			label: 'Design Darlings',
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc2' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc2'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -311,7 +341,7 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
-		},
+		}
 		// {
 		// 	type: ShortcutTypes.MARQUEE,
 		// 	text: 'Meet the  ',
