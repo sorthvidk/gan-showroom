@@ -8,10 +8,10 @@
 		max-width: none;
 
 		@include mq($from: screen-xxxs) {
-			top: rem(20);
-			left: rem(20);
-			right: rem(20);
-			bottom: rem(60);			
+			top: rem(10);
+			left: rem(10);
+			right: rem(10);
+			bottom: rem(10);			
 		}
 		@include mq($from: screen-md) {
 			max-width: rem(1600);
@@ -22,8 +22,11 @@
 			right: auto;
 			bottom: 10vh;
 		}
-		@include mq($from: screen-xxxl) {
-			min-width: 60vw;
+		@include mq($from: screen-xxl) {
+			min-width: 75vw;
+		}
+		@include mq($from: screen-xxxxl) {
+			min-width: 70vw;
 		}
 		&__top {
 			.button {
@@ -49,12 +52,20 @@
 	h2 {
 		font-family: $font-serif;
 		font-style: normal;
-		font-weight: 600;
+		font-weight: 500;
 		line-height: 168%;
 
-		font-size: rem(50);
+		font-size: rem(55);
+		@include mq($from: screen-xxxs) {
+			font-size: rem(60);
+		}
+		@include mq($from: screen-xxs) {
+			font-size: rem(65);
+		}
+		@include mq($from: screen-xs) {
+			font-size: rem(72);
+		}
 		@include mq($from: screen-sm) {
-			font-weight: 500;
 			font-size: rem(78);
 		}
 		/* identical to box height, or rem(132) */
@@ -71,6 +82,7 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: rem(20);
+		margin: 0 rem(10) rem(20);
 
 		@include mq($from: screen-sm) {
 			font-size: rem(26);
@@ -93,7 +105,9 @@
 		}
 
 		span:first-child {
-			margin-bottom: rem(20);
+			@include mq($from: screen-sm) {
+				margin-bottom: rem(20);
+			}
 		}
 
 		span + span {
