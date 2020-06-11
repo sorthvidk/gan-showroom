@@ -140,7 +140,7 @@ export default {
 		},
 		backgroundImageObj() {
 			return {
-				src: `/img/wallpapers/wallpaper${this.wallpaperIndex}.jpg`
+				src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 				// loading: '/img/login-slide.jpg'
 			}
 		}
@@ -167,7 +167,8 @@ export default {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
-			showDownloadMessage: false
+			showDownloadMessage: false,
+			wallpaperCount: 6
 		}
 	},
 	methods: {
@@ -210,6 +211,11 @@ export default {
 		setTransformOrigin(el) {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
+		},
+		getRandomInt(min, max) {
+		    min = Math.ceil(min);
+		    max = Math.floor(max);
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 	},
 	mounted() {

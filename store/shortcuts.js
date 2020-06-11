@@ -59,7 +59,7 @@ export const state = () => ({
 			widthSpan: 2,
 			windowContent: [
 				{
-					title: 'Ditte image 1',
+					title: 'Ditte_inspiration_image_01',
 					contentId: 'ditte-image1',
 					type: ContentTypes.imageLandscape,
 					canOverride: false,
@@ -68,13 +68,12 @@ export const state = () => ({
 							defaultImageUrl: '/img/ditte/ditte1.jpg'
 						}
 					},
-					windowProps: {
-						noStatus: true,
-						height: 304
+					statusComponentProps: {
+						text: '&copy; GANNI Space'
 					}
 				},
 				{
-					title: 'Ditte image 2',
+					title: 'Ditte_inspiration_image_02',
 					contentId: 'ditte-image2',
 					type: ContentTypes.imageLandscape,
 					canOverride: false,
@@ -83,13 +82,26 @@ export const state = () => ({
 							defaultImageUrl: '/img/ditte/ditte2.jpg'
 						}
 					},
-					windowProps: {
-						noStatus: true,
-						height: 304
+					statusComponentProps: {
+						text: '&copy; GANNI Space'
 					}
 				},
 				{
-					title: 'Ditte letter',
+					title: 'Ditte_inspiration_image_03',
+					contentId: 'ditte-image3',
+					type: ContentTypes.imageLandscape,
+					canOverride: false,
+					contentComponentProps: {
+						asset: {
+							defaultImageUrl: '/img/ditte/ditte1.jpg'
+						}
+					},
+					statusComponentProps: {
+						text: '&copy; GANNI Space'
+					}
+				},
+				{
+					title: 'Ditte_letter',
 					contentId: 'ditte-letter',
 					type: ContentTypes.textFile,
 					canOverride: false,

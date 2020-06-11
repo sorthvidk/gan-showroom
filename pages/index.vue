@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div oncontextmenu="return false;"> <!-- TO PREVENT DOWNLOADS -->
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
@@ -24,7 +24,6 @@ import {
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
 	INIT_PROGRESS,
-	WALLPAPER_CHANGE,
 	VISIBILITY
 } from '~/model/constants'
 
@@ -51,7 +50,7 @@ export default {
 						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
 				}
 			],
-			title: 'GANNI space - our digital showroom'
+			title: 'GANNI Space'
 		}
 	},
 	data() {
@@ -61,7 +60,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([WALLPAPER_CHANGE.action, VISIBILITY.action]),
+		...mapActions([VISIBILITY.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
 			this.debounce(
 				() => this[VISIBILITY.action](appTabUnfocused),
@@ -83,8 +82,6 @@ export default {
 		}
 	},
 	mounted() {
-		this[WALLPAPER_CHANGE.action]()
-
 		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
 
 		this.$store.commit(CONNECT_ASSETS.mutation)

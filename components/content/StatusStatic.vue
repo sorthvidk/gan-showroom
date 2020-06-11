@@ -1,5 +1,5 @@
 <template>
-	<p>{{text}}</p>
+	<p v-html="text"></p>
 </template>
 
 <script>
