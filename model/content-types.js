@@ -130,6 +130,33 @@ export default {
 			modifierClass: 'window--tight'
 		}
 	},
+	imagePortraitLarge: {
+		name: 'imagePortraitLarge',
+		contentComponent: 'single-image',
+		contentScore: 0,
+		statusComponent: 'status-static',
+		allowedInstances: 100,
+		defaultStatusComponentProps: {
+			text: 'TIP! Click image to zoom.'
+		},
+		defaultWindowProps: {
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {
+					w: 370 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 563 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 329 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 500 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: {
+					w: 274,
+					h: 417 + WINDOW_DEFAULT_CHROME_HEIGHT
+				}
+			},
+			modifierClass: 'window--tight'
+		}
+	},
 	imageLandscape: {
 		name: 'imageLandscape',
 		contentComponent: 'single-image',
@@ -148,6 +175,30 @@ export default {
 				[ViewportSizes.LARGE.name]: {
 					w: 417 + WINDOW_TIGHT_CHROME_WIDTH,
 					h: 274 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 232 }
+			},
+			modifierClass: 'window--tight'
+		}
+	},
+	imageLandscapeLarge: {
+		name: 'imageLandscapeLarge',
+		contentComponent: 'single-image',
+		contentScore: 0,
+		statusComponent: 'status-static',
+		allowedInstances: 100,
+		defaultStatusComponentProps: {
+			text: 'TIP! Click image to zoom.'
+		},
+		defaultWindowProps: {
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {
+					w: 592 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 389 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 563 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 370 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: { w: 353, h: 232 }
 			},

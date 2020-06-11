@@ -53,10 +53,10 @@
 
 			image-rendering: pixelated;
 
-			// @include mq($from: screen-sm) {
-			// 	width: rem(100);
-			// 	height: rem(100);
-			// }
+			@include mq($from: screen-xxxl) {
+				width: rem(80);
+				height: rem(80);
+			}
 		}
 	}
 	.text {
