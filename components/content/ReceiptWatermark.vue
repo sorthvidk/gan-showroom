@@ -8,8 +8,8 @@ export default {
 	data() {
 		return {
 			text: 'FOR INTERNAL USE ONLY',
-			height: '1500',
-			fontSize: '100',
+			height: '1300',
+			fontSize: '65',
 			rotate: `transform='rotate(-35)'`
 		}
 	},
@@ -17,7 +17,7 @@ export default {
 		background() {
 			return `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='${
 				this.height
-			}' width='100%'><text x='-360' y='${this.height / 2}' fill='black' ${
+			}' width='100%'><text x='-350' y='${this.height / 2}' fill='black' ${
 				this.rotate
 			} font-size='${
 				this.fontSize

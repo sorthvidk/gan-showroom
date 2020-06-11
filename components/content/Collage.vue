@@ -316,7 +316,7 @@ export default {
 
 		this.insertPhoto({
 			src: '/img/collage/ballon.svg',
-			y: isMobile() ? 50 : 100,
+			y: isMobile() ? 50 : 50,
 			x: isMobile() ? 100 : 230,
 			width: 80,
 			height: 240,
