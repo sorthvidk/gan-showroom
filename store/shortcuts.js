@@ -86,20 +86,20 @@ export const state = () => ({
 						text: '&copy; GANNI Space'
 					}
 				},
-				{
-					title: 'Ditte_inspiration_image_03',
-					contentId: 'ditte-image3',
-					type: ContentTypes.imageLandscape,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte1.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: '&copy; GANNI Space'
-					}
-				},
+				// {
+				// 	title: 'Ditte_inspiration_image_03',
+				// 	contentId: 'ditte-image3',
+				// 	type: ContentTypes.imageLandscape,
+				// 	canOverride: false,
+				// 	contentComponentProps: {
+				// 		asset: {
+				// 			defaultImageUrl: '/img/ditte/ditte1.jpg'
+				// 		}
+				// 	},
+				// 	statusComponentProps: {
+				// 		text: '&copy; GANNI Space'
+				// 	}
+				// },
 				{
 					title: 'Ditte_letter',
 					contentId: 'ditte-letter',
