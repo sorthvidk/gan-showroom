@@ -80,7 +80,7 @@ export default {
 			let body = encodeURIComponent(
 				"Dear GANNI,\n\nI'm loving exploring Ditte's Desktop! It is _________\n\nI have a question about _________\n\nSpeak soon!\n\nLove <3"
 			)
-			let u = `mailto:support@ganni.com?subject=${subject}&body=${body}`
+			let u = `mailto:wholesale@ganni.com?subject=${subject}&body=${body}`
 			return u
 		}
 	},

@@ -3,7 +3,6 @@ import {
 	LOGIN,
 	VISIBILITY,
 	COOKIES_ACCEPT,
-	WALLPAPER_CHANGE,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
@@ -46,8 +45,6 @@ import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	wallpaperIndex: 1,
-	wallpaperCount: 6,
 	webcamImage: '',
 
 	collageIsOpen: false,
@@ -148,7 +145,6 @@ export const mutations = {
 			state.progressItems[type].complete = false
 		})
 		state.loggedIn = false
-		state.wallpaperIndex = 1
 		state.cookiesAccepted = false
 	},
 
@@ -161,13 +157,6 @@ export const mutations = {
 		state.screensaverActive = key
 	},
 
-	[WALLPAPER_CHANGE.mutation](state) {
-		state.wallpaperIndex = state.wallpaperIndex + 1
-		if (state.wallpaperIndex > state.wallpaperCount) {
-			state.wallpaperIndex = 1
-		}
-		if ( window.GS_LOGS ) console.log('state.wallpaperIndex', state.wallpaperIndex)
-	},
 
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
@@ -246,7 +235,7 @@ export const mutations = {
 					assetId: getUniqueId(),
 					styleId: style.styleId,
 					type: 'image',
-					name: 'dummy-image.jpg',
+					name: 'Asset pending',
 					aspect: 'portrait',
 					onTop: true,
 					visible: true,
@@ -561,15 +550,11 @@ export const actions = {
 		commit(VISIBILITY.mutation, hidden)
 	},
 
-	[WALLPAPER_CHANGE.action]({ commit }) {
-		commit(WALLPAPER_CHANGE.mutation)
-	},
 	[COOKIES_ACCEPT.action]({ commit }) {
 		commit(COOKIES_ACCEPT.mutation)
 	},
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)
-		commit(WALLPAPER_CHANGE.mutation)
 	},
 
 	[KEYPRESS.action]({ commit }, event) {

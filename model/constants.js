@@ -8,7 +8,6 @@ const createMutation = type => ({
 
 export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
 export const LOGIN = createMutation('LOGIN')
-export const WALLPAPER_CHANGE = createMutation('WALLPAPER_CHANGE')
 export const SAVE_AS_BACKGROUND = createMutation('SAVE_AS_BACKGROUND')
 export const VISIBILITY = createMutation('VISIBILITY')
 export const RESET_STATE = createMutation('RESET_STATE')
