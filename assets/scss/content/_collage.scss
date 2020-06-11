@@ -74,8 +74,14 @@
 			z-index: 1;
 		}
 
+		@include mq($from: screen-md) {
+			&.change-camera {
+				display: none;
+			}
+		}
+
 		&.trigger {
-			width: calc(100% - 75px);
+			width: 100%;
 			right: auto;
 			left: 0;
 

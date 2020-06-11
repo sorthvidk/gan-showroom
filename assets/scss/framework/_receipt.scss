@@ -3,13 +3,14 @@
 * creates a messed up, print-friendly, version of the wishlist-accordion
 */
 .receipt {
+	position: relative;
+
 	&__title {
 		@include megatype();
-		font-size: 12.85vw; // fills the 'screen'
+		font-size: 14vw; // fills the 'screen'
 		line-height: 1;
 		font-weight: 500;
 		border-bottom: 1px solid;
-		margin-top: 1rem;
 	}
 
 	* {
@@ -29,16 +30,24 @@
 			.image {
 				vertical-align: middle;
 				padding-right: 1em;
+				position: relative;
+				z-index: 1;
 			}
 
 			.title {
 				font-size: 1.5em;
-				height: 2.5cm;
-			}
-
-			.bottom {
-				height: 1em;
+				height: 3.2cm;
 			}
 		}
+	}
+
+	&-watermark {
+		// font-size: 30px;
+		opacity: 0.05;
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
 	}
 }

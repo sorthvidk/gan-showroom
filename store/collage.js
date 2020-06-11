@@ -18,15 +18,6 @@ export const state = () => ({
 				layer: 'background'
 			},
 			{
-				src: '/img/collage/background.jpg',
-				y: { mobile: 0, desktop: -250 },
-				x: 0,
-				width: { mobile: 360, desktop: 530 },
-				height: { mobile: 510, desktop: 800 },
-
-				layer: 'background'
-			},
-			{
 				src: '/img/collage/bg1.jpg',
 				y: { mobile: 0, desktop: -150 },
 				x: 0,
@@ -97,15 +88,6 @@ export const state = () => ({
 				height: { mobile: 510, desktop: 1400 / scale2 },
 
 				layer: 'background'
-			},
-			{
-				src: '/img/collage/bg9.jpg',
-				y: { mobile: 0, desktop: -150 },
-				x: 0,
-				width: { mobile: 360, desktop: 1100 / scale2 },
-				height: { mobile: 510, desktop: 1400 / scale2 },
-
-				layer: 'background'
 			}
 		],
 		accessories: [
@@ -114,7 +96,7 @@ export const state = () => ({
 				width: 327 / scale,
 				height: 458 / scale,
 				y: 75,
-				x: 350
+				x: { mobile: 175, desktop: 350 }
 			}
 		],
 		headgear: [
@@ -202,6 +184,11 @@ export const state = () => ({
 				src: '/img/collage/shoes3.png',
 				width: 637 / scale,
 				height: 296 / scale
+			},
+			{
+				src: '/img/collage/shoes4.png',
+				width: 643 / scale,
+				height: 322 / scale
 			}
 		]
 	}

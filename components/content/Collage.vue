@@ -42,7 +42,7 @@
 			</svg>
 		</div>
 
-		<div title="Change camera" @click="getNextCamera" class="button">
+		<div title="Change camera" @click="getNextCamera" class="button change-camera">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 32">
 				<g fill="#000" clip-path="url(#clip0)">
 					<path

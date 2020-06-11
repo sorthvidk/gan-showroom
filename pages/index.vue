@@ -82,7 +82,7 @@ export default {
 		}
 	},
 	mounted() {
-		if ( window.GS_LOGS ) console.warn("MOUNTED INDEX - PERFORM INITIALISATIONS")
+		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)

@@ -19,7 +19,10 @@ export const state = () => ({
 			posV: 1,
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -242,8 +245,14 @@ export const state = () => ({
 			posH: 10,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc4' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc4'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -262,8 +271,14 @@ export const state = () => ({
 			posH: 11,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc5' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc5'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -282,8 +297,14 @@ export const state = () => ({
 			posH: 12,
 			posV: 6,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'acc1' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.FUN }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'acc1'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
 			],
 			windowContent: [
 				{
@@ -351,7 +372,10 @@ export const state = () => ({
 			label: 'PS21 Collection',
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -382,8 +406,14 @@ export const state = () => ({
 			text: 'Check out the ',
 			label: 'Design Darlings',
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: 'misc2' },
-				{ name: COLLECTION_LAYOUT_CHANGE.action, param: CollectionLayouts.GRID }
+				{
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'misc2'
+				},
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
 			],
 			windowContent: [
 				{
@@ -393,7 +423,7 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
-		},
+		}
 		// {
 		// 	type: ShortcutTypes.MARQUEE,
 		// 	text: 'Meet the  ',

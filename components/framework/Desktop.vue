@@ -84,17 +84,22 @@
 				<transition @before-appear="copyrightBeforeAnimateIn" @appear="copyrightAnimateIn">
 					<div class="window window--no-status window--tight">
 						<header class="window__top">
-							<span class="title">Warning message</span>
+							<span class="title">Important Info</span>
 						</header>
 						<div class="window__content">
 							<span class="icon">
+								
 								<svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
 								  <path d="M27.958 55.916c15.441 0 27.959-12.517 27.959-27.958C55.916 12.518 43.398 0 27.957 0 12.518 0 0 12.517 0 27.958 0 43.4 12.517 55.917 27.958 55.917z" fill="#FF0"/>
 								  <path d="M27.958 46.319c-10.182 0-18.444-8.262-18.444-18.444 0-.25.167-.418.417-.418.25 0 .417.168.417.418 0 9.68 7.929 17.61 17.61 17.61 9.68 0 17.61-7.93 17.61-17.694 0-.25.166-.417.417-.417.25 0 .417.167.417.417 0 10.182-8.262 18.528-18.444 18.528z" fill="#000"/>
 								  <path d="M21.115 27.625c1.336 0 2.42-2.616 2.42-5.843 0-3.226-1.084-5.842-2.42-5.842-1.337 0-2.42 2.616-2.42 5.842 0 3.227 1.083 5.843 2.42 5.843zM33.633 27.625c1.337 0 2.42-2.616 2.42-5.843 0-3.226-1.083-5.842-2.42-5.842s-2.42 2.616-2.42 5.842c0 3.227 1.084 5.843 2.42 5.843z" fill="#000"/>
 								</svg>
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>
+									Hi, we hope you will enjoy your Ganni Space Virtual Showroom experience.<br/><br/>
+									Please note that all visual material and images are for internal use only and not to be distributed outside this platform.
+								</p>
+
 							</span>
 							<button class="button ok" @click="copyrightMessageClickHandler">OK</button>
 						</div>
@@ -164,9 +169,10 @@ export default {
 		},
 		backgroundImageObj() {
 			return {
-				src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
-				// loading: '/img/login-slide.jpg'
+				src: `/img/wallpapers/wallpaper3.jpg`
 			}
+			// src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
+			// loading: '/img/login-slide.jpg'
 		},
 	},
 	watch: {
