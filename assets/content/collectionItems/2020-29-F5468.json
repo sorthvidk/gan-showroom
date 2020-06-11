@@ -10,7 +10,7 @@
   "drop": "November",
   "programName": "Raw Denim",
   "index": null,
-  "responsible": false,
+  "responsible": true,
   "wholesalePriceEUR": 76,
   "weight": 1,
   "wholesalePriceDKK": 518,
