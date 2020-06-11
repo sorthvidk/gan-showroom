@@ -64,7 +64,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_01',
 					contentId: 'ditte-image1',
-					type: ContentTypes.imageLandscape,
+					type: ContentTypes.imageLandscapeLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -78,7 +78,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_02',
 					contentId: 'ditte-image2',
-					type: ContentTypes.imageLandscape,
+					type: ContentTypes.imageLandscapeLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -92,7 +92,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_03',
 					contentId: 'ditte-image3',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -106,7 +106,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_04',
 					contentId: 'ditte-image4',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -120,7 +120,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_05',
 					contentId: 'ditte-image5',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -134,7 +134,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_06',
 					contentId: 'ditte-image6',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -148,7 +148,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_07',
 					contentId: 'ditte-image7',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
@@ -162,7 +162,7 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_08',
 					contentId: 'ditte-image8',
-					type: ContentTypes.imagePortrait,
+					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
