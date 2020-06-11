@@ -9,12 +9,12 @@ export default {
 		id: 0,
 		name: 'LARGE',
 		boundLow: 1024,
-		boundHigh: 1679
+		boundHigh: 1559
 	},  
 	XLARGE: {
 		id: 0,
 		name: 'XLARGE',
-		boundLow: 1680,
+		boundLow: 1560,
 		boundHigh: null
 	},
 };

@@ -4,7 +4,8 @@
 */
 .receipt {
 	position: relative;
-
+	min-height: 29.7cm;
+	
 	&__title {
 		@include megatype();
 		font-size: 14vw; // fills the 'screen'
