@@ -16,7 +16,8 @@
   "wholesalePriceDKK": 360,
   "wholesalePriceUSD": 65,
   "filters": [
-    "rtw5"
+    "rtw5",
+    "rtw8"
   ],
   "retailPriceEUR": 125,
   "retailPriceDKK": 899,
