@@ -193,23 +193,23 @@ export const state = () => ({
 						text: 'TIP! Hit ESC to close all'
 					}
 				},
+				// {
+				// 	title: 'Ditte_inspiration_image_07',
+				// 	contentId: 'ditte-image7',
+				// 	type: ContentTypes.imagePortraitLarge,
+				// 	canOverride: false,
+				// 	contentComponentProps: {
+				// 		asset: {
+				// 			defaultImageUrl: '/img/ditte/ditte7.jpg'
+				// 		}
+				// 	},
+				// 	statusComponentProps: {
+				// 		text: 'TIP! Hit ESC to close all'
+				// 	}
+				// },
 				{
 					title: 'Ditte_inspiration_image_07',
 					contentId: 'ditte-image7',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte7.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_08',
-					contentId: 'ditte-image8',
 					type: ContentTypes.imagePortraitLarge,
 					canOverride: false,
 					contentComponentProps: {

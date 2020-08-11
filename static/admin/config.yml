@@ -15,19 +15,22 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-
   - label: "General"
     name: "general"
     files:
-    - label: "Misc strings"
-      name: "misc"
-      file: "assets/content/general/misc.json"
-      fields:
-        - {label: "Ganni Girls background", name: "ganniGirlsUrl", widget: "image"}
-        - {label: "Ditte Letter", name: "ditteLetter", widget: "text"}        
+      - label: "Misc strings"
+        name: "misc"
+        file: "assets/content/general/misc.json"
+        fields:
+          - {
+              label: "Ganni Girls background",
+              name: "ganniGirlsUrl",
+              widget: "image",
+            }
+          - { label: "Ditte Letter", name: "ditteLetter", widget: "text" }
 
   - name: "collectionItems"
-    sortableFields: ['styleId']
+    sortableFields: ["styleId"]
     label: "Collection item"
     folder: "assets/content/collectionItems"
     summary: "Style {{styleId}}: {{name}}"
@@ -153,14 +156,14 @@ collections:
           hint: "Sorting parameter. The higher the number, the closer to the top of the collection folder.",
           required: true,
           default: 1,
-          min: 1
+          min: 1,
         }
       - { name: "assets", default: [], widget: "hidden" }
       - { name: "index", default: 0, widget: "hidden" }
       - { name: "onWishList", default: false, widget: "hidden" }
 
   - name: "collectionFilters"
-    sortableFields: ['filterId']
+    sortableFields: ["filterId"]
     label: "Collection filter"
     summary: "Filter {{filterId}}: '{{name}}'"
     folder: "assets/content/collectionFilters"
@@ -194,7 +197,7 @@ collections:
       - { name: "styleIds", default: [], widget: "hidden" }
 
   - name: "mediaAssets"
-    sortableFields: ['styleId']
+    sortableFields: ["styleId"]
     summary: "Style {{styleId}}: {{name}} asset ({{assetId}})"
     label: "Media asset"
     folder: "assets/content/mediaAssets"
@@ -263,7 +266,7 @@ collections:
         }
 
   - name: "films"
-    sortableFields: ['filmId']
+    sortableFields: ["filmId"]
     label: "Films item"
     summary: "Film {{filmId}}: '{{filmName}}'"
     folder: "assets/content/films"
@@ -272,7 +275,7 @@ collections:
     slug: "{{year}}-{{month}}-{{filmId}}"
     editor:
       preview: false
-    fields: 
+    fields:
       - {
           label: "Film #",
           name: "filmId",
@@ -289,18 +292,17 @@ collections:
           label: "Cloudinary video reference",
           name: "cloudinaryUrl",
           widget: "image",
-          hint: "Reference to video file"
+          hint: "Reference to video file",
         }
       - {
           label: "Poster url",
           name: "posterUrl",
           widget: "image",
-          hint: "Video file thumbnail image"
+          hint: "Video file thumbnail image",
         }
 
-
   - name: "ganniGirls"
-    sortableFields: ['postId']
+    sortableFields: ["postId"]
     summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
     label: "Ganni Girls post"
     folder: "assets/content/ganniGirls"
@@ -309,13 +311,13 @@ collections:
     slug: "{{year}}-{{month}}-{{postId}}"
     editor:
       preview: false
-    fields: 
+    fields:
       - {
           label: "Post #",
           name: "postId",
           widget: "string",
           hint: "Unique post ID",
-        }        
+        }
       - {
           label: "Thumbnail image",
           name: "thumbnailUrl",
@@ -364,13 +366,13 @@ collections:
     summary: "Item {{itemId}}"
     label: "Lookbook item"
     folder: "assets/content/lookBook"
-    sortableFields: ['itemId']
+    sortableFields: ["itemId"]
     create: true
     format: "json"
     slug: "{{year}}-{{month}}-{{itemId}}"
     editor:
       preview: false
-    fields: 
+    fields:
       - {
           label: "Item #",
           name: "itemId",
