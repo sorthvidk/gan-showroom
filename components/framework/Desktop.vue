@@ -106,6 +106,8 @@
 					</div>
 				</transition>
 			</div>
+
+			<color-picker />
 		</div>
 	</transition>
 </template>
@@ -134,6 +136,7 @@ import Window from '~/components/framework/Window.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
+import ColorPicker from '~/components/content/ColorPicker.vue'
 
 import ContentTypes from '~/model/content-types'
 
@@ -145,7 +148,8 @@ export default {
 		Window,
 		Marquee,
 		Assistant,
-		Support
+		Support,
+		ColorPicker
 	},
 	computed: {
 		...mapState([
@@ -156,9 +160,9 @@ export default {
 			'copyrightAccepted',
 			'screensaverActive',
 			'webcamImage',
-			'mousepos'
+			'mousepos'			
 		]),
-		...mapState('shortcuts', ['list']),
+		...mapState('shortcuts', ['list']),		
 		desktopIcons() {
 			return this.list.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
@@ -198,7 +202,9 @@ export default {
 			viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
 			showDownloadMessage: false,			
-			wallpaperCount: 6
+			wallpaperCount: 6,
+			showColorPicker: false,
+			colorPickerStyleItem: null
 		}
 	},
 	methods: {

@@ -1,0 +1,54 @@
+.color-picker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: transparent;
+	z-index: $z-index-message;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.window {
+		max-width: rem(355);
+		position: static;
+		
+
+		@include mq($from: screen-xs) {
+			width: rem(400);
+		}
+
+		&__content {
+			background-color: $color-grey;
+			padding: rem(20) rem(30);
+
+			ul {
+				display: block;
+				margin-bottom: rem(30);
+				li, button {
+					display: block;
+				}
+				li + li {
+					margin-top: rem(5);
+				}
+			}
+
+			.button {
+				@include window-button();
+				@include bevel();
+				color: $color-blue;
+				text-decoration: underline;
+				margin-top: rem(20);
+				padding: rem(8) rem(50) rem(10);
+				background-color: $color-grey;
+
+				&.is-disabled {
+					cursor: default;
+					color: lighten($color-darkgrey,10%);
+					text-decoration: none;
+				}
+			}
+		}
+	}	
+}
