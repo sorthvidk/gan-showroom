@@ -1,9 +1,9 @@
 {
-  "aspect": "square",
+  "aspect": "portrait",
   "visible": true,
-  "onTop": false,
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591778030/collection/Packshots/Drawings/3462_T2719_897_aekgxy.jpg",
-  "assetId": "T2719 2",
+  "onTop": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1592233397/collection/Packshots/20.4/T2719_3462_897_juwuxj.jpg",
+  "assetId": "T2719 1",
   "styleId": "T2719",
   "name": "T2719 Shirt",
   "type": "image"
