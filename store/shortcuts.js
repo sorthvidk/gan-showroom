@@ -12,6 +12,31 @@ export const state = () => ({
 	list: [
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'archive',
+			icon: '/img/shortcuts/folder-orange.jpeg',
+			label: 'Archive',
+			posH: 1,
+			posV: 4,
+			actions: [
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
+			],
+			windowContent: [
+				{
+					title: 'Archive',
+					contentId: 'archive-id',
+					type: ContentTypes.archive,
+					contentComponentProps: {
+						shortcuts: ['collection', 'collection-test']
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
 			label: 'PS21 collection',
@@ -28,8 +53,31 @@ export const state = () => ({
 				{
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
+					type: ContentTypes.collection
+					// canOverride: true
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-test',
+			icon: '/img/shortcuts/ps21.png',
+			label: 'PS22 collection TEST',
+			posH: 4,
+			posV: 1,
+			actions: [
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.GRID
+				}
+			],
+			windowContent: [
+				{
+					title: 'PS22 collection TEST',
+					contentId: 'ps22-collection',
+					type: ContentTypes.collection
+					// canOverride: true
 				}
 			]
 		},

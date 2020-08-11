@@ -1,0 +1,15 @@
+.archive {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 rem(16);
+
+	.shortcut {
+		width: auto;
+		flex: initial;
+		display: inline-block;
+
+		.text {
+			margin-top: rem(12);
+		}
+	}
+}

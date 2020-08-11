@@ -13,12 +13,32 @@ const WINDOW_NOSTATUS_CHROME_HEIGHT = WINDOW_TOPBAR_BORDERS_HEIGHT
 import ViewportSizes from '~/model/viewport-sizes'
 
 export default {
+	archive: {
+		name: 'archive',
+		contentComponent: 'archive',
+		contentScore: 25,
+		statusComponent: 'status-static',
+		// allowedInstances: 1,
+		defaultWindowProps: {
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {
+					w: 5 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 700 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 390 }
+			}
+		}
+	},
 	collection: {
 		name: 'collection',
 		contentComponent: 'collection',
 		contentScore: 25,
 		statusComponent: 'status-collection',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -38,7 +58,7 @@ export default {
 		contentComponent: 'films',
 		contentScore: 15,
 		statusComponent: 'status-static',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -59,7 +79,7 @@ export default {
 		contentComponent: 'music-player',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -87,7 +107,7 @@ export default {
 		contentComponent: 'text-reader',
 		contentScore: 10,
 		statusComponent: 'status-static',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -108,7 +128,7 @@ export default {
 		contentComponent: 'single-image',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultStatusComponentProps: {
 			text: 'TIP! Click image to zoom.'
 		},
@@ -135,7 +155,7 @@ export default {
 		contentComponent: 'single-image',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultStatusComponentProps: {
 			text: 'TIP! Click image to zoom.'
 		},
@@ -162,7 +182,7 @@ export default {
 		contentComponent: 'single-image',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultStatusComponentProps: {
 			text: 'TIP! Click image to zoom.'
 		},
@@ -186,7 +206,7 @@ export default {
 		contentComponent: 'single-image',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultStatusComponentProps: {
 			text: 'TIP! Click image to zoom.'
 		},
@@ -210,7 +230,7 @@ export default {
 		contentComponent: 'single-image',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultStatusComponentProps: {
 			text: 'TIP! Click image to zoom.'
 		},
@@ -237,7 +257,7 @@ export default {
 		contentComponent: 'single-video',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -262,7 +282,7 @@ export default {
 		contentComponent: 'single-video',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -287,7 +307,7 @@ export default {
 		contentComponent: 'single-video',
 		contentScore: 0,
 		statusComponent: 'status-static',
-		allowedInstances: 100,
+		// allowedInstances: 100,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -310,7 +330,7 @@ export default {
 		name: 'gallery',
 		contentComponent: 'gallery',
 		contentScore: 0,
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -336,7 +356,7 @@ export default {
 		contentComponent: 'wish-list',
 		contentScore: 15,
 		statusComponent: 'status-wish-list',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -357,7 +377,7 @@ export default {
 		name: 'hampsterDance',
 		contentComponent: 'hampster-dance',
 		contentScore: 10,
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -377,7 +397,7 @@ export default {
 		name: 'ganniGirls',
 		contentComponent: 'ganni-girls',
 		contentScore: 0,
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
@@ -398,7 +418,7 @@ export default {
 		contentComponent: 'look-book',
 		contentScore: 15,
 		statusComponent: 'status-static',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -418,7 +438,7 @@ export default {
 		contentComponent: 'collage',
 		contentScore: 10,
 		statusComponent: 'status-static',
-		allowedInstances: 1,
+		// allowedInstances: 1,
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {

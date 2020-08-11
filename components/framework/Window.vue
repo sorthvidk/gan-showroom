@@ -41,7 +41,7 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{...contentComponentProps}"
+					v-bind="contentComponentProps"
 					ref="contentComponent"
 				/>
 			</div>
@@ -55,6 +55,7 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import Archive from '~/components/content/Archive.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
@@ -75,6 +76,7 @@ import StatusWishList from '~/components/content/StatusWishList.vue'
 export default {
 	name: 'window',
 	components: {
+		Archive,
 		VueDraggableResizable,
 		StatusStatic,
 		StatusCollection,
