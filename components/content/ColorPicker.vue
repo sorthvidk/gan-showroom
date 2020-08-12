@@ -34,14 +34,12 @@ export default {
 			colorPickerStyle: state => state.collection.colorPickerStyle,
 			colorPickerChosenColorList: state => state.collection.colorPickerChosenColorList,
 			colorPickerCallback: state => state.collection.colorPickerCallback,
-		}),
-		availableColorList() {
-			return this.colorPickerStyle.colorNames.split(', ')
-		}
+		})
 	},
 	data() {
 		return {
 			active: false,
+			availableColorList: [],
 			chosenColorList: []
 		}
 	},
@@ -49,15 +47,21 @@ export default {
 		colorPickerStyle(newVal) {
 			if (newVal) {
 				this.active = true
+				this.availableColorList = newVal.colorNames.split(', ')
 			}
 			else {
 				this.active = false
+				this.availableColorList = []
 			}
 		},
 		colorPickerChosenColorList(newVal) {
 			if (newVal) {
-				this.chosenColorList = newVal
-			}			
+				this.chosenColorList = [] 
+				newVal.forEach(i=>this.chosenColorList.push(i))
+			}
+			else {
+				this.chosenColorList = []				
+			}
 		}
 	},
 	methods: {
@@ -76,6 +80,7 @@ export default {
 			this.cancelClickHandler();
 		},
 		cancelClickHandler() {
+			this.chosenColorList = []
 			this['collection/' + TOGGLE_COLOR_PICKER.action]({styleItem:null, chosenColorList:null, callbackFunction:null})
 		},
 		colorIsChosen(colorString) {
@@ -86,9 +91,12 @@ export default {
 			return found;
 		},
 		toggleColorClickHandler(colorString) {
+			console.log("toggle '"+colorString+"'")
 			if ( !this.colorIsChosen(colorString) ) {
+				console.log("this.chosenColorList??? a",this.chosenColorList)
 				this.chosenColorList.push(colorString);
 			} else {
+				console.log("this.chosenColorList??? r",this.chosenColorList)
 				this.chosenColorList = this.chosenColorList.filter(e => e != colorString)
 			}
 			console.log("after toggle",this.chosenColorList)

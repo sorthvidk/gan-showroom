@@ -24,7 +24,7 @@
 				</div>
 				<div
 					class="inner"
-					v-if="currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
+					v-if="currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
 					<single-image :asset="currentWishListItem.styleItem.assets[0]" :parent-window-id="parentWindowId" />
