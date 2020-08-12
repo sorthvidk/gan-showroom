@@ -24,6 +24,7 @@ export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
 export const KEYPRESS = createMutation('KEYPRESS')
+export const BYPASS_ESCAPE = createMutation('BYPASS_ESCAPE')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')

@@ -15,22 +15,17 @@
 			</header>
 			<div class="window__content">
 				<div class="inner">
-					<div>
-						<img src="/img/gan_color_wheel.png" alt="Color wheel" />
-					</div>
-					
-					<div>
-						<ul>
-							<li v-for="(item, key) in availableColorList" :key="item">
-								<button @click="toggleColorClickHandler(item)" :class="{'is-active': colorIsChosen(item)}">
-									<svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									  <path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000"/>
-									</svg>
-									<strong>{{item}}</strong>
-								</button>					
-							</li>
-						</ul>
-					</div>
+					<img src="/img/gan_color_wheel.png" alt="Color wheel" />
+					<ul>
+						<li v-for="(item, key) in availableColorList" :key="item">
+							<button @click="toggleColorClickHandler(item)" :class="{'is-active': colorIsChosen(item)}">
+								<svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								  <path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000"/>
+								</svg>
+								<strong>{{item}}</strong>
+							</button>					
+						</li>
+					</ul>
 				</div>
 
 				<button class="button ok" @click="saveClickHandler">OK</button>
@@ -52,6 +47,7 @@ export default {
 	name:'color-picker',
 	computed: {
 		...mapState({
+			keyPressed: state => state.keyPressed,
 			colorPickerStyle: state => state.collection.colorPickerStyle,
 			colorPickerChosenColorList: state => state.collection.colorPickerChosenColorList,
 			colorPickerCallback: state => state.collection.colorPickerCallback,
@@ -84,6 +80,11 @@ export default {
 			else {
 				this.chosenColorList = []				
 			}
+		},
+		keyPressed(event) {
+			if (event.key === 'Escape') {
+				this.cancelClickHandler();
+			} 
 		}
 	},
 	methods: {

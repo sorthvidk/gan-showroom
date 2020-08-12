@@ -4,7 +4,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: transparent;
+	background-color: rgba(0,0,0,0.1);
 	z-index: $z-index-message;
 	display: flex;
 	justify-content: center;
@@ -27,14 +27,12 @@
 			.inner {
 				display: flex;
 				justify-content: space-between;				
-				div:last-child {
-					flex: 1 0;
-				}
+				align-items: center;
 			}
 			img {
 				width: rem(60);
 				height: rem(60);
-				margin-right: rem(30);
+				margin-right: rem(40);
 			}
 			p {
 				color: $color-red;
@@ -42,8 +40,9 @@
 				margin-top: rem(10);
 			}
 			ul {
+				flex: 1 0;
 				display: block;
-				margin-bottom: rem(30);
+				
 				li, button {
 					display: block;
 				}
@@ -77,7 +76,7 @@
 					}
 				}
 				li + li {
-					margin-top: rem(5);
+					margin-top: rem(8);
 				}
 			}
 		

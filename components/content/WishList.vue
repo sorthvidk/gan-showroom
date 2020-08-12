@@ -24,7 +24,7 @@
 				</div>
 				<div
 					class="inner"
-					v-if="currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
+					v-if="currentWishListItem && currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
 					<single-image :asset="currentWishListItem.styleItem.assets[0]" :parent-window-id="parentWindowId" />
@@ -39,10 +39,11 @@
 								<td>{{currentWishListItem.styleItem.name}}</td>
 							</tr>
 							<tr>
-								<th>Color</th>
+								<th>Color<span v-if="hasMoreColors">(s)</span></th>
 								<td>
-									<span v-for="(item, key) in currentWishListItem.chosenColorList" :key="item"><span v-if="key > 0">, </span>{{item}}</span>
+									<span v-if="hasMoreColors" v-for="(item, key) in currentWishListItem.chosenColorList" :key="item"><span v-if="key > 0">, </span>{{item}}</span>
 									<button v-if="hasMoreColors" class="button" @click="editColorsHandler">Edit colors</button>
+									<span v-else>{{currentWishListItem.styleItem.colorNames}}</span>
 								</td>										
 							</tr>
 							<tr>
@@ -136,12 +137,25 @@ export default {
 	computed: {
 		...mapState({
 			wishList: state => state.collection.wishList
-		}),
+		}),				
 		currentWishListItem() {
 			if (this.wishList.length > 0)
 				return this.wishList[this.currentWishListIndex]
 			else this.currentWishListIndex = -1
 			return {}
+		},
+		hasMoreColors() {
+			console.log("this.currentWishListIndex",this.currentWishListIndex)
+			let colorList = this.currentWishListItem.styleItem.colorNames.split(', ');
+			return colorList.length > 1
+		}
+	},
+	watch: {
+		wishList(newVal) {
+			//wishlist updated
+			if ( newVal ) {
+				this.overviewItemActivateHandler(0)
+			}
 		}
 	},
 	data() {
@@ -178,10 +192,6 @@ export default {
 		},
 		getImageUrl(index) {
 			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].styleItem.assets[0], {width: 30});
-		},
-		hasMoreColors() {
-			let colorList = this.currentWishListItem.styleItem.colorNames.split(', ');
-			return colorList.length > 1
 		},
 		editColorsHandler() {
 			this['collection/' + TOGGLE_COLOR_PICKER.action]({

@@ -2,6 +2,7 @@ import sortArrayMultipleProps from "~/utils/sort-array-multiple"
 import getUniqueId from '~/utils/get-unique-id'
 
 import {
+	BYPASS_ESCAPE,
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
 	TOGGLE_COLOR_PICKER,
@@ -278,8 +279,12 @@ export const actions = {
 	[ALL_ASSETS_VISIBLE.action]({ commit }, style) {
 		commit(ALL_ASSETS_VISIBLE.mutation, style)
 	},
-	[TOGGLE_COLOR_PICKER.action]({ commit }, params) {
-		console.log("TOGGLE_COLOR_PICKER action", params)
+	[TOGGLE_COLOR_PICKER.action]({ commit, dispatch }, params) {
+		dispatch(
+			BYPASS_ESCAPE.action,
+			params.styleItem ? true : false,
+			{ root: true }
+		)
 		commit(TOGGLE_COLOR_PICKER.mutation, params)
 	},
 	[ADD_TO_WISHLIST.action]({ commit }, style) {
