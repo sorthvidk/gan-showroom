@@ -3,17 +3,38 @@
 		<div class="window window--no-status window--tight">
 			<header class="window__top">
 				<span class="title">Choose color</span>
+				<button class="button close" @click.stop="cancelClickHandler">
+					<span class="icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+							<path
+								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
+							/>
+						</svg>
+					</span>
+				</button>
 			</header>
 			<div class="window__content">
-				<ul>
-					<li v-for="(item, key) in availableColorList" :key="item">
-						<button @click="toggleColorClickHandler(item)">
-							<strong>{{item}}</strong> <span v-if="colorIsChosen(item)">X</span>
-						</button>					
-					</li>
-				</ul>
-				<button class="button save" @click="saveClickHandler" :class="{'is-disabled':chosenColorList.length == 0}">OK</button>
-				<button class="button cancel" @click="cancelClickHandler">Cancel</button>
+				<div class="inner">
+					<div>
+						<img src="/img/gan_color_wheel.png" alt="Color wheel" />
+					</div>
+					
+					<div>
+						<ul>
+							<li v-for="(item, key) in availableColorList" :key="item">
+								<button @click="toggleColorClickHandler(item)" :class="{'is-active': colorIsChosen(item)}">
+									<svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									  <path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000"/>
+									</svg>
+									<strong>{{item}}</strong>
+								</button>					
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<button class="button ok" @click="saveClickHandler">OK</button>
+				<p v-if="showErrorMessage">You have to choose at least 1 color</p>
 			</div>
 		</div>
 	</div>
@@ -39,6 +60,7 @@ export default {
 	data() {
 		return {
 			active: false,
+			showErrorMessage: false,
 			availableColorList: [],
 			chosenColorList: []
 		}
@@ -69,7 +91,10 @@ export default {
 			'collection/' + TOGGLE_COLOR_PICKER.action
 		]),
 		saveClickHandler() {
-			if ( this.chosenColorList.length === 0 ) return;
+			if ( this.chosenColorList.length === 0 ) {
+				this.showErrorMessage = true
+				return
+			}
 
 			console.log("colorPickerCallback",this.colorPickerCallback)
 			if ( this.colorPickerCallback ) {
@@ -91,6 +116,8 @@ export default {
 			return found;
 		},
 		toggleColorClickHandler(colorString) {
+			this.showErrorMessage = false
+
 			console.log("toggle '"+colorString+"'")
 			if ( !this.colorIsChosen(colorString) ) {
 				console.log("this.chosenColorList??? a",this.chosenColorList)
