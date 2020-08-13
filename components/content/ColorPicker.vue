@@ -20,10 +20,10 @@
 						<li v-for="(item, key) in availableColorList" :key="item">
 							<button @click="toggleColorClickHandler(item)" :class="{'is-active': colorIsChosen(item)}">
 								<svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-								  <path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000"/>
+									<path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000" />
 								</svg>
 								<strong>{{item}}</strong>
-							</button>					
+							</button>
 						</li>
 					</ul>
 				</div>
@@ -36,21 +36,19 @@
 </template>
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
 
-import {
-	TOGGLE_COLOR_PICKER
-} from '~/model/constants'
+import { TOGGLE_COLOR_PICKER } from '~/model/constants'
 
 export default {
-	name:'color-picker',
+	name: 'color-picker',
 	computed: {
 		...mapState({
 			keyPressed: state => state.keyPressed,
 			colorPickerStyle: state => state.collection.colorPickerStyle,
-			colorPickerChosenColorList: state => state.collection.colorPickerChosenColorList,
-			colorPickerCallback: state => state.collection.colorPickerCallback,
+			colorPickerChosenColorList: state =>
+				state.collection.colorPickerChosenColorList,
+			colorPickerCallback: state => state.collection.colorPickerCallback
 		})
 	},
 	data() {
@@ -66,69 +64,71 @@ export default {
 			if (newVal) {
 				this.active = true
 				this.availableColorList = newVal.colorNames.split(', ')
-			}
-			else {
+			} else {
 				this.active = false
 				this.availableColorList = []
 			}
 		},
 		colorPickerChosenColorList(newVal) {
 			if (newVal) {
-				this.chosenColorList = [] 
-				newVal.forEach(i=>this.chosenColorList.push(i))
-			}
-			else {
-				this.chosenColorList = []				
+				this.chosenColorList = []
+				newVal.forEach(i => this.chosenColorList.push(i))
+			} else {
+				this.chosenColorList = []
 			}
 		},
 		keyPressed(event) {
 			if (event.key === 'Escape') {
-				this.cancelClickHandler();
-			} 
+				this.cancelClickHandler()
+			}
 		}
 	},
 	methods: {
-		...mapActions([			
-			'collection/' + TOGGLE_COLOR_PICKER.action
-		]),
+		...mapActions('collection', [TOGGLE_COLOR_PICKER.action]),
 		saveClickHandler() {
-			if ( this.chosenColorList.length === 0 ) {
+			if (this.chosenColorList.length === 0) {
 				this.showErrorMessage = true
 				return
 			}
 
-			console.log("colorPickerCallback",this.colorPickerCallback)
-			if ( this.colorPickerCallback ) {
+			console.log('colorPickerCallback', this.colorPickerCallback)
+			if (this.colorPickerCallback) {
 				try {
 					this.colorPickerCallback(this.colorPickerStyle, this.chosenColorList)
-				} catch (error) { }
+				} catch (error) {}
 			}
-			this.cancelClickHandler();
+			this.cancelClickHandler()
 		},
 		cancelClickHandler() {
 			this.chosenColorList = []
-			this['collection/' + TOGGLE_COLOR_PICKER.action]({styleItem:null, chosenColorList:null, callbackFunction:null})
+			this[TOGGLE_COLOR_PICKER.action]({
+				styleItem: null,
+				chosenColorList: null,
+				callbackFunction: null
+			})
 		},
 		colorIsChosen(colorString) {
-			let found = false;
+			let found = false
 			for (var i = this.chosenColorList.length - 1; i >= 0; i--) {
-				if ( this.chosenColorList[i] === colorString ) found = true;
+				if (this.chosenColorList[i] === colorString) found = true
 			}
-			return found;
+			return found
 		},
 		toggleColorClickHandler(colorString) {
 			this.showErrorMessage = false
 
-			console.log("toggle '"+colorString+"'")
-			if ( !this.colorIsChosen(colorString) ) {
-				console.log("this.chosenColorList??? a",this.chosenColorList)
-				this.chosenColorList.push(colorString);
+			console.log("toggle '" + colorString + "'")
+			if (!this.colorIsChosen(colorString)) {
+				console.log('this.chosenColorList??? a', this.chosenColorList)
+				this.chosenColorList.push(colorString)
 			} else {
-				console.log("this.chosenColorList??? r",this.chosenColorList)
-				this.chosenColorList = this.chosenColorList.filter(e => e != colorString)
+				console.log('this.chosenColorList??? r', this.chosenColorList)
+				this.chosenColorList = this.chosenColorList.filter(
+					e => e != colorString
+				)
 			}
-			console.log("after toggle",this.chosenColorList)
+			console.log('after toggle', this.chosenColorList)
 		}
 	}
-};
+}
 </script>

@@ -37,11 +37,9 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(['collection/' + SET_CURRENT_FILTER.action]),
+		...mapActions('collection', [SET_CURRENT_FILTER.action]),
 		clickHandler() {
-			this['collection/' + SET_CURRENT_FILTER.action](
-				this.isActive ? '' : this.filterId
-			)
+			this[SET_CURRENT_FILTER.action](this.isActive ? '' : this.filterId)
 
 			if (!this.activeFilters[this.currentCollectionId]) {
 				sendTracking('Filter added', this.name)

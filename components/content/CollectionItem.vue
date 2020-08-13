@@ -50,13 +50,11 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
-			OPEN_STYLE_CONTENT.action,
-			'collection/' + CURRENT_COLLECTION_ID.action
-		]),
+		...mapActions([OPEN_STYLE_CONTENT.action]),
+		...mapActions('collection', [CURRENT_COLLECTION_ID.action]),
 		onItemClick() {
 			sendTracking('Product click', this.styleId)
-			this['collection/' + CURRENT_COLLECTION_ID.action](this.collectionId)
+			this[CURRENT_COLLECTION_ID.action](this.collectionId)
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		}
 	}

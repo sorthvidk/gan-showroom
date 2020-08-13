@@ -35,7 +35,7 @@
 				<component
 					:is="statusComponent"
 					v-bind="statusComponentProps"
-					:collectionId="contentComponentProps.collectionId"
+					:collectionId="contentComponentProps ? contentComponentProps.collectionId : ''"
 				/>
 			</div>
 
@@ -242,9 +242,9 @@ export default {
 		...mapActions([
 			TOPMOST_WINDOW.action,
 			CLOSE_WINDOW.action,
-			UPDATE_WINDOW.action,
-			'collection/' + CURRENT_COLLECTION_ID.action
+			UPDATE_WINDOW.action
 		]),
+		...mapActions('collection', [CURRENT_COLLECTION_ID.action]),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({
 				windowId: this.windowId,
@@ -265,7 +265,7 @@ export default {
 				this.contentComponentProps &&
 				this.contentComponentProps.collectionId
 			) {
-				this['collection/' + CURRENT_COLLECTION_ID.action](
+				this[CURRENT_COLLECTION_ID.action](
 					this.contentComponentProps.collectionId
 				)
 			}
@@ -316,9 +316,7 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			// if (this.canReorder) {
-			// 	this[TOPMOST_WINDOW.action](this.windowId)
-			// }
+
 			this.contentActivateHandler()
 		},
 		onResizeStop() {
@@ -333,9 +331,7 @@ export default {
 		onDrag(x, y) {
 			this.x = x
 			this.y = y
-			// if (this.canReorder) {
-			// 	this[TOPMOST_WINDOW.action](this.windowId)
-			// }
+
 			this.contentActivateHandler()
 		},
 		onDragStop() {
@@ -360,9 +356,7 @@ export default {
 					sizeH: this.h
 				}
 			})
-			// if (this.canReorder) {
-			// 	this[TOPMOST_WINDOW.action](this.windowId)
-			// }
+
 			this.contentActivateHandler()
 		}
 		// onMouseDown() {

@@ -12,12 +12,12 @@
 			</span>
 			<span class="icon" v-if="isActive">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"/>
+					<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
 				</svg>
 			</span>
 			<span class="icon" v-if="!isActive">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-				  <path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z"/>
+					<path d="M15 20.2l-8.4-8.4.8-.7 7.6 7.7 7.6-7.7.7.7z" />
 				</svg>
 			</span>
 		</button>
@@ -124,9 +124,9 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
+		...mapActions('collection', [REMOVE_FROM_WISHLIST.action]),
 		removeItemHandler() {
-			this['collection/' + REMOVE_FROM_WISHLIST.action](this.wishListItem)
+			this[REMOVE_FROM_WISHLIST.action](this.wishListItem)
 		},
 		triggerHandler() {
 			this.isActive = !this.isActive

@@ -1,8 +1,17 @@
 <template>
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
-			<div class="wish-list__overview__item" v-for="(item, index) in wishList" :key="'wishListItem'+index" :class="{'is-active': currentWishListIndex == index}">
-				<button v-if="item.styleItem.assets && item.styleItem.assets.length > 0" class="button activate" @click="overviewItemActivateHandler(index)">
+			<div
+				class="wish-list__overview__item"
+				v-for="(item, index) in wishList"
+				:key="'wishListItem'+index"
+				:class="{'is-active': currentWishListIndex == index}"
+			>
+				<button
+					v-if="item.styleItem.assets && item.styleItem.assets.length > 0"
+					class="button activate"
+					@click="overviewItemActivateHandler(index)"
+				>
 					<img :src="getImageUrl(index)" alt />
 					<p>{{item.styleItem.name}}</p>
 				</button>
@@ -27,7 +36,10 @@
 					v-if="currentWishListItem && currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
-					<single-image :asset="currentWishListItem.styleItem.assets[0]" :parent-window-id="parentWindowId" />
+					<single-image
+						:asset="currentWishListItem.styleItem.assets[0]"
+						:parent-window-id="parentWindowId"
+					/>
 
 					<h3>{{currentWishListItem.name}}</h3>
 					<button class="button" @click="removeItemHandler">Remove from wishlist</button>
@@ -35,16 +47,30 @@
 					<table>
 						<tbody>
 							<tr>
+								<th>Collection</th>
+								<td>{{currentWishListItem.styleItem.collectionId}}</td>
+							</tr>
+							<tr>
 								<th>Name</th>
 								<td>{{currentWishListItem.styleItem.name}}</td>
 							</tr>
 							<tr>
-								<th>Color<span v-if="hasMoreColors">(s)</span></th>
+								<th>
+									Color
+									<span v-if="hasMoreColors">(s)</span>
+								</th>
 								<td>
-									<span v-if="hasMoreColors" v-for="(item, key) in currentWishListItem.chosenColorList" :key="item"><span v-if="key > 0">, </span>{{item}}</span>
+									<span
+										v-if="hasMoreColors"
+										v-for="(item, key) in currentWishListItem.chosenColorList"
+										:key="item"
+									>
+										<span v-if="key > 0">,</span>
+										{{item}}
+									</span>
 									<button v-if="hasMoreColors" class="button" @click="editColorsHandler">Edit colors</button>
 									<span v-else>{{currentWishListItem.styleItem.colorNames}}</span>
-								</td>										
+								</td>
 							</tr>
 							<tr>
 								<th>Material</th>
@@ -116,7 +142,11 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { UPDATE_WISHLIST, REMOVE_FROM_WISHLIST, TOGGLE_COLOR_PICKER } from '~/model/constants'
+import {
+	UPDATE_WISHLIST,
+	REMOVE_FROM_WISHLIST,
+	TOGGLE_COLOR_PICKER
+} from '~/model/constants'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
@@ -134,30 +164,6 @@ export default {
 		WishListAccordion,
 		SingleImage
 	},
-	computed: {
-		...mapState({
-			wishList: state => state.collection.wishList
-		}),				
-		currentWishListItem() {
-			if (this.wishList.length > 0)
-				return this.wishList[this.currentWishListIndex]
-			else this.currentWishListIndex = -1
-			return {}
-		},
-		hasMoreColors() {
-			console.log("this.currentWishListIndex",this.currentWishListIndex)
-			let colorList = this.currentWishListItem.styleItem.colorNames.split(', ');
-			return colorList.length > 1
-		}
-	},
-	watch: {
-		wishList(newVal) {
-			//wishlist updated
-			if ( newVal ) {
-				this.overviewItemActivateHandler(0)
-			}
-		}
-	},
 	data() {
 		return {
 			currentWishListIndex: 0,
@@ -165,11 +171,33 @@ export default {
 			viewPortSize: ViewportSizes.SMALL
 		}
 	},
+	computed: {
+		...mapState('collection', ['wishList']),
+		currentWishListItem() {
+			if (this.wishList.length > 0)
+				return this.wishList[this.currentWishListIndex]
+			else this.currentWishListIndex = -1
+			return {}
+		},
+		hasMoreColors() {
+			console.log('this.currentWishListIndex', this.currentWishListIndex)
+			let colorList = this.currentWishListItem.styleItem.colorNames.split(', ')
+			return colorList.length > 1
+		}
+	},
+	watch: {
+		wishList(newVal) {
+			//wishlist updated
+			if (newVal) {
+				this.overviewItemActivateHandler(0)
+			}
+		}
+	},
 	methods: {
-		...mapActions([
-			'collection/' + UPDATE_WISHLIST.action,
-			'collection/' + TOGGLE_COLOR_PICKER.action,
-			'collection/' + REMOVE_FROM_WISHLIST.action
+		...mapActions('collection', [
+			UPDATE_WISHLIST.action,
+			TOGGLE_COLOR_PICKER.action,
+			REMOVE_FROM_WISHLIST.action
 		]),
 		overviewItemActivateHandler(key) {
 			this.currentWishListIndex = key
@@ -177,12 +205,12 @@ export default {
 		overviewItemRemoveHandler(key) {
 			let removeItem = this.wishList[key].styleItem
 			this.currentWishListIndex = 0
-			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+			this[REMOVE_FROM_WISHLIST.action](removeItem)
 		},
 		removeItemHandler() {
 			let removeItem = this.currentWishListItem.styleItem
 			this.currentWishListIndex = 0
-			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+			this[REMOVE_FROM_WISHLIST.action](removeItem)
 		},
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
@@ -191,18 +219,25 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		getImageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].styleItem.assets[0], {width: 30});
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				this.wishList[index].styleItem.assets[0],
+				{ width: 30 }
+			)
 		},
 		editColorsHandler() {
-			this['collection/' + TOGGLE_COLOR_PICKER.action]({
+			this[TOGGLE_COLOR_PICKER.action]({
 				styleItem: this.currentWishListItem.styleItem,
 				chosenColorList: this.currentWishListItem.chosenColorList,
 				callbackFunction: this.colorsEditingDone
 			})
 		},
 		colorsEditingDone(styleItem, chosenColorList) {
-			console.log("colorsEditingDone",styleItem, chosenColorList)
-			this['collection/' + UPDATE_WISHLIST.action]( {styleItem:styleItem, chosenColorList:chosenColorList} )
+			console.log('colorsEditingDone', styleItem, chosenColorList)
+			this[UPDATE_WISHLIST.action]({
+				styleItem: styleItem,
+				chosenColorList: chosenColorList
+			})
 		}
 	},
 	mounted() {

@@ -307,6 +307,7 @@ export const actions = {
 		dispatch(BYPASS_ESCAPE.action, params.styleItem ? true : false, {
 			root: true
 		})
+		console.log('running color-picker')
 		commit(TOGGLE_COLOR_PICKER.mutation, params)
 	},
 	[ADD_TO_WISHLIST.action]({ commit }, style) {

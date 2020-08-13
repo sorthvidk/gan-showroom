@@ -605,32 +605,31 @@ export default {
 			DOWNLOAD_PREPARING.action,
 			SAVE_COLLAGE.action,
 			MAKE_BACKGROUND.action,
-			CHANGE_COLLAGE.action,
-			'collection/' + ALL_ASSETS_VISIBLE.action,
-			// 'collection/' + SET_CURRENT_FILTER.action,
-			'collection/' + TOGGLE_COLOR_PICKER.action,
-			'collection/' + ADD_TO_WISHLIST.action,
-			'collection/' + REMOVE_FROM_WISHLIST.action,
-			'collection/' + SHOW_PREVIOUS_STYLE.action,
-			'collection/' + SHOW_NEXT_STYLE.action
+			CHANGE_COLLAGE.action
+		]),
+		...mapActions('collection', [
+			ALL_ASSETS_VISIBLE.action,
+			TOGGLE_COLOR_PICKER.action,
+			ADD_TO_WISHLIST.action,
+			REMOVE_FROM_WISHLIST.action,
+			SHOW_PREVIOUS_STYLE.action,
+			SHOW_NEXT_STYLE.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
 			this[OPEN_WISH_LIST.action]()
 		},
 		previousStyleHandler() {
-			this['collection/' + SHOW_PREVIOUS_STYLE.action](
-				this.currentStyle.styleId
-			)
+			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
 		},
 		nextStyleHandler() {
-			this['collection/' + SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 		},
 		closeStyleHandler() {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 		showAllVariantsClickHandler() {
-			this['collection/' + ALL_ASSETS_VISIBLE.action](this.currentStyle)
+			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
 				addToGroupId: this.associatedWindowGroupId
@@ -641,7 +640,7 @@ export default {
 			let colorList = this.currentStyle.colorNames.split(', ')
 			console.log('colorList', colorList)
 			if (colorList.length > 1) {
-				this['collection/' + TOGGLE_COLOR_PICKER.action]({
+				this[TOGGLE_COLOR_PICKER.action]({
 					styleItem: this.currentStyle,
 					chosenColorList: colorList,
 					callbackFunction: this.executeAddToWishList
@@ -653,7 +652,7 @@ export default {
 		executeAddToWishList(styleItem, chosenColorList) {
 			console.log('executeAddToWishList', chosenColorList)
 			if (!this.styleOnWishList) {
-				this['collection/' + ADD_TO_WISHLIST.action]({
+				this[ADD_TO_WISHLIST.action]({
 					styleItem: this.currentStyle,
 					chosenColorList: chosenColorList
 				})
@@ -665,7 +664,7 @@ export default {
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)
 			} else {
-				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
+				// this[REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadCollectionClickHandler() {

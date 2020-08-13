@@ -159,6 +159,16 @@ export default {
 		Support,
 		ColorPicker
 	},
+	data() {
+		return {
+			viewPortSize: ViewportSizes.SMALL,
+			showClipboardMessage: false,
+			showDownloadMessage: false,
+			wallpaperCount: 6,
+			showColorPicker: false,
+			colorPickerStyleItem: null
+		}
+	},
 	computed: {
 		...mapState([
 			'wallpaperIndex',
@@ -203,16 +213,6 @@ export default {
 			} else {
 				this.showDownloadMessage = false
 			}
-		}
-	},
-	data() {
-		return {
-			viewPortSize: ViewportSizes.SMALL,
-			showClipboardMessage: false,
-			showDownloadMessage: false,
-			wallpaperCount: 6,
-			showColorPicker: false,
-			colorPickerStyleItem: null
 		}
 	},
 	methods: {
