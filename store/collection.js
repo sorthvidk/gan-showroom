@@ -1,11 +1,14 @@
 import Vue from 'vue'
-import sortArrayMultipleProps from '~/utils/sort-array-multiple'
+// import sortArrayMultipleProps from "~/utils/sort-array-multiple"
 
 import {
 	CURRENT_COLLECTION_ID,
+	BYPASS_ESCAPE,
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
+	TOGGLE_COLOR_PICKER,
 	ADD_TO_WISHLIST,
+	UPDATE_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	ALL_ASSETS_VISIBLE,
 	SHOW_NEXT_STYLE,
@@ -34,6 +37,10 @@ export const state = () => ({
 	 * }
 	 */
 	activeFilters: {},
+
+	colorPickerStyle: null,
+	colorPickerChosenColorList: null,
+	colorPickerCallback: null,
 
 	wishList: [],
 
@@ -137,13 +144,33 @@ export const mutations = {
 			asset.visible = true
 		}
 	},
-	[ADD_TO_WISHLIST.mutation](state, styleItem) {
-		if (styleItem.onWishList) return false
+	[TOGGLE_COLOR_PICKER.mutation](state, params) {
+		console.log('TOGGLE_COLOR_PICKER mutation', params)
+		state.colorPickerStyle = params.styleItem
+		state.colorPickerChosenColorList = params.chosenColorList
+		state.colorPickerCallback = params.callbackFunction
+	},
+	[ADD_TO_WISHLIST.mutation](state, params) {
+		if (params.styleItem.onWishList) return false
 		else {
-			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
+			let listStyle = state.list.filter(
+				e => e.styleId === params.styleItem.styleId
+			)[0]
 			listStyle.onWishList = true
-			state.wishList.push(styleItem)
+			state.wishList.push({
+				styleItem: params.styleItem,
+				chosenColorList: params.chosenColorList
+			})
 		}
+	},
+	[UPDATE_WISHLIST.mutation](state, params) {
+		let wishListItem = state.wishList.filter(
+			e => e.styleItem.styleId === params.styleItem.styleId
+		)[0]
+		console.log('UPDATE_WISHLIST wishListItem', wishListItem)
+		console.log('params', params)
+
+		if (wishListItem) wishListItem.chosenColorList = params.chosenColorList
 	},
 	[REMOVE_FROM_WISHLIST.mutation](state, styleItem) {
 		if (!styleItem.onWishList) return false
@@ -151,7 +178,7 @@ export const mutations = {
 			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
 			listStyle.onWishList = false
 			state.wishList = state.wishList.filter(
-				e => e.styleId !== styleItem.styleId
+				e => e.styleItem.styleId !== styleItem.styleId
 			)
 		}
 	},
@@ -276,8 +303,18 @@ export const actions = {
 	[ALL_ASSETS_VISIBLE.action]({ commit }, style) {
 		commit(ALL_ASSETS_VISIBLE.mutation, style)
 	},
+	[TOGGLE_COLOR_PICKER.action]({ commit, dispatch }, params) {
+		dispatch(BYPASS_ESCAPE.action, params.styleItem ? true : false, {
+			root: true
+		})
+		commit(TOGGLE_COLOR_PICKER.mutation, params)
+	},
 	[ADD_TO_WISHLIST.action]({ commit }, style) {
 		commit(ADD_TO_WISHLIST.mutation, style)
+	},
+	[UPDATE_WISHLIST.action]({ commit }, params) {
+		console.log('UPDATE_WISHLIST action', params)
+		commit(UPDATE_WISHLIST.mutation, params)
 	},
 	[REMOVE_FROM_WISHLIST.action]({ commit }, style) {
 		commit(REMOVE_FROM_WISHLIST.mutation, style)

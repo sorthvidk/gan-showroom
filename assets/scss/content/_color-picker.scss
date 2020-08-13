@@ -1,0 +1,98 @@
+.color-picker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.1);
+	z-index: $z-index-message;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.window {
+		max-width: rem(355);
+		position: static;
+		
+
+		@include mq($from: screen-xs) {
+			width: rem(400);
+		}
+
+		&__content {
+			background-color: $color-grey;
+			padding: rem(20) rem(30);
+			text-align: center;
+
+			.inner {
+				display: flex;
+				justify-content: space-between;				
+				align-items: center;
+			}
+			img {
+				width: rem(60);
+				height: rem(60);
+				margin-right: rem(40);
+			}
+			p {
+				color: $color-red;
+				font-size: rem(14);
+				margin-top: rem(10);
+			}
+			ul {
+				flex: 1 0;
+				display: block;
+				
+				li, button {
+					display: block;
+				}
+				button {
+					position: relative;
+					&:before {
+						content:'';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: rem(20);
+						height: rem(20);
+						border: rem(1) solid black;
+					}
+					strong {
+						padding-left: rem(30);
+					}
+					svg {
+						width: rem(12);
+						height: rem(12);
+						display: none;
+						position: absolute;
+						top: rem(4);
+						left: rem(4);
+					}
+					&.is-active {
+						svg {
+							display: block;
+						}
+					}
+				}
+				li + li {
+					margin-top: rem(8);
+				}
+			}
+		
+			.button {
+				@include window-button();
+				@include bevel();
+				color: $color-blue;
+				text-decoration: underline;
+				padding: rem(8) rem(20) rem(10);
+				background-color: $color-grey;
+
+				width: rem(100);
+				text-align: center;
+				display: inline-block;				
+				margin-top: rem(30);
+			}
+		}
+	}	
+}

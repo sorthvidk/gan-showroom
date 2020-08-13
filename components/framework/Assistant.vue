@@ -367,6 +367,8 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import {
+	// SET_CURRENT_FILTER,
+	TOGGLE_COLOR_PICKER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	OPEN_CONTENT,
@@ -425,7 +427,7 @@ export default {
 			'collageIsOpen'
 		]),
 		...mapState('collection', [
-			'currentStyles',
+			// 'currentStyles',
 			'currentCollectionId',
 			'data',
 			'filters',
@@ -605,6 +607,8 @@ export default {
 			MAKE_BACKGROUND.action,
 			CHANGE_COLLAGE.action,
 			'collection/' + ALL_ASSETS_VISIBLE.action,
+			// 'collection/' + SET_CURRENT_FILTER.action,
+			'collection/' + TOGGLE_COLOR_PICKER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
 			'collection/' + REMOVE_FROM_WISHLIST.action,
 			'collection/' + SHOW_PREVIOUS_STYLE.action,
@@ -634,8 +638,25 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
+			let colorList = this.currentStyle.colorNames.split(', ')
+			console.log('colorList', colorList)
+			if (colorList.length > 1) {
+				this['collection/' + TOGGLE_COLOR_PICKER.action]({
+					styleItem: this.currentStyle,
+					chosenColorList: colorList,
+					callbackFunction: this.executeAddToWishList
+				})
+			} else {
+				this.executeAddToWishList(colorList)
+			}
+		},
+		executeAddToWishList(styleItem, chosenColorList) {
+			console.log('executeAddToWishList', chosenColorList)
 			if (!this.styleOnWishList) {
-				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+				this['collection/' + ADD_TO_WISHLIST.action]({
+					styleItem: this.currentStyle,
+					chosenColorList: chosenColorList
+				})
 
 				this.styleHasBeenAdded = true
 				setTimeout(() => {

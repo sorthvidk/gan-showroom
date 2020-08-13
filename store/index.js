@@ -1,5 +1,6 @@
 import {
 	CREATE_DATA_MODEL,
+	BYPASS_ESCAPE,
 	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
@@ -59,6 +60,8 @@ export const state = () => ({
 	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
 
 	screensaverActive: false,
+
+	byPassEscape: false,
 
 	progressItems: {},
 	progressPct: 0,
@@ -170,6 +173,10 @@ export const mutations = {
 
 	[COPYRIGHT_ACCEPT.mutation](state, value) {
 		state.copyrightAccepted = value
+	},
+
+	[BYPASS_ESCAPE.mutation](state, key) {
+		state.byPassEscape = key
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -621,10 +628,14 @@ export const actions = {
 		commit(INIT_PROGRESS.mutation)
 	},
 
-	[KEYPRESS.action]({ commit }, event) {
+	[BYPASS_ESCAPE.action]({ commit, state }, event) {
+		commit(BYPASS_ESCAPE.mutation, event)
+	},
+
+	[KEYPRESS.action]({ commit, state }, event) {
 		commit(KEYPRESS.mutation, event)
 
-		if (event.key === 'Escape') {
+		if (event.key === 'Escape' && !state.byPassEscape) {
 			commit(CLOSE_WINDOW_GROUP.mutation)
 		}
 	},

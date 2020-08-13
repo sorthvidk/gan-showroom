@@ -7,8 +7,8 @@
 		<button class="trigger" @click="triggerHandler">
 			<img :src="imageUrl" alt />
 			<span>
-				<p>{{wishListItem.name}}</p>
-				<em>{{wishListItem.styleId}}</em>
+				<p>{{wishListItem.styleItem.name}}</p>
+				<em>{{wishListItem.styleItem.styleId}}</em>
 			</span>
 			<span class="icon" v-if="isActive">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -30,23 +30,23 @@
 					<tbody>
 						<tr>
 							<th>Color</th>
-							<td>{{wishListItem.colorNames}}</td>
+							<td>{{wishListItem.styleItem.colorNames}}</td>
 						</tr>
 						<tr>
 							<th>Material</th>
-							<td>{{wishListItem.material}}</td>
+							<td>{{wishListItem.styleItem.material}}</td>
 						</tr>
 						<tr>
 							<th>Style #</th>
-							<td>{{wishListItem.styleId}}</td>
+							<td>{{wishListItem.styleItem.styleId}}</td>
 						</tr>
 						<tr>
 							<th>Program #</th>
-							<td>{{wishListItem.program}}</td>
+							<td>{{wishListItem.styleItem.program}}</td>
 						</tr>
 						<tr>
 							<th>Program name</th>
-							<td>{{wishListItem.programName}}</td>
+							<td>{{wishListItem.styleItem.programName}}</td>
 						</tr>
 
 						<tr>
@@ -56,15 +56,15 @@
 
 						<tr>
 							<th>Wholesale price</th>
-							<td>DKK {{wishListItem.wholesalePriceDKK}}</td>
+							<td>DKK {{wishListItem.styleItem.wholesalePriceDKK}}</td>
 						</tr>
 						<tr>
 							<th>Wholesale price</th>
-							<td>EUR {{wishListItem.wholesalePriceEUR}}</td>
+							<td>EUR {{wishListItem.styleItem.wholesalePriceEUR}}</td>
 						</tr>
 						<tr>
 							<th>Wholesale price</th>
-							<td>USD {{wishListItem.wholesalePriceUSD}}</td>
+							<td>USD {{wishListItem.styleItem.wholesalePriceUSD}}</td>
 						</tr>
 
 						<tr>
@@ -74,15 +74,15 @@
 
 						<tr>
 							<th>Suggested retail price</th>
-							<td>DKK {{wishListItem.retailPriceDKK}}</td>
+							<td>DKK {{wishListItem.styleItem.retailPriceDKK}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>EUR {{wishListItem.retailPriceEUR}}</td>
+							<td>EUR {{wishListItem.styleItem.retailPriceEUR}}</td>
 						</tr>
 						<tr>
 							<th>Suggested retail price</th>
-							<td>USD {{wishListItem.retailPriceUSD}}</td>
+							<td>USD {{wishListItem.styleItem.retailPriceUSD}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -118,7 +118,7 @@ export default {
 		imageUrl() {
 			return getCloudinaryUrl(
 				this.$cloudinary,
-				this.wishListItem.assets[0],
+				this.wishListItem.styleItem.assets[0],
 				!this.largeImages ? { width: 30 } : {}
 			)
 		}
