@@ -116,13 +116,12 @@
 						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
 						<div class="assistant__filters__list">
 							<filter-button
-								v-for="(item, key) in filtersList"
+								v-for="(item, key) in currentCollectionFilters"
 								:key="key"
 								:name="item.name"
-								:count="item.styleIds.length"
 								:filter-id="item.filterId"
 							/>
-							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
+							<span class="filter-button" v-if="currentCollectionFilters.length % 2 > 0">&nbsp;</span>
 						</div>
 					</div>
 				</div>
@@ -368,7 +367,6 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import {
-	SET_CURRENT_FILTER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	OPEN_CONTENT,
@@ -420,17 +418,33 @@ export default {
 		}
 	},
 	computed: {
-		...mapState({
-			keyPressed: state => state.keyPressed,
-			filtersList: state => state.collection.filters,
-			wishList: state => state.collection.wishList,
-			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
-			collageIsOpen: state => state.collageIsOpen,
-			clothes: state => state.collage.clothes
-		}),
+		...mapState([
+			'keyPressed',
+			'topMostWindow',
+			'clipBoardCopyComplete',
+			'collageIsOpen'
+		]),
+		...mapState('collection', [
+			'currentStyles',
+			'currentCollectionId',
+			'data',
+			'filters',
+			'activeFilters',
+			'wishList'
+		]),
+		...mapState('collage', ['clothes']),
+		currentCollectionFilters() {
+			return this.data[this.currentCollectionId]
+				? this.data[this.currentCollectionId].filters
+				: []
+		},
+		filterStatusText() {
+			const activeFilter = this.filters.find(
+				filter =>
+					filter.filterId === this.activeFilters[this.currentCollectionId]
+			)
+			return activeFilter ? activeFilter.name : 'Filter'
+		},
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},
@@ -439,8 +453,14 @@ export default {
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {
-			if (this.activeFilter.filterId) {
-				return 'Download ' + this.activeFilter.name
+			if (this.activeFilters[this.currentCollectionId]) {
+				return (
+					'Download ' +
+					this.filters.find(
+						filter =>
+							this.activeFilters[this.currentCollectionId] === filter.filterId
+					).name
+				)
 			}
 			return 'Download all'
 		},
@@ -450,18 +470,16 @@ export default {
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
 		},
-		filterStatusText() {
-			if (this.filterName) return this.filterName
-			return 'Filter'
-		},
 		wishListUrl() {
 			return `${window.location}export/?styles=${this.wishList
 				.map(style => style.styleId)
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (this.activeFilter.filterId) {
-				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			if (this.activeFilters[this.currentCollectionId].filterId) {
+				return `${window.location}export/?styles=${
+					this.activeFilters[this.currentCollectionId].filterId
+				}`
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`
@@ -486,11 +504,15 @@ export default {
 				}
 			}
 		},
-		activeFilter(newVal) {
-			if (newVal && newVal.name != '') {
-				this.filterName = newVal.name
+		activeFilters: {
+			/**
+			 * close filter when a new is chosen,
+			 * on mobile
+			 */
+			deep: true,
+			handler() {
 				this.assistantExpanded = false
-			} else this.filterName = null
+			}
 		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
@@ -517,10 +539,15 @@ export default {
 					case ContentTypes.videoLandscape.contentComponent:
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
-							this.currentStyle = this.currentStyles.filter(
-								e => e.styleId === componentProps.asset.styleId
-							)[0]
-							this.parseAssets()
+							setTimeout(() => {
+								console.log('assistent component')
+								this.currentStyle = this.data[
+									this.currentCollectionId
+								].styles.find(
+									style => style.styleId === componentProps.asset.styleId
+								)
+								this.parseAssets()
+							}, 1000)
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -578,7 +605,6 @@ export default {
 			MAKE_BACKGROUND.action,
 			CHANGE_COLLAGE.action,
 			'collection/' + ALL_ASSETS_VISIBLE.action,
-			'collection/' + SET_CURRENT_FILTER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
 			'collection/' + REMOVE_FROM_WISHLIST.action,
 			'collection/' + SHOW_PREVIOUS_STYLE.action,

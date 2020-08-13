@@ -1,4 +1,5 @@
 import {
+	CREATE_DATA_MODEL,
 	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
@@ -44,6 +45,7 @@ import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
+import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 export const state = () => ({
 	webcamImage: '',
@@ -76,6 +78,8 @@ export const state = () => ({
 	rehydrated: false,
 	cookiesAccepted: false,
 	copyrightAccepted: false,
+
+	collectionSplit: {},
 
 	musicPlaying: false,
 	songs: [
@@ -160,7 +164,6 @@ export const mutations = {
 		state.screensaverActive = key
 	},
 
-
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
 	},
@@ -175,6 +178,54 @@ export const mutations = {
 
 	[MOUSEMOVE.mutation](state, { x, y }) {
 		state.mousepos = { x, y }
+	},
+
+	[CREATE_DATA_MODEL.mutation](state, { styles, filters }) {
+		// state.collection.data = {
+		// 	collectionOne:
+		// 		{
+		// 			filters: [{ filter1 }, { filter2 }],
+		// 			styles: [{ style1 }, { style2 }]
+		// 		}
+		// 	},
+		// 	collectionTwo: {...}
+
+		const sortedStyles = sortArrayMultipleProps(styles, 'program', 'weight')
+
+		// loop through all styles and place them, with their filters,
+		// under the correct collectionId,
+		state.collection.data = sortedStyles.reduce((data, cur) => {
+			const { collectionId, filters: styleFilters } = cur
+
+			// if first time current style's collection is seen
+			if (!Object.keys(data).includes(collectionId)) {
+				// create a new collection object
+				data[collectionId] = {
+					styles: [],
+					filters: []
+				}
+			}
+
+			// not added filterIds
+			const newFilterIds = styleFilters.filter(
+				styleFilter =>
+					!data[collectionId].filters.find(
+						addedFilter => styleFilter === addedFilter.filterId
+					)
+			)
+			// not added filter objects
+			const newFilters = filters.filter(filter =>
+				newFilterIds.includes(filter.filterId)
+			)
+
+			// add style to correct collection
+			data[collectionId].styles.push(cur)
+
+			// add new filters to correct collection
+			newFilters.forEach(filter => data[collectionId].filters.push(filter))
+
+			return data
+		}, {})
 	},
 
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
@@ -690,19 +741,20 @@ export const actions = {
 
 	async nuxtServerInit({ commit, dispatch }) {
 		let collectionFiles = await require.context(
-			'~/assets/content/collectionItems/',
+			`~/assets/content-mockup/collectionItems/`,
 			false,
 			/\.json$/
 		)
-		let collection = collectionFiles.keys().map(key => {
+		let styles = collectionFiles.keys().map(key => {
 			let res = collectionFiles(key)
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+
+		commit(COLLECTION_ITEMS_FETCH.mutation, styles)
 
 		let filterFiles = await require.context(
-			'~/assets/content/collectionFilters/',
+			`~/assets/content-mockup/collectionFilters/`,
 			false,
 			/\.json$/
 		)
@@ -713,8 +765,14 @@ export const actions = {
 		})
 		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
+		/**
+		 * When all styles and filters has arrived,
+		 * sort out and merge them into one object
+		 */
+		commit(CREATE_DATA_MODEL.mutation, { styles, filters })
+
 		let assetFiles = await require.context(
-			'~/assets/content/mediaAssets/',
+			`~/assets/content-mockup/mediaAssets/`,
 			false,
 			/\.json$/
 		)
@@ -726,7 +784,7 @@ export const actions = {
 		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
 		let filmsFiles = await require.context(
-			'~/assets/content/films/',
+			`~/assets/content-mockup/films/`,
 			false,
 			/\.json$/
 		)
@@ -738,7 +796,7 @@ export const actions = {
 		commit(FILMS_FETCH.mutation, films)
 
 		let ganniGirlsFiles = await require.context(
-			'~/assets/content/ganniGirls/',
+			`~/assets/content-mockup/ganniGirls/`,
 			false,
 			/\.json$/
 		)
@@ -750,7 +808,7 @@ export const actions = {
 		commit(GANNIGIRLS_FETCH.mutation, posts)
 
 		let lookBookFiles = await require.context(
-			'~/assets/content/lookBook/',
+			`~/assets/content-mockup/lookBook/`,
 			false,
 			/\.json$/
 		)
@@ -762,7 +820,7 @@ export const actions = {
 		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
 		let generalFiles = await require.context(
-			'~/assets/content/general/',
+			`~/assets/content-mockup/general/`,
 			false,
 			/\.json$/
 		)

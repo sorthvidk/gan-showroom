@@ -1,6 +1,8 @@
+import Vue from 'vue'
 import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 import {
+	CURRENT_COLLECTION_ID,
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
 	ADD_TO_WISHLIST,
@@ -14,14 +16,24 @@ import {
 
 export const state = () => ({
 	currentStyles: [],
+	currentCollectionId: '',
 
 	filtersParsed: false,
 
-	activeFilter: {
-		filterId: null,
-		name: '',
-		styleIds: []
-	},
+	// activeFilter: {
+	// 	filterId: null,
+	// 	name: '',
+	// 	styleIds: []
+	// },
+
+	/**
+	 * example
+	 * activeFilters: {
+	 *   collection1: 'filter1',
+	 *   collection1: 'filter2'
+	 * }
+	 */
+	activeFilters: {},
 
 	wishList: [],
 
@@ -143,113 +155,120 @@ export const mutations = {
 			)
 		}
 	},
-	[SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
-	},
-	[SHOW_NEXT_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
-	},
-	[FILTER_COLLECTION.mutation](state) {
-		// run through data, make reference lists for each filter
+	// [SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
+	// 	let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+	// 	console.log(styleId, listStyle, listStyle.index)
+	// },
+	// [SHOW_NEXT_STYLE.mutation](state, styleId) {
+	// 	let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+	// 	console.log(styleId, listStyle, listStyle.index)
+	// },
+	// [FILTER_COLLECTION.mutation](state) {
+	// 	// run through data, make reference lists for each filter
 
-		if (window.GS_LOGS)
-			console.warn(
-				'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
-			)
+	// 	if (window.GS_LOGS)
+	// 		console.warn(
+	// 			'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
+	// 		)
 
-		if (state.filtersParsed) return false
+	// 	if (state.filtersParsed) return false
 
-		let cl = state.list.length
-		for (var i = 0; i < cl; i++) {
-			let style = state.list[i]
-			if (typeof style.filters != 'undefined') {
-				let fl = style.filters.length
+	// 	let cl = state.list.length
+	// 	for (var i = 0; i < cl; i++) {
+	// 		let style = state.list[i]
+	// 		if (typeof style.filters != 'undefined') {
+	// 			let fl = style.filters.length
 
-				for (var j = 0; j < fl; j++) {
-					let styleFilter = style.filters[j]
-					let stateFilter = state.filters.filter(
-						e => e.filterId === styleFilter
-					)[0]
-					if (stateFilter) stateFilter.styleIds.push(style.styleId)
-				}
-			} else {
-				if (window.GS_LOGS)
-					console.warn('NO FILTERS FOR STYLE: ' + style.styleId)
-			}
-		}
+	// 			for (var j = 0; j < fl; j++) {
+	// 				let styleFilter = style.filters[j]
+	// 				let stateFilter = state.filters.filter(
+	// 					e => e.filterId === styleFilter
+	// 				)[0]
+	// 				if (stateFilter) stateFilter.styleIds.push(style.styleId)
+	// 			}
+	// 		} else {
+	// 			if (window.GS_LOGS)
+	// 				console.warn('NO FILTERS FOR STYLE: ' + style.styleId)
+	// 		}
+	// 	}
 
-		//sort filters by order
-		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
+	// 	//sort filters by order
+	// 	state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
 
-		//sort styles by weight
-		// state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
+	// 	//sort styles by weight
+	// 	// state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
 
-		// let l1 = [
-		// 	{weight:7,program:608},
-		// 	{weight:234,program:908},
-		// 	{weight:1,program:908},
-		// 	{weight:4,program:608},
-		// 	{weight:133,program:608},
-		// ]
+	// 	// let l1 = [
+	// 	// 	{weight:7,program:608},
+	// 	// 	{weight:234,program:908},
+	// 	// 	{weight:1,program:908},
+	// 	// 	{weight:4,program:608},
+	// 	// 	{weight:133,program:608},
+	// 	// ]
 
-		// sortArrayMultipleProps(l1,'program','weight')
-		// console.table(l1)
+	// 	// sortArrayMultipleProps(l1,'program','weight')
+	// 	// console.table(l1)
 
-		//sort styles by program desc and weight asc
-		state.list = sortArrayMultipleProps(state.list, 'program', 'weight')
+	// 	//sort styles by program desc and weight asc
+	// 	state.list = sortArrayMultipleProps(state.list, 'program', 'weight')
 
-		//set current subset of total collection to total collection
-		state.currentStyles = state.list
-		state.activeFilter = {
-			filterId: null,
-			name: '',
-			styleIds: []
-		}
+	// 	//set current subset of total collection to total collection
+	// 	state.currentStyles = state.list
+	// 	state.activeFilter = {
+	// 		filterId: null,
+	// 		name: '',
+	// 		styleIds: []
+	// 	}
 
-		state.filtersParsed = true
-	},
+	// 	state.filtersParsed = true
+	// },
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
-		if (!filterId || filterId == '') {
-			let cl = state.list.length
+		if (!state.currentCollectionId) return
 
-			for (var j = 0; j < cl; j++) {
-				state.list[j].index = j
-			}
+		Vue.set(state.activeFilters, state.currentCollectionId, filterId)
 
-			state.currentStyles = state.list
-			state.activeFilter = {
-				filterId: null,
-				name: '',
-				styleIds: []
-			}
-		} else {
-			// set current collection to filtered by params
-			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
-			let styleIds = state.activeFilter.styleIds
-			if (window.GS_LOGS)
-				console.warn(
-					'SET CURRENT FILTER | filterId:' +
-						filterId +
-						' | styleIds:' +
-						styleIds
-				)
-			let sil = styleIds.length
-			let newCurrentStyles = []
+		// if (!filterId || filterId == '') {
+		// 	let cl = state.list.length
 
-			for (var i = 0; i < sil; i++) {
-				let styleId = styleIds[i]
-				let addedStyle = state.list.filter(e => e.styleId === styleId)[0]
-				addedStyle.index = i
-				newCurrentStyles.push(addedStyle)
-			}
-			newCurrentStyles = newCurrentStyles.sort((a, b) =>
-				a.weight > b.weight ? -1 : 1
-			)
+		// 	for (var j = 0; j < cl; j++) {
+		// 		state.list[j].index = j
+		// 	}
 
-			state.currentStyles = newCurrentStyles
-		}
+		// 	state.currentStyles = state.list
+		// 	state.activeFilter = {
+		// 		filterId: null,
+		// 		name: '',
+		// 		styleIds: []
+		// 	}
+		// } else {
+		// 	// set current collection to filtered by params
+		// 	state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
+		// 	let styleIds = state.activeFilter.styleIds
+		// 	if (window.GS_LOGS)
+		// 		console.warn(
+		// 			'SET CURRENT FILTER | filterId:' +
+		// 				filterId +
+		// 				' | styleIds:' +
+		// 				styleIds
+		// 		)
+		// 	let sil = styleIds.length
+		// 	let newCurrentStyles = []
+
+		// 	for (var i = 0; i < sil; i++) {
+		// 		let styleId = styleIds[i]
+		// 		let addedStyle = state.list.filter(e => e.styleId === styleId)[0]
+		// 		addedStyle.index = i
+		// 		newCurrentStyles.push(addedStyle)
+		// 	}
+		// 	newCurrentStyles = newCurrentStyles.sort((a, b) =>
+		// 		a.weight > b.weight ? -1 : 1
+		// 	)
+
+		// 	state.currentStyles = newCurrentStyles
+		// }
+	},
+	[CURRENT_COLLECTION_ID.mutation](state, collectionId) {
+		state.currentCollectionId = collectionId
 	}
 }
 
@@ -274,14 +293,17 @@ export const actions = {
 			{ root: true }
 		)
 
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		const currentStyles = state.data[state.currentCollectionId].styles
+		const currentStyleIndex = currentStyles
+			.map(style => style.styleId)
+			.indexOf(styleId)
 
-		if (!listStyle) return false
-
-		let styleCount = state.currentStyles.length,
-			index = listStyle.index,
-			nextIndex = index === 0 ? styleCount - 1 : index - 1,
-			prevStyle = state.currentStyles.filter(e => e.index === nextIndex)[0]
+		const prevStyle =
+			currentStyles[
+				currentStyleIndex === 0
+					? currentStyles.length - 1
+					: currentStyleIndex - 1
+			]
 
 		if (prevStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, { root: true })
@@ -294,17 +316,23 @@ export const actions = {
 			{ root: true }
 		)
 
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		const currentStyles = state.data[state.currentCollectionId].styles
+		const currentStyleIndex = currentStyles
+			.map(style => style.styleId)
+			.indexOf(styleId)
 
-		if (!listStyle) return false
-
-		let styleCount = state.currentStyles.length,
-			index = listStyle.index,
-			nextIndex = index === styleCount - 1 ? 0 : index + 1,
-			nextStyle = state.currentStyles.filter(e => e.index === nextIndex)[0]
+		const nextStyle =
+			currentStyles[
+				currentStyleIndex === currentStyles.length - 1
+					? 0
+					: currentStyleIndex + 1
+			]
 
 		if (nextStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, { root: true })
 		}
+	},
+	[CURRENT_COLLECTION_ID.action]({ commit }, str) {
+		commit(CURRENT_COLLECTION_ID.mutation, str)
 	}
 }

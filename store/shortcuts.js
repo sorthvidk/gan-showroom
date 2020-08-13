@@ -18,7 +18,7 @@ export const state = () => ({
 			posH: 1,
 			posV: 4,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
@@ -43,7 +43,7 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
@@ -53,7 +53,10 @@ export const state = () => ({
 				{
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
-					type: ContentTypes.collection
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						collectionId: 'one'
+					}
 					// canOverride: true
 				}
 			]
@@ -66,7 +69,7 @@ export const state = () => ({
 			posH: 4,
 			posV: 1,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
+				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
@@ -74,9 +77,12 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'PS22 collection TEST',
-					contentId: 'ps22-collection',
-					type: ContentTypes.collection
+					title: 'Collection Two - test',
+					contentId: 'collection-two',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						collectionId: 'two'
+					}
 					// canOverride: true
 				}
 			]

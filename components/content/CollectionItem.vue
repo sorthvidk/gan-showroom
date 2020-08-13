@@ -16,7 +16,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { OPEN_STYLE_CONTENT } from '~/model/constants'
+import { OPEN_STYLE_CONTENT, CURRENT_COLLECTION_ID } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
 import capitalize from 'lodash/capitalize'
 
@@ -50,10 +50,13 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_STYLE_CONTENT.action]),
+		...mapActions([
+			OPEN_STYLE_CONTENT.action,
+			'collection/' + CURRENT_COLLECTION_ID.action
+		]),
 		onItemClick() {
 			sendTracking('Product click', this.styleId)
-
+			this['collection/' + CURRENT_COLLECTION_ID.action](this.collectionId)
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		}
 	}

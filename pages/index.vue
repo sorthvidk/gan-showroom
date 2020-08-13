@@ -1,5 +1,6 @@
 <template>
-	<div oncontextmenu="return false;"> <!-- TO PREVENT DOWNLOADS -->
+	<div oncontextmenu="return false;">
+		<!-- TO PREVENT DOWNLOADS -->
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
@@ -63,7 +64,11 @@ export default {
 		...mapActions([VISIBILITY.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
 			this.debounce(
-				() => this[VISIBILITY.action](appTabUnfocused),
+				() => {
+					if (!appTabUnfocused && this.screensaverActive) {
+						this[VISIBILITY.action](appTabUnfocused)
+					}
+				},
 				immediate ? 0 : this.countdownTime
 			)
 		},
@@ -85,7 +90,7 @@ export default {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
-		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
+		// this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
 		this.$store.commit(INIT_PROGRESS.mutation)
 
 		this.$visibility.change((evt, appTabUnfocused) => {

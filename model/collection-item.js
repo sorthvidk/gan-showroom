@@ -82,5 +82,10 @@ export default {
 	responsible: {
 		type: Boolean,
 		default: false
+	},
+	collectionId: {
+		// which collection the style belongs to
+		type: String,
+		default: ''
 	}
 }

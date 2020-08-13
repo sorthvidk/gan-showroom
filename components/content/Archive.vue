@@ -19,12 +19,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import shortcut from './../framework/Shortcut.vue'
-import ShortcutTypes from '~/model/shortcut-types'
+import Shortcut from './../framework/Shortcut.vue'
 
 export default {
 	name: 'archive',
-	components: { shortcut },
+	components: { Shortcut },
 	props: {
 		shortcuts: { type: Array }
 	},
@@ -35,9 +34,6 @@ export default {
 				this.shortcuts.includes(shortcut.shortcutId)
 			)
 		}
-	},
-	mounted() {
-		console.log('Archive erik', this.shortcuts, this.archiveShortcuts)
 	}
 }
 </script>

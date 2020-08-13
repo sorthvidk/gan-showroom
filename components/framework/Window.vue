@@ -32,7 +32,11 @@
 				</button>
 			</header>
 			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
-				<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+				<component
+					:is="statusComponent"
+					v-bind="statusComponentProps"
+					:collectionId="contentComponentProps.collectionId"
+				/>
 			</div>
 
 			<hr v-if="!noStatus" />
@@ -51,7 +55,12 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
+import {
+	TOPMOST_WINDOW,
+	CLOSE_WINDOW,
+	UPDATE_WINDOW,
+	CURRENT_COLLECTION_ID
+} from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
@@ -233,7 +242,8 @@ export default {
 		...mapActions([
 			TOPMOST_WINDOW.action,
 			CLOSE_WINDOW.action,
-			UPDATE_WINDOW.action
+			UPDATE_WINDOW.action,
+			'collection/' + CURRENT_COLLECTION_ID.action
 		]),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({
@@ -244,6 +254,20 @@ export default {
 		contentActivateHandler(e) {
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
+			}
+
+			/**
+			 * If the window that is on top has a collectionId:
+			 * Update the store with that ID, so f.ex. the assistant
+			 * knows what filters to show
+			 */
+			if (
+				this.contentComponentProps &&
+				this.contentComponentProps.collectionId
+			) {
+				this['collection/' + CURRENT_COLLECTION_ID.action](
+					this.contentComponentProps.collectionId
+				)
 			}
 		},
 		titleClick() {
@@ -292,9 +316,10 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
+			// if (this.canReorder) {
+			// 	this[TOPMOST_WINDOW.action](this.windowId)
+			// }
+			this.contentActivateHandler()
 		},
 		onResizeStop() {
 			this.isMaximized = false
@@ -308,9 +333,10 @@ export default {
 		onDrag(x, y) {
 			this.x = x
 			this.y = y
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
+			// if (this.canReorder) {
+			// 	this[TOPMOST_WINDOW.action](this.windowId)
+			// }
+			this.contentActivateHandler()
 		},
 		onDragStop() {
 			this.constrain()
@@ -334,9 +360,10 @@ export default {
 					sizeH: this.h
 				}
 			})
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
+			// if (this.canReorder) {
+			// 	this[TOPMOST_WINDOW.action](this.windowId)
+			// }
+			this.contentActivateHandler()
 		}
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
