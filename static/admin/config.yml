@@ -31,10 +31,9 @@ collections:
           - { label: 'Ditte Letter', name: 'ditteLetter', widget: 'text' }
 
   - name: 'collectionItems'
-    sortableFields: ['styleId', 'collection']
+    sortableFields: ['styleId', 'collectionId']
     label: 'Collection items'
     folder: 'assets/content/collectionItems'
-    file: 'assets/content/general/collections.json'
     summary: '{{collection}} - {{name}}'
     create: true
     format: 'json'
