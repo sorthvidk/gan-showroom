@@ -188,14 +188,16 @@ export const mutations = {
 	},
 
 	[CREATE_DATA_MODEL.mutation](state, { styles, filters }) {
-		// state.collection.data = {
-		// 	collectionOne:
-		// 		{
-		// 			filters: [{ filter1 }, { filter2 }],
-		// 			styles: [{ style1 }, { style2 }]
-		// 		}
-		// 	},
-		// 	collectionTwo: {...}
+		/* example:
+		 * state.collection.data = {
+		 * 	collectionOne:
+		 * 		{
+		 * 			filters: [{ filter1 }, { filter2 }],
+		 * 			styles: [{ style1 }, { style2 }]
+		 * 		}
+		 * 	},
+		 * 	collectionTwo: {...}
+		 */
 
 		const sortedStyles = sortArrayMultipleProps(styles, 'program', 'weight')
 
