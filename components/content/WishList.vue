@@ -3,7 +3,7 @@
 		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
 			<div
 				class="wish-list__overview__item"
-				v-for="(item, index) in wishList"
+				v-for="(item, index) in activeWishlist"
 				:key="'wishListItem'+index"
 				:class="{'is-active': currentWishListIndex == index}"
 			>
@@ -28,7 +28,7 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
-				<div class="inner" v-if="wishList.length < 1">
+				<div class="inner" v-if="activeWishlist.length < 1">
 					<p>Your wish list is empty!</p>
 				</div>
 				<div
@@ -131,7 +131,7 @@
 		</transition>
 		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
-				v-for="(item, key) in wishList"
+				v-for="(item, key) in activeWishlist"
 				:key="'wishListItem'+key"
 				:wish-list-item="item"
 			/>
@@ -172,10 +172,18 @@ export default {
 		}
 	},
 	computed: {
-		...mapState('collection', ['wishList']),
+		...mapState('collection', ['wishList', 'collections']),
+		activeWishlist() {
+			const activeCollections = this.collections
+				.filter(c => c.active)
+				.map(c => c.collectionId)
+			return this.wishList.filter(item =>
+				activeCollections.includes(item.styleItem.collectionId)
+			)
+		},
 		currentWishListItem() {
-			if (this.wishList.length > 0)
-				return this.wishList[this.currentWishListIndex]
+			if (this.activeWishlist.length > 0)
+				return this.activeWishlist[this.currentWishListIndex]
 			else this.currentWishListIndex = -1
 			return {}
 		},
@@ -186,7 +194,7 @@ export default {
 		}
 	},
 	watch: {
-		wishList(newVal) {
+		activeWishlist(newVal) {
 			//wishlist updated
 			if (newVal) {
 				this.overviewItemActivateHandler(0)
@@ -203,7 +211,7 @@ export default {
 			this.currentWishListIndex = key
 		},
 		overviewItemRemoveHandler(key) {
-			let removeItem = this.wishList[key].styleItem
+			let removeItem = this.activeWishlist[key].styleItem
 			this.currentWishListIndex = 0
 			this[REMOVE_FROM_WISHLIST.action](removeItem)
 		},
@@ -221,7 +229,7 @@ export default {
 		getImageUrl(index) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
-				this.wishList[index].styleItem.assets[0],
+				this.activeWishlist[index].styleItem.assets[0],
 				{ width: 30 }
 			)
 		},

@@ -23,6 +23,7 @@ export const state = () => ({
 
 	filtersParsed: false,
 
+	// *depricated*
 	// activeFilter: {
 	// 	filterId: null,
 	// 	name: '',

@@ -3,18 +3,23 @@
 </template>
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
 
 export default {
-	name:'status-wish-list',
+	name: 'status-wish-list',
 	computed: {
-		...mapState({
-			wishList: state => state.collection.wishList
-		}),
+		...mapState('collection', ['collections', 'wishList']),
+		activeWishlist() {
+			const activeCollections = this.collections
+				.filter(c => c.active)
+				.map(c => c.collectionId)
+			return this.wishList.filter(item =>
+				activeCollections.includes(item.styleItem.collectionId)
+			)
+		},
 		text() {
-			return this.wishList.length + ' items';
+			return this.activeWishlist.length + ' items'
 		}
-	},
-};
+	}
+}
 </script>

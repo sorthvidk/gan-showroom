@@ -1,4 +1,5 @@
 import {
+	COLLECTION_COLLECTIONS_FETCH,
 	CREATE_DATA_MODEL,
 	BYPASS_ESCAPE,
 	RESET_STATE,
@@ -188,15 +189,15 @@ export const mutations = {
 	},
 
 	[CREATE_DATA_MODEL.mutation](state, { styles, filters }) {
-		/* example:
+		/**
+		 * example:
 		 * state.collection.data = {
-		 * 	collectionOne:
-		 * 		{
-		 * 			filters: [{ filter1 }, { filter2 }],
-		 * 			styles: [{ style1 }, { style2 }]
-		 * 		}
-		 * 	},
-		 * 	collectionTwo: {...}
+		 *   collectionOne: {
+		 *     filters: [{ filter1 }, { filter2 }],
+		 *     styles: [{ style1 }, { style2 }]
+		 *   },
+		 *   collectionTwo: {...}
+		 * }
 		 */
 
 		const sortedStyles = sortArrayMultipleProps(styles, 'program', 'weight')
@@ -237,6 +238,9 @@ export const mutations = {
 		}, {})
 	},
 
+	[COLLECTION_COLLECTIONS_FETCH.mutation](state, data) {
+		state.collection.collections = data
+	},
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
@@ -286,9 +290,7 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			let style = state.collection.list.filter(
-				e => e.styleId === asset.styleId
-			)[0]
+			let style = state.collection.list.find(e => e.styleId === asset.styleId)
 			if (style && style.assets) style.assets.push(asset)
 			else if (window.GS_LOGS)
 				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
@@ -764,6 +766,8 @@ export const actions = {
 			return res
 		})
 
+		// save all styles in one array,
+		// only used to connect the right assets to each style
 		commit(COLLECTION_ITEMS_FETCH.mutation, styles)
 
 		let filterFiles = await require.context(
@@ -776,6 +780,7 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
+
 		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
 		/**
@@ -795,6 +800,18 @@ export const actions = {
 			return res
 		})
 		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
+
+		let collectionsFiles = await require.context(
+			`~/assets/content/collections/`,
+			false,
+			/\.json$/
+		)
+		let collections = collectionsFiles.keys().map(key => {
+			let res = collectionsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(COLLECTION_COLLECTIONS_FETCH.mutation, collections)
 
 		let filmsFiles = await require.context(
 			`~/assets/content/films/`,

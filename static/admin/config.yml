@@ -1,13 +1,13 @@
 # used for local development:
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
-#   branch: [YOUR_CURRENT_BRANCH]
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  branch: feature/cms-collections
 
 # used for production:
-backend:
-  name: git-gateway
-  branch: master
+# backend:
+#   name: git-gateway
+#   branch: master
 
 # when using the default proxy server port
 local_backend: true
@@ -40,7 +40,7 @@ collections:
     sortableFields: ['styleId', 'collectionId']
     label: 'Collection items'
     folder: 'assets/content/collectionItems'
-    summary: '{{collection}} - {{name}}'
+    summary: '{{collectionId}} - {{name}}'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{styleId}}-{{name}}'
@@ -51,11 +51,23 @@ collections:
     editor:
       preview: false
     fields:
+      # - {
+      #     label: 'Collection id',
+      #     name: 'collectionId',
+      #     widget: 'string',
+      #     hint: 'What collection this item is part of ex: PS21',
+      #   }
       - {
           label: 'Collection id',
           name: 'collectionId',
-          widget: 'string',
-          hint: 'What collection this item is part of ex: PS21',
+          widget: 'relation',
+          required: true,
+          collection: 'collections',
+          searchFields: ['collectionId'],
+          valueField: 'collectionId',
+          displayFields: ['name'],
+          default: [],
+          hint: 'Which collection this product belongs to',
         }
       - {
           label: 'Style #',
@@ -212,6 +224,37 @@ collections:
           hint: 'Optional ordering position',
         }
       - { name: 'styleIds', default: [], widget: 'hidden' }
+
+  - name: 'collections'
+    sortableFields: ['name']
+    label: 'Collections'
+    summary: '{{name}}'
+    folder: 'assets/content/collections'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{name}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Id',
+          name: 'collectionId',
+          widget: 'string',
+          hint: "Unique id without any spaces ex. 'PS21'",
+        }
+      - {
+          label: 'Display name',
+          name: 'name',
+          widget: 'string',
+          hint: "More readable display name ex. 'Spring Collection PS21'",
+        }
+      - {
+          label: 'Active for wishlist',
+          name: 'active',
+          widget: 'boolean',
+          default: true,
+          hint: 'Can the collection be added to the wishlist?',
+        }
 
   - name: 'mediaAssets'
     sortableFields: ['styleId']

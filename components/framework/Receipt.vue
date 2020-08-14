@@ -38,7 +38,8 @@ export default {
 						// return style if:
 						s =>
 							this.urlParams.includes(s.styleId) || // url includes the specific styleID
-							this.urlParams.find(param => s.filters.includes(param)) // url includes any of a style's filters
+							this.urlParams.find(param => s.filters.includes(param)) || // url includes any of a style's filters
+							this.urlParams.includes(s.collectionId)
 				  )
 		}
 	},
@@ -51,6 +52,7 @@ export default {
 			// /receipt/?styles=F5987334,F8907234,F1121095 <- shows those three styles
 			// /receipt/?styles=c1 <- shows that filter/category
 			// /receipt/?styles=F5987334,LEOPARD%20PRINT <- shows that style, and all leopard-print-styles
+			// /receipt/?styles=collectionId <- shows all style in the given collection
 
 			this.urlParams = styles.split(',')
 		}

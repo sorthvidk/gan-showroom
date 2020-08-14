@@ -229,7 +229,7 @@
 
 				<!-- ####################### CTA ####################### -->
 
-				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
+				<div class="assistant__ctas" v-if="assistantMode == 0 && activeWishlist.length > 0">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
@@ -427,7 +427,7 @@ export default {
 			'collageIsOpen'
 		]),
 		...mapState('collection', [
-			// 'currentStyles',
+			'collections',
 			'currentCollectionId',
 			'data',
 			'filters',
@@ -447,8 +447,16 @@ export default {
 			)
 			return activeFilter ? activeFilter.name : 'Filter'
 		},
+		activeWishlist() {
+			const activeCollections = this.collections
+				.filter(c => c.active)
+				.map(c => c.collectionId)
+			return this.wishList.filter(item =>
+				activeCollections.includes(item.styleItem.collectionId)
+			)
+		},
 		viewWishListButtonLabel() {
-			return `View wishlist (${this.wishList.length})`
+			return `View wishlist (${this.activeWishlist.length})`
 		},
 		addToWishListButtonLabel() {
 			if (this.styleOnWishList) return 'Added to wishlist'
@@ -473,18 +481,21 @@ export default {
 			return this.hiddenAssetContent.length > 0
 		},
 		wishListUrl() {
-			return `${window.location}export/?styles=${this.wishList
-				.map(style => style.styleId)
+			return `${window.location}export/?styles=${this.activeWishlist
+				.map(style => style.styleItem.styleId)
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (this.activeFilters[this.currentCollectionId].filterId) {
+			if (
+				this.activeFilters[this.currentCollectionId] &&
+				this.activeFilters[this.currentCollectionId].filterId
+			) {
 				return `${window.location}export/?styles=${
 					this.activeFilters[this.currentCollectionId].filterId
 				}`
 			}
 			// /export with no params shows all styles
-			return `${window.location}export`
+			return `${window.location}export/?styles=${this.currentCollectionId}`
 		}
 	},
 	watch: {
@@ -542,7 +553,6 @@ export default {
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
 							setTimeout(() => {
-								console.log('assistent component')
 								this.currentStyle = this.data[
 									this.currentCollectionId
 								].styles.find(
@@ -568,14 +578,14 @@ export default {
 			}
 
 			if (noRelevantAssistantContent) {
-				if (this.wishList.length > 0) {
+				if (this.activeWishlist.length > 0) {
 					this.assistantMode = AssistantModes.COLLECTION_SEEN
 				} else {
 					this.assistantMode = AssistantModes.WELCOME
 				}
 			}
 		},
-		wishList(newVal) {
+		activeWishlist(newVal) {
 			if (
 				newVal.length == 0 &&
 				this.assistantMode == AssistantModes.COLLECTION_SEEN

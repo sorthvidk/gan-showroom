@@ -57,7 +57,6 @@ export const state = () => ({
 					contentComponentProps: {
 						collectionId: 'PS21'
 					}
-					// canOverride: true
 				}
 			]
 		},
@@ -81,9 +80,8 @@ export const state = () => ({
 					contentId: 'collection-two',
 					type: ContentTypes.collection,
 					contentComponentProps: {
-						collectionId: 'two'
+						collectionId: 'Test'
 					}
-					// canOverride: true
 				}
 			]
 		},
