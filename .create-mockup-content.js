@@ -10,7 +10,7 @@ const fs = require('fs')
 const path = require('path')
 
 // files should be read/written to the mockup folder
-const USE_MOCKUP_FOLDER = true
+const USE_MOCKUP_FOLDER = false
 
 // absolute path to the content folder
 const baseURL =
@@ -53,7 +53,7 @@ fs.readdir(collection, (err, filePaths) => {
 				var o = JSON.parse(fileContent)
 
 				if (o && typeof o === 'object') {
-					json = o
+					existingContent = o
 				}
 			} catch (e) {
 				return

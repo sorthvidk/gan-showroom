@@ -754,7 +754,7 @@ export const actions = {
 
 	async nuxtServerInit({ commit, dispatch }) {
 		let collectionFiles = await require.context(
-			`~/assets/content-mockup/collectionItems/`,
+			`~/assets/content/collectionItems/`,
 			false,
 			/\.json$/
 		)
@@ -767,7 +767,7 @@ export const actions = {
 		commit(COLLECTION_ITEMS_FETCH.mutation, styles)
 
 		let filterFiles = await require.context(
-			`~/assets/content-mockup/collectionFilters/`,
+			`~/assets/content/collectionFilters/`,
 			false,
 			/\.json$/
 		)
@@ -785,7 +785,7 @@ export const actions = {
 		commit(CREATE_DATA_MODEL.mutation, { styles, filters })
 
 		let assetFiles = await require.context(
-			`~/assets/content-mockup/mediaAssets/`,
+			`~/assets/content/mediaAssets/`,
 			false,
 			/\.json$/
 		)
@@ -797,7 +797,7 @@ export const actions = {
 		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
 		let filmsFiles = await require.context(
-			`~/assets/content-mockup/films/`,
+			`~/assets/content/films/`,
 			false,
 			/\.json$/
 		)
@@ -809,7 +809,7 @@ export const actions = {
 		commit(FILMS_FETCH.mutation, films)
 
 		let ganniGirlsFiles = await require.context(
-			`~/assets/content-mockup/ganniGirls/`,
+			`~/assets/content/ganniGirls/`,
 			false,
 			/\.json$/
 		)
@@ -821,7 +821,7 @@ export const actions = {
 		commit(GANNIGIRLS_FETCH.mutation, posts)
 
 		let lookBookFiles = await require.context(
-			`~/assets/content-mockup/lookBook/`,
+			`~/assets/content/lookBook/`,
 			false,
 			/\.json$/
 		)
@@ -833,7 +833,7 @@ export const actions = {
 		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
 		let generalFiles = await require.context(
-			`~/assets/content-mockup/general/`,
+			`~/assets/content/general/`,
 			false,
 			/\.json$/
 		)

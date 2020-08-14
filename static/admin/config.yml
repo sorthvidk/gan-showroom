@@ -1,7 +1,13 @@
+# used for local development:
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+#   branch: [YOUR_CURRENT_BRANCH]
+
+# used for production:
 backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
-  branch: feature/cms-collections
+  name: git-gateway
+  branch: master
 
 # when using the default proxy server port
 local_backend: true
