@@ -13,6 +13,9 @@ import {
 	FILMS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
+	ARTISTS_FETCH,
+	ARTIST_ASSETS_FETCH,
+	CONNECT_ARTIST_ASSETS,
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
@@ -260,6 +263,33 @@ export const mutations = {
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.assets.lookBook = data
 	},
+	
+
+
+	[ARTISTS_FETCH.mutation](state, data) {
+		state.artists.list = data
+	},
+	[ARTIST_ASSETS_FETCH.mutation](state, data) {
+		state.artists.assets = data
+	},
+	[CONNECT_ARTIST_ASSETS.mutation](state) {
+		if (state.artists.assetsConnected) return false
+
+		let al = state.artists.list.length
+
+		for (var i = 0; i < al; i++) {
+			let asset = state.artists.assets[i]
+
+			let artist = state.artists.list.find(e => e.artistId === asset.artistId)
+			if (artist && artist.assets) artist.assets.push(asset)
+			else if (window.GS_LOGS)
+				console.warn('NO ARTIST FOR ASSET | artistId: "' + asset.artistId + '"')
+		}
+
+		//to ensure only one connection operation
+		state.artists.assetsConnected = true
+	},
+	
 	[GENERAL_FETCH.mutation](state, data) {
 		//Insert Ganni Girls bg image
 		let misc = data.filter(e => e.slug === 'misc')[0]
@@ -848,6 +878,30 @@ export const actions = {
 			return res
 		})
 		commit(LOOKBOOK_FETCH.mutation, lookBook)
+
+		let artistsFiles = await require.context(
+			`~/assets/content/artists/`,
+			false,
+			/\.json$/
+		)
+		let artists = artistsFiles.keys().map(key => {
+			let res = artistsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(ARTISTS_FETCH.mutation, artists)
+
+		let artistAssetFiles = await require.context(
+			`~/assets/content/artistAssets/`,
+			false,
+			/\.json$/
+		)
+		let artistAssets = artistAssetFiles.keys().map(key => {
+			let res = artistAssetFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(ARTIST_ASSETS_FETCH.mutation, artistAssets)
 
 		let generalFiles = await require.context(
 			`~/assets/content/general/`,

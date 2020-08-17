@@ -23,6 +23,7 @@ import getShortUrl from '~/utils/get-short-url'
 
 import {
 	CONNECT_ASSETS,
+	CONNECT_ARTIST_ASSETS,
 	FILTER_COLLECTION,
 	INIT_PROGRESS,
 	VISIBILITY
@@ -90,6 +91,7 @@ export default {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
+		this.$store.commit(CONNECT_ARTIST_ASSETS.mutation)
 		// this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
 		this.$store.commit(INIT_PROGRESS.mutation)
 
