@@ -105,7 +105,7 @@ export default {
 		 * collections that the used aren't allowed to see,
 		 * based on what password was used
 		 */
-		// this.$store.commit(AUTHENTICATE_CONTENT.mutation)
+		this.$store.commit(AUTHENTICATE_CONTENT.mutation)
 
 		//add clear timeout listeners
 		document.body.addEventListener(
