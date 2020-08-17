@@ -52,22 +52,19 @@ export default {
 		}
 	},
 	computed: {
-		...mapState({
-			loggedIn: state => state.loggedIn,
-			password: state => state.password
-		})
+		...mapState(['loggedIn', 'passwords'])
 	},
 	methods: {
 		...mapActions([LOGIN.action]),
 
 		updateValidState() {
-			const valid =
-				hash
-					.sha256()
-					.update(this.pwd)
-					.digest('hex') === this.password
+			const SHA256 = hash
+				.sha256()
+				.update(this.pwd)
+				.digest('hex')
+			const valid = this.passwords.find(({ hash }) => hash === SHA256)
 
-			this[LOGIN.action](valid)
+			this[LOGIN.action]({ valid, SHA256 })
 			this.valid = valid
 
 			if (valid) {
@@ -102,5 +99,5 @@ export default {
 			})
 		}
 	}
-};
+}
 </script>

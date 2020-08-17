@@ -1,13 +1,13 @@
 # used for local development:
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
-#   branch: feature/cms-collections
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  branch: feature/password
 
 # used for production:
-backend:
-  name: git-gateway
-  branch: master
+# backend:
+#   name: git-gateway
+#   branch: master
 
 # when using the default proxy server port
 local_backend: true
@@ -48,15 +48,12 @@ collections:
       - label: 'PS21'
         field: collectionId
         pattern: 'PS21'
+      - label: 'TEST'
+        field: collectionId
+        pattern: 'Test'
     editor:
       preview: false
     fields:
-      # - {
-      #     label: 'Collection id',
-      #     name: 'collectionId',
-      #     widget: 'string',
-      #     hint: 'What collection this item is part of ex: PS21',
-      #   }
       - {
           label: 'Collection id',
           name: 'collectionId',
@@ -254,6 +251,43 @@ collections:
           widget: 'boolean',
           default: true,
           hint: 'Can the collection be added to the wishlist?',
+        }
+      - {
+          label: 'passwords',
+          name: 'passwords',
+          widget: 'relation',
+          multiple: true,
+          required: false,
+          collection: 'passwords',
+          searchFields: ['hash'],
+          valueField: 'hash',
+          displayFields: ['passwordId'],
+          default: [],
+          hint: 'To what users/passwords will this be shown. Leave blank to make all users see it.',
+        }
+
+  - name: 'passwords'
+    sortableFields: ['passwordId']
+    label: 'Passwords'
+    summary: '{{passwordId}}'
+    folder: 'assets/content/passwords'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{passwordId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Id',
+          name: 'passwordId',
+          widget: 'string',
+          hint: 'A memorable name used for references',
+        }
+      - {
+          label: 'password',
+          name: 'hash',
+          widget: 'string',
+          hint: 'A SHA256 representation of the password. Type your password in the textfield here: https://passwordsgenerator.net/sha256-hash-generator/ and copy/paste the output. ex. 16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009',
         }
 
   - name: 'mediaAssets'

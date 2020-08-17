@@ -25,7 +25,8 @@ import {
 	CONNECT_ASSETS,
 	FILTER_COLLECTION,
 	INIT_PROGRESS,
-	VISIBILITY
+	VISIBILITY,
+	AUTHENTICATE_CONTENT
 } from '~/model/constants'
 
 export default {
@@ -98,6 +99,13 @@ export default {
 				this.toggleScreenSaver(appTabUnfocused)
 			}
 		})
+
+		/**
+		 * Will go through the data and filter out the
+		 * collections that the used aren't allowed to see,
+		 * based on what password was used
+		 */
+		// this.$store.commit(AUTHENTICATE_CONTENT.mutation)
 
 		//add clear timeout listeners
 		document.body.addEventListener(
