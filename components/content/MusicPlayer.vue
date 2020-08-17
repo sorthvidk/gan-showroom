@@ -1,6 +1,14 @@
 <template>
-	<main class="window__content">
+	<main class="window__content" :class="{ slim: musicPlayerSlim }">
 		<div class="music-player__top">
+			<button v-if="musicPlayerSlim" class="button" @click="toggle">
+				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
+				</svg>
+				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+				</svg>
+			</button>
 			<p>Playing:</p>
 			<div :key="songs[current].title">
 				<!-- print 5 times so it can be css-animated -->
@@ -11,7 +19,7 @@
 				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
 			</div>
 		</div>
-		<div class="music-player__controls">
+		<div class="music-player__controls" v-if="!musicPlayerSlim">
 			<button class="button prev" @click="playlist(-1)">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 					<path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z" />
@@ -31,7 +39,7 @@
 				</svg>
 			</button>
 		</div>
-		<div class="music-player__canvas-container" ref="canvasContainer">
+		<div class="music-player__canvas-container" ref="canvasContainer" v-if="!musicPlayerSlim">
 			<canvas ref="canvas" id="canvas"></canvas>
 		</div>
 	</main>
@@ -63,6 +71,14 @@ export default {
 			current: 0
 		}
 	},
+	computed: mapState([
+		'keyPressed',
+		'musicPlaying',
+		'songs',
+		'appTabUnfocused',
+		'topMostWindow',
+		'musicPlayerSlim'
+	]),
 	watch: {
 		keyPressed(event) {
 			// only respond to keys when is focus
@@ -93,13 +109,6 @@ export default {
 			}
 		}
 	},
-	computed: mapState([
-		'keyPressed',
-		'musicPlaying',
-		'songs',
-		'appTabUnfocused',
-		'topMostWindow'
-	]),
 	methods: {
 		...mapActions([MUSIC_PLAY_PAUSE.action]),
 		playlist(n) {

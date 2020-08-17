@@ -84,11 +84,11 @@ export default {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
 					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
+					h: false
 				},
 				[ViewportSizes.LARGE.name]: {
 					w: 320 + WINDOW_TIGHT_CHROME_WIDTH,
-					h: 113 + WINDOW_NOSTATUS_CHROME_HEIGHT
+					h: false
 				},
 				[ViewportSizes.SMALL.name]: {
 					w: 353,

@@ -87,9 +87,8 @@ export const state = () => ({
 	cookiesAccepted: false,
 	copyrightAccepted: false,
 
-	collectionSplit: {},
-
 	musicPlaying: false,
+	musicPlayerSlim: true,
 	songs: [
 		{
 			title: 'All Saints - Never Ever.mp3',
@@ -138,17 +137,6 @@ export const mutations = {
 			return password
 		})
 	},
-
-	// [AUTHENTICATE_CONTENT.mutation](state) {
-	// 	state.collection.authenticatedData = Object.keys(
-	// 		this.collection.collections
-	// 	).filter(
-	// 		collection =>
-	// 			!collection.passwords ||
-	// 			!collection.passwords.length ||
-	// 			collection.passwords.includes(state.passwordUsed)
-	// 	)
-	// },
 
 	[SAVE_COLLAGE.mutation](state) {
 		state.saveCollage = !state.saveCollage

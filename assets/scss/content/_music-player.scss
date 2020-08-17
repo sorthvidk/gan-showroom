@@ -67,28 +67,6 @@
 	&__controls {
 		display: flex;
 		border-bottom: rem(1) solid $color-black;
-
-		.button {
-			cursor: pointer;
-
-			border-right: rem(1) solid $color-black;
-			width: rem(50);
-			height: rem(30);
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			font-size: rem(13);
-			line-height: 1;
-
-			&:hover {
-				background-color: darken($color-salmon, 5%);
-			}
-
-			svg {
-				width: rem(30);
-				height: rem(30);
-			}
-		}
 	}
 
 	&__canvas-container {
@@ -99,6 +77,59 @@
 		canvas {
 			width: 100%;
 			height: 100%;
+		}
+	}
+
+	.button {
+		cursor: pointer;
+
+		border-right: rem(1) solid $color-black;
+		width: rem(50);
+		height: rem(30);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(13);
+		line-height: 1;
+
+		&:hover {
+			background-color: darken($color-salmon, 5%);
+		}
+
+		svg {
+			width: rem(30);
+			height: rem(30);
+		}
+	}
+
+	/**
+	* new re-styling of music player (17/8-20),
+	* if the music player needs a second re-style:
+	* consider modifying classes/vuex state mgmt
+	*/
+	.window__top {
+		display: none;
+	}
+
+	&__top {
+		border-bottom: 0;
+	}
+
+	.window__content.slim {
+		.music-player__top {
+			padding: 0;
+			grid-template: 1fr / rem(70) rem(50) 1fr;
+
+			* {
+				align-self: center;
+				text-align: center;
+			}
+		}
+		.button {
+			background-color: lightgreen;
+			width: rem(70);
+			height: rem(50);
+			border-right: 0;
 		}
 	}
 }

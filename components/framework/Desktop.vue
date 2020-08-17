@@ -276,8 +276,7 @@ export default {
 					{
 						title: 'GANNI FM',
 						contentId: 'ganni-fm',
-						type: ContentTypes.musicPlayer,
-						canOverride: true
+						type: ContentTypes.musicPlayer
 					}
 				]
 			})
