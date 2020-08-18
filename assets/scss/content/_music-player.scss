@@ -2,21 +2,20 @@
 	&--music-player {
 		&__wrapper {
 			position: fixed;
-			top: calc(100vh - 310px);
+			top: calc(100vh - 410px);
 			left: rem(10);
 
 			@include mq($from: screen-xs) {
-				top: calc(100vh - 250px);
+				top: calc(100vh - 350px);
 			}
 
 			@include mq($from: screen-sm) {
 				width: rem(326);
 				left: calc(100vw - 370px);
-				top: calc(100vh - 230px);
+				top: calc(100vh - 380px);
 			}
 			@include mq($from: screen-md) {
 				right: auto;
-				top: calc(100vh - 230px);
 				left: rem(30);
 			}
 		}
@@ -67,28 +66,6 @@
 	&__controls {
 		display: flex;
 		border-bottom: rem(1) solid $color-black;
-
-		.button {
-			cursor: pointer;
-
-			border-right: rem(1) solid $color-black;
-			width: rem(50);
-			height: rem(30);
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			font-size: rem(13);
-			line-height: 1;
-
-			&:hover {
-				background-color: darken($color-salmon, 5%);
-			}
-
-			svg {
-				width: rem(30);
-				height: rem(30);
-			}
-		}
 	}
 
 	&__canvas-container {
@@ -99,6 +76,89 @@
 		canvas {
 			width: 100%;
 			height: 100%;
+		}
+	}
+
+	.button {
+		cursor: pointer;
+
+		border-right: rem(1) solid $color-black;
+		width: rem(50);
+		height: rem(30);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(13);
+		line-height: 1;
+
+		&:hover {
+			background-color: darken($color-salmon, 5%);
+		}
+
+		svg {
+			width: rem(30);
+			height: rem(30);
+		}
+	}
+
+	/**
+	* new re-styling of music player (17/8-20),
+	* if the music player needs a second re-style:
+	* consider modifying classes/vuex state mgmt
+	*/
+	.window__top {
+		display: none;
+	}
+
+	&__top {
+		border-bottom: 0;
+		font-weight: bold;
+	}
+
+	.window__content.slim {
+		.music-player__top {
+			padding: 0;
+			grid-template: 1fr / rem(55) rem(50) 1fr;
+			background-color: $color-202020-blue;
+			color: $color-white;
+
+			* {
+				align-self: center;
+				text-align: center;
+			}
+
+			svg {
+				fill: currentColor;
+			}
+		}
+
+		.button {
+			background-color: $color-202020-green;
+			width: rem(55);
+			height: rem(40);
+			border-right: 0;
+
+			svg {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	&-video {
+		display: flex;
+		flex-direction: column;
+
+		video {
+			width: 100%;
+		}
+
+		p {
+			@include bodytext();
+			font-weight: bold;
+			padding: rem(5) rem(10);
+			background: $color-black;
+			color: $color-202020-blue;
 		}
 	}
 }
