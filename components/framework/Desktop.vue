@@ -14,7 +14,8 @@
 
 			<div class="desktop__shortcuts">
 				<shortcut
-					v-for="(item, nthChild) in desktopIcons"
+					v-for="(item, nthChild) in authenticatedShortcuts"
+					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
 					:type="item.type"
 					:position-h="item.posH"
@@ -178,8 +179,11 @@ export default {
 			'copyrightAccepted',
 			'screensaverActive',
 			'webcamImage',
-			'mousepos'
+			'mousepos',
+			'loggedIn',
+			'archiveHasAuthenticatedCollections'
 		]),
+		...mapState('collection', ['collections']),
 		...mapState('shortcuts', ['list']),
 		desktopIcons() {
 			return this.list.filter(
@@ -195,6 +199,33 @@ export default {
 			}
 			// src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
+		},
+		authenticatedShortcuts() {
+			return this.desktopIcons.filter(shortcut => {
+				/**
+				 * if the shortcut isn't a collection icon, just return true,
+				 * b/c they are never password protected
+				 */
+				if (
+					!shortcut.windowContent ||
+					!shortcut.windowContent[0].contentComponentProps ||
+					!shortcut.windowContent[0].contentComponentProps.collectionId
+				) {
+					return true
+				}
+
+				const shortcutCollection =
+					shortcut.windowContent[0].contentComponentProps.collectionId
+				const collection = this.collections.find(
+					c => c.collectionId === shortcutCollection
+				)
+
+				return (
+					!collection.passwords || // open for all
+					!collection.passwords.length || // open for all
+					collection.passwords.includes(this.loggedIn.hash) // collection open for used password
+				)
+			})
 		}
 	},
 	watch: {

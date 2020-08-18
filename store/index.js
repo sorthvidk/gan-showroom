@@ -1,5 +1,7 @@
 import {
 	INIT_INDEX,
+	PASSWORD_ITEMS_FETCH,
+	AUTHENTICATE_CONTENT,
 	COLLECTION_COLLECTIONS_FETCH,
 	CREATE_DATA_MODEL,
 	BYPASS_ESCAPE,
@@ -46,6 +48,7 @@ import {
 import ContentTypes from '~/model/content-types'
 import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
+import hash from 'hash.js'
 
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
@@ -54,6 +57,8 @@ import getAssetType from '~/utils/asset-type'
 import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 export const state = () => ({
+	archiveHasAuthenticatedCollections: null,
+
 	webcamImage: '',
 
 	collageIsOpen: false,
@@ -62,7 +67,8 @@ export const state = () => ({
 	changeCollage: {},
 
 	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance,
+	passwords: [],
 
 	screensaverActive: false,
 
@@ -86,8 +92,6 @@ export const state = () => ({
 	rehydrated: false,
 	cookiesAccepted: false,
 	copyrightAccepted: false,
-
-	collectionSplit: {},
 
 	musicPlaying: false,
 	songs: [
@@ -132,6 +136,39 @@ export const mutations = {
 		})
 	},
 
+	[PASSWORD_ITEMS_FETCH.mutation](state, passwords) {
+		state.passwords = passwords.map(password => {
+			password.hash = password.hash.toLowerCase()
+			return password
+		})
+	},
+
+	[AUTHENTICATE_CONTENT.mutation](state) {
+		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
+		const archiveContent =
+			archive.windowContent[0].contentComponentProps.shortcuts
+
+		const archiveCollectionShortcuts = state.shortcuts.list.filter(s =>
+			archiveContent.includes(s.shortcutId)
+		)
+		const archiveCollections = archiveCollectionShortcuts.map(
+			c => c.windowContent[0].contentComponentProps.collectionId
+		)
+
+		const authenticatedCollections = state.collection.collections
+			.filter(c => archiveCollections.includes(c.collectionId))
+			.filter(
+				c =>
+					!c.passwords ||
+					!c.passwords.length ||
+					c.passwords.includes(state.loggedIn.hash)
+			)
+
+		state.archiveHasAuthenticatedCollections = authenticatedCollections.length
+			? true
+			: false
+	},
+
 	[SAVE_COLLAGE.mutation](state) {
 		state.saveCollage = !state.saveCollage
 	},
@@ -163,8 +200,9 @@ export const mutations = {
 		state.copyrightAccepted = false
 	},
 
-	[LOGIN.mutation](state, key) {
-		state.loggedIn = key
+	[LOGIN.mutation](state, { valid, SHA256 }) {
+		state.passwordUsed = SHA256
+		state.loggedIn = valid
 		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
 	},
 
@@ -243,7 +281,12 @@ export const mutations = {
 	},
 
 	[COLLECTION_COLLECTIONS_FETCH.mutation](state, data) {
-		state.collection.collections = data
+		state.collection.collections = data.map(collection => {
+			collection.passwords = collection.passwords
+				? collection.passwords.map(p => p.toLowerCase())
+				: []
+			return collection
+		})
 	},
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
@@ -618,8 +661,8 @@ export const actions = {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
-	[LOGIN.action]({ commit }, authorized) {
-		commit(LOGIN.mutation, authorized)
+	[LOGIN.action]({ commit }, { valid, SHA256 }) {
+		commit(LOGIN.mutation, { valid, SHA256 })
 	},
 
 	[SAVE_COLLAGE.action]({ commit }) {
@@ -780,6 +823,19 @@ export const actions = {
 	// FETCH ALL CONTENT!
 
 	async nuxtServerInit({ commit, dispatch }) {
+		let passwordFiles = await require.context(
+			`~/assets/content/passwords/`,
+			false,
+			/\.json$/
+		)
+		let passwords = passwordFiles.keys().map(key => {
+			let res = passwordFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+
+		commit(PASSWORD_ITEMS_FETCH.mutation, passwords)
+
 		let collectionFiles = await require.context(
 			`~/assets/content/collectionItems/`,
 			false,
