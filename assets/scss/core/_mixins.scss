@@ -28,41 +28,37 @@
 @mixin details-table() {
 	table-layout: fixed;
 	text-align: left;
-	
+
 	tr td {
 		padding: 0;
 		@include bodytext();
-		color: $color-202020-green;	
+		color: $color-202020-green;
 	}
 	tr th {
 		@include bodytext();
-		color: $color-202020-green;	
+		color: $color-202020-green;
 		white-space: nowrap;
 		padding-right: rem(10);
 	}
-	button { 
+	button {
 		margin: 0 0 rem(10);
 		font-size: rem(11);
 		display: block;
 	}
 }
 
-
 @mixin bevel($inverted: false) {
 	@if $inverted {
-	box-shadow: inset -1px -1px rgba($color-white,0.7), 
-				inset 1px 1px rgba($color-black,0.2), 
-				inset -2px -2px rgba($color-white,0.7), 
-				inset 2px 2px rgba($color-black,0.2);
-	}
-	@else {
-	box-shadow: inset -1px -1px rgba($color-black,0.2), 
-				inset 1px 1px $color-white, 
-				inset -2px -2px rgba($color-black,0.2), 
-				inset 2px 2px $color-white;
+		box-shadow: inset -1px -1px rgba($color-white, 0.7),
+			inset 1px 1px rgba($color-black, 0.2),
+			inset -2px -2px rgba($color-white, 0.7),
+			inset 2px 2px rgba($color-black, 0.2);
+	} @else {
+		box-shadow: inset -1px -1px rgba($color-black, 0.2),
+			inset 1px 1px $color-white, inset -2px -2px rgba($color-black, 0.2),
+			inset 2px 2px $color-white;
 	}
 }
-
 
 @mixin full-width-button() {
 	cursor: pointer;
@@ -80,7 +76,8 @@
 		color: $color-white;
 	}
 
-	span { //icon
+	span {
+		//icon
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -98,13 +95,12 @@
 		text-overflow: ellipsis;
 	}
 	span + p {
-		max-width: rem(90);		
+		max-width: rem(90);
 	}
 	svg {
 		fill: currentColor;
 	}
 }
-
 
 @mixin window-button() {
 	flex: 0 0 rem(30);
@@ -133,23 +129,20 @@
 	}
 }
 
-
-
 @keyframes message-blink {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
+	5% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
-
 
 .checkmark {
 	fill: none;
@@ -157,4 +150,62 @@
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-width: 5px;
+}
+
+@keyframes wobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	25% {
+		transform: translateY(-5%);
+	}
+
+	75% {
+		transform: translateY(5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes halfWobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@mixin intro-wobble {
+	&:nth-child(4n) {
+		.icon {
+			animation: wobble 4s forwards;
+		}
+	}
+
+	&:nth-child(4n + 1) {
+		.icon {
+			animation: wobble 3s reverse;
+		}
+	}
+
+	&:nth-child(4n + 2) {
+		.icon {
+			animation: wobble 5s forwards;
+		}
+	}
+
+	&:nth-child(4n + 3) {
+		.icon {
+			animation: wobble 5s reverse;
+		}
+	}
 }

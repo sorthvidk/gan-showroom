@@ -12,12 +12,24 @@
 				:text-end="'You\'re completely filled in on the PS21 digital universe!'"
 			/> -->
 
-			<div class="desktop__shortcuts">
+			<div class="desktop__shortcuts" :class="blownUpIconLayout ? 'desktop__shortcuts--draggable' : ''">
 				<shortcut
-					v-for="(item, nthChild) in authenticatedShortcuts"
+					v-for="item in authenticatedShortcuts"
+					v-if="!blownUpIconLayout && (item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
+					:key="item.shortcutId"
+					:item="item"
+				/>
+				
+				<vue-draggable-resizable
+					v-for="(item, i) in authenticatedShortcuts"
 					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
-					:type="item.type"
+					:x="randomPos(i, true)"
+					:y="randomPos(i * 357)"
+				>
+					<shortcut :item="item" />
+				</vue-draggable-resizable>
+					<!-- :type="item.type"
 					:position-h="item.posH"
 					:position-v="item.posV"
 					:icon="item.icon"
@@ -25,9 +37,7 @@
 					:shortcut-id="item.shortcutId"
 					:actions="item.actions"
 					:window-content="item.windowContent"
-					:href="item.href"
-					:nth-child="nthChild"
-				/>
+					:href="item.href" -->
 			</div>
 
 			<div class="desktop__windows">
@@ -134,6 +144,8 @@ import {
 	OPEN_CONTENT
 } from '~/model/constants'
 
+import VueDraggableResizable from 'vue-draggable-resizable'
+
 import addMediaChangeListener from '~/utils/media-change'
 
 import ViewportSizes from '~/model/viewport-sizes'
@@ -158,7 +170,8 @@ export default {
 		Marquee,
 		Assistant,
 		Support,
-		ColorPicker
+		ColorPicker,
+		VueDraggableResizable,
 	},
 	data() {
 		return {
@@ -184,7 +197,7 @@ export default {
 			'archiveHasAuthenticatedCollections'
 		]),
 		...mapState('collection', ['collections']),
-		...mapState('shortcuts', ['list']),
+		...mapState('shortcuts', ['list', 'blownUpIconLayout']),
 		desktopIcons() {
 			return this.list.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
@@ -305,6 +318,9 @@ export default {
 				opacity: 1,
 				ease: 'power4.inOut'
 			})
+		},
+		randomPos(n, long) {
+			return Math.sin(n * 2579.54) * (window.innerHeight / 3) * (long ? (window.innerWidth / window.innerHeight) : 1)
 		}
 	},
 	mounted() {

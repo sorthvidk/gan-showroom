@@ -21,7 +21,6 @@ import {
 	CONNECT_ARTIST_ASSETS,
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
-	FILTER_COLLECTION,
 	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
@@ -48,7 +47,6 @@ import {
 import ContentTypes from '~/model/content-types'
 import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
-import hash from 'hash.js'
 
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
@@ -146,6 +144,9 @@ export const mutations = {
 
 	[AUTHENTICATE_CONTENT.mutation](state) {
 		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
+
+		if (!archive) return false
+
 		const archiveContent =
 			archive.windowContent[0].contentComponentProps.shortcuts
 
@@ -308,8 +309,6 @@ export const mutations = {
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.assets.lookBook = data
 	},
-	
-
 
 	[ARTISTS_FETCH.mutation](state, data) {
 		state.artists.list = data
@@ -317,8 +316,7 @@ export const mutations = {
 	[ARTIST_ASSETS_FETCH.mutation](state, data) {
 		state.artists.assets = data
 	},
-	
-	
+
 	[GENERAL_FETCH.mutation](state, data) {
 		//Insert Ganni Girls bg image
 		let misc = data.filter(e => e.slug === 'misc')[0]
@@ -648,8 +646,6 @@ export const mutations = {
 }
 
 export const actions = {
-
-
 	[INIT_INDEX.action]({ commit }) {
 		if (window.GS_LOGS) console.log('INIT_INDEX')
 		commit(CONNECT_ASSETS.mutation)
@@ -817,7 +813,6 @@ export const actions = {
 		if (window.GS_LOGS) console.log('value', value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
-
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
