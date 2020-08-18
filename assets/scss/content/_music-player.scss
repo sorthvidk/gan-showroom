@@ -2,21 +2,20 @@
 	&--music-player {
 		&__wrapper {
 			position: fixed;
-			top: calc(100vh - 310px);
+			top: calc(100vh - 410px);
 			left: rem(10);
 
 			@include mq($from: screen-xs) {
-				top: calc(100vh - 250px);
+				top: calc(100vh - 350px);
 			}
 
 			@include mq($from: screen-sm) {
 				width: rem(326);
 				left: calc(100vw - 370px);
-				top: calc(100vh - 230px);
+				top: calc(100vh - 380px);
 			}
 			@include mq($from: screen-md) {
 				right: auto;
-				top: calc(100vh - 230px);
 				left: rem(30);
 			}
 		}
@@ -113,23 +112,53 @@
 
 	&__top {
 		border-bottom: 0;
+		font-weight: bold;
 	}
 
 	.window__content.slim {
 		.music-player__top {
 			padding: 0;
-			grid-template: 1fr / rem(70) rem(50) 1fr;
+			grid-template: 1fr / rem(55) rem(50) 1fr;
+			background-color: $color-blue; // todo: correct color
+			color: $color-white;
 
 			* {
 				align-self: center;
 				text-align: center;
 			}
+
+			svg {
+				fill: currentColor;
+			}
 		}
+
 		.button {
-			background-color: lightgreen;
-			width: rem(70);
-			height: rem(50);
+			background-color: green; // todo: correct color
+			width: rem(55);
+			height: rem(40);
 			border-right: 0;
+
+			svg {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	&-video {
+		display: flex;
+		flex-direction: column;
+
+		video {
+			width: 100%;
+		}
+
+		p {
+			@include bodytext();
+			font-weight: bold;
+			padding: rem(5) rem(10);
+			background: $color-black;
+			color: $color-blue; // todo: correct color
 		}
 	}
 }

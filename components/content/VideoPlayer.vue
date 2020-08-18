@@ -3,7 +3,7 @@
 		<video
 			ref="videoElement"
 			:src="videoUrl"
-			v-bind="{...videoAttributes}"			
+			v-bind="videoAttributes"
 		></video>
 		
 		<div class="poster" v-if="!loaded">

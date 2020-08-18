@@ -17,7 +17,7 @@
 			:x="computedPositionX"
 			:y="computedPositionY"
 			:w="computedSizeW"
-			:h="computedSizeH"
+			:h="computedSizeH || 'auto'"
 		>
 			<header class="window__top">
 				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
@@ -194,10 +194,10 @@ export default {
 			return this.positionZ
 		},
 		computedSizeW() {
-			return this.w > 0 ? this.w : this.sizeW
+			return this.w > 0 ? this.w : this.w === 0 ? 'auto' : this.sizeW
 		},
 		computedSizeH() {
-			return this.h > 0 ? this.h : this.sizeH
+			return (this.h > 0) ? this.h : (this.h === 0) ? 'auto' : this.sizeH
 		},
 		computedResizable() {
 			if (!this.canResize) return false

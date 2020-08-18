@@ -1,5 +1,8 @@
 <template>
 	<main class="window__content" :class="{ slim: musicPlayerSlim }">
+		
+		<music-player-video />
+		
 		<div class="music-player__top">
 			<button v-if="musicPlayerSlim" class="button" @click="toggle">
 				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -49,10 +52,12 @@
 import { mapActions, mapState } from 'vuex'
 import { MUSIC_PLAY_PAUSE } from '~/model/constants'
 import WindowContent from '~/components/framework/WindowContent.vue'
+import MusicPlayerVideo from '~/components/content/MusicPlayerVideo.vue'
 
 export default {
 	extends: WindowContent,
 	name: 'music-player',
+	components: { MusicPlayerVideo },
 	data() {
 		return {
 			// related to canvas and animation
@@ -189,16 +194,18 @@ export default {
 			this.audioContext = new AudioContext()
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
 
-			// run first time audio gets played
-			this.audio.addEventListener('play', this.setupCanvas.bind(this), {
-				once: true
-			})
+			if(!this.musicPlayerSlim) {
+				// run first time audio gets played
+				this.audio.addEventListener('play', this.setupCanvas.bind(this), {
+					once: true
+				})
+			}
 		},
 		animate() {
 			const renderFrame = () => {
 				// stop animation when no music and all the frequencies are at 0,
 				// creates smooth ending of animation
-				if (!this.musicPlaying && this.dataArray.every(v => v === 0)) return
+				if (this.musicPlayerSlim || (!this.musicPlaying && this.dataArray.every(v => v === 0))) return
 
 				requestAnimationFrame(renderFrame)
 
