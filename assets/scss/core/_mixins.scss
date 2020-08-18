@@ -175,18 +175,26 @@
 
 @mixin intro-wobble {
 	&:nth-child(4n) {
-		animation: wobble 4s forwards;
+		.icon {
+			animation: wobble 4s forwards;
+		}
 	}
 
 	&:nth-child(4n + 1) {
-		animation: wobble 3s reverse;
+		.icon {
+			animation: wobble 3s reverse;
+		}
 	}
 
 	&:nth-child(4n + 2) {
-		animation: wobble 5s forwards;
+		.icon {
+			animation: wobble 5s forwards;
+		}
 	}
 
 	&:nth-child(4n + 3) {
-		animation: wobble 5s reverse;
+		.icon {
+			animation: wobble 5s reverse;
+		}
 	}
 }

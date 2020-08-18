@@ -21,9 +21,11 @@
 				/>
 				
 				<vue-draggable-resizable
-					v-for="item in authenticatedShortcuts"
+					v-for="(item, i) in authenticatedShortcuts"
 					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
+					:x="randomPos(i, true)"
+					:y="randomPos(i * 357)"
 				>
 					<shortcut :item="item" />
 				</vue-draggable-resizable>
@@ -316,6 +318,9 @@ export default {
 				opacity: 1,
 				ease: 'power4.inOut'
 			})
+		},
+		randomPos(n, long) {
+			return Math.sin(n * 2579.54) * (window.innerHeight / 3) * (long ? (window.innerWidth / window.innerHeight) : 1)
 		}
 	},
 	mounted() {

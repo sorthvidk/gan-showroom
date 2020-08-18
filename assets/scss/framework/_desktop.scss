@@ -51,6 +51,10 @@ body {
 			> * {
 				@include intro-wobble;
 
+				position: absolute;
+				top: 38%;
+				left: 40%;
+
 				&:nth-child(4n) {
 					color: $color-202020-red;
 				}
