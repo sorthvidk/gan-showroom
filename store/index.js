@@ -1,4 +1,5 @@
 import {
+	INIT_INDEX,
 	COLLECTION_COLLECTIONS_FETCH,
 	CREATE_DATA_MODEL,
 	BYPASS_ESCAPE,
@@ -272,23 +273,7 @@ export const mutations = {
 	[ARTIST_ASSETS_FETCH.mutation](state, data) {
 		state.artists.assets = data
 	},
-	[CONNECT_ARTIST_ASSETS.mutation](state) {
-		if (state.artists.assetsConnected) return false
-
-		let al = state.artists.list.length
-
-		for (var i = 0; i < al; i++) {
-			let asset = state.artists.assets[i]
-
-			let artist = state.artists.list.find(e => e.artistId === asset.artistId)
-			if (artist && artist.assets) artist.assets.push(asset)
-			else if (window.GS_LOGS)
-				console.warn('NO ARTIST FOR ASSET | artistId: "' + asset.artistId + '"')
-		}
-
-		//to ensure only one connection operation
-		state.artists.assetsConnected = true
-	},
+	
 	
 	[GENERAL_FETCH.mutation](state, data) {
 		//Insert Ganni Girls bg image
@@ -619,6 +604,15 @@ export const mutations = {
 }
 
 export const actions = {
+
+
+	[INIT_INDEX.action]({ commit }) {
+		if (window.GS_LOGS) console.log('INIT_INDEX')
+		commit(CONNECT_ASSETS.mutation)
+		commit(INIT_PROGRESS.mutation)
+		commit('artists/' + CONNECT_ARTIST_ASSETS.mutation)
+	},
+
 	//first action, injects assets into collection
 	[CONNECT_ASSETS.action]({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
@@ -779,6 +773,7 @@ export const actions = {
 		if (window.GS_LOGS) console.log('value', value)
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
+
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 

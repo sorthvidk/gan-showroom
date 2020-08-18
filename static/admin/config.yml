@@ -476,20 +476,20 @@ collections:
           name: 'name',
           widget: 'string',
           default: '',
-          hint: 'Name of artist',
+          hint: "Name of artist ex. 'John Doe'",
         }
       - {
           label: 'Description',
           name: 'description',
           widget: 'string',
           default: '',
-          hint: 'Long descrikption of artist',
+          hint: "Long description of artist ex. 'John Doe is awesome.'",
         }
       - {
           label: 'Cloudinary media reference',
           name: 'cloudinaryUrl',
           widget: 'image',
-          hint: 'Clickable image in folder'
+          hint: 'Clickable image/video background'
         }
       - {
           label: 'Media type',

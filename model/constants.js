@@ -35,6 +35,8 @@ export const ARTIST_ASSETS_FETCH = createMutation('ARTIST_ASSETS_FETCH')
 export const CONNECT_ARTIST_ASSETS = createMutation('CONNECT_ARTIST_ASSETS')
 export const OPEN_ARTIST_CONTENT = createMutation('OPEN_ARTIST_CONTENT')
 
+//wrapper for initialisation mutations
+export const INIT_INDEX = createMutation('INIT_INDEX')
 
 export const KEYPRESS = createMutation('KEYPRESS')
 export const BYPASS_ESCAPE = createMutation('BYPASS_ESCAPE')

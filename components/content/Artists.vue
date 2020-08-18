@@ -1,14 +1,14 @@
 <template>
 	<transition name="fade">
 		<div class="artists">
-			<a class="artists__item" v-for="(item,index) in content" :key="'lookbook'+index" @click="itemClickHandler(item)">
+			<button class="artists__item" v-for="(item,index) in content" :key="'lookbook'+index" @click.stop="itemClickHandler(item)">
 				<img v-if="item.type === 'image'" v-lazy="getMediaUrl(item.type, item.cloudinaryUrl)" alt=""/>
 				<video v-if="item.type === 'video'" :src="getMediaUrl(item.type, item.cloudinaryUrl)" preload muted controls></video>
 				<div>					
 					<h3>{{item.name}}</h3>
-					<p>{{item.description}}</p>
+					<!-- <p>{{item.description}}</p> -->
 				</div>
-			</a>
+			</button>
 		</div>
 	</transition>
 </template>
