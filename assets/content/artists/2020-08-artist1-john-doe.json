@@ -1,8 +1,8 @@
 {
   "name": "John Doe",
-  "description": "John Doe is so cool.",
+  "description": "John Doe is so cool!",
   "artistId": "artist1",
   "type": "image",
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1589289543/samples/people/smiling-man.jpg",
-  "assets":[]
+  "assets": []
 }
