@@ -1,24 +1,20 @@
-import {
-	SET_CURRENT_FILTER,
-	TOGGLE_MUSIC_PLAYER,
-	COLLECTION_LAYOUT_CHANGE
-} from '~/model/constants'
+import { SET_CURRENT_FILTER, COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
 
 export const state = () => ({
+	blownUpIconLayout: true,
 	list: [
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'archive',
-			icon: '/img/shortcuts/folder-orange.jpeg',
+			icon: '/img/collage/dress1.png',
 			label: 'Archive',
 			posH: 1,
 			posV: 4,
 			actions: [
-				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
@@ -43,7 +39,6 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			actions: [
-				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
@@ -68,7 +63,6 @@ export const state = () => ({
 			posH: 4,
 			posV: 1,
 			actions: [
-				// { name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID

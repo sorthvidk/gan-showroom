@@ -118,7 +118,7 @@
 	.window__content.slim {
 		.music-player__top {
 			padding: 0;
-			grid-template: 1fr / rem(55) rem(50) 1fr;
+			grid-template: 1fr / rem(55) rem(60) 1fr;
 			background-color: $color-202020-blue;
 			color: $color-white;
 
@@ -158,7 +158,7 @@
 			font-weight: bold;
 			padding: rem(5) rem(10);
 			background: $color-black;
-			color: $color-202020-blue;
+			color: $color-white;
 		}
 	}
 }

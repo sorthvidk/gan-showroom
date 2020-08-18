@@ -12,12 +12,14 @@
 				:text-end="'You\'re completely filled in on the PS21 digital universe!'"
 			/>
 
-			<div class="desktop__shortcuts">
+			<div class="desktop__shortcuts" :class="blownUpIconLayout ? 'desktop__shortcuts--draggable' : ''">
 				<shortcut
-					v-for="(item, nthChild) in authenticatedShortcuts"
+					v-for="item in authenticatedShortcuts"
 					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
-					:type="item.type"
+					:item="item"
+				/>
+					<!-- :type="item.type"
 					:position-h="item.posH"
 					:position-v="item.posV"
 					:icon="item.icon"
@@ -25,9 +27,7 @@
 					:shortcut-id="item.shortcutId"
 					:actions="item.actions"
 					:window-content="item.windowContent"
-					:href="item.href"
-					:nth-child="nthChild"
-				/>
+					:href="item.href" -->
 			</div>
 
 			<div class="desktop__windows">
@@ -184,7 +184,7 @@ export default {
 			'archiveHasAuthenticatedCollections'
 		]),
 		...mapState('collection', ['collections']),
-		...mapState('shortcuts', ['list']),
+		...mapState('shortcuts', ['list', 'blownUpIconLayout']),
 		desktopIcons() {
 			return this.list.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL

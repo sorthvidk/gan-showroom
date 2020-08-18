@@ -43,6 +43,10 @@ body {
 			grid-template-columns: repeat(12, 1fr);
 			grid-template-rows: repeat(8, 1fr);
 		}
+
+		&--draggable {
+			display: flex;
+		}
 	}
 	&__windows {
 		position: fixed;
