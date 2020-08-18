@@ -15,6 +15,7 @@
 			<div class="desktop__shortcuts">
 				<shortcut
 					v-for="(item, nthChild) in authenticatedShortcuts"
+					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
 					:type="item.type"
 					:position-h="item.posH"
@@ -179,7 +180,8 @@ export default {
 			'screensaverActive',
 			'webcamImage',
 			'mousepos',
-			'loggedIn'
+			'loggedIn',
+			'archiveHasAuthenticatedCollections'
 		]),
 		...mapState('collection', ['collections']),
 		...mapState('shortcuts', ['list']),

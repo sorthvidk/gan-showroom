@@ -53,6 +53,8 @@ import getAssetType from '~/utils/asset-type'
 import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 export const state = () => ({
+	archiveHasAuthenticatedCollections: null,
+
 	webcamImage: '',
 
 	collageIsOpen: false,
@@ -136,6 +138,32 @@ export const mutations = {
 			password.hash = password.hash.toLowerCase()
 			return password
 		})
+	},
+
+	[AUTHENTICATE_CONTENT.mutation](state) {
+		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
+		const archiveContent =
+			archive.windowContent[0].contentComponentProps.shortcuts
+
+		const archiveCollectionShortcuts = state.shortcuts.list.filter(s =>
+			archiveContent.includes(s.shortcutId)
+		)
+		const archiveCollections = archiveCollectionShortcuts.map(
+			c => c.windowContent[0].contentComponentProps.collectionId
+		)
+
+		const authenticatedCollections = state.collection.collections
+			.filter(c => archiveCollections.includes(c.collectionId))
+			.filter(
+				c =>
+					!c.passwords ||
+					!c.passwords.length ||
+					c.passwords.includes(state.loggedIn.hash)
+			)
+
+		state.archiveHasAuthenticatedCollections = authenticatedCollections.length
+			? true
+			: false
 	},
 
 	[SAVE_COLLAGE.mutation](state) {
