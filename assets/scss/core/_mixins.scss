@@ -90,11 +90,18 @@
 	}
 	p {
 		@include link();
+		text-decoration: none;
+		font-size: rem(10);
 		color: inherit;
 		white-space: nowrap;
-		max-width: rem(110);
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+	span + p {
+		max-width: rem(90);		
+	}
+	svg {
+		fill: currentColor;
 	}
 }
 
@@ -111,7 +118,7 @@
 	cursor: pointer;
 	transition: all 0.2s ease;
 	font-size: rem(11);
-	font-weight: $weight-medium;
+	font-weight: $weight-bold;
 
 	.icon {
 		width: rem(30);
@@ -146,7 +153,7 @@
 
 .checkmark {
 	fill: none;
-	stroke: #000;
+	stroke: currentColor;
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-width: 5px;

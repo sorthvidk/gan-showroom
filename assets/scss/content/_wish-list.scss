@@ -22,7 +22,8 @@
 		bottom: 0;
 		width: rem(215);
 
-		border-right: rem(1) solid $color-black;
+		// border-right: rem(1) solid $color-black;
+		background-color: $color-202020-dustypink;
 		box-sizing: border-box;
 
 		overflow: hidden;
@@ -33,16 +34,16 @@
 			justify-content: space-between;
 			flex-wrap: nowrap;
 			max-width: 100%;
+			color: $color-202020-green;
 
 			&:hover {
-				background-color: $color-lightgrey;
-
 				.remove {
 					opacity: 1;				
 				}
 			}
 			&.is-active {
-				background-color: $color-lightgrey;
+				color: $color-white;
+				background-color: $color-202020-green;
 			}			
 		}
 
@@ -56,6 +57,7 @@
 			justify-content: center;
 			flex: 0 0 rem(30);
 			svg {
+				fill: currentColor;
 				width: rem(30);
 				height: rem(30);
 			}
@@ -75,7 +77,8 @@
 				margin-right: rem(10);
 			}
 			p {
-				font-size: rem(13);
+				font-size: rem(11);
+				font-weight: $weight-medium;
 				overflow: hidden;
 				width: rem(185 + - 12 - 30 - 10);
 				white-space: nowrap;

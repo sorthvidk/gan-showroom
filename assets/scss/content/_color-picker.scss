@@ -20,7 +20,7 @@
 		}
 
 		&__content {
-			background-color: $color-grey;
+			background-color: $color-202020-dustypink;
 			padding: rem(20) rem(30);
 			text-align: center;
 
@@ -35,8 +35,9 @@
 				margin-right: rem(40);
 			}
 			p {
-				color: $color-red;
-				font-size: rem(14);
+				color: $color-202020-red;
+				font-size: rem(11);
+				font-weight: $weight-medium;
 				margin-top: rem(10);
 			}
 			ul {
@@ -47,6 +48,7 @@
 					display: block;
 				}
 				button {
+					color: $color-202020-green;
 					position: relative;
 					&:before {
 						content:'';
@@ -56,22 +58,15 @@
 						left: 0;
 						width: rem(20);
 						height: rem(20);
-						border: rem(1) solid black;
+						border: rem(1) solid currentColor;
 					}
 					strong {
 						padding-left: rem(30);
 					}
-					svg {
-						width: rem(12);
-						height: rem(12);
-						display: none;
-						position: absolute;
-						top: rem(4);
-						left: rem(4);
-					}
+
 					&.is-active {
-						svg {
-							display: block;
+						&:before {
+							background-color: $color-202020-green;
 						}
 					}
 				}
@@ -82,16 +77,19 @@
 		
 			.button {
 				@include window-button();
-				@include bevel();
-				color: $color-blue;
-				text-decoration: underline;
+				color: $color-white;
+				background-color: $color-black;
 				padding: rem(8) rem(20) rem(10);
-				background-color: $color-grey;
-
+				
 				width: rem(100);
 				text-align: center;
-				display: inline-block;				
+				display: inline-block;	
 				margin-top: rem(30);
+
+				&.is-inactive {
+					background-color: $color-202020-red;
+					color: $color-202020-blue;
+				}
 			}
 		}
 	}	

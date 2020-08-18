@@ -289,11 +289,6 @@
 						@click="downloadWishListClickHandler"
 						:href="pdfDownloadLink"
 					>
-						<span class="icon">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-								<path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z" />
-							</svg>
-						</span>
 						<p>Download wishlist</p>
 					</a>
 
@@ -465,7 +460,7 @@ export default {
 			return `View wishlist (${this.activeWishlist.length})`
 		},
 		addToWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Added to wishlist'
+			if (this.styleOnWishList) return 'Added'
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {

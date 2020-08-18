@@ -19,16 +19,13 @@
 					<ul>
 						<li v-for="(item, key) in availableColorList" :key="item">
 							<button @click="toggleColorClickHandler(item)" :class="{'is-active': colorIsChosen(item)}">
-								<svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M0 8.68619V3.61506L4.53219 7L12 0V5.02092L4.53219 12L0 8.68619Z" fill="#000" />
-								</svg>
 								<strong>{{item}}</strong>
 							</button>
 						</li>
 					</ul>
 				</div>
 
-				<button class="button ok" @click="saveClickHandler">OK</button>
+				<button :class="{'is-inactive':showErrorMessage}" class="button ok" @click="saveClickHandler">OK</button>
 				<p v-if="showErrorMessage">You have to choose at least 1 color</p>
 			</div>
 		</div>
