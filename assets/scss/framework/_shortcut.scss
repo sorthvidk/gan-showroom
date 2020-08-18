@@ -96,15 +96,56 @@
 
 	&--large {
 		width: auto;
-		height: auto;
+		height: 12vmax;
+		flex: auto;
+		padding: 0;
+
+		cursor: grab;
 
 		.icon {
-			width: auto;
-			height: auto;
+			width: inherit;
+			height: inherit;
 
 			img {
-				height: 10vmax;
-				width: auto;
+				height: inherit;
+				width: inherit;
+				position: relative;
+				transform: none;
+				left: auto;
+				top: auto;
+			}
+		}
+
+		.text {
+			font-size: rem(35);
+			font-weight: bold;
+			background-color: transparent;
+			max-width: none;
+			white-space: normal;
+
+			text-transform: uppercase;
+
+			top: 50%;
+			transform: translate(-50%, -50%);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		&:hover {
+			.icon {
+				animation: wobble 2s forwards;
+			}
+
+			.text {
+				background-color: transparent;
+			}
+		}
+
+		&:active {
+			.text {
+				background-color: transparent;
 			}
 		}
 	}

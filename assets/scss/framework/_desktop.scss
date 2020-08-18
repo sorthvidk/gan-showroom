@@ -46,6 +46,33 @@ body {
 
 		&--draggable {
 			display: flex;
+			flex-wrap: wrap;
+
+			> * {
+				@include intro-wobble;
+
+				&:nth-child(4n) {
+					color: $color-202020-red;
+				}
+
+				&:nth-child(4n + 1) {
+					color: $color-202020-blue;
+				}
+
+				&:nth-child(4n + 2) {
+					color: $color-202020-green;
+				}
+
+				&:nth-child(4n + 3) {
+					color: $color-202020-dustypink;
+				}
+
+				&:hover {
+					.icon {
+						animation: halfWobble 2s forwards;
+					}
+				}
+			}
 		}
 	}
 	&__windows {

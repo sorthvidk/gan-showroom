@@ -1,6 +1,7 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
 		<button
+			v-if="!blownUpIconLayout"
 			@click="onClick"
 			class="shortcut"
 			:class="blownUpIconLayout ? 'shortcut--large' : ''"
@@ -11,6 +12,17 @@
 			</span>
 			<span class="text">{{item.label}}</span>
 		</button>
+		
+		<div
+			v-else
+			class="shortcut shortcut--large"
+			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
+		>
+			<span class="icon">
+				<img :src="item.icon" />
+			</span>
+			<button @click="onClick" class="text">{{item.label}}</button>
+		</div>
 	</transition>
 </template>
 

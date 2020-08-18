@@ -144,6 +144,9 @@ export const mutations = {
 
 	[AUTHENTICATE_CONTENT.mutation](state) {
 		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
+
+		if (!archive) return false
+
 		const archiveContent =
 			archive.windowContent[0].contentComponentProps.shortcuts
 

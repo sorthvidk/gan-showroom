@@ -15,10 +15,18 @@
 			<div class="desktop__shortcuts" :class="blownUpIconLayout ? 'desktop__shortcuts--draggable' : ''">
 				<shortcut
 					v-for="item in authenticatedShortcuts"
-					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
+					v-if="!blownUpIconLayout && (item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
 					:item="item"
 				/>
+				
+				<vue-draggable-resizable
+					v-for="item in authenticatedShortcuts"
+					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
+					:key="item.shortcutId"
+				>
+					<shortcut :item="item" />
+				</vue-draggable-resizable>
 					<!-- :type="item.type"
 					:position-h="item.posH"
 					:position-v="item.posV"
@@ -134,6 +142,8 @@ import {
 	OPEN_CONTENT
 } from '~/model/constants'
 
+import VueDraggableResizable from 'vue-draggable-resizable'
+
 import addMediaChangeListener from '~/utils/media-change'
 
 import ViewportSizes from '~/model/viewport-sizes'
@@ -158,7 +168,8 @@ export default {
 		Marquee,
 		Assistant,
 		Support,
-		ColorPicker
+		ColorPicker,
+		VueDraggableResizable,
 	},
 	data() {
 		return {

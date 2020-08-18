@@ -17,7 +17,7 @@
 		border-radius: 0;
 		border: 0;
 		border-left: rem(1) solid $color-black;
-		box-shadow: rem(1) rem(1) 0 0 $color-black,  0 rem(-1) 0 0 $color-black;
+		box-shadow: rem(1) rem(1) 0 0 $color-black, 0 rem(-1) 0 0 $color-black;
 
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
 		background-repeat: no-repeat;
@@ -28,40 +28,36 @@
 @mixin details-table() {
 	table-layout: fixed;
 	text-align: left;
-	
+
 	tr td {
 		padding: 0;
-		@include bodytext();			
+		@include bodytext();
 	}
 	tr th {
 		@include bodytext();
-		color: $color-darkgrey;			
+		color: $color-darkgrey;
 		white-space: nowrap;
 		padding-right: rem(10);
 	}
-	button { 
+	button {
 		margin: 0 0 rem(10);
 		font-size: rem(11);
 		display: block;
 	}
 }
 
-
 @mixin bevel($inverted: false) {
 	@if $inverted {
-	box-shadow: inset -1px -1px rgba($color-white,0.7), 
-				inset 1px 1px rgba($color-black,0.2), 
-				inset -2px -2px rgba($color-white,0.7), 
-				inset 2px 2px rgba($color-black,0.2);
-	}
-	@else {
-	box-shadow: inset -1px -1px rgba($color-black,0.2), 
-				inset 1px 1px $color-white, 
-				inset -2px -2px rgba($color-black,0.2), 
-				inset 2px 2px $color-white;
+		box-shadow: inset -1px -1px rgba($color-white, 0.7),
+			inset 1px 1px rgba($color-black, 0.2),
+			inset -2px -2px rgba($color-white, 0.7),
+			inset 2px 2px rgba($color-black, 0.2);
+	} @else {
+		box-shadow: inset -1px -1px rgba($color-black, 0.2),
+			inset 1px 1px $color-white, inset -2px -2px rgba($color-black, 0.2),
+			inset 2px 2px $color-white;
 	}
 }
-
 
 @mixin full-width-button() {
 	cursor: pointer;
@@ -78,7 +74,8 @@
 		background-color: $color-lightgrey;
 	}
 
-	span { //icon
+	span {
+		//icon
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -94,7 +91,6 @@
 		text-overflow: ellipsis;
 	}
 }
-
 
 @mixin window-button() {
 	flex: 0 0 rem(30);
@@ -122,23 +118,20 @@
 	}
 }
 
-
-
 @keyframes message-blink {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
+	5% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
-
 
 .checkmark {
 	fill: none;
@@ -146,4 +139,54 @@
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-width: 5px;
+}
+
+@keyframes wobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	25% {
+		transform: translateY(-5%);
+	}
+
+	75% {
+		transform: translateY(5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes halfWobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@mixin intro-wobble {
+	&:nth-child(4n) {
+		animation: wobble 4s forwards;
+	}
+
+	&:nth-child(4n + 1) {
+		animation: wobble 3s reverse;
+	}
+
+	&:nth-child(4n + 2) {
+		animation: wobble 5s forwards;
+	}
+
+	&:nth-child(4n + 3) {
+		animation: wobble 5s reverse;
+	}
 }
