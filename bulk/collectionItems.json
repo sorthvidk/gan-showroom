@@ -1,0 +1,24 @@
+[
+	{
+		"collectionId": "PS21",
+		"styleId": "A2719",
+		"filters": ["acc2", "acc5"],
+		"name": "A2719_Festival Bag",
+		"program": 5488,
+		"programName": "Recycled Tech Fabric Bags",
+		"material": "100% Recycled Polyester Lining: 100% Recycled PL",
+		"drop": "November",
+		"colorNames": "Black, Leopard",
+		"colorId": "99, 943",
+		"wholesalePriceDKK": 280,
+		"wholesalePriceEUR": 38,
+		"wholesalePriceUSD": 48,
+		"retailPriceDKK": 699,
+		"retailPriceEUR": 95,
+		"retailPriceUSD": 115,
+		"responsible": true,
+		"weight": 1,
+		"assets": [],
+		"index": null
+	}
+]
