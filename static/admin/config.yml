@@ -517,6 +517,7 @@ collections:
           name: 'description',
           widget: 'string',
           default: '',
+          required: false,
           hint: "Long description of artist ex. 'John Doe is awesome.'",
         }
       - {
@@ -530,6 +531,7 @@ collections:
           name: 'type',
           widget: 'select',
           multiple: false,
+          required: true,
           options: ['video', 'image'],
           hint: 'Either image or video',
         }
@@ -550,6 +552,7 @@ collections:
           label: 'Asset #',
           name: 'assetId',
           widget: 'string',
+          required: true,
           hint: 'Unique asset ID',
         }
       - {
@@ -557,6 +560,7 @@ collections:
           name: 'artistId',
           widget: 'relation',
           collection: 'artists',
+          required: true,
           searchFields: ['artistId', 'name'],
           valueField: 'artistId',
           displayFields: ['artistId', 'name'],
@@ -566,18 +570,21 @@ collections:
           label: 'Asset title',
           name: 'name',
           widget: 'string',
+          required: true,
           hint: "Title for image window ex. 'Image 1'",
         }
       - {
           label: 'Cloudinary media reference',
           name: 'cloudinaryUrl',
           widget: 'image',
+          required: true
         }
       - {
           label: 'Media type',
           name: 'type',
           widget: 'select',
           multiple: false,
+          required: true,
           options: ['video', 'image'],
           hint: 'Either image or video',
         }
@@ -585,6 +592,7 @@ collections:
           label: 'Aspect',
           name: 'aspect',
           widget: 'select',
+          required: true,
           options: ['landscape', 'portrait', 'square'],
           default: 'portrait',
           hint: 'Aspect of media',
