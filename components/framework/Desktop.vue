@@ -6,11 +6,11 @@
 			v-lazy:background-image="webcamImage || backgroundImageObj"
 			:style="{backgroundSize: webcamImage && '400px'}"
 		>
-			<progress-bar
+			<!-- <progress-bar
 				:text-start="'Start diving into the PS21 digital universe.'"
 				:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'"
 				:text-end="'You\'re completely filled in on the PS21 digital universe!'"
-			/>
+			/> -->
 
 			<div class="desktop__shortcuts">
 				<shortcut

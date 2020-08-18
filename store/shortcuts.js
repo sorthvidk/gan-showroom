@@ -298,11 +298,11 @@ export const state = () => ({
 			posV: 2,
 			windowContent: [
 				{
-					title: 'GANNI LookBook',
-					contentId: 'look-book',
+					title: 'GANNI 202020 Artists',
+					contentId: 'artists',
 					type: ContentTypes.artists,
 					statusComponentProps: {
-						text: 'Photo credit: Josefine Seifert'
+						text: 'Check out the artists'
 					}
 				}
 			]
