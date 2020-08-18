@@ -12,7 +12,7 @@
 
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { vuex, mapActions, mapState, mapMutations } from 'vuex'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
@@ -22,9 +22,7 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 import getShortUrl from '~/utils/get-short-url'
 
 import {
-	CONNECT_ASSETS,
-	FILTER_COLLECTION,
-	INIT_PROGRESS,
+	INIT_INDEX,
 	VISIBILITY,
 	AUTHENTICATE_CONTENT
 } from '~/model/constants'
@@ -62,7 +60,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([VISIBILITY.action]),
+		...mapActions([VISIBILITY.action, INIT_INDEX.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
 			this.debounce(
 				() => {
@@ -90,9 +88,8 @@ export default {
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
-		this.$store.commit(CONNECT_ASSETS.mutation)
-		// this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
-		this.$store.commit(INIT_PROGRESS.mutation)
+		//perform all state mutations before app start
+		this[INIT_INDEX.action]()		
 
 		this.$visibility.change((evt, appTabUnfocused) => {
 			if (appTabUnfocused) {
