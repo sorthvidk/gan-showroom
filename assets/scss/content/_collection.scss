@@ -13,7 +13,7 @@
 		flex: 0 0 50%;
 		min-width: 0;
 		box-sizing: border-box;
-		border: rem(1) solid transparent;
+		// border: rem(1) solid transparent;
 		position: relative;
 		cursor: pointer;
 		transition: border 0.3s ease;
@@ -26,7 +26,9 @@
 		}
 
 		&:hover {
-			border: rem(1) solid $color-black;
+			// border: rem(1) solid $color-black;
+			background-color: $color-202020-dustypink;
+			color: $color-202020-green;
 		}
 
 		.on-wishlist {
@@ -55,9 +57,11 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			margin-top: rem(10);
+			margin-bottom: rem(10);
 			display: block;
 			text-align: center;
 			@include bodytext();
+			color: $color-202020-green;
 		}
 	}
 
@@ -79,6 +83,12 @@
 			@include mq($from: screen-sm) {
 				margin: rem(80) 0;
 			}
+
+
+			&:hover {
+				background-color: transparent;
+			}
+
 
 			img {
 				width: 80%;
@@ -198,6 +208,7 @@
 
 	p {
 		@include bodytext();
+		color: $color-202020-green;
 
 		flex: 1 1 100%;
 		overflow: hidden;
@@ -229,15 +240,15 @@
 				svg {
 					width: rem(30);
 					height: rem(30);
+					fill: $color-202020-green;
 				}
 			}
 			&:hover {
-				background-color: $color-lightgrey;
+				background-color: $color-grey;
 			}
-				
-			opacity: 0.5;
+			
 			&.is-active {
-				opacity: 1;
+				background-color: $color-grey;
 			}
 		}
 	}

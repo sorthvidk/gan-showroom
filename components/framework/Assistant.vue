@@ -154,6 +154,12 @@
 									<th>Material</th>
 									<td>{{currentStyle.material}}</td>
 								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+								
 								<tr>
 									<th>Style #</th>
 									<td>{{currentStyle.styleId}}</td>

@@ -49,19 +49,19 @@
 			}
 		}
 
-		&:nth-child(n+1) h3 {
+		&:nth-child(5n+1) h3 {
 			color: $color-202020-blue;
 		}
-		&:nth-child(2n+1) h3 {
+		&:nth-child(5n+2) h3 {
 			color: $color-202020-green;
 		}
-		&:nth-child(3n+1) h3 {
+		&:nth-child(5n+3) h3 {
 			color: $color-202020-red;
 		}
-		&:nth-child(4n+1) h3 {
+		&:nth-child(5n+4) h3 {
 			color: $color-202020-dustypink;
 		}
-		&:nth-child(5n+1) h3 {
+		&:nth-child(5n+5) h3 {
 			color: $color-black;
 		}
 	}

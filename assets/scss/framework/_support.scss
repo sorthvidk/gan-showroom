@@ -19,14 +19,14 @@
 		bottom: rem(10);
 
 		@include mq($from: screen-sm) {
-			border-bottom: rem(1) solid $color-black;
+			border-bottom: rem(1) solid $color-202020-blue;
 			right: rem(20);
 			left: auto;
 			width: rem(276);
 			bottom: rem(20);
 		}
 		@include mq($from: screen-md) {
-			bottom: rem(59);
+			bottom: rem(60);
 			right: rem(30);
 		}
 
@@ -42,10 +42,12 @@
 		}
 
 		&.is-active {
+			border-bottom: 0;
+
 			.window__top {
 				.title,
 				.button {
-					border-bottom: rem(1) solid $color-black;
+					border-bottom: rem(1) solid $color-202020-blue;
 				}
 			}
 		}
@@ -54,6 +56,9 @@
 
 .support {
 	@include bodytext();
+
+	background-color: $color-202020-green;
+	color: $color-white;
 
 	a {
 		color: currentColor;
@@ -79,6 +84,9 @@
 		}
 		p {
 			@include bodytext();
+		}
+		svg {
+			fill: currentColor;
 		}
 	}
 

@@ -2,21 +2,21 @@
 	flex: 0 0 50%;
 	box-sizing: border-box;
 
-	background-color: $color-white;
-	border-bottom: rem(1) solid $color-black;
-	border-right: rem(1) solid $color-black;
+	background-color: $color-202020-green;
+	color: $color-202020-blue;
+	// border-bottom: rem(1) solid $color-black;
+	// border-right: rem(1) solid $color-black;
 	padding: rem(10);
 	display: inline-flex;
 	align-items: center;
 	@include bodytext();
-	transition: all 0.2s ease;
+	// transition: all 0.2s ease;
 
 	width: 50%;
 
 	&.is-active {
 		color: $color-white;
-		background-color: $color-grey;
-		@include bevel(true);
+		// @include bevel(true);
 	}
 
 	&:nth-child(2n) {
@@ -32,6 +32,7 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		line-height: rem(1.27 * 11);
+		text-decoration: underline;
 	}
 	em {
 		margin-left: rem(5);
@@ -43,9 +44,9 @@
 button.filter-button {
 	cursor: pointer;
 	&:hover {
-		background-color: $color-lightgrey;
+		color: $color-white;
 	}
 	&.is-active:hover {
-		background-color: $color-grey;		
+		color: $color-white;
 	}
 }

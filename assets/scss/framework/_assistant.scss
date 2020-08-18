@@ -1,6 +1,7 @@
 .window {
 	&--assistant {
 		z-index: $z-index-assistant !important;
+		background-color: $color-202020-dustypink;
 
 		.title {
 			cursor: default;
@@ -29,7 +30,7 @@
 		}
 		.window__top {
 			.title {
-				border-bottom: rem(1) solid $color-black;
+				border-bottom: rem(1) solid $color-202020-blue;
 			}
 		}
 
@@ -80,10 +81,11 @@
 .assistant {
 	h3 {
 		@include headline();
-		color: $color-lime;
+		color: $color-202020-green;
 	}
 	p {
 		@include bodytext();
+		color: $color-202020-green;
 	}
 
 	&__content {
@@ -159,7 +161,7 @@
 		&__list {
 			display: flex;
 			flex-wrap: wrap;
-			border-top: rem(1) solid $color-black;
+			border-top: rem(1) solid $color-202020-dustypink;
 		}
 	}
 	&__product-details {
@@ -232,12 +234,15 @@
 
 		.button {
 			@include full-width-button();
-			border-top: rem(1) solid $color-black;
+			// border-top: rem(1) solid $color-202020-black;
+			border-top: 0;
+			background-color: $color-black;
+			color: $color-white;
 			text-align: left;
 			box-sizing: border-box;
 
 			&:hover {
-				background-color: $color-lightgrey;
+				background-color: $color-black;
 			}
 			img {
 				width: rem(20);
@@ -248,9 +253,10 @@
 
 			&.add-to-wishlist,
 			&.download-wishlist {
-				background-color: $color-yellow;
+				background-color: $color-202020-green;
+
 				&.is-active {
-					background-color: lighten($color-yellow, 20%);
+					background-color: lighten($color-202020-green, 20%);
 				}
 			}
 
@@ -258,7 +264,7 @@
 
 			&--half {
 				flex: 0 0 50%;
-				border-right: rem(1) solid $color-black;
+				// border-right: rem(1) solid $color-202020-red;
 			}
 		}
 		.button--half + .button--half {

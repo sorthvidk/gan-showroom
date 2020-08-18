@@ -9,8 +9,8 @@
 				@click="layoutGridClickHandler"
 			>
 				<span class="icon">
-					<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path stroke="#000" d="M7.5 7.5h6v6h-6zM15.5 7.5h6v6h-6zM7.5 15.5h6v6h-6zM15.5 15.5h6v6h-6z" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M14 14H7V7h7V14zM8 13h5V8H8V13zM22 14h-7V7h7V14zM16 13h5V8h-5V13zM14 22H7v-7h7V22zM8 21h5v-5H8V21zM22 22h-7v-7h7V22zM16 21h5v-5h-5V21z"/>
 					</svg>
 				</span>
 			</button>
@@ -20,8 +20,8 @@
 				@click="layoutFunClickHandler"
 			>
 				<span class="icon">
-					<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path stroke="#000" d="M8.5 7.5h6v6h-6zM8.5 15.5h6v6h-6zM16.5 11.5h6v6h-6z" />
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+					  <path d="M23 18h-7v-7h7V18zM17 17h5v-5h-5V17zM15 22H8v-7h7V22zM9 21h5v-5H9V21zM15 14H8V7h7V14zM9 13h5V8H9V13z"/>
 					</svg>
 				</span>
 			</button>
