@@ -2,7 +2,7 @@
 backend:
   name: proxy
   proxy_url: http://localhost:8081/api/v1
-  branch: feature/password
+  branch: develop
 
 # used for production:
 # backend:
@@ -487,3 +487,114 @@ collections:
           hint: 'Either image or video',
           default: 'image',
         }
+
+  - name: 'artists'
+    sortableFields: ['artistId']
+    label: 'Artists'
+    folder: 'assets/content/artists'
+    summary: '{{artistId}} - {{name}}'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{artistId}}-{{name}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Artist #',
+          name: 'artistId',
+          widget: 'string',
+          hint: "Unique identifier ex. 'artist1'",
+        }
+      - {
+          label: 'Name',
+          name: 'name',
+          widget: 'string',
+          default: '',
+          hint: "Name of artist ex. 'John Doe'",
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          default: '',
+          required: false,
+          hint: "Long description of artist ex. 'John Doe is awesome.'",
+        }
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Clickable image/video background'
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          required: true,
+          options: ['video', 'image'],
+          hint: 'Either image or video',
+        }
+      - { name: 'assets', default: [], widget: 'hidden' }
+
+  - name: 'artistAssets'
+    sortableFields: ['artistId']
+    summary: 'Artist {{artistId}}: {{name}} asset ({{assetId}})'
+    label: 'Artist assets'
+    folder: 'assets/content/artistAssets'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{assetId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Asset #',
+          name: 'assetId',
+          widget: 'string',
+          required: true,
+          hint: 'Unique asset ID',
+        }
+      - {
+          label: 'Artist #',
+          name: 'artistId',
+          widget: 'relation',
+          collection: 'artists',
+          required: true,
+          searchFields: ['artistId', 'name'],
+          valueField: 'artistId',
+          displayFields: ['artistId', 'name'],
+          hint: 'Reference to unique artist ID',
+        }
+      - {
+          label: 'Asset title',
+          name: 'name',
+          widget: 'string',
+          required: true,
+          hint: "Title for image window ex. 'Image 1'",
+        }
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: true
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          required: true,
+          options: ['video', 'image'],
+          hint: 'Either image or video',
+        }
+      - {
+          label: 'Aspect',
+          name: 'aspect',
+          widget: 'select',
+          required: true,
+          options: ['landscape', 'portrait', 'square'],
+          default: 'portrait',
+          hint: 'Aspect of media',
+        }
+

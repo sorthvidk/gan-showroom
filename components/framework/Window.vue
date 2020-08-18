@@ -76,6 +76,7 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import Artists from '~/components/content/Artists.vue'
 import Collage from '~/components/content/Collage.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
@@ -101,6 +102,7 @@ export default {
 		HampsterDance,
 		GanniGirls,
 		LookBook,
+		Artists,
 		Collage
 	},
 	props: {

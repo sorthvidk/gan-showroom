@@ -291,6 +291,24 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'artists',
+			icon: '/img/shortcuts/look_book.png',
+			label: 'Artists',
+			posH: 6,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'GANNI LookBook',
+					contentId: 'look-book',
+					type: ContentTypes.artists,
+					statusComponentProps: {
+						text: 'Photo credit: Josefine Seifert'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'animal-print',
 			icon: '/img/shortcuts/animal_print.png',
 			label: 'Animal Print',
