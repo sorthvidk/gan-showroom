@@ -1,1 +1,10 @@
-{"assetId":"T2738_Black 1","styleId":"T2738099","name":"T2738099_Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2738_Black 1",
+  "styleId": "T2738099",
+  "name": "T2738099_Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737019/SS21/Packshots/T2738_3480_099_vlw8ad.jpg"
+}
