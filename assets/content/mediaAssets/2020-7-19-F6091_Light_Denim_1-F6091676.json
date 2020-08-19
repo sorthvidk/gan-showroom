@@ -1,1 +1,10 @@
-{"assetId":"F6091_Light Denim 1","styleId":"F6091676","name":"F6091676_Strap Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F6091_Light Denim 1",
+  "styleId": "F6091676",
+  "name": "F6091676_Strap Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737137/SS21/Packshots/LEVI%27s%20Commercial/87488-0000_qr5uwq.jpg"
+}
