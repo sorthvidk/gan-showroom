@@ -9,6 +9,9 @@
 	
 	&__item {
 		display: block;
+		font-weight: bold;
+
+		
 		margin: 0 auto;
 		width: 100%;
 		position: relative;
@@ -22,47 +25,21 @@
 			max-width: 100%;
 			height: auto;
 		}
-		&:hover h3 {
-			text-decoration: underline;
-		}
+		
 		div {
-			text-align: center;
-
+			text-align: left;
+			padding: rem(10);
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			max-width: 100%;
-			
-			h3 {
-				font-weight: $weight-medium;
-				font-size: rem(50);
-				text-transform: uppercase;
+			bottom: 0;
+			left: 0;
+			right: 0;
 
-				@include mq($until: screen-md) {
-					text-decoration: underline;
-				}
-			}
 			p {
-				margin-top: rem(10);
 				@include bodytext();
+				font-size: rem(13);
+				font-weight: $weight-medium;
+				color: $color-white;
 			}
-		}
-
-		&:nth-child(5n+1) h3 {
-			color: $color-202020-blue;
-		}
-		&:nth-child(5n+2) h3 {
-			color: $color-202020-green;
-		}
-		&:nth-child(5n+3) h3 {
-			color: $color-202020-red;
-		}
-		&:nth-child(5n+4) h3 {
-			color: $color-202020-dustypink;
-		}
-		&:nth-child(5n+5) h3 {
-			color: $color-black;
 		}
 	}
 

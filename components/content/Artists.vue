@@ -5,8 +5,7 @@
 				<img v-if="item.type === 'image'" v-lazy="getMediaUrl(item.type, item.cloudinaryUrl)" alt=""/>
 				<video v-if="item.type === 'video'" :src="getMediaUrl(item.type, item.cloudinaryUrl)" preload muted autoplay></video>
 				<div>					
-					<h3>{{item.name}}</h3>
-					<!-- <p>{{item.description}}</p> -->
+					<p v-html="item.description"></p>
 				</div>
 			</button>
 		</div>

@@ -91,7 +91,8 @@
 		overflow: hidden;
 		max-height: rem(180);
 		transition: max-height 0.2s ease;
-		border-top: rem(1) solid $color-black;
+		border-top: 0;
+		
 
 		&.is-collapsed {
 			border-top: 0;

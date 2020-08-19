@@ -6,6 +6,7 @@
 
 .wish-list {
 	@include mq($until: screen-sm) {
+		background-color: $color-202020-dustypink;
 		overflow: hidden;
 		overflow-y: scroll;
 		max-height: 100%;
@@ -132,8 +133,12 @@
 
 	//mobile only
 	&__accordion {
-		&.is-active {
-			background-color: $color-lightgrey;
+		background-color: $color-202020-dustypink;
+		color: $color-202020-green;
+
+		&.is-active {			
+			background-color: $color-202020-green;
+			color: $color-white;
 			.content {
 				max-height: rem(400);
 			}
@@ -167,12 +172,14 @@
 				align-items: center;
 				justify-content: center;
 				svg {
+					fill: currentColor;
 					width: rem(30);
 					height: rem(30);
 				}
 			}
 		}
 		.content {
+			background-color: $color-white;
 			overflow: hidden;
 			max-height: 0;
 			transition: max-height 0.2s ease;
@@ -184,7 +191,7 @@
 			}
 
 			.inner {
-				padding: 0 rem(30) rem(40) rem(55);
+				padding: rem(10) rem(30) rem(40) rem(55);
 				table {
 					@include details-table();
 				}
