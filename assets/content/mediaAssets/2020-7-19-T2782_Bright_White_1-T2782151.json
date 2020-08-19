@@ -1,1 +1,10 @@
-{"assetId":"T2782_Bright White 1","styleId":"T2782151","name":"T2782151_T-shirt, Twist","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2782_Bright White 1",
+  "styleId": "T2782151",
+  "name": "T2782151_T-shirt, Twist",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737022/SS21/Packshots/T2782_3487_151_e6mnlr.jpg"
+}
