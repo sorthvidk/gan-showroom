@@ -1,1 +1,10 @@
-{"assetId":"T2776_Sky Captain 1","styleId":"T2776683","name":"T2776683_Puff Sleeve Pullover","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2776_Sky Captain 1",
+  "styleId": "T2776683",
+  "name": "T2776683_Puff Sleeve Pullover",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737022/SS21/Packshots/T2776_3482_683_aio9er.jpg"
+}
