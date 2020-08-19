@@ -61,7 +61,7 @@ export const state = () => ({
 			shortcutId: 'collection-test',
 			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/collage/dress3.png',
-			label: 'PS22 collection TEST',
+			label: 'SS21',
 			posH: 4,
 			posV: 1,
 			actions: [
@@ -72,11 +72,11 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'Collection Two - test',
-					contentId: 'collection-two',
+					title: 'SS21 Collection',
+					contentId: 'ss21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
-						collectionId: 'Test'
+						collectionId: 'SS21'
 					}
 				}
 			]
