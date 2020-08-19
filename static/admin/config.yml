@@ -48,9 +48,15 @@ collections:
       - label: 'PS21'
         field: collectionId
         pattern: 'PS21'
-      - label: 'TEST'
+      - label: 'SS21'
         field: collectionId
-        pattern: 'Test'
+        pattern: 'SS21'
+      - label: 'SOFTWARE'
+        field: collectionId
+        pattern: 'SOFTWARE'
+      - label: 'GANNIXLEVIS'
+        field: collectionId
+        pattern: 'GANNIXLEVIS'
     editor:
       preview: false
     fields:
