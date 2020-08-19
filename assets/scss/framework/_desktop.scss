@@ -47,13 +47,21 @@ body {
 		&--draggable {
 			display: flex;
 			flex-wrap: wrap;
+			height: 100%;
+
+			// @include mq($until: screen-md) {
+			// 	display: block;
+			// }
 
 			> * {
 				@include intro-wobble;
 
-				position: absolute;
 				top: 38%;
 				left: 40%;
+
+				// @include mq($from: screen-md) {
+				position: absolute;
+				// }
 
 				&:nth-child(4n) {
 					color: $color-202020-red;
