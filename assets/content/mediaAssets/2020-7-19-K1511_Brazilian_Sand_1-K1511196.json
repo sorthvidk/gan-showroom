@@ -1,1 +1,10 @@
-{"assetId":"K1511_Brazilian Sand 1","styleId":"K1511196","name":"K1511196_Vest","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "K1511_Brazilian Sand 1",
+  "styleId": "K1511196",
+  "name": "K1511196_Vest",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737012/SS21/Packshots/K1511_2507_196_cbpijg.jpg"
+}
