@@ -11,7 +11,7 @@
 	.films-item {
 		flex: 0 0 50%;
 		padding: rem(5);
-		border: rem(1) solid transparent;
+		
 		cursor: pointer;
 		box-sizing: border-box;
 		transition: border 0.3s ease;
@@ -23,10 +23,10 @@
 		
 
 		&:hover {
-			border: rem(1) solid $color-black;
+			background-color: $color-202020-dustypink;
 		}
 		&__poster {
-			display: block;
+			display: flex;
 			position: relative;
 			img {
 				width: 100%;
