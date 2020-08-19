@@ -112,8 +112,8 @@
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__filters">
-						<h3>PS21 COLLECTION</h3>
-						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
+						<h3>{{collectionName}}</h3>
+						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.<span v-if="currentCollectionFilters.length > 0"> Skip to the good stuff by choosing from the below:</span></p>
 						<div class="assistant__filters__list">
 							<filter-button
 								v-for="(item, key) in currentCollectionFilters"
@@ -436,6 +436,9 @@ export default {
 			'wishList'
 		]),
 		...mapState('collage', ['clothes']),
+		collectionName() {
+			return this.data[this.currentCollectionId].name
+		},
 		currentCollectionFilters() {
 			return this.data[this.currentCollectionId]
 				? this.data[this.currentCollectionId].filters

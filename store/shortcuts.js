@@ -33,7 +33,7 @@ export const state = () => ({
 		// },
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection',
+			shortcutId: 'collection-ps21',
 			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/collage/dress2.png',
 			label: 'PS21 collection',
@@ -58,10 +58,10 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection-test',
+			shortcutId: 'collection-ss21',
 			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/collage/dress3.png',
-			label: 'SS21',
+			label: 'SS21 Collection',
 			posH: 4,
 			posV: 1,
 			actions: [
@@ -77,6 +77,56 @@ export const state = () => ({
 					type: ContentTypes.collection,
 					contentComponentProps: {
 						collectionId: 'SS21'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-software',
+			// icon: '/img/shortcuts/ps21.png',
+			icon: '/img/collage/dress3.png',
+			label: 'SOFTWARE',
+			posH: 4,
+			posV: 2,
+			actions: [
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
+			],
+			windowContent: [
+				{
+					title: 'GANNI Software',
+					contentId: 'software-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						collectionId: 'SOFTWARE'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-levis',
+			// icon: '/img/shortcuts/ps21.png',
+			icon: '/img/collage/dress3.png',
+			label: "GANNI x Levi's",
+			posH: 4,
+			posV: 3,
+			actions: [
+				{
+					name: COLLECTION_LAYOUT_CHANGE.action,
+					param: CollectionLayouts.FUN
+				}
+			],
+			windowContent: [
+				{
+					title: "GANNI x Levi's",
+					contentId: 'levis-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						collectionId: 'GANNIXLEVIS'
 					}
 				}
 			]
