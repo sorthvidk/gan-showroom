@@ -146,11 +146,25 @@
 	}
 
 	&-video {
-		display: flex;
-		flex-direction: column;
+		position: absolute;
+		bottom: 100%;
+		right: 0;
+		left: 0;
 
-		video {
+		> div {
+			position: relative;
+			height: rem(150);
+			background: $color-darkgrey;
+		}
+			
+		iframe, object, embed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 			width: 100%;
+			height: rem(150);
 		}
 
 		p {
