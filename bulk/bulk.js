@@ -12,32 +12,23 @@ const patchCollection = item => {
 }
 
 fileMA.forEach(item => {
-	// console.log(
-	// 	`${date.getFullYear()}-${date.getDate()}-${item['STYLE #']}}`,
-	// 	item
-	// )
-	fs.writeFile(
-		`../assets/content/mediaAssets/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}-${item['assetId'].replace(' ','_')}-${item['styleId']}.json`,
-		JSON.stringify(item),
+	let fn = `../assets/content/mediaAssets/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}-${item['assetId']}-${item['styleId']}.json`;
+	fn = fn.replace(/ /g,'_')
+	fs.writeFile(fn, JSON.stringify(item),
 		err => {
 			if (err) throw err
-			console.log('Media assets done')
+			console.log(`Media asset ${fn} done`)
 		}
 	)
 })
 
-
 fileCI.forEach(item => {
-	// console.log(
-	// 	`${date.getFullYear()}-${date.getDate()}-${item['STYLE #']}}`,
-	// 	item
-	// )
-	fs.writeFile(
-		`../assets/content/collectionItems/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}-${item['collectionId']}-${item['styleId']}.json`,
-		JSON.stringify(item),
+	let fn = `../assets/content/collectionItems/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}-${item['collectionId']}-${item['styleId']}.json`;
+	fn = fn.replace(/ /g,'_')
+	fs.writeFile(fn, JSON.stringify(item),
 		err => {
 			if (err) throw err
-			console.log('Collection items done')
+			console.log(`Collection item ${fn} done`)
 		}
 	)
 })
