@@ -1,1 +1,10 @@
-{"assetId":"F5930_Egret 1","styleId":"F5930135","name":"F5930135_Sarong","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5930_Egret 1",
+  "styleId": "F5930135",
+  "name": "F5930135_Sarong",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597825439/SS21/Packshots/F5930_6224_135_gtnxym.jpg"
+}
