@@ -86,7 +86,7 @@ export const state = () => ({
 			shortcutId: 'collection-software',
 			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/collage/dress3.png',
-			label: 'SOFTWARE',
+			label: 'GANNI Software',
 			posH: 4,
 			posV: 2,
 			actions: [
@@ -136,13 +136,13 @@ export const state = () => ({
 			shortcutId: 'films',
 			// icon: '/img/shortcuts/films.png',
 			icon: '/img/collage/dress4.png',
-			label: 'PS21 Films',
+			label: 'SS21 Films',
 			posH: 2,
 			posV: 1,
 			windowContent: [
 				{
-					title: 'PS21 films',
-					contentId: 'ps21-films',
+					title: 'SS21 films',
+					contentId: 'ss21-films',
 					type: ContentTypes.films,
 					canOverride: true,
 					statusComponentProps: {
@@ -344,12 +344,12 @@ export const state = () => ({
 			shortcutId: 'artists',
 			// icon: '/img/shortcuts/look_book.png',
 			icon: '/img/collage/dress1.png',
-			label: 'Artists',
+			label: '202020 Exhibition',
 			posH: 6,
 			posV: 2,
 			windowContent: [
 				{
-					title: 'GANNI 202020 Artists',
+					title: '202020 Exhibition',
 					contentId: 'artists',
 					type: ContentTypes.artists,
 					statusComponentProps: {
@@ -490,30 +490,13 @@ export const state = () => ({
 			]
 		},
 
+
+		// MARQUEE
+
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Welcome to the GANNI Space! Check out the ',
-			label: 'PS21 Collection',
-			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Take a look at the ',
-			label: 'Elevated Lookbook',
+			text: 'Welcome to the GANNI Space! Check out ',
+			label: 'the Elevated Lookbook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
@@ -524,30 +507,53 @@ export const state = () => ({
 					}
 				}
 			]
+		},{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Enjoy the GANNI ',
+			label: '202020 Exhibition',
+			windowContent: [
+				{
+					title: '202020 Exhibition',
+					contentId: 'artists',
+					type: ContentTypes.artists,
+					statusComponentProps: {
+						text: 'Check out the artists'
+					}
+				}
+			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Check out the ',
-			label: 'Design Darlings',
+			text: 'Check out ',
+			label: 'the software collection',
 			actions: [
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc2'
+					param: ''
 				},
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					param: CollectionLayouts.FUN
 				}
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					title: 'GANNI Software',
+					contentId: 'software-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					contentComponentProps: {
+						collectionId: 'SOFTWARE'
+					}
 				}
 			]
-		}
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Before you leave, check out our ',
+			label: 'Responsibility report (pdf)',
+			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
+		},
 		// {
 		// 	type: ShortcutTypes.MARQUEE,
 		// 	text: 'Meet the  ',

@@ -34,7 +34,10 @@ export default {
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action, OPEN_CONTENT.action]),
 		openWindow(link) {
-			if (!link.windowContent) {
+			
+			if (link.href) {
+				window.open(this.href, '_blank')
+			} else if (!link.windowContent) {
 				this[OPEN_STYLE_CONTENT.action](link.actionParam)
 			} else {
 				if (link.actions) {

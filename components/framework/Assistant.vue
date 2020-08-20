@@ -4,7 +4,7 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top">
-			<span class="title">Desktop assistant</span>
+			<span class="title">Tour guide</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->

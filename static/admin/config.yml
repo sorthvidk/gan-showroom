@@ -591,8 +591,8 @@ collections:
           widget: 'select',
           multiple: false,
           required: true,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
+          options: ['video', 'image', 'text'],
+          hint: 'Either image, video or text',
         }
       - {
           label: 'Aspect',
@@ -602,5 +602,13 @@ collections:
           options: ['landscape', 'portrait', 'square'],
           default: 'portrait',
           hint: 'Aspect of media',
+        }
+      - {
+          label: 'Text content',
+          name: 'text',
+          widget: 'text',
+          default: '',
+          required: false,
+          hint: "Raw text for text panel (only when using text asset)",
         }
 

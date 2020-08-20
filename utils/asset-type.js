@@ -25,6 +25,8 @@ export default function(asset) {
 					return ContentTypes.videoLandscape;
 				break;
 			}
+		case 'text':
+			return ContentTypes.textFile;
 		break;
 	}
 
