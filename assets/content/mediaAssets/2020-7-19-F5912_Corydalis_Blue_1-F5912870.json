@@ -1,1 +1,10 @@
-{"assetId":"F5912_Corydalis Blue 1","styleId":"F5912870","name":"F5912870_Mini Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5912_Corydalis Blue 1",
+  "styleId": "F5912870",
+  "name": "F5912870_Mini Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737009/SS21/Packshots/F5912_6170_870_ict4dn.jpg"
+}
