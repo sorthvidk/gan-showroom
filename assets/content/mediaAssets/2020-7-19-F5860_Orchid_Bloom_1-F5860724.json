@@ -1,1 +1,10 @@
-{"assetId":"F5860_Orchid Bloom 1","styleId":"F5860724","name":"F5860724_Blouse","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5860_Orchid Bloom 1",
+  "styleId": "F5860724",
+  "name": "F5860724_Blouse",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737004/SS21/Packshots/F5860_6172_724_gvmlaj.jpg"
+}
