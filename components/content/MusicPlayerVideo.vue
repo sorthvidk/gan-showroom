@@ -1,7 +1,7 @@
 <template>
   <div class="music-player-video">
     <vimeo-player ref="player" :video-id="currentVideo.videoID" v-on:ready="onReady" v-on:ended="onEnded" controls="false" autoplay="true" muted="true"></vimeo-player>
-    <p v-html="currentVideo.copy" />
+    <p v-html="copy" />
   </div>
 </template>
 
@@ -27,22 +27,19 @@ export default {
       options: {},      
       playerReady: false,
       videoCount: 0,
+      copy: "MARIA “DECIDA” WAHLBERG<br>STOCKHOLM<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO",
       videos: [
         {
-          videoID: '408058683',
-          copy: '1 MARIA “DECIDA” WAHLBERG<br>STOCKHOLM<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO'
+          videoID: '449217842'
         },
         {
-          videoID: '449208807',
-          copy: '2 LARS ALLAN<br>CPH<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO'
+          videoID: '449219465'
         },
         {
-          videoID: '408058683',
-          copy: '3 MARIA “DECIDA” WAHLBERG<br>STOCKHOLM<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO'
+          videoID: '449224114'
         },
         {
-          videoID: '449208807',
-          copy: '4 LARS ALLAN<br>CPH<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO'
+          videoID: '449220946'
         }
       ]
     }
