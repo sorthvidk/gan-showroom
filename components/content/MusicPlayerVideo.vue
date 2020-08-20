@@ -1,6 +1,6 @@
 <template>
   <div class="music-player-video">
-    <vimeo-player ref="player" :video-id="currentVideo.videoID" v-on:ready="onReady" v-on:ended="onEnded" controls="false" autoplay="true" muted="true"></vimeo-player>
+    <vimeo-player ref="player" :video-id="currentVideo.videoID" v-on:ready="onReady" v-on:ended="onEnded" controls="false" autoplay="true" muted="true" height="198" width="270"></vimeo-player>
     <p v-html="copy" />
   </div>
 </template>
@@ -30,16 +30,16 @@ export default {
       copy: "MARIA “DECIDA” WAHLBERG<br>STOCKHOLM<br>“202020 DANCE FILM – THRESHOLD”<br>HD DIGITAL VIDEO",
       videos: [
         {
-          videoID: '449217842'
+          videoID: '449670725'
         },
         {
-          videoID: '449219465'
+          videoID: '449670725'
         },
         {
-          videoID: '449224114'
+          videoID: '449670725'
         },
         {
-          videoID: '449220946'
+          videoID: '449670725'
         }
       ]
     }

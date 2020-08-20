@@ -149,7 +149,8 @@
 
 		> div {
 			position: relative;
-			height: rem(150);
+			height: rem(198);
+			width: rem(270);
 			background: $color-darkgrey;
 		}
 			
@@ -160,7 +161,7 @@
 			right: 0;
 			bottom: 0;
 			width: 100%;
-			height: rem(150);
+			height: 100%;
 		}
 
 		p {

@@ -441,7 +441,7 @@ export default {
 		]),
 		...mapState('collage', ['clothes']),
 		collectionName() {
-			return this.collections.find(collection => collection.collectionId === this.currentCollectionId).name
+			return this.collections.find(collection => collection.collectionId === this.currentCollectionId).name.toUpperCase();
 		},
 		currentCollectionFilters() {
 			return this.data[this.currentCollectionId]
