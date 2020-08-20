@@ -1,1 +1,10 @@
-{"assetId":"F5833_Sky Captain 1","styleId":"F5833683","name":"F5833683_Pants","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5833_Sky Captain 1",
+  "styleId": "F5833683",
+  "name": "F5833683_Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737002/SS21/Packshots/F5833_6203_683_uxvesv.jpg"
+}
