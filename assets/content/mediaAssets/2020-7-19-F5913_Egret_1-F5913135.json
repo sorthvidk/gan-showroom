@@ -1,1 +1,10 @@
-{"assetId":"F5913_Egret 1","styleId":"F5913135","name":"F5913135_Kaftan","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5913_Egret 1",
+  "styleId": "F5913135",
+  "name": "F5913135_Kaftan",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737009/SS21/Packshots/F5913_6224_135_ov4wb0.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"F5908_Corydalis Blue 1","styleId":"F5908870","name":"F5908870_Twist Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5908_Corydalis Blue 1",
+  "styleId": "F5908870",
+  "name": "F5908870_Twist Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737009/SS21/Packshots/F5908_6170_870_tstjyg.jpg"
+}
