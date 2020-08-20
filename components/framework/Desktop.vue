@@ -178,7 +178,7 @@ export default {
 			viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
 			showDownloadMessage: false,
-			wallpaperCount: 6,
+			wallpaperCount: 4,
 			showColorPicker: false,
 			colorPickerStyleItem: null
 		}
@@ -208,9 +208,9 @@ export default {
 		},
 		backgroundImageObj() {
 			return {
-				src: `/img/wallpapers/wallpaper3.jpg`
+				// src: `/img/wallpapers/wallpaper3.jpg`
+				src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 			}
-			// src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
 		},
 		authenticatedShortcuts() {
