@@ -89,18 +89,13 @@ export const state = () => ({
 			label: 'SOFTWARE',
 			posH: 4,
 			posV: 2,
-			actions: [
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
-				}
-			],
 			windowContent: [
 				{
 					title: 'GANNI Software',
 					contentId: 'software-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
 						collectionId: 'SOFTWARE'
 					}
 				}
@@ -109,23 +104,17 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection-levis',
-			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/collage/dress3.png',
 			label: "GANNI x Levi's",
 			posH: 4,
 			posV: 3,
-			actions: [
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
-				}
-			],
 			windowContent: [
 				{
 					title: "GANNI x Levi's",
 					contentId: 'levis-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
 						collectionId: 'GANNIXLEVIS'
 					}
 				}
@@ -370,10 +359,6 @@ export const state = () => ({
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
 					param: 'misc4'
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
 				}
 			],
 			windowContent: [
@@ -382,6 +367,7 @@ export const state = () => ({
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
 						collectionId: 'PS21'
 					}
 				}
