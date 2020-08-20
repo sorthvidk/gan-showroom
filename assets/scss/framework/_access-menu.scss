@@ -1,0 +1,46 @@
+.access-menu {
+	position: fixed;
+	top: rem(30);
+	right: rem(30);
+	z-index: 10000;
+	color: $color-202020-green;
+
+	&__trigger {
+		cursor: pointer;
+		font-weight: bold;
+		font-family: inherit;
+
+		&.open {
+			color: $color-202020-red;
+		}
+	}
+
+	&__panel {
+		display: none;
+
+		position: absolute;
+		right: 0;
+		top: rem(30);
+		background: white;
+		padding: rem(50);
+
+		&.open {
+			display: block;
+		}
+
+		.shortcut {
+			height: auto;
+
+			.icon {
+				display: none;
+			}
+
+			.text {
+				position: static;
+				font-size: rem(20);
+				white-space: nowrap;
+				transform: none;
+			}
+		}
+	}
+}

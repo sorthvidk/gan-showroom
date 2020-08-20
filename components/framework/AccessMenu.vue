@@ -1,11 +1,11 @@
 <template>
 	<div class="access-menu">
 		
-		<button class="access-menu__trigger">
-			🍔
+		<button class="access-menu__trigger" @click="() => open = !open" :class="{ open }">
+			||| ARCHIVE
 		</button>
 
-		<div class="access-menu__panel">
+		<div class="access-menu__panel" :class="{ open }">
 			<ul>
 				<li>
 					<shortcut
@@ -24,6 +24,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 
 import Support from '~/components/framework/Support.vue'
+import Shortcut from '~/components/framework/Shortcut.vue'
 
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
@@ -36,6 +37,7 @@ export default {
 	},
 	data() {
 		return {
+			open: false,
 			menuItems: [
 				{
 					type: ShortcutTypes.WINDOW,
@@ -45,12 +47,6 @@ export default {
 					label: 'PS21 collection',
 					posH: 1,
 					posV: 1,
-					actions: [
-						{
-							name: COLLECTION_LAYOUT_CHANGE.action,
-							param: CollectionLayouts.GRID
-						}
-					],
 					windowContent: [
 						{
 							title: 'PS21 collection',
@@ -66,9 +62,7 @@ export default {
 		}
 	},	
 	computed: {
-		...mapState({
-			progressPct: state => state.progressPct
-		}),
+		...mapState(['progressPct']),
 		text() {
 			if ( this.progressPct == 0 ) return this.textStart;
 			else if (this.progressPct == 100 ) return this.textEnd;

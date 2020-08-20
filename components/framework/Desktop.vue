@@ -65,7 +65,7 @@
 				<support />
 			</div>
 
-			<aceess-menu/>
+			<access-menu/>
 			<marquee v-if="viewPortSize.name == 'LARGE'" />
 
 			<!-- <div class="logo">
