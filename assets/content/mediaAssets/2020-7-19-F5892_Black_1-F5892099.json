@@ -1,1 +1,10 @@
-{"assetId":"F5892_Black 1","styleId":"F5892099","name":"F5892099_Jumpsuit","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5892_Black 1",
+  "styleId": "F5892099",
+  "name": "F5892099_Jumpsuit",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737007/SS21/Packshots/F5892_6214_099_uvgcgg.jpg"
+}
