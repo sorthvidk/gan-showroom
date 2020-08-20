@@ -39,18 +39,13 @@ export const state = () => ({
 			label: 'PS21 collection',
 			posH: 1,
 			posV: 1,
-			actions: [
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
+						layout: CollectionLayouts.GRID,
 						collectionId: 'PS21'
 					}
 				}
@@ -64,18 +59,13 @@ export const state = () => ({
 			label: 'SS21 Collection',
 			posH: 4,
 			posV: 1,
-			actions: [
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
 			windowContent: [
 				{
 					title: 'SS21 Collection',
 					contentId: 'ss21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
+						layout: CollectionLayouts.GRID,
 						collectionId: 'SS21'
 					}
 				}
@@ -476,7 +466,6 @@ export const state = () => ({
 			]
 		},
 
-
 		// MARQUEE
 
 		{
@@ -493,7 +482,8 @@ export const state = () => ({
 					}
 				}
 			]
-		},{
+		},
+		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Enjoy the GANNI ',
 			label: '202020 Exhibition',
@@ -516,10 +506,6 @@ export const state = () => ({
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
 					param: ''
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
 				}
 			],
 			windowContent: [
@@ -529,6 +515,7 @@ export const state = () => ({
 					type: ContentTypes.collection,
 					canOverride: true,
 					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
 						collectionId: 'SOFTWARE'
 					}
 				}
@@ -539,7 +526,7 @@ export const state = () => ({
 			text: 'Before you leave, check out our ',
 			label: 'Responsibility report (pdf)',
 			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
-		},
+		}
 		// {
 		// 	type: ShortcutTypes.MARQUEE,
 		// 	text: 'Meet the  ',
