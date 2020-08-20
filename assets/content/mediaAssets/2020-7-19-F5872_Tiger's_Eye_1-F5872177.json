@@ -1,1 +1,10 @@
-{"assetId":"F5872_Tiger's Eye 1","styleId":"F5872177","name":"F5872177_Skirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5872_Tiger's Eye 1",
+  "styleId": "F5872177",
+  "name": "F5872177_Skirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737005/SS21/Packshots/F5872_6102_177_efeywy.jpg"
+}
