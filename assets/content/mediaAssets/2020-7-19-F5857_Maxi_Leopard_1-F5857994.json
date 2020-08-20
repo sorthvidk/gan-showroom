@@ -1,1 +1,10 @@
-{"assetId":"F5857_Maxi Leopard 1","styleId":"F5857994","name":"F5857994_Strap Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5857_Maxi Leopard 1",
+  "styleId": "F5857994",
+  "name": "F5857994_Strap Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737004/SS21/Packshots/F5857_6172_994_dljwyq.jpg"
+}
