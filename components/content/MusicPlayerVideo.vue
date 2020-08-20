@@ -33,27 +33,25 @@ export default {
           videoID: '449670725'
         },
         {
-          videoID: '449670725'
+          videoID: '449679851'
         },
         {
-          videoID: '449670725'
+          videoID: '449679806'
         },
         {
-          videoID: '449670725'
+          videoID: '449679720'
         }
       ]
     }
   },
   methods: {
     onReady(instance) {
-      // console.log("VIDEO READY",instance)
-      
+      // console.log("VIDEO READY",instance)      
       // try { instance.mute() } catch (e) {}
       try { this.$refs.player.mute() } catch (e) {}
     },
     onEnded() {
       // console.log("VIDEO ENDED, PLAY NEXT")
-
       this.currentVideoId ++;
       if ( this.currentVideoId == this.videoCount ) this.currentVideoId = 0;
     },

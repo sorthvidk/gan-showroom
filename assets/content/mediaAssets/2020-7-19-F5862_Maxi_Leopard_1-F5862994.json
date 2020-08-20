@@ -1,1 +1,10 @@
-{"assetId":"F5862_Maxi Leopard 1","styleId":"F5862994","name":"F5862994_Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5862_Maxi Leopard 1",
+  "styleId": "F5862994",
+  "name": "F5862994_Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737005/SS21/Packshots/F5862_6172_994_kswy3k.jpg"
+}

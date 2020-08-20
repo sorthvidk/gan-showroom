@@ -1,1 +1,10 @@
-{"assetId":"F5874_Tiger's Eye 1","styleId":"F5874177","name":"F5874177_Belt Pants","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5874_Tiger's Eye 1",
+  "styleId": "F5874177",
+  "name": "F5874177_Belt Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737006/SS21/Packshots/F5874_6102_177_dgl9ip.jpg"
+}

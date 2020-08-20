@@ -1,1 +1,10 @@
-{"assetId":"F5873_Tiger's Eye 1","styleId":"F5873177","name":"F5873177_Blazer","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5873_Tiger's Eye 1",
+  "styleId": "F5873177",
+  "name": "F5873177_Blazer",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737006/SS21/Packshots/F5873_6102_177_onq4dp.jpg"
+}

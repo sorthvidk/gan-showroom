@@ -91,7 +91,7 @@ export const state = () => ({
 	copyrightAccepted: false,
 
 	musicPlaying: false,
-	musicPlayerSlim: true,
+	musicPlayerSlim: false,
 	songs: [
 		{
 			title: 'All Saints - Never Ever.mp3',
