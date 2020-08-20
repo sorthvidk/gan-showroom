@@ -381,7 +381,9 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					contentComponentProps: {
+						collectionId: 'PS21'
+					}
 				}
 			]
 		},

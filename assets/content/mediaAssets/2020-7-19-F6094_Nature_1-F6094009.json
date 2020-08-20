@@ -1,1 +1,10 @@
-{"assetId":"F6094_Nature 1","styleId":"F6094009","name":"F6094009_Jacket","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F6094_Nature 1",
+  "styleId": "F6094009",
+  "name": "F6094009_Jacket",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737136/SS21/Packshots/LEVI%27s%20Commercial/87493-0000_t11bou.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"K1520_Sky Captain 1","styleId":"K1520683","name":"K1520683_Zip Cardigan","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "K1520_Sky Captain 1",
+  "styleId": "K1520683",
+  "name": "K1520683_Zip Cardigan",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737014/SS21/Packshots/K1520_2509_683_xhpfuu.jpg"
+}

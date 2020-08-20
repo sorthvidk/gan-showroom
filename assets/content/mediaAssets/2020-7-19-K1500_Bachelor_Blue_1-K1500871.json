@@ -1,1 +1,10 @@
-{"assetId":"K1500_Bachelor Blue 1","styleId":"K1500871","name":"K1500871_Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "K1500_Bachelor Blue 1",
+  "styleId": "K1500871",
+  "name": "K1500871_Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737011/SS21/Packshots/K1500_2509_871_nup7ja.jpg"
+}

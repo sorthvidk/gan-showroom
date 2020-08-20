@@ -1,1 +1,10 @@
-{"assetId":"K1504_Fossil 1","styleId":"K1504189","name":"K1504189_Vest","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "K1504_Fossil 1",
+  "styleId": "K1504189",
+  "name": "K1504189_Vest",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737011/SS21/Packshots/K1504_2508_189_vngvfs.jpg"
+}

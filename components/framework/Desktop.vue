@@ -320,6 +320,7 @@ export default {
 			})
 		},
 		randomPos(n, long) {
+			// if(this.viewPortSize === ViewportSizes.SMALL) return 0
 			return Math.sin(n * 2579.54) * (window.innerHeight / 3) * (long ? (window.innerWidth / window.innerHeight) : 1)
 		}
 	},

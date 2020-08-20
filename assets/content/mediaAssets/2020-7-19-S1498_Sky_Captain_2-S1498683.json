@@ -1,1 +1,10 @@
-{"assetId":"S1498_Sky Captain 2","styleId":"S1498683","name":"S1498683_Retro Sneaker","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "S1498_Sky Captain 2",
+  "styleId": "S1498683",
+  "name": "S1498683_Retro Sneaker",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597825441/SS21/Packshots/S1498_4777_683_2_jwi7xt.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"S1490_Black 2","styleId":"S1490099","name":"S1490099_Low Chelsea Boot","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "S1490_Black 2",
+  "styleId": "S1490099",
+  "name": "S1490099_Low Chelsea Boot",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737017/SS21/Packshots/S1490_4682_099_spvdlm.jpg"
+}
