@@ -1,1 +1,10 @@
-{"assetId":"F5834_Sky Captain 1","styleId":"F5834683","name":"F5834683_Jacket","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5834_Sky Captain 1",
+  "styleId": "F5834683",
+  "name": "F5834683_Jacket",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737002/SS21/Packshots/F5834_6200_683_xxsdvo.jpg"
+}
