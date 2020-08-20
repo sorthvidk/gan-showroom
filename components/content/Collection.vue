@@ -1,5 +1,5 @@
 <template>
-	<div class="collection" :class="{'collection--fun': layout == 1}">
+	<div class="collection" :class="{'collection--fun': currentLayout == 1}">
 		<div class="collection__drop"
 			v-for="(drop,dropKey) in dropsList"
 			:key="'drop'+dropKey">
@@ -9,6 +9,7 @@
 					v-for="(item, itemKey) in drop.styles"
 					:key="'collectionItem'+itemKey"
 					v-bind="item"
+					v-on="$listeners"
 				/>
 			</div>
 		</div>
@@ -27,7 +28,7 @@ export default {
 		CollectionItem
 	},
 	props: {
-		layout: { type: Number, default: 0 },
+		currentLayout: { type: Number, default: 0 },
 		collectionId: { type: String, default: '' }
 	},
 	computed: {
@@ -60,7 +61,7 @@ export default {
 
 			console.log("drops",drops)
 			return drops;
-		}
+		},
 	}
 }
 </script>

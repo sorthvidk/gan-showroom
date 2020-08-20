@@ -1,4 +1,4 @@
-import { SET_CURRENT_FILTER, COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
+import { SET_CURRENT_FILTER } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
@@ -45,7 +45,7 @@ export const state = () => ({
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
-						layout: CollectionLayouts.GRID,
+						// layout: CollectionLayouts.GRID,
 						collectionId: 'PS21'
 					}
 				}
@@ -65,7 +65,7 @@ export const state = () => ({
 					contentId: 'ss21-collection',
 					type: ContentTypes.collection,
 					contentComponentProps: {
-						layout: CollectionLayouts.GRID,
+						// layout: CollectionLayouts.GRID,
 						collectionId: 'SS21'
 					}
 				}
