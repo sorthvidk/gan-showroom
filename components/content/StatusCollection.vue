@@ -5,8 +5,8 @@
 		<div class="layout-buttons">
 			<button
 				class="button layout-grid"
-				:class="{'is-active': collectionLayout == 0}"
-				@click="layoutGridClickHandler"
+				:class="{'is-active': layout == 0}"
+				@click="changeLayout(CollectionLayouts.GRID)"
 			>
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -16,8 +16,8 @@
 			</button>
 			<button
 				class="button layout-fun"
-				:class="{'is-active': collectionLayout == 1}"
-				@click="layoutFunClickHandler"
+				:class="{'is-active': layout == 1}"
+				@click="changeLayout(CollectionLayouts.FUN)"
 			>
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -34,27 +34,34 @@ import { vuex, mapActions, mapState } from 'vuex'
 
 import CollectionLayouts from '~/model/collection-layouts'
 
-import { COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
+// import { COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
 
 export default {
 	name: 'status-collection',
 	props: {
+		layout: { type: Number, default: 0 },
 		collectionId: { type: String, default: '' }
 	},
+	data: () => ({
+		CollectionLayouts,
+	}),
 	computed: {
-		...mapState(['collectionLayout']),
+		// ...mapState(['collectionLayout']),
 		...mapState('collection', ['data']),
 		text() {
 			return this.data[this.collectionId].styles.length + ' items'
 		}
 	},
 	methods: {
-		...mapActions([COLLECTION_LAYOUT_CHANGE.action]),
-		layoutGridClickHandler() {
-			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.GRID)
-		},
-		layoutFunClickHandler() {
-			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.FUN)
+		// ...mapActions([COLLECTION_LAYOUT_CHANGE.action]),
+		// layoutGridClickHandler() {
+		// 	this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.GRID)
+		// },
+		// layoutFunClickHandler() {
+		// 	this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.FUN)
+		// },
+		changeLayout(val) {
+			this.$emit('layout-change', val)
 		}
 	}
 }
