@@ -1,12 +1,29 @@
 .collection {
-	display: flex;
-	flex-wrap: wrap;
 	padding: rem(5);
-	align-items: flex-start;
 	@include mq($from: screen-md) {
 		padding: rem(25);
 	}
 
+	&__drop {	
+		h4 {
+			padding: 0 0 rem(5);
+			margin-bottom: rem(5);
+			border-bottom: rem(1) solid $color-lightgrey;
+			@include windowtitle();
+			display: block;			
+		}	
+		> div {				
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+
+	}
+	&__drop + &__drop {
+		margin-top: rem(30);
+	}
+
+	
 	.collection-item {
 		display: block;
 		padding: rem(5);

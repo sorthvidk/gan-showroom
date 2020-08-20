@@ -165,6 +165,10 @@
 									<td>{{currentStyle.styleId}}</td>
 								</tr>
 								<tr>
+									<th>Drop</th>
+									<td>{{currentStyle.drop}}</td>
+								</tr>
+								<tr>
 									<th>Program #</th>
 									<td>{{currentStyle.program}}</td>
 								</tr>
@@ -437,7 +441,7 @@ export default {
 		]),
 		...mapState('collage', ['clothes']),
 		collectionName() {
-			return this.data[this.currentCollectionId].name
+			return this.collections.find(collection => collection.collectionId === this.currentCollectionId).name
 		},
 		currentCollectionFilters() {
 			return this.data[this.currentCollectionId]

@@ -244,6 +244,8 @@
 			text-align: left;
 			box-sizing: border-box;
 
+
+
 			&:hover {
 				background-color: $color-black;
 			}
@@ -268,6 +270,9 @@
 			&--half {
 				flex: 0 0 50%;
 				// border-right: rem(1) solid $color-202020-red;
+				p {
+					max-width: rem(110);
+				}
 			}
 		}
 		.button--half + .button--half {
