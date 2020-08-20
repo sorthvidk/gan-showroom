@@ -64,6 +64,8 @@
 				<assistant />
 				<support />
 			</div>
+
+			<aceess-menu/>
 			<marquee v-if="viewPortSize.name == 'LARGE'" />
 
 			<!-- <div class="logo">
@@ -151,6 +153,7 @@ import addMediaChangeListener from '~/utils/media-change'
 import ViewportSizes from '~/model/viewport-sizes'
 import ShortcutTypes from '~/model/shortcut-types'
 
+import AccessMenu from '~/components/framework/AccessMenu.vue'
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
@@ -164,6 +167,7 @@ import ContentTypes from '~/model/content-types'
 export default {
 	name: 'desktop',
 	components: {
+		AccessMenu,
 		ProgressBar,
 		Shortcut,
 		Window,
@@ -208,7 +212,6 @@ export default {
 		},
 		backgroundImageObj() {
 			return {
-				// src: `/img/wallpapers/wallpaper3.jpg`
 				src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 			}
 			// loading: '/img/login-slide.jpg'
