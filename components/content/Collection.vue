@@ -1,10 +1,10 @@
 <template>
-	<div class="collection" :class="{'collection--fun': collectionLayout == 1}">
+	<div class="collection" :class="{'collection--fun': layout == 1}">
 		<div class="collection__drop"
 			v-for="(drop,dropKey) in dropsList"
 			:key="'drop'+dropKey">
 			<h4 v-if="dropsList.length > 1">{{drop.label}}</h4>
-			<div>				
+			<div>
 				<collection-item
 					v-for="(item, itemKey) in drop.styles"
 					:key="'collectionItem'+itemKey"
@@ -27,10 +27,11 @@ export default {
 		CollectionItem
 	},
 	props: {
+		layout: { type: Number, default: 0 },
 		collectionId: { type: String, default: '' }
 	},
 	computed: {
-		...mapState(['collectionLayout']),
+		// ...mapState(['collectionLayout']),
 		...mapState('collection', ['data', 'activeFilters', 'currentCollectionId']),
 		filteredCollection() {
 			const currentCollection = this.data[this.collectionId].styles

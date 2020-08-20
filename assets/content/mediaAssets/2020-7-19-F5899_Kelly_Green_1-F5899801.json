@@ -1,1 +1,10 @@
-{"assetId":"F5899_Kelly Green 1","styleId":"F5899801","name":"F5899801_Sleevesless Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5899_Kelly Green 1",
+  "styleId": "F5899801",
+  "name": "F5899801_Sleevesless Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737008/SS21/Packshots/F5899_6190_801_xm3ray.jpg"
+}

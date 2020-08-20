@@ -34,8 +34,10 @@
 			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
 				<component
 					:is="statusComponent"
-					v-bind="statusComponentProps"
+					v-bind="{layout, ...statusComponentProps}"
 					:collectionId="contentComponentProps ? contentComponentProps.collectionId : ''"
+					:layout="contentComponentProps ? contentComponentProps.layout : ''"
+					@layout-change="changeLayout"
 				/>
 			</div>
 
@@ -45,7 +47,7 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="contentComponentProps"
+					v-bind="{ layout, ...contentComponentProps }"
 					ref="contentComponent"
 				/>
 			</div>
@@ -232,6 +234,8 @@ export default {
 
 			transformOrigin: 0,
 
+			layout: 0,
+
 			savedAttributes: {
 				x: 0,
 				y: 0,
@@ -360,10 +364,15 @@ export default {
 			})
 
 			this.contentActivateHandler()
-		}
+		},
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
+
+		changeLayout(val) {
+			this.layout = val
+			console.log('new layout', this.layout)
+		}
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)

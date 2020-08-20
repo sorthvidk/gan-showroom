@@ -1,1 +1,10 @@
-{"assetId":"F5883_Sharkskin 1","styleId":"F5883256","name":"F5883256_Mini Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5883_Sharkskin 1",
+  "styleId": "F5883256",
+  "name": "F5883256_Mini Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737007/SS21/Packshots/F5883_6196_256_siemqx.jpg"
+}

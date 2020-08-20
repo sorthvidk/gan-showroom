@@ -1,1 +1,10 @@
-{"assetId":"F5884_Sharkskin 1","styleId":"F5884256","name":"F5884256_Puff Sleeve Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5884_Sharkskin 1",
+  "styleId": "F5884256",
+  "name": "F5884256_Puff Sleeve Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737007/SS21/Packshots/F5884_6196_256_w4ynwr.jpg"
+}
