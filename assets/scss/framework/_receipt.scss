@@ -5,7 +5,7 @@
 .receipt {
 	position: relative;
 	min-height: 20cm;
-	
+
 	&__title {
 		@include megatype();
 		font-size: 14vw; // fills the 'screen'
@@ -14,6 +14,7 @@
 		// border-bottom: 1px solid;
 		margin-top: 1rem;
 		margin-bottom: -0.5rem;
+		color: $color-202020-green;
 	}
 
 	* {
@@ -43,8 +44,17 @@
 
 			.title {
 				font-size: 1.5em;
-				height: 3.2cm;
 			}
+		}
+	}
+
+	tr {
+		> * {
+			padding-right: 1em;
+		}
+
+		&:nth-of-type(even) {
+			background-color: rgba(0, 0, 0, 0.025);
 		}
 	}
 
