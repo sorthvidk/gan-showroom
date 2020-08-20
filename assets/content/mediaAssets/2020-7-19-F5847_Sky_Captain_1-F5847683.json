@@ -1,1 +1,10 @@
-{"assetId":"F5847_Sky Captain 1","styleId":"F5847683","name":"F5847683_Oversized Vest","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5847_Sky Captain 1",
+  "styleId": "F5847683",
+  "name": "F5847683_Oversized Vest",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737003/SS21/Packshots/F5847_6200_683_e0tmme.jpg"
+}
