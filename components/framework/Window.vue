@@ -34,12 +34,12 @@
 			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
 				<component
 					:is="statusComponent"
-					v-bind="{layout, ...statusComponentProps}"
+					v-bind="{currentLayout, ...statusComponentProps}"
 					:collectionId="contentComponentProps ? contentComponentProps.collectionId : ''"
-					:layout="contentComponentProps ? contentComponentProps.layout : ''"
 					@layout-change="changeLayout"
 				/>
 			</div>
+					<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
 
 			<hr v-if="!noStatus" />
 
@@ -47,8 +47,9 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{ layout, ...contentComponentProps }"
+					v-bind="{ currentLayout, ...contentComponentProps }"
 					ref="contentComponent"
+					@activate="contentActivateHandler"
 				/>
 			</div>
 		</vue-draggable-resizable>
@@ -234,7 +235,7 @@ export default {
 
 			transformOrigin: 0,
 
-			layout: 0,
+			currentLayout: (this.contentComponentProps && this.contentComponentProps.layout) || 0,
 
 			savedAttributes: {
 				x: 0,
@@ -370,8 +371,8 @@ export default {
 		// },
 
 		changeLayout(val) {
-			this.layout = val
-			console.log('new layout', this.layout)
+			this.currentLayout = val
+			console.log('new layout', this.currentLayout)
 		}
 	},
 	mounted() {

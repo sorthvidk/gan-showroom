@@ -5,7 +5,7 @@
 		<div class="layout-buttons">
 			<button
 				class="button layout-grid"
-				:class="{'is-active': layout == 0}"
+				:class="{'is-active': currentLayout == 0}"
 				@click="changeLayout(CollectionLayouts.GRID)"
 			>
 				<span class="icon">
@@ -16,7 +16,7 @@
 			</button>
 			<button
 				class="button layout-fun"
-				:class="{'is-active': layout == 1}"
+				:class="{'is-active': currentLayout == 1}"
 				@click="changeLayout(CollectionLayouts.FUN)"
 			>
 				<span class="icon">
@@ -39,7 +39,7 @@ import CollectionLayouts from '~/model/collection-layouts'
 export default {
 	name: 'status-collection',
 	props: {
-		layout: { type: Number, default: 0 },
+		currentLayout: { type: Number, default: 0 },
 		collectionId: { type: String, default: '' }
 	},
 	data: () => ({

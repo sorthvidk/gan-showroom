@@ -56,6 +56,7 @@ export default {
 			sendTracking('Product click', this.styleId)
 			this[CURRENT_COLLECTION_ID.action](this.collectionId)
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
+			this.$emit('activate')
 		}
 	}
 }
