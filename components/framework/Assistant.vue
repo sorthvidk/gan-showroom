@@ -485,17 +485,18 @@ export default {
 			return this.hiddenAssetContent.length > 0
 		},
 		wishListUrl() {
+			// ex: /export/?styles=K1489~Dutch%20Blue.White,K1446
 			return `${window.location}export/?styles=${this.activeWishlist
-				.map(style => style.styleItem.styleId)
+				.map(({styleItem, chosenColorList = false}) => `${styleItem.styleId + (chosenColorList ? `~${chosenColorList.join('.')}` : '')}`)
 				.join(',')}`
 		},
 		collectionUrl() {
 			if (
-				this.activeFilters[this.currentCollectionId] &&
-				this.activeFilters[this.currentCollectionId].filterId
+				this.activeFilters[this.currentCollectionId]
 			) {
 				return `${window.location}export/?styles=${
-					this.activeFilters[this.currentCollectionId].filterId
+					this.currentCollectionId + '_' +
+					this.activeFilters[this.currentCollectionId]
 				}`
 			}
 			// /export with no params shows all styles
@@ -563,7 +564,7 @@ export default {
 									style => style.styleId === componentProps.asset.styleId
 								)
 								this.parseAssets()
-							}, 1000)
+							}, 100)
 						} else {
 							noRelevantAssistantContent = true
 						}

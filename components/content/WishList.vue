@@ -3,7 +3,7 @@
 		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
 			<div
 				class="wish-list__overview__item"
-				v-for="(item, index) in activeWishlist"
+				v-for="(item, index) in sortedWishlist"
 				:key="'wishListItem'+index"
 				:class="{'is-active': currentWishListIndex == index}"
 			>
@@ -28,7 +28,7 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
-				<div class="inner" v-if="activeWishlist.length < 1">
+				<div class="inner" v-if="sortedWishlist.length < 1">
 					<p>Your wish list is empty!</p>
 				</div>
 				<div
@@ -124,6 +124,11 @@
 								<th>Suggested retail price</th>
 								<td>USD {{currentWishListItem.styleItem.retailPriceUSD}}</td>
 							</tr>
+							
+							<tr>
+								<th>WEIGHT</th>
+								<td>{{currentWishListItem.styleItem.weight}}</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -131,7 +136,7 @@
 		</transition>
 		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
-				v-for="(item, key) in activeWishlist"
+				v-for="(item, key) in sortedWishlist"
 				:key="'wishListItem'+key"
 				:wish-list-item="item"
 			/>
@@ -149,6 +154,7 @@ import {
 } from '~/model/constants'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import { sortDeep } from '~/utils/sort-array-multiple'
 
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
@@ -180,6 +186,9 @@ export default {
 			return this.wishList.filter(item =>
 				activeCollections.includes(item.styleItem.collectionId)
 			)
+		},
+		sortedWishlist() {
+			return sortDeep('styleItem.weight', this.activeWishlist)
 		},
 		currentWishListItem() {
 			if (this.activeWishlist.length > 0)
