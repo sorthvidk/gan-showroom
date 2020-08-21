@@ -161,7 +161,8 @@
 	background-size: cover;
 	background-position: center;
 	display: flex;
-	align-items: flex-end;
+	// align-items: flex-end;
+	align-items: center;
 	font-weight: 500;
 	line-height: 0.9;
 
@@ -181,12 +182,22 @@
 	}
 
 	.logo {
-		top: auto;
-		bottom: rem(80);
+		// top: auto;
+		// bottom: rem(80);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
 
 		svg {
 			opacity: 1;
 			fill: $color-lime;
 		}
+	}
+
+	&__copy {
+		text-align: center;
+		padding: 0 rem(20);
+		color: $color-white;
+		font-size: 4vw;
 	}
 }

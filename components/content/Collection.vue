@@ -29,13 +29,18 @@ export default {
 	},
 	props: {
 		currentLayout: { type: Number, default: 0 },
-		collectionId: { type: String, default: '' }
+		collectionId: { type: String, default: '' },
 	},
+	// data() {
+	// 	return {
+	// 		collectionData: { styles: [] }
+	// 	}
+	// },
 	computed: {
 		// ...mapState(['collectionLayout']),
-		...mapState('collection', ['data', 'activeFilters', 'currentCollectionId']),
+		...mapState('collection', ['list', 'activeFilters']),
 		filteredCollection() {
-			const currentCollection = this.data[this.collectionId].styles
+			const currentCollection = this.list.filter(style => style.collectionId === this.collectionId)
 			const currentFilter = this.activeFilters[this.collectionId]
 
 			return !currentFilter
@@ -62,6 +67,11 @@ export default {
 			console.log("drops",drops)
 			return drops;
 		},
-	}
+	},
+	// mounted() {
+	// 	this.$nextTick(() => {
+	// 		this.collectionData = this.data[this.collectionId].styles
+	// 	})
+	// }
 }
 </script>

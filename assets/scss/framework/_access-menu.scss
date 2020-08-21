@@ -3,12 +3,13 @@
 	top: rem(30);
 	right: rem(30);
 	z-index: 10000;
-	color: $color-202020-green;
+	color: $color-white;
 
 	&__trigger {
 		cursor: pointer;
 		font-weight: bold;
 		font-family: inherit;
+		color: $color-202020-green;
 
 		&.open {
 			color: $color-202020-red;
@@ -21,8 +22,10 @@
 		position: absolute;
 		right: 0;
 		top: rem(30);
-		background: white;
-		padding: rem(50);
+		min-width: rem(266);
+		min-height: rem(100);
+		background: $color-202020-green;
+		padding: rem(5);
 
 		&.open {
 			display: block;
@@ -30,6 +33,7 @@
 
 		.shortcut {
 			height: auto;
+			width: fit-content;
 
 			.icon {
 				display: none;

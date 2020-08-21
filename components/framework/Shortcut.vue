@@ -106,11 +106,7 @@ export default {
 					for (let i = 0; i < this.item.actions.length; i++) {
 						let action = this.item.actions[i]
 						if (typeof action.param != "undefined")
-							if(typeof action.param === 'array') {
-								this.$store.dispatch(action.name, ...action.param)
-							} else {
-								this.$store.dispatch(action.name, action.param)
-							}
+							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					}
 				

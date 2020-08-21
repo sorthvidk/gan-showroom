@@ -2,7 +2,7 @@
 	<div class="access-menu">
 		
 		<button class="access-menu__trigger" @click="() => open = !open" :class="{ open }">
-			||| ARCHIVE
+			{{open ? '—' : '|||'}} ARCHIVE
 		</button>
 
 		<div class="access-menu__panel" :class="{ open }">

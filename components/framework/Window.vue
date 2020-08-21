@@ -49,7 +49,7 @@
 					:parent-window-id="windowId"
 					v-bind="{ currentLayout, ...contentComponentProps }"
 					ref="contentComponent"
-					@activate="contentActivateHandler"
+					@activate="putOnTop"
 				/>
 			</div>
 		</vue-draggable-resizable>
@@ -189,6 +189,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState('collection', ['currentCollectionId']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -217,7 +218,7 @@ export default {
 			if (this.noStatus) cn += ' window--no-status'
 
 			return cn
-		}
+		},
 	},
 	data: function() {
 		return {
@@ -242,7 +243,9 @@ export default {
 				y: 0,
 				w: 0,
 				h: 0
-			}
+			},
+
+			collectionData: { styles: [] }
 		}
 	},
 	methods: {
@@ -258,10 +261,15 @@ export default {
 				contentId: this.contentId
 			})
 		},
-		contentActivateHandler(e) {
+		putOnTop() {
+			if(this.contentComponentProps.collectionId === this.currentCollectionId) return
+
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
 			}
+		},
+		contentActivateHandler(e) {
+			this.putOnTop()
 
 			/**
 			 * If the window that is on top has a collectionId:
@@ -372,7 +380,6 @@ export default {
 
 		changeLayout(val) {
 			this.currentLayout = val
-			console.log('new layout', this.currentLayout)
 		}
 	},
 	mounted() {

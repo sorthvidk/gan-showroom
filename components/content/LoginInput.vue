@@ -46,8 +46,8 @@ export default {
 			isFocus: false,
 			showErrorMessage: false,
 			backgroundImageObj: {
-				src: '/img/login-bg.jpg',
-				loading: '/img/login-bg_lo.jpg'
+				src: '/img/intro/into_backgrounds4_low.jpg',
+				// loading: '/img/login-bg_lo.jpg'
 			}
 		}
 	},

@@ -8,9 +8,10 @@
     </div>
     <div class="music-player-video__controls">
 			<button class="button" @click="toggle">
-				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
-				</svg>
+				<svg style="padding: 15px;" v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 403 382">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M191 128V127V0L64 127H0V255H64L191 382V255V254V128Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M322.822 159.784L274.039 111L243 142.039L291.784 190.822L243 239.606L274.039 270.644L322.822 221.861L371.606 270.644L402.644 239.606L353.86 190.822L402.644 142.039L371.605 111L322.822 159.784Z" fill="white"/>
+        </svg>
 				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
 				</svg>
