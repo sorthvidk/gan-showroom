@@ -1,0 +1,122 @@
+.music-player-video {
+	position: fixed;
+	top: calc(100vh - 410px);
+	left: rem(10);
+	user-select: none !important;
+	cursor: default;
+
+	display: flex;
+	flex-direction: column;
+
+	@include mq($from: screen-xs) {
+		top: calc(100vh - 350px);
+	}
+
+	@include mq($from: screen-sm) {
+		width: rem(270);
+		left: calc(100vw - 370px);
+		top: calc(100vh - 380px);
+	}
+	@include mq($from: screen-md) {
+		right: auto;
+		left: rem(30);
+	}
+
+	h1 {
+		text-transform: initial;
+	}
+
+	&__media {
+		position: relative;
+
+		iframe,
+		object,
+		embed {
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// 	right: 0;
+			// 	bottom: 0;
+			width: 100%;
+			height: 200px;
+		}
+
+		p {
+			@include bodytext();
+			font-weight: bold;
+			padding: rem(5) rem(10);
+			background: $color-black;
+			color: $color-white;
+		}
+	}
+
+	&__iframe {
+		> * {
+			display: flex;
+		}
+	}
+
+	&__controls {
+		@include bodytext();
+
+		display: grid;
+		white-space: nowrap;
+
+		font-weight: bold;
+
+		grid-template: 1fr / rem(55) rem(60) 1fr;
+		background-color: $color-202020-blue;
+		color: $color-white;
+
+		* {
+			align-self: center;
+			text-align: center;
+		}
+
+		svg {
+			fill: currentColor;
+		}
+
+		@keyframes swipe {
+			to {
+				transform: translateX(-100%); // slight glitch with 5
+			}
+		}
+
+		div {
+			overflow: hidden;
+			display: flex;
+
+			.title-marquee {
+				will-change: transform;
+				// width: fit-content;
+				font-weight: $weight-bold;
+				animation: swipe 10s linear infinite;
+				display: inline-flex;
+			}
+		}
+	}
+
+	.button {
+		cursor: pointer;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(13);
+		line-height: 1;
+
+		background-color: $color-202020-green;
+		width: rem(55);
+		height: rem(40);
+
+		&:hover {
+			background-color: $color-202020-red;
+		}
+
+		svg {
+			height: 100%;
+			width: auto;
+		}
+	}
+}

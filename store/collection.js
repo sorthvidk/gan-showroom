@@ -156,16 +156,10 @@ export const mutations = {
 
 	// 	state.filtersParsed = true
 	// },
-	[SET_CURRENT_FILTER.mutation](state, ...filterId) {
+	[SET_CURRENT_FILTER.mutation](state, filterId) {
 		if (!state.currentCollectionId) return
 
-		console.log(filterId)
-
-		Vue.set(
-			state.activeFilters,
-			collection || state.currentCollectionId,
-			filterId
-		)
+		Vue.set(state.activeFilters, state.currentCollectionId, filterId)
 
 		// if (!filterId || filterId == '') {
 		// 	let cl = state.list.length
@@ -233,10 +227,10 @@ export const actions = {
 	[REMOVE_FROM_WISHLIST.action]({ commit }, style) {
 		commit(REMOVE_FROM_WISHLIST.mutation, style)
 	},
-	[SET_CURRENT_FILTER.action]({ commit }, filterId, collection) {
+	[SET_CURRENT_FILTER.action]({ commit }, filterId) {
 		// collection is optional
 		// ex 'c2'
-		commit(SET_CURRENT_FILTER.mutation, filterId, collection)
+		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
 		dispatch(
