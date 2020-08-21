@@ -1,1 +1,22 @@
-{"collectionId":"SOFTWARE","styleId":"T2785001","name":"T2785001_Long Sleeve T-shirt","program":3491,"programName":"Thin Software Jersey","material":"50% Recycled Cot, 50% Recycled Poly","drop":"SOFTWARE","colorNames":"White","colorId":1,"filters":["misc5"],"responsible":true,"weight":2550,"wholesalePriceDKK":214,"wholesalePriceEUR":31,"wholesalePriceUSD":44,"retailPriceDKK":599,"retailPriceEUR":85,"retailPriceUSD":105,"assets":[],"index":0}
+{
+  "retailPriceUSD": 105,
+  "assets": [],
+  "program": 3491,
+  "colorNames": "White",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "name": "T2785001_Long Sleeve T-shirt",
+  "styleId": "T2785001",
+  "drop": "SOFTWARE",
+  "programName": "Thin Software Jersey",
+  "index": 0,
+  "responsible": true,
+  "wholesalePriceEUR": 31,
+  "weight": 2550,
+  "collectionId": "SOFTWARE",
+  "wholesalePriceDKK": 214,
+  "wholesalePriceUSD": 44,
+  "filters": [],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 1
+}
