@@ -1,1 +1,10 @@
-{"assetId":"T2775_White 1","styleId":"T2775001","name":"T2775001_T-shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2775_White 1",
+  "styleId": "T2775001",
+  "name": "T2775001_T-shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1591792310/collection/Packshots/Software/T2775_j3ntlm.jpg"
+}
