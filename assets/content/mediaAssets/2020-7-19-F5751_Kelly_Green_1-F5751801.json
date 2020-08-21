@@ -1,1 +1,10 @@
-{"assetId":"F5751_Kelly Green 1","styleId":"F5751801","name":"F5751801_Mini Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5751_Kelly Green 1",
+  "styleId": "F5751801",
+  "name": "F5751801_Mini Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736996/SS21/Packshots/F5751_6222_801_h0jvow.jpg"
+}
