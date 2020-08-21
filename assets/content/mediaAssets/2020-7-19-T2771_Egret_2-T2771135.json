@@ -1,1 +1,10 @@
-{"assetId":"T2771_Egret 2","styleId":"T2771135","name":"T2771135_Oversized Sweatshirt","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2771_Egret 2",
+  "styleId": "T2771135",
+  "name": "T2771135_Oversized Sweatshirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598013725/SS21/Packshots/Software/T2771_3490_135_b_htk1d3.jpg"
+}
