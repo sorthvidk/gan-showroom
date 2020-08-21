@@ -1,1 +1,10 @@
-{"assetId":"A3262_Bachelor Blue 1","styleId":"A3262871","name":"A3262871_Off-Shoulder Swimsuit","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3262_Bachelor Blue 1",
+  "styleId": "A3262871",
+  "name": "A3262871_Off-Shoulder Swimsuit",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736990/SS21/Packshots/A3262_5637_871_l8oorw.jpg"
+}
