@@ -1,1 +1,10 @@
-{"assetId":"A3282_Black 1","styleId":"A3282099","name":"A3282099_Highrise Bikini Briefs","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3282_Black 1",
+  "styleId": "A3282099",
+  "name": "A3282099_Highrise Bikini Briefs",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736990/SS21/Packshots/A3282_5635_099_rp6muk.jpg"
+}
