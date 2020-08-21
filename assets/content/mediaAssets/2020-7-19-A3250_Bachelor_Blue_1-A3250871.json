@@ -1,1 +1,10 @@
-{"assetId":"A3250_Bachelor Blue 1","styleId":"A3250871","name":"A3250871_Twisted Bikini Briefs","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3250_Bachelor Blue 1",
+  "styleId": "A3250871",
+  "name": "A3250871_Twisted Bikini Briefs",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736989/SS21/Packshots/A3250_5633_871_a3gzk1.jpg"
+}
