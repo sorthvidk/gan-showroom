@@ -1,1 +1,10 @@
-{"assetId":"F5712_Egret 1","styleId":"F5712135","name":"F5712135_Blouse","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5712_Egret 1",
+  "styleId": "F5712135",
+  "name": "F5712135_Blouse",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736992/SS21/Packshots/F5712_6169_135_r6xiw9.jpg"
+}

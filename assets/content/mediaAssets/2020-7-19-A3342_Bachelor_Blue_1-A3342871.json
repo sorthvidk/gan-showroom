@@ -1,1 +1,10 @@
-{"assetId":"A3342_Bachelor Blue 1","styleId":"A3342871","name":"A3342871_Tie-front Bikini Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3342_Bachelor Blue 1",
+  "styleId": "A3342871",
+  "name": "A3342871_Tie-front Bikini Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736988/SS21/Packshots/A3342_5637_871_ezaclc.jpg"
+}

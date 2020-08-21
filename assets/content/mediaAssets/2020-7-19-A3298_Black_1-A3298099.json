@@ -1,1 +1,10 @@
-{"assetId":"A3298_Black 1","styleId":"A3298099","name":"A3298099_Tie-front Swimsuit","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3298_Black 1",
+  "styleId": "A3298099",
+  "name": "A3298099_Tie-front Swimsuit",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736993/SS21/Packshots/A3298_5635_099_juramd.jpg"
+}

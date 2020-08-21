@@ -1,1 +1,10 @@
-{"assetId":"F5710_Egret 1","styleId":"F5710135","name":"F5710135_Pants","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5710_Egret 1",
+  "styleId": "F5710135",
+  "name": "F5710135_Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736992/SS21/Packshots/F5710_6169_135_dw46ms.jpg"
+}

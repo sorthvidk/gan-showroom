@@ -1,1 +1,10 @@
-{"assetId":"F5737_Kelly Green 1","styleId":"F5737801","name":"F5737801_Wrap Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5737_Kelly Green 1",
+  "styleId": "F5737801",
+  "name": "F5737801_Wrap Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736994/SS21/Packshots/F5737_6191_801_vb3vmk.jpg"
+}

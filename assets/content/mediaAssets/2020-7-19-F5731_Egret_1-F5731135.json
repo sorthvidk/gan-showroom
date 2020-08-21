@@ -1,1 +1,10 @@
-{"assetId":"F5731_Egret 1","styleId":"F5731135","name":"F5731135_Wrap Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5731_Egret 1",
+  "styleId": "F5731135",
+  "name": "F5731135_Wrap Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736994/SS21/Packshots/F5731_6169_135_hrjexn.jpg"
+}

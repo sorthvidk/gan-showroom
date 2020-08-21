@@ -1,1 +1,10 @@
-{"assetId":"F5710_Black 1","styleId":"F5710099","name":"F5710099_Pants","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5710_Black 1",
+  "styleId": "F5710099",
+  "name": "F5710099_Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597825438/SS21/Packshots/F5710_6169_099_dwddjg.jpg"
+}
