@@ -1,1 +1,10 @@
-{"assetId":"A3251_Bachelor Blue 1","styleId":"A3251871","name":"A3251871_Racerback Bikini Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3251_Bachelor Blue 1",
+  "styleId": "A3251871",
+  "name": "A3251871_Racerback Bikini Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736988/SS21/Packshots/A3251_5633_871_zxsfvh.jpg"
+}

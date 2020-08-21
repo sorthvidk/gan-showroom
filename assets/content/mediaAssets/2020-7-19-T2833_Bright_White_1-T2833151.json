@@ -1,1 +1,10 @@
-{"assetId":"T2833_Bright White 1","styleId":"T2833151","name":"T2833151_T-shirt, Smiley","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2833_Bright White 1",
+  "styleId": "T2833151",
+  "name": "T2833151_T-shirt, Smiley",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597831224/SS21/Packshots/T2833_3487_151_hnrixf.jpg"
+}
