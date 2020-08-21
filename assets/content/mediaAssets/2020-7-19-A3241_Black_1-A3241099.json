@@ -1,1 +1,10 @@
-{"assetId":"A3241_Black 1","styleId":"A3241099","name":"A3241099_Midrise Bikini Briefs","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3241_Black 1",
+  "styleId": "A3241099",
+  "name": "A3241099_Midrise Bikini Briefs",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736986/SS21/Packshots/A3241_5633_099_w659fz.jpg"
+}
