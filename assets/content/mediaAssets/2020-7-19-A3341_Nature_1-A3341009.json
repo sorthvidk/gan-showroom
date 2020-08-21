@@ -1,1 +1,10 @@
-{"assetId":"A3341_Nature 1","styleId":"A3341009","name":"A3341009_Belt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3341_Nature 1",
+  "styleId": "A3341009",
+  "name": "A3341009_Belt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736987/SS21/Packshots/A3341_6223_009_r8yttk.jpg"
+}
