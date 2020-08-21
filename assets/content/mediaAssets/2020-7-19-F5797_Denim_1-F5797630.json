@@ -1,1 +1,10 @@
-{"assetId":"F5797_Denim 1","styleId":"F5797630","name":"F5797630_Overalls","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5797_Denim 1",
+  "styleId": "F5797630",
+  "name": "F5797630_Overalls",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736997/SS21/Packshots/F5797_6211_630_kdbatu.jpg"
+}
