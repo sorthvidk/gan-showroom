@@ -1,1 +1,10 @@
-{"assetId":"A3352_Corydalis Blue 1","styleId":"A3352870","name":"A3352870_Belt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3352_Corydalis Blue 1",
+  "styleId": "A3352870",
+  "name": "A3352870_Belt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597825437/SS21/Packshots/A3352_5562_870_aipn8r.jpg"
+}
