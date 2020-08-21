@@ -337,32 +337,32 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'animal-print',
-			// icon: '/img/shortcuts/animal_print.png',
-			icon: '/img/collage/shirt1.png',
-			label: 'Animal Print',
-			posH: 10,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc4'
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					contentComponentProps: {
-						layout: CollectionLayouts.FUN,
-						collectionId: 'PS21'
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'animal-print',
+		// 	// icon: '/img/shortcuts/animal_print.png',
+		// 	icon: '/img/collage/shirt1.png',
+		// 	label: 'Animal Print',
+		// 	posH: 10,
+		// 	posV: 6,
+		// 	actions: [
+		// 		{
+		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
+		// 			param: 'misc4'
+		// 		}
+		// 	],
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PS21 collection',
+		// 			contentId: 'ps21-collection',
+		// 			type: ContentTypes.collection,
+		// 			contentComponentProps: {
+		// 				layout: CollectionLayouts.FUN,
+		// 				collectionId: 'PS21'
+		// 			}
+		// 		}
+		// 	]
+		// },
 		// {
 		// 	type: ShortcutTypes.WINDOW,
 		// 	shortcutId: 'ganni-software',
