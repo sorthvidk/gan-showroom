@@ -1,1 +1,10 @@
-{"assetId":"F5820_Bright White 1","styleId":"F5820151","name":"F5820151_Frill Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5820_Bright White 1",
+  "styleId": "F5820151",
+  "name": "F5820151_Frill Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737001/SS21/Packshots/F5820_6180_151_osrkg9.jpg"
+}
