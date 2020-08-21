@@ -96,8 +96,9 @@
 
 	&--large {
 		width: auto;
-		max-width: none;
-		height: 20vmax;
+		max-width: 25vmax;
+		max-height: none;
+		height: 25vmax;
 		flex: auto;
 		padding: 0;
 
@@ -106,14 +107,17 @@
 		.icon {
 			width: inherit;
 			height: inherit;
+			max-width: inherit;
 
 			img {
 				height: inherit;
 				width: inherit;
+				max-width: inherit;
 				position: relative;
 				transform: none;
 				left: auto;
 				top: auto;
+				object-fit: contain;
 			}
 		}
 

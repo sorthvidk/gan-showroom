@@ -28,7 +28,11 @@ import sendTracking from '~/utils/send-tracking'
 export default {
 	name: 'collectionItem',
 	components: { ResponsibleIcon },
-	props: CollectionItemModel,
+	props: {
+		...CollectionItemModel,
+		weight: { type: Number, default: 0 }, // not used
+		slug: { type: String, default: '' }, // not used
+	},
 	computed: {
 		...mapState({
 			wishList: state => state.collection.wishList
@@ -46,7 +50,7 @@ export default {
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.filter(e => e.styleId === this.styleId).length > 0
+			return this.wishList.filter(e => e.styleItem.styleId === this.styleId).length > 0
 		}
 	},
 	methods: {

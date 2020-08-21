@@ -275,12 +275,12 @@
 						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
-						<span class="icon">
+						<span v-if="styleHasBeenAdded" class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
 								<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
-						<p>{{addToWishListButtonLabel}}</p>
+						<p>{{styleHasBeenAdded ? 'Adding to wishlist' : addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
