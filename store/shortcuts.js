@@ -31,26 +31,26 @@ export const state = () => ({
 		// 		}
 		// 	]
 		// },
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection-ps21',
-			// icon: '/img/shortcuts/ps21.png',
-			icon: '/img/collage/dress2.png',
-			label: 'PS21 collection',
-			posH: 1,
-			posV: 1,
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					contentComponentProps: {
-						// layout: CollectionLayouts.GRID,
-						collectionId: 'PS21'
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'collection-ps21',
+		// 	// icon: '/img/shortcuts/ps21.png',
+		// 	icon: '/img/collage/dress2.png',
+		// 	label: 'PS21 collection',
+		// 	posH: 1,
+		// 	posV: 1,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PS21 collection',
+		// 			contentId: 'ps21-collection',
+		// 			type: ContentTypes.collection,
+		// 			contentComponentProps: {
+		// 				// layout: CollectionLayouts.GRID,
+		// 				collectionId: 'PS21'
+		// 			}
+		// 		}
+		// 	]
+		// },
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection-ss21',
@@ -75,7 +75,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection-software',
 			// icon: '/img/shortcuts/ps21.png',
-			icon: '/img/collage/dress3.png',
+			icon: '/img/shortcuts/SOFTWARE.png',
 			label: 'GANNI Software',
 			posH: 4,
 			posV: 2,
@@ -94,7 +94,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection-levis',
-			icon: '/img/collage/dress3.png',
+			icon: '/img/shortcuts/GANNIxLEVIS.png',
 			label: "GANNI x Levi's",
 			posH: 4,
 			posV: 3,
@@ -264,23 +264,23 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'music-player',
-			// icon: '/img/shortcuts/ganni_fm.png',
-			icon: '/img/collage/dress6.png',
-			label: 'GANNI FM',
-			posH: 1,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI FM',
-					contentId: 'ganni-fm',
-					type: ContentTypes.musicPlayer,
-					canOverride: true
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'music-player',
+		// 	// icon: '/img/shortcuts/ganni_fm.png',
+		// 	icon: '/img/collage/dress6.png',
+		// 	label: 'GANNI FM',
+		// 	posH: 1,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'GANNI FM',
+		// 			contentId: 'ganni-fm',
+		// 			type: ContentTypes.musicPlayer,
+		// 			canOverride: true
+		// 		}
+		// 	]
+		// },
 		// {
 		// 	type: ShortcutTypes.WINDOW,
 		// 	shortcutId: 'ganni-girls',
@@ -322,7 +322,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'artists',
 			// icon: '/img/shortcuts/look_book.png',
-			icon: '/img/collage/dress1.png',
+			icon: '/img/shortcuts/ARTISTS.png',
 			label: '202020 Exhibition',
 			posH: 6,
 			posV: 2,
@@ -415,20 +415,20 @@ export const state = () => ({
 		// 		}
 		// 	]
 		// },
-		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'responsibility-report',
-			icon: '/img/collage/shirt2.png',
-			label: 'Responsibility (pdf)',
-			posH: 1,
-			posV: 3,
-			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
-		},
+		// {
+		// 	type: ShortcutTypes.URL,
+		// 	shortcutId: 'responsibility-report',
+		// 	icon: '/img/collage/shirt2.png',
+		// 	label: 'Responsibility (pdf)',
+		// 	posH: 1,
+		// 	posV: 3,
+		// 	href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
+		// },
 
 		{
 			type: ShortcutTypes.URL,
 			shortcutId: 'rails',
-			icon: '/img/collage/shirt3.png',
+			icon: '/img/shortcuts/rails.png',
 			label: 'Rails (pdf)',
 			posH: 2,
 			posV: 3,

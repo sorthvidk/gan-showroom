@@ -17,7 +17,7 @@ export default function(array, prop1, prop2) {
 	return array
 }
 
-export const sortDeep = (prop, arr) => {
+export const sortDeep = (prop, arr, order = 'desc') => {
 	prop = prop.split('.')
 	var len = prop.length
 
@@ -28,12 +28,22 @@ export const sortDeep = (prop, arr) => {
 			b = b[prop[i]]
 			i++
 		}
-		if (a < b) {
-			return -1
-		} else if (a > b) {
-			return 1
+		if (order === 'desc') {
+			if (a < b) {
+				return -1
+			} else if (a > b) {
+				return 1
+			} else {
+				return 0
+			}
 		} else {
-			return 0
+			if (a > b) {
+				return -1
+			} else if (a < b) {
+				return 1
+			} else {
+				return 0
+			}
 		}
 	})
 	return arr

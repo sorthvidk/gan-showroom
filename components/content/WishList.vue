@@ -51,6 +51,10 @@
 								<td>{{currentWishListItem.styleItem.collectionId}}</td>
 							</tr>
 							<tr>
+								<th>Drop</th>
+								<td>{{currentWishListItem.styleItem.drop}}</td>
+							</tr>
+							<tr>
 								<th>Name</th>
 								<td>{{currentWishListItem.styleItem.name}}</td>
 							</tr>
@@ -125,10 +129,6 @@
 								<td>USD {{currentWishListItem.styleItem.retailPriceUSD}}</td>
 							</tr>
 							
-							<tr>
-								<th>WEIGHT</th>
-								<td>{{currentWishListItem.styleItem.weight}}</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -188,7 +188,7 @@ export default {
 			)
 		},
 		sortedWishlist() {
-			return sortDeep('styleItem.weight', this.activeWishlist)
+			return sortDeep('styleItem.weight', this.activeWishlist, 'asc')
 		},
 		currentWishListItem() {
 			if (this.activeWishlist.length > 0)

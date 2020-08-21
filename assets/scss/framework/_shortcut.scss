@@ -62,12 +62,12 @@
 	}
 
 	.text {
+		@include bodytext();
 		display: inline-block;
 		position: absolute;
 		top: 80%;
 		left: 50%;
 		transform: translateX(-50%);
-		@include bodytext();
 		background-color: $color-white;
 		padding: rem(2) rem(5);
 		white-space: nowrap;
@@ -97,7 +97,7 @@
 	&--large {
 		width: auto;
 		max-width: none;
-		height: 12vmax;
+		height: 20vmax;
 		flex: auto;
 		padding: 0;
 
@@ -119,6 +119,7 @@
 
 		.text {
 			font-size: rem(35);
+			line-height: 1;
 			font-weight: bold;
 			background-color: transparent;
 			max-width: none;
@@ -129,15 +130,15 @@
 			top: 50%;
 			transform: translate(-50%, -50%);
 
-			&:hover {
-				text-decoration: underline;
-			}
+			// &:hover {
+			// 	text-decoration: underline;
+			// }
 		}
 
 		&:hover {
-			.icon {
-				animation: wobble 2s forwards;
-			}
+			// 	.icon {
+			// 		animation: wobble 2s forwards;
+			// 	}
 
 			.text {
 				background-color: transparent;

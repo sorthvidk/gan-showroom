@@ -26,6 +26,8 @@
 					:key="item.shortcutId"
 					:x="randomPos(i, true)"
 					:y="randomPos(i * 357)"
+					:w="'auto'"
+					:h="'auto'"
 				>
 					<shortcut :item="item" />
 				</vue-draggable-resizable>
