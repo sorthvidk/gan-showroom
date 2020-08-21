@@ -1,1 +1,10 @@
-{"assetId":"F5804_Black 1","styleId":"F5804099","name":"F5804099_Mini Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5804_Black 1",
+  "styleId": "F5804099",
+  "name": "F5804099_Mini Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736998/SS21/Packshots/F5804_6176_099_llybsc.jpg"
+}

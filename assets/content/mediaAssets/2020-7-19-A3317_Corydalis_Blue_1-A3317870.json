@@ -1,1 +1,10 @@
-{"assetId":"A3317_Corydalis Blue 1","styleId":"A3317870","name":"A3317870_Collar","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3317_Corydalis Blue 1",
+  "styleId": "A3317870",
+  "name": "A3317870_Collar",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597929514/SS21/Packshots/A3317_6170_870_qtqdz1.jpg"
+}

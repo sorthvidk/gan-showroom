@@ -26,6 +26,8 @@
 					:key="item.shortcutId"
 					:x="randomPos(i, true)"
 					:y="randomPos(i * 357)"
+					:w="'auto'"
+					:h="'auto'"
 				>
 					<shortcut :item="item" />
 				</vue-draggable-resizable>
@@ -63,6 +65,7 @@
 
 				<assistant />
 				<support />
+				<music-player-video v-if="viewPortSize.name == 'LARGE'" />
 			</div>
 
 			<access-menu/>
@@ -161,6 +164,7 @@ import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
 import ColorPicker from '~/components/content/ColorPicker.vue'
+import MusicPlayerVideo from '~/components/content/MusicPlayerVideo.vue'
 
 import ContentTypes from '~/model/content-types'
 
@@ -169,6 +173,7 @@ export default {
 	components: {
 		AccessMenu,
 		ProgressBar,
+		MusicPlayerVideo,
 		Shortcut,
 		Window,
 		Marquee,
@@ -358,9 +363,9 @@ export default {
 		)
 		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
-		if (!isMobile) {
-			this.openMusicPlayer()
-		}
+		// if (!isMobile) {
+		// 	this.openMusicPlayer()
+		// }
 
 		this.$store.commit('isOnWishList')
 

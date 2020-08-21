@@ -1,1 +1,10 @@
-{"assetId":"A3308_Fossil 1","styleId":"A3308189","name":"A3308189_Collar","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3308_Fossil 1",
+  "styleId": "A3308189",
+  "name": "A3308189_Collar",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736985/SS21/Packshots/A3308_6234_189_tihagp.jpg"
+}

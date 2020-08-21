@@ -81,7 +81,9 @@ body {
 
 				&:hover {
 					.icon {
-						animation: halfWobble 2s forwards;
+						img {
+							animation: halfWobble 1s forwards;
+						}
 					}
 				}
 			}

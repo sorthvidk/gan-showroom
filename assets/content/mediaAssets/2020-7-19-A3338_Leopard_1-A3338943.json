@@ -1,1 +1,10 @@
-{"assetId":"A3338_Leopard 1","styleId":"A3338943","name":"A3338943_Scarf","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3338_Leopard 1",
+  "styleId": "A3338943",
+  "name": "A3338943_Scarf",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736987/SS21/Packshots/A3338_5651_943_qdndnx.jpg"
+}

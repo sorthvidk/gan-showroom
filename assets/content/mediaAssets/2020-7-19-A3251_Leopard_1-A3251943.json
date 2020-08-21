@@ -1,1 +1,10 @@
-{"assetId":"A3251_Leopard 1","styleId":"A3251943","name":"A3251943_Racerback Bikini Top","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3251_Leopard 1",
+  "styleId": "A3251943",
+  "name": "A3251943_Racerback Bikini Top",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736988/SS21/Packshots/A3251_5633_943_qpqdhq.jpg"
+}

@@ -1,1 +1,22 @@
-{"collectionId":"SOFTWARE","styleId":"T2770921","name":"T2770921_Sweatshirt","program":3490,"programName":"Software Isoli","material":"50% Recycled Cot, 50% Recycled Poly","drop":"SOFTWARE","colorNames":"Paloma Melange","colorId":921,"filters":["misc5"],"responsible":true,"weight":2940,"wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"assets":[],"index":0}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 3490,
+  "colorNames": "Paloma Melange",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "name": "T2770921_Sweatshirt",
+  "styleId": "T2770921",
+  "drop": "SOFTWARE",
+  "programName": "Software Isoli",
+  "index": 0,
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 2940,
+  "collectionId": "SOFTWARE",
+  "wholesalePriceDKK": 357,
+  "wholesalePriceUSD": 69,
+  "filters": [],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 921
+}

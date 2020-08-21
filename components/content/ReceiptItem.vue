@@ -2,13 +2,12 @@
 	<table class="receipt-item">
 		<tbody class="receipt-item__content">
 			<tr>
-				<td rowspan="11" class="image">
-					<img style="width: 3.6cm;" :src="imageUrl" alt />
+				<td rowspan="12" class="image">
+					<img style="width: 3.9cm;" :src="imageUrl" alt />
 				</td>
 				<td colspan="2" class="title">{{receiptItem.name}}</td>
 			</tr>
-			<!-- <tr>
-			</tr>-->
+			
 			<tr>
 				<td style="color: #666; padding-right: 5em;">Color</td>
 				<td>{{receiptItem.colorNames}}</td>
@@ -24,6 +23,10 @@
 			<tr>
 				<td style="color: #666;">Collection</td>
 				<td>{{receiptItem.collectionId}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Drop</td>
+				<td>{{receiptItem.drop}}</td>
 			</tr>
 			
 			<tr>

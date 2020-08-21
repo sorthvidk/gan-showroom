@@ -1,1 +1,10 @@
-{"assetId":"F5742_Kelly Green 1","styleId":"F5742801","name":"F5742801_Pants","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5742_Kelly Green 1",
+  "styleId": "F5742801",
+  "name": "F5742801_Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736994/SS21/Packshots/F5742_6191_801_azzlh1.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"A3344_Kelly Green 1","styleId":"A3344801","name":"A3344801_Belt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3344_Kelly Green 1",
+  "styleId": "A3344801",
+  "name": "A3344801_Belt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736989/SS21/Packshots/A3344_6190_801_vmdk1h.jpg"
+}

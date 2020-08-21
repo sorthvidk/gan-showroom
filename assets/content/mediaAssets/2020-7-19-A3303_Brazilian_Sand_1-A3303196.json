@@ -1,1 +1,10 @@
-{"assetId":"A3303_Brazilian Sand 1","styleId":"A3303196","name":"A3303196_Scrunchie","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3303_Brazilian Sand 1",
+  "styleId": "A3303196",
+  "name": "A3303196_Scrunchie",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736993/SS21/Packshots/A3303_6175_196_cjqiuh.jpg"
+}

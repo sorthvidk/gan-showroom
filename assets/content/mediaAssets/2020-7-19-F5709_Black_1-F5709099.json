@@ -1,1 +1,10 @@
-{"assetId":"F5709_Black 1","styleId":"F5709099","name":"F5709099_Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5709_Black 1",
+  "styleId": "F5709099",
+  "name": "F5709099_Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597736991/SS21/Packshots/F5709_6169_099_n7paof.jpg"
+}
