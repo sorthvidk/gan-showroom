@@ -1,1 +1,10 @@
-{"assetId":"A3291_Kalamata 2","styleId":"A3291861","name":"A3291861_Drawstring Tote","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3291_Kalamata 2",
+  "styleId": "A3291861",
+  "name": "A3291861_Drawstring Tote",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598037944/SS21/Acc%20Still%20Life/A3291_uyb7z8.jpg"
+}
