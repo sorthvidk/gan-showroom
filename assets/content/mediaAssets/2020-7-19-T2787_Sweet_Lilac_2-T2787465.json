@@ -1,1 +1,10 @@
-{"assetId":"T2787_Sweet Lilac 2","styleId":"T2787465","name":"T2787465_Relaxed T-Shirt Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2787_Sweet Lilac 2",
+  "styleId": "T2787465",
+  "name": "T2787465_Relaxed T-Shirt Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042153/SS21/Packshots/Software/T2787_3492_465_2_tcsgkm.jpg"
+}
