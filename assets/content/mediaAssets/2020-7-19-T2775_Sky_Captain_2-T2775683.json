@@ -1,1 +1,10 @@
-{"assetId":"T2775_Sky Captain 2","styleId":"T2775683","name":"T2775683_T-shirt","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2775_Sky Captain 2",
+  "styleId": "T2775683",
+  "name": "T2775683_T-shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042151/SS21/Packshots/Software/T2775_3491_683_2_vgffru.jpg"
+}
