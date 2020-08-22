@@ -1,1 +1,10 @@
-{"assetId":"T2770_Kalamata 1","styleId":"T2770861","name":"T2770861_Sweatshirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2770_Kalamata 1",
+  "styleId": "T2770861",
+  "name": "T2770861_Sweatshirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042150/SS21/Packshots/Software/T2770_3490_861_aqwmwc.jpg"
+}
