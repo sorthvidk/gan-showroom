@@ -1,1 +1,10 @@
-{"assetId":"F5911_Fossil 1","styleId":"F5911189","name":"F5911189_Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5911_Fossil 1",
+  "styleId": "F5911189",
+  "name": "F5911189_Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042181/SS21/Packshots/F5911_6170_189_nx18tq.jpg"
+}
