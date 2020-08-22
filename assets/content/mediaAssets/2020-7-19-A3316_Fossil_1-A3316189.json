@@ -1,1 +1,10 @@
-{"assetId":"A3316_Fossil 1","styleId":"A3316189","name":"A3316189_Scrunchie","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3316_Fossil 1",
+  "styleId": "A3316189",
+  "name": "A3316189_Scrunchie",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042180/SS21/Packshots/A3316_6170_189_eg421p.jpg"
+}
