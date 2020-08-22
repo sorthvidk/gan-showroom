@@ -1,1 +1,10 @@
-{"assetId":"F5929_Orchid Bloom 2","styleId":"F5929724","name":"F5929724_Maxi Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5929_Orchid Bloom 2",
+  "styleId": "F5929724",
+  "name": "F5929724_Maxi Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033506/SS21/Lookbook/F5929_S1479_xpak5u.jpg"
+}
