@@ -1,1 +1,10 @@
-{"assetId":"F5733_Egret 2","styleId":"F5733135","name":"F5733135_Oversized Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5733_Egret 2",
+  "styleId": "F5733135",
+  "name": "F5733135_Oversized Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033507/SS21/Lookbook/F5896_F5733_S1526_hzab8u.jpg"
+}
