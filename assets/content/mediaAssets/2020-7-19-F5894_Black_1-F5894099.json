@@ -1,1 +1,10 @@
-{"assetId":"F5894_Black 1","styleId":"F5894099","name":"F5894099_Wrap Shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5894_Black 1",
+  "styleId": "F5894099",
+  "name": "F5894099_Wrap Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598180343/SS21/Packshots/F5894_6214_099_leu1sm.jpg"
+}
