@@ -1,1 +1,10 @@
-{"assetId":"F5896_Kelly Green 2","styleId":"F5896801","name":"F5896801_Shirt","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5896_Kelly Green 2",
+  "styleId": "F5896801",
+  "name": "F5896801_Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598038848/SS21/BTS/F5896_F5899_A3315_njrwes.jpg"
+}
