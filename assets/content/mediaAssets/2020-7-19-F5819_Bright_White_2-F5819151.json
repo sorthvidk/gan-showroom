@@ -1,1 +1,10 @@
-{"assetId":"F5819_Bright White 2","styleId":"F5819151","name":"F5819151_Oversized Shirt Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5819_Bright White 2",
+  "styleId": "F5819151",
+  "name": "F5819151_Oversized Shirt Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033512/SS21/Lookbook/F5819_F5833_S1489_uhpan1.jpg"
+}
