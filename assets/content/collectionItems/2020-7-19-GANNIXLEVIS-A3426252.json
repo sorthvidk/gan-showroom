@@ -9,7 +9,7 @@
   "drop": "GANNI x Levi's",
   "programName": "Ruffled Cotton",
   "index": 0,
-  "responsible": true,
+  "responsible": false,
   "wholesalePriceEUR": 22,
   "weight": 2460,
   "collectionId": "GANNIXLEVIS",
