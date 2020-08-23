@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"T2828009","name":"T2828009_Sweatshirt","program":3511,"programName":"Jersey","material":"70% Cotton. 30% Hemp","drop":"GANNI x Levi's","colorNames":"Nature","colorId":9,"filters":[],"responsible":true,"weight":2470,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 3511,
+  "colorNames": "Nature",
+  "material": "70% Cotton. 30% Hemp",
+  "name": "T2828009_Sweatshirt",
+  "styleId": "T2828009",
+  "drop": "GANNI x Levi's",
+  "programName": "Jersey",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 82,
+  "weight": 2470,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 560,
+  "wholesalePriceUSD": 98,
+  "filters": [],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 9
+}
