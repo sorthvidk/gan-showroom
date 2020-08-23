@@ -1,1 +1,10 @@
-{"assetId":"F5877_Egret 2","styleId":"F5877135","name":"F5877135_Mini Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5877_Egret 2",
+  "styleId": "F5877135",
+  "name": "F5877135_Mini Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033505/SS21/Lookbook/K1510_F5877_S1526_2_voky9x.jpg"
+}
