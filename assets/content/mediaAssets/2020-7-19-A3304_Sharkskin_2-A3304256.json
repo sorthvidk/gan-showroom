@@ -1,1 +1,10 @@
-{"assetId":"A3304_Sharkskin 2","styleId":"A3304256","name":"A3304256_Collar","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3304_Sharkskin 2",
+  "styleId": "A3304256",
+  "name": "A3304256_Collar",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598037945/SS21/Acc%20Still%20Life/A3304_A3309_A3317_yszfdu.jpg"
+}
