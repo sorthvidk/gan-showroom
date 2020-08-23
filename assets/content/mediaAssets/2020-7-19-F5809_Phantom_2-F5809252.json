@@ -1,1 +1,10 @@
-{"assetId":"F5809_Phantom 2","styleId":"F5809252","name":"F5809252_Belt Pants","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5809_Phantom 2",
+  "styleId": "F5809252",
+  "name": "F5809252_Belt Pants",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033516/SS21/Lookbook/F5749_F5809_2_inpved.jpg"
+}
