@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"F6091676","name":"F6091676_Strap Dress","program":6292,"programName":"Printed Light Indigo Denim","material":"77% Cotton, 23% Hemp","drop":"GANNI x Levi's","colorNames":"Light Denim","colorId":676,"filters":[],"responsible":true,"weight":2380,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "program": 6292,
+  "colorNames": "Light Denim",
+  "material": "77% Cotton, 23% Hemp",
+  "name": "F6091676_Strap Dress",
+  "styleId": "F6091676",
+  "drop": "GANNI x Levi's",
+  "programName": "Printed Light Indigo Denim",
+  "index": 0,
+  "responsible": true,
+  "wholesalePriceEUR": 150,
+  "weight": 2380,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 1040,
+  "wholesalePriceUSD": 178,
+  "filters": [],
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2599,
+  "colorId": 676
+}
