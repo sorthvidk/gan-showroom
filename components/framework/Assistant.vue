@@ -495,8 +495,8 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			if ( this.currentStyle.onWishList ) console.log("ON WISHLIST")
-			else console.log("NOT ON WISHLIST")
+			if (this.currentStyle.onWishList) console.log('ON WISHLIST')
+			else console.log('NOT ON WISHLIST')
 
 			return this.currentStyle.onWishList
 		},
@@ -525,10 +525,10 @@ export default {
 	},
 	watch: {
 		currentStyle(newVal) {
-			if ( newVal ) {
+			if (newVal) {
 				this.parseAssets()
 			}
-			console.log('CURRENT STYLE WATCHER | onWishList: '+newVal.onWishList)
+			console.log('CURRENT STYLE WATCHER | onWishList: ' + newVal.onWishList)
 		},
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
@@ -584,7 +584,7 @@ export default {
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
 							this[SET_CURRENT_STYLE.action](componentProps.asset.styleId)
-							this.parseAssets()								
+							this.parseAssets()
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -674,7 +674,7 @@ export default {
 		},
 		addToWishListClickHandler() {
 			let colorList = this.currentStyle.colorNames.split(', ')
-			
+
 			if (colorList.length > 1) {
 				this[TOGGLE_COLOR_PICKER.action]({
 					styleItem: this.currentStyle,
