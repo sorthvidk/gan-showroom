@@ -1,10 +1,10 @@
 {
-  "assetId": "K1507_Flame Scarlet 5",
+  "assetId": "K1507_Flame Scarlet 10",
   "styleId": "K1507467",
   "name": "K1507467_Top",
-  "type": "image",
-  "aspect": "portrait",
+  "type": "video",
+  "aspect": "landscape",
   "onTop": false,
   "visible": true,
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212496/SS21/Lookbook/K1507_T2742_F5797_S1488_2_xofgyw.jpg"
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/v1598213329/SS21/BTS%20films/GANNI_SS21_FILM_05_j95qsr.mp4"
 }
