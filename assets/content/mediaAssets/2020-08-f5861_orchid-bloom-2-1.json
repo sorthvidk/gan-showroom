@@ -1,10 +1,10 @@
 {
-  "assetId": "F5861_Orchid Bloom 2",
+  "assetId": "F5861_Orchid Bloom 5",
   "styleId": "F5861724",
   "name": "F5861724_Oversized Mini Dress",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212482/SS21/Lookbook/F5861_S1526_2_z0jhgy.jpg"
 }
