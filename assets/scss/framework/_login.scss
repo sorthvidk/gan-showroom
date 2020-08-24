@@ -74,9 +74,9 @@
 
 	background-size: cover;
 
-	@include mq($from: screen-md) {
-		align-items: flex-end;
-	}
+	// @include mq($from: screen-md) {
+	// 	align-items: flex-end;
+	// }
 
 	.form {
 		position: relative;
@@ -101,7 +101,7 @@
 			font-size: 10vw;
 			width: 75%;
 			text-align: center;
-			color: $color-lime;
+			color: $color-202020-green;
 
 			outline: none;
 
@@ -110,7 +110,7 @@
 			}
 
 			&::placeholder {
-				color: $color-lightyellow;
+				color: $color-white;
 			}
 
 			&:focus::placeholder {
@@ -181,16 +181,24 @@
 		font-size: 8vmax;
 	}
 
-	.logo {
+	.login-logo {
+		width: 100%;
+		height: 100%;
 		// top: auto;
 		// bottom: rem(80);
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
 
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		svg {
 			opacity: 1;
-			fill: $color-lime;
+			// fill: $color-lime;
+			width: 66%;
+			height: auto;
 		}
 	}
 

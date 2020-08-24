@@ -113,7 +113,12 @@
 				>
 					<div class="assistant__filters">
 						<h3>{{collectionName}}</h3>
-						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.<span v-if="currentCollectionFilters.length > 0"> Skip to the good stuff by choosing from the below:</span></p>
+						<p>
+							Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.
+							<span
+								v-if="currentCollectionFilters.length > 0"
+							>Skip to the good stuff by choosing from the below:</span>
+						</p>
 						<div class="assistant__filters__list">
 							<filter-button
 								v-for="(item, key) in currentCollectionFilters"
@@ -159,7 +164,7 @@
 									<th>&nbsp;</th>
 									<td>&nbsp;</td>
 								</tr>
-								
+
 								<tr>
 									<th>Style #</th>
 									<td>{{currentStyle.styleId}}</td>
@@ -280,7 +285,7 @@
 								<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
-						<p>{{styleHasBeenAdded ? 'Adding to wishlist' : addToWishListButtonLabel}}</p>
+						<p>{{styleOnWishList ? 'Added' : addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
@@ -441,7 +446,11 @@ export default {
 		]),
 		...mapState('collage', ['clothes']),
 		collectionName() {
-			return this.collections.find(collection => collection.collectionId === this.currentCollectionId).name.toUpperCase();
+			return this.collections
+				.find(
+					collection => collection.collectionId === this.currentCollectionId
+				)
+				.name.toUpperCase()
 		},
 		currentCollectionFilters() {
 			return this.data[this.currentCollectionId]
@@ -483,7 +492,8 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			return this.currentStyle.onWishList
+			console.log(this.currentStyle)
+			return this.currentStyle.styleItem.onWishList
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
@@ -491,17 +501,18 @@ export default {
 		wishListUrl() {
 			// ex: /export/?styles=K1489~Dutch%20Blue.White,K1446
 			return `${window.location}export/?styles=${this.activeWishlist
-				.map(({styleItem, chosenColorList = false}) => `${styleItem.styleId + (chosenColorList ? `~${chosenColorList.join('.')}` : '')}`)
+				.map(
+					({ styleItem, chosenColorList = false }) =>
+						`${styleItem.styleId +
+							(chosenColorList ? `~${chosenColorList.join('.')}` : '')}`
+				)
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (
-				this.activeFilters[this.currentCollectionId]
-			) {
-				return `${window.location}export/?styles=${
-					this.currentCollectionId + '_' +
-					this.activeFilters[this.currentCollectionId]
-				}`
+			if (this.activeFilters[this.currentCollectionId]) {
+				return `${window.location}export/?styles=${this.currentCollectionId +
+					'_' +
+					this.activeFilters[this.currentCollectionId]}`
 			}
 			// /export with no params shows all styles
 			return `${window.location}export/?styles=${this.currentCollectionId}`

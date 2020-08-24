@@ -10,9 +10,34 @@
 		font-weight: bold;
 		font-family: inherit;
 		color: $color-202020-green;
+		position: relative;
+		z-index: 1;
 
 		&.open {
 			color: $color-202020-red;
+		}
+	}
+
+	&__backdrop {
+		transition: opacity 0.3s;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+
+		opacity: 0;
+		pointer-events: none;
+
+		background: linear-gradient(
+			215deg,
+			rgba($color-black, 0.6),
+			rgba($color-black, 0.8)
+		);
+
+		&.open {
+			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 
@@ -23,9 +48,8 @@
 		right: 0;
 		top: rem(30);
 		min-width: rem(266);
-		min-height: rem(100);
 		background: $color-202020-green;
-		padding: rem(5);
+		padding: rem(10) rem(15);
 
 		&.open {
 			display: block;
@@ -34,6 +58,17 @@
 		.shortcut {
 			height: auto;
 			width: fit-content;
+			margin-bottom: rem(10);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&:hover {
+				.text {
+					text-decoration: underline;
+				}
+			}
 
 			.icon {
 				display: none;
