@@ -523,6 +523,12 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
+			text: 'Discover the ',
+			label: 'GANNI REPEAT x LEVI’S LOVE LETTERS',
+			href: 'https://repeat.ganni.com'
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
 			text: 'Before you leave, check out our ',
 			label: 'Responsibility report (pdf)',
 			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
