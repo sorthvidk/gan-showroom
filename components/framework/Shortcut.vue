@@ -99,7 +99,7 @@ export default {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
 			if (this.item.type == ShortcutTypes.URL && this.item.href) {
-				window.open(this.href, '_blank')
+				window.open(this.item.href, '_blank')
 			} else {
 				if ( window.GS_LOGS ) console.log("ACTIONS???",this.item.actions)
 				if (this.item.actions) {
