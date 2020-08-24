@@ -4,7 +4,7 @@
   "name": "F5876135_Strap Dress",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212499/SS21/Lookbook/F5876_S1526_2_a2hqdh.jpg"
 }
