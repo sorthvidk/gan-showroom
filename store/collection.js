@@ -52,7 +52,6 @@ export const mutations = {
 		}
 	},
 	[TOGGLE_COLOR_PICKER.mutation](state, params) {
-		console.log('TOGGLE_COLOR_PICKER mutation', params)
 		state.colorPickerStyle = params.styleItem
 		state.colorPickerChosenColorList = params.chosenColorList
 		state.colorPickerCallback = params.callbackFunction

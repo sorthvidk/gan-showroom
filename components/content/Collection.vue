@@ -63,8 +63,6 @@ export default {
 			}
 			
 			drops.sort((a,b) =>  a.label > b.label ? 1 : -1)
-
-			console.log("drops",drops)
 			return drops;
 		},
 	},

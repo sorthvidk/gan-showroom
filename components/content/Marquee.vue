@@ -36,7 +36,8 @@ export default {
 		openWindow(link) {
 			
 			if (link.href) {
-				window.open(this.href, '_blank')
+				//console.log("OPEN HREF: '"+link.href+"'")
+				window.open(link.href, '_blank')
 			} else if (!link.windowContent) {
 				this[OPEN_STYLE_CONTENT.action](link.actionParam)
 			} else {
