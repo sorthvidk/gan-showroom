@@ -4,7 +4,7 @@
   "name": "F5899801_Sleevesless Dress",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598036745/SS21/Directional%20Lookbook/F5899_F5896_A3315_F5872_F5931_gffqoi.jpg"
 }
