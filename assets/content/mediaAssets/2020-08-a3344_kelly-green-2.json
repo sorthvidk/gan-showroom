@@ -4,7 +4,7 @@
   "name": "A3344801_Belt",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212509/SS21/Lookbook/A3344_F5899_K1520_plyjcf.jpg"
 }
