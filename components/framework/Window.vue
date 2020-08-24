@@ -39,7 +39,7 @@
 					@layout-change="changeLayout"
 				/>
 			</div>
-					<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
+			<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
 
 			<hr v-if="!noStatus" />
 
@@ -203,7 +203,7 @@ export default {
 			return this.w > 0 ? this.w : this.w === 0 ? 'auto' : this.sizeW
 		},
 		computedSizeH() {
-			return (this.h > 0) ? this.h : (this.h === 0) ? 'auto' : this.sizeH
+			return this.h > 0 ? this.h : this.h === 0 ? 'auto' : this.sizeH
 		},
 		computedResizable() {
 			if (!this.canResize) return false
@@ -218,7 +218,7 @@ export default {
 			if (this.noStatus) cn += ' window--no-status'
 
 			return cn
-		},
+		}
 	},
 	data: function() {
 		return {
@@ -236,7 +236,8 @@ export default {
 
 			transformOrigin: 0,
 
-			currentLayout: (this.contentComponentProps && this.contentComponentProps.layout) || 0,
+			currentLayout:
+				(this.contentComponentProps && this.contentComponentProps.layout) || 0,
 
 			savedAttributes: {
 				x: 0,
@@ -262,7 +263,11 @@ export default {
 			})
 		},
 		putOnTop() {
-			if(this.contentComponentProps && this.contentComponentProps.collectionId === this.currentCollectionId) return
+			if (
+				this.contentComponentProps &&
+				this.contentComponentProps.collectionId === this.currentCollectionId
+			)
+				return
 
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)

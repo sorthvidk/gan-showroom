@@ -110,26 +110,26 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'films',
-			// icon: '/img/shortcuts/films.png',
-			icon: '/img/shortcuts/SS21-FILMS.png',
-			label: 'SS21 Films',
-			posH: 2,
-			posV: 1,
-			windowContent: [
-				{
-					title: 'SS21 films',
-					contentId: 'ss21-films',
-					type: ContentTypes.films,
-					canOverride: true,
-					statusComponentProps: {
-						text: 'Films!! YAY!'
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'films',
+		// 	// icon: '/img/shortcuts/films.png',
+		// 	icon: '/img/shortcuts/SS21-FILMS.png',
+		// 	label: 'SS21 Films',
+		// 	posH: 2,
+		// 	posV: 1,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'SS21 films',
+		// 			contentId: 'ss21-films',
+		// 			type: ContentTypes.films,
+		// 			canOverride: true,
+		// 			statusComponentProps: {
+		// 				text: 'Films!! YAY!'
+		// 			}
+		// 		}
+		// 	]
+		// },
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
