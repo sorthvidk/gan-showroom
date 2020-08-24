@@ -1,1 +1,10 @@
-{"assetId":"S1466_Chipmunk 2","styleId":"S1466194","name":"S1466194_City Boot","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "S1466_Chipmunk 2",
+  "styleId": "S1466194",
+  "name": "S1466194_City Boot",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597996072/SS21/Packshots/S1466_4628_194_dzo6kw.jpg"
+}

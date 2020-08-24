@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"T2826009","name":"T2826009_T-shirt, Globe","program":3511,"programName":"Jersey","material":"70% Cotton. 30% Hemp","drop":"GANNI x Levi's","colorNames":"Nature","colorId":9,"filters":[],"responsible":true,"weight":2490,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 115,
+  "assets": [],
+  "program": 3511,
+  "colorNames": "Nature",
+  "material": "70% Cotton. 30% Hemp",
+  "name": "T2826009_T-shirt, Globe",
+  "styleId": "T2826009",
+  "drop": "GANNI x Levi's",
+  "programName": "Jersey",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 38,
+  "weight": 2490,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 280,
+  "wholesalePriceUSD": 48,
+  "filters": [],
+  "retailPriceEUR": 95,
+  "retailPriceDKK": 699,
+  "colorId": 9
+}

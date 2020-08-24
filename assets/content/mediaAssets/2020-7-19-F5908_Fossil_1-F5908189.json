@@ -1,1 +1,10 @@
-{"assetId":"F5908_Fossil 1","styleId":"F5908189","name":"F5908189_Twist Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5908_Fossil 1",
+  "styleId": "F5908189",
+  "name": "F5908189_Twist Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598257413/SS21/Packshots/F5908_6170_189_c0a5b6.jpg"
+}

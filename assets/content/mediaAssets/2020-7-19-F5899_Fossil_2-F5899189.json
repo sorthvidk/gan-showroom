@@ -1,1 +1,10 @@
-{"assetId":"F5899_Fossil 2","styleId":"F5899189","name":"F5899189_Sleevesless Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5899_Fossil 2",
+  "styleId": "F5899189",
+  "name": "F5899189_Sleevesless Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033504/SS21/Lookbook/K1534_F5899_A3288_jnnkm8.jpg"
+}

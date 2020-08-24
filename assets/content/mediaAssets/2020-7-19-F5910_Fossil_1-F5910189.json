@@ -1,1 +1,10 @@
-{"assetId":"F5910_Fossil 1","styleId":"F5910189","name":"F5910189_Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5910_Fossil 1",
+  "styleId": "F5910189",
+  "name": "F5910189_Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598257413/SS21/Packshots/F5910_6170_189_umuwho.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"F6088_Medium Indigo 2","styleId":"F6088691","name":"F6088691_Shirt","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F6088_Medium Indigo 2",
+  "styleId": "F6088691",
+  "name": "F6088691_Shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597737135/SS21/Packshots/LEVI%27s%20Commercial/87483-0000_b_bptfug.jpg"
+}

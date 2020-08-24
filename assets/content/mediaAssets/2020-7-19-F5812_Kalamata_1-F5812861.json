@@ -1,1 +1,10 @@
-{"assetId":"F5812_Kalamata 1","styleId":"F5812861","name":"F5812861_Coat","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5812_Kalamata 1",
+  "styleId": "F5812861",
+  "name": "F5812861_Coat",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598014024/SS21/Packshots/F5812_6179_099_yaf0k4.jpg"
+}

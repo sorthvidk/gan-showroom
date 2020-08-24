@@ -1,1 +1,10 @@
-{"assetId":"F5856_Black 2","styleId":"F5856099","name":"F5856099_Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5856_Black 2",
+  "styleId": "F5856099",
+  "name": "F5856099_Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033509/SS21/Lookbook/F5856_F5804_S1526_v3xau8.jpg"
+}

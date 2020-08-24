@@ -1,1 +1,10 @@
-{"assetId":"F5910_Corydalis Blue 1","styleId":"F5910870","name":"F5910870_Dress","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5910_Corydalis Blue 1",
+  "styleId": "F5910870",
+  "name": "F5910870_Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598013086/SS21/Packshots/F5910_6170_870_apv8d4.jpg"
+}

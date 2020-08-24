@@ -1,1 +1,10 @@
-{"assetId":"A3352_Chipmunk 1","styleId":"A3352194","name":"A3352194_Belt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3352_Chipmunk 1",
+  "styleId": "A3352194",
+  "name": "A3352194_Belt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598042179/SS21/Packshots/A3352_5562_194_jbuezi.jpg"
+}

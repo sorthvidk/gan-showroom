@@ -1,1 +1,10 @@
-{"assetId":"T2770_Chicory Coffee 1","styleId":"T2770979","name":"T2770979_Sweatshirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2770_Chicory Coffee 1",
+  "styleId": "T2770979",
+  "name": "T2770979_Sweatshirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598273078/SS21/Packshots/SOFTWARE%20NY/T2770_Chicory_Coffee_f8ufbi.png"
+}

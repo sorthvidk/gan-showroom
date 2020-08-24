@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"A3426252","name":"A3426252_Bandana","program":5681,"programName":"Ruffled Cotton","material":"100% Organic Cotton","drop":"GANNI x Levi's","colorNames":"Phantom","colorId":252,"filters":[],"responsible":true,"weight":2460,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 65,
+  "assets": [],
+  "program": 5681,
+  "colorNames": "Phantom",
+  "material": "100% Organic Cotton",
+  "name": "A3426252_Bandana",
+  "styleId": "A3426252",
+  "drop": "GANNI x Levi's",
+  "programName": "Ruffled Cotton",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 22,
+  "weight": 2460,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 160,
+  "wholesalePriceUSD": 28,
+  "filters": [],
+  "retailPriceEUR": 55,
+  "retailPriceDKK": 399,
+  "colorId": 252
+}

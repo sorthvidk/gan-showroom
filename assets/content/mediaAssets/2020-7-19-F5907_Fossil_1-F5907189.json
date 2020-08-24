@@ -1,1 +1,10 @@
-{"assetId":"F5907_Fossil 1","styleId":"F5907189","name":"F5907189_Smock Blouse","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5907_Fossil 1",
+  "styleId": "F5907189",
+  "name": "F5907189_Smock Blouse",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598257413/SS21/Packshots/F5907_6170_189_zfurne.jpg"
+}

@@ -1,1 +1,10 @@
-{"assetId":"T2771_Sweet Lilac 1","styleId":"T2771465","name":"T2771465_Oversized Sweatshirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2771_Sweet Lilac 1",
+  "styleId": "T2771465",
+  "name": "T2771465_Oversized Sweatshirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598271500/SS21/Packshots/SOFTWARE%20NY/T2775_Sweet_Lilac_piplrq.png"
+}

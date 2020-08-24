@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"F6093676","name":"F6093676_Shirt Dress","program":6293,"programName":"Light Indigo Denim","material":"77% Cotton, 23% Hemp","drop":"GANNI x Levi's","colorNames":"Light Denim","colorId":676,"filters":[],"responsible":true,"weight":2360,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 6293,
+  "colorNames": "Light Denim",
+  "material": "77% Cotton, 23% Hemp",
+  "name": "F6093676_Shirt Dress",
+  "styleId": "F6093676",
+  "drop": "GANNI x Levi's",
+  "programName": "Light Indigo Denim",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 122,
+  "weight": 2360,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 880,
+  "wholesalePriceUSD": 157,
+  "filters": [],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 676
+}

@@ -1,1 +1,22 @@
-{"collectionId":"GANNIXLEVIS","styleId":"F6088691","name":"F6088691_Shirt","program":6291,"programName":"Medium Indigo Denim","material":"77% Cotton, 23% Hemp","drop":"GANNI x Levi's","colorNames":"Medium Indigo","colorId":691,"filters":[],"responsible":true,"weight":2410,"wholesalePriceDKK":0,"wholesalePriceEUR":0,"wholesalePriceUSD":0,"retailPriceDKK":0,"retailPriceEUR":0,"retailPriceUSD":0,"assets":[],"index":0}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "program": 6291,
+  "colorNames": "Medium Indigo",
+  "material": "77% Cotton, 23% Hemp",
+  "name": "F6088691_Shirt",
+  "styleId": "F6088691",
+  "drop": "GANNI x Levi's",
+  "programName": "Medium Indigo Denim",
+  "index": 0,
+  "responsible": false,
+  "wholesalePriceEUR": 102,
+  "weight": 2410,
+  "collectionId": "GANNIXLEVIS",
+  "wholesalePriceDKK": 720,
+  "wholesalePriceUSD": 123,
+  "filters": [],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 691
+}

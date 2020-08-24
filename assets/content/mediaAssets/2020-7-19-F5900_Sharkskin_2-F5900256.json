@@ -1,1 +1,10 @@
-{"assetId":"F5900_Sharkskin 2","styleId":"F5900256","name":"F5900256_Oversized Dress","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5900_Sharkskin 2",
+  "styleId": "F5900256",
+  "name": "F5900256_Oversized Dress",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598036745/SS21/Directional%20Lookbook/F5902_F5900_S1498_z7ksci.jpg"
+}

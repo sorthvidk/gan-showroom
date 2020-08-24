@@ -1,1 +1,10 @@
-{"assetId":"F5821_Bright White 2","styleId":"F5821151","name":"F5821151_Smock Blouse","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5821_Bright White 2",
+  "styleId": "F5821151",
+  "name": "F5821151_Smock Blouse",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033512/SS21/Lookbook/F5821_F5799_2_hyjdrr.jpg"
+}

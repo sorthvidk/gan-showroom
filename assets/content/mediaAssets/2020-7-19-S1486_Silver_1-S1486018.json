@@ -1,1 +1,10 @@
-{"assetId":"S1486_Silver 1","styleId":"S1486018","name":"S1486018_Mid Crossover Sandal","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "S1486_Silver 1",
+  "styleId": "S1486018",
+  "name": "S1486018_Mid Crossover Sandal",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1597825437/SS21/Packshots/S1486_4771_018_2_ftplja.jpg"
+}

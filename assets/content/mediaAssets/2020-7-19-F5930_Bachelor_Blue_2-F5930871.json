@@ -1,1 +1,10 @@
-{"assetId":"F5930_Bachelor Blue 2","styleId":"F5930871","name":"F5930871_Sarong","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "F5930_Bachelor Blue 2",
+  "styleId": "F5930871",
+  "name": "F5930871_Sarong",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598033518/SS21/Lookbook/A3248_F5930_S1489_twr094.jpg"
+}

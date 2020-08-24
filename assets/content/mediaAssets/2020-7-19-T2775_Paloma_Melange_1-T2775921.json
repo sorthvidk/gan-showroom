@@ -1,1 +1,10 @@
-{"assetId":"T2775_Paloma Melange 1","styleId":"T2775921","name":"T2775921_T-shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2775_Paloma Melange 1",
+  "styleId": "T2775921",
+  "name": "T2775921_T-shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598271498/SS21/Packshots/SOFTWARE%20NY/T2775_Paloma_Melange_cvyss3.png"
+}

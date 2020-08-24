@@ -1,1 +1,10 @@
-{"assetId":"A3281_Black 2","styleId":"A3281099","name":"A3281099_V-neck Swimsuit","type":"image","aspect":"portrait","onTop":false,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "A3281_Black 2",
+  "styleId": "A3281099",
+  "name": "A3281099_V-neck Swimsuit",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": false,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598037945/SS21/Acc%20Still%20Life/A3281_A3284_gtdpic.jpg"
+}

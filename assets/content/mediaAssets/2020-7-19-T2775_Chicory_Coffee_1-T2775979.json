@@ -1,1 +1,10 @@
-{"assetId":"T2775_Chicory Coffee 1","styleId":"T2775979","name":"T2775979_T-shirt","type":"image","aspect":"portrait","onTop":true,"visible":true,"cloudinaryUrl":""}
+{
+  "assetId": "T2775_Chicory Coffee 1",
+  "styleId": "T2775979",
+  "name": "T2775979_T-shirt",
+  "type": "image",
+  "aspect": "portrait",
+  "onTop": true,
+  "visible": true,
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598271498/SS21/Packshots/SOFTWARE%20NY/T2775_Chicory_Coffee_hcg5u4.png"
+}
