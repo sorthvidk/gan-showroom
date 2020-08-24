@@ -72,7 +72,7 @@
 		padding: rem(2) rem(5);
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		max-width: 60%;
+		max-width: 60%; 
 		overflow: hidden;
 
 		@include mq($from: screen-xxs) {
@@ -85,6 +85,7 @@
 	&:hover {
 		.text {
 			background-color: $color-grey;
+			text-decoration: underline;
 		}
 	}
 

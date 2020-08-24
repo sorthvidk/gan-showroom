@@ -262,7 +262,7 @@ export default {
 			})
 		},
 		putOnTop() {
-			if(this.contentComponentProps.collectionId === this.currentCollectionId) return
+			if(this.contentComponentProps && this.contentComponentProps.collectionId === this.currentCollectionId) return
 
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)

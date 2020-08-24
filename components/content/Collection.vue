@@ -38,9 +38,13 @@ export default {
 	// },
 	computed: {
 		// ...mapState(['collectionLayout']),
-		...mapState('collection', ['list', 'activeFilters']),
+		...mapState('collection', [
+			'data', 
+			'activeFilters'
+		]),
+		
 		filteredCollection() {
-			const currentCollection = this.list.filter(style => style.collectionId === this.collectionId)
+			const currentCollection = this.data[this.collectionId].styles
 			const currentFilter = this.activeFilters[this.collectionId]
 
 			return !currentFilter
@@ -58,7 +62,7 @@ export default {
 				if ( dropIndex > -1 ) {
 					drops[dropIndex].styles.push(collectionItem)
 				} else {
-					drops.push( {label:collectionItem.drop, styles:[]});
+					drops.push( {label:collectionItem.drop, styles:[collectionItem]});
 				}
 			}
 			

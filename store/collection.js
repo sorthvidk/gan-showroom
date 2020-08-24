@@ -38,7 +38,9 @@ export const state = () => ({
 
 	wishList: [],
 
-	assetsConnected: false
+	assetsConnected: false,
+
+	data: null
 })
 
 export const mutations = {
@@ -239,14 +241,20 @@ export const actions = {
 		)
 
 		const currentStyles = state.data[state.currentCollectionId].styles
-		const currentStyleIndex = currentStyles
+		
+		let filteredStyles = currentStyles
+		if ( state.activeFilters[state.currentCollectionId] ) {
+			filteredStyles = currentStyles.filter( style => style.filters.includes(state.activeFilters[state.currentCollectionId]))
+		}
+		
+		const currentStyleIndex = filteredStyles
 			.map(style => style.styleId)
 			.indexOf(styleId)
 
 		const prevStyle =
-			currentStyles[
+			filteredStyles[
 				currentStyleIndex === 0
-					? currentStyles.length - 1
+					? filteredStyles.length - 1
 					: currentStyleIndex - 1
 			]
 
@@ -262,13 +270,19 @@ export const actions = {
 		)
 
 		const currentStyles = state.data[state.currentCollectionId].styles
-		const currentStyleIndex = currentStyles
+		
+		let filteredStyles = currentStyles
+		if ( state.activeFilters[state.currentCollectionId] ) {
+			filteredStyles = currentStyles.filter( style => style.filters.includes(state.activeFilters[state.currentCollectionId]))
+		}
+
+		const currentStyleIndex = filteredStyles
 			.map(style => style.styleId)
 			.indexOf(styleId)
 
 		const nextStyle =
-			currentStyles[
-				currentStyleIndex === currentStyles.length - 1
+			filteredStyles[
+				currentStyleIndex === filteredStyles.length - 1
 					? 0
 					: currentStyleIndex + 1
 			]

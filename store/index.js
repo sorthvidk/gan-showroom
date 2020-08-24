@@ -243,7 +243,7 @@ export const mutations = {
 		 * }
 		 */
 
-		const sortedStyles = sortArrayMultipleProps(styles, 'program', 'weight')
+		const sortedStyles = sortArrayMultipleProps(styles, 'weight', 'drop')
 
 		// loop through all styles and place them, with their filters,
 		// under the correct collectionId,
