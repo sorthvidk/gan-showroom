@@ -147,7 +147,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte1.jpg'
+							defaultImageUrl: '/img/ditte/private1.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -161,7 +161,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte2.jpg'
+							defaultImageUrl: '/img/ditte/private2.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -171,11 +171,11 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_03',
 					contentId: 'ditte-image3',
-					type: ContentTypes.imagePortraitLarge,
+					type: ContentTypes.imageLandscapeLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte3.jpg'
+							defaultImageUrl: '/img/ditte/private3.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -189,63 +189,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte4.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_05',
-					contentId: 'ditte-image5',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte5.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_06',
-					contentId: 'ditte-image6',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte6.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				// {
-				// 	title: 'Ditte_inspiration_image_07',
-				// 	contentId: 'ditte-image7',
-				// 	type: ContentTypes.imagePortraitLarge,
-				// 	canOverride: false,
-				// 	contentComponentProps: {
-				// 		asset: {
-				// 			defaultImageUrl: '/img/ditte/ditte7.jpg'
-				// 		}
-				// 	},
-				// 	statusComponentProps: {
-				// 		text: 'TIP! Hit ESC to close all'
-				// 	}
-				// },
-				{
-					title: 'Ditte_inspiration_image_07',
-					contentId: 'ditte-image7',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte8.jpg'
+							defaultImageUrl: '/img/ditte/private4.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -263,42 +207,7 @@ export const state = () => ({
 					}
 				}
 			]
-		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'music-player',
-		// 	// icon: '/img/shortcuts/ganni_fm.png',
-		// 	icon: '/img/collage/dress6.png',
-		// 	label: 'GANNI FM',
-		// 	posH: 1,
-		// 	posV: 2,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'GANNI FM',
-		// 			contentId: 'ganni-fm',
-		// 			type: ContentTypes.musicPlayer,
-		// 			canOverride: true
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'ganni-girls',
-		// 	icon: '/img/shortcuts/ganni_girls.png',
-		// 	label: 'GANNI Girls',
-		// 	posH: 2,
-		// 	posV: 2,
-		// 	windowContent: [
-		// 		{
-		// 			title: '#GANNIGirls',
-		// 			contentId: 'ganni-girls',
-		// 			type: ContentTypes.ganniGirls,
-		// 			statusComponentProps: {
-		// 				text: 'http://#gannigirls.weblog/'
-		// 			}
-		// 		}
-		// 	]
-		// },
+		},		
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
@@ -432,7 +341,7 @@ export const state = () => ({
 			label: 'Rails (pdf)',
 			posH: 2,
 			posV: 3,
-			href: '/files/GANNI_PS21_Rails.pdf'
+			href: '/files/GANNI_21-1_RAILS.pdf'
 		},
 		// {
 		// 	type: ShortcutTypes.WINDOW,

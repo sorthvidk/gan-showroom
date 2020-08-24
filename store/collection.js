@@ -61,7 +61,7 @@ export const mutations = {
 	[ADD_TO_WISHLIST.mutation](state, params) {
 		if (params.styleItem.onWishList) return false
 		else {
-			let listStyle = state.list.filter(
+			let listStyle = state.data[this.currentCollectionId].styles.filter(
 				e => e.styleId === params.styleItem.styleId
 			)[0]
 			listStyle.onWishList = true

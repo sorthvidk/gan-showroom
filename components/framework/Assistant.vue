@@ -493,7 +493,7 @@ export default {
 		},
 		styleOnWishList() {
 			console.log(this.currentStyle)
-			return this.currentStyle.styleItem.onWishList
+			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
@@ -668,7 +668,7 @@ export default {
 		},
 		addToWishListClickHandler() {
 			let colorList = this.currentStyle.colorNames.split(', ')
-			console.log('colorList', colorList)
+			
 			if (colorList.length > 1) {
 				this[TOGGLE_COLOR_PICKER.action]({
 					styleItem: this.currentStyle,
@@ -680,7 +680,6 @@ export default {
 			}
 		},
 		executeAddToWishList(styleItem, chosenColorList) {
-			console.log('executeAddToWishList', chosenColorList)
 			if (!this.styleOnWishList) {
 				this[ADD_TO_WISHLIST.action]({
 					styleItem: this.currentStyle,
