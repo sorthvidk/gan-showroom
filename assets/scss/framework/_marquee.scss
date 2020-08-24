@@ -1,12 +1,17 @@
 .marquee {
 	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: $z-index-support;
 
 	font-family: $font-sansserif;
 
-	background-color: $color-white;
-	color: $color-black;
+	background-color: $color-202020-red;
+	color: $color-202020-blue;
 	height: rem(60);
-	border-top: rem(1) solid $color-black;
+	border-top: rem(1) solid $color-202020-red;
 
 	display: flex;
 	align-items: center;
@@ -56,12 +61,12 @@
 			left: 0;
 			right: 0;
 			height: rem(3);
-			background-color: $color-black;
+			background-color: $color-202020-blue;
 		}
 		&:hover {
-			color: $color-blue;
+			color: $color-202020-green;
 			&:after {
-				background-color: $color-blue;
+				background-color: $color-202020-green;
 			}
 		}
 	}

@@ -16,7 +16,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { OPEN_STYLE_CONTENT } from '~/model/constants'
+import { OPEN_STYLE_CONTENT, CURRENT_COLLECTION_ID } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
 import capitalize from 'lodash/capitalize'
 
@@ -28,7 +28,11 @@ import sendTracking from '~/utils/send-tracking'
 export default {
 	name: 'collectionItem',
 	components: { ResponsibleIcon },
-	props: CollectionItemModel,
+	props: {
+		...CollectionItemModel,
+		weight: { type: Number, default: 0 }, // not used
+		slug: { type: String, default: '' }, // not used
+	},
 	computed: {
 		...mapState({
 			wishList: state => state.collection.wishList
@@ -46,15 +50,17 @@ export default {
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.filter(e => e.styleId === this.styleId).length > 0
+			return this.wishList.filter(e => e.styleItem.styleId === this.styleId).length > 0
 		}
 	},
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action]),
+		...mapActions('collection', [CURRENT_COLLECTION_ID.action]),
 		onItemClick() {
 			sendTracking('Product click', this.styleId)
-
+			this[CURRENT_COLLECTION_ID.action](this.collectionId)
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
+			this.$emit('activate')
 		}
 	}
 }

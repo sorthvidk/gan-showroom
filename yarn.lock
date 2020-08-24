@@ -978,6 +978,14 @@
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
 
+"@vimeo/player@^2.10.0":
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.12.2.tgz#04ec04c6763aba96bfce98d6e7167c160ac7be25"
+  integrity sha512-aLQFDywqy2fYAuq7JNybdi3rxaute6baTlJZP4gdQNPGkiVSM28vWv0BtOQ7Omv2loBStZN5jPkANhBk2gC+mQ==
+  dependencies:
+    native-promise-only "0.8.1"
+    weakmap-polyfill "2.0.1"
+
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@vue/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-1.0.0.tgz#048fe579958da408fb7a8b2a3ec050b50a661040"
@@ -4529,6 +4537,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+native-promise-only@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
+  integrity sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
+
 negotiator@0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
@@ -7275,6 +7288,14 @@ vue-typer@^1.2.0:
   dependencies:
     lodash.split "^4.4.2"
 
+vue-vimeo-player@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-vimeo-player/-/vue-vimeo-player-0.1.0.tgz#579edbed527487b31f2a2c552c8deffbcd988018"
+  integrity sha512-kozPRMBBJpIZ9SVXWwB9k6HomUmDl39+mmnjbfRLfZgI5q+Q2yCI3lzk3wJemvAbyXo44Xp75SIaNH0eWzGLSg==
+  dependencies:
+    "@vimeo/player" "^2.10.0"
+    object-assign "^4.1.1"
+
 vue-visibility-change@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vue-visibility-change/-/vue-visibility-change-1.2.1.tgz#d18008bf4f1de2c947afe5441ee044b9e9c60141"
@@ -7315,6 +7336,11 @@ watchpack@^1.6.1:
   optionalDependencies:
     chokidar "^3.4.0"
     watchpack-chokidar2 "^2.0.0"
+
+weakmap-polyfill@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.1.tgz#ff0278c7f75bb0c492fc3343257f3e87114d709a"
+  integrity sha512-Jy177Lvb1LCrPQDWJsXyyqf4eOhcdvQHFGoCqSv921kVF5i42MVbr4e2WEwetuTLBn1NX0IhPzTmMu0N3cURqQ==
 
 webpack-bundle-analyzer@^3.6.1:
   version "3.7.0"

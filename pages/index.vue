@@ -1,5 +1,6 @@
 <template>
-	<div oncontextmenu="return false;"> <!-- TO PREVENT DOWNLOADS -->
+	<div oncontextmenu="return false;">
+		<!-- TO PREVENT DOWNLOADS -->
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
@@ -11,7 +12,7 @@
 
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { vuex, mapActions, mapState, mapMutations } from 'vuex'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
@@ -21,10 +22,9 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 import getShortUrl from '~/utils/get-short-url'
 
 import {
-	CONNECT_ASSETS,
-	FILTER_COLLECTION,
-	INIT_PROGRESS,
-	VISIBILITY
+	INIT_INDEX,
+	VISIBILITY,
+	AUTHENTICATE_CONTENT
 } from '~/model/constants'
 
 export default {
@@ -60,10 +60,14 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([VISIBILITY.action]),
+		...mapActions([VISIBILITY.action, INIT_INDEX.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
 			this.debounce(
-				() => this[VISIBILITY.action](appTabUnfocused),
+				() => {
+					if (!appTabUnfocused && this.screensaverActive) {
+						this[VISIBILITY.action](appTabUnfocused)
+					}
+				},
 				immediate ? 0 : this.countdownTime
 			)
 		},
@@ -84,15 +88,21 @@ export default {
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
-		this.$store.commit(CONNECT_ASSETS.mutation)
-		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
-		this.$store.commit(INIT_PROGRESS.mutation)
+		//perform all state mutations before app start
+		this[INIT_INDEX.action]()		
 
 		this.$visibility.change((evt, appTabUnfocused) => {
 			if (appTabUnfocused) {
 				this.toggleScreenSaver(appTabUnfocused)
 			}
 		})
+
+		/**
+		 * Will go through the data and filter out the
+		 * collections that the used aren't allowed to see,
+		 * based on what password was used
+		 */
+		this.$store.commit(AUTHENTICATE_CONTENT.mutation)
 
 		//add clear timeout listeners
 		document.body.addEventListener(

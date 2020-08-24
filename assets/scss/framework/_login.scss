@@ -74,9 +74,9 @@
 
 	background-size: cover;
 
-	@include mq($from: screen-md) {
-		align-items: flex-end;
-	}
+	// @include mq($from: screen-md) {
+	// 	align-items: flex-end;
+	// }
 
 	.form {
 		position: relative;
@@ -101,7 +101,7 @@
 			font-size: 10vw;
 			width: 75%;
 			text-align: center;
-			color: $color-lime;
+			color: $color-202020-green;
 
 			outline: none;
 
@@ -110,7 +110,7 @@
 			}
 
 			&::placeholder {
-				color: $color-lightyellow;
+				color: $color-white;
 			}
 
 			&:focus::placeholder {
@@ -161,7 +161,8 @@
 	background-size: cover;
 	background-position: center;
 	display: flex;
-	align-items: flex-end;
+	// align-items: flex-end;
+	align-items: center;
 	font-weight: 500;
 	line-height: 0.9;
 
@@ -180,13 +181,31 @@
 		font-size: 8vmax;
 	}
 
-	.logo {
-		top: auto;
-		bottom: rem(80);
+	.login-logo {
+		width: 100%;
+		height: 100%;
+		// top: auto;
+		// bottom: rem(80);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		svg {
 			opacity: 1;
-			fill: $color-lime;
+			// fill: $color-lime;
+			width: 66%;
+			height: auto;
 		}
+	}
+
+	&__copy {
+		text-align: center;
+		padding: 0 rem(20);
+		color: $color-white;
+		font-size: 4vw;
 	}
 }

@@ -1,6 +1,6 @@
 <template>
 	<div class="text-reader">
-		<p v-html="text"></p>
+		<p v-html="textContent"></p>
 	</div>
 </template>
 
@@ -14,6 +14,15 @@ export default {
 		text: {
 			type: String,
 			default: ''
+		},
+		asset: {
+			type: Object
+		}
+	},
+	computed: {
+		textContent() {
+			if ( this.asset && this.asset.text ) return this.asset.text
+			else return this.text
 		}
 	}
 };

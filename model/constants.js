@@ -6,6 +6,9 @@ const createMutation = type => ({
 	stateKey: camelCase(type)
 })
 
+export const PASSWORD_ITEMS_FETCH = createMutation('PASSWORD_ITEMS_FETCH')
+export const AUTHENTICATE_CONTENT = createMutation('AUTHENTICATE_CONTENT')
+
 export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
 export const LOGIN = createMutation('LOGIN')
 export const COPYRIGHT_ACCEPT = createMutation('COPYRIGHT_ACCEPT')
@@ -13,6 +16,12 @@ export const SAVE_AS_BACKGROUND = createMutation('SAVE_AS_BACKGROUND')
 export const VISIBILITY = createMutation('VISIBILITY')
 export const RESET_STATE = createMutation('RESET_STATE')
 
+export const CREATE_DATA_MODEL = createMutation('CREATE_DATA_MODEL')
+export const CURRENT_COLLECTION_ID = createMutation('CURRENT_COLLECTION_ID')
+
+export const COLLECTION_COLLECTIONS_FETCH = createMutation(
+	'COLLECTION_COLLECTIONS_FETCH'
+)
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
 export const COLLECTION_FILTERS_FETCH = createMutation(
 	'COLLECTION_FILTERS_FETCH'
@@ -23,7 +32,17 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
+
+export const ARTISTS_FETCH = createMutation('ARTISTS_FETCH')
+export const ARTIST_ASSETS_FETCH = createMutation('ARTIST_ASSETS_FETCH')
+export const CONNECT_ARTIST_ASSETS = createMutation('CONNECT_ARTIST_ASSETS')
+export const OPEN_ARTIST_CONTENT = createMutation('OPEN_ARTIST_CONTENT')
+
+//wrapper for initialisation mutations
+export const INIT_INDEX = createMutation('INIT_INDEX')
+
 export const KEYPRESS = createMutation('KEYPRESS')
+export const BYPASS_ESCAPE = createMutation('BYPASS_ESCAPE')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
@@ -38,9 +57,12 @@ export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP')
 export const EXPAND_WINDOW_GROUP = createMutation('EXPAND_WINDOW_GROUP')
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT')
 export const OPEN_GALLERY = createMutation('OPEN_GALLERY')
+export const TOGGLE_COLOR_PICKER = createMutation('TOGGLE_COLOR_PICKER')
 export const ADD_TO_WISHLIST = createMutation('ADD_TO_WISHLIST')
+export const UPDATE_WISHLIST = createMutation('UPDATE_WISHLIST')
 export const REMOVE_FROM_WISHLIST = createMutation('REMOVE_FROM_WISHLIST')
 export const ALL_ASSETS_VISIBLE = createMutation('ALL_ASSETS_VISIBLE')
+export const SET_CURRENT_STYLE = createMutation('SET_CURRENT_STYLE')
 export const SHOW_NEXT_STYLE = createMutation('SHOW_NEXT_STYLE')
 export const SHOW_PREVIOUS_STYLE = createMutation('SHOW_PREVIOUS_STYLE')
 export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER')

@@ -1,61 +1,25 @@
-import {
-	SET_CURRENT_FILTER,
-	TOGGLE_MUSIC_PLAYER,
-	COLLECTION_LAYOUT_CHANGE
-} from '~/model/constants'
+import { SET_CURRENT_FILTER } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
 
 export const state = () => ({
+	blownUpIconLayout: true,
 	list: [
 		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection',
-			icon: '/img/shortcuts/ps21.png',
-			label: 'PS21 collection',
-			posH: 1,
-			posV: 1,
-			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'films',
-			icon: '/img/shortcuts/films.png',
-			label: 'PS21 Films',
+			type: ShortcutTypes.URL,
+			shortcutId: 'rails',
+			icon: '/img/shortcuts/rails.png',
+			label: 'Rails (pdf)',
 			posH: 2,
-			posV: 1,
-			windowContent: [
-				{
-					title: 'PS21 films',
-					contentId: 'ps21-films',
-					type: ContentTypes.films,
-					canOverride: true,
-					statusComponentProps: {
-						text: 'Films!! YAY!'
-					}
-				}
-			]
+			posV: 3,
+			href: '/files/GANNI_21-1_RAILS.pdf'
 		},
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
-			icon: '/img/shortcuts/dittes_private.png',
+			icon: '/img/shortcuts/PRIVATE.png',
 			label: 'Private',
 			posH: 3,
 			posV: 1,
@@ -68,7 +32,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte1.jpg'
+							defaultImageUrl: '/img/ditte/private1.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -82,7 +46,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte2.jpg'
+							defaultImageUrl: '/img/ditte/private2.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -92,11 +56,11 @@ export const state = () => ({
 				{
 					title: 'Ditte_inspiration_image_03',
 					contentId: 'ditte-image3',
-					type: ContentTypes.imagePortraitLarge,
+					type: ContentTypes.imageLandscapeLarge,
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte3.jpg'
+							defaultImageUrl: '/img/ditte/private3.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -110,63 +74,7 @@ export const state = () => ({
 					canOverride: false,
 					contentComponentProps: {
 						asset: {
-							defaultImageUrl: '/img/ditte/ditte4.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_05',
-					contentId: 'ditte-image5',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte5.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_06',
-					contentId: 'ditte-image6',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte6.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					}
-				},
-				// {
-				// 	title: 'Ditte_inspiration_image_07',
-				// 	contentId: 'ditte-image7',
-				// 	type: ContentTypes.imagePortraitLarge,
-				// 	canOverride: false,
-				// 	contentComponentProps: {
-				// 		asset: {
-				// 			defaultImageUrl: '/img/ditte/ditte7.jpg'
-				// 		}
-				// 	},
-				// 	statusComponentProps: {
-				// 		text: 'TIP! Hit ESC to close all'
-				// 	}
-				// },
-				{
-					title: 'Ditte_inspiration_image_07',
-					contentId: 'ditte-image7',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte8.jpg'
+							defaultImageUrl: '/img/ditte/private4.jpg'
 						}
 					},
 					statusComponentProps: {
@@ -184,45 +92,11 @@ export const state = () => ({
 					}
 				}
 			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'music-player',
-			icon: '/img/shortcuts/ganni_fm.png',
-			label: 'GANNI FM',
-			posH: 1,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI FM',
-					contentId: 'ganni-fm',
-					type: ContentTypes.musicPlayer,
-					canOverride: true
-				}
-			]
-		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'ganni-girls',
-		// 	icon: '/img/shortcuts/ganni_girls.png',
-		// 	label: 'GANNI Girls',
-		// 	posH: 2,
-		// 	posV: 2,
-		// 	windowContent: [
-		// 		{
-		// 			title: '#GANNIGirls',
-		// 			contentId: 'ganni-girls',
-		// 			type: ContentTypes.ganniGirls,
-		// 			statusComponentProps: {
-		// 				text: 'http://#gannigirls.weblog/'
-		// 			}
-		// 		}
-		// 	]
-		// },
+		},		
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
-			icon: '/img/shortcuts/look_book.png',
+			icon: '/img/shortcuts/LOOKBOOK.png',
 			label: 'LookBook',
 			posH: 2,
 			posV: 2,
@@ -239,157 +113,101 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'animal-print',
-			icon: '/img/shortcuts/animal_print.png',
-			label: 'Animal Print',
-			posH: 10,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc4'
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-software',
-			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI Software',
-			posH: 11,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc5'
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'accessories',
-			icon: '/img/shortcuts/acces.png',
-			label: 'Acces',
-			posH: 12,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'acc1'
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'responsibility-report',
-			icon: '/img/shortcuts/responsible.png',
-			label: 'Responsibility (pdf)',
-			posH: 1,
+			shortcutId: 'collection-levis',
+			icon: '/img/shortcuts/GANNIXLEVIS.png',
+			label: "GANNI<br>x<br>Levi's",
+			posH: 4,
 			posV: 3,
-			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
-		},
-
-		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'rails',
-			icon: '/img/shortcuts/rails.png',
-			label: 'Rails (pdf)',
-			posH: 2,
-			posV: 3,
-			href: '/files/GANNI_PS21_Rails.pdf'
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'hampster-dance',
-			icon: '/img/shortcuts/hamster_dance.png',
-			label: 'Hampster Dance',
-			posH: 12,
-			posV: 5,
 			windowContent: [
 				{
-					title: 'Hampster Dance',
-					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
+					title: "GANNI x Levi's",
+					contentId: 'levis-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
+						collectionId: 'GANNIXLEVIS'
+					}
 				}
 			]
 		},
-
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-ss21',
+			icon: '/img/shortcuts/SS21.png',
+			label: 'SS21 Collection',
+			posH: 4,
+			posV: 1,
+			windowContent: [
+				{
+					title: 'SS21 Collection',
+					contentId: 'ss21-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						// layout: CollectionLayouts.GRID,
+						collectionId: 'SS21'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'artists',
+			icon: '/img/shortcuts/ARTISTS.png',
+			label: '202020<br>Exhibition',
+			posH: 6,
+			posV: 2,
+			windowContent: [
+				{
+					title: '202020 Exhibition',
+					contentId: 'artists',
+					type: ContentTypes.artists,
+					statusComponentProps: {
+						text: 'Check out the artists'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-software',
+			icon: '/img/shortcuts/SOFTWARE.png',
+			label: 'GANNI<br>Software',
+			posH: 4,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'GANNI Software',
+					contentId: 'software-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
+						collectionId: 'SOFTWARE'
+					}
+				}
+			]
+		},
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
-			label: 'PLAY DRESS UP',
-			icon: '/img/shortcuts/ganni_dressup.png',
+			label: 'COLLAGE<br>CLUB',
+			icon: '/img/shortcuts/COLLAGECLUB.png',
 			posH: 11,
 			posV: 5,
 			windowContent: [
 				{
-					title: 'PLAY DRESS UP',
+					title: 'COLLAGE CLUB',
 					contentId: 'collage',
 					type: ContentTypes.collage
 				}
 			]
 		},
 
+		// MARQUEE
+
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Welcome to the GANNI Space! Check out the ',
-			label: 'PS21 Collection',
-			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Take a look at the ',
-			label: 'Elevated Lookbook',
+			text: 'Welcome to the GANNI Space! Check out ',
+			label: 'the Elevated Lookbook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
@@ -403,26 +221,53 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Check out the ',
-			label: 'Design Darlings',
+			text: 'Enjoy the GANNI ',
+			label: '202020 Exhibition',
+			windowContent: [
+				{
+					title: '202020 Exhibition',
+					contentId: 'artists',
+					type: ContentTypes.artists,
+					statusComponentProps: {
+						text: 'Check out the artists'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Check out ',
+			label: 'the software collection',
 			actions: [
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc2'
-				},
-				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					param: ''
 				}
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					title: 'GANNI Software',
+					contentId: 'software-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
+						collectionId: 'SOFTWARE'
+					}
 				}
 			]
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Discover the ',
+			label: 'GANNI REPEAT x LEVI’S LOVE LETTERS',
+			href: 'https://repeat.ganni.com'
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Before you leave, check out our ',
+			label: 'Responsibility report (pdf)',
+			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
 		}
 		// {
 		// 	type: ShortcutTypes.MARQUEE,

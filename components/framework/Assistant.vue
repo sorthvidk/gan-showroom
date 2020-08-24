@@ -4,7 +4,7 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top">
-			<span class="title">Desktop assistant</span>
+			<span class="title">Tour guide</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
@@ -112,17 +112,21 @@
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__filters">
-						<h3>PS21 COLLECTION</h3>
-						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
+						<h3>{{collectionName}}</h3>
+						<p>
+							Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.
+							<span
+								v-if="currentCollectionFilters.length > 0"
+							>Skip to the good stuff by choosing from the below:</span>
+						</p>
 						<div class="assistant__filters__list">
 							<filter-button
-								v-for="(item, key) in filtersList"
+								v-for="(item, key) in currentCollectionFilters"
 								:key="key"
 								:name="item.name"
-								:count="item.styleIds.length"
 								:filter-id="item.filterId"
 							/>
-							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
+							<span class="filter-button" v-if="currentCollectionFilters.length % 2 > 0">&nbsp;</span>
 						</div>
 					</div>
 				</div>
@@ -155,9 +159,19 @@
 									<th>Material</th>
 									<td>{{currentStyle.material}}</td>
 								</tr>
+
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
+
 								<tr>
 									<th>Style #</th>
 									<td>{{currentStyle.styleId}}</td>
+								</tr>
+								<tr>
+									<th>Drop</th>
+									<td>{{currentStyle.drop}}</td>
 								</tr>
 								<tr>
 									<th>Program #</th>
@@ -230,7 +244,7 @@
 
 				<!-- ####################### CTA ####################### -->
 
-				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
+				<div class="assistant__ctas" v-if="assistantMode == 0 && activeWishlist.length > 0">
 					<button class="button view-wishlist" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
 					</button>
@@ -263,7 +277,7 @@
 					</button>
 					<button
 						class="button add-to-wishlist button--half"
-						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
+						:class="{'is-active': styleOnWishList, 'is-animating': styleHasJustBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
 						<span class="icon">
@@ -284,11 +298,6 @@
 						@click="downloadWishListClickHandler"
 						:href="pdfDownloadLink"
 					>
-						<span class="icon">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-								<path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z" />
-							</svg>
-						</span>
 						<p>Download wishlist</p>
 					</a>
 
@@ -368,7 +377,9 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import {
-	SET_CURRENT_FILTER,
+	// SET_CURRENT_FILTER,
+	SET_CURRENT_STYLE,
+	TOGGLE_COLOR_PICKER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	OPEN_CONTENT,
@@ -407,67 +418,118 @@ export default {
 			viewPortSize: ViewportSizes.SMALL,
 			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
-			currentStyle: null,
 			hiddenAssetContent: [],
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
 			showClipboardMessage: false,
-			styleHasBeenAdded: false,
+
+			styleHasJustBeenAdded: false,
+
 			shortenedReceiptUrl: null,
 			pdfDownloadLink:
 				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
 		}
 	},
 	computed: {
-		...mapState({
-			keyPressed: state => state.keyPressed,
-			filtersList: state => state.collection.filters,
-			wishList: state => state.collection.wishList,
-			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
-			collageIsOpen: state => state.collageIsOpen,
-			clothes: state => state.collage.clothes
-		}),
+		...mapState([
+			'keyPressed',
+			'topMostWindow',
+			'clipBoardCopyComplete',
+			'collageIsOpen'
+		]),
+		...mapState('collection', [
+			'currentStyle',
+			'collections',
+			'currentCollectionId',
+			'data',
+			'filters',
+			'activeFilters',
+			'wishList'
+		]),
+		...mapState('collage', ['clothes']),
+		collectionName() {
+			return this.collections
+				.find(
+					collection => collection.collectionId === this.currentCollectionId
+				)
+				.name.toUpperCase()
+		},
+		currentCollectionFilters() {
+			return this.data[this.currentCollectionId]
+				? this.data[this.currentCollectionId].filters
+				: []
+		},
+		filterStatusText() {
+			const activeFilter = this.filters.find(
+				filter =>
+					filter.filterId === this.activeFilters[this.currentCollectionId]
+			)
+			return activeFilter ? activeFilter.name : 'Filter'
+		},
+		activeWishlist() {
+			const activeCollections = this.collections
+				.filter(c => c.active)
+				.map(c => c.collectionId)
+			return this.wishList.filter(item =>
+				activeCollections.includes(item.styleItem.collectionId)
+			)
+		},
 		viewWishListButtonLabel() {
-			return `View wishlist (${this.wishList.length})`
+			return `View wishlist (${this.activeWishlist.length})`
 		},
 		addToWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Added to wishlist'
+			if (this.getStyleOnWishList) return 'Added'
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {
-			if (this.activeFilter.filterId) {
-				return 'Download ' + this.activeFilter.name
+			if (this.activeFilters[this.currentCollectionId]) {
+				return (
+					'Download ' +
+					this.filters.find(
+						filter =>
+							this.activeFilters[this.currentCollectionId] === filter.filterId
+					).name
+				)
 			}
 			return 'Download all'
 		},
 		styleOnWishList() {
+			if ( this.currentStyle.onWishList ) console.log("ON WISHLIST")
+			else console.log("NOT ON WISHLIST")
+
 			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
 		},
-		filterStatusText() {
-			if (this.filterName) return this.filterName
-			return 'Filter'
-		},
 		wishListUrl() {
-			return `${window.location}export/?styles=${this.wishList
-				.map(style => style.styleId)
+			// ex: /export/?styles=K1489~Dutch%20Blue.White,K1446
+			return `${window.location}export/?styles=${this.activeWishlist
+				.map(
+					({ styleItem, chosenColorList = false }) =>
+						`${styleItem.styleId +
+							(chosenColorList ? `~${chosenColorList.join('.')}` : '')}`
+				)
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (this.activeFilter.filterId) {
-				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			if (this.activeFilters[this.currentCollectionId]) {
+				return `${window.location}export/?styles=${this.currentCollectionId +
+					'_' +
+					this.activeFilters[this.currentCollectionId]}`
 			}
 			// /export with no params shows all styles
-			return `${window.location}export`
+			return `${window.location}export/?styles=${this.currentCollectionId}`
 		}
 	},
 	watch: {
+		currentStyle(newVal) {
+			if ( newVal ) {
+				this.parseAssets()
+			}
+			console.log('CURRENT STYLE WATCHER | onWishList: '+newVal.onWishList)
+		},
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
 		},
@@ -486,17 +548,21 @@ export default {
 				}
 			}
 		},
-		activeFilter(newVal) {
-			if (newVal && newVal.name != '') {
-				this.filterName = newVal.name
+		activeFilters: {
+			/**
+			 * close filter when a new is chosen,
+			 * on mobile
+			 */
+			deep: true,
+			handler() {
 				this.assistantExpanded = false
-			} else this.filterName = null
+			}
 		},
 		topMostWindow(newVal) {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
-			this.styleHasBeenAdded = false
+			this.styleHasJustBeenAdded = false
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -517,10 +583,8 @@ export default {
 					case ContentTypes.videoLandscape.contentComponent:
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
-							this.currentStyle = this.currentStyles.filter(
-								e => e.styleId === componentProps.asset.styleId
-							)[0]
-							this.parseAssets()
+							this[SET_CURRENT_STYLE.action](componentProps.asset.styleId)
+							this.parseAssets()								
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -539,14 +603,14 @@ export default {
 			}
 
 			if (noRelevantAssistantContent) {
-				if (this.wishList.length > 0) {
+				if (this.activeWishlist.length > 0) {
 					this.assistantMode = AssistantModes.COLLECTION_SEEN
 				} else {
 					this.assistantMode = AssistantModes.WELCOME
 				}
 			}
 		},
-		wishList(newVal) {
+		activeWishlist(newVal) {
 			if (
 				newVal.length == 0 &&
 				this.assistantMode == AssistantModes.COLLECTION_SEEN
@@ -576,31 +640,32 @@ export default {
 			DOWNLOAD_PREPARING.action,
 			SAVE_COLLAGE.action,
 			MAKE_BACKGROUND.action,
-			CHANGE_COLLAGE.action,
-			'collection/' + ALL_ASSETS_VISIBLE.action,
-			'collection/' + SET_CURRENT_FILTER.action,
-			'collection/' + ADD_TO_WISHLIST.action,
-			'collection/' + REMOVE_FROM_WISHLIST.action,
-			'collection/' + SHOW_PREVIOUS_STYLE.action,
-			'collection/' + SHOW_NEXT_STYLE.action
+			CHANGE_COLLAGE.action
+		]),
+		...mapActions('collection', [
+			SET_CURRENT_STYLE.action,
+			ALL_ASSETS_VISIBLE.action,
+			TOGGLE_COLOR_PICKER.action,
+			ADD_TO_WISHLIST.action,
+			REMOVE_FROM_WISHLIST.action,
+			SHOW_PREVIOUS_STYLE.action,
+			SHOW_NEXT_STYLE.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
 			this[OPEN_WISH_LIST.action]()
 		},
 		previousStyleHandler() {
-			this['collection/' + SHOW_PREVIOUS_STYLE.action](
-				this.currentStyle.styleId
-			)
+			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
 		},
 		nextStyleHandler() {
-			this['collection/' + SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 		},
 		closeStyleHandler() {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 		showAllVariantsClickHandler() {
-			this['collection/' + ALL_ASSETS_VISIBLE.action](this.currentStyle)
+			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
 				addToGroupId: this.associatedWindowGroupId
@@ -608,17 +673,33 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
-			if (!this.styleOnWishList) {
-				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
-
-				this.styleHasBeenAdded = true
+			let colorList = this.currentStyle.colorNames.split(', ')
+			
+			if (colorList.length > 1) {
+				this[TOGGLE_COLOR_PICKER.action]({
+					styleItem: this.currentStyle,
+					chosenColorList: colorList,
+					callbackFunction: this.executeAddToWishList
+				})
+			} else {
+				this.executeAddToWishList(colorList)
+			}
+		},
+		executeAddToWishList(styleItem, chosenColorList) {
+			if (!this.getStyleOnWishList) {
+				this[ADD_TO_WISHLIST.action]({
+					styleItem: this.currentStyle,
+					chosenColorList: chosenColorList
+				})
+				this.styleHasJustBeenAdded = true
 				setTimeout(() => {
-					this.styleHasBeenAdded = false
+					this.currentStyle.onWishList = true
+					this.styleHasJustBeenAdded = false
 				}, 4000)
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)
 			} else {
-				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
+				// this[REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
 		},
 		downloadCollectionClickHandler() {

@@ -1,6 +1,14 @@
+# # used for local development:
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+#   branch: develop
+
+# used for production:
 backend:
   name: git-gateway
   branch: master
+  publish_mode: editorial_workflow
 
 # when using the default proxy server port
 local_backend: true
@@ -30,16 +38,41 @@ collections:
           - { label: "Ditte Letter", name: "ditteLetter", widget: "text" }
 
   - name: "collectionItems"
-    sortableFields: ["styleId"]
-    label: "Collection item"
+    sortableFields: ["styleId", "collectionId"]
+    label: "Collection items"
     folder: "assets/content/collectionItems"
-    summary: "Style {{styleId}}: {{name}}"
+    summary: "{{collectionId}} - {{name}}"
     create: true
     format: "json"
-    slug: "{{year}}-{{month}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{styleId}}-{{name}}"
+    view_filters:
+      - label: "PS21"
+        field: collectionId
+        pattern: "PS21"
+      - label: "SS21"
+        field: collectionId
+        pattern: "SS21"
+      - label: "SOFTWARE"
+        field: collectionId
+        pattern: "SOFTWARE"
+      - label: "GANNIXLEVIS"
+        field: collectionId
+        pattern: "GANNIXLEVIS"
     editor:
       preview: false
     fields:
+      - {
+          label: "Collection id",
+          name: "collectionId",
+          widget: "relation",
+          required: true,
+          collection: "collections",
+          searchFields: ["collectionId"],
+          valueField: "collectionId",
+          displayFields: ["name"],
+          default: [],
+          hint: "Which collection this product belongs to",
+        }
       - {
           label: "Style #",
           name: "styleId",
@@ -195,6 +228,74 @@ collections:
           hint: "Optional ordering position",
         }
       - { name: "styleIds", default: [], widget: "hidden" }
+
+  - name: "collections"
+    sortableFields: ["name"]
+    label: "Collections"
+    summary: "{{name}}"
+    folder: "assets/content/collections"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{name}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Id",
+          name: "collectionId",
+          widget: "string",
+          hint: "Unique id without any spaces ex. 'PS21'",
+        }
+      - {
+          label: "Display name",
+          name: "name",
+          widget: "string",
+          hint: "More readable display name ex. 'Spring Collection PS21'",
+        }
+      - {
+          label: "Active for wishlist",
+          name: "active",
+          widget: "boolean",
+          default: true,
+          hint: "Can the collection be added to the wishlist?",
+        }
+      - {
+          label: "passwords",
+          name: "passwords",
+          widget: "relation",
+          multiple: true,
+          required: false,
+          collection: "passwords",
+          searchFields: ["hash"],
+          valueField: "hash",
+          displayFields: ["passwordId"],
+          default: [],
+          hint: "To what users/passwords will this be shown. Leave blank to make all users see it.",
+        }
+
+  - name: "passwords"
+    sortableFields: ["passwordId"]
+    label: "Passwords"
+    summary: "{{passwordId}}"
+    folder: "assets/content/passwords"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{passwordId}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Id",
+          name: "passwordId",
+          widget: "string",
+          hint: "A memorable name used for references",
+        }
+      - {
+          label: "password",
+          name: "hash",
+          widget: "string",
+          hint: "A SHA256 representation of the password. Type your password in the textfield here: https://passwordsgenerator.net/sha256-hash-generator/ and copy/paste the output. ex. 16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009",
+        }
 
   - name: "mediaAssets"
     sortableFields: ["styleId"]
@@ -392,4 +493,122 @@ collections:
           options: ["video", "image"],
           hint: "Either image or video",
           default: "image",
+        }
+
+  - name: "artists"
+    sortableFields: ["artistId"]
+    label: "Artists"
+    folder: "assets/content/artists"
+    summary: "{{artistId}} - {{name}}"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{artistId}}-{{name}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Artist #",
+          name: "artistId",
+          widget: "string",
+          hint: "Unique identifier ex. 'artist1'",
+        }
+      - {
+          label: "Name",
+          name: "name",
+          widget: "string",
+          default: "",
+          hint: "Name of artist ex. 'John Doe'",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          default: "",
+          required: false,
+          hint: "Long description of artist ex. 'John Doe is awesome.'",
+        }
+      - {
+          label: "Cloudinary media reference",
+          name: "cloudinaryUrl",
+          widget: "image",
+          hint: "Clickable image/video background",
+        }
+      - {
+          label: "Media type",
+          name: "type",
+          widget: "select",
+          multiple: false,
+          required: true,
+          options: ["video", "image"],
+          hint: "Either image or video",
+        }
+      - { name: "assets", default: [], widget: "hidden" }
+
+  - name: "artistAssets"
+    sortableFields: ["artistId"]
+    summary: "Artist {{artistId}}: {{name}} asset ({{assetId}})"
+    label: "Artist assets"
+    folder: "assets/content/artistAssets"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{assetId}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Asset #",
+          name: "assetId",
+          widget: "string",
+          required: true,
+          hint: "Unique asset ID",
+        }
+      - {
+          label: "Artist #",
+          name: "artistId",
+          widget: "relation",
+          collection: "artists",
+          required: true,
+          searchFields: ["artistId", "name"],
+          valueField: "artistId",
+          displayFields: ["artistId", "name"],
+          hint: "Reference to unique artist ID",
+        }
+      - {
+          label: "Asset title",
+          name: "name",
+          widget: "string",
+          required: true,
+          hint: "Title for image window ex. 'Image 1'",
+        }
+      - {
+          label: "Cloudinary media reference",
+          name: "cloudinaryUrl",
+          widget: "image",
+          required: true,
+        }
+      - {
+          label: "Media type",
+          name: "type",
+          widget: "select",
+          multiple: false,
+          required: true,
+          options: ["video", "image", "text"],
+          hint: "Either image, video or text",
+        }
+      - {
+          label: "Aspect",
+          name: "aspect",
+          widget: "select",
+          required: true,
+          options: ["landscape", "portrait", "square"],
+          default: "portrait",
+          hint: "Aspect of media",
+        }
+      - {
+          label: "Text content",
+          name: "text",
+          widget: "text",
+          default: "",
+          required: false,
+          hint: "Raw text for text panel (only when using text asset)",
         }

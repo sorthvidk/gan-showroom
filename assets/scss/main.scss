@@ -5,6 +5,8 @@
 @import 'core/normalize';
 @import 'core/display';
 
+@import 'framework/access-menu';
+@import 'framework/archive';
 @import 'framework/cookie-banner';
 @import 'framework/cookie-policy';
 @import 'framework/cookieControl';
@@ -23,6 +25,7 @@
 @import 'content/collage';
 @import 'content/responsible-icon';
 @import 'content/music-player';
+@import 'content/music-player-video';
 @import 'content/collection';
 @import 'content/single-image';
 @import 'content/single-video';
@@ -33,6 +36,7 @@
 @import 'content/video-player';
 @import 'content/ganni-girls';
 @import 'content/look-book';
+@import 'content/artists';
 @import 'content/logo';
 
 @import 'content/filter-button';
@@ -40,3 +44,4 @@
 @import 'content/download-message';
 @import 'content/copyright-message';
 @import 'content/error-message';
+@import 'content/color-picker';

@@ -20,7 +20,9 @@
 		}
 
 		&__content {
-			background-color: $color-grey;
+			background-color: $color-202020-dustypink;
+			color: $color-202020-green;
+
 			padding: rem(20) rem(30);
 			display: flex;
 			flex-direction: column;
@@ -46,12 +48,10 @@
 			}
 			.button {
 				@include window-button();
-				@include bevel();
-				color: $color-blue;
-				text-decoration: underline;
 				margin-top: rem(20);
 				padding: rem(8) rem(50) rem(10);
-				background-color: $color-grey;
+				color: $color-white;
+				background-color: $color-black;
 			}
 		}
 	}	

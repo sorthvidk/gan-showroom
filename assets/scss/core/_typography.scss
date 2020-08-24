@@ -15,10 +15,11 @@ em {
 }
 
 @mixin windowtitle() {
-	font-size: rem(15);
+	font-size: rem(11);
 	font-weight: $weight-medium;
-	line-height: 1.2;
+	line-height: 1.5;
 	letter-spacing: -0.01em;
+	text-transform: uppercase;
 }
 
 @mixin headline() {
@@ -30,14 +31,15 @@ em {
 
 @mixin bodytext() {
 	font-size: rem(11);
-	font-weight: $weight-normal;
+	font-weight: $weight-medium;
 	line-height: 1.27;
+	text-transform: uppercase;
 }
 
 @mixin link() {
 	font-size: rem(11);
 	font-weight: $weight-medium;
-	color: $color-blue;
+	color: $color-202020-red;
 	line-height: 1.27;
 	text-decoration: underline;
 }

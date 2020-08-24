@@ -1,6 +1,7 @@
 .window {
 	&--assistant {
 		z-index: $z-index-assistant !important;
+		background-color: $color-202020-dustypink;
 
 		.title {
 			cursor: default;
@@ -29,7 +30,7 @@
 		}
 		.window__top {
 			.title {
-				border-bottom: rem(1) solid $color-black;
+				border-bottom: rem(1) solid $color-202020-blue;
 			}
 		}
 
@@ -80,17 +81,17 @@
 .assistant {
 	h3 {
 		@include headline();
-		color: $color-lime;
 	}
 	p {
 		@include bodytext();
 	}
 
 	&__content {
+		color: $color-202020-green;
 		overflow: hidden;
 		max-height: rem(180);
 		transition: max-height 0.2s ease;
-		border-top: rem(1) solid $color-black;
+		border-top: 0;
 
 		&.is-collapsed {
 			border-top: 0;
@@ -115,6 +116,7 @@
 		}
 	}
 	&__text {
+		color: currentColor;
 		padding: rem(9) rem(10);
 		h3 {
 			margin-bottom: rem(10);
@@ -159,7 +161,7 @@
 		&__list {
 			display: flex;
 			flex-wrap: wrap;
-			border-top: rem(1) solid $color-black;
+			border-top: rem(1) solid $color-202020-dustypink;
 		}
 	}
 	&__product-details {
@@ -182,8 +184,8 @@
 			right: 0;
 			display: flex;
 			margin-bottom: rem(20);
-			background-color: $color-lime;
-			color: $color-purple;
+			background-color: $color-202020-green;
+			color: $color-white;
 			font-size: rem(11);
 			font-weight: 500;
 			text-transform: uppercase;
@@ -232,12 +234,16 @@
 
 		.button {
 			@include full-width-button();
-			border-top: rem(1) solid $color-black;
+			text-decoration: none;
+			// border-top: rem(1) solid $color-202020-black;
+			border-top: 0;
+			background-color: $color-black;
+			color: $color-white;
 			text-align: left;
 			box-sizing: border-box;
 
 			&:hover {
-				background-color: $color-lightgrey;
+				background-color: $color-black;
 			}
 			img {
 				width: rem(20);
@@ -248,17 +254,21 @@
 
 			&.add-to-wishlist,
 			&.download-wishlist {
-				background-color: $color-yellow;
-				&.is-active {
-					background-color: lighten($color-yellow, 20%);
-				}
+				background-color: $color-202020-green;
+
+				// &.is-active {
+				// 	background-color: lighten($color-202020-green, 20%);
+				// }
 			}
 
 			flex: 0 0 100%;
 
 			&--half {
 				flex: 0 0 50%;
-				border-right: rem(1) solid $color-black;
+				// border-right: rem(1) solid $color-202020-red;
+				p {
+					max-width: rem(110);
+				}
 			}
 		}
 		.button--half + .button--half {
@@ -302,7 +312,7 @@
 				bottom: 0;
 				display: inline-flex;
 				width: 0.001%;
-				background-color: $color-lime;
+				background-color: rgba(0, 0, 0, 0.3);
 				z-index: 0;
 			}
 
@@ -313,6 +323,7 @@
 				transition: padding-left 0.2s ease;
 			}
 
+			
 			&.is-animating {
 				&:after {
 					animation: dye-background 2s;
@@ -334,24 +345,31 @@
 			}
 		}
 
+		.view-wishlist:not(.button--half) {
+			background-color: $color-202020-green;
+		}
+
 		.collage-buttons {
 			width: 100%;
+			background-color: $color-lightgrey;
+			color: $color-202020-green;
 
 			.row {
 				display: flex;
 			}
 
 			.title {
+				color: currentColor;
 				display: flex;
 				align-items: center;
 				width: 70%;
-				border-top: 1px solid;
 				padding: 0 rem(10);
 			}
 
 			svg {
 				width: 100%;
 				height: 100%;
+				fill: currentColor;
 			}
 
 			.left {
@@ -362,6 +380,9 @@
 			}
 
 			.button {
+				background-color: transparent;
+				color: currentColor;
+
 				&--half {
 					width: 50%;
 				}
@@ -372,8 +393,6 @@
 					justify-content: center;
 					width: auto;
 					flex: 0 0 15%;
-
-					border-left: 1px solid;
 
 					p {
 						color: black;
@@ -422,10 +441,19 @@
 
 		button {
 			@include full-width-button();
+			background-color: $color-black;
+			color: $color-white;
+			border-top: 0;
 			width: 50%;
+			&:hover {
+				background-color: $color-black;
+			}
 
 			&:first-of-type {
-				border-right: 1px solid;
+				background-color: $color-202020-green;
+				&:hover {
+					background-color: $color-202020-green;
+				}
 			}
 		}
 	}

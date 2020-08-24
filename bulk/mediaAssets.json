@@ -1,0 +1,7342 @@
+[
+  {
+    "assetId": "F5803_Black 1",
+    "styleId": "F5803099",
+    "name": "F5803099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5804_Black 1",
+    "styleId": "F5804099",
+    "name": "F5804099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3287_Brazilian Sand 1",
+    "styleId": "A3287196",
+    "name": "A3287196_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3287_Kalamata 1",
+    "styleId": "A3287861",
+    "name": "A3287861_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3288_Leopard 1",
+    "styleId": "A3288943",
+    "name": "A3288943_Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3290_Brazilian Sand 1",
+    "styleId": "A3290196",
+    "name": "A3290196_Bumbag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3291_Brazilian Sand 1",
+    "styleId": "A3291196",
+    "name": "A3291196_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3291_Kalamata 1",
+    "styleId": "A3291861",
+    "name": "A3291861_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3292_Leopard 1",
+    "styleId": "A3292943",
+    "name": "A3292943_Small Backpack",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3293_Brazilian Sand 1",
+    "styleId": "A3293196",
+    "name": "A3293196_Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3302_Black 1",
+    "styleId": "A3302099",
+    "name": "A3302099_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3303_Sharkskin 1",
+    "styleId": "A3303256",
+    "name": "A3303256_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3308_Fossil 1",
+    "styleId": "A3308189",
+    "name": "A3308189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3311_Fossil 1",
+    "styleId": "A3311189",
+    "name": "A3311189_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3315_Kelly Green 1",
+    "styleId": "A3315801",
+    "name": "A3315801_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3326_Brazilian Sand 1",
+    "styleId": "A3326196",
+    "name": "A3326196_Bucket Hat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3326_Leopard 1",
+    "styleId": "A3326943",
+    "name": "A3326943_Bucket Hat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3328_Black 1",
+    "styleId": "A3328099",
+    "name": "A3328099_Ruched Cap",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3328_Flame 1",
+    "styleId": "A3328307",
+    "name": "A3328307_Ruched Cap",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Phantom 1",
+    "styleId": "A3338252",
+    "name": "A3338252_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Corydalis Blue 1",
+    "styleId": "A3338870",
+    "name": "A3338870_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Leopard 1",
+    "styleId": "A3338943",
+    "name": "A3338943_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3344_Kelly Green 1",
+    "styleId": "A3344801",
+    "name": "A3344801_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3345_Kalamata 1",
+    "styleId": "A3345861",
+    "name": "A3345861_Small Backpack",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3346_Kalamata 1",
+    "styleId": "A3346861",
+    "name": "A3346861_XXL Hobo",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Chipmunk 1",
+    "styleId": "A3352194",
+    "name": "A3352194_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Kelly Green 1",
+    "styleId": "A3352801",
+    "name": "A3352801_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Kalamata 1",
+    "styleId": "A3352861",
+    "name": "A3352861_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Corydalis Blue 1",
+    "styleId": "A3352870",
+    "name": "A3352870_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3431_Leopard 1",
+    "styleId": "A3431943",
+    "name": "A3431943_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3432_Leopard 1",
+    "styleId": "A3432943",
+    "name": "A3432943_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5709_Black 1",
+    "styleId": "F5709099",
+    "name": "F5709099_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5710_Black 1",
+    "styleId": "F5710099",
+    "name": "F5710099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5712_Black 1",
+    "styleId": "F5712099",
+    "name": "F5712099_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5713_Black 1",
+    "styleId": "F5713099",
+    "name": "F5713099_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5731_Black 1",
+    "styleId": "F5731099",
+    "name": "F5731099_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5734_Black 1",
+    "styleId": "F5734099",
+    "name": "F5734099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5735_Black 1",
+    "styleId": "F5735099",
+    "name": "F5735099_Sleeveless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5743_Dress Blues 1",
+    "styleId": "F5743610",
+    "name": "F5743610_Shirt Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5746_Dress Blues 1",
+    "styleId": "F5746610",
+    "name": "F5746610_Highwaisted Cropped Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5790_Medium Indigo 1",
+    "styleId": "F5790691",
+    "name": "F5790691_Mid-waist Straight Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5792_Medium Indigo 1",
+    "styleId": "F5792691",
+    "name": "F5792691_High-waisted Relaxed Fit Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5793_Medium Indigo 1",
+    "styleId": "F5793691",
+    "name": "F5793691_Midi Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5798_Dress Blues 1",
+    "styleId": "F5798610",
+    "name": "F5798610_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5799_Dress Blues 1",
+    "styleId": "F5799610",
+    "name": "F5799610_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5800_Dress Blues 1",
+    "styleId": "F5800610",
+    "name": "F5800610_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5812_Black 1",
+    "styleId": "F5812099",
+    "name": "F5812099_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5813_Black 1",
+    "styleId": "F5813099",
+    "name": "F5813099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5814_Sharkskin 1",
+    "styleId": "F5814256",
+    "name": "F5814256_Oversized Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5815_Sharkskin 1",
+    "styleId": "F5815256",
+    "name": "F5815256_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5817_Sharkskin 1",
+    "styleId": "F5817256",
+    "name": "F5817256_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5819_Bright White 1",
+    "styleId": "F5819151",
+    "name": "F5819151_Oversized Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5821_Bright White 1",
+    "styleId": "F5821151",
+    "name": "F5821151_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5825_Fossil 1",
+    "styleId": "F5825189",
+    "name": "F5825189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5827_Fossil 1",
+    "styleId": "F5827189",
+    "name": "F5827189_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5830_Sky Captain 1",
+    "styleId": "F5830683",
+    "name": "F5830683_Oversized Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5831_Sky Captain 1",
+    "styleId": "F5831683",
+    "name": "F5831683_Smock Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5832_Sky Captain 1",
+    "styleId": "F5832683",
+    "name": "F5832683_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5833_Sky Captain 1",
+    "styleId": "F5833683",
+    "name": "F5833683_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5834_Sky Captain 1",
+    "styleId": "F5834683",
+    "name": "F5834683_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5835_Dark Indigo 1",
+    "styleId": "F5835696",
+    "name": "F5835696_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5836_Dark Indigo 1",
+    "styleId": "F5836696",
+    "name": "F5836696_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5838_Dark Indigo 1",
+    "styleId": "F5838696",
+    "name": "F5838696_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5839_Dark Indigo 1",
+    "styleId": "F5839696",
+    "name": "F5839696_Loose Fit Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5847_Sky Captain 1",
+    "styleId": "F5847683",
+    "name": "F5847683_Oversized Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5848_Fossil 1",
+    "styleId": "F5848189",
+    "name": "F5848189_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5849_Fossil 1",
+    "styleId": "F5849189",
+    "name": "F5849189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5851_Fossil 1",
+    "styleId": "F5851189",
+    "name": "F5851189_Smock Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5853_Black 1",
+    "styleId": "F5853099",
+    "name": "F5853099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5854_Fossil 1",
+    "styleId": "F5854189",
+    "name": "F5854189_Midi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5855_Black 1",
+    "styleId": "F5855099",
+    "name": "F5855099_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5856_Black 1",
+    "styleId": "F5856099",
+    "name": "F5856099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5857_Orchid Bloom 1",
+    "styleId": "F5857724",
+    "name": "F5857724_Strap Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5859_Orchid Bloom 1",
+    "styleId": "F5859724",
+    "name": "F5859724_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5860_Orchid Bloom 1",
+    "styleId": "F5860724",
+    "name": "F5860724_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5861_Orchid Bloom 1",
+    "styleId": "F5861724",
+    "name": "F5861724_Oversized Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5862_Orchid Bloom 1",
+    "styleId": "F5862724",
+    "name": "F5862724_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5896_Kelly Green 1",
+    "styleId": "F5896801",
+    "name": "F5896801_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5898_Kelly Green 1",
+    "styleId": "F5898801",
+    "name": "F5898801_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5899_Kelly Green 1",
+    "styleId": "F5899801",
+    "name": "F5899801_Sleevesless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5927_Sharkskin 1",
+    "styleId": "F5927256",
+    "name": "F5927256_Twist Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5928_Dark Indigo 1",
+    "styleId": "F5928696",
+    "name": "F5928696_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Sky Captain 1",
+    "styleId": "K1498683",
+    "name": "K1498683_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1504_Fossil 1",
+    "styleId": "K1504189",
+    "name": "K1504189_Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1505_Fossil 1",
+    "styleId": "K1505189",
+    "name": "K1505189_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1520_Sky Captain 1",
+    "styleId": "K1520683",
+    "name": "K1520683_Zip Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1521_Paloma Melange 1",
+    "styleId": "K1521921",
+    "name": "K1521921_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1479_Black 1",
+    "styleId": "S1479099",
+    "name": "S1479099_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1486_Silver 1",
+    "styleId": "S1486018",
+    "name": "S1486018_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1488_Kalamata 1",
+    "styleId": "S1488861",
+    "name": "S1488861_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Black 1",
+    "styleId": "S1490099",
+    "name": "S1490099_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Egret 1",
+    "styleId": "S1490135",
+    "name": "S1490135_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Kalamata 1",
+    "styleId": "S1490861",
+    "name": "S1490861_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1491_Kalamata 1",
+    "styleId": "S1491861",
+    "name": "S1491861_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1493_Egret 1",
+    "styleId": "S1493135",
+    "name": "S1493135_Jewel Mocassin",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1494_Kalamata 1",
+    "styleId": "S1494861",
+    "name": "S1494861_Jewel Mocassin",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1495_Black 1",
+    "styleId": "S1495099",
+    "name": "S1495099_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1496_Black 1",
+    "styleId": "S1496099",
+    "name": "S1496099_Winter Oxford",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1498_Sky Captain 1",
+    "styleId": "S1498683",
+    "name": "S1498683_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1499_Egret 1",
+    "styleId": "S1499135",
+    "name": "S1499135_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1530_Black 1",
+    "styleId": "S1530099",
+    "name": "S1530099_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2737_Black 1",
+    "styleId": "T2737099",
+    "name": "T2737099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2738_Black 1",
+    "styleId": "T2738099",
+    "name": "T2738099_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2739_Black 1",
+    "styleId": "T2739099",
+    "name": "T2739099_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2740_Black 1",
+    "styleId": "T2740099",
+    "name": "T2740099_Rollneck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2740_Orchid Bloom 1",
+    "styleId": "T2740724",
+    "name": "T2740724_Rollneck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2741_Black 1",
+    "styleId": "T2741099",
+    "name": "T2741099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2741_Orchid Bloom 1",
+    "styleId": "T2741724",
+    "name": "T2741724_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2742_Orchid Bloom 1",
+    "styleId": "T2742724",
+    "name": "T2742724_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2763_Kelly Green 1",
+    "styleId": "T2763801",
+    "name": "T2763801_Oversized Raglan Sweatshirt, Embroidery",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2776_Sky Captain 1",
+    "styleId": "T2776683",
+    "name": "T2776683_Puff Sleeve Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2776_Kelly Green 1",
+    "styleId": "T2776801",
+    "name": "T2776801_Puff Sleeve Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2832_Orchid Bloom 1",
+    "styleId": "T2832724",
+    "name": "T2832724_T-shirt, Overdyed Bunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2782_Bright White 1",
+    "styleId": "T2782151",
+    "name": "T2782151_T-shirt, Twist",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3302_Egret 1",
+    "styleId": "A3302135",
+    "name": "A3302135_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3303_Brazilian Sand 1",
+    "styleId": "A3303196",
+    "name": "A3303196_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3315_Fossil 1",
+    "styleId": "A3315189",
+    "name": "A3315189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3344_Fossil 1",
+    "styleId": "A3344189",
+    "name": "A3344189_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5709_Egret 1",
+    "styleId": "F5709135",
+    "name": "F5709135_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5710_Egret 1",
+    "styleId": "F5710135",
+    "name": "F5710135_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5712_Egret 1",
+    "styleId": "F5712135",
+    "name": "F5712135_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5713_Egret 1",
+    "styleId": "F5713135",
+    "name": "F5713135_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5731_Egret 1",
+    "styleId": "F5731135",
+    "name": "F5731135_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5734_Egret 1",
+    "styleId": "F5734135",
+    "name": "F5734135_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5812_Kalamata 1",
+    "styleId": "F5812861",
+    "name": "F5812861_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5814_Brazilian Sand 1",
+    "styleId": "F5814196",
+    "name": "F5814196_Oversized Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5815_Brazilian Sand 1",
+    "styleId": "F5815196",
+    "name": "F5815196_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5817_Brazilian Sand 1",
+    "styleId": "F5817196",
+    "name": "F5817196_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5896_Fossil 1",
+    "styleId": "F5896189",
+    "name": "F5896189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5898_Fossil 1",
+    "styleId": "F5898189",
+    "name": "F5898189_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5899_Fossil 1",
+    "styleId": "F5899189",
+    "name": "F5899189_Sleevesless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5927_Brazilian Sand 1",
+    "styleId": "F5927196",
+    "name": "F5927196_Twist Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Flame Scarlet 1",
+    "styleId": "K1498467",
+    "name": "K1498467_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Bachelor Blue 1",
+    "styleId": "K1498871",
+    "name": "K1498871_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1520_Bachelor Blue 1",
+    "styleId": "K1520871",
+    "name": "K1520871_Zip Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2738_Fossil 1",
+    "styleId": "T2738189",
+    "name": "T2738189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2742_Fossil 1",
+    "styleId": "T2742189",
+    "name": "T2742189_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3316_Fossil 1",
+    "styleId": "A3316189",
+    "name": "A3316189_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3317_Fossil 1",
+    "styleId": "A3317189",
+    "name": "A3317189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3391_Phantom 1",
+    "styleId": "A3391252",
+    "name": "A3391252_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5718_Washed Indigo 1",
+    "styleId": "F5718687",
+    "name": "F5718687_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5721_Washed Indigo 1",
+    "styleId": "F5721687",
+    "name": "F5721687_Mid-waist Slim Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5733_Egret 1",
+    "styleId": "F5733135",
+    "name": "F5733135_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5749_Black 1",
+    "styleId": "F5749099",
+    "name": "F5749099_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5753_Black 1",
+    "styleId": "F5753099",
+    "name": "F5753099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5794_Denim 1",
+    "styleId": "F5794630",
+    "name": "F5794630_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5795_Denim 1",
+    "styleId": "F5795630",
+    "name": "F5795630_Oversized Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5796_Denim 1",
+    "styleId": "F5796630",
+    "name": "F5796630_Low-waist Relaxed Fit Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5797_Denim 1",
+    "styleId": "F5797630",
+    "name": "F5797630_Overalls",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5801_Black 1",
+    "styleId": "F5801099",
+    "name": "F5801099_V-Neck Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5805_Black 1",
+    "styleId": "F5805099",
+    "name": "F5805099_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5806_Black 1",
+    "styleId": "F5806099",
+    "name": "F5806099_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5807_Phantom 1",
+    "styleId": "F5807252",
+    "name": "F5807252_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5808_Phantom 1",
+    "styleId": "F5808252",
+    "name": "F5808252_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5809_Phantom 1",
+    "styleId": "F5809252",
+    "name": "F5809252_Belt Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5820_Bright White 1",
+    "styleId": "F5820151",
+    "name": "F5820151_Frill Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5822_Bright White 1",
+    "styleId": "F5822151",
+    "name": "F5822151_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5823_Bright White 1",
+    "styleId": "F5823151",
+    "name": "F5823151_Cropped Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5875_Egret 1",
+    "styleId": "F5875135",
+    "name": "F5875135_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5876_Egret 1",
+    "styleId": "F5876135",
+    "name": "F5876135_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5877_Egret 1",
+    "styleId": "F5877135",
+    "name": "F5877135_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5879_Egret 1",
+    "styleId": "F5879135",
+    "name": "F5879135_Loose Fit Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5880_Egret 1",
+    "styleId": "F5880135",
+    "name": "F5880135_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5889_Black 1",
+    "styleId": "F5889099",
+    "name": "F5889099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5892_Black 1",
+    "styleId": "F5892099",
+    "name": "F5892099_Jumpsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5894_Black 1",
+    "styleId": "F5894099",
+    "name": "F5894099_Wrap Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5895_Black 1",
+    "styleId": "F5895099",
+    "name": "F5895099_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5897_Fossil 1",
+    "styleId": "F5897189",
+    "name": "F5897189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5905_Fossil 1",
+    "styleId": "F5905189",
+    "name": "F5905189_Short Sleeve Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5907_Fossil 1",
+    "styleId": "F5907189",
+    "name": "F5907189_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5908_Fossil 1",
+    "styleId": "F5908189",
+    "name": "F5908189_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5909_Fossil 1",
+    "styleId": "F5909189",
+    "name": "F5909189_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5910_Fossil 1",
+    "styleId": "F5910189",
+    "name": "F5910189_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5911_Fossil 1",
+    "styleId": "F5911189",
+    "name": "F5911189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5912_Fossil 1",
+    "styleId": "F5912189",
+    "name": "F5912189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5915_Fossil 1",
+    "styleId": "F5915189",
+    "name": "F5915189_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5932_Black 1",
+    "styleId": "F5932099",
+    "name": "F5932099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5960_Phantom 1",
+    "styleId": "F5960252",
+    "name": "F5960252_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1499_Flame Scarlet 1",
+    "styleId": "K1499467",
+    "name": "K1499467_Pullover - Striped",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1500_Bachelor Blue 1",
+    "styleId": "K1500871",
+    "name": "K1500871_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1507_Flame Scarlet 1",
+    "styleId": "K1507467",
+    "name": "K1507467_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1509_Flame Scarlet 1",
+    "styleId": "K1509467",
+    "name": "K1509467_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1510_Flame Scarlet 1",
+    "styleId": "K1510467",
+    "name": "K1510467_Straight Fit Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1511_Brazilian Sand 1",
+    "styleId": "K1511196",
+    "name": "K1511196_Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1517_Bachelor Blue 1",
+    "styleId": "K1517871",
+    "name": "K1517871_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1534_Bachelor Blue 1",
+    "styleId": "K1534871",
+    "name": "K1534871_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2762_Flame Scarlet 1",
+    "styleId": "T2762467",
+    "name": "T2762467_Oversized Raglan Sweatshirt, Smiley",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2778_Bright White 1",
+    "styleId": "T2778151",
+    "name": "T2778151_T-shirt, Bunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2833_Bright White 1",
+    "styleId": "T2833151",
+    "name": "T2833151_T-shirt, Smiley",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5857_Maxi Leopard 1",
+    "styleId": "F5857994",
+    "name": "F5857994_Strap Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5859_Maxi Leopard 1",
+    "styleId": "F5859994",
+    "name": "F5859994_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5860_Maxi Leopard 1",
+    "styleId": "F5860994",
+    "name": "F5860994_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5861_Maxi Leopard 1",
+    "styleId": "F5861994",
+    "name": "F5861994_Oversized Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5862_Maxi Leopard 1",
+    "styleId": "F5862994",
+    "name": "F5862994_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1521_Camel 1",
+    "styleId": "K1521118",
+    "name": "K1521118_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1450_Black 1",
+    "styleId": "S1450099",
+    "name": "S1450099_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1450_Flame 1",
+    "styleId": "S1450307",
+    "name": "S1450307_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1451_Black 1",
+    "styleId": "S1451099",
+    "name": "S1451099_Knotted Flatform",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1451_Flame 1",
+    "styleId": "S1451307",
+    "name": "S1451307_Knotted Flatform",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1489_Black 1",
+    "styleId": "S1489099",
+    "name": "S1489099_Mid Knotted Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1489_Chipmunk 1",
+    "styleId": "S1489194",
+    "name": "S1489194_Mid Knotted Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2763_Orchid Bloom 1",
+    "styleId": "T2763724",
+    "name": "T2763724_Oversized Raglan Sweatshirt, Embroidery",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3316_Corydalis Blue 1",
+    "styleId": "A3316870",
+    "name": "A3316870_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3317_Corydalis Blue 1",
+    "styleId": "A3317870",
+    "name": "A3317870_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5749_Sharkskin 1",
+    "styleId": "F5749256",
+    "name": "F5749256_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5753_Sharkskin 1",
+    "styleId": "F5753256",
+    "name": "F5753256_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5905_Corydalis Blue 1",
+    "styleId": "F5905870",
+    "name": "F5905870_Short Sleeve Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5907_Corydalis Blue 1",
+    "styleId": "F5907870",
+    "name": "F5907870_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5908_Corydalis Blue 1",
+    "styleId": "F5908870",
+    "name": "F5908870_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5909_Corydalis Blue 1",
+    "styleId": "F5909870",
+    "name": "F5909870_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5910_Corydalis Blue 1",
+    "styleId": "F5910870",
+    "name": "F5910870_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5911_Corydalis Blue 1",
+    "styleId": "F5911870",
+    "name": "F5911870_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5912_Corydalis Blue 1",
+    "styleId": "F5912870",
+    "name": "F5912870_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5915_Corydalis Blue 1",
+    "styleId": "F5915870",
+    "name": "F5915870_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3240_Black 1",
+    "styleId": "A3240099",
+    "name": "A3240099_Tie-front Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3241_Black 1",
+    "styleId": "A3241099",
+    "name": "A3241099_Midrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3243_Leopard 1",
+    "styleId": "A3243943",
+    "name": "A3243943_Gathered Underwire Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3244_Bachelor Blue 1",
+    "styleId": "A3244871",
+    "name": "A3244871_Twisted Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3244_Leopard 1",
+    "styleId": "A3244943",
+    "name": "A3244943_Twisted Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3248_Black 1",
+    "styleId": "A3248099",
+    "name": "A3248099_Gathered Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3248_Bachelor Blue 1",
+    "styleId": "A3248871",
+    "name": "A3248871_Gathered Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3250_Bachelor Blue 1",
+    "styleId": "A3250871",
+    "name": "A3250871_Twisted Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3250_Leopard 1",
+    "styleId": "A3250943",
+    "name": "A3250943_Twisted Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3251_Bachelor Blue 1",
+    "styleId": "A3251871",
+    "name": "A3251871_Racerback Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3251_Leopard 1",
+    "styleId": "A3251943",
+    "name": "A3251943_Racerback Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3252_Leopard 1",
+    "styleId": "A3252943",
+    "name": "A3252943_Twisted Strap Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3255_Black 1",
+    "styleId": "A3255099",
+    "name": "A3255099_Halterneck Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3256_Black 1",
+    "styleId": "A3256099",
+    "name": "A3256099_Front Twist Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3262_Bachelor Blue 1",
+    "styleId": "A3262871",
+    "name": "A3262871_Off-Shoulder Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3281_Black 1",
+    "styleId": "A3281099",
+    "name": "A3281099_V-neck Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3282_Black 1",
+    "styleId": "A3282099",
+    "name": "A3282099_Highrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3284_Phantom 1",
+    "styleId": "A3284252",
+    "name": "A3284252_Swimsuit, Flower G",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3298_Black 1",
+    "styleId": "A3298099",
+    "name": "A3298099_Tie-front Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3304_Sharkskin 1",
+    "styleId": "A3304256",
+    "name": "A3304256_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3309_Orchid Bloom 1",
+    "styleId": "A3309724",
+    "name": "A3309724_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3310_Orchid Bloom 1",
+    "styleId": "A3310724",
+    "name": "A3310724_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3314_Sharkskin 1",
+    "styleId": "A3314256",
+    "name": "A3314256_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3341_Nature 1",
+    "styleId": "A3341009",
+    "name": "A3341009_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3342_Bachelor Blue 1",
+    "styleId": "A3342871",
+    "name": "A3342871_Tie-front Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3343_Bachelor Blue 1",
+    "styleId": "A3343871",
+    "name": "A3343871_Midrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3351_Flame 1",
+    "styleId": "A3351307",
+    "name": "A3351307_Top handle Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5722_Bright White 1",
+    "styleId": "F5722151",
+    "name": "F5722151_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5723_Bright White 1",
+    "styleId": "F5723151",
+    "name": "F5723151_High-waisted Straight Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5737_Kelly Green 1",
+    "styleId": "F5737801",
+    "name": "F5737801_Wrap Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5738_Kelly Green 1",
+    "styleId": "F5738801",
+    "name": "F5738801_Frill Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5739_Kelly Green 1",
+    "styleId": "F5739801",
+    "name": "F5739801_Sleeveless Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5740_Kelly Green 1",
+    "styleId": "F5740801",
+    "name": "F5740801_Oversized Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5741_Kelly Green 1",
+    "styleId": "F5741801",
+    "name": "F5741801_Smock Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5742_Kelly Green 1",
+    "styleId": "F5742801",
+    "name": "F5742801_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5748_Sharkskin 1",
+    "styleId": "F5748256",
+    "name": "F5748256_Oversized Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5750_Kelly Green 1",
+    "styleId": "F5750801",
+    "name": "F5750801_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5751_Kelly Green 1",
+    "styleId": "F5751801",
+    "name": "F5751801_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5787_Maxi Leopard 1",
+    "styleId": "F5787994",
+    "name": "F5787994_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5788_Maxi Leopard 1",
+    "styleId": "F5788994",
+    "name": "F5788994_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5789_Washed Indigo 1",
+    "styleId": "F5789687",
+    "name": "F5789687_High-waisted Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5824_Orchid Bloom 1",
+    "styleId": "F5824724",
+    "name": "F5824724_V-Neck Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5826_Orchid Bloom 1",
+    "styleId": "F5826724",
+    "name": "F5826724_Sleeveless Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5828_Orchid Bloom 1",
+    "styleId": "F5828724",
+    "name": "F5828724_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5850_Orchid Bloom 1",
+    "styleId": "F5850724",
+    "name": "F5850724_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5852_Orchid Bloom 1",
+    "styleId": "F5852724",
+    "name": "F5852724_Smock Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5858_Maxi Leopard 1",
+    "styleId": "F5858994",
+    "name": "F5858994_Sleeveless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5871_Tiger's Eye 1",
+    "styleId": "F5871177",
+    "name": "F5871177_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5872_Tiger's Eye 1",
+    "styleId": "F5872177",
+    "name": "F5872177_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5873_Tiger's Eye 1",
+    "styleId": "F5873177",
+    "name": "F5873177_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5874_Tiger's Eye 1",
+    "styleId": "F5874177",
+    "name": "F5874177_Belt Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5882_Sharkskin 1",
+    "styleId": "F5882256",
+    "name": "F5882256_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5883_Sharkskin 1",
+    "styleId": "F5883256",
+    "name": "F5883256_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5884_Sharkskin 1",
+    "styleId": "F5884256",
+    "name": "F5884256_Puff Sleeve Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5886_Nature 1",
+    "styleId": "F5886009",
+    "name": "F5886009_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5887_Nature 1",
+    "styleId": "F5887009",
+    "name": "F5887009_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5888_Nature 1",
+    "styleId": "F5888009",
+    "name": "F5888009_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5900_Sharkskin 1",
+    "styleId": "F5900256",
+    "name": "F5900256_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5901_Sharkskin 1",
+    "styleId": "F5901256",
+    "name": "F5901256_Oversized Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5902_Black 1",
+    "styleId": "F5902099",
+    "name": "F5902099_Slip Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5913_Egret 1",
+    "styleId": "F5913135",
+    "name": "F5913135_Kaftan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5913_Bachelor Blue 1",
+    "styleId": "F5913871",
+    "name": "F5913871_Kaftan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5916_Egret 1",
+    "styleId": "F5916135",
+    "name": "F5916135_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5916_Bachelor Blue 1",
+    "styleId": "F5916871",
+    "name": "F5916871_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5929_Orchid Bloom 1",
+    "styleId": "F5929724",
+    "name": "F5929724_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5930_Egret 1",
+    "styleId": "F5930135",
+    "name": "F5930135_Sarong",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5930_Bachelor Blue 1",
+    "styleId": "F5930871",
+    "name": "F5930871_Sarong",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5931_Kelly Green 1",
+    "styleId": "F5931801",
+    "name": "F5931801_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5933_Sharkskin 1",
+    "styleId": "F5933256",
+    "name": "F5933256_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1506_Black 1",
+    "styleId": "K1506099",
+    "name": "K1506099_Straight Fit Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1508_Orchid Bloom 1",
+    "styleId": "K1508724",
+    "name": "K1508724_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1512_Phantom 1",
+    "styleId": "K1512252",
+    "name": "K1512252_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1512_Paloma Melange 1",
+    "styleId": "K1512921",
+    "name": "K1512921_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1513_Paloma Melange 1",
+    "styleId": "K1513921",
+    "name": "K1513921_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1466_Chipmunk 1",
+    "styleId": "S1466194",
+    "name": "S1466194_City Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1466_Corydalis Blue 1",
+    "styleId": "S1466870",
+    "name": "S1466870_City Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1467_Chipmunk 1",
+    "styleId": "S1467194",
+    "name": "S1467194_Country Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1492_Chipmunk 1",
+    "styleId": "S1492194",
+    "name": "S1492194_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1492_Orchid Bloom 1",
+    "styleId": "S1492724",
+    "name": "S1492724_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1529_Chipmunk 1",
+    "styleId": "S1529194",
+    "name": "S1529194_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2759_Bright White 1",
+    "styleId": "T2759151",
+    "name": "T2759151_Sweatshirt, Sunshine",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2765_Nature 1",
+    "styleId": "T2765009",
+    "name": "T2765009_T-Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2766_Nature 1",
+    "styleId": "T2766009",
+    "name": "T2766009_T-Shirt V-neck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2779_Bright White 1",
+    "styleId": "T2779151",
+    "name": "T2779151_Oversized T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2780_Phantom 1",
+    "styleId": "T2780252",
+    "name": "T2780252_T-shirt, G",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2782_Phantom 1",
+    "styleId": "T2782252",
+    "name": "T2782252_T-shirt, Twist",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2788_Bright White 1",
+    "styleId": "T2788151",
+    "name": "T2788151_T-shirt, Sunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Black 1",
+    "styleId": "T2770099",
+    "name": "T2770099_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Egret 1",
+    "styleId": "T2770135",
+    "name": "T2770135_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Sky Captain 1",
+    "styleId": "T2770683",
+    "name": "T2770683_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Heather 1",
+    "styleId": "T2770694",
+    "name": "T2770694_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Kalamata 1",
+    "styleId": "T2770861",
+    "name": "T2770861_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Paloma Melange 1",
+    "styleId": "T2770921",
+    "name": "T2770921_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Chicory Coffee 1",
+    "styleId": "T2770979",
+    "name": "T2770979_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Black 1",
+    "styleId": "T2771099",
+    "name": "T2771099_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Egret 1",
+    "styleId": "T2771135",
+    "name": "T2771135_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Sweet Lilac 1",
+    "styleId": "T2771465",
+    "name": "T2771465_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Heather 1",
+    "styleId": "T2771694",
+    "name": "T2771694_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Kalamata 1",
+    "styleId": "T2771861",
+    "name": "T2771861_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Paloma Melange 1",
+    "styleId": "T2771921",
+    "name": "T2771921_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Black 1",
+    "styleId": "T2772099",
+    "name": "T2772099_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Egret 1",
+    "styleId": "T2772135",
+    "name": "T2772135_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Sweet Lilac 1",
+    "styleId": "T2772465",
+    "name": "T2772465_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Sky Captain 1",
+    "styleId": "T2772683",
+    "name": "T2772683_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Heather 1",
+    "styleId": "T2772694",
+    "name": "T2772694_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Paloma Melange 1",
+    "styleId": "T2772921",
+    "name": "T2772921_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Black 1",
+    "styleId": "T2773099",
+    "name": "T2773099_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Egret 1",
+    "styleId": "T2773135",
+    "name": "T2773135_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Sweet Lilac 1",
+    "styleId": "T2773465",
+    "name": "T2773465_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Sky Captain 1",
+    "styleId": "T2773683",
+    "name": "T2773683_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Kalamata 1",
+    "styleId": "T2773861",
+    "name": "T2773861_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Black 1",
+    "styleId": "T2774099",
+    "name": "T2774099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Egret 1",
+    "styleId": "T2774135",
+    "name": "T2774135_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Kalamata 1",
+    "styleId": "T2774861",
+    "name": "T2774861_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Paloma Melange 1",
+    "styleId": "T2774921",
+    "name": "T2774921_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_White 1",
+    "styleId": "T2775001",
+    "name": "T2775001_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Sweet Lilac 1",
+    "styleId": "T2775465",
+    "name": "T2775465_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Sky Captain 1",
+    "styleId": "T2775683",
+    "name": "T2775683_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Heather 1",
+    "styleId": "T2775694",
+    "name": "T2775694_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Kalamata 1",
+    "styleId": "T2775861",
+    "name": "T2775861_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Paloma Melange 1",
+    "styleId": "T2775921",
+    "name": "T2775921_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Chicory Coffee 1",
+    "styleId": "T2775979",
+    "name": "T2775979_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2783_Egret 1",
+    "styleId": "T2783135",
+    "name": "T2783135_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2784_Egret 1",
+    "styleId": "T2784135",
+    "name": "T2784135_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_White 1",
+    "styleId": "T2785001",
+    "name": "T2785001_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Black 1",
+    "styleId": "T2785099",
+    "name": "T2785099_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Sky Captain 1",
+    "styleId": "T2785683",
+    "name": "T2785683_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Heather 1",
+    "styleId": "T2785694",
+    "name": "T2785694_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Paloma Melange 1",
+    "styleId": "T2785921",
+    "name": "T2785921_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Chicory Coffee 1",
+    "styleId": "T2785979",
+    "name": "T2785979_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Black 1",
+    "styleId": "T2787099",
+    "name": "T2787099_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Sweet Lilac 1",
+    "styleId": "T2787465",
+    "name": "T2787465_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Paloma Melange 1",
+    "styleId": "T2787921",
+    "name": "T2787921_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Black 1",
+    "styleId": "T2815099",
+    "name": "T2815099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Egret 1",
+    "styleId": "T2815135",
+    "name": "T2815135_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Sweet Lilac 1",
+    "styleId": "T2815465",
+    "name": "T2815465_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Paloma Melange 1",
+    "styleId": "T2815921",
+    "name": "T2815921_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3426_Phantom 1",
+    "styleId": "A3426252",
+    "name": "A3426252_Bandana",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3427_Almond Blossom 1",
+    "styleId": "A3427513",
+    "name": "A3427513_Bandana",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6085_Dark Indigo 1",
+    "styleId": "F6085696",
+    "name": "F6085696_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6086_Dark Indigo 1",
+    "styleId": "F6086696",
+    "name": "F6086696_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6087_Dark Indigo 1",
+    "styleId": "F6087696",
+    "name": "F6087696_High-waisted Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6088_Medium Indigo 1",
+    "styleId": "F6088691",
+    "name": "F6088691_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6089_Medium Indigo 1",
+    "styleId": "F6089691",
+    "name": "F6089691_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6090_Medium Indigo 1",
+    "styleId": "F6090691",
+    "name": "F6090691_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6091_Light Denim 1",
+    "styleId": "F6091676",
+    "name": "F6091676_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6092_Light Denim 1",
+    "styleId": "F6092676",
+    "name": "F6092676_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6093_Light Denim 1",
+    "styleId": "F6093676",
+    "name": "F6093676_Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6094_Nature 1",
+    "styleId": "F6094009",
+    "name": "F6094009_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6095_Nature 1",
+    "styleId": "F6095009",
+    "name": "F6095009_Low-waisted Relaxed Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2826_Nature 1",
+    "styleId": "T2826009",
+    "name": "T2826009_T-shirt, Globe",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2827_Almond Blossom 1",
+    "styleId": "T2827513",
+    "name": "T2827513_T-shirt, Love",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2828_Nature 1",
+    "styleId": "T2828009",
+    "name": "T2828009_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": true,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5803_Black 2",
+    "styleId": "F5803099",
+    "name": "F5803099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5804_Black 2",
+    "styleId": "F5804099",
+    "name": "F5804099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3287_Brazilian Sand 2",
+    "styleId": "A3287196",
+    "name": "A3287196_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3287_Kalamata 2",
+    "styleId": "A3287861",
+    "name": "A3287861_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3288_Leopard 2",
+    "styleId": "A3288943",
+    "name": "A3288943_Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3290_Brazilian Sand 2",
+    "styleId": "A3290196",
+    "name": "A3290196_Bumbag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3291_Brazilian Sand 2",
+    "styleId": "A3291196",
+    "name": "A3291196_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3291_Kalamata 2",
+    "styleId": "A3291861",
+    "name": "A3291861_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3292_Leopard 2",
+    "styleId": "A3292943",
+    "name": "A3292943_Small Backpack",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3293_Brazilian Sand 2",
+    "styleId": "A3293196",
+    "name": "A3293196_Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3302_Black 2",
+    "styleId": "A3302099",
+    "name": "A3302099_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3303_Sharkskin 2",
+    "styleId": "A3303256",
+    "name": "A3303256_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3308_Fossil 2",
+    "styleId": "A3308189",
+    "name": "A3308189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3311_Fossil 2",
+    "styleId": "A3311189",
+    "name": "A3311189_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3315_Kelly Green 2",
+    "styleId": "A3315801",
+    "name": "A3315801_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3326_Brazilian Sand 2",
+    "styleId": "A3326196",
+    "name": "A3326196_Bucket Hat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3326_Leopard 2",
+    "styleId": "A3326943",
+    "name": "A3326943_Bucket Hat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3328_Black 2",
+    "styleId": "A3328099",
+    "name": "A3328099_Ruched Cap",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3328_Flame 2",
+    "styleId": "A3328307",
+    "name": "A3328307_Ruched Cap",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Phantom 2",
+    "styleId": "A3338252",
+    "name": "A3338252_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Corydalis Blue 2",
+    "styleId": "A3338870",
+    "name": "A3338870_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3338_Leopard 2",
+    "styleId": "A3338943",
+    "name": "A3338943_Scarf",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3344_Kelly Green 2",
+    "styleId": "A3344801",
+    "name": "A3344801_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3345_Kalamata 2",
+    "styleId": "A3345861",
+    "name": "A3345861_Small Backpack",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3346_Kalamata 2",
+    "styleId": "A3346861",
+    "name": "A3346861_XXL Hobo",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Chipmunk 2",
+    "styleId": "A3352194",
+    "name": "A3352194_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Kelly Green 2",
+    "styleId": "A3352801",
+    "name": "A3352801_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Kalamata 2",
+    "styleId": "A3352861",
+    "name": "A3352861_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3352_Corydalis Blue 2",
+    "styleId": "A3352870",
+    "name": "A3352870_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3431_Leopard 2",
+    "styleId": "A3431943",
+    "name": "A3431943_Festival Bag",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3432_Leopard 2",
+    "styleId": "A3432943",
+    "name": "A3432943_Drawstring Tote",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5709_Black 2",
+    "styleId": "F5709099",
+    "name": "F5709099_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5710_Black 2",
+    "styleId": "F5710099",
+    "name": "F5710099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5712_Black 2",
+    "styleId": "F5712099",
+    "name": "F5712099_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5713_Black 2",
+    "styleId": "F5713099",
+    "name": "F5713099_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5731_Black 2",
+    "styleId": "F5731099",
+    "name": "F5731099_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5734_Black 2",
+    "styleId": "F5734099",
+    "name": "F5734099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5735_Black 2",
+    "styleId": "F5735099",
+    "name": "F5735099_Sleeveless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5743_Dress Blues 2",
+    "styleId": "F5743610",
+    "name": "F5743610_Shirt Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5746_Dress Blues 2",
+    "styleId": "F5746610",
+    "name": "F5746610_Highwaisted Cropped Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5790_Medium Indigo 2",
+    "styleId": "F5790691",
+    "name": "F5790691_Mid-waist Straight Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5792_Medium Indigo 2",
+    "styleId": "F5792691",
+    "name": "F5792691_High-waisted Relaxed Fit Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5793_Medium Indigo 2",
+    "styleId": "F5793691",
+    "name": "F5793691_Midi Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5798_Dress Blues 2",
+    "styleId": "F5798610",
+    "name": "F5798610_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5799_Dress Blues 2",
+    "styleId": "F5799610",
+    "name": "F5799610_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5800_Dress Blues 2",
+    "styleId": "F5800610",
+    "name": "F5800610_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5812_Black 2",
+    "styleId": "F5812099",
+    "name": "F5812099_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5813_Black 2",
+    "styleId": "F5813099",
+    "name": "F5813099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5814_Sharkskin 2",
+    "styleId": "F5814256",
+    "name": "F5814256_Oversized Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5815_Sharkskin 2",
+    "styleId": "F5815256",
+    "name": "F5815256_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5817_Sharkskin 2",
+    "styleId": "F5817256",
+    "name": "F5817256_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5819_Bright White 2",
+    "styleId": "F5819151",
+    "name": "F5819151_Oversized Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5821_Bright White 2",
+    "styleId": "F5821151",
+    "name": "F5821151_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5825_Fossil 2",
+    "styleId": "F5825189",
+    "name": "F5825189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5827_Fossil 2",
+    "styleId": "F5827189",
+    "name": "F5827189_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5830_Sky Captain 2",
+    "styleId": "F5830683",
+    "name": "F5830683_Oversized Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5831_Sky Captain 2",
+    "styleId": "F5831683",
+    "name": "F5831683_Smock Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5832_Sky Captain 2",
+    "styleId": "F5832683",
+    "name": "F5832683_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5833_Sky Captain 2",
+    "styleId": "F5833683",
+    "name": "F5833683_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5834_Sky Captain 2",
+    "styleId": "F5834683",
+    "name": "F5834683_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5835_Dark Indigo 2",
+    "styleId": "F5835696",
+    "name": "F5835696_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5836_Dark Indigo 2",
+    "styleId": "F5836696",
+    "name": "F5836696_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5838_Dark Indigo 2",
+    "styleId": "F5838696",
+    "name": "F5838696_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5839_Dark Indigo 2",
+    "styleId": "F5839696",
+    "name": "F5839696_Loose Fit Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5847_Sky Captain 2",
+    "styleId": "F5847683",
+    "name": "F5847683_Oversized Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5848_Fossil 2",
+    "styleId": "F5848189",
+    "name": "F5848189_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5849_Fossil 2",
+    "styleId": "F5849189",
+    "name": "F5849189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5851_Fossil 2",
+    "styleId": "F5851189",
+    "name": "F5851189_Smock Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5853_Black 2",
+    "styleId": "F5853099",
+    "name": "F5853099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5854_Fossil 2",
+    "styleId": "F5854189",
+    "name": "F5854189_Midi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5855_Black 2",
+    "styleId": "F5855099",
+    "name": "F5855099_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5856_Black 2",
+    "styleId": "F5856099",
+    "name": "F5856099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5857_Orchid Bloom 2",
+    "styleId": "F5857724",
+    "name": "F5857724_Strap Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5859_Orchid Bloom 2",
+    "styleId": "F5859724",
+    "name": "F5859724_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5860_Orchid Bloom 2",
+    "styleId": "F5860724",
+    "name": "F5860724_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5861_Orchid Bloom 2",
+    "styleId": "F5861724",
+    "name": "F5861724_Oversized Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5862_Orchid Bloom 2",
+    "styleId": "F5862724",
+    "name": "F5862724_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5896_Kelly Green 2",
+    "styleId": "F5896801",
+    "name": "F5896801_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5898_Kelly Green 2",
+    "styleId": "F5898801",
+    "name": "F5898801_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5899_Kelly Green 2",
+    "styleId": "F5899801",
+    "name": "F5899801_Sleevesless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5927_Sharkskin 2",
+    "styleId": "F5927256",
+    "name": "F5927256_Twist Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5928_Dark Indigo 2",
+    "styleId": "F5928696",
+    "name": "F5928696_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Sky Captain 2",
+    "styleId": "K1498683",
+    "name": "K1498683_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1504_Fossil 2",
+    "styleId": "K1504189",
+    "name": "K1504189_Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1505_Fossil 2",
+    "styleId": "K1505189",
+    "name": "K1505189_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1520_Sky Captain 2",
+    "styleId": "K1520683",
+    "name": "K1520683_Zip Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1521_Paloma Melange 2",
+    "styleId": "K1521921",
+    "name": "K1521921_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1479_Black 2",
+    "styleId": "S1479099",
+    "name": "S1479099_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1486_Silver 2",
+    "styleId": "S1486018",
+    "name": "S1486018_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1488_Kalamata 2",
+    "styleId": "S1488861",
+    "name": "S1488861_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Black 2",
+    "styleId": "S1490099",
+    "name": "S1490099_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Egret 2",
+    "styleId": "S1490135",
+    "name": "S1490135_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1490_Kalamata 2",
+    "styleId": "S1490861",
+    "name": "S1490861_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1491_Kalamata 2",
+    "styleId": "S1491861",
+    "name": "S1491861_Low Chelsea Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1493_Egret 2",
+    "styleId": "S1493135",
+    "name": "S1493135_Jewel Mocassin",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1494_Kalamata 2",
+    "styleId": "S1494861",
+    "name": "S1494861_Jewel Mocassin",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1495_Black 2",
+    "styleId": "S1495099",
+    "name": "S1495099_Mid Crossover Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1496_Black 2",
+    "styleId": "S1496099",
+    "name": "S1496099_Winter Oxford",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1498_Sky Captain 2",
+    "styleId": "S1498683",
+    "name": "S1498683_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1499_Egret 2",
+    "styleId": "S1499135",
+    "name": "S1499135_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1530_Black 2",
+    "styleId": "S1530099",
+    "name": "S1530099_Retro Sneaker",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2737_Black 2",
+    "styleId": "T2737099",
+    "name": "T2737099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2738_Black 2",
+    "styleId": "T2738099",
+    "name": "T2738099_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2739_Black 2",
+    "styleId": "T2739099",
+    "name": "T2739099_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2740_Black 2",
+    "styleId": "T2740099",
+    "name": "T2740099_Rollneck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2740_Orchid Bloom 2",
+    "styleId": "T2740724",
+    "name": "T2740724_Rollneck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2741_Black 2",
+    "styleId": "T2741099",
+    "name": "T2741099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2741_Orchid Bloom 2",
+    "styleId": "T2741724",
+    "name": "T2741724_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2742_Orchid Bloom 2",
+    "styleId": "T2742724",
+    "name": "T2742724_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2763_Kelly Green 2",
+    "styleId": "T2763801",
+    "name": "T2763801_Oversized Raglan Sweatshirt, Embroidery",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2776_Sky Captain 2",
+    "styleId": "T2776683",
+    "name": "T2776683_Puff Sleeve Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2776_Kelly Green 2",
+    "styleId": "T2776801",
+    "name": "T2776801_Puff Sleeve Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2832_Orchid Bloom 2",
+    "styleId": "T2832724",
+    "name": "T2832724_T-shirt, Overdyed Bunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2782_Bright White 2",
+    "styleId": "T2782151",
+    "name": "T2782151_T-shirt, Twist",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3302_Egret 2",
+    "styleId": "A3302135",
+    "name": "A3302135_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3303_Brazilian Sand 2",
+    "styleId": "A3303196",
+    "name": "A3303196_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3315_Fossil 2",
+    "styleId": "A3315189",
+    "name": "A3315189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3344_Fossil 2",
+    "styleId": "A3344189",
+    "name": "A3344189_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5709_Egret 2",
+    "styleId": "F5709135",
+    "name": "F5709135_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5710_Egret 2",
+    "styleId": "F5710135",
+    "name": "F5710135_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5712_Egret 2",
+    "styleId": "F5712135",
+    "name": "F5712135_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5713_Egret 2",
+    "styleId": "F5713135",
+    "name": "F5713135_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5731_Egret 2",
+    "styleId": "F5731135",
+    "name": "F5731135_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5734_Egret 2",
+    "styleId": "F5734135",
+    "name": "F5734135_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5812_Kalamata 2",
+    "styleId": "F5812861",
+    "name": "F5812861_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5814_Brazilian Sand 2",
+    "styleId": "F5814196",
+    "name": "F5814196_Oversized Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5815_Brazilian Sand 2",
+    "styleId": "F5815196",
+    "name": "F5815196_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5817_Brazilian Sand 2",
+    "styleId": "F5817196",
+    "name": "F5817196_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5896_Fossil 2",
+    "styleId": "F5896189",
+    "name": "F5896189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5898_Fossil 2",
+    "styleId": "F5898189",
+    "name": "F5898189_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5899_Fossil 2",
+    "styleId": "F5899189",
+    "name": "F5899189_Sleevesless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5927_Brazilian Sand 2",
+    "styleId": "F5927196",
+    "name": "F5927196_Twist Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Flame Scarlet 2",
+    "styleId": "K1498467",
+    "name": "K1498467_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1498_Bachelor Blue 2",
+    "styleId": "K1498871",
+    "name": "K1498871_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1520_Bachelor Blue 2",
+    "styleId": "K1520871",
+    "name": "K1520871_Zip Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2738_Fossil 2",
+    "styleId": "T2738189",
+    "name": "T2738189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2742_Fossil 2",
+    "styleId": "T2742189",
+    "name": "T2742189_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3316_Fossil 2",
+    "styleId": "A3316189",
+    "name": "A3316189_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3317_Fossil 2",
+    "styleId": "A3317189",
+    "name": "A3317189_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3391_Phantom 2",
+    "styleId": "A3391252",
+    "name": "A3391252_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5718_Washed Indigo 2",
+    "styleId": "F5718687",
+    "name": "F5718687_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5721_Washed Indigo 2",
+    "styleId": "F5721687",
+    "name": "F5721687_Mid-waist Slim Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5733_Egret 2",
+    "styleId": "F5733135",
+    "name": "F5733135_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5749_Black 2",
+    "styleId": "F5749099",
+    "name": "F5749099_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5753_Black 2",
+    "styleId": "F5753099",
+    "name": "F5753099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5794_Denim 2",
+    "styleId": "F5794630",
+    "name": "F5794630_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5795_Denim 2",
+    "styleId": "F5795630",
+    "name": "F5795630_Oversized Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5796_Denim 2",
+    "styleId": "F5796630",
+    "name": "F5796630_Low-waist Relaxed Fit Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5797_Denim 2",
+    "styleId": "F5797630",
+    "name": "F5797630_Overalls",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5801_Black 2",
+    "styleId": "F5801099",
+    "name": "F5801099_V-Neck Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5805_Black 2",
+    "styleId": "F5805099",
+    "name": "F5805099_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5806_Black 2",
+    "styleId": "F5806099",
+    "name": "F5806099_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5807_Phantom 2",
+    "styleId": "F5807252",
+    "name": "F5807252_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5808_Phantom 2",
+    "styleId": "F5808252",
+    "name": "F5808252_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5809_Phantom 2",
+    "styleId": "F5809252",
+    "name": "F5809252_Belt Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5820_Bright White 2",
+    "styleId": "F5820151",
+    "name": "F5820151_Frill Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5822_Bright White 2",
+    "styleId": "F5822151",
+    "name": "F5822151_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5823_Bright White 2",
+    "styleId": "F5823151",
+    "name": "F5823151_Cropped Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5875_Egret 2",
+    "styleId": "F5875135",
+    "name": "F5875135_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5876_Egret 2",
+    "styleId": "F5876135",
+    "name": "F5876135_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5877_Egret 2",
+    "styleId": "F5877135",
+    "name": "F5877135_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5879_Egret 2",
+    "styleId": "F5879135",
+    "name": "F5879135_Loose Fit Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5880_Egret 2",
+    "styleId": "F5880135",
+    "name": "F5880135_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5889_Black 2",
+    "styleId": "F5889099",
+    "name": "F5889099_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5892_Black 2",
+    "styleId": "F5892099",
+    "name": "F5892099_Jumpsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5894_Black 2",
+    "styleId": "F5894099",
+    "name": "F5894099_Wrap Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5895_Black 2",
+    "styleId": "F5895099",
+    "name": "F5895099_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5897_Fossil 2",
+    "styleId": "F5897189",
+    "name": "F5897189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5905_Fossil 2",
+    "styleId": "F5905189",
+    "name": "F5905189_Short Sleeve Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5907_Fossil 2",
+    "styleId": "F5907189",
+    "name": "F5907189_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5908_Fossil 2",
+    "styleId": "F5908189",
+    "name": "F5908189_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5909_Fossil 2",
+    "styleId": "F5909189",
+    "name": "F5909189_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5910_Fossil 2",
+    "styleId": "F5910189",
+    "name": "F5910189_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5911_Fossil 2",
+    "styleId": "F5911189",
+    "name": "F5911189_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5912_Fossil 2",
+    "styleId": "F5912189",
+    "name": "F5912189_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5915_Fossil 2",
+    "styleId": "F5915189",
+    "name": "F5915189_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5932_Black 2",
+    "styleId": "F5932099",
+    "name": "F5932099_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5960_Phantom 2",
+    "styleId": "F5960252",
+    "name": "F5960252_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1499_Flame Scarlet 2",
+    "styleId": "K1499467",
+    "name": "K1499467_Pullover - Striped",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1500_Bachelor Blue 2",
+    "styleId": "K1500871",
+    "name": "K1500871_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1507_Flame Scarlet 2",
+    "styleId": "K1507467",
+    "name": "K1507467_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1509_Flame Scarlet 2",
+    "styleId": "K1509467",
+    "name": "K1509467_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1510_Flame Scarlet 2",
+    "styleId": "K1510467",
+    "name": "K1510467_Straight Fit Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1511_Brazilian Sand 2",
+    "styleId": "K1511196",
+    "name": "K1511196_Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1517_Bachelor Blue 2",
+    "styleId": "K1517871",
+    "name": "K1517871_Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1534_Bachelor Blue 2",
+    "styleId": "K1534871",
+    "name": "K1534871_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2762_Flame Scarlet 2",
+    "styleId": "T2762467",
+    "name": "T2762467_Oversized Raglan Sweatshirt, Smiley",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2778_Bright White 2",
+    "styleId": "T2778151",
+    "name": "T2778151_T-shirt, Bunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2833_Bright White 2",
+    "styleId": "T2833151",
+    "name": "T2833151_T-shirt, Smiley",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5857_Maxi Leopard 2",
+    "styleId": "F5857994",
+    "name": "F5857994_Strap Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5859_Maxi Leopard 2",
+    "styleId": "F5859994",
+    "name": "F5859994_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5860_Maxi Leopard 2",
+    "styleId": "F5860994",
+    "name": "F5860994_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5861_Maxi Leopard 2",
+    "styleId": "F5861994",
+    "name": "F5861994_Oversized Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5862_Maxi Leopard 2",
+    "styleId": "F5862994",
+    "name": "F5862994_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1521_Camel 2",
+    "styleId": "K1521118",
+    "name": "K1521118_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1450_Black 2",
+    "styleId": "S1450099",
+    "name": "S1450099_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1450_Flame 2",
+    "styleId": "S1450307",
+    "name": "S1450307_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1451_Black 2",
+    "styleId": "S1451099",
+    "name": "S1451099_Knotted Flatform",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1451_Flame 2",
+    "styleId": "S1451307",
+    "name": "S1451307_Knotted Flatform",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1489_Black 2",
+    "styleId": "S1489099",
+    "name": "S1489099_Mid Knotted Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1489_Chipmunk 2",
+    "styleId": "S1489194",
+    "name": "S1489194_Mid Knotted Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2763_Orchid Bloom 2",
+    "styleId": "T2763724",
+    "name": "T2763724_Oversized Raglan Sweatshirt, Embroidery",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3316_Corydalis Blue 2",
+    "styleId": "A3316870",
+    "name": "A3316870_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3317_Corydalis Blue 2",
+    "styleId": "A3317870",
+    "name": "A3317870_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5749_Sharkskin 2",
+    "styleId": "F5749256",
+    "name": "F5749256_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5753_Sharkskin 2",
+    "styleId": "F5753256",
+    "name": "F5753256_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5905_Corydalis Blue 2",
+    "styleId": "F5905870",
+    "name": "F5905870_Short Sleeve Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5907_Corydalis Blue 2",
+    "styleId": "F5907870",
+    "name": "F5907870_Smock Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5908_Corydalis Blue 2",
+    "styleId": "F5908870",
+    "name": "F5908870_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5909_Corydalis Blue 2",
+    "styleId": "F5909870",
+    "name": "F5909870_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5910_Corydalis Blue 2",
+    "styleId": "F5910870",
+    "name": "F5910870_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5911_Corydalis Blue 2",
+    "styleId": "F5911870",
+    "name": "F5911870_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5912_Corydalis Blue 2",
+    "styleId": "F5912870",
+    "name": "F5912870_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5915_Corydalis Blue 2",
+    "styleId": "F5915870",
+    "name": "F5915870_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3240_Black 2",
+    "styleId": "A3240099",
+    "name": "A3240099_Tie-front Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3241_Black 2",
+    "styleId": "A3241099",
+    "name": "A3241099_Midrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3243_Leopard 2",
+    "styleId": "A3243943",
+    "name": "A3243943_Gathered Underwire Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3244_Bachelor Blue 2",
+    "styleId": "A3244871",
+    "name": "A3244871_Twisted Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3244_Leopard 2",
+    "styleId": "A3244943",
+    "name": "A3244943_Twisted Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3248_Black 2",
+    "styleId": "A3248099",
+    "name": "A3248099_Gathered Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3248_Bachelor Blue 2",
+    "styleId": "A3248871",
+    "name": "A3248871_Gathered Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3250_Bachelor Blue 2",
+    "styleId": "A3250871",
+    "name": "A3250871_Twisted Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3250_Leopard 2",
+    "styleId": "A3250943",
+    "name": "A3250943_Twisted Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3251_Bachelor Blue 2",
+    "styleId": "A3251871",
+    "name": "A3251871_Racerback Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3251_Leopard 2",
+    "styleId": "A3251943",
+    "name": "A3251943_Racerback Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3252_Leopard 2",
+    "styleId": "A3252943",
+    "name": "A3252943_Twisted Strap Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3255_Black 2",
+    "styleId": "A3255099",
+    "name": "A3255099_Halterneck Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3256_Black 2",
+    "styleId": "A3256099",
+    "name": "A3256099_Front Twist Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3262_Bachelor Blue 2",
+    "styleId": "A3262871",
+    "name": "A3262871_Off-Shoulder Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3281_Black 2",
+    "styleId": "A3281099",
+    "name": "A3281099_V-neck Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3282_Black 2",
+    "styleId": "A3282099",
+    "name": "A3282099_Highrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3284_Phantom 2",
+    "styleId": "A3284252",
+    "name": "A3284252_Swimsuit, Flower G",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3298_Black 2",
+    "styleId": "A3298099",
+    "name": "A3298099_Tie-front Swimsuit",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3304_Sharkskin 2",
+    "styleId": "A3304256",
+    "name": "A3304256_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3309_Orchid Bloom 2",
+    "styleId": "A3309724",
+    "name": "A3309724_Collar",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3310_Orchid Bloom 2",
+    "styleId": "A3310724",
+    "name": "A3310724_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3314_Sharkskin 2",
+    "styleId": "A3314256",
+    "name": "A3314256_Scrunchie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3341_Nature 2",
+    "styleId": "A3341009",
+    "name": "A3341009_Belt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3342_Bachelor Blue 2",
+    "styleId": "A3342871",
+    "name": "A3342871_Tie-front Bikini Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3343_Bachelor Blue 2",
+    "styleId": "A3343871",
+    "name": "A3343871_Midrise Bikini Briefs",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3351_Flame 2",
+    "styleId": "A3351307",
+    "name": "A3351307_Top handle Purse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5722_Bright White 2",
+    "styleId": "F5722151",
+    "name": "F5722151_High-waisted Cropped Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5723_Bright White 2",
+    "styleId": "F5723151",
+    "name": "F5723151_High-waisted Straight Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5737_Kelly Green 2",
+    "styleId": "F5737801",
+    "name": "F5737801_Wrap Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5738_Kelly Green 2",
+    "styleId": "F5738801",
+    "name": "F5738801_Frill Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5739_Kelly Green 2",
+    "styleId": "F5739801",
+    "name": "F5739801_Sleeveless Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5740_Kelly Green 2",
+    "styleId": "F5740801",
+    "name": "F5740801_Oversized Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5741_Kelly Green 2",
+    "styleId": "F5741801",
+    "name": "F5741801_Smock Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5742_Kelly Green 2",
+    "styleId": "F5742801",
+    "name": "F5742801_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5748_Sharkskin 2",
+    "styleId": "F5748256",
+    "name": "F5748256_Oversized Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5750_Kelly Green 2",
+    "styleId": "F5750801",
+    "name": "F5750801_Twist Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5751_Kelly Green 2",
+    "styleId": "F5751801",
+    "name": "F5751801_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5787_Maxi Leopard 2",
+    "styleId": "F5787994",
+    "name": "F5787994_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5788_Maxi Leopard 2",
+    "styleId": "F5788994",
+    "name": "F5788994_Coat",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5789_Washed Indigo 2",
+    "styleId": "F5789687",
+    "name": "F5789687_High-waisted Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5824_Orchid Bloom 2",
+    "styleId": "F5824724",
+    "name": "F5824724_V-Neck Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5826_Orchid Bloom 2",
+    "styleId": "F5826724",
+    "name": "F5826724_Sleeveless Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5828_Orchid Bloom 2",
+    "styleId": "F5828724",
+    "name": "F5828724_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5850_Orchid Bloom 2",
+    "styleId": "F5850724",
+    "name": "F5850724_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5852_Orchid Bloom 2",
+    "styleId": "F5852724",
+    "name": "F5852724_Smock Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5858_Maxi Leopard 2",
+    "styleId": "F5858994",
+    "name": "F5858994_Sleeveless Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5871_Tiger's Eye 2",
+    "styleId": "F5871177",
+    "name": "F5871177_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5872_Tiger's Eye 2",
+    "styleId": "F5872177",
+    "name": "F5872177_Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5873_Tiger's Eye 2",
+    "styleId": "F5873177",
+    "name": "F5873177_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5874_Tiger's Eye 2",
+    "styleId": "F5874177",
+    "name": "F5874177_Belt Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5882_Sharkskin 2",
+    "styleId": "F5882256",
+    "name": "F5882256_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5883_Sharkskin 2",
+    "styleId": "F5883256",
+    "name": "F5883256_Mini Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5884_Sharkskin 2",
+    "styleId": "F5884256",
+    "name": "F5884256_Puff Sleeve Top",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5886_Nature 2",
+    "styleId": "F5886009",
+    "name": "F5886009_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5887_Nature 2",
+    "styleId": "F5887009",
+    "name": "F5887009_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5888_Nature 2",
+    "styleId": "F5888009",
+    "name": "F5888009_Mini Skirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5900_Sharkskin 2",
+    "styleId": "F5900256",
+    "name": "F5900256_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5901_Sharkskin 2",
+    "styleId": "F5901256",
+    "name": "F5901256_Oversized Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5902_Black 2",
+    "styleId": "F5902099",
+    "name": "F5902099_Slip Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5913_Egret 2",
+    "styleId": "F5913135",
+    "name": "F5913135_Kaftan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5913_Bachelor Blue 2",
+    "styleId": "F5913871",
+    "name": "F5913871_Kaftan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5916_Egret 2",
+    "styleId": "F5916135",
+    "name": "F5916135_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5916_Bachelor Blue 2",
+    "styleId": "F5916871",
+    "name": "F5916871_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5929_Orchid Bloom 2",
+    "styleId": "F5929724",
+    "name": "F5929724_Maxi Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5930_Egret 2",
+    "styleId": "F5930135",
+    "name": "F5930135_Sarong",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5930_Bachelor Blue 2",
+    "styleId": "F5930871",
+    "name": "F5930871_Sarong",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5931_Kelly Green 2",
+    "styleId": "F5931801",
+    "name": "F5931801_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F5933_Sharkskin 2",
+    "styleId": "F5933256",
+    "name": "F5933256_Wrap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1506_Black 2",
+    "styleId": "K1506099",
+    "name": "K1506099_Straight Fit Vest",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1508_Orchid Bloom 2",
+    "styleId": "K1508724",
+    "name": "K1508724_Pullover",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1512_Phantom 2",
+    "styleId": "K1512252",
+    "name": "K1512252_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1512_Paloma Melange 2",
+    "styleId": "K1512921",
+    "name": "K1512921_Cardigan",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "K1513_Paloma Melange 2",
+    "styleId": "K1513921",
+    "name": "K1513921_Blouse",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1466_Chipmunk 2",
+    "styleId": "S1466194",
+    "name": "S1466194_City Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1466_Corydalis Blue 2",
+    "styleId": "S1466870",
+    "name": "S1466870_City Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1467_Chipmunk 2",
+    "styleId": "S1467194",
+    "name": "S1467194_Country Boot",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1492_Chipmunk 2",
+    "styleId": "S1492194",
+    "name": "S1492194_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1492_Orchid Bloom 2",
+    "styleId": "S1492724",
+    "name": "S1492724_Chunky Loafer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "S1529_Chipmunk 2",
+    "styleId": "S1529194",
+    "name": "S1529194_Kitten Heel Knot Sandal",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2759_Bright White 2",
+    "styleId": "T2759151",
+    "name": "T2759151_Sweatshirt, Sunshine",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2765_Nature 2",
+    "styleId": "T2765009",
+    "name": "T2765009_T-Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2766_Nature 2",
+    "styleId": "T2766009",
+    "name": "T2766009_T-Shirt V-neck",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2779_Bright White 2",
+    "styleId": "T2779151",
+    "name": "T2779151_Oversized T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2780_Phantom 2",
+    "styleId": "T2780252",
+    "name": "T2780252_T-shirt, G",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2782_Phantom 2",
+    "styleId": "T2782252",
+    "name": "T2782252_T-shirt, Twist",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2788_Bright White 2",
+    "styleId": "T2788151",
+    "name": "T2788151_T-shirt, Sunny",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Black 2",
+    "styleId": "T2770099",
+    "name": "T2770099_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Egret 2",
+    "styleId": "T2770135",
+    "name": "T2770135_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Sky Captain 2",
+    "styleId": "T2770683",
+    "name": "T2770683_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Heather 2",
+    "styleId": "T2770694",
+    "name": "T2770694_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Kalamata 2",
+    "styleId": "T2770861",
+    "name": "T2770861_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Paloma Melange 2",
+    "styleId": "T2770921",
+    "name": "T2770921_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2770_Chicory Coffee 2",
+    "styleId": "T2770979",
+    "name": "T2770979_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Black 2",
+    "styleId": "T2771099",
+    "name": "T2771099_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Egret 2",
+    "styleId": "T2771135",
+    "name": "T2771135_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Sweet Lilac 2",
+    "styleId": "T2771465",
+    "name": "T2771465_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Heather 2",
+    "styleId": "T2771694",
+    "name": "T2771694_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Kalamata 2",
+    "styleId": "T2771861",
+    "name": "T2771861_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2771_Paloma Melange 2",
+    "styleId": "T2771921",
+    "name": "T2771921_Oversized Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Black 2",
+    "styleId": "T2772099",
+    "name": "T2772099_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Egret 2",
+    "styleId": "T2772135",
+    "name": "T2772135_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Sweet Lilac 2",
+    "styleId": "T2772465",
+    "name": "T2772465_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Sky Captain 2",
+    "styleId": "T2772683",
+    "name": "T2772683_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Heather 2",
+    "styleId": "T2772694",
+    "name": "T2772694_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2772_Paloma Melange 2",
+    "styleId": "T2772921",
+    "name": "T2772921_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Black 2",
+    "styleId": "T2773099",
+    "name": "T2773099_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Egret 2",
+    "styleId": "T2773135",
+    "name": "T2773135_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Sweet Lilac 2",
+    "styleId": "T2773465",
+    "name": "T2773465_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Sky Captain 2",
+    "styleId": "T2773683",
+    "name": "T2773683_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2773_Kalamata 2",
+    "styleId": "T2773861",
+    "name": "T2773861_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Black 2",
+    "styleId": "T2774099",
+    "name": "T2774099_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Egret 2",
+    "styleId": "T2774135",
+    "name": "T2774135_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Kalamata 2",
+    "styleId": "T2774861",
+    "name": "T2774861_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2774_Paloma Melange 2",
+    "styleId": "T2774921",
+    "name": "T2774921_Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_White 2",
+    "styleId": "T2775001",
+    "name": "T2775001_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Sweet Lilac 2",
+    "styleId": "T2775465",
+    "name": "T2775465_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Sky Captain 2",
+    "styleId": "T2775683",
+    "name": "T2775683_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Heather 2",
+    "styleId": "T2775694",
+    "name": "T2775694_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Kalamata 2",
+    "styleId": "T2775861",
+    "name": "T2775861_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Paloma Melange 2",
+    "styleId": "T2775921",
+    "name": "T2775921_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2775_Chicory Coffee 2",
+    "styleId": "T2775979",
+    "name": "T2775979_T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2783_Egret 2",
+    "styleId": "T2783135",
+    "name": "T2783135_Oversized Hoodie",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2784_Egret 2",
+    "styleId": "T2784135",
+    "name": "T2784135_Elasticated Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_White 2",
+    "styleId": "T2785001",
+    "name": "T2785001_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Black 2",
+    "styleId": "T2785099",
+    "name": "T2785099_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Sky Captain 2",
+    "styleId": "T2785683",
+    "name": "T2785683_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Heather 2",
+    "styleId": "T2785694",
+    "name": "T2785694_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Paloma Melange 2",
+    "styleId": "T2785921",
+    "name": "T2785921_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2785_Chicory Coffee 2",
+    "styleId": "T2785979",
+    "name": "T2785979_Long Sleeve T-shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Black 2",
+    "styleId": "T2787099",
+    "name": "T2787099_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Sweet Lilac 2",
+    "styleId": "T2787465",
+    "name": "T2787465_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2787_Paloma Melange 2",
+    "styleId": "T2787921",
+    "name": "T2787921_Relaxed T-Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Black 2",
+    "styleId": "T2815099",
+    "name": "T2815099_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Egret 2",
+    "styleId": "T2815135",
+    "name": "T2815135_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Sweet Lilac 2",
+    "styleId": "T2815465",
+    "name": "T2815465_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2815_Paloma Melange 2",
+    "styleId": "T2815921",
+    "name": "T2815921_Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3426_Phantom 2",
+    "styleId": "A3426252",
+    "name": "A3426252_Bandana",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "A3427_Almond Blossom 2",
+    "styleId": "A3427513",
+    "name": "A3427513_Bandana",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6085_Dark Indigo 2",
+    "styleId": "F6085696",
+    "name": "F6085696_Blazer",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6086_Dark Indigo 2",
+    "styleId": "F6086696",
+    "name": "F6086696_Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6087_Dark Indigo 2",
+    "styleId": "F6087696",
+    "name": "F6087696_High-waisted Shorts",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6088_Medium Indigo 2",
+    "styleId": "F6088691",
+    "name": "F6088691_Shirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6089_Medium Indigo 2",
+    "styleId": "F6089691",
+    "name": "F6089691_Oversized Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6090_Medium Indigo 2",
+    "styleId": "F6090691",
+    "name": "F6090691_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6091_Light Denim 2",
+    "styleId": "F6091676",
+    "name": "F6091676_Strap Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6092_Light Denim 2",
+    "styleId": "F6092676",
+    "name": "F6092676_High-waisted Pants",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6093_Light Denim 2",
+    "styleId": "F6093676",
+    "name": "F6093676_Shirt Dress",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6094_Nature 2",
+    "styleId": "F6094009",
+    "name": "F6094009_Jacket",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "F6095_Nature 2",
+    "styleId": "F6095009",
+    "name": "F6095009_Low-waisted Relaxed Jeans",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2826_Nature 2",
+    "styleId": "T2826009",
+    "name": "T2826009_T-shirt, Globe",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2827_Almond Blossom 2",
+    "styleId": "T2827513",
+    "name": "T2827513_T-shirt, Love",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  },
+  {
+    "assetId": "T2828_Nature 2",
+    "styleId": "T2828009",
+    "name": "T2828009_Sweatshirt",
+    "type": "image",
+    "aspect": "portrait",
+    "onTop": false,
+    "visible": true,
+    "cloudinaryUrl": ""
+  }
+]

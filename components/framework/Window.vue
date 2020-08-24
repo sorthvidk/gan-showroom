@@ -17,7 +17,7 @@
 			:x="computedPositionX"
 			:y="computedPositionY"
 			:w="computedSizeW"
-			:h="computedSizeH"
+			:h="computedSizeH || 'auto'"
 		>
 			<header class="window__top">
 				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
@@ -32,8 +32,14 @@
 				</button>
 			</header>
 			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
-				<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+				<component
+					:is="statusComponent"
+					v-bind="{currentLayout, ...statusComponentProps}"
+					:collectionId="contentComponentProps ? contentComponentProps.collectionId : ''"
+					@layout-change="changeLayout"
+				/>
 			</div>
+			<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
 
 			<hr v-if="!noStatus" />
 
@@ -41,8 +47,9 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{...contentComponentProps}"
+					v-bind="{ currentLayout, ...contentComponentProps }"
 					ref="contentComponent"
+					@activate="putOnTop"
 				/>
 			</div>
 		</vue-draggable-resizable>
@@ -51,10 +58,16 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
+import {
+	TOPMOST_WINDOW,
+	CLOSE_WINDOW,
+	UPDATE_WINDOW,
+	CURRENT_COLLECTION_ID
+} from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import Archive from '~/components/content/Archive.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
@@ -66,6 +79,7 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import Artists from '~/components/content/Artists.vue'
 import Collage from '~/components/content/Collage.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
@@ -75,6 +89,7 @@ import StatusWishList from '~/components/content/StatusWishList.vue'
 export default {
 	name: 'window',
 	components: {
+		Archive,
 		VueDraggableResizable,
 		StatusStatic,
 		StatusCollection,
@@ -90,6 +105,7 @@ export default {
 		HampsterDance,
 		GanniGirls,
 		LookBook,
+		Artists,
 		Collage
 	},
 	props: {
@@ -173,6 +189,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState('collection', ['currentCollectionId']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -183,10 +200,10 @@ export default {
 			return this.positionZ
 		},
 		computedSizeW() {
-			return this.w > 0 ? this.w : this.sizeW
+			return this.w > 0 ? this.w : this.w === 0 ? 'auto' : this.sizeW
 		},
 		computedSizeH() {
-			return this.h > 0 ? this.h : this.sizeH
+			return this.h > 0 ? this.h : this.h === 0 ? 'auto' : this.sizeH
 		},
 		computedResizable() {
 			if (!this.canResize) return false
@@ -219,12 +236,17 @@ export default {
 
 			transformOrigin: 0,
 
+			currentLayout:
+				(this.contentComponentProps && this.contentComponentProps.layout) || 0,
+
 			savedAttributes: {
 				x: 0,
 				y: 0,
 				w: 0,
 				h: 0
-			}
+			},
+
+			collectionData: { styles: [] }
 		}
 	},
 	methods: {
@@ -233,15 +255,39 @@ export default {
 			CLOSE_WINDOW.action,
 			UPDATE_WINDOW.action
 		]),
+		...mapActions('collection', [CURRENT_COLLECTION_ID.action]),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({
 				windowId: this.windowId,
 				contentId: this.contentId
 			})
 		},
-		contentActivateHandler(e) {
+		putOnTop() {
+			if (
+				this.contentComponentProps &&
+				this.contentComponentProps.collectionId === this.currentCollectionId
+			)
+				return
+
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
+			}
+		},
+		contentActivateHandler(e) {
+			this.putOnTop()
+
+			/**
+			 * If the window that is on top has a collectionId:
+			 * Update the store with that ID, so f.ex. the assistant
+			 * knows what filters to show
+			 */
+			if (
+				this.contentComponentProps &&
+				this.contentComponentProps.collectionId
+			) {
+				this[CURRENT_COLLECTION_ID.action](
+					this.contentComponentProps.collectionId
+				)
 			}
 		},
 		titleClick() {
@@ -290,9 +336,8 @@ export default {
 			this.y = y
 			this.w = w
 			this.h = h
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
+
+			this.contentActivateHandler()
 		},
 		onResizeStop() {
 			this.isMaximized = false
@@ -306,9 +351,8 @@ export default {
 		onDrag(x, y) {
 			this.x = x
 			this.y = y
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
+
+			this.contentActivateHandler()
 		},
 		onDragStop() {
 			this.constrain()
@@ -332,13 +376,16 @@ export default {
 					sizeH: this.h
 				}
 			})
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
-		}
+
+			this.contentActivateHandler()
+		},
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
+
+		changeLayout(val) {
+			this.currentLayout = val
+		}
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)

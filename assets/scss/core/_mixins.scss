@@ -2,61 +2,63 @@
 
 @mixin custom-scrollbar() {
 	scrollbar-width: auto;
-	scrollbar-color: $color-white $color-grey;
+	scrollbar-color: $color-202020-red $color-202020-green;
 
 	&::-webkit-scrollbar {
 		width: rem(30);
 	}
 	&::-webkit-scrollbar-track {
-		background: $color-lightgrey;
-		border-left: rem(1) solid $color-black;
+		background: $color-202020-red;
+		border-left: rem(1) solid $color-202020-red;
 	}
 	&::-webkit-scrollbar-thumb {
-		background-color: $color-white;
+		background-color: $color-202020-green;
 		padding: rem(10);
 		border-radius: 0;
 		border: 0;
-		border-left: rem(1) solid $color-black;
-		box-shadow: rem(1) rem(1) 0 0 $color-black,  0 rem(-1) 0 0 $color-black;
+		border-left: rem(1) solid $color-202020-green;
+		// box-shadow: rem(1) rem(1) 0 0 $color-black,  0 rem(-1) 0 0 $color-black;
 
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
-		background-repeat: no-repeat;
-		background-position: center center;
+		// background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
+		// background-repeat: no-repeat;
+		// background-position: center center;
 	}
 }
 
 @mixin details-table() {
 	table-layout: fixed;
 	text-align: left;
-	
+
 	tr td {
 		padding: 0;
-		@include bodytext();			
+		@include bodytext();
+		color: $color-202020-green;
 	}
 	tr th {
 		@include bodytext();
-		color: $color-darkgrey;			
+		color: $color-202020-green;
 		white-space: nowrap;
 		padding-right: rem(10);
 	}
+	button {
+		margin: 0 0 rem(10);
+		font-size: rem(11);
+		display: block;
+	}
 }
-
 
 @mixin bevel($inverted: false) {
 	@if $inverted {
-	box-shadow: inset -1px -1px rgba($color-white,0.7), 
-				inset 1px 1px rgba($color-black,0.2), 
-				inset -2px -2px rgba($color-white,0.7), 
-				inset 2px 2px rgba($color-black,0.2);
-	}
-	@else {
-	box-shadow: inset -1px -1px rgba($color-black,0.2), 
-				inset 1px 1px $color-white, 
-				inset -2px -2px rgba($color-black,0.2), 
-				inset 2px 2px $color-white;
+		box-shadow: inset -1px -1px rgba($color-white, 0.7),
+			inset 1px 1px rgba($color-black, 0.2),
+			inset -2px -2px rgba($color-white, 0.7),
+			inset 2px 2px rgba($color-black, 0.2);
+	} @else {
+		box-shadow: inset -1px -1px rgba($color-black, 0.2),
+			inset 1px 1px $color-white, inset -2px -2px rgba($color-black, 0.2),
+			inset 2px 2px $color-white;
 	}
 }
-
 
 @mixin full-width-button() {
 	cursor: pointer;
@@ -71,9 +73,11 @@
 
 	&:hover {
 		background-color: $color-lightgrey;
+		color: $color-white;
 	}
 
-	span { //icon
+	span {
+		//icon
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -83,13 +87,20 @@
 	}
 	p {
 		@include link();
+		text-decoration: none;
+		font-size: rem(10);
+		color: inherit;
 		white-space: nowrap;
-		max-width: rem(110);
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+	span + p {
+		max-width: rem(90);
+	}
+	svg {
+		fill: currentColor;
+	}
 }
-
 
 @mixin window-button() {
 	flex: 0 0 rem(30);
@@ -103,7 +114,8 @@
 	cursor: pointer;
 	transition: all 0.2s ease;
 	font-size: rem(11);
-	font-weight: $weight-medium;
+	font-weight: $weight-bold;
+
 	.icon {
 		width: rem(30);
 		height: rem(30);
@@ -117,28 +129,83 @@
 	}
 }
 
-
-
 @keyframes message-blink {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
+	5% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
-
 
 .checkmark {
 	fill: none;
-	stroke: #000;
+	stroke: currentColor;
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-width: 5px;
+}
+
+@keyframes wobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	25% {
+		transform: translateY(-5%);
+	}
+
+	75% {
+		transform: translateY(5%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes halfWobble {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-2%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@mixin intro-wobble {
+	&:nth-child(4n) {
+		.icon {
+			animation: wobble 4s forwards;
+		}
+	}
+
+	&:nth-child(4n + 1) {
+		.icon {
+			animation: wobble 3s reverse;
+		}
+	}
+
+	&:nth-child(4n + 2) {
+		.icon {
+			animation: wobble 5s forwards;
+		}
+	}
+
+	&:nth-child(4n + 3) {
+		.icon {
+			animation: wobble 5s reverse;
+		}
+	}
 }

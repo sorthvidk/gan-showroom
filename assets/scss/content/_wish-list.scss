@@ -6,6 +6,7 @@
 
 .wish-list {
 	@include mq($until: screen-sm) {
+		background-color: $color-202020-dustypink;
 		overflow: hidden;
 		overflow-y: scroll;
 		max-height: 100%;
@@ -22,7 +23,8 @@
 		bottom: 0;
 		width: rem(215);
 
-		border-right: rem(1) solid $color-black;
+		// border-right: rem(1) solid $color-black;
+		background-color: $color-202020-dustypink;
 		box-sizing: border-box;
 
 		overflow: hidden;
@@ -33,16 +35,16 @@
 			justify-content: space-between;
 			flex-wrap: nowrap;
 			max-width: 100%;
+			color: $color-202020-green;
 
 			&:hover {
-				background-color: $color-lightgrey;
-
 				.remove {
 					opacity: 1;				
 				}
 			}
 			&.is-active {
-				background-color: $color-lightgrey;
+				color: $color-white;
+				background-color: $color-202020-green;
 			}			
 		}
 
@@ -50,13 +52,13 @@
 			cursor: pointer;
 			display: inline-flex;
 			align-items: center;
-
 		}
 		.remove {
 			padding: rem(8) 0;
 			justify-content: center;
 			flex: 0 0 rem(30);
 			svg {
+				fill: currentColor;
 				width: rem(30);
 				height: rem(30);
 			}
@@ -76,7 +78,8 @@
 				margin-right: rem(10);
 			}
 			p {
-				font-size: rem(13);
+				font-size: rem(11);
+				font-weight: $weight-medium;
 				overflow: hidden;
 				width: rem(185 + - 12 - 30 - 10);
 				white-space: nowrap;
@@ -108,6 +111,13 @@
 			table {
 				@include details-table();
 			}
+
+			h5 {
+				color: $color-202020-green;
+				text-transform: none;
+				font-weight: $weight-bold;
+				font-size: rem(16);
+			}	
 		}
 
 		.button {
@@ -130,8 +140,12 @@
 
 	//mobile only
 	&__accordion {
-		&.is-active {
-			background-color: $color-lightgrey;
+		background-color: $color-202020-dustypink;
+		color: $color-202020-green;
+
+		&.is-active {			
+			background-color: $color-202020-green;
+			color: $color-white;
 			.content {
 				max-height: rem(400);
 			}
@@ -165,12 +179,14 @@
 				align-items: center;
 				justify-content: center;
 				svg {
+					fill: currentColor;
 					width: rem(30);
 					height: rem(30);
 				}
 			}
 		}
 		.content {
+			background-color: $color-white;
 			overflow: hidden;
 			max-height: 0;
 			transition: max-height 0.2s ease;
@@ -182,7 +198,7 @@
 			}
 
 			.inner {
-				padding: 0 rem(30) rem(40) rem(55);
+				padding: rem(10) rem(30) rem(40) rem(55);
 				table {
 					@include details-table();
 				}

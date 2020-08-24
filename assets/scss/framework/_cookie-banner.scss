@@ -13,8 +13,8 @@
 	z-index: $z-index-cookies;
 
 
-	background-color: $color-lime;
-	color: $color-black;
+	background-color: $color-202020-dustypink;
+	color: $color-202020-green;
 	padding: rem(15) rem(20);
 
 	@include mq($from: screen-sm) {
@@ -44,26 +44,22 @@
 	a, p {
 		line-height: 1.25;
 		font-size: rem(12);
+		color: currentColor;
 		@include mq($from: screen-md) {
 			font-size: rem(14);
 		}
 	}
 
 	button {
-		display: block;
-
-		font-family: $font-serif;
-		line-height: 1.5;
-		color: $color-blue;
-		text-decoration: underline;
-		font-size: rem(20);
-		margin-top: rem(20);
-		@include mq($from: screen-sm) {
-			margin-top: 0;
-		}
-		@include mq($from: screen-md) {
-			font-size: rem(30);
-		}
+		@include window-button();
+		color: $color-white;
+		background-color: $color-black;
+		padding: rem(8) rem(20) rem(10);
+		
+		width: rem(150);
+		flex: 0 0 rem(150);
+		text-align: center;
+		display: inline-block;
 	}
 }
 

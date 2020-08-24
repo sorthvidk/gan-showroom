@@ -1,4 +1,10 @@
 import {
+	INIT_INDEX,
+	PASSWORD_ITEMS_FETCH,
+	AUTHENTICATE_CONTENT,
+	COLLECTION_COLLECTIONS_FETCH,
+	CREATE_DATA_MODEL,
+	BYPASS_ESCAPE,
 	RESET_STATE,
 	LOGIN,
 	VISIBILITY,
@@ -10,9 +16,11 @@ import {
 	FILMS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
+	ARTISTS_FETCH,
+	ARTIST_ASSETS_FETCH,
+	CONNECT_ARTIST_ASSETS,
 	GENERAL_FETCH,
 	CONNECT_ASSETS,
-	FILTER_COLLECTION,
 	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
@@ -44,8 +52,11 @@ import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
+import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 export const state = () => ({
+	archiveHasAuthenticatedCollections: null,
+
 	webcamImage: '',
 
 	collageIsOpen: false,
@@ -54,9 +65,11 @@ export const state = () => ({
 	changeCollage: {},
 
 	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+	passwords: [],
 
 	screensaverActive: false,
+
+	byPassEscape: false,
 
 	progressItems: {},
 	progressPct: 0,
@@ -68,7 +81,7 @@ export const state = () => ({
 	windowGroupList: [],
 	topMostWindow: null,
 
-	collectionLayout: CollectionLayouts.GRID,
+	// collectionLayout: CollectionLayouts.GRID,
 
 	keyPressed: null,
 	highestZIndex: 0,
@@ -78,6 +91,7 @@ export const state = () => ({
 	copyrightAccepted: false,
 
 	musicPlaying: false,
+	musicPlayerSlim: false,
 	songs: [
 		{
 			title: 'All Saints - Never Ever.mp3',
@@ -120,6 +134,42 @@ export const mutations = {
 		})
 	},
 
+	[PASSWORD_ITEMS_FETCH.mutation](state, passwords) {
+		state.passwords = passwords.map(password => {
+			password.hash = password.hash.toLowerCase()
+			return password
+		})
+	},
+
+	[AUTHENTICATE_CONTENT.mutation](state) {
+		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
+
+		if (!archive) return false
+
+		const archiveContent =
+			archive.windowContent[0].contentComponentProps.shortcuts
+
+		const archiveCollectionShortcuts = state.shortcuts.list.filter(s =>
+			archiveContent.includes(s.shortcutId)
+		)
+		const archiveCollections = archiveCollectionShortcuts.map(
+			c => c.windowContent[0].contentComponentProps.collectionId
+		)
+
+		const authenticatedCollections = state.collection.collections
+			.filter(c => archiveCollections.includes(c.collectionId))
+			.filter(
+				c =>
+					!c.passwords ||
+					!c.passwords.length ||
+					c.passwords.includes(state.loggedIn.hash)
+			)
+
+		state.archiveHasAuthenticatedCollections = authenticatedCollections.length
+			? true
+			: false
+	},
+
 	[SAVE_COLLAGE.mutation](state) {
 		state.saveCollage = !state.saveCollage
 	},
@@ -151,8 +201,9 @@ export const mutations = {
 		state.copyrightAccepted = false
 	},
 
-	[LOGIN.mutation](state, key) {
-		state.loggedIn = key
+	[LOGIN.mutation](state, { valid, SHA256 }) {
+		state.passwordUsed = SHA256
+		state.loggedIn = valid
 		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
 	},
 
@@ -160,13 +211,16 @@ export const mutations = {
 		state.screensaverActive = key
 	},
 
-
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
 	},
 
 	[COPYRIGHT_ACCEPT.mutation](state, value) {
 		state.copyrightAccepted = value
+	},
+
+	[BYPASS_ESCAPE.mutation](state, key) {
+		state.byPassEscape = key
 	},
 
 	[KEYPRESS.mutation](state, key) {
@@ -177,6 +231,64 @@ export const mutations = {
 		state.mousepos = { x, y }
 	},
 
+	[CREATE_DATA_MODEL.mutation](state, { styles, filters }) {
+		/**
+		 * example:
+		 * state.collection.data = {
+		 *   collectionOne: {
+		 *     filters: [{ filter1 }, { filter2 }],
+		 *     styles: [{ style1 }, { style2 }]
+		 *   },
+		 *   collectionTwo: {...}
+		 * }
+		 */
+
+		const sortedStyles = sortArrayMultipleProps(styles, 'weight', 'drop')
+
+		// loop through all styles and place them, with their filters,
+		// under the correct collectionId,
+		state.collection.data = sortedStyles.reduce((data, cur) => {
+			const { collectionId, filters: styleFilters } = cur
+
+			// if first time current style's collection is seen
+			if (!Object.keys(data).includes(collectionId)) {
+				// create a new collection object
+				data[collectionId] = {
+					styles: [],
+					filters: []
+				}
+			}
+
+			// not added filterIds
+			const newFilterIds = styleFilters.filter(
+				styleFilter =>
+					!data[collectionId].filters.find(
+						addedFilter => styleFilter === addedFilter.filterId
+					)
+			)
+			// not added filter objects
+			const newFilters = filters.filter(filter =>
+				newFilterIds.includes(filter.filterId)
+			)
+
+			// add style to correct collection
+			data[collectionId].styles.push(cur)
+
+			// add new filters to correct collection
+			newFilters.forEach(filter => data[collectionId].filters.push(filter))
+
+			return data
+		}, {})
+	},
+
+	[COLLECTION_COLLECTIONS_FETCH.mutation](state, data) {
+		state.collection.collections = data.map(collection => {
+			collection.passwords = collection.passwords
+				? collection.passwords.map(p => p.toLowerCase())
+				: []
+			return collection
+		})
+	},
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
 	},
@@ -196,6 +308,14 @@ export const mutations = {
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.assets.lookBook = data
 	},
+
+	[ARTISTS_FETCH.mutation](state, data) {
+		state.artists.list = data
+	},
+	[ARTIST_ASSETS_FETCH.mutation](state, data) {
+		state.artists.assets = data
+	},
+
 	[GENERAL_FETCH.mutation](state, data) {
 		//Insert Ganni Girls bg image
 		let misc = data.filter(e => e.slug === 'misc')[0]
@@ -226,9 +346,7 @@ export const mutations = {
 
 		for (var i = 0; i < al; i++) {
 			let asset = state.assets.list[i]
-			let style = state.collection.list.filter(
-				e => e.styleId === asset.styleId
-			)[0]
+			let style = state.collection.list.find(e => e.styleId === asset.styleId)
 			if (style && style.assets) style.assets.push(asset)
 			else if (window.GS_LOGS)
 				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
@@ -518,22 +636,29 @@ export const mutations = {
 	[DOWNLOAD_PREPARING.mutation](state, value) {
 		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
-	},
-
-	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
-		state.collectionLayout = value
 	}
+
+	// [COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
+	// 	if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
+	// 	state.collectionLayout = value
+	// }
 }
 
 export const actions = {
+	[INIT_INDEX.action]({ commit }) {
+		if (window.GS_LOGS) console.log('INIT_INDEX')
+		commit(CONNECT_ASSETS.mutation)
+		commit(INIT_PROGRESS.mutation)
+		commit('artists/' + CONNECT_ARTIST_ASSETS.mutation)
+	},
+
 	//first action, injects assets into collection
 	[CONNECT_ASSETS.action]({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
-	[LOGIN.action]({ commit }, authorized) {
-		commit(LOGIN.mutation, authorized)
+	[LOGIN.action]({ commit }, { valid, SHA256 }) {
+		commit(LOGIN.mutation, { valid, SHA256 })
 	},
 
 	[SAVE_COLLAGE.action]({ commit }) {
@@ -570,10 +695,14 @@ export const actions = {
 		commit(INIT_PROGRESS.mutation)
 	},
 
-	[KEYPRESS.action]({ commit }, event) {
+	[BYPASS_ESCAPE.action]({ commit, state }, event) {
+		commit(BYPASS_ESCAPE.mutation, event)
+	},
+
+	[KEYPRESS.action]({ commit, state }, event) {
 		commit(KEYPRESS.mutation, event)
 
-		if (event.key === 'Escape') {
+		if (event.key === 'Escape' && !state.byPassEscape) {
 			commit(CLOSE_WINDOW_GROUP.mutation)
 		}
 	},
@@ -679,30 +808,46 @@ export const actions = {
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
 	},
-	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		if (window.GS_LOGS) console.log('value', value)
-		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
-	},
+	// [COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+	// 	if (window.GS_LOGS) console.log('value', value)
+	// 	commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
+	// },
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 	// FETCH ALL CONTENT!
 
 	async nuxtServerInit({ commit, dispatch }) {
-		let collectionFiles = await require.context(
-			'~/assets/content/collectionItems/',
+		let passwordFiles = await require.context(
+			`~/assets/content/passwords/`,
 			false,
 			/\.json$/
 		)
-		let collection = collectionFiles.keys().map(key => {
+		let passwords = passwordFiles.keys().map(key => {
+			let res = passwordFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+
+		commit(PASSWORD_ITEMS_FETCH.mutation, passwords)
+
+		let collectionFiles = await require.context(
+			`~/assets/content/collectionItems/`,
+			false,
+			/\.json$/
+		)
+		let styles = collectionFiles.keys().map(key => {
 			let res = collectionFiles(key)
 			res.slug = key.slice(2, -5)
 			return res
 		})
-		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+
+		// save all styles in one array,
+		// only used to connect the right assets to each style
+		commit(COLLECTION_ITEMS_FETCH.mutation, styles)
 
 		let filterFiles = await require.context(
-			'~/assets/content/collectionFilters/',
+			`~/assets/content/collectionFilters/`,
 			false,
 			/\.json$/
 		)
@@ -711,10 +856,17 @@ export const actions = {
 			res.slug = key.slice(2, -5)
 			return res
 		})
+
 		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
+		/**
+		 * When all styles and filters has arrived,
+		 * sort out and merge them into one object
+		 */
+		commit(CREATE_DATA_MODEL.mutation, { styles, filters })
+
 		let assetFiles = await require.context(
-			'~/assets/content/mediaAssets/',
+			`~/assets/content/mediaAssets/`,
 			false,
 			/\.json$/
 		)
@@ -725,8 +877,20 @@ export const actions = {
 		})
 		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
+		let collectionsFiles = await require.context(
+			`~/assets/content/collections/`,
+			false,
+			/\.json$/
+		)
+		let collections = collectionsFiles.keys().map(key => {
+			let res = collectionsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(COLLECTION_COLLECTIONS_FETCH.mutation, collections)
+
 		let filmsFiles = await require.context(
-			'~/assets/content/films/',
+			`~/assets/content/films/`,
 			false,
 			/\.json$/
 		)
@@ -738,7 +902,7 @@ export const actions = {
 		commit(FILMS_FETCH.mutation, films)
 
 		let ganniGirlsFiles = await require.context(
-			'~/assets/content/ganniGirls/',
+			`~/assets/content/ganniGirls/`,
 			false,
 			/\.json$/
 		)
@@ -750,7 +914,7 @@ export const actions = {
 		commit(GANNIGIRLS_FETCH.mutation, posts)
 
 		let lookBookFiles = await require.context(
-			'~/assets/content/lookBook/',
+			`~/assets/content/lookBook/`,
 			false,
 			/\.json$/
 		)
@@ -761,8 +925,32 @@ export const actions = {
 		})
 		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
+		let artistsFiles = await require.context(
+			`~/assets/content/artists/`,
+			false,
+			/\.json$/
+		)
+		let artists = artistsFiles.keys().map(key => {
+			let res = artistsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(ARTISTS_FETCH.mutation, artists)
+
+		let artistAssetFiles = await require.context(
+			`~/assets/content/artistAssets/`,
+			false,
+			/\.json$/
+		)
+		let artistAssets = artistAssetFiles.keys().map(key => {
+			let res = artistAssetFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(ARTIST_ASSETS_FETCH.mutation, artistAssets)
+
 		let generalFiles = await require.context(
-			'~/assets/content/general/',
+			`~/assets/content/general/`,
 			false,
 			/\.json$/
 		)

@@ -69,7 +69,7 @@ export default {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
 			minimized: true,
-			avatar: '/img/avatar.jpg'
+			avatar: '/img/avatar.png'
 		}
 	},
 	computed: {

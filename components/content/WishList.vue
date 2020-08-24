@@ -1,10 +1,19 @@
 <template>
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
-			<div class="wish-list__overview__item" v-for="(item, index) in wishList" :key="'wishListItem'+index" :class="{'is-active': currentWishListIndex == index}">
-				<button v-if="item.assets && item.assets.length > 0" class="button activate" @click="overviewItemActivateHandler(index)">
+			<div
+				class="wish-list__overview__item"
+				v-for="(item, index) in sortedWishlist"
+				:key="'wishListItem'+index"
+				:class="{'is-active': currentWishListIndex == index}"
+			>
+				<button
+					v-if="item.styleItem.assets && item.styleItem.assets.length > 0"
+					class="button activate"
+					@click="overviewItemActivateHandler(index)"
+				>
 					<img :src="getImageUrl(index)" alt />
-					<p>{{item.name}}</p>
+					<p>{{item.styleItem.name}}</p>
 				</button>
 				<button class="button remove" @click.stop="overviewItemRemoveHandler(index)">
 					<span class="icon">
@@ -19,15 +28,18 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
-				<div class="inner" v-if="wishList.length < 1">
-					<p>Your wish list is empty!</p>
+				<div class="inner" v-if="sortedWishlist.length < 1">
+					<h5>Your wish list is empty!</h5>
 				</div>
 				<div
 					class="inner"
-					v-if="currentWishListItem.assets && currentWishListItem.assets.length > 0"
+					v-if="currentWishListItem && currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
 					:key="currentWishListIndex"
 				>
-					<single-image :asset="currentWishListItem.assets[0]" :parent-window-id="parentWindowId" />
+					<single-image
+						:asset="currentWishListItem.styleItem.assets[0]"
+						:parent-window-id="parentWindowId"
+					/>
 
 					<h3>{{currentWishListItem.name}}</h3>
 					<button class="button" @click="removeItemHandler">Remove from wishlist</button>
@@ -35,28 +47,50 @@
 					<table>
 						<tbody>
 							<tr>
-								<th>Name</th>
-								<td>{{currentWishListItem.name}}</td>
+								<th>Collection</th>
+								<td>{{currentWishListItem.styleItem.collectionId}}</td>
 							</tr>
 							<tr>
-								<th>Color</th>
-								<td>{{currentWishListItem.colorNames}}</td>
+								<th>Drop</th>
+								<td>{{currentWishListItem.styleItem.drop}}</td>
+							</tr>
+							<tr>
+								<th>Name</th>
+								<td>{{currentWishListItem.styleItem.name}}</td>
+							</tr>
+							<tr>
+								<th>
+									Color
+									<span v-if="hasMoreColors">(s)</span>
+								</th>
+								<td>
+									<span
+										v-if="hasMoreColors"
+										v-for="(item, key) in currentWishListItem.chosenColorList"
+										:key="item"
+									>
+										<span v-if="key > 0">,</span>
+										{{item}}
+									</span>
+									<button v-if="hasMoreColors" class="button" @click="editColorsHandler">Edit colors</button>
+									<span v-else>{{currentWishListItem.styleItem.colorNames}}</span>
+								</td>
 							</tr>
 							<tr>
 								<th>Material</th>
-								<td>{{currentWishListItem.material}}</td>
+								<td>{{currentWishListItem.styleItem.material}}</td>
 							</tr>
 							<tr>
 								<th>Style #</th>
-								<td>{{currentWishListItem.styleId}}</td>
+								<td>{{currentWishListItem.styleItem.styleId}}</td>
 							</tr>
 							<tr>
 								<th>Program #</th>
-								<td>{{currentWishListItem.program}}</td>
+								<td>{{currentWishListItem.styleItem.program}}</td>
 							</tr>
 							<tr>
 								<th>Program name</th>
-								<td>{{currentWishListItem.programName}}</td>
+								<td>{{currentWishListItem.styleItem.programName}}</td>
 							</tr>
 
 							<tr>
@@ -66,15 +100,15 @@
 
 							<tr>
 								<th>Wholesale price</th>
-								<td>DKK {{currentWishListItem.wholesalePriceDKK}}</td>
+								<td>DKK {{currentWishListItem.styleItem.wholesalePriceDKK}}</td>
 							</tr>
 							<tr>
 								<th>Wholesale price</th>
-								<td>EUR {{currentWishListItem.wholesalePriceEUR}}</td>
+								<td>EUR {{currentWishListItem.styleItem.wholesalePriceEUR}}</td>
 							</tr>
 							<tr>
 								<th>Wholesale price</th>
-								<td>USD {{currentWishListItem.wholesalePriceUSD}}</td>
+								<td>USD {{currentWishListItem.styleItem.wholesalePriceUSD}}</td>
 							</tr>
 
 							<tr>
@@ -84,16 +118,17 @@
 
 							<tr>
 								<th>Suggested retail price</th>
-								<td>DKK {{currentWishListItem.retailPriceDKK}}</td>
+								<td>DKK {{currentWishListItem.styleItem.retailPriceDKK}}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>EUR {{currentWishListItem.retailPriceEUR}}</td>
+								<td>EUR {{currentWishListItem.styleItem.retailPriceEUR}}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>USD {{currentWishListItem.retailPriceUSD}}</td>
+								<td>USD {{currentWishListItem.styleItem.retailPriceUSD}}</td>
 							</tr>
+							
 						</tbody>
 					</table>
 				</div>
@@ -101,7 +136,7 @@
 		</transition>
 		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
-				v-for="(item, key) in wishList"
+				v-for="(item, key) in sortedWishlist"
 				:key="'wishListItem'+key"
 				:wish-list-item="item"
 			/>
@@ -112,9 +147,14 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { REMOVE_FROM_WISHLIST } from '~/model/constants'
+import {
+	UPDATE_WISHLIST,
+	REMOVE_FROM_WISHLIST,
+	TOGGLE_COLOR_PICKER
+} from '~/model/constants'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import { sortDeep } from '~/utils/sort-array-multiple'
 
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
@@ -130,17 +170,6 @@ export default {
 		WishListAccordion,
 		SingleImage
 	},
-	computed: {
-		...mapState({
-			wishList: state => state.collection.wishList
-		}),
-		currentWishListItem() {
-			if (this.wishList.length > 0)
-				return this.wishList[this.currentWishListIndex]
-			else this.currentWishListIndex = -1
-			return {}
-		}
-	},
 	data() {
 		return {
 			currentWishListIndex: 0,
@@ -148,21 +177,57 @@ export default {
 			viewPortSize: ViewportSizes.SMALL
 		}
 	},
+	computed: {
+		...mapState('collection', ['wishList', 'collections']),
+		activeWishlist() {
+			const activeCollections = this.collections
+				.filter(c => c.active)
+				.map(c => c.collectionId)
+			return this.wishList.filter(item =>
+				activeCollections.includes(item.styleItem.collectionId)
+			)
+		},
+		sortedWishlist() {
+			return sortDeep('styleItem.weight', this.activeWishlist, 'asc')
+		},
+		currentWishListItem() {
+			if (this.activeWishlist.length > 0)
+				return this.activeWishlist[this.currentWishListIndex]
+			else this.currentWishListIndex = -1
+			return {}
+		},
+		hasMoreColors() {
+			console.log('this.currentWishListIndex', this.currentWishListIndex)
+			let colorList = this.currentWishListItem.styleItem.colorNames.split(', ')
+			return colorList.length > 1
+		}
+	},
+	watch: {
+		activeWishlist(newVal) {
+			//wishlist updated
+			if (newVal) {
+				this.overviewItemActivateHandler(0)
+			}
+		}
+	},
 	methods: {
-		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
+		...mapActions('collection', [
+			UPDATE_WISHLIST.action,
+			TOGGLE_COLOR_PICKER.action,
+			REMOVE_FROM_WISHLIST.action
+		]),
 		overviewItemActivateHandler(key) {
 			this.currentWishListIndex = key
 		},
 		overviewItemRemoveHandler(key) {
-			let removeItem = this.wishList[key]
+			let removeItem = this.activeWishlist[key].styleItem
 			this.currentWishListIndex = 0
-			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+			this[REMOVE_FROM_WISHLIST.action](removeItem)
 		},
-
 		removeItemHandler() {
-			let removeItem = this.currentWishListItem
+			let removeItem = this.currentWishListItem.styleItem
 			this.currentWishListIndex = 0
-			this['collection/' + REMOVE_FROM_WISHLIST.action](removeItem)
+			this[REMOVE_FROM_WISHLIST.action](removeItem)
 		},
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL
@@ -171,7 +236,25 @@ export default {
 			this.viewPortSize = ViewportSizes.LARGE
 		},
 		getImageUrl(index) {
-			return getCloudinaryUrl(this.$cloudinary, this.wishList[index].assets[0], {width: 30});
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				this.activeWishlist[index].styleItem.assets[0],
+				{ width: 30 }
+			)
+		},
+		editColorsHandler() {
+			this[TOGGLE_COLOR_PICKER.action]({
+				styleItem: this.currentWishListItem.styleItem,
+				chosenColorList: this.currentWishListItem.chosenColorList,
+				callbackFunction: this.colorsEditingDone
+			})
+		},
+		colorsEditingDone(styleItem, chosenColorList) {
+			console.log('colorsEditingDone', styleItem, chosenColorList)
+			this[UPDATE_WISHLIST.action]({
+				styleItem: styleItem,
+				chosenColorList: chosenColorList
+			})
 		}
 	},
 	mounted() {

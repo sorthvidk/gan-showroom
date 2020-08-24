@@ -2,8 +2,14 @@
 	padding: rem(20);
 	
 	p {
-		font-family: $font-typewriter; 
+		font-family: $font-typewriter;
+		color: $color-202020-green; 
 		font-size: rem(12);
 		line-height: 1.5;
+		text-transform: none;
+
+		@include mq($from: screen-xl) {
+			font-size: rem(13);
+		}
 	}
 }

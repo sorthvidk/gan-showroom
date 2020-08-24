@@ -2,13 +2,12 @@
 	<table class="receipt-item">
 		<tbody class="receipt-item__content">
 			<tr>
-				<td rowspan="4" class="image">
-					<img style="width: 3cm;" :src="imageUrl" alt />
+				<td rowspan="12" class="image">
+					<img style="width: 3.9cm;" :src="imageUrl" alt />
 				</td>
 				<td colspan="2" class="title">{{receiptItem.name}}</td>
 			</tr>
-			<!-- <tr>
-			</tr>-->
+			
 			<tr>
 				<td style="color: #666; padding-right: 5em;">Color</td>
 				<td>{{receiptItem.colorNames}}</td>
@@ -20,6 +19,39 @@
 			<tr>
 				<td style="color: #666;">Program name</td>
 				<td>{{receiptItem.programName}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Collection</td>
+				<td>{{receiptItem.collectionId}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Drop</td>
+				<td>{{receiptItem.drop}}</td>
+			</tr>
+			
+			<tr>
+				<td style="color: #666;">Wholesale price</td>
+				<td>DKK {{receiptItem.wholesalePriceDKK}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Wholesale price</td>
+				<td>EUR {{receiptItem.wholesalePriceEUR}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Wholesale price</td>
+				<td>USD {{receiptItem.wholesalePriceUSD}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Retail price</td>
+				<td>DKK {{receiptItem.retailPriceDKK}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Retail price</td>
+				<td>EUR {{receiptItem.retailPriceEUR}}</td>
+			</tr>
+			<tr>
+				<td style="color: #666;">Retail price</td>
+				<td>USD {{receiptItem.retailPriceUSD}}</td>
 			</tr>
 		</tbody>
 	</table>

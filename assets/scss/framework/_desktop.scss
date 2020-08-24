@@ -36,12 +36,57 @@ body {
 		box-sizing: border-box;
 
 		@include mq($from: screen-md) {
-			height: calc(100vh - #{rem(40 + 60)});
+			height: calc(100vh - #{rem(60)});
 			padding: 0 rem(30);
 			display: grid;
 
 			grid-template-columns: repeat(12, 1fr);
 			grid-template-rows: repeat(8, 1fr);
+		}
+
+		&--draggable {
+			display: flex;
+			flex-wrap: wrap;
+			height: 100%;
+
+			// @include mq($until: screen-md) {
+			// 	display: block;
+			// }
+
+			> * {
+				@include intro-wobble;
+
+				// top: 38%;
+				// left: 40%;
+
+				// @include mq($from: screen-md) {
+				position: absolute;
+				// }
+
+				&:nth-child(4n) {
+					color: $color-202020-blue;
+				}
+
+				&:nth-child(4n + 1) {
+					color: $color-202020-dustypink;
+				}
+
+				&:nth-child(4n + 2) {
+					color: $color-202020-green;
+				}
+
+				&:nth-child(4n + 3) {
+					color: $color-202020-red;
+				}
+
+				&:hover {
+					.icon {
+						img {
+							animation: halfWobble 1s forwards;
+						}
+					}
+				}
+			}
 		}
 	}
 	&__windows {
