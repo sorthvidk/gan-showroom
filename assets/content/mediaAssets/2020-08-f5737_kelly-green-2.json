@@ -4,7 +4,7 @@
   "name": "F5737801_Wrap Shirt",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212511/SS21/Lookbook/F5737_F5872_S1489_dg8y5g.jpg"
 }
