@@ -66,7 +66,7 @@ export default {
 			})
 		},
 		sortedItems() {
-			return sortArrayMultiple(this.colorsFiltered, 'weight')
+			return sortArrayMultiple(this.colorsFiltered, 'drop')
 		}
 	},
 	methods: {
