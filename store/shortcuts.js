@@ -7,76 +7,11 @@ import ShortcutTypes from '~/model/shortcut-types'
 export const state = () => ({
 	blownUpIconLayout: true,
 	list: [
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'archive',
-		// 	icon: '/img/collage/dress1.png',
-		// 	label: 'Archive',
-		// 	posH: 1,
-		// 	posV: 4,
-		// 	actions: [
-		// 		{
-		// 			name: COLLECTION_LAYOUT_CHANGE.action,
-		// 			param: CollectionLayouts.GRID
-		// 		}
-		// 	],
-		// 	windowContent: [
-		// 		{
-		// 			title: 'Archive',
-		// 			contentId: 'archive-id',
-		// 			type: ContentTypes.archive,
-		// 			contentComponentProps: {
-		// 				shortcuts: ['collection', 'collection-test']
-		// 			}
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'collection-ps21',
-		// 	// icon: '/img/shortcuts/ps21.png',
-		// 	icon: '/img/collage/dress2.png',
-		// 	label: 'PS21 collection',
-		// 	posH: 1,
-		// 	posV: 1,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 collection',
-		// 			contentId: 'ps21-collection',
-		// 			type: ContentTypes.collection,
-		// 			contentComponentProps: {
-		// 				// layout: CollectionLayouts.GRID,
-		// 				collectionId: 'PS21'
-		// 			}
-		// 		}
-		// 	]
-		// },
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection-ss21',
-			// icon: '/img/shortcuts/ps21.png',
-			icon: '/img/shortcuts/SS21-COLLECTION.png',
-			label: 'SS21 Collection',
-			posH: 4,
-			posV: 1,
-			windowContent: [
-				{
-					title: 'SS21 Collection',
-					contentId: 'ss21-collection',
-					type: ContentTypes.collection,
-					contentComponentProps: {
-						// layout: CollectionLayouts.GRID,
-						collectionId: 'SS21'
-					}
-				}
-			]
-		},
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection-software',
-			// icon: '/img/shortcuts/ps21.png',
 			icon: '/img/shortcuts/SOFTWARE.png',
-			label: 'GANNI Software',
+			label: 'GANNI<br>Software',
 			posH: 4,
 			posV: 2,
 			windowContent: [
@@ -93,47 +28,7 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection-levis',
-			icon: '/img/shortcuts/GANNIXLEVIS.png',
-			label: "GANNI x Levi's",
-			posH: 4,
-			posV: 3,
-			windowContent: [
-				{
-					title: "GANNI x Levi's",
-					contentId: 'levis-collection',
-					type: ContentTypes.collection,
-					contentComponentProps: {
-						layout: CollectionLayouts.FUN,
-						collectionId: 'GANNIXLEVIS'
-					}
-				}
-			]
-		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'films',
-		// 	// icon: '/img/shortcuts/films.png',
-		// 	icon: '/img/shortcuts/SS21-FILMS.png',
-		// 	label: 'SS21 Films',
-		// 	posH: 2,
-		// 	posV: 1,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'SS21 films',
-		// 			contentId: 'ss21-films',
-		// 			type: ContentTypes.films,
-		// 			canOverride: true,
-		// 			statusComponentProps: {
-		// 				text: 'Films!! YAY!'
-		// 			}
-		// 		}
-		// 	]
-		// },
-		{
-			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
-			// icon: '/img/shortcuts/dittes_private.png',
 			icon: '/img/shortcuts/PRIVATE.png',
 			label: 'Private',
 			posH: 3,
@@ -211,7 +106,6 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
-			// icon: '/img/shortcuts/look_book.png',
 			icon: '/img/shortcuts/LOOKBOOK.png',
 			label: 'LookBook',
 			posH: 2,
@@ -229,10 +123,47 @@ export const state = () => ({
 		},
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-levis',
+			icon: '/img/shortcuts/GANNIXLEVIS.png',
+			label: "GANNI<br>x<br>Levi's",
+			posH: 4,
+			posV: 3,
+			windowContent: [
+				{
+					title: "GANNI x Levi's",
+					contentId: 'levis-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
+						collectionId: 'GANNIXLEVIS'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-ss21',
+			icon: '/img/shortcuts/SS21.png',
+			label: 'SS21 Collection',
+			posH: 4,
+			posV: 1,
+			windowContent: [
+				{
+					title: 'SS21 Collection',
+					contentId: 'ss21-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						// layout: CollectionLayouts.GRID,
+						collectionId: 'SS21'
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'artists',
-			// icon: '/img/shortcuts/look_book.png',
 			icon: '/img/shortcuts/ARTISTS.png',
-			label: '202020 Exhibition',
+			label: '202020<br>Exhibition',
 			posH: 6,
 			posV: 2,
 			windowContent: [
@@ -246,94 +177,6 @@ export const state = () => ({
 				}
 			]
 		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'animal-print',
-		// 	// icon: '/img/shortcuts/animal_print.png',
-		// 	icon: '/img/collage/shirt1.png',
-		// 	label: 'Animal Print',
-		// 	posH: 10,
-		// 	posV: 6,
-		// 	actions: [
-		// 		{
-		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
-		// 			param: 'misc4'
-		// 		}
-		// 	],
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 collection',
-		// 			contentId: 'ps21-collection',
-		// 			type: ContentTypes.collection,
-		// 			contentComponentProps: {
-		// 				layout: CollectionLayouts.FUN,
-		// 				collectionId: 'PS21'
-		// 			}
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'ganni-software',
-		// 	icon: '/img/shortcuts/ganni_software.png',
-		// 	label: 'GANNI Software',
-		// 	posH: 11,
-		// 	posV: 6,
-		// 	actions: [
-		// 		{
-		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
-		// 			param: 'misc5'
-		// 		},
-		// 		{
-		// 			name: COLLECTION_LAYOUT_CHANGE.action,
-		// 			param: CollectionLayouts.FUN
-		// 		}
-		// 	],
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 collection',
-		// 			contentId: 'ps21-collection',
-		// 			type: ContentTypes.collection,
-		// 			canOverride: true
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'accessories',
-		// 	icon: '/img/shortcuts/acces.png',
-		// 	label: 'Acces',
-		// 	posH: 12,
-		// 	posV: 6,
-		// 	actions: [
-		// 		{
-		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
-		// 			param: 'acc1'
-		// 		},
-		// 		{
-		// 			name: COLLECTION_LAYOUT_CHANGE.action,
-		// 			param: CollectionLayouts.FUN
-		// 		}
-		// 	],
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 collection',
-		// 			contentId: 'ps21-collection',
-		// 			type: ContentTypes.collection,
-		// 			canOverride: true
-		// 		}
-		// 	]
-		// },
-		// {
-		// 	type: ShortcutTypes.URL,
-		// 	shortcutId: 'responsibility-report',
-		// 	icon: '/img/collage/shirt2.png',
-		// 	label: 'Responsibility (pdf)',
-		// 	posH: 1,
-		// 	posV: 3,
-		// 	href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
-		// },
-
 		{
 			type: ShortcutTypes.URL,
 			shortcutId: 'rails',
@@ -343,26 +186,10 @@ export const state = () => ({
 			posV: 3,
 			href: '/files/GANNI_21-1_RAILS.pdf'
 		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'hampster-dance',
-		// 	icon: '/img/shortcuts/hamster_dance.png',
-		// 	label: 'Hampster Dance',
-		// 	posH: 12,
-		// 	posV: 5,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'Hampster Dance',
-		// 			contentId: 'hampster-dance',
-		// 			type: ContentTypes.hampsterDance
-		// 		}
-		// 	]
-		// },
-
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
-			label: 'COLLAGE CLUB',
+			label: 'COLLAGE<br>CLUB',
 			icon: '/img/shortcuts/LOVELETTER.png',
 			posH: 11,
 			posV: 5,

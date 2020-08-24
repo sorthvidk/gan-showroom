@@ -97,11 +97,17 @@
 
 	&--large {
 		width: auto;
+		flex: auto;
+		padding: 0;
 		max-width: 25vmax;
 		max-height: none;
 		height: 25vmax;
-		flex: auto;
-		padding: 0;
+
+		@include mq($from: screen-xxxxxl) {
+			max-width: none;
+			height: auto;
+		}
+
 
 		cursor: grab;
 

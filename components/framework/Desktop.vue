@@ -24,8 +24,8 @@
 					v-for="(item, i) in authenticatedShortcuts"
 					v-if="(item.shortcutId !== 'archive') || archiveHasAuthenticatedCollections"
 					:key="item.shortcutId"
-					:x="randomPos(i, true)"
-					:y="randomPos(i * 357)"
+					:x="getIconXPos(i)"
+					:y="getIconYPos(i)"
 					:w="'auto'"
 					:h="'auto'"
 				>
@@ -326,6 +326,15 @@ export default {
 				opacity: 1,
 				ease: 'power4.inOut'
 			})
+		},
+		getIconXPos(i) {
+			//offset by +/- 5%
+			let offset = Math.abs(Math.sin(i));
+			let pctPos = (i/(this.authenticatedShortcuts.length+1) + (offset*0.005))
+			return pctPos * window.innerWidth
+		},
+		getIconYPos(i) {
+			return Math.abs(Math.sin(i)) * window.innerHeight/2
 		},
 		randomPos(n, long) {
 			// if(this.viewPortSize === ViewportSizes.SMALL) return 0

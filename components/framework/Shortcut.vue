@@ -10,7 +10,7 @@
 			<span class="icon">
 				<img :src="item.icon" />
 			</span>
-			<span class="text">{{item.label}}</span>
+			<span class="text" v-html="item.label"></span>
 		</button>
 		
 		<div
@@ -21,7 +21,7 @@
 			<span class="icon">
 				<img :src="item.icon" />
 			</span>
-			<button @click="onClick" class="text">{{item.label}}</button>
+			<button @click="onClick" class="text" v-html="item.label"></button>
 		</div>
 	</transition>
 </template>
