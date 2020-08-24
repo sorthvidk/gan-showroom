@@ -277,15 +277,15 @@
 					</button>
 					<button
 						class="button add-to-wishlist button--half"
-						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
+						:class="{'is-active': styleOnWishList, 'is-animating': styleHasJustBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
-						<span v-if="styleHasBeenAdded" class="icon">
+						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
 								<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
-						<p>{{styleOnWishList ? 'Added' : addToWishListButtonLabel}}</p>
+						<p>{{addToWishListButtonLabel}}</p>
 					</button>
 					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
 						<p>{{viewWishListButtonLabel}}</p>
@@ -378,6 +378,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import {
 	// SET_CURRENT_FILTER,
+	SET_CURRENT_STYLE,
 	TOGGLE_COLOR_PICKER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
@@ -417,13 +418,14 @@ export default {
 			viewPortSize: ViewportSizes.SMALL,
 			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
-			currentStyle: null,
 			hiddenAssetContent: [],
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
 			showClipboardMessage: false,
-			styleHasBeenAdded: false,
+
+			styleHasJustBeenAdded: false,
+
 			shortenedReceiptUrl: null,
 			pdfDownloadLink:
 				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
@@ -437,6 +439,7 @@ export default {
 			'collageIsOpen'
 		]),
 		...mapState('collection', [
+			'currentStyle',
 			'collections',
 			'currentCollectionId',
 			'data',
@@ -476,7 +479,7 @@ export default {
 			return `View wishlist (${this.activeWishlist.length})`
 		},
 		addToWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Added'
+			if (this.getStyleOnWishList) return 'Added'
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {
@@ -492,7 +495,9 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			console.log(this.currentStyle)
+			if ( this.currentStyle.onWishList ) console.log("ON WISHLIST")
+			else console.log("NOT ON WISHLIST")
+
 			return this.currentStyle.onWishList
 		},
 		hasHiddenAssets() {
@@ -519,6 +524,12 @@ export default {
 		}
 	},
 	watch: {
+		currentStyle(newVal) {
+			if ( newVal ) {
+				this.parseAssets()
+			}
+			console.log('CURRENT STYLE WATCHER | onWishList: '+newVal.onWishList)
+		},
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
 		},
@@ -551,7 +562,7 @@ export default {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
-			this.styleHasBeenAdded = false
+			this.styleHasJustBeenAdded = false
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -572,14 +583,8 @@ export default {
 					case ContentTypes.videoLandscape.contentComponent:
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
-							setTimeout(() => {
-								this.currentStyle = this.data[
-									this.currentCollectionId
-								].styles.find(
-									style => style.styleId === componentProps.asset.styleId
-								)
-								this.parseAssets()
-							}, 100)
+							this[SET_CURRENT_STYLE.action](componentProps.asset.styleId)
+							this.parseAssets()								
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -638,6 +643,7 @@ export default {
 			CHANGE_COLLAGE.action
 		]),
 		...mapActions('collection', [
+			SET_CURRENT_STYLE.action,
 			ALL_ASSETS_VISIBLE.action,
 			TOGGLE_COLOR_PICKER.action,
 			ADD_TO_WISHLIST.action,
@@ -680,15 +686,15 @@ export default {
 			}
 		},
 		executeAddToWishList(styleItem, chosenColorList) {
-			if (!this.styleOnWishList) {
+			if (!this.getStyleOnWishList) {
 				this[ADD_TO_WISHLIST.action]({
 					styleItem: this.currentStyle,
 					chosenColorList: chosenColorList
 				})
-
-				this.styleHasBeenAdded = true
+				this.styleHasJustBeenAdded = true
 				setTimeout(() => {
-					this.styleHasBeenAdded = false
+					this.currentStyle.onWishList = true
+					this.styleHasJustBeenAdded = false
 				}, 4000)
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)

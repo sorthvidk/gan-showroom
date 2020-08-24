@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import {
 	CURRENT_COLLECTION_ID,
+	SET_CURRENT_STYLE,
 	BYPASS_ESCAPE,
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
@@ -30,6 +31,9 @@ export const state = () => ({
 	 *   collection1: 'filter2'
 	 * }
 	 */
+
+	currentStyle: {},
+
 	activeFilters: {},
 
 	colorPickerStyle: null,
@@ -69,6 +73,8 @@ export const mutations = {
 				styleItem: params.styleItem,
 				chosenColorList: params.chosenColorList
 			})
+			state.currentStyle = null
+			state.currentStyle = params.styleItem
 		}
 	},
 	[UPDATE_WISHLIST.mutation](state, params) {
@@ -202,12 +208,26 @@ export const mutations = {
 		// 	state.currentStyles = newCurrentStyles
 		// }
 	},
+
 	[CURRENT_COLLECTION_ID.mutation](state, collectionId) {
 		state.currentCollectionId = collectionId
+	},
+
+	[SET_CURRENT_STYLE.mutation](state, styleId) {
+		console.log('SET_CURRENT_STYLE', styleId)
+
+		const currentStyles = state.data[state.currentCollectionId].styles
+		
+		state.currentStyle = currentStyles.filter(
+			e => e.styleId === styleId
+		)[0]
 	}
 }
 
 export const actions = {
+	[SET_CURRENT_STYLE.action]({ commit }, styleId) {
+		commit(SET_CURRENT_STYLE.mutation, styleId)
+	},
 	[ALL_ASSETS_VISIBLE.action]({ commit }, style) {
 		commit(ALL_ASSETS_VISIBLE.mutation, style)
 	},

@@ -111,6 +111,13 @@
 			table {
 				@include details-table();
 			}
+
+			h5 {
+				color: $color-202020-green;
+				text-transform: none;
+				font-weight: $weight-bold;
+				font-size: rem(16);
+			}	
 		}
 
 		.button {
