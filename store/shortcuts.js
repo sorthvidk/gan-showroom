@@ -8,23 +8,13 @@ export const state = () => ({
 	blownUpIconLayout: true,
 	list: [
 		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collection-software',
-			icon: '/img/shortcuts/SOFTWARE.png',
-			label: 'GANNI<br>Software',
-			posH: 4,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI Software',
-					contentId: 'software-collection',
-					type: ContentTypes.collection,
-					contentComponentProps: {
-						layout: CollectionLayouts.FUN,
-						collectionId: 'SOFTWARE'
-					}
-				}
-			]
+			type: ShortcutTypes.URL,
+			shortcutId: 'rails',
+			icon: '/img/shortcuts/rails.png',
+			label: 'Rails (pdf)',
+			posH: 2,
+			posV: 3,
+			href: '/files/GANNI_21-1_RAILS.pdf'
 		},
 		{
 			type: ShortcutTypes.WINDOW,
@@ -178,19 +168,29 @@ export const state = () => ({
 			]
 		},
 		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'rails',
-			icon: '/img/shortcuts/rails.png',
-			label: 'Rails (pdf)',
-			posH: 2,
-			posV: 3,
-			href: '/files/GANNI_21-1_RAILS.pdf'
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'collection-software',
+			icon: '/img/shortcuts/SOFTWARE.png',
+			label: 'GANNI<br>Software',
+			posH: 4,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'GANNI Software',
+					contentId: 'software-collection',
+					type: ContentTypes.collection,
+					contentComponentProps: {
+						layout: CollectionLayouts.FUN,
+						collectionId: 'SOFTWARE'
+					}
+				}
+			]
 		},
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collage',
 			label: 'COLLAGE<br>CLUB',
-			icon: '/img/shortcuts/LOVELETTER.png',
+			icon: '/img/shortcuts/COLLAGECLUB.png',
 			posH: 11,
 			posV: 5,
 			windowContent: [
