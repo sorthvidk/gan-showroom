@@ -4,7 +4,7 @@
   "name": "F5895099_Skirt",
   "type": "image",
   "aspect": "portrait",
-  "onTop": true,
+  "onTop": false,
   "visible": true,
   "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598212492/SS21/Lookbook/T2762_F5895_S1489_bewn5f.jpg"
 }
