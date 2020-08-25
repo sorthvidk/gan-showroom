@@ -879,8 +879,7 @@ export const actions = {
 		let assetFiles = await require.context(
 			`~/assets/content/mediaAssets/`,
 			false,
-			/\.json$/,
-			'lazy'
+			/\.json$/
 		)
 		let assets = assetFiles.keys().map(key => {
 			let res = assetFiles(key)
