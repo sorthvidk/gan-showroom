@@ -210,6 +210,7 @@ export const mutations = {
 	},
 
 	[CURRENT_COLLECTION_ID.mutation](state, collectionId) {
+		console.warn("CURRENT COLLECTION ID: "+collectionId)
 		state.currentCollectionId = collectionId
 	},
 

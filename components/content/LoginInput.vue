@@ -68,7 +68,7 @@ export default {
 			this.valid = valid
 
 			if (valid) {
-				this.playSound()
+				// this.playSound()
 			}
 		},
 
