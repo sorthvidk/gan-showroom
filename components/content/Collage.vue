@@ -13,6 +13,7 @@
 		<div id="container"></div>
 
 		<div
+			v-if="selfieEnabled"
 			title="Take photo"
 			class="trigger button"
 			:class="{ photoTimer }"
@@ -42,7 +43,9 @@
 			</svg>
 		</div>
 
-		<div title="Change camera" @click="getNextCamera" class="button change-camera">
+		<div
+			v-if="selfieEnabled" 
+			title="Change camera" @click="getNextCamera" class="button change-camera">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 32">
 				<g fill="#000" clip-path="url(#clip0)">
 					<path
@@ -74,16 +77,18 @@ export default {
 			webcamWidth: 300,
 			webcamHeight: 220,
 
-			webcamImageRadius: 130,
+			webcamImageRadius: 250,
 			webcamImageOffset: 100,
 
-			stageWidth: isMobile() ? 350 : 530,
-			stageHeight: isMobile() ? 440 : 520,
+			stageWidth: isMobile() ? 350 : 600,
+			stageHeight: isMobile() ? 440 : 600,
 
 			openPhotobooth: false,
 			photo: null,
 			photoTimer: false,
-			countdown: [3, 2, 1]
+			countdown: [3, 2, 1],
+
+			selfieEnabled: true
 		}
 	},
 	computed: {
@@ -314,25 +319,25 @@ export default {
 		this.layer.setZIndex(3)
 		this.watermark.setZIndex(3)
 
-		this.insertPhoto({
-			src: '/img/collage/ballon.svg',
-			y: isMobile() ? 50 : 50,
-			x: isMobile() ? 100 : 230,
-			width: 80,
-			height: 240,
-			// draggable: false,
-			layer: 'doll'
-		})
+		// this.insertPhoto({
+		// 	src: '/img/collage/ballon.svg',
+		// 	y: isMobile() ? 50 : 50,
+		// 	x: isMobile() ? 100 : 230,
+		// 	width: 80,
+		// 	height: 240,
+		// 	// draggable: false,
+		// 	layer: 'doll'
+		// })
 
-		this.insertPhoto({
-			src: '/img/collage/watermark.png',
-			y: 485,
-			x: 10,
-			width: 150,
-			height: 23,
-			draggable: false,
-			layer: 'watermark'
-		})
+		// this.insertPhoto({
+		// 	src: '/img/collage/watermark.png',
+		// 	y: 485,
+		// 	x: 10,
+		// 	width: 150,
+		// 	height: 23,
+		// 	draggable: false,
+		// 	layer: 'watermark'
+		// })
 
 		/**
 		 * Add first image of each category
