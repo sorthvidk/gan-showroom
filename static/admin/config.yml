@@ -1,8 +1,6 @@
 # # used for local development:
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
-#   branch: develop
+#  local_backend:
+#    url: http://localhost:8081/api/v1
 
 # used for production:
 backend:
@@ -10,8 +8,7 @@ backend:
   branch: master
   publish_mode: editorial_workflow
 
-# when using the default proxy server port
-local_backend: true
+local_backend: false
 
 media_library:
   name: cloudinary
