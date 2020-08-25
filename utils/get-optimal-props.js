@@ -80,6 +80,7 @@ export default function(state, currentWindow, groupId) {
 	conditionalAssignment(optionalProps, 'modifierClass')
 	conditionalAssignment(optionalProps, 'isMaximized')
 	conditionalAssignment(optionalProps, 'noPlacement')
+	conditionalAssignment(optionalProps, 'activateActions')
 
 	let onTop
 	if (contentComponentProps && contentComponentProps.asset) {
