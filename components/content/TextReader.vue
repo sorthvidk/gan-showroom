@@ -16,8 +16,7 @@ export default {
 			default: ''
 		},
 		asset: {
-			type: Object,
-			required: true
+			type: Object
 		}
 	},
 	computed: {

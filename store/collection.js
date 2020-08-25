@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import {
 	CURRENT_COLLECTION_ID,
+	SET_CURRENT_STYLE,
 	BYPASS_ESCAPE,
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
@@ -30,6 +31,9 @@ export const state = () => ({
 	 *   collection1: 'filter2'
 	 * }
 	 */
+
+	currentStyle: {},
+
 	activeFilters: {},
 
 	colorPickerStyle: null,
@@ -38,7 +42,9 @@ export const state = () => ({
 
 	wishList: [],
 
-	assetsConnected: false
+	assetsConnected: false,
+
+	data: null
 })
 
 export const mutations = {
@@ -52,7 +58,6 @@ export const mutations = {
 		}
 	},
 	[TOGGLE_COLOR_PICKER.mutation](state, params) {
-		console.log('TOGGLE_COLOR_PICKER mutation', params)
 		state.colorPickerStyle = params.styleItem
 		state.colorPickerChosenColorList = params.chosenColorList
 		state.colorPickerCallback = params.callbackFunction
@@ -60,7 +65,7 @@ export const mutations = {
 	[ADD_TO_WISHLIST.mutation](state, params) {
 		if (params.styleItem.onWishList) return false
 		else {
-			let listStyle = state.list.filter(
+			let listStyle = state.data[state.currentCollectionId].styles.filter(
 				e => e.styleId === params.styleItem.styleId
 			)[0]
 			listStyle.onWishList = true
@@ -68,6 +73,8 @@ export const mutations = {
 				styleItem: params.styleItem,
 				chosenColorList: params.chosenColorList
 			})
+			state.currentStyle = null
+			state.currentStyle = params.styleItem
 		}
 	},
 	[UPDATE_WISHLIST.mutation](state, params) {
@@ -201,12 +208,27 @@ export const mutations = {
 		// 	state.currentStyles = newCurrentStyles
 		// }
 	},
+
 	[CURRENT_COLLECTION_ID.mutation](state, collectionId) {
+		console.warn("CURRENT COLLECTION ID: "+collectionId)
 		state.currentCollectionId = collectionId
+	},
+
+	[SET_CURRENT_STYLE.mutation](state, styleId) {
+		console.log('SET_CURRENT_STYLE', styleId)
+
+		const currentStyles = state.data[state.currentCollectionId].styles
+		
+		state.currentStyle = currentStyles.filter(
+			e => e.styleId === styleId
+		)[0]
 	}
 }
 
 export const actions = {
+	[SET_CURRENT_STYLE.action]({ commit }, styleId) {
+		commit(SET_CURRENT_STYLE.mutation, styleId)
+	},
 	[ALL_ASSETS_VISIBLE.action]({ commit }, style) {
 		commit(ALL_ASSETS_VISIBLE.mutation, style)
 	},
@@ -240,14 +262,20 @@ export const actions = {
 		)
 
 		const currentStyles = state.data[state.currentCollectionId].styles
-		const currentStyleIndex = currentStyles
+		
+		let filteredStyles = currentStyles
+		if ( state.activeFilters[state.currentCollectionId] ) {
+			filteredStyles = currentStyles.filter( style => style.filters.includes(state.activeFilters[state.currentCollectionId]))
+		}
+		
+		const currentStyleIndex = filteredStyles
 			.map(style => style.styleId)
 			.indexOf(styleId)
 
 		const prevStyle =
-			currentStyles[
+			filteredStyles[
 				currentStyleIndex === 0
-					? currentStyles.length - 1
+					? filteredStyles.length - 1
 					: currentStyleIndex - 1
 			]
 
@@ -263,13 +291,19 @@ export const actions = {
 		)
 
 		const currentStyles = state.data[state.currentCollectionId].styles
-		const currentStyleIndex = currentStyles
+		
+		let filteredStyles = currentStyles
+		if ( state.activeFilters[state.currentCollectionId] ) {
+			filteredStyles = currentStyles.filter( style => style.filters.includes(state.activeFilters[state.currentCollectionId]))
+		}
+
+		const currentStyleIndex = filteredStyles
 			.map(style => style.styleId)
 			.indexOf(styleId)
 
 		const nextStyle =
-			currentStyles[
-				currentStyleIndex === currentStyles.length - 1
+			filteredStyles[
+				currentStyleIndex === filteredStyles.length - 1
 					? 0
 					: currentStyleIndex + 1
 			]

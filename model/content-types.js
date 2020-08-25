@@ -462,12 +462,12 @@ export default {
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
-					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
+					w: 600 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 620 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				},
 				[ViewportSizes.LARGE.name]: {
-					w: 500 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 550 + WINDOW_DEFAULT_CHROME_HEIGHT
+					w: 600 + WINDOW_TIGHT_CHROME_WIDTH,
+					h: 620 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: { w: 350, h: 440 }
 			},

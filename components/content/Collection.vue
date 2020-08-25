@@ -29,11 +29,20 @@ export default {
 	},
 	props: {
 		currentLayout: { type: Number, default: 0 },
-		collectionId: { type: String, default: '' }
+		collectionId: { type: String, default: '' },
 	},
+	// data() {
+	// 	return {
+	// 		collectionData: { styles: [] }
+	// 	}
+	// },
 	computed: {
 		// ...mapState(['collectionLayout']),
-		...mapState('collection', ['data', 'activeFilters', 'currentCollectionId']),
+		...mapState('collection', [
+			'data', 
+			'activeFilters'
+		]),
+		
 		filteredCollection() {
 			const currentCollection = this.data[this.collectionId].styles
 			const currentFilter = this.activeFilters[this.collectionId]
@@ -53,15 +62,18 @@ export default {
 				if ( dropIndex > -1 ) {
 					drops[dropIndex].styles.push(collectionItem)
 				} else {
-					drops.push( {label:collectionItem.drop, styles:[]});
+					drops.push( {label:collectionItem.drop, styles:[collectionItem]});
 				}
 			}
 			
 			drops.sort((a,b) =>  a.label > b.label ? 1 : -1)
-
-			console.log("drops",drops)
 			return drops;
 		},
-	}
+	},
+	// mounted() {
+	// 	this.$nextTick(() => {
+	// 		this.collectionData = this.data[this.collectionId].styles
+	// 	})
+	// }
 }
 </script>

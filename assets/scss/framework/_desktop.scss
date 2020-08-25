@@ -56,19 +56,19 @@ body {
 			> * {
 				@include intro-wobble;
 
-				top: 38%;
-				left: 40%;
+				// top: 38%;
+				// left: 40%;
 
 				// @include mq($from: screen-md) {
 				position: absolute;
 				// }
 
 				&:nth-child(4n) {
-					color: $color-202020-red;
+					color: $color-202020-blue;
 				}
 
 				&:nth-child(4n + 1) {
-					color: $color-202020-blue;
+					color: $color-202020-dustypink;
 				}
 
 				&:nth-child(4n + 2) {
@@ -76,7 +76,7 @@ body {
 				}
 
 				&:nth-child(4n + 3) {
-					color: $color-202020-dustypink;
+					color: $color-202020-red;
 				}
 
 				&:hover {

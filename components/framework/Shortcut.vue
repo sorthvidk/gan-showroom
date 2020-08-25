@@ -10,7 +10,7 @@
 			<span class="icon">
 				<img :src="item.icon" />
 			</span>
-			<span class="text">{{item.label}}</span>
+			<span class="text" v-html="item.label"></span>
 		</button>
 		
 		<div
@@ -21,7 +21,7 @@
 			<span class="icon">
 				<img :src="item.icon" />
 			</span>
-			<button @click="onClick" class="text">{{item.label}}</button>
+			<button @click="onClick" class="text" v-html="item.label"></button>
 		</div>
 	</transition>
 </template>
@@ -99,18 +99,14 @@ export default {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
 			if (this.item.type == ShortcutTypes.URL && this.item.href) {
-				window.open(this.href, '_blank')
+				window.open(this.item.href, '_blank')
 			} else {
 				if ( window.GS_LOGS ) console.log("ACTIONS???",this.item.actions)
 				if (this.item.actions) {
 					for (let i = 0; i < this.item.actions.length; i++) {
 						let action = this.item.actions[i]
 						if (typeof action.param != "undefined")
-							if(typeof action.param === 'array') {
-								this.$store.dispatch(action.name, ...action.param)
-							} else {
-								this.$store.dispatch(action.name, action.param)
-							}
+							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					}
 				

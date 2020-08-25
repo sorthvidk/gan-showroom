@@ -39,7 +39,7 @@
 					@layout-change="changeLayout"
 				/>
 			</div>
-					<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
+			<!-- :layout="contentComponentProps ? contentComponentProps.layout : ''" -->
 
 			<hr v-if="!noStatus" />
 
@@ -49,7 +49,7 @@
 					:parent-window-id="windowId"
 					v-bind="{ currentLayout, ...contentComponentProps }"
 					ref="contentComponent"
-					@activate="contentActivateHandler"
+					@activate="putOnTop"
 				/>
 			</div>
 		</vue-draggable-resizable>
@@ -186,9 +186,18 @@ export default {
 		},
 		nthChild: {
 			type: Number
+		},
+
+		activateActions: {
+			type: Array,
+			required: false
 		}
 	},
 	computed: {
+		...mapState({
+			topMostWindow: state => state.topMostWindow
+		}),
+		...mapState('collection', ['currentCollectionId']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -202,7 +211,7 @@ export default {
 			return this.w > 0 ? this.w : this.w === 0 ? 'auto' : this.sizeW
 		},
 		computedSizeH() {
-			return (this.h > 0) ? this.h : (this.h === 0) ? 'auto' : this.sizeH
+			return this.h > 0 ? this.h : this.h === 0 ? 'auto' : this.sizeH
 		},
 		computedResizable() {
 			if (!this.canResize) return false
@@ -217,6 +226,13 @@ export default {
 			if (this.noStatus) cn += ' window--no-status'
 
 			return cn
+		}
+	},
+	watch: {
+		topMostWindow(newVal) {
+			if (newVal.windowId === this.windowId) {
+				this.windowActivated();
+			}
 		}
 	},
 	data: function() {
@@ -235,14 +251,17 @@ export default {
 
 			transformOrigin: 0,
 
-			currentLayout: (this.contentComponentProps && this.contentComponentProps.layout) || 0,
+			currentLayout:
+				(this.contentComponentProps && this.contentComponentProps.layout) || 0,
 
 			savedAttributes: {
 				x: 0,
 				y: 0,
 				w: 0,
 				h: 0
-			}
+			},
+
+			collectionData: { styles: [] }
 		}
 	},
 	methods: {
@@ -251,31 +270,49 @@ export default {
 			CLOSE_WINDOW.action,
 			UPDATE_WINDOW.action
 		]),
-		...mapActions('collection', [CURRENT_COLLECTION_ID.action]),
+		...mapActions(
+			'collection', [CURRENT_COLLECTION_ID.action]
+		),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({
 				windowId: this.windowId,
 				contentId: this.contentId
 			})
 		},
-		contentActivateHandler(e) {
+		putOnTop() {
+			if (
+				this.contentComponentProps &&
+				this.contentComponentProps.collectionId === this.currentCollectionId
+			)
+				return
+
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
 			}
+		},
+		contentActivateHandler(e) {
+			this.putOnTop()
 
 			/**
 			 * If the window that is on top has a collectionId:
 			 * Update the store with that ID, so f.ex. the assistant
 			 * knows what filters to show
 			 */
+
+
 			if (
 				this.contentComponentProps &&
 				this.contentComponentProps.collectionId
 			) {
+				if (window.GS_LOGS) console.warn("CONTENT ACTIVATE HANDLER", this.contentComponentProps.collectionId)
+			
 				this[CURRENT_COLLECTION_ID.action](
 					this.contentComponentProps.collectionId
 				)
+			} else {
+				this.windowActivated();
 			}
+
 		},
 		titleClick() {
 			if (!this.canResize) return false
@@ -372,7 +409,22 @@ export default {
 
 		changeLayout(val) {
 			this.currentLayout = val
-			console.log('new layout', this.currentLayout)
+		},
+
+		windowActivated() {
+			//PERFORM ACTIONS!??
+
+			if (window.GS_LOGS) console.warn("WINDOW ACTIVATED")
+
+			if (this.activateActions && this.activateActions.length > 0) {
+				for (let i = 0; i < this.activateActions.length; i++) {
+					let action = this.activateActions[i]
+					
+					if (typeof action.param != "undefined")
+						this.$store.dispatch(action.name, action.param)
+					else this.$store.dispatch(action.name)
+				}
+			}
 		}
 	},
 	mounted() {

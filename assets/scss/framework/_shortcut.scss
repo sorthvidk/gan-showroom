@@ -72,7 +72,7 @@
 		padding: rem(2) rem(5);
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		max-width: 60%;
+		max-width: 60%; 
 		overflow: hidden;
 
 		@include mq($from: screen-xxs) {
@@ -85,6 +85,7 @@
 	&:hover {
 		.text {
 			background-color: $color-grey;
+			text-decoration: underline;
 		}
 	}
 
@@ -96,24 +97,34 @@
 
 	&--large {
 		width: auto;
-		max-width: none;
-		height: 20vmax;
 		flex: auto;
 		padding: 0;
+		max-width: 25vmax;
+		max-height: none;
+		height: 25vmax;
+
+		@include mq($from: screen-xxxxxl) {
+			max-width: none;
+			height: auto;
+		}
+
 
 		cursor: grab;
 
 		.icon {
 			width: inherit;
 			height: inherit;
+			max-width: inherit;
 
 			img {
 				height: inherit;
 				width: inherit;
+				max-width: inherit;
 				position: relative;
 				transform: none;
 				left: auto;
 				top: auto;
+				object-fit: contain;
 			}
 		}
 

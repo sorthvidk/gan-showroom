@@ -29,7 +29,7 @@
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
 				<div class="inner" v-if="sortedWishlist.length < 1">
-					<p>Your wish list is empty!</p>
+					<h5>Your wish list is empty!</h5>
 				</div>
 				<div
 					class="inner"

@@ -8,9 +8,11 @@
 		h4 {
 			padding: 0 0 rem(5);
 			margin-bottom: rem(5);
-			border-bottom: rem(1) solid $color-lightgrey;
-			@include windowtitle();
-			display: block;			
+			font-size: rem(16);
+			text-transform: none;
+			font-weight: $weight-bold;
+			display: block;
+			color: $color-202020-green;
 		}	
 		> div {				
 			display: flex;

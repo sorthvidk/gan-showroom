@@ -1,9 +1,10 @@
 import createPersistedState from 'vuex-persistedstate'
+import manifest from '../package.json'
 
 export default ({ store }) => {
 	window.onNuxtReady(() => {
 		createPersistedState({
-			key: 'gannishowroom',
+			key: `gannishowroom${manifest.version.replace(/\./g, '_')}`,
 			paths: [
 				'loggedIn',
 				'cookiesAccepted',

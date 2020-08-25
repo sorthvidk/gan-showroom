@@ -41,7 +41,8 @@ import {
 	COLLAGE_IS_OPEN,
 	SAVE_COLLAGE,
 	MAKE_BACKGROUND,
-	CHANGE_COLLAGE
+	CHANGE_COLLAGE,
+	CURRENT_COLLECTION_ID
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -123,25 +124,25 @@ export const mutations = {
 	// Baseline content to cms
 
 	// fired when nuxt has access to the store
-	rehydrated(state) {
+	rehydrated (state) {
 		state.rehydrated = true
 	},
 
-	isOnWishList(state) {
+	isOnWishList (state) {
 		state.collection.list.forEach(style => {
 			const sameStyleId = e => e.styleId === style.styleId
 			style.onWishList = state.collection.wishList.find(sameStyleId)
 		})
 	},
 
-	[PASSWORD_ITEMS_FETCH.mutation](state, passwords) {
+	[PASSWORD_ITEMS_FETCH.mutation] (state, passwords) {
 		state.passwords = passwords.map(password => {
 			password.hash = password.hash.toLowerCase()
 			return password
 		})
 	},
 
-	[AUTHENTICATE_CONTENT.mutation](state) {
+	[AUTHENTICATE_CONTENT.mutation] (state) {
 		const archive = state.shortcuts.list.find(s => s.shortcutId === 'archive')
 
 		if (!archive) return false
@@ -170,27 +171,27 @@ export const mutations = {
 			: false
 	},
 
-	[SAVE_COLLAGE.mutation](state) {
+	[SAVE_COLLAGE.mutation] (state) {
 		state.saveCollage = !state.saveCollage
 	},
 
-	[MAKE_BACKGROUND.mutation](state) {
+	[MAKE_BACKGROUND.mutation] (state) {
 		state.makeBackground = !state.makeBackground
 	},
 
-	[COLLAGE_IS_OPEN.mutation](state, open) {
+	[COLLAGE_IS_OPEN.mutation] (state, open) {
 		state.collageIsOpen = open
 	},
 
-	[SAVE_AS_BACKGROUND.mutation](state, img) {
+	[SAVE_AS_BACKGROUND.mutation] (state, img) {
 		state.webcamImage = img
 	},
 
-	[CHANGE_COLLAGE.mutation](state, change) {
+	[CHANGE_COLLAGE.mutation] (state, change) {
 		state.changeCollage = change
 	},
 
-	[RESET_STATE.mutation](state) {
+	[RESET_STATE.mutation] (state) {
 		state.collection.wishList = []
 		state.progressPct = 0
 		Object.keys(ContentTypes).forEach(type => {
@@ -201,37 +202,37 @@ export const mutations = {
 		state.copyrightAccepted = false
 	},
 
-	[LOGIN.mutation](state, { valid, SHA256 }) {
+	[LOGIN.mutation] (state, { valid, SHA256 }) {
 		state.passwordUsed = SHA256
 		state.loggedIn = valid
 		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
 	},
 
-	[VISIBILITY.mutation](state, key) {
+	[VISIBILITY.mutation] (state, key) {
 		state.screensaverActive = key
 	},
 
-	[COOKIES_ACCEPT.mutation](state) {
+	[COOKIES_ACCEPT.mutation] (state) {
 		state.cookiesAccepted = true
 	},
 
-	[COPYRIGHT_ACCEPT.mutation](state, value) {
+	[COPYRIGHT_ACCEPT.mutation] (state, value) {
 		state.copyrightAccepted = value
 	},
 
-	[BYPASS_ESCAPE.mutation](state, key) {
+	[BYPASS_ESCAPE.mutation] (state, key) {
 		state.byPassEscape = key
 	},
 
-	[KEYPRESS.mutation](state, key) {
+	[KEYPRESS.mutation] (state, key) {
 		state.keyPressed = key
 	},
 
-	[MOUSEMOVE.mutation](state, { x, y }) {
+	[MOUSEMOVE.mutation] (state, { x, y }) {
 		state.mousepos = { x, y }
 	},
 
-	[CREATE_DATA_MODEL.mutation](state, { styles, filters }) {
+	[CREATE_DATA_MODEL.mutation] (state, { styles, filters }) {
 		/**
 		 * example:
 		 * state.collection.data = {
@@ -243,7 +244,7 @@ export const mutations = {
 		 * }
 		 */
 
-		const sortedStyles = sortArrayMultipleProps(styles, 'program', 'weight')
+		const sortedStyles = sortArrayMultipleProps(styles, 'weight', 'drop')
 
 		// loop through all styles and place them, with their filters,
 		// under the correct collectionId,
@@ -281,7 +282,7 @@ export const mutations = {
 		}, {})
 	},
 
-	[COLLECTION_COLLECTIONS_FETCH.mutation](state, data) {
+	[COLLECTION_COLLECTIONS_FETCH.mutation] (state, data) {
 		state.collection.collections = data.map(collection => {
 			collection.passwords = collection.passwords
 				? collection.passwords.map(p => p.toLowerCase())
@@ -289,34 +290,34 @@ export const mutations = {
 			return collection
 		})
 	},
-	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
+	[COLLECTION_ITEMS_FETCH.mutation] (state, data) {
 		state.collection.list = data
 	},
-	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
+	[COLLECTION_FILTERS_FETCH.mutation] (state, data) {
 		state.collection.filters = data
 	},
-	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
+	[COLLECTION_ASSETS_FETCH.mutation] (state, data) {
 		state.assets.list = data
 	},
 
-	[FILMS_FETCH.mutation](state, data) {
+	[FILMS_FETCH.mutation] (state, data) {
 		state.assets.films = data
 	},
-	[GANNIGIRLS_FETCH.mutation](state, data) {
+	[GANNIGIRLS_FETCH.mutation] (state, data) {
 		state.assets.ganniGirls.posts = data
 	},
-	[LOOKBOOK_FETCH.mutation](state, data) {
+	[LOOKBOOK_FETCH.mutation] (state, data) {
 		state.assets.lookBook = data
 	},
 
-	[ARTISTS_FETCH.mutation](state, data) {
+	[ARTISTS_FETCH.mutation] (state, data) {
 		state.artists.list = data
 	},
-	[ARTIST_ASSETS_FETCH.mutation](state, data) {
+	[ARTIST_ASSETS_FETCH.mutation] (state, data) {
 		state.artists.assets = data
 	},
 
-	[GENERAL_FETCH.mutation](state, data) {
+	[GENERAL_FETCH.mutation] (state, data) {
 		//Insert Ganni Girls bg image
 		let misc = data.filter(e => e.slug === 'misc')[0]
 		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
@@ -339,7 +340,7 @@ export const mutations = {
 		props.text = misc.ditteLetter
 	},
 
-	[CONNECT_ASSETS.mutation](state) {
+	[CONNECT_ASSETS.mutation] (state) {
 		if (state.collection.assetsConnected) return false
 
 		let al = state.assets.list.length
@@ -383,7 +384,7 @@ export const mutations = {
 	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
-	[INIT_PROGRESS.mutation](state) {
+	[INIT_PROGRESS.mutation] (state) {
 		Object.keys(ContentTypes).forEach(type => {
 			state.progressItems[type] = false
 		})
@@ -410,7 +411,7 @@ export const mutations = {
 	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
-	[OPEN_CONTENT.mutation](state, params) {
+	[OPEN_CONTENT.mutation] (state, params) {
 		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
 
 		let windowGroup = params.addToGroupId
@@ -480,7 +481,7 @@ export const mutations = {
 	 *	Save window position and size values
 	 *
 	 */
-	[UPDATE_WINDOW.mutation](state, params) {
+	[UPDATE_WINDOW.mutation] (state, params) {
 		let currentWindow = state.windowList.filter(
 			e => e.windowId === params.windowId
 		)[0]
@@ -492,7 +493,7 @@ export const mutations = {
 	 *	Bring window to top.
 	 *
 	 */
-	[TOPMOST_WINDOW.mutation](state, windowId) {
+	[TOPMOST_WINDOW.mutation] (state, windowId) {
 		if (window.GS_LOGS) console.warn('TOPMOST_WINDOW', windowId)
 		let wll = state.windowList.length
 
@@ -514,7 +515,7 @@ export const mutations = {
 	 *	Single window close. Wipes window group history, so user has to close all windows individually after
 	 *
 	 */
-	[CLOSE_WINDOW.mutation](state, ids) {
+	[CLOSE_WINDOW.mutation] (state, ids) {
 		state.content.list = state.content.list.filter(
 			e => e.contentId !== ids.contentId
 		)
@@ -567,7 +568,7 @@ export const mutations = {
 	 *	Close a window group. Closes the last added group.
 	 *
 	 */
-	[CLOSE_WINDOW_GROUP.mutation](state, params) {
+	[CLOSE_WINDOW_GROUP.mutation] (state, params) {
 		let groupsLength = state.windowGroupList.length
 
 		if (groupsLength < 1) return false
@@ -618,22 +619,22 @@ export const mutations = {
 		state.topMostWindow = state.windowList[wll - 1]
 	},
 
-	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
+	[MUSIC_PLAY_PAUSE.mutation] (state, playing) {
 		if (window.GS_LOGS) console.warn('MUSIC_PLAY_PAUSE', playing)
 		state.musicPlaying = playing
 	},
 
-	[FORCE_STOP_MUSIC.mutation](state, playing) {
+	[FORCE_STOP_MUSIC.mutation] (state, playing) {
 		if (window.GS_LOGS) console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
 	},
 
-	[CLIPBOARD_COPY.mutation](state, value) {
+	[CLIPBOARD_COPY.mutation] (state, value) {
 		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')
 		state.clipBoardCopyComplete = value
 	},
 
-	[DOWNLOAD_PREPARING.mutation](state, value) {
+	[DOWNLOAD_PREPARING.mutation] (state, value) {
 		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
 	}
@@ -645,61 +646,61 @@ export const mutations = {
 }
 
 export const actions = {
-	[INIT_INDEX.action]({ commit }) {
-		if (window.GS_LOGS) console.log('INIT_INDEX')
+	[INIT_INDEX.action] ({ commit }) {
+		// if (window.GS_LOGS) console.log('INIT_INDEX')
 		commit(CONNECT_ASSETS.mutation)
 		commit(INIT_PROGRESS.mutation)
 		commit('artists/' + CONNECT_ARTIST_ASSETS.mutation)
 	},
 
 	//first action, injects assets into collection
-	[CONNECT_ASSETS.action]({ commit }) {
+	[CONNECT_ASSETS.action] ({ commit }) {
 		commit(CONNECT_ASSETS.mutation)
 	},
 
-	[LOGIN.action]({ commit }, { valid, SHA256 }) {
+	[LOGIN.action] ({ commit }, { valid, SHA256 }) {
 		commit(LOGIN.mutation, { valid, SHA256 })
 	},
 
-	[SAVE_COLLAGE.action]({ commit }) {
+	[SAVE_COLLAGE.action] ({ commit }) {
 		commit(SAVE_COLLAGE.mutation)
 	},
 
-	[MAKE_BACKGROUND.action]({ commit }) {
+	[MAKE_BACKGROUND.action] ({ commit }) {
 		commit(MAKE_BACKGROUND.mutation)
 	},
 
-	[COLLAGE_IS_OPEN.action]({ commit }, open) {
+	[COLLAGE_IS_OPEN.action] ({ commit }, open) {
 		commit(COLLAGE_IS_OPEN.mutation, open)
 	},
 
-	[CHANGE_COLLAGE.action]({ commit }, change) {
+	[CHANGE_COLLAGE.action] ({ commit }, change) {
 		commit(CHANGE_COLLAGE.mutation, change)
 	},
 
-	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
+	[SAVE_AS_BACKGROUND.action] ({ commit }, img) {
 		commit(SAVE_AS_BACKGROUND.mutation, img)
 	},
 
-	[VISIBILITY.action]({ commit }, hidden) {
+	[VISIBILITY.action] ({ commit }, hidden) {
 		commit(VISIBILITY.mutation, hidden)
 	},
 
-	[COOKIES_ACCEPT.action]({ commit }, value) {
+	[COOKIES_ACCEPT.action] ({ commit }, value) {
 		commit(COOKIES_ACCEPT.mutation, value)
 	},
-	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
+	[COPYRIGHT_ACCEPT.action] ({ commit }, value) {
 		commit(COPYRIGHT_ACCEPT.mutation, value)
 	},
-	[INIT_PROGRESS.action]({ commit }) {
+	[INIT_PROGRESS.action] ({ commit }) {
 		commit(INIT_PROGRESS.mutation)
 	},
 
-	[BYPASS_ESCAPE.action]({ commit, state }, event) {
+	[BYPASS_ESCAPE.action] ({ commit, state }, event) {
 		commit(BYPASS_ESCAPE.mutation, event)
 	},
 
-	[KEYPRESS.action]({ commit, state }, event) {
+	[KEYPRESS.action] ({ commit, state }, event) {
 		commit(KEYPRESS.mutation, event)
 
 		if (event.key === 'Escape' && !state.byPassEscape) {
@@ -707,35 +708,37 @@ export const actions = {
 		}
 	},
 
-	[MOUSEMOVE.action]({ commit }, event) {
+	[MOUSEMOVE.action] ({ commit }, event) {
 		commit(MOUSEMOVE.mutation, {
 			x: event.clientX,
 			y: event.clientY
 		})
 	},
-	[TOPMOST_WINDOW.action]({ commit }, windowId) {
+	[TOPMOST_WINDOW.action] ({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},
 
-	[CLOSE_WINDOW.action]({ commit }, ids) {
+	[CLOSE_WINDOW.action] ({ commit }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
 	},
-	[OPEN_CONTENT.action]({ commit }, content) {
+	[OPEN_CONTENT.action] ({ commit }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 	},
-	[CLOSE_WINDOW_GROUP.action]({ commit }) {
+	[CLOSE_WINDOW_GROUP.action] ({ commit }) {
 		commit(CLOSE_WINDOW_GROUP.mutation)
 	},
-	[UPDATE_WINDOW.action]({ commit }, params) {
+	[UPDATE_WINDOW.action] ({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
+	[OPEN_STYLE_CONTENT.action] ({ commit, state }, styleId) {
 		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
 		if (!listStyle) return false
 
 		let content = []
 		let al = listStyle.assets.length
+
+		let lsci = listStyle.collectionId
 
 		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
 		for (var i = al - 1; i >= 0; i--) {
@@ -743,26 +746,34 @@ export const actions = {
 
 			if (asset.visible) {
 				let type = getAssetType(asset)
+				let aa = [
+					{
+						name: 'collection/' + CURRENT_COLLECTION_ID.action,
+						param: lsci
+					}
+				]
 
-				content.push({
+				let contentItem = {
 					title: asset.name,
 					contentId: asset.assetId,
 					type: type,
 					canOverride: false,
-					windowProps: type.defaultWindowProps,
+					windowProps: {...type.defaultWindowProps, activateActions:aa},
 					contentComponentProps: { asset: asset },
 					statusComponentProps: type.defaultStatusComponentProps
-				})
+				}
+				content.push(contentItem);
 			}
 		}
 
 		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
+
 		commit(OPEN_CONTENT.mutation, {
 			windowContent: content,
 			styleWindowGroup: true
 		})
 	},
-	[OPEN_GALLERY.action]({ commit }, asset) {
+	[OPEN_GALLERY.action] ({ commit }, asset) {
 		let galleryContent = [
 			{
 				title: 'Zoom window',
@@ -777,16 +788,16 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
+	[MUSIC_PLAY_PAUSE.action] ({ commit }, playing) {
 		if (window.GS_LOGS) console.log('playing', playing)
 		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
 		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
 	},
-	[FORCE_STOP_MUSIC.action]({ commit }) {
+	[FORCE_STOP_MUSIC.action] ({ commit }) {
 		commit(FORCE_STOP_MUSIC.mutation)
 	},
 
-	[OPEN_WISH_LIST.action]({ commit }, asset) {
+	[OPEN_WISH_LIST.action] ({ commit }, asset) {
 		let wishListContent = [
 			{
 				title: 'Your wishlist',
@@ -798,14 +809,14 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
 	},
 
-	[CLIPBOARD_COPY.action]({ commit }, value) {
+	[CLIPBOARD_COPY.action] ({ commit }, value) {
 		commit(CLIPBOARD_COPY.mutation, value)
 	},
-	[DOWNLOAD_PREPARING.action]({ commit }, value) {
+	[DOWNLOAD_PREPARING.action] ({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
 	},
 
-	[RESET_STATE.action]({ commit }) {
+	[RESET_STATE.action] ({ commit }) {
 		commit(RESET_STATE.mutation)
 	},
 	// [COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
@@ -817,7 +828,7 @@ export const actions = {
 
 	// FETCH ALL CONTENT!
 
-	async nuxtServerInit({ commit, dispatch }) {
+	async nuxtServerInit ({ commit, dispatch }) {
 		let passwordFiles = await require.context(
 			`~/assets/content/passwords/`,
 			false,

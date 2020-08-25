@@ -1,4 +1,4 @@
-<template>
+'<template>
 	<section
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
@@ -64,7 +64,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'">
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE' && currentStyle">
 			<p>{{currentStyle.name}}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -113,7 +113,12 @@
 				>
 					<div class="assistant__filters">
 						<h3>{{collectionName}}</h3>
-						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.<span v-if="currentCollectionFilters.length > 0"> Skip to the good stuff by choosing from the below:</span></p>
+						<p>
+							Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love.
+							<span
+								v-if="currentCollectionFilters.length > 0"
+							>Skip to the good stuff by choosing from the below:</span>
+						</p>
 						<div class="assistant__filters__list">
 							<filter-button
 								v-for="(item, key) in currentCollectionFilters"
@@ -128,7 +133,7 @@
 
 				<div
 					class="assistant__content"
-					v-if="assistantMode == 2"
+					v-if="assistantMode == 2 && currentStyle"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
@@ -159,7 +164,7 @@
 									<th>&nbsp;</th>
 									<td>&nbsp;</td>
 								</tr>
-								
+
 								<tr>
 									<th>Style #</th>
 									<td>{{currentStyle.styleId}}</td>
@@ -272,7 +277,7 @@
 					</button>
 					<button
 						class="button add-to-wishlist button--half"
-						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
+						:class="{'is-active': styleOnWishList, 'is-animating': styleHasJustBeenAdded}"
 						@click="addToWishListClickHandler"
 					>
 						<span class="icon">
@@ -373,6 +378,7 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import {
 	// SET_CURRENT_FILTER,
+	SET_CURRENT_STYLE,
 	TOGGLE_COLOR_PICKER,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
@@ -412,13 +418,14 @@ export default {
 			viewPortSize: ViewportSizes.SMALL,
 			assistantMode: AssistantModes.WELCOME,
 			associatedWindow: null,
-			currentStyle: null,
 			hiddenAssetContent: [],
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
 			showClipboardMessage: false,
-			styleHasBeenAdded: false,
+
+			styleHasJustBeenAdded: false,
+
 			shortenedReceiptUrl: null,
 			pdfDownloadLink:
 				'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm'
@@ -432,6 +439,7 @@ export default {
 			'collageIsOpen'
 		]),
 		...mapState('collection', [
+			'currentStyle',
 			'collections',
 			'currentCollectionId',
 			'data',
@@ -441,7 +449,11 @@ export default {
 		]),
 		...mapState('collage', ['clothes']),
 		collectionName() {
-			return this.collections.find(collection => collection.collectionId === this.currentCollectionId).name.toUpperCase();
+			return this.collections
+				.find(
+					collection => collection.collectionId === this.currentCollectionId
+				)
+				.name.toUpperCase()
 		},
 		currentCollectionFilters() {
 			return this.data[this.currentCollectionId]
@@ -467,7 +479,7 @@ export default {
 			return `View wishlist (${this.activeWishlist.length})`
 		},
 		addToWishListButtonLabel() {
-			if (this.styleOnWishList) return 'Added'
+			if (this.getStyleOnWishList) return 'Added'
 			return 'Add to wishlist'
 		},
 		downloadCollectionButtonLabel() {
@@ -483,7 +495,14 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			return this.currentStyle.onWishList
+			if (this.currentStyle && this.currentStyle.onWishList) {
+				return true
+				console.log('ON WISHLIST')
+			}
+			else {				
+				console.log('NOT ON WISHLIST')
+				return false;
+			}
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
@@ -491,23 +510,30 @@ export default {
 		wishListUrl() {
 			// ex: /export/?styles=K1489~Dutch%20Blue.White,K1446
 			return `${window.location}export/?styles=${this.activeWishlist
-				.map(({styleItem, chosenColorList = false}) => `${styleItem.styleId + (chosenColorList ? `~${chosenColorList.join('.')}` : '')}`)
+				.map(
+					({ styleItem, chosenColorList = false }) =>
+						`${styleItem.styleId +
+							(chosenColorList ? `~${chosenColorList.join('.')}` : '')}`
+				)
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (
-				this.activeFilters[this.currentCollectionId]
-			) {
-				return `${window.location}export/?styles=${
-					this.currentCollectionId + '_' +
-					this.activeFilters[this.currentCollectionId]
-				}`
+			if (this.activeFilters[this.currentCollectionId]) {
+				return `${window.location}export/?styles=${this.currentCollectionId +
+					'_' +
+					this.activeFilters[this.currentCollectionId]}`
 			}
 			// /export with no params shows all styles
 			return `${window.location}export/?styles=${this.currentCollectionId}`
 		}
 	},
 	watch: {
+		currentStyle(newVal) {
+			if (newVal) {
+				console.log('CURRENT STYLE WATCHER | onWishList: ' + newVal.onWishList)
+				this.parseAssets()
+			}
+		},
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
 		},
@@ -540,7 +566,7 @@ export default {
 			this.associatedWindow = newVal
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
-			this.styleHasBeenAdded = false
+			this.styleHasJustBeenAdded = false
 
 			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -561,14 +587,8 @@ export default {
 					case ContentTypes.videoLandscape.contentComponent:
 					case ContentTypes.videoSquare.contentComponent:
 						if (componentProps.asset && componentProps.asset.styleId) {
-							setTimeout(() => {
-								this.currentStyle = this.data[
-									this.currentCollectionId
-								].styles.find(
-									style => style.styleId === componentProps.asset.styleId
-								)
-								this.parseAssets()
-							}, 100)
+							this[SET_CURRENT_STYLE.action](componentProps.asset.styleId)
+							this.parseAssets()
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -627,6 +647,7 @@ export default {
 			CHANGE_COLLAGE.action
 		]),
 		...mapActions('collection', [
+			SET_CURRENT_STYLE.action,
 			ALL_ASSETS_VISIBLE.action,
 			TOGGLE_COLOR_PICKER.action,
 			ADD_TO_WISHLIST.action,
@@ -657,7 +678,7 @@ export default {
 		},
 		addToWishListClickHandler() {
 			let colorList = this.currentStyle.colorNames.split(', ')
-			console.log('colorList', colorList)
+
 			if (colorList.length > 1) {
 				this[TOGGLE_COLOR_PICKER.action]({
 					styleItem: this.currentStyle,
@@ -669,16 +690,15 @@ export default {
 			}
 		},
 		executeAddToWishList(styleItem, chosenColorList) {
-			console.log('executeAddToWishList', chosenColorList)
-			if (!this.styleOnWishList) {
+			if (!this.getStyleOnWishList) {
 				this[ADD_TO_WISHLIST.action]({
 					styleItem: this.currentStyle,
 					chosenColorList: chosenColorList
 				})
-
-				this.styleHasBeenAdded = true
+				this.styleHasJustBeenAdded = true
 				setTimeout(() => {
-					this.styleHasBeenAdded = false
+					this.currentStyle.onWishList = true
+					this.styleHasJustBeenAdded = false
 				}, 4000)
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)
