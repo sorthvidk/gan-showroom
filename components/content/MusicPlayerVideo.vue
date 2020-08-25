@@ -8,7 +8,7 @@
     </div>
     <div class="music-player-video__controls">
 			<button class="button" @click="toggle" :class="{'is-playing':musicPlaying}">
-				<svg style="padding: 15px;" v-if="musicPlaying" viewBox="0 0 156 149" xmlns="http://www.w3.org/2000/svg">					
+				<svg class="icon" v-if="musicPlaying" viewBox="0 0 156 149" xmlns="http://www.w3.org/2000/svg">					
           <g fill="#FFF" fill-rule="evenodd">
             <path d="M74 49.9267016L74 49.5366492 74 0 24.7958115 49.5366492 0 49.5366492 0 99.4633508 24.7958115 99.4633508 74 149 74 99.4633508 74 99.0732984z"/>
             <g fill-rule="nonzero">
@@ -17,7 +17,7 @@
             </g>
           </g>
 				</svg>
-				<svg style="padding: 15px;" v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 403 382">
+				<svg class="icon" v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 403 382">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M191 128V127V0L64 127H0V255H64L191 382V255V254V128Z" fill="white"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M322.822 159.784L274.039 111L243 142.039L291.784 190.822L243 239.606L274.039 270.644L322.822 221.861L371.606 270.644L402.644 239.606L353.86 190.822L402.644 142.039L371.605 111L322.822 159.784Z" fill="white"/>
         </svg>
