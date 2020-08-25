@@ -1,4 +1,4 @@
-<template>
+'<template>
 	<section
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
@@ -64,7 +64,7 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'">
+		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE' && currentStyle">
 			<p>{{currentStyle.name}}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -133,7 +133,7 @@
 
 				<div
 					class="assistant__content"
-					v-if="assistantMode == 2"
+					v-if="assistantMode == 2 && currentStyle"
 					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
 				>
 					<div class="assistant__product-details">
@@ -495,10 +495,14 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			if (this.currentStyle.onWishList) console.log('ON WISHLIST')
-			else console.log('NOT ON WISHLIST')
-
-			return this.currentStyle.onWishList
+			if (this.currentStyle && this.currentStyle.onWishList) {
+				return true
+				console.log('ON WISHLIST')
+			}
+			else {				
+				console.log('NOT ON WISHLIST')
+				return false;
+			}
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
@@ -526,9 +530,9 @@ export default {
 	watch: {
 		currentStyle(newVal) {
 			if (newVal) {
+				console.log('CURRENT STYLE WATCHER | onWishList: ' + newVal.onWishList)
 				this.parseAssets()
 			}
-			console.log('CURRENT STYLE WATCHER | onWishList: ' + newVal.onWishList)
 		},
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
