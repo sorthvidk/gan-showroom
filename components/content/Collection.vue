@@ -7,23 +7,27 @@
 				v-for="(group, groupKey) in groupsList"
 				:key="'group' + groupKey"
 			>
-				<h4 v-if="groupsList.length > 1">{{ group.label }}</h4>
+				<h4 v-if="groupsList.length > 1">{{ group.name }}</h4>
 				<div>
-					<!-- <collection-item
+					<collection-item
 						v-for="(item, key) in group.styles"
-						:key="'collectionItem' + key"
+						:key="'group' + groupKey + 'collectionItem' + key"
 						v-bind="{ ...item }"
-					/> -->
+					/>
 				</div>
 			</div>
 		</div>
 		<div v-else>
 			<!-- ONLY ACTIVE GROUP -->
-			<collection-item
-				v-for="(item, key) in currentStyles"
-				:key="'collectionItem' + key"
-				v-bind="{ ...item }"
-			/>
+			<div class="collection__group">
+				<div>
+					<collection-item
+						v-for="(item, key) in currentStyles"
+						:key="'collectionItem' + key"
+						v-bind="{ ...item }"
+					/>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -57,12 +61,13 @@ export default {
 				let groupItem = this.collectionGroups[j]
 
 				groups.push({
-					label: groupItem.name,
-					styles: [
-						this.currentStyles.filter(e => e.groupId === groupItem.groupId)
-					]
+					name: groupItem.name,
+					styles: this.currentStyles.filter(
+						e => e.groupId === groupItem.groupId
+					)
 				})
 			}
+			console.log('groups', groups)
 			return groups
 		}
 	},
