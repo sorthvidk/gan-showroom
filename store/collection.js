@@ -1,4 +1,4 @@
-import sortArrayMultipleProps from "~/utils/sort-array-multiple"
+import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 
 import {
 	FILTER_COLLECTION,
@@ -154,16 +154,17 @@ export const mutations = {
 	[FILTER_COLLECTION.mutation](state) {
 		// run through data, make reference lists for each filter
 
-		if ( window.GS_LOGS ) console.warn(
-			'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
-		)
+		if (window.GS_LOGS)
+			console.warn(
+				'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
+			)
 
 		if (state.filtersParsed) return false
 
 		let cl = state.list.length
 		for (var i = 0; i < cl; i++) {
 			let style = state.list[i]
-			if ( typeof style.filters != "undefined" ) {
+			if (typeof style.filters != 'undefined') {
 				let fl = style.filters.length
 
 				for (var j = 0; j < fl; j++) {
@@ -173,9 +174,9 @@ export const mutations = {
 					)[0]
 					if (stateFilter) stateFilter.styleIds.push(style.styleId)
 				}
-			}
-			else {
-				if ( window.GS_LOGS ) console.warn("NO FILTERS FOR STYLE: "+style.styleId)
+			} else {
+				if (window.GS_LOGS)
+					console.warn('NO FILTERS FOR STYLE: ' + style.styleId)
 			}
 		}
 
@@ -195,13 +196,12 @@ export const mutations = {
 
 		// sortArrayMultipleProps(l1,'program','weight')
 		// console.table(l1)
-		
 
 		//sort styles by program desc and weight asc
-		state.list = sortArrayMultipleProps(state.list,'program','weight')
-
+		state.list = sortArrayMultipleProps(state.list, 'program', 'weight')
 
 		//set current subset of total collection to total collection
+
 		state.currentStyles = state.list
 		state.activeFilter = {
 			filterId: null,
@@ -229,9 +229,13 @@ export const mutations = {
 			// set current collection to filtered by params
 			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
 			let styleIds = state.activeFilter.styleIds
-			if ( window.GS_LOGS ) console.warn(
-				'SET CURRENT FILTER | filterId:' + filterId + ' | styleIds:' + styleIds
-			)
+			if (window.GS_LOGS)
+				console.warn(
+					'SET CURRENT FILTER | filterId:' +
+						filterId +
+						' | styleIds:' +
+						styleIds
+				)
 			let sil = styleIds.length
 			let newCurrentStyles = []
 

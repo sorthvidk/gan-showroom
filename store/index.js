@@ -153,13 +153,11 @@ export const mutations = {
 
 	[LOGIN.mutation](state, key) {
 		state.loggedIn = key
-		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
 	},
 
 	[VISIBILITY.mutation](state, key) {
 		state.screensaverActive = key
 	},
-
 
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true
@@ -222,6 +220,7 @@ export const mutations = {
 	[CONNECT_ASSETS.mutation](state) {
 		if (state.collection.assetsConnected) return false
 
+		console.warn('LIST LENGTH: ' + state.collection.list.length)
 		let al = state.assets.list.length
 
 		for (var i = 0; i < al; i++) {
