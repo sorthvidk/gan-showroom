@@ -5,6 +5,7 @@ import {
 	COPYRIGHT_ACCEPT,
 	COOKIES_ACCEPT,
 	COLLECTION_ITEMS_FETCH,
+	COLLECTION_GROUPS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
 	FILMS_FETCH,
@@ -177,6 +178,10 @@ export const mutations = {
 
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.collection.list = data
+	},
+
+	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
+		state.collection.groups = data
 	},
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.filters = data
@@ -710,6 +715,18 @@ export const actions = {
 			return res
 		})
 		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
+
+		let groupFiles = await require.context(
+			'~/assets/content/collectionGroups/',
+			false,
+			/\.json$/
+		)
+		let groups = groupFiles.keys().map(key => {
+			let res = groupFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit(COLLECTION_GROUPS_FETCH.mutation, groups)
 
 		let assetFiles = await require.context(
 			'~/assets/content/mediaAssets/',

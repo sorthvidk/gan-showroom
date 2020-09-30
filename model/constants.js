@@ -14,6 +14,7 @@ export const VISIBILITY = createMutation('VISIBILITY')
 export const RESET_STATE = createMutation('RESET_STATE')
 
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
+export const COLLECTION_GROUPS_FETCH = createMutation('COLLECTION_GROUPS_FETCH')
 export const COLLECTION_FILTERS_FETCH = createMutation(
 	'COLLECTION_FILTERS_FETCH'
 )
