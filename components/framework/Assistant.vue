@@ -9,11 +9,18 @@
 
 		<!-- ####################### STATUS ####################### -->
 
-		<div class="window__status" v-if="assistantMode == 1 && viewPortSize.name == 'SMALL'">
+		<div
+			class="window__status"
+			v-if="assistantMode == 1 && viewPortSize.name == 'SMALL'"
+		>
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
+						<path
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
+						/>
 					</svg>
 				</span>
 				<span v-if="assistantExpanded" class="icon">
@@ -21,15 +28,22 @@
 						<path d="M0 7h15v1H0V7z" />
 					</svg>
 				</span>
-				<p>{{filterStatusText}}</p>
+				<p>{{ filterStatusText }}</p>
 			</button>
 		</div>
 
-		<div class="window__status" v-if="(assistantMode == 2) && viewPortSize.name == 'SMALL'">
+		<div
+			class="window__status"
+			v-if="assistantMode == 2 && viewPortSize.name == 'SMALL'"
+		>
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
+						<path
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
+						/>
 					</svg>
 				</span>
 				<span v-if="assistantExpanded" class="icon">
@@ -37,7 +51,7 @@
 						<path d="M0 7h15v1H0V7z" />
 					</svg>
 				</span>
-				<p>{{currentStyle.name}}</p>
+				<p>{{ currentStyle.name }}</p>
 			</button>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -64,8 +78,11 @@
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'">
-			<p>{{currentStyle.name}}</p>
+		<div
+			class="window__status"
+			v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'"
+		>
+			<p>{{ currentStyle.name }}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -92,7 +109,11 @@
 		</div>
 
 		<hr
-			v-if="(assistantMode == 2) && (viewPortSize.name == 'LARGE' || (viewPortSize.name == 'SMALL' && assistantExpanded))"
+			v-if="
+				assistantMode == 2 &&
+					(viewPortSize.name == 'LARGE' ||
+						(viewPortSize.name == 'SMALL' && assistantExpanded))
+			"
 		/>
 
 		<!-- ####################### CONTENT ####################### -->
@@ -102,27 +123,39 @@
 				<div class="assistant__content" v-if="assistantMode == 0">
 					<div class="assistant__text">
 						<h3>WELCOME TO DITTE’S DESKTOP</h3>
-						<p>Hey there, how’s it going? I’m your Desktop Assistant and I’ll be showing you around the place. Kick back, relax, pour a drink, explore – I’m here if you need me. Let’s go!</p>
+						<p>
+							Hey there, how’s it going? I’m your Desktop Assistant and I’ll be
+							showing you around the place. Kick back, relax, pour a drink,
+							explore – I’m here if you need me. Let’s go!
+						</p>
 					</div>
 				</div>
 
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 1"
-					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
+					:class="{
+						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+					}"
 				>
 					<div class="assistant__filters">
 						<h3>PS21 COLLECTION</h3>
-						<p>Browse the full line-up, find out more about each piece, get a close up look at the collection, fall in love. Skip to the good stuff by choosing from the below:</p>
+						<p>
+							Browse the full line-up, find out more about each piece, get a
+							close up look at the collection, fall in love. Skip to the good
+							stuff by choosing from the below:
+						</p>
 						<div class="assistant__filters__list">
 							<filter-button
-								v-for="(item, key) in filtersList"
+								v-for="(item, key) in groupFilters"
 								:key="key"
 								:name="item.name"
 								:count="item.styleIds.length"
 								:filter-id="item.filterId"
 							/>
-							<span class="filter-button" v-if="filtersList.length % 2 > 0">&nbsp;</span>
+							<span class="filter-button" v-if="groupFilters.length % 2 > 0"
+								>&nbsp;</span
+							>
 						</div>
 					</div>
 				</div>
@@ -130,7 +163,9 @@
 				<div
 					class="assistant__content"
 					v-if="assistantMode == 2"
-					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
+					:class="{
+						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+					}"
 				>
 					<div class="assistant__product-details">
 						<span v-if="currentStyle.responsible" class="responsible">
@@ -143,7 +178,7 @@
 							<tbody>
 								<tr>
 									<th>Color</th>
-									<td>{{currentStyle.colorNames}}</td>
+									<td>{{ currentStyle.colorNames }}</td>
 								</tr>
 
 								<tr>
@@ -153,19 +188,19 @@
 
 								<tr>
 									<th>Material</th>
-									<td>{{currentStyle.material}}</td>
+									<td>{{ currentStyle.material }}</td>
 								</tr>
 								<tr>
 									<th>Style #</th>
-									<td>{{currentStyle.styleId}}</td>
+									<td>{{ currentStyle.styleId }}</td>
 								</tr>
 								<tr>
 									<th>Program #</th>
-									<td>{{currentStyle.program}}</td>
+									<td>{{ currentStyle.program }}</td>
 								</tr>
 								<tr>
 									<th>Program name</th>
-									<td>{{currentStyle.programName}}</td>
+									<td>{{ currentStyle.programName }}</td>
 								</tr>
 
 								<tr>
@@ -175,15 +210,15 @@
 
 								<tr>
 									<th>Wholesale price</th>
-									<td>DKK {{currentStyle.wholesalePriceDKK}}</td>
+									<td>DKK {{ currentStyle.wholesalePriceDKK }}</td>
 								</tr>
 								<tr>
 									<th>Wholesale price</th>
-									<td>EUR {{currentStyle.wholesalePriceEUR}}</td>
+									<td>EUR {{ currentStyle.wholesalePriceEUR }}</td>
 								</tr>
 								<tr>
 									<th>Wholesale price</th>
-									<td>USD {{currentStyle.wholesalePriceUSD}}</td>
+									<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
 								</tr>
 
 								<tr>
@@ -193,15 +228,15 @@
 
 								<tr>
 									<th>Suggested retail price</th>
-									<td>DKK {{currentStyle.retailPriceDKK}}</td>
+									<td>DKK {{ currentStyle.retailPriceDKK }}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>EUR {{currentStyle.retailPriceEUR}}</td>
+									<td>EUR {{ currentStyle.retailPriceEUR }}</td>
 								</tr>
 								<tr>
 									<th>Suggested retail price</th>
-									<td>USD {{currentStyle.retailPriceUSD}}</td>
+									<td>USD {{ currentStyle.retailPriceUSD }}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -210,35 +245,55 @@
 
 				<div class="assistant__content" v-if="assistantMode == 3">
 					<div class="assistant__text">
-						<p>You know the drill. Add your favourites to your wishlist. When you’re done you can download to see your favorites or share with your team</p>
+						<p>
+							You know the drill. Add your favourites to your wishlist. When
+							you’re done you can download to see your favorites or share with
+							your team
+						</p>
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
-						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
+						<strong @click="shareUrlClickHandler">{{
+							shortenedReceiptUrl
+						}}</strong>
 					</div>
 				</div>
 
 				<div class="assistant__content" v-if="assistantMode == 4">
 					<div class="assistant__text" v-if="!shareUrl">
-						<p>Me again. Don’t forget you’ve got items waiting for you in your wishlist. Have you explored the rest of Ditte’s desktop yet?</p>
+						<p>
+							Me again. Don’t forget you’ve got items waiting for you in your
+							wishlist. Have you explored the rest of Ditte’s desktop yet?
+						</p>
 					</div>
 					<div class="assistant__text" v-if="shareUrl">
 						<p>Your Wishlist link</p>
-						<strong @click="shareUrlClickHandler">{{shortenedReceiptUrl}}</strong>
+						<strong @click="shareUrlClickHandler">{{
+							shortenedReceiptUrl
+						}}</strong>
 					</div>
 				</div>
 
 				<!-- ####################### CTA ####################### -->
 
-				<div class="assistant__ctas" v-if="assistantMode == 0 && wishList.length > 0">
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
+				<div
+					class="assistant__ctas"
+					v-if="assistantMode == 0 && wishList.length > 0"
+				>
+					<button
+						class="button view-wishlist"
+						@click="viewWishListClickHandler"
+					>
+						<p>{{ viewWishListButtonLabel }}</p>
 					</button>
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 1">
-					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
+					<button
+						class="button view-wishlist button--half"
+						@click="viewWishListClickHandler"
+					>
+						<p>{{ viewWishListButtonLabel }}</p>
 					</button>
 
 					<a
@@ -246,7 +301,7 @@
 						@click="downloadCollectionClickHandler"
 						:href="pdfDownloadLink"
 					>
-						<p>{{downloadCollectionButtonLabel}}</p>
+						<p>{{ downloadCollectionButtonLabel }}</p>
 					</a>
 				</div>
 
@@ -263,7 +318,10 @@
 					</button>
 					<button
 						class="button add-to-wishlist button--half"
-						:class="{'is-active': styleOnWishList, 'is-animating': styleHasBeenAdded}"
+						:class="{
+							'is-active': styleOnWishList,
+							'is-animating': styleHasBeenAdded
+						}"
 						@click="addToWishListClickHandler"
 					>
 						<span class="icon">
@@ -271,10 +329,13 @@
 								<path class="checkmark" d="M24.75 62l27.5 27.5 51-51" />
 							</svg>
 						</span>
-						<p>{{addToWishListButtonLabel}}</p>
+						<p>{{ addToWishListButtonLabel }}</p>
 					</button>
-					<button class="button view-wishlist button--half" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
+					<button
+						class="button view-wishlist button--half"
+						@click="viewWishListClickHandler"
+					>
+						<p>{{ viewWishListButtonLabel }}</p>
 					</button>
 				</div>
 
@@ -286,31 +347,51 @@
 					>
 						<span class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-								<path d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z" />
+								<path
+									d="M8.4 5.4v-.9L5.3 7.2V.6h-.6v6.6L1.6 4.5v.9l3.4 3zM1 9.4h8v.6H1z"
+								/>
 							</svg>
 						</span>
 						<p>Download wishlist</p>
 					</a>
 
-					<button @click="shareWishListClickHandler" class="button share-wishlist button--half">
+					<button
+						@click="shareWishListClickHandler"
+						class="button share-wishlist button--half"
+					>
 						<p v-if="!showClipboardMessage">Share wishlist</p>
-						<p v-if="showClipboardMessage" :style="{color: '#1DD000', textDecoration: 'none'}">Link copied</p>
+						<p
+							v-if="showClipboardMessage"
+							:style="{ color: '#1DD000', textDecoration: 'none' }"
+						>
+							Link copied
+						</p>
 					</button>
 				</div>
 
 				<div class="assistant__ctas" v-if="assistantMode == 4">
-					<button class="button view-wishlist" @click="viewWishListClickHandler">
-						<p>{{viewWishListButtonLabel}}</p>
+					<button
+						class="button view-wishlist"
+						@click="viewWishListClickHandler"
+					>
+						<p>{{ viewWishListButtonLabel }}</p>
 					</button>
 				</div>
 
 				<!-- ####################### COLLAGE ####################### -->
 
-				<div class="window__status" v-if="(assistantMode == 5) && viewPortSize.name == 'SMALL'">
+				<div
+					class="window__status"
+					v-if="assistantMode == 5 && viewPortSize.name == 'SMALL'"
+				>
 					<button class="button expand" @click="toggleContentHandler">
 						<span v-if="!assistantExpanded" class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z" />
+								<path
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
+								/>
 							</svg>
 						</span>
 						<span v-if="assistantExpanded" class="icon">
@@ -324,7 +405,9 @@
 
 				<div
 					class="assistant__content scroll"
-					:class="{'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded}"
+					:class="{
+						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+					}"
 				>
 					<div class="assistant__text" v-if="assistantMode == 5">
 						<ol>
@@ -338,14 +421,32 @@
 						<div class="collage-buttons">
 							<div class="row" v-for="item in Object.keys(clothes)" :key="item">
 								<p class="title">{{ item | capitalize }}</p>
-								<button class="button button--inline" @click="changeGarment(item, 1)">
-									<svg class="left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+								<button
+									class="button button--inline"
+									@click="changeGarment(item, 1)"
+								>
+									<svg
+										class="left"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 30 30"
+									>
+										<path
+											d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"
+										/>
 									</svg>
 								</button>
-								<button class="button button--inline" @click="changeGarment(item, 0)">
-									<svg class="right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-										<path d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z" />
+								<button
+									class="button button--inline"
+									@click="changeGarment(item, 0)"
+								>
+									<svg
+										class="right"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 30 30"
+									>
+										<path
+											d="M22.6 19.8L15 12.1l-7.6 7.7-.7-.7 8.3-8.4 8.4 8.4z"
+										/>
 									</svg>
 								</button>
 							</div>
@@ -353,10 +454,16 @@
 					</div>
 				</div>
 				<div class="row collage-ctas" v-if="assistantMode == 5">
-					<button class="button button--half" @click="downloadImageClickHandler">
+					<button
+						class="button button--half"
+						@click="downloadImageClickHandler"
+					>
 						<p>Save image</p>
 					</button>
-					<button class="button button--half" @click="makeBackgroundClickHandler">
+					<button
+						class="button button--half"
+						@click="makeBackgroundClickHandler"
+					>
 						<p>Make background</p>
 					</button>
 				</div>
@@ -422,7 +529,8 @@ export default {
 	computed: {
 		...mapState({
 			keyPressed: state => state.keyPressed,
-			filtersList: state => state.collection.filters,
+			activeGroup: state => state.collection.activeGroup,
+			groupFilters: state => state.collection.groupFilters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
@@ -465,7 +573,8 @@ export default {
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`
-		}
+		},
+		extractedFilterList() {}
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {

@@ -241,7 +241,8 @@ collections:
           default: 0,
           hint: 'Optional ordering position',
         }
-      - { name: 'styleIds', default: [], widget: 'hidden' }
+      - { name: 'styles', default: [], widget: 'hidden' }
+      - { name: 'filters', default: [], widget: 'hidden' }
 
   - name: 'mediaAssets'
     sortableFields: ['styleId']

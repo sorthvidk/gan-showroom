@@ -1,6 +1,7 @@
 {
 	"order": 10,
-	"styleIds": [],
+	"styles": [],
+	"filters": [],
 	"groupId": "cotton-fun",
 	"name": "Cotton Fun"
 }

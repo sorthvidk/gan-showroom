@@ -1,6 +1,7 @@
 {
 	"order": 30,
-	"styleIds": [],
+	"styles": [],
+	"filters": [],
 	"groupId": "drop2-feb",
 	"name": "Drop2, feb"
 }

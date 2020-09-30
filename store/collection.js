@@ -1,4 +1,5 @@
 import sortArrayMultipleProps from '~/utils/sort-array-multiple'
+import findArrayMatches from '~/utils/find-array-matches'
 
 import {
 	INDEX_COLLECTION_DATA,
@@ -27,6 +28,10 @@ export const state = () => ({
 
 	activeGroup: null,
 	activeGroupIndex: -1,
+
+	availableFilters: null,
+
+	groupFilters: null,
 
 	activeFilter: {
 		filterId: null,
@@ -86,47 +91,89 @@ export const mutations = {
 
 		let cl = state.list.length
 
+		state.availableFilters = []
+
+		//parse all styles into groups, make deep copies!
 		for (var i = 0; i < cl; i++) {
 			let style = state.list[i]
-			if (typeof style.filters != 'undefined') {
-				let fl = style.filters.length
 
-				for (var j = 0; j < fl; j++) {
-					let styleFilter = style.filters[j]
-					let stateFilter = state.filters.filter(
-						e => e.filterId === styleFilter
-					)[0]
-					if (stateFilter) stateFilter.styleIds.push(style.styleId)
-				}
-			} else {
-				if (window.GS_LOGS)
-					console.warn('NO FILTERS FOR STYLE: ' + style.styleId)
-			}
-
+			//add style to group
 			let stateGroup = state.groups.filter(e => e.groupId === style.groupId)[0]
+			let clonedStyle = JSON.parse(JSON.stringify(style))
+			stateGroup.styles.push(clonedStyle)
+		}
 
-			if (stateGroup) stateGroup.styleIds.push(style.styleId)
+		//parse groups
+		let gl = state.groups.length
+		for (var j = 0; j < gl; j++) {
+			let stateGroup = state.groups[j]
+
+			//go through all styles in group
+			let gsl = stateGroup.styles.length
+			for (var k = 0; k < gsl; k++) {
+				let style = stateGroup.styles[k]
+
+				//extrapolate filters from styles
+				let fl = style.filters.length
+				for (var l = 0; l < fl; l++) {
+					let styleFilterId = style.filters[l]
+					let stateFilter = state.filters.filter(
+						e => e.filterId === styleFilterId
+					)[0]
+
+					//clone filter, add to stategroup filters and availableFilters (=ALL)
+
+					let clonedFilter = JSON.parse(JSON.stringify(stateFilter))
+					var foundStateGroupFilter = stateGroup.filters.filter(
+						e => e.filterId === styleFilterId
+					)[0]
+					if (!foundStateGroupFilter) stateGroup.filters.push(clonedFilter)
+
+					let clonedFilter2 = JSON.parse(JSON.stringify(stateFilter))
+					clonedFilter2.styleIds.push(style.styleId)
+					var foundAvailableFilter = state.availableFilters.filter(
+						e => e.filterId === styleFilterId
+					)[0]
+					if (!foundAvailableFilter) state.availableFilters.push(clonedFilter2)
+					else foundAvailableFilter.styleIds.push(style.styleId)
+				}
+			}
+		}
+
+		//parse groups again
+
+		for (var j = 0; j < gl; j++) {
+			let stateGroup = state.groups[j]
+
+			//go through all styles in group
+			let gsl = stateGroup.filters.length
+			for (var k = 0; k < gsl; k++) {
+				let style = stateGroup.styles[k]
+
+				//extrapolate filters from styles
+				let fl = style.filters.length
+				for (var l = 0; l < fl; l++) {
+					let styleFilterId = style.filters[l]
+					var foundStateGroupFilter = stateGroup.filters.filter(
+						e => e.filterId === styleFilterId
+					)[0]
+
+					//add group style to matching filter
+					foundStateGroupFilter.styleIds.push(style.styleId)
+				}
+			}
 		}
 
 		//sort filters by order
-		state.filters = state.filters.sort((a, b) => (a.order > b.order ? 1 : -1))
+		state.availableFilters = state.availableFilters.sort((a, b) =>
+			a.order > b.order ? 1 : -1
+		)
 
 		//sort groups by order
 		state.groups = state.groups.sort((a, b) => (a.order > b.order ? 1 : -1))
 
-		//sort styles by weight
-		// state.list.sort((a, b) => (a.weight > b.weight ? -1 : 1))
-
-		// let l1 = [
-		// 	{weight:7,program:608},
-		// 	{weight:234,program:908},
-		// 	{weight:1,program:908},
-		// 	{weight:4,program:608},
-		// 	{weight:133,program:608},
-		// ]
-
-		// sortArrayMultipleProps(l1,'program','weight')
-		// console.table(l1)
+		//set groupFilters to savailableFilters (= ALL)
+		state.groupFilters = state.availableFilters
 
 		//sort styles by program desc and weight asc
 		state.list = sortArrayMultipleProps(state.list, 'program', 'weight')
@@ -139,77 +186,93 @@ export const mutations = {
 			name: '',
 			styleIds: []
 		}
-
-		state.filtersParsed = true
 	},
 	[SET_CURRENT_GROUP.mutation](state, groupId) {
-		console.warn('SET_CURRENT_GROUP', groupId)
+		state.activeFilter = {
+			filterId: null,
+			name: '',
+			styleIds: []
+		}
 		if (!groupId || groupId == '') {
-			state.currentStyles = state.list
 			state.activeGroup = null
 			state.activeGroupIndex = -1
+
+			state.currentStyles = state.list
+			state.groupFilters = state.availableFilters
 		} else {
 			state.activeGroup = state.groups.filter(e => e.groupId === groupId)[0]
 			state.activeGroupIndex = state.groups.indexOf(state.activeGroup)
 
-			state.currentStyles = state.list.filter(e => e.groupId === groupId)
+			state.currentStyles = state.activeGroup.styles
+			state.groupFilters = state.activeGroup.filters
 		}
 	},
 
 	[SET_NEXT_GROUP.mutation](state) {
+		state.activeFilter = {
+			filterId: null,
+			name: '',
+			styleIds: []
+		}
 		if (!state.activeGroup) {
 			state.activeGroupIndex = 0
 			state.activeGroup = state.groups[state.activeGroupIndex]
-			state.currentStyles = state.list.filter(
-				e => e.groupId === state.activeGroup.groupId
-			)
+
+			state.currentStyles = state.activeGroup.styles
+			state.groupFilters = state.activeGroup.filters
 		} else {
 			state.activeGroupIndex++
 			if (state.activeGroupIndex == state.groups.length) {
 				//back to ALL
-				state.currentStyles = state.list
 				state.activeGroup = null
 				state.activeGroupIndex = -1
+
+				state.currentStyles = state.list
+				state.groupFilters = state.availableFilters
 			} else {
 				state.activeGroup = state.groups[state.activeGroupIndex]
-				state.currentStyles = state.list.filter(
-					e => e.groupId === state.activeGroup.groupId
-				)
+
+				state.currentStyles = state.activeGroup.styles
+				state.groupFilters = state.activeGroup.filters
 			}
 		}
 	},
 
 	[SET_PREVIOUS_GROUP.mutation](state) {
+		state.activeFilter = {
+			filterId: null,
+			name: '',
+			styleIds: []
+		}
 		if (!state.activeGroup) {
 			state.activeGroupIndex = state.groups.length - 1
 			state.activeGroup = state.groups[state.activeGroupIndex]
-			state.currentStyles = state.list.filter(
-				e => e.groupId === state.activeGroup.groupId
-			)
+
+			state.currentStyles = state.activeGroup.styles
+			state.groupFilters = state.activeGroup.filters
 		} else {
 			state.activeGroupIndex--
 			if (state.activeGroupIndex == -1) {
 				//back to ALL
-				state.currentStyles = state.list
 				state.activeGroup = null
+				state.currentStyles = state.list
+				state.groupFilters = state.availableFilters
 			} else {
 				state.activeGroup = state.groups[state.activeGroupIndex]
-				state.currentStyles = state.list.filter(
-					e => e.groupId === state.activeGroup.groupId
-				)
+
+				state.currentStyles = state.activeGroup.styles
+				state.groupFilters = state.activeGroup.filters
 			}
 		}
 	},
 
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
 		if (!filterId || filterId == '') {
-			let cl = state.list.length
-
-			for (var j = 0; j < cl; j++) {
-				state.list[j].index = j
+			if (!state.activeGroup) {
+				state.currentStyles = state.list
+			} else {
+				state.currentStyles = state.activeGroup.styles
 			}
-
-			state.currentStyles = state.list
 			state.activeFilter = {
 				filterId: null,
 				name: '',
@@ -217,24 +280,17 @@ export const mutations = {
 			}
 		} else {
 			// set current collection to filtered by params
-			state.activeFilter = state.filters.filter(e => e.filterId === filterId)[0]
-			let styleIds = state.activeFilter.styleIds
-			if (window.GS_LOGS)
-				console.warn(
-					'SET CURRENT FILTER | filterId:' +
-						filterId +
-						' | styleIds:' +
-						styleIds
-				)
-			let sil = styleIds.length
-			let newCurrentStyles = []
+			state.activeFilter = state.groupFilters.filter(
+				e => e.filterId === filterId
+			)[0]
 
-			for (var i = 0; i < sil; i++) {
-				let styleId = styleIds[i]
-				let addedStyle = state.list.filter(e => e.styleId === styleId)[0]
-				addedStyle.index = i
-				newCurrentStyles.push(addedStyle)
-			}
+			let styleIds = state.activeFilter.styleIds
+			let newCurrentStyles = findArrayMatches(
+				styleIds,
+				state.currentStyles,
+				'styleId'
+			)
+			console.log('newCurrentStyles', newCurrentStyles)
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
