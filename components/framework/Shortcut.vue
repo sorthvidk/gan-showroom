@@ -8,7 +8,7 @@
 			<span class="icon">
 				<img :src="icon" />
 			</span>
-			<span class="text">{{label}}</span>
+			<span class="text">{{ label }}</span>
 		</button>
 	</transition>
 </template>
@@ -85,25 +85,22 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
-				if ( window.GS_LOGS ) console.log("ACTIONS???",this.actions)
 				if (this.actions) {
 					for (let i = 0; i < this.actions.length; i++) {
 						let action = this.actions[i]
-						if (typeof action.param != "undefined")
+						if (typeof action.param != 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					}
-				
+
 					//TODO: Fix race condition!!
 					setTimeout(() => {
 						this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
 					}, 500)
-				}
-				else {
+				} else {
 					this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
 				}
 			}
-
 		},
 		beforeAnimateIn(el) {
 			TweenLite.set(el, { scale: 0, opacity: 0 })
