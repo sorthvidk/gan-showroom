@@ -3,6 +3,9 @@ import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 import {
 	FILTER_COLLECTION,
 	SET_CURRENT_FILTER,
+	SET_CURRENT_GROUP,
+	SET_NEXT_GROUP,
+	SET_PREVIOUS_GROUP,
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	ALL_ASSETS_VISIBLE,
@@ -21,6 +24,8 @@ export const state = () => ({
 	assetsConnected: false,
 
 	currentStyles: [],
+
+	activeGroup: null,
 
 	activeFilter: {
 		filterId: null,
@@ -127,6 +132,29 @@ export const mutations = {
 
 		state.filtersParsed = true
 	},
+	[SET_CURRENT_GROUP.mutation](state, groupId) {
+		console.warn('SET_CURRENT_GROUP', groupId)
+		if (!groupId || groupId == '') {
+			state.currentStyles = state.list
+			state.activeGroup = null
+		} else {
+			state.activeGroup = state.groups.filter(e => e.groupId === groupId)[0]
+			state.currentStyles = state.list.filter(e => e.groupId === groupId)
+		}
+	},
+
+	[SET_NEXT_GROUP.mutation](state) {
+		// if ( !state.activeGroup ) {
+		// let currentIndex = state.groups.indexOf(
+		// 	state.groups.filter(e => {
+		// 		e.groupId === state.activeGroup.groupId
+		// 	})[0]
+		// )
+		// let newIndex = currentIndex + increment
+	},
+
+	[SET_PREVIOUS_GROUP.mutation](state) {},
+
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
 		if (!filterId || filterId == '') {
 			let cl = state.list.length
@@ -183,6 +211,16 @@ export const actions = {
 	[SET_CURRENT_FILTER.action]({ commit }, filterId) {
 		// ex 'c2'
 		commit(SET_CURRENT_FILTER.mutation, filterId)
+	},
+	[SET_CURRENT_GROUP.action]({ commit }, groupId) {
+		// ex 'drop1-nov'
+		commit(SET_CURRENT_GROUP.mutation, groupId)
+	},
+	[SET_NEXT_GROUP.action]({ commit }) {
+		commit(SET_NEXT_GROUP.mutation)
+	},
+	[SET_PREVIOUS_GROUP.action]({ commit }) {
+		commit(SET_PREVIOUS_GROUP.mutation)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
 		dispatch(

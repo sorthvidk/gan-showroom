@@ -44,7 +44,12 @@ export const REMOVE_FROM_WISHLIST = createMutation('REMOVE_FROM_WISHLIST')
 export const ALL_ASSETS_VISIBLE = createMutation('ALL_ASSETS_VISIBLE')
 export const SHOW_NEXT_STYLE = createMutation('SHOW_NEXT_STYLE')
 export const SHOW_PREVIOUS_STYLE = createMutation('SHOW_PREVIOUS_STYLE')
+
 export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER')
+export const SET_CURRENT_GROUP = createMutation('SET_CURRENT_GROUP')
+export const SET_NEXT_GROUP = createMutation('SET_NEXT_GROUP')
+export const SET_PREVIOUS_GROUP = createMutation('SET_PREVIOUS_GROUP')
+
 export const PROGRESS_UPDATE = createMutation('PROGRESS_UPDATE')
 export const OPEN_WISH_LIST = createMutation('OPEN_WISH_LIST')
 export const OPEN_STYLE_CONTENT = createMutation('OPEN_STYLE_CONTENT')

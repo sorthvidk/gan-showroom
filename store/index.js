@@ -182,6 +182,11 @@ export const mutations = {
 
 	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
 		state.collection.groups = data
+
+		//sort groups by order
+		state.collection.groups = state.collection.groups.sort((a, b) =>
+			a.order > b.order ? 1 : -1
+		)
 	},
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.filters = data
