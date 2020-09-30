@@ -1,6 +1,6 @@
 <template>
 	<div class="window__status--collection">
-		<p>{{ text }}</p>
+		<p class="count">{{ text }}</p>
 
 		<div class="group-navigation">
 			<button class="group-navigation__prev" @click="groupPrevHandler">
@@ -60,7 +60,6 @@ import CollectionLayouts from '~/model/collection-layouts'
 
 import {
 	COLLECTION_LAYOUT_CHANGE,
-	SET_CURRENT_GROUP,
 	SET_NEXT_GROUP,
 	SET_PREVIOUS_GROUP
 } from '~/model/constants'
@@ -88,9 +87,8 @@ export default {
 	methods: {
 		...mapActions([
 			COLLECTION_LAYOUT_CHANGE.action,
-			SET_PREVIOUS_GROUP.action,
-			SET_NEXT_GROUP.action,
-			SET_CURRENT_GROUP.action
+			'collection/' + SET_PREVIOUS_GROUP.action,
+			'collection/' + SET_NEXT_GROUP.action
 		]),
 		layoutGridClickHandler() {
 			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.GRID)

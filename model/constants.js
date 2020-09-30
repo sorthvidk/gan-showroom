@@ -28,7 +28,7 @@ export const KEYPRESS = createMutation('KEYPRESS')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
-export const FILTER_COLLECTION = createMutation('FILTER_COLLECTION')
+export const INDEX_COLLECTION_DATA = createMutation('INDEX_COLLECTION_DATA')
 export const COLLECTION_LAYOUT_CHANGE = createMutation(
 	'COLLECTION_LAYOUT_CHANGE'
 )

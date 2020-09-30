@@ -1,5 +1,6 @@
 <template>
-	<div oncontextmenu="return false;"> <!-- TO PREVENT DOWNLOADS -->
+	<div oncontextmenu="return false;">
+		<!-- TO PREVENT DOWNLOADS -->
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
@@ -8,7 +9,6 @@
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
-
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
@@ -22,7 +22,7 @@ import getShortUrl from '~/utils/get-short-url'
 
 import {
 	CONNECT_ASSETS,
-	FILTER_COLLECTION,
+	INDEX_COLLECTION_DATA,
 	INIT_PROGRESS,
 	VISIBILITY
 } from '~/model/constants'
@@ -85,7 +85,7 @@ export default {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit(CONNECT_ASSETS.mutation)
-		this.$store.commit('collection/' + FILTER_COLLECTION.mutation)
+		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 		this.$store.commit(INIT_PROGRESS.mutation)
 
 		this.$visibility.change((evt, appTabUnfocused) => {

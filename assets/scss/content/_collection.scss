@@ -194,10 +194,11 @@
 	justify-content: space-between;
 	align-items: center;
 
-	p {
+	.count {
+		box-sizing: border-box;
+		flex: 0 0 10%;
 		@include bodytext();
 
-		flex: 1 1 100%;
 		overflow: hidden;
 		padding: rem(5) rem(10);
 
@@ -206,7 +207,7 @@
 	}
 
 	.layout-buttons {
-		flex: 0 0 rem(60);
+		flex: 0 0 10%;
 		display: flex;
 		justify-content: center;
 
@@ -243,7 +244,7 @@
 	.group-navigation {
 		display: inline-flex;
 		align-items: center;
-		flex: 50%;
+		margin: 0 auto;
 		button {
 			background: #eee;
 			display: inline-flex;
@@ -251,6 +252,8 @@
 			justify-content: center;
 		}
 		p {
+			display: block;
+			width: rem(200);
 			padding: 0 rem(10);
 			@include headline();
 			text-align: center;
