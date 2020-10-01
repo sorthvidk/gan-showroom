@@ -123,7 +123,7 @@ export const mutations = {
 			for (var k = 0; k < gsl; k++) {
 				let style = stateGroup.styles[k]
 				let styleId = style.styleId
-
+				console.warn('PARSE STYLE ' + styleId)
 				//extrapolate filters from styles
 				let fl = style.filters.length
 				for (var l = 0; l < fl; l++) {
@@ -131,6 +131,9 @@ export const mutations = {
 					let stateFilter = state.allFilters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
+					console.warn('PARSE STYLE FILTER ' + styleFilterId, stateFilter)
+
+					// ==================================================================
 
 					//clone filter, check for existence in stateGroup.filters, then add
 					let clonedFilter = JSON.parse(JSON.stringify(stateFilter))
@@ -138,7 +141,8 @@ export const mutations = {
 						e => e.filterId === styleFilterId
 					)[0]
 					if (!foundStateGroupFilter) {
-						clonedFilter.styleIds.push(styleId)
+						//new filter add to group
+						clonedFilter.styleIds = [styleId]
 						stateGroup.filters.push(clonedFilter)
 						if (window.GS_LOGS)
 							console.warn(
@@ -151,18 +155,32 @@ export const mutations = {
 									'"'
 							)
 					} else {
-						foundStateGroupFilter.styleIds.push(styleId)
-						if (window.GS_LOGS)
-							console.warn(
-								'FILTER ' +
-									styleFilterId +
-									' ALREADY IN GROUP "' +
-									stateGroupId +
-									'" FILTERS, JUST PUSH STYLE "' +
-									styleId +
-									'"'
-							)
+						var foundStyle = foundStateGroupFilter.styleIds.includes(styleId)
+						if (!foundStyle) {
+							foundStateGroupFilter.styleIds.push(styleId)
+							if (window.GS_LOGS)
+								console.warn(
+									'FILTER ' +
+										styleFilterId +
+										' ALREADY IN GROUP "' +
+										stateGroupId +
+										'" FILTERS, STYLE ID NOT YET ADDED, PUSH STYLE ID "' +
+										styleId +
+										'"'
+								)
+						} else {
+							if (window.GS_LOGS)
+								console.warn(
+									'FILTER ' +
+										styleFilterId +
+										' ALREADY IN GROUP "' +
+										stateGroupId +
+										'" FILTERS, ALREADY IN STYLE IDS'
+								)
+						}
 					}
+
+					// ==================================================================
 
 					//clone again, check for existence in referencedFilters array
 					let clonedFilter2 = JSON.parse(JSON.stringify(stateFilter))
@@ -171,51 +189,37 @@ export const mutations = {
 					)[0]
 
 					if (!foundReferencedFilter) {
-						clonedFilter2.styleIds.push(styleId)
+						clonedFilter2.styleIds = [styleId]
 						state.referencedFilters.push(clonedFilter2)
 						if (window.GS_LOGS)
 							console.warn(
 								'FILTER ' +
 									styleFilterId +
-									' NOT IN REF FILTERS, ADD AND PUSH STYLE "' +
+									' NOT IN REF FILTERS, ADD AND PUSH STYLE ID "' +
 									styleId +
 									'"'
 							)
 					} else {
-						foundReferencedFilter.styleIds.push(styleId)
-						if (window.GS_LOGS)
-							console.warn(
-								'FILTER ' +
-									styleFilterId +
-									' ALREADY IN REF FILTERS, PUSH STYLE "' +
-									styleId +
-									'"'
-							)
+						var foundStyle = foundReferencedFilter.styleIds.includes(styleId)
+						if (!foundStyle) {
+							foundReferencedFilter.styleIds.push(styleId)
+							if (window.GS_LOGS)
+								console.warn(
+									'FILTER ' +
+										styleFilterId +
+										' ALREADY IN REF FILTERS, STYLE ID NOT YET ADDED, PUSH STYLE ID "' +
+										styleId +
+										'"'
+								)
+						} else {
+							if (window.GS_LOGS)
+								console.warn(
+									'FILTER ' +
+										styleFilterId +
+										' ALREADY IN REF FILTERS, ALREADY IN STYLE IDS'
+								)
+						}
 					}
-				}
-			}
-		}
-
-		//parse groups again
-
-		for (var j = 0; j < gl; j++) {
-			let stateGroup = state.allGroups[j]
-
-			//go through all styles in group
-			let gsl = stateGroup.filters.length
-			for (var k = 0; k < gsl; k++) {
-				let style = stateGroup.styles[k]
-
-				//extrapolate filters from styles
-				let fl = style.filters.length
-				for (var l = 0; l < fl; l++) {
-					let styleFilterId = style.filters[l]
-					var foundStateGroupFilter = stateGroup.filters.filter(
-						e => e.filterId === styleFilterId
-					)[0]
-
-					//add group style to matching filter
-					foundStateGroupFilter.styleIds.push(style.styleId)
 				}
 			}
 		}
@@ -333,11 +337,9 @@ export const mutations = {
 				state.currentStyles,
 				'styleId'
 			)
-			console.log('newCurrentStyles', newCurrentStyles)
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
-
 			state.currentStyles = newCurrentStyles
 		}
 	},
@@ -429,9 +431,10 @@ export const actions = {
 		if (!listStyle) return false
 
 		let styleCount = state.currentStyles.length,
-			index = listStyle.index,
+			listStyleIndex = state.currentStyles.indexOf(listStyle),
+			index = listStyleIndex,
 			nextIndex = index === 0 ? styleCount - 1 : index - 1,
-			prevStyle = state.currentStyles.filter(e => e.index === nextIndex)[0]
+			prevStyle = state.currentStyles[nextIndex]
 
 		if (prevStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, { root: true })
@@ -449,9 +452,10 @@ export const actions = {
 		if (!listStyle) return false
 
 		let styleCount = state.currentStyles.length,
-			index = listStyle.index,
+			listStyleIndex = state.currentStyles.indexOf(listStyle),
+			index = listStyleIndex,
 			nextIndex = index === styleCount - 1 ? 0 : index + 1,
-			nextStyle = state.currentStyles.filter(e => e.index === nextIndex)[0]
+			nextStyle = state.currentStyles[nextIndex]
 
 		if (nextStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, { root: true })
