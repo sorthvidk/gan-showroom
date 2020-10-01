@@ -1,12 +1,15 @@
 <template>
-	<button class="films-item" :class="{'is-playing':isPlaying}" @click.stop="onItemClick">
+	<button
+		class="films-item"
+		:class="{ 'is-playing': isPlaying }"
+		@click.stop="onItemClick"
+	>
 		<div class="films-item__poster">
 			<img :src="parsedPosterUrlThumb" alt="lorem" />
 		</div>
-		<p>{{filmName}}</p>
+		<p>{{ filmName }}</p>
 	</button>
 </template>
-
 
 <script>
 import ContentTypes from '~/model/content-types'
@@ -43,10 +46,18 @@ export default {
 	},
 	computed: {
 		parsedPosterUrlThumb() {
-			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 310, height: 204});
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				{ cloudinaryUrl: this.posterUrl, type: 'image', aspect: 'landscape' },
+				{ width: 310, height: 204 }
+			)
 		},
 		parsedPosterUrlVideo() {
-			return getCloudinaryUrl(this.$cloudinary, {cloudinaryUrl:this.posterUrl, type:'image', aspect:'landscape'}, {width: 608,height: 342})
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				{ cloudinaryUrl: this.posterUrl, type: 'image', aspect: 'landscape' },
+				{ width: 608, height: 342 }
+			)
 		}
 	},
 	methods: {
@@ -62,7 +73,11 @@ export default {
 					canOverride: false,
 					windowProps: type.defaultWindowProps,
 					contentComponentProps: {
-						asset: { cloudinaryUrl: this.cloudinaryUrl, type: 'video', aspect:'landscape' },
+						asset: {
+							cloudinaryUrl: this.cloudinaryUrl,
+							type: 'video',
+							aspect: 'landscape'
+						},
 						videoAttributes: {
 							poster: this.parsedPosterUrlVideo,
 							preload: true,
@@ -71,7 +86,11 @@ export default {
 							controls: true
 						}
 					},
-					statusComponentProps: type.defaultStatusComponentProps
+					statusComponentProps: type.defaultStatusComponentProps,
+					windowInfo: {
+						headline: 'A FILM YO!',
+						bodyText: 'Pretty coool, right?'
+					}
 				}
 			]
 			this[OPEN_CONTENT.action]({ windowContent: videoContent })

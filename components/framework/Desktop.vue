@@ -4,11 +4,13 @@
 			class="desktop"
 			:class="screensaverActive && 'screensaver-running'"
 			v-lazy:background-image="webcamImage || backgroundImageObj"
-			:style="{backgroundSize: webcamImage && '400px'}"
+			:style="{ backgroundSize: webcamImage && '400px' }"
 		>
 			<progress-bar
 				:text-start="'Start diving into the PS21 digital universe.'"
-				:text-progress="'You still have more to experience! Dive deeper into the PS21 digital universe.'"
+				:text-progress="
+					'You still have more to experience! Dive deeper into the PS21 digital universe.'
+				"
 				:text-end="'You\'re completely filled in on the PS21 digital universe!'"
 			/>
 
@@ -30,7 +32,11 @@
 			</div>
 
 			<div class="desktop__windows">
-				<transition-group tag="div" name="window-animation" @before-enter="setTransformOrigin">
+				<transition-group
+					tag="div"
+					name="window-animation"
+					@before-enter="setTransformOrigin"
+				>
 					<window
 						v-for="(item, index) in windowList"
 						:key="item.windowId"
@@ -44,6 +50,7 @@
 						:content-component-props="item.contentComponentProps"
 						:group-id="item.groupId"
 						:status-component-props="item.statusComponentProps"
+						:window-info="item.windowInfo"
 						:title="item.title"
 						:content-id="item.contentId"
 						:data-index="index"
@@ -56,8 +63,16 @@
 			<marquee v-if="viewPortSize.name == 'LARGE'" />
 
 			<div class="logo">
-				<img :src="'/img/ganni_logo_low.png'" alt="Logo" class="d-none d-block--xs" />
-				<svg class="d-none--xs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 553.9 144.9">
+				<img
+					:src="'/img/ganni_logo_low.png'"
+					alt="Logo"
+					class="d-none d-block--xs"
+				/>
+				<svg
+					class="d-none--xs"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 553.9 144.9"
+				>
 					<path
 						d="M126.1 69.2H69.9V87h34.8c-.1 5.2-1 10.4-2.6 15.3-1.5 4.4-4 8.4-7.2 11.7-3.3 3.3-7.3 5.8-11.7 7.4-5.1 1.8-10.5 2.6-15.9 2.3-7.1 0-13.3-1.4-18.5-4.3-5.1-2.8-9.4-6.7-12.7-11.5-3.3-5-5.8-10.6-7.2-16.4-3.1-12.3-3.1-25.2 0-37.5 1.4-5.8 3.9-11.4 7.2-16.4 3.2-4.8 7.6-8.8 12.7-11.6 5.2-2.9 11.3-4.3 18.5-4.3 4.1 0 8.2.6 12.2 1.7 3.8 1.1 7.3 2.8 10.5 5.1 6.5 4.7 10.8 11.9 11.8 19.9h22.9c-.7-7-2.9-13.8-6.4-19.9-3.2-5.6-7.6-10.5-12.8-14.3-5.3-3.9-11.2-6.8-17.5-8.6-6.7-2-13.7-2.9-20.7-2.9-10 0-19 1.9-26.9 5.6-7.7 3.6-14.6 8.7-20.2 15.2-5.6 6.6-9.9 14.1-12.6 22.3-3 8.7-4.5 17.8-4.4 27C3 82.1 4.5 91.2 7.5 100c2.7 8.2 7 15.8 12.6 22.3 5.6 6.4 12.5 11.6 20.2 15.1 7.9 3.7 16.9 5.5 26.9 5.5 8.1 0 15.3-1.4 21.6-4.1s12.5-7.7 18.7-14.8l2.4 15.8h16.2V69.2zm137 70.6L211.5 5.9h-24.9l-51.4 133.9h24.2l12.6-35.4h53.4l12.6 35.4h25.1zm-43.9-53.3h-40.9l20.3-57.6h.6l20 57.6zm53.4 53.3h22.3V41.3h.6l60.9 98.5h24.8V5.9h-22.3v98.6h-.4L297.3 5.9h-24.8v133.9h.1zm127.7 0h22.3V41.3h.6l61 98.5H509V5.9h-22.3v98.6h-.4L425 5.9h-24.8v133.9h.1zm127.7 0h23.4V5.9H528v133.9z"
 					/>
@@ -81,27 +96,46 @@
 			</div>
 
 			<div class="copyright-message" v-if="!copyrightAccepted">
-				<transition @before-appear="copyrightBeforeAnimateIn" @appear="copyrightAnimateIn">
+				<transition
+					@before-appear="copyrightBeforeAnimateIn"
+					@appear="copyrightAnimateIn"
+				>
 					<div class="window window--no-status window--tight">
 						<header class="window__top">
 							<span class="title">Important Info</span>
 						</header>
 						<div class="window__content">
 							<span class="icon">
-								
-								<svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-								  <path d="M27.958 55.916c15.441 0 27.959-12.517 27.959-27.958C55.916 12.518 43.398 0 27.957 0 12.518 0 0 12.517 0 27.958 0 43.4 12.517 55.917 27.958 55.917z" fill="#FF0"/>
-								  <path d="M27.958 46.319c-10.182 0-18.444-8.262-18.444-18.444 0-.25.167-.418.417-.418.25 0 .417.168.417.418 0 9.68 7.929 17.61 17.61 17.61 9.68 0 17.61-7.93 17.61-17.694 0-.25.166-.417.417-.417.25 0 .417.167.417.417 0 10.182-8.262 18.528-18.444 18.528z" fill="#000"/>
-								  <path d="M21.115 27.625c1.336 0 2.42-2.616 2.42-5.843 0-3.226-1.084-5.842-2.42-5.842-1.337 0-2.42 2.616-2.42 5.842 0 3.227 1.083 5.843 2.42 5.843zM33.633 27.625c1.337 0 2.42-2.616 2.42-5.843 0-3.226-1.083-5.842-2.42-5.842s-2.42 2.616-2.42 5.842c0 3.227 1.084 5.843 2.42 5.843z" fill="#000"/>
+								<svg
+									viewBox="0 0 56 56"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M27.958 55.916c15.441 0 27.959-12.517 27.959-27.958C55.916 12.518 43.398 0 27.957 0 12.518 0 0 12.517 0 27.958 0 43.4 12.517 55.917 27.958 55.917z"
+										fill="#FF0"
+									/>
+									<path
+										d="M27.958 46.319c-10.182 0-18.444-8.262-18.444-18.444 0-.25.167-.418.417-.418.25 0 .417.168.417.418 0 9.68 7.929 17.61 17.61 17.61 9.68 0 17.61-7.93 17.61-17.694 0-.25.166-.417.417-.417.25 0 .417.167.417.417 0 10.182-8.262 18.528-18.444 18.528z"
+										fill="#000"
+									/>
+									<path
+										d="M21.115 27.625c1.336 0 2.42-2.616 2.42-5.843 0-3.226-1.084-5.842-2.42-5.842-1.337 0-2.42 2.616-2.42 5.842 0 3.227 1.083 5.843 2.42 5.843zM33.633 27.625c1.337 0 2.42-2.616 2.42-5.843 0-3.226-1.083-5.842-2.42-5.842s-2.42 2.616-2.42 5.842c0 3.227 1.084 5.843 2.42 5.843z"
+										fill="#000"
+									/>
 								</svg>
-								
-								<p>
-									Hi, we hope you will enjoy your Ganni Space Virtual Showroom experience.<br/><br/>
-									Please note that all visual material and images are for internal use only and not to be distributed outside this platform.
-								</p>
 
+								<p>
+									Hi, we hope you will enjoy your Ganni Space Virtual Showroom
+									experience.<br /><br />
+									Please note that all visual material and images are for
+									internal use only and not to be distributed outside this
+									platform.
+								</p>
 							</span>
-							<button class="button ok" @click="copyrightMessageClickHandler">OK</button>
+							<button class="button ok" @click="copyrightMessageClickHandler">
+								OK
+							</button>
 						</div>
 					</div>
 				</transition>
@@ -173,7 +207,7 @@ export default {
 			}
 			// src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
-		},
+		}
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {
@@ -197,7 +231,7 @@ export default {
 		return {
 			viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
-			showDownloadMessage: false,			
+			showDownloadMessage: false,
 			wallpaperCount: 6
 		}
 	},
@@ -244,12 +278,12 @@ export default {
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
 		getRandomInt(min, max) {
-		    min = Math.ceil(min);
-		    max = Math.floor(max);
-		    return Math.floor(Math.random() * (max - min + 1)) + min;
+			min = Math.ceil(min)
+			max = Math.floor(max)
+			return Math.floor(Math.random() * (max - min + 1)) + min
 		},
 		copyrightMessageClickHandler() {
-			this[COPYRIGHT_ACCEPT.action](true);
+			this[COPYRIGHT_ACCEPT.action](true)
 		},
 		copyrightBeforeAnimateIn(el) {
 			TweenLite.set(el, { scale: 0, opacity: 0 })

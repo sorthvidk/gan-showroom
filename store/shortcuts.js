@@ -50,6 +50,10 @@ export const state = () => ({
 					canOverride: true,
 					statusComponentProps: {
 						text: 'Films!! YAY!'
+					},
+					windowInfo: {
+						headline: 'FILMS',
+						bodyText: 'See all the awesome films<br><br><br>BRUH!'
 					}
 				}
 			]

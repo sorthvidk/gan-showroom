@@ -274,6 +274,13 @@
 					</div>
 				</div>
 
+				<div class="assistant__content" v-if="assistantMode == 6">
+					<div class="assistant__text" v-if="customInfo">
+						<h3 v-if="customInfo.headline">{{ customInfo.headline }}</h3>
+						<p v-if="customInfo.bodyText" v-html="customInfo.bodyText"></p>
+					</div>
+				</div>
+
 				<!-- ####################### CTA ####################### -->
 
 				<div
@@ -519,6 +526,7 @@ export default {
 			associatedWindowGroupId: null,
 			filterName: null,
 			shareUrl: null,
+			customInfo: null,
 			showClipboardMessage: false,
 			styleHasBeenAdded: false,
 			shortenedReceiptUrl: null,
@@ -611,39 +619,44 @@ export default {
 				noRelevantAssistantContent = true
 			} else {
 				this.associatedWindowGroupId = this.associatedWindow.groupId
+				if (this.associatedWindow.windowInfo) {
+					this.assistantMode = AssistantModes.CUSTOM
 
-				let component = this.associatedWindow.contentComponent,
-					componentProps = this.associatedWindow.contentComponentProps
+					this.customInfo = this.associatedWindow.windowInfo
+				} else {
+					let component = this.associatedWindow.contentComponent,
+						componentProps = this.associatedWindow.contentComponentProps
 
-				switch (component) {
-					case ContentTypes.collection.contentComponent:
-						this.assistantMode = AssistantModes.FILTER_COLLECTION
-						break
-					case ContentTypes.imagePortrait.contentComponent:
-					case ContentTypes.imageLandscape.contentComponent:
-					case ContentTypes.imageSquare.contentComponent:
-					case ContentTypes.videoPortrait.contentComponent:
-					case ContentTypes.videoLandscape.contentComponent:
-					case ContentTypes.videoSquare.contentComponent:
-						if (componentProps.asset && componentProps.asset.styleId) {
-							this.currentStyle = this.currentStyles.filter(
-								e => e.styleId === componentProps.asset.styleId
-							)[0]
-							this.parseAssets()
-						} else {
+					switch (component) {
+						case ContentTypes.collection.contentComponent:
+							this.assistantMode = AssistantModes.FILTER_COLLECTION
+							break
+						case ContentTypes.imagePortrait.contentComponent:
+						case ContentTypes.imageLandscape.contentComponent:
+						case ContentTypes.imageSquare.contentComponent:
+						case ContentTypes.videoPortrait.contentComponent:
+						case ContentTypes.videoLandscape.contentComponent:
+						case ContentTypes.videoSquare.contentComponent:
+							if (componentProps.asset && componentProps.asset.styleId) {
+								this.currentStyle = this.currentStyles.filter(
+									e => e.styleId === componentProps.asset.styleId
+								)[0]
+								this.parseAssets()
+							} else {
+								noRelevantAssistantContent = true
+							}
+							break
+						case ContentTypes.wishList.contentComponent:
+							this.assistantMode = AssistantModes.WISHLIST
+							break
+						case ContentTypes.collage.contentComponent:
+							this.assistantMode = AssistantModes.COLLAGE
+							break
+						default:
+							//No window type found?
 							noRelevantAssistantContent = true
-						}
-						break
-					case ContentTypes.wishList.contentComponent:
-						this.assistantMode = AssistantModes.WISHLIST
-						break
-					case ContentTypes.collage.contentComponent:
-						this.assistantMode = AssistantModes.COLLAGE
-						break
-					default:
-						//No window type found?
-						noRelevantAssistantContent = true
-						break
+							break
+					}
 				}
 			}
 

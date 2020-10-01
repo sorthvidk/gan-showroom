@@ -1,7 +1,7 @@
 <template>
 	<section
 		:class="wrapperClass"
-		:style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }"
+		:style="{ position: 'relative', zIndex: zIndexStyle, transformOrigin }"
 	>
 		<vue-draggable-resizable
 			ref="draggableResizable"
@@ -20,7 +20,9 @@
 			:h="computedSizeH"
 		>
 			<header class="window__top">
-				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
+				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{
+					title
+				}}</span>
 				<button class="button close" @click.stop="closeHandler">
 					<span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -31,8 +33,12 @@
 					</span>
 				</button>
 			</header>
-			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
-				<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+			<div
+				v-if="!noStatus"
+				class="window__status"
+				@click="contentActivateHandler"
+			>
+				<component :is="statusComponent" v-bind="{ ...statusComponentProps }" />
 			</div>
 
 			<hr v-if="!noStatus" />
@@ -41,7 +47,7 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{...contentComponentProps}"
+					v-bind="{ ...contentComponentProps }"
 					ref="contentComponent"
 				/>
 			</div>
@@ -139,6 +145,10 @@ export default {
 		statusComponentProps: {
 			type: Object,
 			default: null
+		},
+
+		windowInfo: {
+			type: Object
 		},
 
 		title: {
