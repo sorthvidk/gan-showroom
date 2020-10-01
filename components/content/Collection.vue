@@ -4,10 +4,10 @@
 			<!-- ALL STYLES -->
 			<div
 				class="collection__group"
-				v-for="(group, groupKey) in groupsList"
+				v-for="(group, groupKey) in groupsRenderList"
 				:key="'group' + groupKey"
 			>
-				<h4 v-if="groupsList.length > 1">{{ group.name }}</h4>
+				<h4 v-if="groupsRenderList.length > 1">{{ group.name }}</h4>
 				<div>
 					<collection-item
 						v-for="(item, key) in group.styles"
@@ -49,16 +49,16 @@ export default {
 		...mapState({
 			collectionLayout: state => state.collectionLayout,
 			currentStyles: state => state.collection.currentStyles,
-			collectionGroups: state => state.collection.groups,
+			allGroups: state => state.collection.allGroups,
 			activeGroup: state => state.collection.activeGroup
 		}),
 
-		groupsList() {
+		groupsRenderList() {
 			let groups = []
 
-			let cl = this.collectionGroups.length
+			let cl = this.allGroups.length
 			for (var j = 0; j < cl; j++) {
-				let groupItem = this.collectionGroups[j]
+				let groupItem = this.allGroups[j]
 
 				groups.push({
 					name: groupItem.name,

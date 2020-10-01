@@ -4,7 +4,8 @@ import findArrayMatches from '~/utils/find-array-matches'
 import {
 	INDEX_COLLECTION_DATA,
 	SET_CURRENT_FILTER,
-	SET_CURRENT_GROUP,
+	SET_GROUP_BY_IDENTIFIER,
+	SET_GROUP_BY_INDEX,
 	SET_NEXT_GROUP,
 	SET_PREVIOUS_GROUP,
 	ADD_TO_WISHLIST,
@@ -17,11 +18,12 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
-	list: [],
-	filters: [],
-	groups: [],
+	allStyles: [],
+	allFilters: [],
+	allGroups: [],
+	allMediaAssets: [],
 
-	filtersParsed: false,
+	dataIndexComplete: false,
 	assetsConnected: false,
 
 	currentStyles: [],
@@ -43,70 +45,64 @@ export const state = () => ({
 })
 
 export const mutations = {
-	[ALL_ASSETS_VISIBLE.mutation](state, styleItem) {
-		let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
-		let sial = listStyle.assets.length
-
-		for (var i = 0; i < sial; i++) {
-			let asset = listStyle.assets[i]
-			asset.visible = true
-		}
-	},
-	[ADD_TO_WISHLIST.mutation](state, styleItem) {
-		if (styleItem.onWishList) return false
-		else {
-			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
-			listStyle.onWishList = true
-			state.wishList.push(styleItem)
-		}
-	},
-	[REMOVE_FROM_WISHLIST.mutation](state, styleItem) {
-		if (!styleItem.onWishList) return false
-		else {
-			let listStyle = state.list.filter(e => e.styleId === styleItem.styleId)[0]
-			listStyle.onWishList = false
-			state.wishList = state.wishList.filter(
-				e => e.styleId !== styleItem.styleId
-			)
-		}
-	},
-	[SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
-	},
-	[SHOW_NEXT_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
-	},
-
 	[INDEX_COLLECTION_DATA.mutation](state) {
-		// run through data, make reference lists for each filter
+		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')
 
-		if (window.GS_LOGS)
-			console.warn(
-				'FILTER COLLECTION | state.filtersParsed:' + state.filtersParsed
+		if (state.dataIndexComplete) return false
+
+		// save lengths
+		let al = state.allMediaAssets.length
+		let cl = state.allStyles.length
+		let gl = state.allGroups.length
+
+		// run through assets, add to styles
+		for (var i = 0; i < al; i++) {
+			let asset = state.allMediaAssets[i]
+			let style = state.allStyles.filter(e => e.styleId === asset.styleId)[0]
+			if (style && style.assets) style.assets.push(asset)
+			else if (window.GS_LOGS)
+				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
+		}
+
+		//sort style assets to have onTop asset first in assets array
+		for (var j = 0; j < cl; j++) {
+			let style = state.allStyles[j]
+			if (style.assets.length === 0) {
+				style.assets.push({
+					assetId: getUniqueId(),
+					styleId: style.styleId,
+					type: 'image',
+					name: 'Asset pending',
+					aspect: 'portrait',
+					onTop: true,
+					visible: true,
+					defaultImageUrl: '/img/styles/dummy.jpg'
+				})
+			}
+			let sortedAssets = style.assets.sort((a, b) =>
+				a.onTop && !b.onTop ? -1 : 1
 			)
-
-		if (state.filtersParsed) return false
-
-		let cl = state.list.length
+			style.assets = sortedAssets
+			style.onWishList = false
+		}
 
 		state.availableFilters = []
 
 		//parse all styles into groups, make deep copies!
 		for (var i = 0; i < cl; i++) {
-			let style = state.list[i]
+			let style = state.allStyles[i]
 
 			//add style to group
-			let stateGroup = state.groups.filter(e => e.groupId === style.groupId)[0]
+			let stateGroup = state.allGroups.filter(
+				e => e.groupId === style.groupId
+			)[0]
 			let clonedStyle = JSON.parse(JSON.stringify(style))
 			stateGroup.styles.push(clonedStyle)
 		}
 
 		//parse groups
-		let gl = state.groups.length
 		for (var j = 0; j < gl; j++) {
-			let stateGroup = state.groups[j]
+			let stateGroup = state.allGroups[j]
 
 			//go through all styles in group
 			let gsl = stateGroup.styles.length
@@ -117,7 +113,7 @@ export const mutations = {
 				let fl = style.filters.length
 				for (var l = 0; l < fl; l++) {
 					let styleFilterId = style.filters[l]
-					let stateFilter = state.filters.filter(
+					let stateFilter = state.allFilters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
 
@@ -143,7 +139,7 @@ export const mutations = {
 		//parse groups again
 
 		for (var j = 0; j < gl; j++) {
-			let stateGroup = state.groups[j]
+			let stateGroup = state.allGroups[j]
 
 			//go through all styles in group
 			let gsl = stateGroup.filters.length
@@ -170,24 +166,31 @@ export const mutations = {
 		)
 
 		//sort groups by order
-		state.groups = state.groups.sort((a, b) => (a.order > b.order ? 1 : -1))
+		state.allGroups = state.allGroups.sort((a, b) =>
+			a.order > b.order ? 1 : -1
+		)
 
 		//set groupFilters to savailableFilters (= ALL)
 		state.groupFilters = state.availableFilters
 
 		//sort styles by program desc and weight asc
-		state.list = sortArrayMultipleProps(state.list, 'program', 'weight')
+		state.allStyles = sortArrayMultipleProps(
+			state.allStyles,
+			'program',
+			'weight'
+		)
 
 		//set current subset of total collection to total collection
 
-		state.currentStyles = state.list
+		state.currentStyles = state.allStyles
 		state.activeFilter = {
 			filterId: null,
 			name: '',
 			styleIds: []
 		}
 	},
-	[SET_CURRENT_GROUP.mutation](state, groupId) {
+
+	[SET_GROUP_BY_IDENTIFIER.mutation](state, groupId) {
 		state.activeFilter = {
 			filterId: null,
 			name: '',
@@ -197,18 +200,18 @@ export const mutations = {
 			state.activeGroup = null
 			state.activeGroupIndex = -1
 
-			state.currentStyles = state.list
+			state.currentStyles = state.allStyles
 			state.groupFilters = state.availableFilters
 		} else {
-			state.activeGroup = state.groups.filter(e => e.groupId === groupId)[0]
-			state.activeGroupIndex = state.groups.indexOf(state.activeGroup)
+			state.activeGroup = state.allGroups.filter(e => e.groupId === groupId)[0]
+			state.activeGroupIndex = state.allGroups.indexOf(state.activeGroup)
 
 			state.currentStyles = state.activeGroup.styles
 			state.groupFilters = state.activeGroup.filters
 		}
 	},
 
-	[SET_NEXT_GROUP.mutation](state) {
+	[SET_GROUP_BY_INDEX.mutation](state, newIndex) {
 		state.activeFilter = {
 			filterId: null,
 			name: '',
@@ -216,49 +219,26 @@ export const mutations = {
 		}
 		if (!state.activeGroup) {
 			state.activeGroupIndex = 0
-			state.activeGroup = state.groups[state.activeGroupIndex]
+			state.activeGroup = state.allGroups[state.activeGroupIndex]
 
 			state.currentStyles = state.activeGroup.styles
 			state.groupFilters = state.activeGroup.filters
 		} else {
-			state.activeGroupIndex++
-			if (state.activeGroupIndex == state.groups.length) {
+			state.activeGroupIndex = newIndex
+
+			//if reached end or gone before beginning, revert to ALL (= index -1)
+			if (
+				state.activeGroupIndex == state.allGroups.length ||
+				state.activeGroupIndex == -1
+			) {
 				//back to ALL
 				state.activeGroup = null
 				state.activeGroupIndex = -1
 
-				state.currentStyles = state.list
+				state.currentStyles = state.allStyles
 				state.groupFilters = state.availableFilters
 			} else {
-				state.activeGroup = state.groups[state.activeGroupIndex]
-
-				state.currentStyles = state.activeGroup.styles
-				state.groupFilters = state.activeGroup.filters
-			}
-		}
-	},
-
-	[SET_PREVIOUS_GROUP.mutation](state) {
-		state.activeFilter = {
-			filterId: null,
-			name: '',
-			styleIds: []
-		}
-		if (!state.activeGroup) {
-			state.activeGroupIndex = state.groups.length - 1
-			state.activeGroup = state.groups[state.activeGroupIndex]
-
-			state.currentStyles = state.activeGroup.styles
-			state.groupFilters = state.activeGroup.filters
-		} else {
-			state.activeGroupIndex--
-			if (state.activeGroupIndex == -1) {
-				//back to ALL
-				state.activeGroup = null
-				state.currentStyles = state.list
-				state.groupFilters = state.availableFilters
-			} else {
-				state.activeGroup = state.groups[state.activeGroupIndex]
+				state.activeGroup = state.allGroups[state.activeGroupIndex]
 
 				state.currentStyles = state.activeGroup.styles
 				state.groupFilters = state.activeGroup.filters
@@ -269,7 +249,7 @@ export const mutations = {
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
 		if (!filterId || filterId == '') {
 			if (!state.activeGroup) {
-				state.currentStyles = state.list
+				state.currentStyles = state.allStyles
 			} else {
 				state.currentStyles = state.activeGroup.styles
 			}
@@ -297,6 +277,48 @@ export const mutations = {
 
 			state.currentStyles = newCurrentStyles
 		}
+	},
+
+	[ALL_ASSETS_VISIBLE.mutation](state, styleItem) {
+		let listStyle = state.allStyles.filter(
+			e => e.styleId === styleItem.styleId
+		)[0]
+		let sial = listStyle.assets.length
+
+		for (var i = 0; i < sial; i++) {
+			let asset = listStyle.assets[i]
+			asset.visible = true
+		}
+	},
+	[ADD_TO_WISHLIST.mutation](state, styleItem) {
+		if (styleItem.onWishList) return false
+		else {
+			let listStyle = state.allStyles.filter(
+				e => e.styleId === styleItem.styleId
+			)[0]
+			listStyle.onWishList = true
+			state.wishList.push(styleItem)
+		}
+	},
+	[REMOVE_FROM_WISHLIST.mutation](state, styleItem) {
+		if (!styleItem.onWishList) return false
+		else {
+			let listStyle = state.allStyles.filter(
+				e => e.styleId === styleItem.styleId
+			)[0]
+			listStyle.onWishList = false
+			state.wishList = state.wishList.filter(
+				e => e.styleId !== styleItem.styleId
+			)
+		}
+	},
+	[SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		console.log(styleId, listStyle, listStyle.index)
+	},
+	[SHOW_NEXT_STYLE.mutation](state, styleId) {
+		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		console.log(styleId, listStyle, listStyle.index)
 	}
 }
 
@@ -314,15 +336,17 @@ export const actions = {
 		// ex 'c2'
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
-	[SET_CURRENT_GROUP.action]({ commit }, groupId) {
+	[SET_GROUP_BY_IDENTIFIER.action]({ commit }, groupId) {
 		// ex 'drop1-nov'
-		commit(SET_CURRENT_GROUP.mutation, groupId)
+		commit(SET_GROUP_BY_IDENTIFIER.mutation, groupId)
 	},
-	[SET_NEXT_GROUP.action]({ commit }) {
-		commit(SET_NEXT_GROUP.mutation)
+	[SET_NEXT_GROUP.action]({ commit, state }) {
+		let newIndex = state.activeGroupIndex + 1
+		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 	[SET_PREVIOUS_GROUP.action]({ commit }) {
-		commit(SET_PREVIOUS_GROUP.mutation)
+		let newIndex = state.activeGroupIndex - 1
+		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {
 		dispatch(

@@ -1,7 +1,11 @@
 <template>
 	<div class="receipt">
 		<h1 class="receipt__title" style="font-weight: 500;">ganni export</h1>
-		<receipt-item v-for="(item, key) in receiptStyles" :key="'receiptItem'+key" :receipt-item="item" />
+		<receipt-item
+			v-for="(item, key) in receiptStyles"
+			:key="'receiptItem' + key"
+			:receipt-item="item"
+		/>
 		<receipt-watermark />
 		<!-- <a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a> -->
 	</div>
@@ -25,7 +29,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			allStyles: state => state.collection.list
+			allStyles: state => state.collection.allStyles
 		}),
 		usableStyles() {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?

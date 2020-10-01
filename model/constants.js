@@ -46,7 +46,8 @@ export const SHOW_NEXT_STYLE = createMutation('SHOW_NEXT_STYLE')
 export const SHOW_PREVIOUS_STYLE = createMutation('SHOW_PREVIOUS_STYLE')
 
 export const SET_CURRENT_FILTER = createMutation('SET_CURRENT_FILTER')
-export const SET_CURRENT_GROUP = createMutation('SET_CURRENT_GROUP')
+export const SET_GROUP_BY_IDENTIFIER = createMutation('SET_GROUP_BY_IDENTIFIER')
+export const SET_GROUP_BY_INDEX = createMutation('SET_GROUP_BY_INDEX')
 export const SET_NEXT_GROUP = createMutation('SET_NEXT_GROUP')
 export const SET_PREVIOUS_GROUP = createMutation('SET_PREVIOUS_GROUP')
 

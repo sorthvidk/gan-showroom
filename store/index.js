@@ -115,7 +115,7 @@ export const mutations = {
 	},
 
 	isOnWishList(state) {
-		state.collection.list.forEach(style => {
+		state.collection.allStyles.forEach(style => {
 			const sameStyleId = e => e.styleId === style.styleId
 			style.onWishList = state.collection.wishList.find(sameStyleId)
 		})
@@ -177,17 +177,16 @@ export const mutations = {
 	},
 
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
-		state.collection.list = data
+		state.collection.allStyles = data
 	},
-
 	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
-		state.collection.groups = data
+		state.collection.allGroups = data
 	},
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
-		state.collection.filters = data
+		state.collection.allFilters = data
 	},
 	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
-		state.assets.list = data
+		state.collection.allMediaAssets = data
 	},
 
 	[FILMS_FETCH.mutation](state, data) {
@@ -223,46 +222,7 @@ export const mutations = {
 	},
 
 	[CONNECT_ASSETS.mutation](state) {
-		if (state.collection.assetsConnected) return false
-
-		console.warn('LIST LENGTH: ' + state.collection.list.length)
-		let al = state.assets.list.length
-
-		for (var i = 0; i < al; i++) {
-			let asset = state.assets.list[i]
-			let style = state.collection.list.filter(
-				e => e.styleId === asset.styleId
-			)[0]
-			if (style && style.assets) style.assets.push(asset)
-			else if (window.GS_LOGS)
-				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
-		}
-
-		//sort style assets to have onTop asset first in assets array
-		let cl = state.collection.list.length
-		for (var j = 0; j < cl; j++) {
-			let style = state.collection.list[j]
-			if (style.assets.length === 0) {
-				style.assets.push({
-					assetId: getUniqueId(),
-					styleId: style.styleId,
-					type: 'image',
-					name: 'Asset pending',
-					aspect: 'portrait',
-					onTop: true,
-					visible: true,
-					defaultImageUrl: '/img/styles/dummy.jpg'
-				})
-			}
-			let sortedAssets = style.assets.sort((a, b) =>
-				a.onTop && !b.onTop ? -1 : 1
-			)
-			style.assets = sortedAssets
-			style.onWishList = false
-		}
-
-		//to ensure only one connection operation
-		state.collection.assetsConnected = true
+		//OUT OF SERVICE
 	},
 
 	/*
@@ -606,7 +566,9 @@ export const actions = {
 	},
 
 	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
-		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
+		let listStyle = state.collection.allStyles.filter(
+			e => e.styleId === styleId
+		)[0]
 		if (!listStyle) return false
 
 		let content = []
