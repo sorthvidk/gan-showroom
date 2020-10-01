@@ -187,12 +187,11 @@ export default {
 			'windowList',
 			'clipBoardCopyComplete',
 			'downloadPreparing',
-			'copyrightAccepted',
-			'screensaverActive',
-			'webcamImage',
-			'mousepos'
+			'screensaverActive'
 		]),
+		...mapState('collage', ['webcamImage']),
 		...mapState('shortcuts', ['list']),
+		...mapState('user', ['copyrightAccepted', 'mousepos']),
 		desktopIcons() {
 			return this.list.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
@@ -236,14 +235,12 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
-			RESET_STATE.action,
+		...mapActions([RESET_STATE.action, OPEN_CONTENT.action]),
+		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
+		...mapActions('user', [
+			COPYRIGHT_ACCEPT.action,
 			KEYPRESS.action,
-			MOUSEMOVE.action,
-			CLIPBOARD_COPY.action,
-			DOWNLOAD_PREPARING.action,
-			OPEN_CONTENT.action,
-			COPYRIGHT_ACCEPT.action
+			MOUSEMOVE.action
 		]),
 		isSmallViewport() {
 			this.viewPortSize = ViewportSizes.SMALL

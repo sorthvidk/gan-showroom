@@ -536,17 +536,16 @@ export default {
 	},
 	computed: {
 		...mapState({
-			keyPressed: state => state.keyPressed,
 			activeGroup: state => state.collection.activeGroup,
 			groupFilters: state => state.collection.groupFilters,
 			wishList: state => state.collection.wishList,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
 			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete,
-			collageIsOpen: state => state.collageIsOpen,
-			clothes: state => state.collage.clothes
+			clipBoardCopyComplete: state => state.clipBoardCopyComplete
 		}),
+		...mapState('collage', ['collageIsOpen', 'clothes']),
+		...mapState('user', ['keyPressed']),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},
@@ -694,17 +693,18 @@ export default {
 			OPEN_CONTENT.action,
 			CLOSE_WINDOW_GROUP.action,
 			OPEN_WISH_LIST.action,
-			CLIPBOARD_COPY.action,
-			DOWNLOAD_PREPARING.action,
-			SAVE_COLLAGE.action,
-			MAKE_BACKGROUND.action,
-			CHANGE_COLLAGE.action,
 			'collection/' + ALL_ASSETS_VISIBLE.action,
 			'collection/' + SET_CURRENT_FILTER.action,
 			'collection/' + ADD_TO_WISHLIST.action,
 			'collection/' + REMOVE_FROM_WISHLIST.action,
 			'collection/' + SHOW_PREVIOUS_STYLE.action,
 			'collection/' + SHOW_NEXT_STYLE.action
+		]),
+		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
+		...mapActions('collage', [
+			SAVE_COLLAGE.action,
+			MAKE_BACKGROUND.action,
+			CHANGE_COLLAGE.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST

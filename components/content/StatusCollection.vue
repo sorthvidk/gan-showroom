@@ -85,10 +85,10 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
+		...mapActions('collection', [
 			COLLECTION_LAYOUT_CHANGE.action,
-			'collection/' + SET_PREVIOUS_GROUP.action,
-			'collection/' + SET_NEXT_GROUP.action
+			SET_PREVIOUS_GROUP.action,
+			SET_NEXT_GROUP.action
 		]),
 		layoutGridClickHandler() {
 			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.GRID)

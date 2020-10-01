@@ -14,10 +14,15 @@ import {
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
 	OPEN_STYLE_CONTENT,
-	CLOSE_WINDOW_GROUP
+	CLOSE_WINDOW_GROUP,
+	COLLECTION_LAYOUT_CHANGE
 } from '~/model/constants'
 
+import CollectionLayouts from '~/model/collection-layouts'
+
 export const state = () => ({
+	collectionLayout: CollectionLayouts.GRID,
+
 	//all indexasion done
 	dataIndexComplete: false,
 
@@ -371,6 +376,11 @@ export const mutations = {
 	[SHOW_NEXT_STYLE.mutation](state, styleId) {
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
 		console.log(styleId, listStyle, listStyle.index)
+	},
+
+	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
+		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
+		state.collectionLayout = value
 	}
 }
 
@@ -439,7 +449,9 @@ export const actions = {
 			prevStyle = state.currentStyles[nextIndex]
 
 		if (prevStyle) {
-			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, { root: true })
+			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, {
+				root: true
+			})
 		}
 	},
 	[SHOW_NEXT_STYLE.action]({ commit, dispatch, state }, styleId) {
@@ -460,7 +472,12 @@ export const actions = {
 			nextStyle = state.currentStyles[nextIndex]
 
 		if (nextStyle) {
-			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, { root: true })
+			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, {
+				root: true
+			})
 		}
+	},
+	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
+		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	}
 }

@@ -34,7 +34,8 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState(['loggedIn', 'cookiesAccepted', 'screensaverActive'])
+		...mapState(['screensaverActive']),
+		...mapState('user', ['loggedIn', 'cookiesAccepted'])
 	},
 	head() {
 		return {
@@ -59,12 +60,14 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([VISIBILITY.action]),
+		...mapActions('utils', [VISIBILITY.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
-			this.debounce(
-				() => this[VISIBILITY.action](appTabUnfocused),
-				immediate ? 0 : this.countdownTime
-			)
+			if (appTabUnfocused) {
+				this.debounce(
+					() => this[VISIBILITY.action](appTabUnfocused),
+					immediate ? 0 : this.countdownTime
+				)
+			}
 		},
 		/**
 		 * debounce,
@@ -84,7 +87,7 @@ export default {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
-		this.$store.commit(INIT_PROGRESS.mutation)
+		this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
 
 		this.$visibility.change((evt, appTabUnfocused) => {
 			if (appTabUnfocused) {

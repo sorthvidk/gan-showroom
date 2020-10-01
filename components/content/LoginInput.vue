@@ -2,7 +2,7 @@
 	<div class="login-input" v-lazy:background-image="backgroundImageObj">
 		<form ref="form" @submit.prevent="loginInput" class="form">
 			<input
-				:class="{'is-invalid': showErrorMessage}"
+				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
 				@focus="isFocus = true"
 				@input="loginInput"
@@ -16,7 +16,7 @@
 				ref="passwordInput"
 			/>
 			<button
-				:class="{'is-active': pwd.length > 0, 'is-invalid': showErrorMessage}"
+				:class="{ 'is-active': pwd.length > 0, 'is-invalid': showErrorMessage }"
 				class="submit"
 				@click.prevent="submitClickHandler"
 			>
@@ -52,13 +52,10 @@ export default {
 		}
 	},
 	computed: {
-		...mapState({
-			loggedIn: state => state.loggedIn,
-			password: state => state.password
-		})
+		...mapState('user', ['loggedIn', 'password'])
 	},
 	methods: {
-		...mapActions([LOGIN.action]),
+		...mapActions('user', [LOGIN.action]),
 
 		updateValidState() {
 			const valid =
@@ -102,5 +99,5 @@ export default {
 			})
 		}
 	}
-};
+}
 </script>

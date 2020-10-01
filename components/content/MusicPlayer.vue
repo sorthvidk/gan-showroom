@@ -4,11 +4,11 @@
 			<p>Playing:</p>
 			<div :key="songs[current].title">
 				<!-- print 5 times so it can be css-animated -->
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
 			</div>
 		</div>
 		<div class="music-player__controls">
@@ -18,7 +18,11 @@
 				</svg>
 			</button>
 			<button class="button" @click="toggle">
-				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+				<svg
+					v-if="musicPlaying"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 30 30"
+				>
 					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
 				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -93,15 +97,13 @@ export default {
 			}
 		}
 	},
-	computed: mapState([
-		'keyPressed',
-		'musicPlaying',
-		'songs',
-		'appTabUnfocused',
-		'topMostWindow'
-	]),
+	computed: {
+		...mapState(['appTabUnfocused', 'topMostWindow']),
+		...mapState('ganniFm', ['songs', 'musicPlaying']),
+		...mapState('user', ['keyPressed'])
+	},
 	methods: {
-		...mapActions([MUSIC_PLAY_PAUSE.action]),
+		...mapActions('ganniFm', [MUSIC_PLAY_PAUSE.action]),
 		playlist(n) {
 			const newCurrent = this.current + n
 			this.current =

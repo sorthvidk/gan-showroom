@@ -1,9 +1,5 @@
 import {
 	RESET_STATE,
-	LOGIN,
-	VISIBILITY,
-	COPYRIGHT_ACCEPT,
-	COOKIES_ACCEPT,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_GROUPS_FETCH,
 	COLLECTION_FILTERS_FETCH,
@@ -12,12 +8,6 @@ import {
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	COLLECTION_LAYOUT_CHANGE,
-	INIT_PROGRESS,
-	KEYPRESS,
-	MOUSEMOVE,
-	MUSIC_PLAY_PAUSE,
-	FORCE_STOP_MUSIC,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -25,18 +15,10 @@ import {
 	OPEN_CONTENT,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT,
-	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING,
-	SAVE_AS_BACKGROUND,
-	COLLAGE_IS_OPEN,
-	SAVE_COLLAGE,
-	MAKE_BACKGROUND,
-	CHANGE_COLLAGE
+	OPEN_STYLE_CONTENT
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
-import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
 
 import getUniqueId from '~/utils/get-unique-id'
@@ -45,63 +27,12 @@ import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 
 export const state = () => ({
-	webcamImage: '',
-
-	collageIsOpen: false,
-	saveCollage: false,
-	makeBackground: false,
-	changeCollage: {},
-
-	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
-
-	screensaverActive: false,
-
-	progressItems: {},
-	progressPct: 0,
-	progressMax: 0,
-
-	mousepos: { x: 0, y: 0 },
+	rehydrated: false,
 
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
-
-	collectionLayout: CollectionLayouts.GRID,
-
-	keyPressed: null,
-	highestZIndex: 0,
-
-	rehydrated: false,
-	cookiesAccepted: false,
-	copyrightAccepted: false,
-
-	musicPlaying: false,
-	songs: [
-		{
-			title: 'All Saints - Never Ever.mp3',
-			src: `/audio/1-01 Never Ever.mp3`
-		},
-		{
-			title: 'Sugababes - Overload.mp3',
-			src: `/audio/1-01 Overload.mp3`
-		},
-		{
-			title: 'Nirvana - Come As You Are.mp3',
-			src: `/audio/1-03 Come As You Are.mp3`
-		},
-		{
-			title: 'Janet Jackson - Together Again.mp3',
-			src: `/audio/1-11 Together Again.mp3`
-		},
-		{
-			title: 'Madonna - Express Yourself.mp3',
-			src: `/audio/1-12 Express Yourself.mp3`
-		}
-	],
-
-	clipBoardCopyComplete: false,
-	downloadPreparing: false
+	highestZIndex: 0
 })
 
 export const mutations = {
@@ -119,59 +50,15 @@ export const mutations = {
 		})
 	},
 
-	[SAVE_COLLAGE.mutation](state) {
-		state.saveCollage = !state.saveCollage
-	},
-
-	[MAKE_BACKGROUND.mutation](state) {
-		state.makeBackground = !state.makeBackground
-	},
-
-	[COLLAGE_IS_OPEN.mutation](state, open) {
-		state.collageIsOpen = open
-	},
-
-	[SAVE_AS_BACKGROUND.mutation](state, img) {
-		state.webcamImage = img
-	},
-
-	[CHANGE_COLLAGE.mutation](state, change) {
-		state.changeCollage = change
-	},
-
 	[RESET_STATE.mutation](state) {
 		state.collection.wishList = []
-		state.progressPct = 0
+		state.progressBar.progressPct = 0
 		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type].complete = false
+			state.progressBar.progressItems[type].complete = false
 		})
-		state.loggedIn = false
-		state.cookiesAccepted = false
-		state.copyrightAccepted = false
-	},
-
-	[LOGIN.mutation](state, key) {
-		state.loggedIn = key
-	},
-
-	[VISIBILITY.mutation](state, key) {
-		state.screensaverActive = key
-	},
-
-	[COOKIES_ACCEPT.mutation](state) {
-		state.cookiesAccepted = true
-	},
-
-	[COPYRIGHT_ACCEPT.mutation](state, value) {
-		state.copyrightAccepted = value
-	},
-
-	[KEYPRESS.mutation](state, key) {
-		state.keyPressed = key
-	},
-
-	[MOUSEMOVE.mutation](state, { x, y }) {
-		state.mousepos = { x, y }
+		state.user.loggedIn = false
+		state.user.cookiesAccepted = false
+		state.user.copyrightAccepted = false
 	},
 
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
@@ -223,33 +110,6 @@ export const mutations = {
 	 *	Activate content block, opens window with matching contentComponent
 	 *
 	 */
-	[INIT_PROGRESS.mutation](state) {
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = false
-		})
-
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = {
-				complete: false,
-				score: ContentTypes[type].contentScore
-			}
-		})
-
-		let pIA = Object.entries(state.progressItems)
-		let pIL = pIA.length
-		let pM = 0
-		for (let [key, value] of pIA) {
-			pM += value.score
-		}
-		state.progressMax = pM
-
-		// if ( window.GS_LOGS ) console.warn('INIT_PROGRESS', state.progressItems)
-		state.progressPct = 0
-	},
-	/*
-	 *	Activate content block, opens window with matching contentComponent
-	 *
-	 */
 	[OPEN_CONTENT.mutation](state, params) {
 		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
 
@@ -294,7 +154,9 @@ export const mutations = {
 			state.topMostWindow = newWindow
 
 			//FLAG PROGRESS!
-			state.progressItems[newWindow.contentType.name].complete = true
+			state.progressBar.progressItems[
+				newWindow.contentType.name
+			].complete = true
 		})
 
 		//only add the group if it has content
@@ -302,14 +164,16 @@ export const mutations = {
 			state.windowGroupList.push(windowGroup)
 
 		//calculate progress
-		let pIA = Object.entries(state.progressItems)
+		let pIA = Object.entries(state.progressBar.progressItems)
 		let pIL = pIA.length
 		let pIC = 0
 		for (let [key, value] of pIA) {
 			if (value.complete) pIC += value.score
 		}
 
-		state.progressPct = Math.round((pIC / state.progressMax) * 100)
+		state.progressBar.progressPct = Math.round(
+			(pIC / state.progressBar.progressMax) * 100
+		)
 
 		let wll = state.windowList.length
 
@@ -456,87 +320,10 @@ export const mutations = {
 			state.highestZIndex = state.windowList[wll - 1].positionZ
 		}
 		state.topMostWindow = state.windowList[wll - 1]
-	},
-
-	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
-		if (window.GS_LOGS) console.warn('MUSIC_PLAY_PAUSE', playing)
-		state.musicPlaying = playing
-	},
-
-	[FORCE_STOP_MUSIC.mutation](state, playing) {
-		if (window.GS_LOGS) console.warn('FORCE_STOP_MUSIC | pause music')
-		state.musicPlaying = false
-	},
-
-	[CLIPBOARD_COPY.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')
-		state.clipBoardCopyComplete = value
-	},
-
-	[DOWNLOAD_PREPARING.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
-		state.downloadPreparing = value
-	},
-
-	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
-		state.collectionLayout = value
 	}
 }
 
 export const actions = {
-	[LOGIN.action]({ commit }, authorized) {
-		commit(LOGIN.mutation, authorized)
-	},
-
-	[SAVE_COLLAGE.action]({ commit }) {
-		commit(SAVE_COLLAGE.mutation)
-	},
-
-	[MAKE_BACKGROUND.action]({ commit }) {
-		commit(MAKE_BACKGROUND.mutation)
-	},
-
-	[COLLAGE_IS_OPEN.action]({ commit }, open) {
-		commit(COLLAGE_IS_OPEN.mutation, open)
-	},
-
-	[CHANGE_COLLAGE.action]({ commit }, change) {
-		commit(CHANGE_COLLAGE.mutation, change)
-	},
-
-	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
-		commit(SAVE_AS_BACKGROUND.mutation, img)
-	},
-
-	[VISIBILITY.action]({ commit }, hidden) {
-		commit(VISIBILITY.mutation, hidden)
-	},
-
-	[COOKIES_ACCEPT.action]({ commit }, value) {
-		commit(COOKIES_ACCEPT.mutation, value)
-	},
-	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
-		commit(COPYRIGHT_ACCEPT.mutation, value)
-	},
-	[INIT_PROGRESS.action]({ commit }) {
-		commit(INIT_PROGRESS.mutation)
-	},
-
-	[KEYPRESS.action]({ commit }, event) {
-		commit(KEYPRESS.mutation, event)
-
-		if (event.key === 'Escape') {
-			commit(CLOSE_WINDOW_GROUP.mutation)
-		}
-	},
-
-	[MOUSEMOVE.action]({ commit }, event) {
-		commit(MOUSEMOVE.mutation, {
-			x: event.clientX,
-			y: event.clientY
-		})
-	},
 	[TOPMOST_WINDOW.action]({ commit }, windowId) {
 		commit(TOPMOST_WINDOW.mutation, windowId)
 	},
@@ -603,14 +390,6 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
-		if (window.GS_LOGS) console.log('playing', playing)
-		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
-		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
-	},
-	[FORCE_STOP_MUSIC.action]({ commit }) {
-		commit(FORCE_STOP_MUSIC.mutation)
-	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {
 		let wishListContent = [
@@ -624,18 +403,8 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
 	},
 
-	[CLIPBOARD_COPY.action]({ commit }, value) {
-		commit(CLIPBOARD_COPY.mutation, value)
-	},
-	[DOWNLOAD_PREPARING.action]({ commit }, value) {
-		commit(DOWNLOAD_PREPARING.mutation, value)
-	},
-
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
-	},
-	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */

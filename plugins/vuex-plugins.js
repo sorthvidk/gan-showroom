@@ -5,12 +5,12 @@ export default ({ store }) => {
 		createPersistedState({
 			key: 'gannishowroom',
 			paths: [
-				'loggedIn',
-				'cookiesAccepted',
-				'copyrightAccepted',
-				'progressItems',
-				'progressMax',
-				'progressPct',
+				'user.loggedIn',
+				'user.cookiesAccepted',
+				'user.copyrightAccepted',
+				'progressBar.progressItems',
+				'progressBar.progressMax',
+				'progressBar.progressPct',
 				'collection.wishList'
 			],
 			rehydrated: store => {

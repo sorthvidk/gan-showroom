@@ -3,9 +3,9 @@
 		<video
 			ref="videoElement"
 			:src="videoUrl"
-			v-bind="{...videoAttributes}"			
+			v-bind="{ ...videoAttributes }"
 		></video>
-		
+
 		<div class="poster" v-if="!loaded">
 			<img :src="poster" alt="poster" />
 			<em></em>
@@ -72,31 +72,34 @@ export default {
 	computed: {
 		videoAttributes() {
 			let attr = {}
-			if ( this.autoPlay ) attr.autoplay = "autoplay"
-			if ( this.controls ) attr.controls = "controls"
-			if ( this.loop ) attr.loop = "loop"
-			if ( this.muted ) attr.muted = "muted"
-			if ( this.preload ) attr.preload = "auto"
-			if ( this.playsInline ) attr.playsinline = "playsinline"
-			if ( this.poster ) attr.poster = this.poster
+			if (this.autoPlay) attr.autoplay = 'autoplay'
+			if (this.controls) attr.controls = 'controls'
+			if (this.loop) attr.loop = 'loop'
+			if (this.muted) attr.muted = 'muted'
+			if (this.preload) attr.preload = 'auto'
+			if (this.playsInline) attr.playsinline = 'playsinline'
+			if (this.poster) attr.poster = this.poster
 			return attr
 		}
 	},
 	methods: {
-		...mapActions([FORCE_STOP_MUSIC.action]),
+		...mapActions('ganniFm', [FORCE_STOP_MUSIC.action]),
 		videoDataHandler() {
-			if(this.videoRef.readyState >= 2) {
+			if (this.videoRef.readyState >= 2) {
 				this.loaded = true
 			}
 		}
 	},
 	mounted() {
 		if (!this.muted) this[FORCE_STOP_MUSIC.action]()
-		
+
 		this.videoRef = this.$refs['videoElement']
-		if ( this.videoRef instanceof HTMLElement ) {
-			this.videoRef.addEventListener('loadeddata', this.videoDataHandler.bind(this))
+		if (this.videoRef instanceof HTMLElement) {
+			this.videoRef.addEventListener(
+				'loadeddata',
+				this.videoDataHandler.bind(this)
+			)
 		}
 	}
-};
+}
 </script>
