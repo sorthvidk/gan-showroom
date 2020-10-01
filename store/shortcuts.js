@@ -1,5 +1,7 @@
 import {
 	SET_CURRENT_FILTER,
+	SET_GROUP_BY_IDENTIFIER,
+	SET_GROUP_BY_INDEX,
 	TOGGLE_MUSIC_PLAYER,
 	COLLECTION_LAYOUT_CHANGE
 } from '~/model/constants'
@@ -246,6 +248,10 @@ export const state = () => ({
 			posV: 6,
 			actions: [
 				{
+					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+					param: 'cotton-fun'
+				},
+				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
 					param: 'misc4'
 				},
@@ -267,17 +273,17 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI Software',
+			label: 'Drop 2 Feb!?',
 			posH: 11,
 			posV: 6,
 			actions: [
 				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc5'
+					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+					param: 'drop2-feb'
 				},
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
+					param: CollectionLayouts.GRID
 				}
 			],
 			windowContent: [
@@ -293,17 +299,21 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'accessories',
 			icon: '/img/shortcuts/acces.png',
-			label: 'Acces',
+			label: 'Jerseys',
 			posH: 12,
 			posV: 6,
 			actions: [
 				{
+					name: 'collection/' + SET_GROUP_BY_INDEX.action,
+					param: -1
+				},
+				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'acc1'
+					param: 'rtw4'
 				},
 				{
 					name: COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
+					param: CollectionLayouts.GRID
 				}
 			],
 			windowContent: [

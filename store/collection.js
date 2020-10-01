@@ -392,6 +392,10 @@ export const actions = {
 		// ex 'drop1-nov'
 		commit(SET_GROUP_BY_IDENTIFIER.mutation, groupId)
 	},
+	[SET_GROUP_BY_INDEX.action]({ commit }, groupIndex) {
+		// ex 'drop1-nov'
+		commit(SET_GROUP_BY_INDEX.mutation, groupIndex)
+	},
 	[SET_NEXT_GROUP.action]({ commit, state }) {
 		let newIndex
 		if (state.activeGroupIndex === -1) {
