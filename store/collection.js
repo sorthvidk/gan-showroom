@@ -284,42 +284,28 @@ export const mutations = {
 			name: '',
 			styleIds: []
 		}
-		if (!state.activeGroup) {
-			state.activeGroupIndex = 0
+		state.activeGroupIndex = newIndex
+		if (state.activeGroupIndex == -1) {
+			state.activeGroup = null
+			state.activeGroupIndex = -1
+
+			state.currentStyles = state.allStyles
+			state.groupFilters = state.referencedFilters
+		} else {
 			state.activeGroup = state.allGroups[state.activeGroupIndex]
 
 			state.currentStyles = state.activeGroup.styles
 			state.groupFilters = state.activeGroup.filters
-		} else {
-			state.activeGroupIndex = newIndex
-
-			//if reached end or gone before beginning, revert to ALL (= index -1)
-			if (
-				state.activeGroupIndex == state.allGroups.length ||
-				state.activeGroupIndex == -1
-			) {
-				//back to ALL
-				state.activeGroup = null
-				state.activeGroupIndex = -1
-
-				state.currentStyles = state.allStyles
-				state.groupFilters = state.referencedFilters
-			} else {
-				state.activeGroup = state.allGroups[state.activeGroupIndex]
-
-				state.currentStyles = state.activeGroup.styles
-				state.groupFilters = state.activeGroup.filters
-			}
 		}
 	},
 
 	[SET_CURRENT_FILTER.mutation](state, filterId) {
+		if (!state.activeGroup) {
+			state.currentStyles = state.allStyles
+		} else {
+			state.currentStyles = state.activeGroup.styles
+		}
 		if (!filterId || filterId == '') {
-			if (!state.activeGroup) {
-				state.currentStyles = state.allStyles
-			} else {
-				state.currentStyles = state.activeGroup.styles
-			}
 			state.activeFilter = {
 				filterId: null,
 				name: '',
@@ -337,6 +323,7 @@ export const mutations = {
 				state.currentStyles,
 				'styleId'
 			)
+			console.log('newCurrentStyles', newCurrentStyles)
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
@@ -406,16 +393,27 @@ export const actions = {
 		commit(SET_GROUP_BY_IDENTIFIER.mutation, groupId)
 	},
 	[SET_NEXT_GROUP.action]({ commit, state }) {
-		let newIndex =
-			state.activeGroupIndex === -1 ? 0 : state.activeGroupIndex + 1
-
+		let newIndex
+		if (state.activeGroupIndex === -1) {
+			//currently showing all, show first group
+			newIndex = 0
+		} else {
+			newIndex =
+				state.activeGroupIndex === state.allGroups.length - 1
+					? -1
+					: state.activeGroupIndex + 1
+		}
+		console.log('next', newIndex)
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 	[SET_PREVIOUS_GROUP.action]({ commit, state }) {
-		let newIndex =
-			state.activeGroupIndex === -1
-				? state.allGroups.length - 1
-				: state.activeGroupIndex - 1
+		let newIndex
+		if (state.activeGroupIndex === -1) {
+			//currently showing all, show last group
+			newIndex = state.allGroups.length - 1
+		} else {
+			newIndex = stte.activeGroupIndex === 0 ? -1 : state.activeGroupIndex - 1
+		}
 
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
