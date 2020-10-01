@@ -87,7 +87,7 @@ export default {
 						}
 					},
 					statusComponentProps: type.defaultStatusComponentProps,
-					windowInfo: {
+					customAssistantText: {
 						headline: 'A FILM YO!',
 						bodyText: 'Pretty coool, right?'
 					}

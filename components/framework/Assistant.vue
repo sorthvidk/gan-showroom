@@ -619,10 +619,10 @@ export default {
 				noRelevantAssistantContent = true
 			} else {
 				this.associatedWindowGroupId = this.associatedWindow.groupId
-				if (this.associatedWindow.windowInfo) {
+				if (this.associatedWindow.customAssistantText) {
 					this.assistantMode = AssistantModes.CUSTOM
 
-					this.customInfo = this.associatedWindow.windowInfo
+					this.customInfo = this.associatedWindow.customAssistantText
 				} else {
 					let component = this.associatedWindow.contentComponent,
 						componentProps = this.associatedWindow.contentComponentProps

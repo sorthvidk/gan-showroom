@@ -147,7 +147,7 @@ export default {
 			default: null
 		},
 
-		windowInfo: {
+		customAssistantText: {
 			type: Object
 		},
 

@@ -50,7 +50,7 @@
 						:content-component-props="item.contentComponentProps"
 						:group-id="item.groupId"
 						:status-component-props="item.statusComponentProps"
-						:window-info="item.windowInfo"
+						:window-info="item.customAssistantText"
 						:title="item.title"
 						:content-id="item.contentId"
 						:data-index="index"
