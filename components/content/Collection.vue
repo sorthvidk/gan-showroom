@@ -67,7 +67,6 @@ export default {
 					)
 				})
 			}
-			console.log('groups', groups)
 			return groups
 		}
 	},

@@ -18,37 +18,45 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
-	allStyles: [],
-	allFilters: [],
-	allGroups: [],
+	//all indexasion done
+	dataIndexComplete: false,
+
+	//loaded from json
 	allMediaAssets: [],
 
-	dataIndexComplete: false,
-	assetsConnected: false,
-
+	//loaded from json
+	allStyles: [],
+	//currently active in app
 	currentStyles: [],
 
+	//loaded from json
+	allGroups: [],
+	//currently active in app
 	activeGroup: null,
 	activeGroupIndex: -1,
 
-	availableFilters: null,
-
+	//loaded from json
+	allFilters: [],
+	//currently available in app
+	referencedFilters: [],
+	//currently available in active group
 	groupFilters: null,
 
+	//currently active filter in assistent
 	activeFilter: {
 		filterId: null,
 		name: '',
 		styleIds: []
 	},
 
+	//new list
 	wishList: []
 })
 
 export const mutations = {
 	[INDEX_COLLECTION_DATA.mutation](state) {
-		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')
-
 		if (state.dataIndexComplete) return false
+		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')
 
 		// save lengths
 		let al = state.allMediaAssets.length
@@ -86,7 +94,7 @@ export const mutations = {
 			style.onWishList = false
 		}
 
-		state.availableFilters = []
+		state.referencedFilters = []
 
 		//parse all styles into groups, make deep copies!
 		for (var i = 0; i < cl; i++) {
@@ -96,6 +104,11 @@ export const mutations = {
 			let stateGroup = state.allGroups.filter(
 				e => e.groupId === style.groupId
 			)[0]
+			if (window.GS_LOGS)
+				console.warn(
+					'ADD STYLE ' + style.styleId + ' TO GROUP:',
+					stateGroup.groupId
+				)
 			let clonedStyle = JSON.parse(JSON.stringify(style))
 			stateGroup.styles.push(clonedStyle)
 		}
@@ -103,11 +116,13 @@ export const mutations = {
 		//parse groups
 		for (var j = 0; j < gl; j++) {
 			let stateGroup = state.allGroups[j]
+			let stateGroupId = stateGroup.groupId
 
 			//go through all styles in group
 			let gsl = stateGroup.styles.length
 			for (var k = 0; k < gsl; k++) {
 				let style = stateGroup.styles[k]
+				let styleId = style.styleId
 
 				//extrapolate filters from styles
 				let fl = style.filters.length
@@ -117,21 +132,66 @@ export const mutations = {
 						e => e.filterId === styleFilterId
 					)[0]
 
-					//clone filter, add to stategroup filters and availableFilters (=ALL)
-
+					//clone filter, check for existence in stateGroup.filters, then add
 					let clonedFilter = JSON.parse(JSON.stringify(stateFilter))
 					var foundStateGroupFilter = stateGroup.filters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
-					if (!foundStateGroupFilter) stateGroup.filters.push(clonedFilter)
+					if (!foundStateGroupFilter) {
+						clonedFilter.styleIds.push(styleId)
+						stateGroup.filters.push(clonedFilter)
+						if (window.GS_LOGS)
+							console.warn(
+								'FILTER ' +
+									styleFilterId +
+									' NOT IN GROUP "' +
+									stateGroupId +
+									'" FILTERS, ADD AND PUSH STYLE "' +
+									styleId +
+									'"'
+							)
+					} else {
+						foundStateGroupFilter.styleIds.push(styleId)
+						if (window.GS_LOGS)
+							console.warn(
+								'FILTER ' +
+									styleFilterId +
+									' ALREADY IN GROUP "' +
+									stateGroupId +
+									'" FILTERS, JUST PUSH STYLE "' +
+									styleId +
+									'"'
+							)
+					}
 
+					//clone again, check for existence in referencedFilters array
 					let clonedFilter2 = JSON.parse(JSON.stringify(stateFilter))
-					clonedFilter2.styleIds.push(style.styleId)
-					var foundAvailableFilter = state.availableFilters.filter(
+					var foundReferencedFilter = state.referencedFilters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
-					if (!foundAvailableFilter) state.availableFilters.push(clonedFilter2)
-					else foundAvailableFilter.styleIds.push(style.styleId)
+
+					if (!foundReferencedFilter) {
+						clonedFilter2.styleIds.push(styleId)
+						state.referencedFilters.push(clonedFilter2)
+						if (window.GS_LOGS)
+							console.warn(
+								'FILTER ' +
+									styleFilterId +
+									' NOT IN REF FILTERS, ADD AND PUSH STYLE "' +
+									styleId +
+									'"'
+							)
+					} else {
+						foundReferencedFilter.styleIds.push(styleId)
+						if (window.GS_LOGS)
+							console.warn(
+								'FILTER ' +
+									styleFilterId +
+									' ALREADY IN REF FILTERS, PUSH STYLE "' +
+									styleId +
+									'"'
+							)
+					}
 				}
 			}
 		}
@@ -161,7 +221,7 @@ export const mutations = {
 		}
 
 		//sort filters by order
-		state.availableFilters = state.availableFilters.sort((a, b) =>
+		state.referencedFilters = state.referencedFilters.sort((a, b) =>
 			a.order > b.order ? 1 : -1
 		)
 
@@ -170,8 +230,8 @@ export const mutations = {
 			a.order > b.order ? 1 : -1
 		)
 
-		//set groupFilters to savailableFilters (= ALL)
-		state.groupFilters = state.availableFilters
+		//set groupFilters to sreferencedFilters (= ALL)
+		state.groupFilters = state.referencedFilters
 
 		//sort styles by program desc and weight asc
 		state.allStyles = sortArrayMultipleProps(
@@ -201,7 +261,7 @@ export const mutations = {
 			state.activeGroupIndex = -1
 
 			state.currentStyles = state.allStyles
-			state.groupFilters = state.availableFilters
+			state.groupFilters = state.referencedFilters
 		} else {
 			state.activeGroup = state.allGroups.filter(e => e.groupId === groupId)[0]
 			state.activeGroupIndex = state.allGroups.indexOf(state.activeGroup)
@@ -212,6 +272,9 @@ export const mutations = {
 	},
 
 	[SET_GROUP_BY_INDEX.mutation](state, newIndex) {
+		if (window.GS_LOGS)
+			console.warn('SET_GROUP_BY_INDEX | newIndex=' + newIndex)
+		//
 		state.activeFilter = {
 			filterId: null,
 			name: '',
@@ -236,7 +299,7 @@ export const mutations = {
 				state.activeGroupIndex = -1
 
 				state.currentStyles = state.allStyles
-				state.groupFilters = state.availableFilters
+				state.groupFilters = state.referencedFilters
 			} else {
 				state.activeGroup = state.allGroups[state.activeGroupIndex]
 
@@ -341,11 +404,17 @@ export const actions = {
 		commit(SET_GROUP_BY_IDENTIFIER.mutation, groupId)
 	},
 	[SET_NEXT_GROUP.action]({ commit, state }) {
-		let newIndex = state.activeGroupIndex + 1
+		let newIndex =
+			state.activeGroupIndex === -1 ? 0 : state.activeGroupIndex + 1
+
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
-	[SET_PREVIOUS_GROUP.action]({ commit }) {
-		let newIndex = state.activeGroupIndex - 1
+	[SET_PREVIOUS_GROUP.action]({ commit, state }) {
+		let newIndex =
+			state.activeGroupIndex === -1
+				? state.allGroups.length - 1
+				: state.activeGroupIndex - 1
+
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {

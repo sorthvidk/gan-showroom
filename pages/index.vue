@@ -21,7 +21,6 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 import getShortUrl from '~/utils/get-short-url'
 
 import {
-	CONNECT_ASSETS,
 	INDEX_COLLECTION_DATA,
 	INIT_PROGRESS,
 	VISIBILITY
@@ -84,7 +83,6 @@ export default {
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
-		this.$store.commit(CONNECT_ASSETS.mutation)
 		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 		this.$store.commit(INIT_PROGRESS.mutation)
 

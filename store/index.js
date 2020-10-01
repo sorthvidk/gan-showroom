@@ -12,8 +12,6 @@ import {
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	CONNECT_ASSETS,
-	FILTER_COLLECTION,
 	COLLECTION_LAYOUT_CHANGE,
 	INIT_PROGRESS,
 	KEYPRESS,
@@ -219,10 +217,6 @@ export const mutations = {
 
 		if (!props.text) return false
 		props.text = misc.ditteLetter
-	},
-
-	[CONNECT_ASSETS.mutation](state) {
-		//OUT OF SERVICE
 	},
 
 	/*
@@ -491,11 +485,6 @@ export const mutations = {
 }
 
 export const actions = {
-	//first action, injects assets into collection
-	[CONNECT_ASSETS.action]({ commit }) {
-		commit(CONNECT_ASSETS.mutation)
-	},
-
 	[LOGIN.action]({ commit }, authorized) {
 		commit(LOGIN.mutation, authorized)
 	},
