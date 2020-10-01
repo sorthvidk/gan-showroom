@@ -413,10 +413,12 @@ export const mutations = {
 		if (groupsLength < 1) return false
 
 		let windowGroup = state.windowGroupList[groupsLength - 1] //get latest group
-		if (params && params.styleWindowGroup)
+
+		if (params && params.styleWindowGroup) {
 			windowGroup = state.windowGroupList.filter(
 				e => e.styleWindowGroup === true
 			)[0]
+		}
 
 		if (!windowGroup) return false
 
@@ -547,8 +549,8 @@ export const actions = {
 	[OPEN_CONTENT.action]({ commit }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 	},
-	[CLOSE_WINDOW_GROUP.action]({ commit }) {
-		commit(CLOSE_WINDOW_GROUP.mutation)
+	[CLOSE_WINDOW_GROUP.action]({ commit }, params) {
+		commit(CLOSE_WINDOW_GROUP.mutation, params)
 	},
 	[UPDATE_WINDOW.action]({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)

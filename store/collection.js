@@ -342,26 +342,22 @@ export const mutations = {
 			asset.visible = true
 		}
 	},
-	[ADD_TO_WISHLIST.mutation](state, styleItem) {
-		if (styleItem.onWishList) return false
+	[ADD_TO_WISHLIST.mutation](state, styleId) {
+		console.log('ADD', styleId)
+		let listStyle = state.allStyles.filter(e => e.styleId === styleId)[0]
+		if (listStyle.onWishList) return false
 		else {
-			let listStyle = state.allStyles.filter(
-				e => e.styleId === styleItem.styleId
-			)[0]
 			listStyle.onWishList = true
-			state.wishList.push(styleItem)
+			state.wishList.push(listStyle)
 		}
 	},
-	[REMOVE_FROM_WISHLIST.mutation](state, styleItem) {
-		if (!styleItem.onWishList) return false
+	[REMOVE_FROM_WISHLIST.mutation](state, styleId) {
+		console.log('REMOVE', styleId)
+		let listStyle = state.allStyles.filter(e => e.styleId === styleId)[0]
+		if (!listStyle.onWishList) return false
 		else {
-			let listStyle = state.allStyles.filter(
-				e => e.styleId === styleItem.styleId
-			)[0]
 			listStyle.onWishList = false
-			state.wishList = state.wishList.filter(
-				e => e.styleId !== styleItem.styleId
-			)
+			state.wishList = state.wishList.filter(e => e.styleId !== styleId)
 		}
 	},
 	[SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
@@ -388,15 +384,25 @@ export const actions = {
 		// ex 'c2'
 		commit(SET_CURRENT_FILTER.mutation, filterId)
 	},
-	[SET_GROUP_BY_IDENTIFIER.action]({ commit }, groupId) {
+	[SET_GROUP_BY_IDENTIFIER.action]({ commit, dispatch }, groupId) {
 		// ex 'drop1-nov'
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 		commit(SET_GROUP_BY_IDENTIFIER.mutation, groupId)
 	},
-	[SET_GROUP_BY_INDEX.action]({ commit }, groupIndex) {
+	[SET_GROUP_BY_INDEX.action]({ commit, dispatch }, groupIndex) {
 		// ex 'drop1-nov'
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 		commit(SET_GROUP_BY_INDEX.mutation, groupIndex)
 	},
-	[SET_NEXT_GROUP.action]({ commit, state }) {
+	[SET_NEXT_GROUP.action]({ commit, state, dispatch }) {
 		let newIndex
 		if (state.activeGroupIndex === -1) {
 			//currently showing all, show first group
@@ -407,18 +413,26 @@ export const actions = {
 					? -1
 					: state.activeGroupIndex + 1
 		}
-		console.log('next', newIndex)
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
-	[SET_PREVIOUS_GROUP.action]({ commit, state }) {
+	[SET_PREVIOUS_GROUP.action]({ commit, state, dispatch }) {
 		let newIndex
 		if (state.activeGroupIndex === -1) {
 			//currently showing all, show last group
 			newIndex = state.allGroups.length - 1
 		} else {
-			newIndex = stte.activeGroupIndex === 0 ? -1 : state.activeGroupIndex - 1
+			newIndex = state.activeGroupIndex === 0 ? -1 : state.activeGroupIndex - 1
 		}
-
+		dispatch(
+			CLOSE_WINDOW_GROUP.action,
+			{ styleWindowGroup: true },
+			{ root: true }
+		)
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 	[SHOW_PREVIOUS_STYLE.action]({ commit, dispatch, state }, styleId) {

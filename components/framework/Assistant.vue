@@ -490,6 +490,8 @@ import {
 	CLOSE_WINDOW_GROUP,
 	SHOW_NEXT_STYLE,
 	SHOW_PREVIOUS_STYLE,
+	SET_NEXT_GROUP,
+	SET_PREVIOUS_GROUP,
 	OPEN_WISH_LIST,
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
@@ -540,6 +542,7 @@ export default {
 			activeGroup: state => state.collection.activeGroup,
 			groupFilters: state => state.collection.groupFilters,
 			wishList: state => state.collection.wishList,
+			allStyles: state => state.collection.allStyles,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
 			activeFilter: state => state.collection.activeFilter,
@@ -592,10 +595,14 @@ export default {
 			if (event.key === 'ArrowLeft') {
 				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
 					this.previousStyleHandler()
+				} else if (this.assistantMode === AssistantModes.FILTER_COLLECTION) {
+					this.previousGroupHandler()
 				}
 			} else if (event.key === 'ArrowRight') {
 				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
 					this.nextStyleHandler()
+				} else if (this.assistantMode === AssistantModes.FILTER_COLLECTION) {
+					this.nextGroupHandler()
 				}
 			} else if (event.code === 'Space') {
 				if (this.assistantMode === AssistantModes.STYLE_DETAILS) {
@@ -638,7 +645,7 @@ export default {
 						case ContentTypes.videoLandscape.contentComponent:
 						case ContentTypes.videoSquare.contentComponent:
 							if (componentProps.asset && componentProps.asset.styleId) {
-								this.currentStyle = this.currentStyles.filter(
+								this.currentStyle = this.allStyles.filter(
 									e => e.styleId === componentProps.asset.styleId
 								)[0]
 								this.parseAssets()
@@ -704,7 +711,9 @@ export default {
 			'collection/' + ADD_TO_WISHLIST.action,
 			'collection/' + REMOVE_FROM_WISHLIST.action,
 			'collection/' + SHOW_PREVIOUS_STYLE.action,
-			'collection/' + SHOW_NEXT_STYLE.action
+			'collection/' + SHOW_NEXT_STYLE.action,
+			'collection/' + SET_PREVIOUS_GROUP.action,
+			'collection/' + SET_NEXT_GROUP.action
 		]),
 		viewWishListClickHandler() {
 			//VIEW WISHLIST
@@ -717,6 +726,12 @@ export default {
 		},
 		nextStyleHandler() {
 			this['collection/' + SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+		},
+		previousGroupHandler() {
+			this['collection/' + SET_PREVIOUS_GROUP.action]()
+		},
+		nextGroupHandler() {
+			this['collection/' + SET_NEXT_GROUP.action]()
 		},
 		closeStyleHandler() {
 			this[CLOSE_WINDOW_GROUP.action]()
@@ -731,7 +746,7 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
-				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle)
+				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle.styleId)
 
 				this.styleHasBeenAdded = true
 				setTimeout(() => {
@@ -739,9 +754,12 @@ export default {
 				}, 4000)
 
 				sendTracking('Add to wish list', this.currentStyle.styleId)
-			} else {
-				// this['collection/' + REMOVE_FROM_WISHLIST.action](this.currentStyle)
 			}
+			// else {
+			// 	this['collection/' + REMOVE_FROM_WISHLIST.action](
+			// 		this.currentStyle.styleId
+			// 	)
+			// }
 		},
 		downloadCollectionClickHandler() {
 			if (window.GS_LOGS) console.log('Download collection')
