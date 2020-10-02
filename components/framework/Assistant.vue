@@ -722,24 +722,22 @@ export default {
 			this[OPEN_WISH_LIST.action]()
 		},
 		previousStyleHandler() {
-			this['collection/' + SHOW_PREVIOUS_STYLE.action](
-				this.currentStyle.styleId
-			)
+			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
 		},
 		nextStyleHandler() {
-			this['collection/' + SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 		},
 		previousGroupHandler() {
-			this['collection/' + SET_PREVIOUS_GROUP.action]()
+			this[SET_PREVIOUS_GROUP.action]()
 		},
 		nextGroupHandler() {
-			this['collection/' + SET_NEXT_GROUP.action]()
+			this[SET_NEXT_GROUP.action]()
 		},
 		closeStyleHandler() {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 		showAllVariantsClickHandler() {
-			this['collection/' + ALL_ASSETS_VISIBLE.action](this.currentStyle)
+			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
 				addToGroupId: this.associatedWindowGroupId
@@ -748,7 +746,7 @@ export default {
 		},
 		addToWishListClickHandler() {
 			if (!this.styleOnWishList) {
-				this['collection/' + ADD_TO_WISHLIST.action](this.currentStyle.styleId)
+				this[ADD_TO_WISHLIST.action](this.currentStyle.styleId)
 
 				this.styleHasBeenAdded = true
 				setTimeout(() => {
