@@ -100,11 +100,13 @@ export default {
 		//add clear timeout listeners
 		document.body.addEventListener(
 			'click',
-			this.toggleScreenSaver.bind(this, false, true)
+			() =>
+				this.screensaverActive && this.toggleScreenSaver.bind(this, false, true)
 		)
 		document.body.addEventListener(
 			'mousemove',
-			this.toggleScreenSaver.bind(this, false, true)
+			() =>
+				this.screensaverActive && this.toggleScreenSaver.bind(this, false, true)
 		)
 	}
 }

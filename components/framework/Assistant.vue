@@ -565,7 +565,7 @@ export default {
 			return 'Download all'
 		},
 		styleOnWishList() {
-			return this.currentStyle.onWishList
+			return this.wishList.find(s => s.styleId === this.currentStyle.styleId)
 		},
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0

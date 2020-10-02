@@ -328,7 +328,7 @@ export default {
 			this.openMusicPlayer()
 		}
 
-		this.$store.commit('collection/isOnWishList')
+		// this.$store.commit('collection/isOnWishList')
 	},
 
 	created() {}
