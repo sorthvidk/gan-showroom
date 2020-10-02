@@ -538,14 +538,16 @@ export default {
 	},
 	computed: {
 		...mapState({
-			activeGroup: state => state.collection.activeGroup,
-			groupFilters: state => state.collection.groupFilters,
-			wishList: state => state.collection.wishList,
-			allStyles: state => state.collection.allStyles,
-			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter
+			topMostWindow: state => state.topMostWindow
 		}),
+		...mapState('collection', [
+			'activeGroup',
+			'groupFilters',
+			'wishList',
+			'allStyles',
+			'currentStyles',
+			'activeFilter'
+		]),
 		...mapState('collage', ['collageIsOpen', 'clothes']),
 		...mapState('user', ['keyPressed']),
 		...mapState('utils', ['clipBoardCopyComplete']),
@@ -578,8 +580,16 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (this.activeFilter.filterId) {
-				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			const filterParam = this.activeFilter.filterId
+				? 'filter=' + this.activeFilter.filterId
+				: ''
+			const groupParam = this.activeGroup
+				? 'group=' + this.activeGroup.groupId
+				: ''
+			const delimiter = filterParam && groupParam ? '&' : ''
+
+			if (filterParam || groupParam) {
+				return `${window.location}export/?${filterParam}${delimiter}${groupParam}`
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`
@@ -745,6 +755,7 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
+			console.log(this.currentStyle, this.styleOnWishList)
 			if (!this.styleOnWishList) {
 				this[ADD_TO_WISHLIST.action](this.currentStyle.styleId)
 

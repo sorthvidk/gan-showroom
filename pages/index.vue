@@ -12,6 +12,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
+// import IdleVue from 'idle-vue'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
@@ -36,6 +37,7 @@ export default {
 	computed: {
 		...mapState('utils', ['screensaverActive']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted'])
+		// ...mapState('idleVue', ['isIdle'])
 	},
 	head() {
 		return {

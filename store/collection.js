@@ -59,6 +59,14 @@ export const state = () => ({
 })
 
 export const mutations = {
+	isOnWishList(state) {
+		state.allStyles = state.allStyles.map(style => {
+			const sameStyleId = e => e.styleId === style.styleId
+			style.onWishList = state.wishList.find(sameStyleId)
+			return style
+		})
+	},
+
 	[INDEX_COLLECTION_DATA.mutation](state) {
 		if (state.dataIndexComplete) return false
 		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')

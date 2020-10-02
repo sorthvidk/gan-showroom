@@ -32,6 +32,7 @@
 		"cloudinary-core": "^2.8.2",
 		"gsap": "^2.1.2",
 		"hash.js": "^1.1.7",
+		"idle-vue": "^2.0.5",
 		"intersection-observer": "^0.5.1",
 		"konva": "^6.0.0",
 		"lazysizes": "^5.2.0",
