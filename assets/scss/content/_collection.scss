@@ -266,14 +266,22 @@
 		align-items: center;
 		margin: 0 auto;
 		button {
-			background: #eee;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
+			font-weight: bold;
+			line-height: 1;
+			flex: 0 0 rem(30);
+			width: rem(30);
+			height: rem(35);
+
+			&:hover {
+				background-color: $color-lightgrey;
+			}
 		}
 		p {
 			display: block;
-			width: rem(200);
+			width: rem(160);
 			padding: 0 rem(10);
 			@include headline();
 			text-align: center;
