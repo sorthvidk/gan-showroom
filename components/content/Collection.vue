@@ -46,12 +46,12 @@ export default {
 		CollectionItem
 	},
 	computed: {
-		...mapState({
-			collectionLayout: state => state.collectionLayout,
-			currentStyles: state => state.collection.currentStyles,
-			allGroups: state => state.collection.allGroups,
-			activeGroup: state => state.collection.activeGroup
-		}),
+		...mapState([
+			'collectionLayout',
+			'currentStyles',
+			'allGroups',
+			'activeGroup'
+		]),
 
 		groupsRenderList() {
 			let groups = []

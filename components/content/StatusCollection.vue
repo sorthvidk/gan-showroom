@@ -67,12 +67,12 @@ import {
 export default {
 	name: 'status-collection',
 	computed: {
-		...mapState({
-			collectionLayout: state => state.collectionLayout,
-			currentStyles: state => state.collection.currentStyles,
-			collectionGroups: state => state.collection.groups,
-			activeGroup: state => state.collection.activeGroup
-		}),
+		...mapState('collection', [
+			'collectionLayout',
+			'currentStyles',
+			'collectionGroups',
+			'activeGroup'
+		]),
 		text() {
 			return this.currentStyles.length + ' items'
 		},
@@ -97,10 +97,10 @@ export default {
 			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.FUN)
 		},
 		groupPrevHandler() {
-			this['collection/' + SET_PREVIOUS_GROUP.action]()
+			this[SET_PREVIOUS_GROUP.action]()
 		},
 		groupNextHandler() {
-			this['collection/' + SET_NEXT_GROUP.action]()
+			this[SET_NEXT_GROUP.action]()
 		}
 	}
 }
