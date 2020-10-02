@@ -12,6 +12,7 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
+// import IdleVue from 'idle-vue'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
@@ -36,6 +37,7 @@ export default {
 	computed: {
 		...mapState('utils', ['screensaverActive']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted'])
+		// ...mapState('idleVue', ['isIdle'])
 	},
 	head() {
 		return {
@@ -62,12 +64,12 @@ export default {
 	methods: {
 		...mapActions('utils', [VISIBILITY.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
-			if (appTabUnfocused) {
-				this.debounce(
-					() => this[VISIBILITY.action](appTabUnfocused),
-					immediate ? 0 : this.countdownTime
-				)
-			}
+			// if (appTabUnfocused) {
+			this.debounce(
+				() => this[VISIBILITY.action](appTabUnfocused),
+				immediate ? 0 : this.countdownTime
+			)
+			// }
 		},
 		/**
 		 * debounce,
@@ -98,11 +100,13 @@ export default {
 		//add clear timeout listeners
 		document.body.addEventListener(
 			'click',
-			this.toggleScreenSaver.bind(this, false, true)
+			() =>
+				this.screensaverActive && this.toggleScreenSaver.bind(this, false, true)
 		)
 		document.body.addEventListener(
 			'mousemove',
-			this.toggleScreenSaver.bind(this, false, true)
+			() =>
+				this.screensaverActive && this.toggleScreenSaver.bind(this, false, true)
 		)
 	}
 }

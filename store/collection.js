@@ -59,6 +59,14 @@ export const state = () => ({
 })
 
 export const mutations = {
+	// isOnWishList(state) {
+	// 	state.allStyles = state.allStyles.map(style => {
+	// 		const sameStyleId = e => e.styleId === style.styleId
+	// 		style.onWishList = state.wishList.find(sameStyleId) ? true : false
+	// 		return style
+	// 	})
+	// },
+
 	[INDEX_COLLECTION_DATA.mutation](state) {
 		if (state.dataIndexComplete) return false
 		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')
@@ -349,19 +357,14 @@ export const mutations = {
 	},
 	[ADD_TO_WISHLIST.mutation](state, styleId) {
 		console.log('ADD', styleId)
-		let listStyle = state.allStyles.filter(e => e.styleId === styleId)[0]
-		if (listStyle.onWishList) return false
-		else {
-			listStyle.onWishList = true
+		let listStyle = state.allStyles.find(e => e.styleId === styleId)
+		if (!state.wishList.find(s => s.styleId === styleId)) {
 			state.wishList.push(listStyle)
 		}
 	},
 	[REMOVE_FROM_WISHLIST.mutation](state, styleId) {
 		console.log('REMOVE', styleId)
-		let listStyle = state.allStyles.filter(e => e.styleId === styleId)[0]
-		if (!listStyle.onWishList) return false
-		else {
-			listStyle.onWishList = false
+		if (state.wishList.find(s => s.styleId === styleId)) {
 			state.wishList = state.wishList.filter(e => e.styleId !== styleId)
 		}
 	},
