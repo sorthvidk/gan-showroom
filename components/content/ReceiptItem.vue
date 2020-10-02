@@ -5,21 +5,21 @@
 				<td rowspan="4" class="image">
 					<img style="width: 3cm;" :src="imageUrl" alt />
 				</td>
-				<td colspan="2" class="title">{{receiptItem.name}}</td>
+				<td colspan="2" class="title">{{ receiptItem.name }}</td>
 			</tr>
 			<!-- <tr>
 			</tr>-->
 			<tr>
 				<td style="color: #666; padding-right: 5em;">Color</td>
-				<td>{{receiptItem.colorNames}}</td>
+				<td>{{ receiptItem.colorNames }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Style #</td>
-				<td>{{receiptItem.styleId}}</td>
+				<td>{{ receiptItem.styleId }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Program name</td>
-				<td>{{receiptItem.programName}}</td>
+				<td>{{ receiptItem.programName }}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -38,9 +38,11 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
-				width: 196
-			})
+			return this.receiptItem.assets[0]
+				? getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
+						width: 196
+				  })
+				: ''
 		}
 	}
 }

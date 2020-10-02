@@ -36,17 +36,17 @@ export default {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?
 		},
 		filterGroup() {
-			this.group
+			return this.group
 				? this.usableStyles.filter(s => s.groupId === this.group)
 				: this.usableStyles
 		},
 		filterFilter() {
-			this.filter
-				? this.filterGroup.filter(s => s.filterId === this.filter)
+			return this.filter
+				? this.filterGroup.filter(s => s.filters.includes(this.filter))
 				: this.filterGroup
 		},
 		filterStyles() {
-			this.styles
+			return this.styles
 				? this.filterFilter.filter(s => this.styles.includes(s.styleId))
 				: this.filterFilter
 		},
@@ -60,15 +60,13 @@ export default {
 			const styles = url.searchParams.get('styles')
 			this.filter = url.searchParams.get('filter')
 			this.group = url.searchParams.get('group')
-
-			// /receipt <- shows all styles
-			// /receipt/?styles=F5987334,F8907234,F1121095 <- shows those three styles
-			// /receipt/?styles=c1 <- shows that filter/category
-			// /receipt/?styles=F5987334,LEOPARD%20PRINT <- shows that style, and all leopard-print-styles
-
-			console.log(this.filter, this.group)
-
 			this.styles = styles && styles.split(',')
+
+			// example urls to show all styles with filter in a group:
+			// http://localhost:3000/export/?filter=rtw10&group=drop1-nov
+
+			// example to show a list of styles:
+			// http://localhost:3000/export/?styles=T2685,T2692
 		}
 	},
 	mounted() {

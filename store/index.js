@@ -43,13 +43,6 @@ export const mutations = {
 		state.rehydrated = true
 	},
 
-	isOnWishList(state) {
-		state.collection.allStyles.forEach(style => {
-			const sameStyleId = e => e.styleId === style.styleId
-			style.onWishList = state.collection.wishList.find(sameStyleId)
-		})
-	},
-
 	[RESET_STATE.mutation](state) {
 		state.collection.wishList = []
 		state.progressBar.progressPct = 0

@@ -538,14 +538,16 @@ export default {
 	},
 	computed: {
 		...mapState({
-			activeGroup: state => state.collection.activeGroup,
-			groupFilters: state => state.collection.groupFilters,
-			wishList: state => state.collection.wishList,
-			allStyles: state => state.collection.allStyles,
-			currentStyles: state => state.collection.currentStyles,
-			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter
+			topMostWindow: state => state.topMostWindow
 		}),
+		...mapState('collection', [
+			'activeGroup',
+			'groupFilters',
+			'wishList',
+			'allStyles',
+			'currentStyles',
+			'activeFilter'
+		]),
 		...mapState('collage', ['collageIsOpen', 'clothes']),
 		...mapState('user', ['keyPressed']),
 		...mapState('utils', ['clipBoardCopyComplete']),
@@ -753,6 +755,7 @@ export default {
 			this.hiddenAssetContent = []
 		},
 		addToWishListClickHandler() {
+			console.log(this.currentStyle, this.styleOnWishList)
 			if (!this.styleOnWishList) {
 				this[ADD_TO_WISHLIST.action](this.currentStyle.styleId)
 
