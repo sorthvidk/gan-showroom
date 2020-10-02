@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: releases/2020-july
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  branch: feature/group-password
 
 # when using the default proxy server port
 local_backend: true
@@ -30,7 +31,7 @@ collections:
           - { label: 'Ditte Letter', name: 'ditteLetter', widget: 'text' }
 
   - name: 'collectionItems'
-    sortableFields: ['styleId']
+    sortable_fields: ['styleId']
     label: 'Collection item'
     folder: 'assets/content/collectionItems'
     summary: 'Style {{styleId}}: {{name}}'
@@ -53,9 +54,9 @@ collections:
           multiple: true,
           required: false,
           collection: 'collectionFilters',
-          searchFields: ['name'],
-          valueField: 'filterId',
-          displayFields: ['name'],
+          search_fields: ['name'],
+          value_field: 'filterId',
+          display_fields: ['name'],
           default: [],
           hint: 'List of filters, the style will appear under',
         }
@@ -66,9 +67,9 @@ collections:
           multiple: true,
           required: false,
           collection: 'collectionGroups',
-          searchFields: ['name'],
-          valueField: 'groupId',
-          displayFields: ['name'],
+          search_fields: ['name'],
+          value_field: 'groupId',
+          display_fields: ['name'],
           default: '',
           hint: 'Which group, the style belongs to, ex. Drop 1',
         }
@@ -176,7 +177,7 @@ collections:
       - { name: 'onWishList', default: false, widget: 'hidden' }
 
   - name: 'collectionFilters'
-    sortableFields: ['filterId']
+    sortable_fields: ['filterId']
     label: 'Collection filter'
     summary: "Filter {{filterId}}: '{{name}}'"
     folder: 'assets/content/collectionFilters'
@@ -210,7 +211,7 @@ collections:
       - { name: 'styleIds', default: [], widget: 'hidden' }
 
   - name: 'collectionGroups'
-    sortableFields: ['groupId']
+    sortable_fields: ['groupId']
     label: 'Collection group'
     summary: "Group {{groupId}}: '{{name}}'"
     folder: 'assets/content/collectionGroups'
@@ -245,7 +246,7 @@ collections:
       - { name: 'filters', default: [], widget: 'hidden' }
 
   - name: 'mediaAssets'
-    sortableFields: ['styleId']
+    sortable_fields: ['styleId']
     summary: 'Style {{styleId}}: {{name}} asset ({{assetId}})'
     label: 'Media asset'
     folder: 'assets/content/mediaAssets'
@@ -266,9 +267,9 @@ collections:
           name: 'styleId',
           widget: 'relation',
           collection: 'collectionItems',
-          searchFields: ['styleId', 'name'],
-          valueField: 'styleId',
-          displayFields: ['styleId', 'name'],
+          search_fields: ['styleId', 'name'],
+          value_field: 'styleId',
+          display_fields: ['styleId', 'name'],
           hint: 'Reference to unique style ID',
         }
       - {
@@ -314,7 +315,7 @@ collections:
         }
 
   - name: 'films'
-    sortableFields: ['filmId']
+    sortable_fields: ['filmId']
     label: 'Films item'
     summary: "Film {{filmId}}: '{{filmName}}'"
     folder: 'assets/content/films'
@@ -350,7 +351,7 @@ collections:
         }
 
   - name: 'ganniGirls'
-    sortableFields: ['postId']
+    sortable_fields: ['postId']
     summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
     label: 'Ganni Girls post'
     folder: 'assets/content/ganniGirls'
@@ -414,7 +415,7 @@ collections:
     summary: 'Item {{itemId}}'
     label: 'Lookbook item'
     folder: 'assets/content/lookBook'
-    sortableFields: ['itemId']
+    sortable_fields: ['itemId']
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{itemId}}'
@@ -440,4 +441,28 @@ collections:
           options: ['video', 'image'],
           hint: 'Either image or video',
           default: 'image',
+        }
+
+  - name: 'passwords'
+    sortable_fields: ['passwordId']
+    label: 'Passwords'
+    summary: '{{passwordId}}'
+    folder: 'assets/content/passwords'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{passwordId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Id',
+          name: 'passwordId',
+          widget: 'string',
+          hint: 'A memorable name used for references',
+        }
+      - {
+          label: 'password',
+          name: 'hash',
+          widget: 'string',
+          hint: 'A SHA256 representation of the password. Type your password in the textfield here: https://passwordsgenerator.net/sha256-hash-generator/ and copy/paste the output. ex. 16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009',
         }
