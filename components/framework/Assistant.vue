@@ -696,9 +696,12 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action, OPEN_WISH_LIST.action]),
+		...mapActions([
+			OPEN_CONTENT.action,
+			OPEN_WISH_LIST.action,
+			CLOSE_WINDOW_GROUP.action
+		]),
 		...mapActions('collection', [
-			CLOSE_WINDOW_GROUP.action,
 			ALL_ASSETS_VISIBLE.action,
 			SET_CURRENT_FILTER.action,
 			ADD_TO_WISHLIST.action,
