@@ -62,12 +62,12 @@ export default {
 	methods: {
 		...mapActions('utils', [VISIBILITY.action]),
 		toggleScreenSaver(appTabUnfocused, immediate) {
-			if (appTabUnfocused) {
-				this.debounce(
-					() => this[VISIBILITY.action](appTabUnfocused),
-					immediate ? 0 : this.countdownTime
-				)
-			}
+			// if (appTabUnfocused) {
+			this.debounce(
+				() => this[VISIBILITY.action](appTabUnfocused),
+				immediate ? 0 : this.countdownTime
+			)
+			// }
 		},
 		/**
 		 * debounce,
