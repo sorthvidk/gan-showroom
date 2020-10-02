@@ -34,7 +34,7 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState(['screensaverActive']),
+		...mapState('utils', ['screensaverActive']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted'])
 	},
 	head() {

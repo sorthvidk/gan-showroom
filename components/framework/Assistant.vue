@@ -544,11 +544,11 @@ export default {
 			allStyles: state => state.collection.allStyles,
 			currentStyles: state => state.collection.currentStyles,
 			topMostWindow: state => state.topMostWindow,
-			activeFilter: state => state.collection.activeFilter,
-			clipBoardCopyComplete: state => state.clipBoardCopyComplete
+			activeFilter: state => state.collection.activeFilter
 		}),
 		...mapState('collage', ['collageIsOpen', 'clothes']),
 		...mapState('user', ['keyPressed']),
+		...mapState('utils', ['clipBoardCopyComplete']),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},

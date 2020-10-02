@@ -182,16 +182,15 @@ export default {
 		Support
 	},
 	computed: {
-		...mapState([
-			'wallpaperIndex',
-			'windowList',
-			'clipBoardCopyComplete',
-			'downloadPreparing',
-			'screensaverActive'
-		]),
+		...mapState(['wallpaperIndex', 'windowList']),
 		...mapState('collage', ['webcamImage']),
 		...mapState('shortcuts', ['list']),
 		...mapState('user', ['copyrightAccepted', 'mousepos']),
+		...mapState('utils', [
+			'downloadPreparing',
+			'clipBoardCopyComplete',
+			'screensaverActive'
+		]),
 		desktopIcons() {
 			return this.list.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
