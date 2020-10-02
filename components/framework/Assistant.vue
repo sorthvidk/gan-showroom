@@ -578,8 +578,16 @@ export default {
 				.join(',')}`
 		},
 		collectionUrl() {
-			if (this.activeFilter.filterId) {
-				return `${window.location}export/?styles=${this.activeFilter.filterId}`
+			const filterParam = this.activeFilter.filterId
+				? 'filter=' + this.activeFilter.filterId
+				: ''
+			const groupParam = this.activeGroup
+				? 'group=' + this.activeGroup.groupId
+				: ''
+			const delimiter = filterParam && groupParam ? '&' : ''
+
+			if (filterParam || groupParam) {
+				return `${window.location}export/?${filterParam}${delimiter}${groupParam}`
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`

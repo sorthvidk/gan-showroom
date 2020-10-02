@@ -24,39 +24,51 @@ export default {
 	},
 	data() {
 		return {
+			group: null,
+			filter: null,
+			styles: null,
 			urlParams: []
 		}
 	},
 	computed: {
-		...mapState({
-			allStyles: state => state.collection.allStyles
-		}),
+		...mapState('collection', ['allStyles']),
 		usableStyles() {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?
 		},
+		filterGroup() {
+			this.group
+				? this.usableStyles.filter(s => s.groupId === this.group)
+				: this.usableStyles
+		},
+		filterFilter() {
+			this.filter
+				? this.filterGroup.filter(s => s.filterId === this.filter)
+				: this.filterGroup
+		},
+		filterStyles() {
+			this.styles
+				? this.filterFilter.filter(s => this.styles.includes(s.styleId))
+				: this.filterFilter
+		},
 		receiptStyles() {
-			// go through all the styles in the DB
-			return this.urlParams[0] === 'all'
-				? this.usableStyles
-				: this.usableStyles.filter(
-						// return style if:
-						s =>
-							this.urlParams.includes(s.styleId) || // url includes the specific styleID
-							this.urlParams.find(param => s.filters.includes(param)) // url includes any of a style's filters
-				  )
+			return this.filterStyles
 		}
 	},
 	methods: {
 		parseUrl() {
 			const url = new URL(window.location.href)
-			const styles = url.searchParams.get('styles') || 'all'
+			const styles = url.searchParams.get('styles')
+			this.filter = url.searchParams.get('filter')
+			this.group = url.searchParams.get('group')
 
 			// /receipt <- shows all styles
 			// /receipt/?styles=F5987334,F8907234,F1121095 <- shows those three styles
 			// /receipt/?styles=c1 <- shows that filter/category
 			// /receipt/?styles=F5987334,LEOPARD%20PRINT <- shows that style, and all leopard-print-styles
 
-			this.urlParams = styles.split(',')
+			console.log(this.filter, this.group)
+
+			this.styles = styles && styles.split(',')
 		}
 	},
 	mounted() {
