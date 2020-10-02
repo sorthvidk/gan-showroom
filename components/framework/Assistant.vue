@@ -696,18 +696,17 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([
-			OPEN_CONTENT.action,
+		...mapActions([OPEN_CONTENT.action, OPEN_WISH_LIST.action]),
+		...mapActions('collection', [
 			CLOSE_WINDOW_GROUP.action,
-			OPEN_WISH_LIST.action,
-			'collection/' + ALL_ASSETS_VISIBLE.action,
-			'collection/' + SET_CURRENT_FILTER.action,
-			'collection/' + ADD_TO_WISHLIST.action,
-			'collection/' + REMOVE_FROM_WISHLIST.action,
-			'collection/' + SHOW_PREVIOUS_STYLE.action,
-			'collection/' + SHOW_NEXT_STYLE.action,
-			'collection/' + SET_PREVIOUS_GROUP.action,
-			'collection/' + SET_NEXT_GROUP.action
+			ALL_ASSETS_VISIBLE.action,
+			SET_CURRENT_FILTER.action,
+			ADD_TO_WISHLIST.action,
+			REMOVE_FROM_WISHLIST.action,
+			SHOW_PREVIOUS_STYLE.action,
+			SHOW_NEXT_STYLE.action,
+			SET_PREVIOUS_GROUP.action,
+			SET_NEXT_GROUP.action
 		]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('collage', [

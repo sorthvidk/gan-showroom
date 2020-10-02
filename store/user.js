@@ -54,7 +54,7 @@ export const actions = {
 		commit(KEYPRESS.mutation, event)
 
 		if (event.key === 'Escape') {
-			commit(CLOSE_WINDOW_GROUP.mutation)
+			commit(CLOSE_WINDOW_GROUP.mutation, null, { root: true })
 		}
 	},
 	[MOUSEMOVE.action]({ commit }, event) {

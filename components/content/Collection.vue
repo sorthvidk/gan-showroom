@@ -46,7 +46,7 @@ export default {
 		CollectionItem
 	},
 	computed: {
-		...mapState([
+		...mapState('collection', [
 			'collectionLayout',
 			'currentStyles',
 			'allGroups',

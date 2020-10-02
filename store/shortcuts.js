@@ -22,7 +22,7 @@ export const state = () => ({
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
 				}
 			],
@@ -292,7 +292,7 @@ export const state = () => ({
 					param: 'misc4'
 				},
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.FUN
 				}
 			],
@@ -318,7 +318,7 @@ export const state = () => ({
 					param: 'drop2-feb'
 				},
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
 				}
 			],
@@ -348,7 +348,7 @@ export const state = () => ({
 					param: 'rtw4'
 				},
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
 				}
 			],
@@ -419,7 +419,7 @@ export const state = () => ({
 			actions: [
 				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
 				}
 			],
@@ -457,7 +457,7 @@ export const state = () => ({
 					param: 'misc2'
 				},
 				{
-					name: COLLECTION_LAYOUT_CHANGE.action,
+					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
 				}
 			],
