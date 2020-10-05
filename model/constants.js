@@ -6,6 +6,8 @@ const createMutation = type => ({
 	stateKey: camelCase(type)
 })
 
+export const PASSWORDS_FETCH = createMutation('PASSWORDS_FETCH')
+
 export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
 export const LOGIN = createMutation('LOGIN')
 export const COPYRIGHT_ACCEPT = createMutation('COPYRIGHT_ACCEPT')

@@ -4,7 +4,8 @@ import {
 	COOKIES_ACCEPT,
 	CLOSE_WINDOW_GROUP,
 	KEYPRESS,
-	MOUSEMOVE
+	MOUSEMOVE,
+	PASSWORDS_FETCH
 } from '~/model/constants'
 
 export const state = () => ({
@@ -15,7 +16,9 @@ export const state = () => ({
 	copyrightAccepted: false,
 
 	mousepos: { x: 0, y: 0 },
-	keyPressed: null
+	keyPressed: null,
+
+	passwords: {}
 })
 
 export const mutations = {
@@ -37,6 +40,10 @@ export const mutations = {
 
 	[MOUSEMOVE.mutation](state, { x, y }) {
 		state.mousepos = { x, y }
+	},
+
+	[PASSWORDS_FETCH.mutation](state, data) {
+		state.passwords = data
 	}
 }
 

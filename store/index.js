@@ -15,7 +15,8 @@ import {
 	OPEN_CONTENT,
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
-	OPEN_STYLE_CONTENT
+	OPEN_STYLE_CONTENT,
+	PASSWORDS_FETCH
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -502,6 +503,18 @@ export const actions = {
 			return res
 		})
 		commit(GENERAL_FETCH.mutation, general)
+
+		let passwordsFiles = await require.context(
+			'~/assets/content/passwords/',
+			false,
+			/\.json$/
+		)
+		let passwords = passwordsFiles.keys().map(key => {
+			let res = passwordsFiles(key)
+			res.slug = key.slice(2, -5)
+			return res
+		})
+		commit('user/' + PASSWORDS_FETCH.mutation, passwords)
 
 		console.log('NUXT SERVER INIT DONE')
 	}
