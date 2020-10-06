@@ -15,7 +15,8 @@ import {
 	SHOW_PREVIOUS_STYLE,
 	OPEN_STYLE_CONTENT,
 	CLOSE_WINDOW_GROUP,
-	COLLECTION_LAYOUT_CHANGE
+	COLLECTION_LAYOUT_CHANGE,
+	AUTHORIZE_GROUPS
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
@@ -39,6 +40,9 @@ export const state = () => ({
 	//currently active in app
 	activeGroup: null,
 	activeGroupIndex: -1,
+
+	// filtered by password used
+	authorizedGroups: [],
 
 	//loaded from json
 	allFilters: [],
@@ -104,7 +108,7 @@ export const mutations = {
 				a.onTop && !b.onTop ? -1 : 1
 			)
 			style.assets = sortedAssets
-			style.onWishList = false
+			// style.onWishList = false
 		}
 
 		state.referencedFilters = []
@@ -305,7 +309,7 @@ export const mutations = {
 			state.currentStyles = state.allStyles
 			state.groupFilters = state.referencedFilters
 		} else {
-			state.activeGroup = state.allGroups[state.activeGroupIndex]
+			state.activeGroup = state.authorizedGroups[state.activeGroupIndex]
 
 			state.currentStyles = state.activeGroup.styles
 			state.groupFilters = state.activeGroup.filters
@@ -380,6 +384,17 @@ export const mutations = {
 	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
 		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
 		state.collectionLayout = value
+	},
+
+	[AUTHORIZE_GROUPS.mutation](state, rootState) {
+		state.authorizedGroups = state.allGroups.filter(group => {
+			// authorize per default
+			if (!group.passwords || !group.passwords.length) {
+				return true
+			}
+			// or if group has the used password defined
+			return group.passwords.includes(rootState.user.loggedIn)
+		})
 	}
 }
 
@@ -422,7 +437,7 @@ export const actions = {
 			newIndex = 0
 		} else {
 			newIndex =
-				state.activeGroupIndex === state.allGroups.length - 1
+				state.activeGroupIndex === state.authorizedGroups.length - 1
 					? -1
 					: state.activeGroupIndex + 1
 		}
@@ -437,7 +452,7 @@ export const actions = {
 		let newIndex
 		if (state.activeGroupIndex === -1) {
 			//currently showing all, show last group
-			newIndex = state.allGroups.length - 1
+			newIndex = state.authorizedGroups.length - 1
 		} else {
 			newIndex = state.activeGroupIndex === 0 ? -1 : state.activeGroupIndex - 1
 		}
@@ -496,5 +511,9 @@ export const actions = {
 	},
 	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
 		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
+	},
+
+	[AUTHORIZE_GROUPS.action]({ commit, rootState }) {
+		commit(AUTHORIZE_GROUPS.mutation, rootState)
 	}
 }

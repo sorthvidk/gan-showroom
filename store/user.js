@@ -10,7 +10,7 @@ import {
 
 export const state = () => ({
 	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+	passwordUsed: '',
 
 	cookiesAccepted: false,
 	copyrightAccepted: false,
@@ -22,8 +22,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-	[LOGIN.mutation](state, key) {
-		state.loggedIn = key
+	[LOGIN.mutation](state, authorized) {
+		state.loggedIn = authorized && authorized.hash
 	},
 
 	[COOKIES_ACCEPT.mutation](state) {
@@ -43,7 +43,10 @@ export const mutations = {
 	},
 
 	[PASSWORDS_FETCH.mutation](state, data) {
-		state.passwords = data
+		state.passwords = data.map(pw => {
+			pw.hash = pw.hash.toLowerCase()
+			return pw
+		})
 	}
 }
 

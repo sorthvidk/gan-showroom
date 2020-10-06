@@ -16,7 +16,8 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PASSWORDS_FETCH
+	PASSWORDS_FETCH,
+	AUTHORIZE_GROUPS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -59,7 +60,12 @@ export const mutations = {
 		state.collection.allStyles = data
 	},
 	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
-		state.collection.allGroups = data
+		state.collection.allGroups = data.map(x => {
+			if (x.passwords) {
+				x.passwords = x.passwords.map(pw => pw.toLowerCase())
+			}
+			return x
+		})
 	},
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.collection.allFilters = data

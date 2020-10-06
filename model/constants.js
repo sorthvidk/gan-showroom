@@ -26,6 +26,8 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
+export const AUTHORIZE_GROUPS = createMutation('AUTHORIZE_GROUPS')
+
 export const KEYPRESS = createMutation('KEYPRESS')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')

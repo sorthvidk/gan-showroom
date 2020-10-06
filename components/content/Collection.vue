@@ -49,16 +49,18 @@ export default {
 		...mapState('collection', [
 			'collectionLayout',
 			'currentStyles',
-			'allGroups',
+			// 'allGroups',
+			'authorizedGroups',
 			'activeGroup'
 		]),
+		...mapState('user', ['passwordUsed']),
 
 		groupsRenderList() {
 			let groups = []
 
-			let cl = this.allGroups.length
+			let cl = this.authorizedGroups.length
 			for (var j = 0; j < cl; j++) {
-				let groupItem = this.allGroups[j]
+				let groupItem = this.authorizedGroups[j]
 
 				groups.push({
 					name: groupItem.name,

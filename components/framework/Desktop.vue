@@ -154,7 +154,8 @@ import {
 	MOUSEMOVE,
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
-	OPEN_CONTENT
+	OPEN_CONTENT,
+	AUTHORIZE_GROUPS
 } from '~/model/constants'
 
 import addMediaChangeListener from '~/utils/media-change'
@@ -235,6 +236,7 @@ export default {
 	},
 	methods: {
 		...mapActions([RESET_STATE.action, OPEN_CONTENT.action]),
+		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('user', [
 			COPYRIGHT_ACCEPT.action,
@@ -327,6 +329,8 @@ export default {
 		if (!isMobile) {
 			this.openMusicPlayer()
 		}
+
+		this[AUTHORIZE_GROUPS.action]()
 
 		// this.$store.commit('collection/isOnWishList')
 	},

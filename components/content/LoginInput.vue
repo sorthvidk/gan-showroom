@@ -52,22 +52,25 @@ export default {
 		}
 	},
 	computed: {
-		...mapState('user', ['loggedIn', 'password'])
+		...mapState('user', ['loggedIn', 'passwords'])
 	},
 	methods: {
 		...mapActions('user', [LOGIN.action]),
 
 		updateValidState() {
-			const valid =
-				hash
-					.sha256()
-					.update(this.pwd)
-					.digest('hex') === this.password
+			const passwordUsed = hash
+				.sha256()
+				.update(this.pwd)
+				.digest('hex')
 
-			this[LOGIN.action](valid)
-			this.valid = valid
+			const authorized = this.passwords.find(
+				pw => pw.hash.toLowerCase() === passwordUsed.toLowerCase()
+			)
 
-			if (valid) {
+			this[LOGIN.action](authorized)
+			this.valid = authorized
+
+			if (authorized) {
 				this.playSound()
 			}
 		},
