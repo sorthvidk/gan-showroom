@@ -7,7 +7,7 @@ backend:
 # used for production:
 # backend:
 #   name: git-gateway
-#   branch: feature/group-password
+#   branch: releases/2020-july
 
 # when using the default proxy server port
 local_backend: true
