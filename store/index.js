@@ -1,5 +1,7 @@
 import {
 	RESET_STATE,
+	EXHIBITION_FETCH,
+	EXHIBITION_ASSETS_FETCH,
 	COLLECTION_ITEMS_FETCH,
 	COLLECTION_GROUPS_FETCH,
 	COLLECTION_FILTERS_FETCH,
@@ -16,8 +18,7 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PASSWORDS_FETCH,
-	AUTHORIZE_GROUPS
+	PASSWORDS_FETCH
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -56,56 +57,6 @@ export const mutations = {
 		state.user.copyrightAccepted = false
 	},
 
-	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
-		state.collection.allStyles = data
-	},
-	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
-		state.collection.allGroups = data.map(x => {
-			if (x.passwords) {
-				x.passwords = x.passwords.map(pw => pw.toLowerCase())
-			}
-			return x
-		})
-	},
-	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
-		state.collection.allFilters = data
-	},
-	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
-		state.collection.allMediaAssets = data
-	},
-
-	[FILMS_FETCH.mutation](state, data) {
-		state.assets.films = data
-	},
-	[GANNIGIRLS_FETCH.mutation](state, data) {
-		state.assets.ganniGirls.posts = data
-	},
-	[LOOKBOOK_FETCH.mutation](state, data) {
-		state.assets.lookBook = data
-	},
-	[GENERAL_FETCH.mutation](state, data) {
-		//Insert Ganni Girls bg image
-		let misc = data.filter(e => e.slug === 'misc')[0]
-		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
-
-		//Insert Ditte's letter
-
-		let dittesFolder = state.shortcuts.list.filter(
-			e => e.shortcutId === 'dittes-folder'
-		)[0]
-
-		if (!dittesFolder) return false
-		let content = dittesFolder.windowContent.filter(
-			f => f.contentId === 'ditte-letter'
-		)
-
-		if (!content) return false
-		let props = content[0].contentComponentProps
-
-		if (!props.text) return false
-		props.text = misc.ditteLetter
-	},
-
 	/*
 	 *	Activate content block, opens window with matching contentComponent
 	 *
@@ -125,18 +76,10 @@ export const mutations = {
 		if (params.styleWindowGroup) windowGroup.styleWindowGroup = true
 
 		params.windowContent.forEach(content => {
-			const { contentId, canOverride } = content
-
 			const hasSame = prop => x => x[prop] === content[prop]
-			const hasNotSame = prop => x => x[prop] !== content[prop]
 
 			let alreadyExists =
 				state.content.list.filter(hasSame('contentId')).length > 0
-
-			// in use?
-			// if (alreadyExists && canOverride) {
-			// 	state.windowList = state.windowList.filter(hasNotSame('contentType'))
-			// }
 
 			// don't open a window twice
 			if (alreadyExists) return
@@ -413,114 +356,92 @@ export const actions = {
 
 	// FETCH ALL CONTENT!
 
-	async nuxtServerInit({ commit, dispatch }) {
-		let collectionFiles = await require.context(
-			'~/assets/content/collectionItems/',
-			false,
-			/\.json$/
-		)
-		let collection = collectionFiles.keys().map(key => {
-			let res = collectionFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+	async nuxtServerInit({ commit, dispatch, state }) {
+		const getData = async req => {
+			let files = await req
+			return files.keys().map(key => {
+				let res = files(key)
+				res.slug = key.slice(2, -5)
+				return res
+			})
+		}
 
-		let filterFiles = await require.context(
-			'~/assets/content/collectionFilters/',
-			false,
-			/\.json$/
+		commit(
+			'exhibition/' + EXHIBITION_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
+			)
 		)
-		let filters = filterFiles.keys().map(key => {
-			let res = filterFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
-		let groupFiles = await require.context(
-			'~/assets/content/collectionGroups/',
-			false,
-			/\.json$/
+		commit(
+			'exhibition/' + EXHIBITION_ASSETS_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
+			)
 		)
-		let groups = groupFiles.keys().map(key => {
-			let res = groupFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_GROUPS_FETCH.mutation, groups)
 
-		let assetFiles = await require.context(
-			'~/assets/content/mediaAssets/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_ITEMS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionItems/', false, /\.json$/)
+			)
 		)
-		let assets = assetFiles.keys().map(key => {
-			let res = assetFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
-		let filmsFiles = await require.context(
-			'~/assets/content/films/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_FILTERS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
+			)
 		)
-		let films = filmsFiles.keys().map(key => {
-			let res = filmsFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(FILMS_FETCH.mutation, films)
 
-		let ganniGirlsFiles = await require.context(
-			'~/assets/content/ganniGirls/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_GROUPS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
+			)
 		)
-		let posts = ganniGirlsFiles.keys().map(key => {
-			let res = ganniGirlsFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(GANNIGIRLS_FETCH.mutation, posts)
 
-		let lookBookFiles = await require.context(
-			'~/assets/content/lookBook/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_ASSETS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
+			)
 		)
-		let lookBook = lookBookFiles.keys().map(key => {
-			let res = lookBookFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
-		let generalFiles = await require.context(
-			'~/assets/content/general/',
-			false,
-			/\.json$/
+		commit(
+			'assets/' + FILMS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/films/', false, /\.json$/)
+			)
 		)
-		let general = generalFiles.keys().map(key => {
-			let res = generalFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(GENERAL_FETCH.mutation, general)
 
-		let passwordsFiles = await require.context(
-			'~/assets/content/passwords/',
-			false,
-			/\.json$/
+		commit(
+			'assets/' + GANNIGIRLS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
+			)
 		)
-		let passwords = passwordsFiles.keys().map(key => {
-			let res = passwordsFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
+
+		commit(
+			'assets/' + LOOKBOOK_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/lookBook/', false, /\.json$/)
+			)
+		)
+
+		commit('assets/' + GENERAL_FETCH.mutation, {
+			data: await getData(
+				require.context('~/assets/content/general/', false, /\.json$/)
+			),
+			rootState: state
 		})
-		commit('user/' + PASSWORDS_FETCH.mutation, passwords)
+
+		commit(
+			'user/' + PASSWORDS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/passwords/', false, /\.json$/)
+			)
+		)
 
 		console.log('NUXT SERVER INIT DONE')
 	}

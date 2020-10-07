@@ -155,7 +155,8 @@ import {
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
 	OPEN_CONTENT,
-	AUTHORIZE_GROUPS
+	AUTHORIZE_GROUPS,
+	CONNECT_EXHIBITION_ASSETS
 } from '~/model/constants'
 
 import addMediaChangeListener from '~/utils/media-change'
@@ -236,6 +237,7 @@ export default {
 	},
 	methods: {
 		...mapActions([RESET_STATE.action, OPEN_CONTENT.action]),
+		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('user', [
@@ -331,6 +333,7 @@ export default {
 		}
 
 		this[AUTHORIZE_GROUPS.action]()
+		this[CONNECT_EXHIBITION_ASSETS.action]()
 
 		// this.$store.commit('collection/isOnWishList')
 	},

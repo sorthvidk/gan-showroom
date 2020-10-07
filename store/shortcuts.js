@@ -469,6 +469,24 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
+		},
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'exhibition',
+			icon: '/img/shortcuts/rails.png',
+			label: 'rails (wip)',
+			posH: 6,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'rails',
+					contentId: 'exhibition',
+					type: ContentTypes.exhibition,
+					statusComponentProps: {
+						text: 'Check out the exhibition'
+					}
+				}
+			]
 		}
 		// {
 		// 	type: ShortcutTypes.MARQUEE,

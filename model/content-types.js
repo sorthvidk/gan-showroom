@@ -13,6 +13,25 @@ const WINDOW_NOSTATUS_CHROME_HEIGHT = WINDOW_TOPBAR_BORDERS_HEIGHT
 import ViewportSizes from '~/model/viewport-sizes'
 
 export default {
+	exhibition: {
+		name: 'exhibition',
+		contentComponent: 'exhibition',
+		contentScore: 0,
+		statusComponent: 'status-static',
+		defaultWindowProps: {
+			sizes: {
+				[ViewportSizes.XLARGE.name]: {
+					w: 700 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 750 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.LARGE.name]: {
+					w: 600 + WINDOW_DEFAULT_CHROME_WIDTH,
+					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+				},
+				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
+			}
+		}
+	},
 	collection: {
 		name: 'collection',
 		contentComponent: 'collection',

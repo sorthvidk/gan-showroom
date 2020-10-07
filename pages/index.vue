@@ -4,7 +4,8 @@
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
-		<screensaver v-if="screensaverActive" />
+		<v-idle :duration="15000" @idle="onidle" />
+		<screensaver v-if="idle" />
 
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
@@ -20,11 +21,7 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import {
-	INDEX_COLLECTION_DATA,
-	INIT_PROGRESS,
-	VISIBILITY
-} from '~/model/constants'
+import { INDEX_COLLECTION_DATA, INIT_PROGRESS, IDLE } from '~/model/constants'
 
 export default {
 	components: {
@@ -34,8 +31,7 @@ export default {
 		CookieBanner
 	},
 	computed: {
-		...mapState('utils', ['screensaverActive']),
-		...mapState('user', ['loggedIn', 'cookiesAccepted'])
+		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle'])
 	},
 	head() {
 		return {
@@ -53,32 +49,15 @@ export default {
 			title: 'GANNI Space'
 		}
 	},
-	data() {
-		return {
-			countdownTime: 1500,
-			timeout: null
-		}
-	},
 	methods: {
-		...mapActions('utils', [VISIBILITY.action]),
-		toggleScreenSaver(appTabUnfocused, immediate) {
-			this.debounce(
-				() => this[VISIBILITY.action](appTabUnfocused),
-				immediate ? 0 : this.countdownTime
-			)
-		},
-		/**
-		 * debounce,
-		 * run 'func' if debounce isn't called again within 'wait'-ms, or run immediately
-		 */
-		debounce(func, wait, immediate) {
-			var later = () => {
-				this.timeout = null
-				func.apply(this)
+		...mapActions('user', [IDLE.action]),
+		toggleScreenSaver(idle) {
+			if (this.idle) {
+				this[IDLE.action](idle)
 			}
-
-			clearTimeout(this.timeout)
-			this.timeout = setTimeout(later, immediate ? 0 : wait)
+		},
+		onidle() {
+			this[IDLE.action](true)
 		}
 	},
 	mounted() {
@@ -87,20 +66,14 @@ export default {
 		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 		this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
 
-		this.$visibility.change((evt, appTabUnfocused) => {
-			if (appTabUnfocused) {
-				this.toggleScreenSaver(appTabUnfocused)
-			}
-		})
-
 		//add clear timeout listeners
 		document.body.addEventListener(
 			'click',
-			this.toggleScreenSaver.bind(this, false, true)
+			this.toggleScreenSaver.bind(this, false)
 		)
 		document.body.addEventListener(
 			'mousemove',
-			this.toggleScreenSaver.bind(this, false, true)
+			this.toggleScreenSaver.bind(this, false)
 		)
 	}
 }

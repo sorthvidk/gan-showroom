@@ -12,9 +12,11 @@ export const COOKIES_ACCEPT = createMutation('COOKIES_ACCEPT')
 export const LOGIN = createMutation('LOGIN')
 export const COPYRIGHT_ACCEPT = createMutation('COPYRIGHT_ACCEPT')
 export const SAVE_AS_BACKGROUND = createMutation('SAVE_AS_BACKGROUND')
-export const VISIBILITY = createMutation('VISIBILITY')
+export const IDLE = createMutation('IDLE')
 export const RESET_STATE = createMutation('RESET_STATE')
 
+export const EXHIBITION_FETCH = createMutation('EXHIBITION_FETCH')
+export const EXHIBITION_ASSETS_FETCH = createMutation('EXHIBITION_ASSETS_FETCH')
 export const COLLECTION_ITEMS_FETCH = createMutation('COLLECTION_ITEMS_FETCH')
 export const COLLECTION_GROUPS_FETCH = createMutation('COLLECTION_GROUPS_FETCH')
 export const COLLECTION_FILTERS_FETCH = createMutation(
@@ -63,6 +65,11 @@ export const FORCE_STOP_MUSIC = createMutation('FORCE_STOP_MUSIC')
 export const MUSIC_PLAY_PAUSE = createMutation('MUSIC_PLAY_PAUSE')
 export const CLIPBOARD_COPY = createMutation('CLIPBOARD_COPY')
 export const DOWNLOAD_PREPARING = createMutation('DOWNLOAD_PREPARING')
+
+export const CONNECT_EXHIBITION_ASSETS = createMutation(
+	'CONNECT_EXHIBITION_ASSETS'
+)
+export const OPEN_EXHIBITION_CONTENT = createMutation('OPEN_EXHIBITION_CONTENT')
 
 export const SAVE_COLLAGE = createMutation('SAVE_COLLAGE')
 export const MAKE_BACKGROUND = createMutation('MAKE_BACKGROUND')

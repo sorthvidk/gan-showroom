@@ -5,12 +5,12 @@ import {
 	CLOSE_WINDOW_GROUP,
 	KEYPRESS,
 	MOUSEMOVE,
-	PASSWORDS_FETCH
+	PASSWORDS_FETCH,
+	IDLE
 } from '~/model/constants'
 
 export const state = () => ({
 	loggedIn: false,
-	passwordUsed: '',
 
 	cookiesAccepted: false,
 	copyrightAccepted: false,
@@ -18,7 +18,9 @@ export const state = () => ({
 	mousepos: { x: 0, y: 0 },
 	keyPressed: null,
 
-	passwords: {}
+	passwords: {},
+
+	idle: false
 })
 
 export const mutations = {
@@ -47,6 +49,9 @@ export const mutations = {
 			pw.hash = pw.hash.toLowerCase()
 			return pw
 		})
+	},
+	[IDLE.mutation](state, key) {
+		state.idle = key
 	}
 }
 
@@ -72,5 +77,8 @@ export const actions = {
 			x: event.clientX,
 			y: event.clientY
 		})
+	},
+	[IDLE.action]({ commit }, hidden) {
+		commit(IDLE.mutation, hidden)
 	}
 }

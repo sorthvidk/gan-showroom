@@ -4,6 +4,7 @@ import VueLazyload from 'vue-lazyload'
 import VueTyper from 'vue-typer'
 import visibility from 'vue-visibility-change'
 import WebCam from 'vue-web-cam'
+import Vidle from 'v-idle'
 
 import Konva from 'konva'
 
@@ -13,6 +14,7 @@ Vue.use(VueTyper)
 Vue.use(visibility)
 Vue.use(Konva)
 Vue.use(WebCam)
+Vue.use(Vidle)
 
 /**
  * todo: turn of when bugfixing is done

@@ -2,6 +2,10 @@ import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 import findArrayMatches from '~/utils/find-array-matches'
 
 import {
+	COLLECTION_ITEMS_FETCH,
+	COLLECTION_GROUPS_FETCH,
+	COLLECTION_FILTERS_FETCH,
+	COLLECTION_ASSETS_FETCH,
 	INDEX_COLLECTION_DATA,
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
@@ -63,13 +67,23 @@ export const state = () => ({
 })
 
 export const mutations = {
-	// isOnWishList(state) {
-	// 	state.allStyles = state.allStyles.map(style => {
-	// 		const sameStyleId = e => e.styleId === style.styleId
-	// 		style.onWishList = state.wishList.find(sameStyleId) ? true : false
-	// 		return style
-	// 	})
-	// },
+	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
+		state.allStyles = data
+	},
+	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
+		state.allGroups = data.map(group => {
+			if (group.passwords) {
+				group.passwords = group.passwords.map(pw => pw.toLowerCase())
+			}
+			return group
+		})
+	},
+	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
+		state.allFilters = data
+	},
+	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
+		state.allMediaAssets = data
+	},
 
 	[INDEX_COLLECTION_DATA.mutation](state) {
 		if (state.dataIndexComplete) return false

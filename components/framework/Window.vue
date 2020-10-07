@@ -61,6 +61,7 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import Exhibition from '~/components/content/Exhibition.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
@@ -82,6 +83,7 @@ export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
+		Exhibition,
 		StatusStatic,
 		StatusCollection,
 		StatusWishList,

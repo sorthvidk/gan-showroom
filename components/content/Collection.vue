@@ -53,7 +53,6 @@ export default {
 			'authorizedGroups',
 			'activeGroup'
 		]),
-		...mapState('user', ['passwordUsed']),
 
 		groupsRenderList() {
 			let groups = []

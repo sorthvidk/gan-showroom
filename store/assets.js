@@ -1,3 +1,10 @@
+import {
+	FILMS_FETCH,
+	GANNIGIRLS_FETCH,
+	LOOKBOOK_FETCH,
+	GENERAL_FETCH
+} from '~/model/constants'
+
 export const state = () => ({
 	films: [
 		{
@@ -160,6 +167,38 @@ export const state = () => ({
 	]
 })
 
-export const mutations = {}
+export const mutations = {
+	[FILMS_FETCH.mutation](state, data) {
+		state.films = data
+	},
+	[GANNIGIRLS_FETCH.mutation](state, data) {
+		state.ganniGirls.posts = data
+	},
+	[LOOKBOOK_FETCH.mutation](state, data) {
+		state.lookBook = data
+	},
+	[GENERAL_FETCH.mutation](state, { data, rootState }) {
+		//Insert Ganni Girls bg image
+		let misc = data.filter(e => e.slug === 'misc')[0]
+		state.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
+
+		//Insert Ditte's letter
+
+		let dittesFolder = rootState.shortcuts.list.filter(
+			e => e.shortcutId === 'dittes-folder'
+		)[0]
+
+		if (!dittesFolder) return false
+		let content = dittesFolder.windowContent.filter(
+			f => f.contentId === 'ditte-letter'
+		)
+
+		if (!content) return false
+		let props = content[0].contentComponentProps
+
+		if (!props.text) return false
+		props.text = misc.ditteLetter
+	}
+}
 
 export const actions = {}
