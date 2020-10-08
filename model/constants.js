@@ -78,3 +78,4 @@ export const COLLAGE_IS_OPEN = createMutation('COLLAGE_IS_OPEN')
 export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
 
 export const ASSISTANT_TEXT = createMutation('ASSISTANT_TEXT')
+export const ASSISTANT_MODE = createMutation('ASSISTANT_MODE')

@@ -60,8 +60,7 @@
 				<assistant />
 				<support />
 			</div>
-			<!-- <marquee v-if="viewPortSize.name == 'LARGE'" /> -->
-			<marquee v-if="!isMobile" />
+			<marquee v-show="!isMobile" />
 
 			<div class="logo">
 				<img
@@ -160,9 +159,6 @@ import {
 	CONNECT_EXHIBITION_ASSETS
 } from '~/model/constants'
 
-// import addMediaChangeListener from '~/utils/media-change'
-
-// import ViewportSizes from '~/model/viewport-sizes'
 import ShortcutTypes from '~/model/shortcut-types'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
@@ -230,7 +226,6 @@ export default {
 	},
 	data() {
 		return {
-			// viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
 			showDownloadMessage: false,
 			wallpaperCount: 6
@@ -246,12 +241,6 @@ export default {
 			KEYPRESS.action,
 			MOUSEMOVE.action
 		]),
-		// isSmallViewport() {
-		// 	this.viewPortSize = ViewportSizes.SMALL
-		// },
-		// isLargeViewport() {
-		// 	this.viewPortSize = ViewportSizes.LARGE
-		// },
 		startClipboardTimeout() {
 			setTimeout(() => {
 				this[CLIPBOARD_COPY.action](false)
@@ -322,12 +311,6 @@ export default {
 
 			debounce(() => this[MOUSEMOVE.action](event), 200)
 		})
-
-		// let isMobile = addMediaChangeListener(
-		// 	this.isSmallViewport,
-		// 	this.isLargeViewport
-		// )
-		// if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
 		if (!this.isMobile) {
 			this.openMusicPlayer()

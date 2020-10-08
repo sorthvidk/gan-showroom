@@ -15,9 +15,10 @@
 import ContentTypes from '~/model/content-types'
 
 import { vuex, mapActions, mapState } from 'vuex'
-import { OPEN_CONTENT } from '~/model/constants'
+import { ASSISTANT_MODE, ASSISTANT_TEXT, OPEN_CONTENT } from '~/model/constants'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import AssistantModes from '~/model/assistant-modes'
 
 export default {
 	name: 'films-item',
@@ -62,6 +63,7 @@ export default {
 	},
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
+		...mapActions('assistant', [ASSISTANT_TEXT.action, ASSISTANT_MODE.action]),
 		onItemClick() {
 			let type = ContentTypes.videoLandscape
 
@@ -87,9 +89,12 @@ export default {
 						}
 					},
 					statusComponentProps: type.defaultStatusComponentProps,
-					customAssistantText: {
-						headline: 'A FILM YO!',
-						bodyText: 'Pretty coool, right?'
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'A FILM YO!',
+							bodyText: 'Pretty coool, right?'
+						}
 					}
 				}
 			]

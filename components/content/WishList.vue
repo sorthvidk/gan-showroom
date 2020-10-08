@@ -1,6 +1,6 @@
 <template>
 	<div class="wish-list">
-		<div class="wish-list__overview" v-if="viewPortSize.name == 'LARGE'">
+		<div class="wish-list__overview" v-if="!isMobile">
 			<div
 				class="wish-list__overview__item"
 				v-for="(item, index) in wishList"
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<transition name="fade" mode="in-out">
-			<div class="wish-list__details" v-if="viewPortSize.name == 'LARGE'">
+			<div class="wish-list__details" v-if="!isMobile">
 				<div class="inner" v-if="wishList.length < 1">
 					<p>Your wish list is empty!</p>
 				</div>
@@ -118,7 +118,7 @@
 				</div>
 			</div>
 		</transition>
-		<div v-if="viewPortSize.name == 'SMALL'">
+		<div v-if="isMobile">
 			<wish-list-accordion
 				v-for="(item, key) in wishList"
 				:key="'wishListItem' + key"
@@ -150,9 +150,8 @@ export default {
 		SingleImage
 	},
 	computed: {
-		...mapState({
-			wishList: state => state.collection.wishList
-		}),
+		...mapState('utils', ['isMobile']),
+		...mapState('collection', ['wishList']),
 		currentWishListItem() {
 			if (this.wishList.length > 0)
 				return this.wishList[this.currentWishListIndex]
@@ -183,12 +182,6 @@ export default {
 			this.currentWishListIndex = 0
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
-		isSmallViewport() {
-			this.viewPortSize = ViewportSizes.SMALL
-		},
-		isLargeViewport() {
-			this.viewPortSize = ViewportSizes.LARGE
-		},
 		getImageUrl(index) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -197,14 +190,6 @@ export default {
 			)
 		}
 	},
-	mounted() {
-		let isMobile = addMediaChangeListener(
-			this.isSmallViewport,
-			this.isLargeViewport
-		)
-		if (!isMobile) {
-			this.viewPortSize = ViewportSizes.LARGE
-		}
-	}
+	mounted() {}
 }
 </script>

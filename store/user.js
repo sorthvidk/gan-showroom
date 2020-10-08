@@ -65,11 +65,11 @@ export const actions = {
 	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
 		commit(COPYRIGHT_ACCEPT.mutation, value)
 	},
-	[KEYPRESS.action]({ commit }, event) {
+	[KEYPRESS.action]({ commit, dispatch }, event) {
 		commit(KEYPRESS.mutation, event)
 
 		if (event.key === 'Escape') {
-			commit(CLOSE_WINDOW_GROUP.mutation, null, { root: true })
+			dispatch(CLOSE_WINDOW_GROUP.action, null, { root: true })
 		}
 	},
 	[MOUSEMOVE.action]({ commit }, event) {

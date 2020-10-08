@@ -86,6 +86,10 @@
 		@include bodytext();
 	}
 
+	b {
+		font-weight: bold;
+	}
+
 	&__content {
 		overflow: hidden;
 		max-height: rem(180);

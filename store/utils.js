@@ -7,7 +7,7 @@ import {
 export const state = () => ({
 	clipBoardCopyComplete: false,
 	downloadPreparing: false,
-	isMobile: false
+	isMobile: true
 })
 
 export const mutations = {

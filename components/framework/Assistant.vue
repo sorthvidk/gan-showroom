@@ -9,10 +9,7 @@
 
 		<!-- ####################### STATUS ####################### -->
 
-		<div
-			class="window__status"
-			v-if="assistantMode == 1 && viewPortSize.name == 'SMALL'"
-		>
+		<div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -32,10 +29,7 @@
 			</button>
 		</div>
 
-		<div
-			class="window__status"
-			v-if="assistantMode == 2 && viewPortSize.name == 'SMALL'"
-		>
+		<div class="window__status" v-if="assistantMode == 2 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
 				<span v-if="!assistantExpanded" class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -78,10 +72,7 @@
 			</button>
 		</div>
 
-		<div
-			class="window__status"
-			v-if="assistantMode == 2 && viewPortSize.name == 'LARGE'"
-		>
+		<div class="window__status" v-if="assistantMode == 2 && !isMobile">
 			<p>{{ currentStyle.name }}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
 				<span class="icon">
@@ -110,9 +101,7 @@
 
 		<hr
 			v-if="
-				assistantMode == 2 &&
-					(viewPortSize.name == 'LARGE' ||
-						(viewPortSize.name == 'SMALL' && assistantExpanded))
+				assistantMode == 2 && (!isMobile || (isMobile && assistantExpanded))
 			"
 		/>
 
@@ -135,7 +124,7 @@
 					class="assistant__content"
 					v-if="assistantMode == 1"
 					:class="{
-						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+						'is-collapsed': isMobile && !assistantExpanded
 					}"
 				>
 					<div class="assistant__filters">
@@ -164,7 +153,7 @@
 					class="assistant__content"
 					v-if="assistantMode == 2"
 					:class="{
-						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+						'is-collapsed': isMobile && !assistantExpanded
 					}"
 				>
 					<div class="assistant__product-details">
@@ -392,10 +381,7 @@
 
 				<!-- ####################### COLLAGE ####################### -->
 
-				<div
-					class="window__status"
-					v-if="assistantMode == 5 && viewPortSize.name == 'SMALL'"
-				>
+				<div class="window__status" v-if="assistantMode == 5 && isMobile">
 					<button class="button expand" @click="toggleContentHandler">
 						<span v-if="!assistantExpanded" class="icon">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
@@ -418,7 +404,7 @@
 				<div
 					class="assistant__content scroll"
 					:class="{
-						'is-collapsed': viewPortSize.name == 'SMALL' && !assistantExpanded
+						'is-collapsed': isMobile && !assistantExpanded
 					}"
 				>
 					<div class="assistant__text" v-if="assistantMode == 5">
@@ -502,7 +488,9 @@ import {
 	DOWNLOAD_PREPARING,
 	SAVE_COLLAGE,
 	MAKE_BACKGROUND,
-	CHANGE_COLLAGE
+	CHANGE_COLLAGE,
+	ASSISTANT_TYPE,
+	ASSISTANT_MODE
 } from '~/model/constants'
 
 import FilterButton from '~/components/content/FilterButton.vue'
@@ -526,11 +514,11 @@ export default {
 		return {
 			assistantExpanded: false,
 			viewPortSize: ViewportSizes.SMALL,
-			assistantMode: AssistantModes.WELCOME,
-			associatedWindow: null,
+			// assistantMode: AssistantModes.WELCOME,
+			// topMostWindow: null,
 			currentStyle: null,
 			hiddenAssetContent: [],
-			associatedWindowGroupId: null,
+			// topMostWindow.groupId: null,
 			filterName: null,
 			shareUrl: null,
 			customInfo: null,
@@ -542,9 +530,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState({
-			topMostWindow: state => state.topMostWindow
-		}),
+		...mapState(['topMostWindow']),
 		...mapState('collection', [
 			'activeGroup',
 			'groupFilters',
@@ -553,9 +539,10 @@ export default {
 			'currentStyles',
 			'activeFilter'
 		]),
+		...mapState('assistant', ['assistantMode']),
 		...mapState('collage', ['collageIsOpen', 'clothes']),
 		...mapState('user', ['keyPressed']),
-		...mapState('utils', ['clipBoardCopyComplete']),
+		...mapState('utils', ['clipBoardCopyComplete', 'isMobile']),
 		...mapState('assistant', ['customText']),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
@@ -631,28 +618,24 @@ export default {
 				this.assistantExpanded = false
 			} else this.filterName = null
 		},
-		topMostWindow(newVal) {
-			this.associatedWindow = newVal
+		topMostWindow() {
+			// this.topMostWindow = this.topMostWindow
 			let noRelevantAssistantContent = false
 			this.shareUrl = null
 			this.styleHasBeenAdded = false
 
-			if (!this.associatedWindow || !this.associatedWindow.contentComponent) {
+			if (!this.topMostWindow || !this.topMostWindow.contentComponent) {
 				noRelevantAssistantContent = true
 			} else {
-				this.associatedWindowGroupId = this.associatedWindow.groupId
-				if (this.associatedWindow.customAssistantText) {
-					this.assistantMode = AssistantModes.CUSTOM
-
-					this.customInfo = this.associatedWindow.customAssistantText
+				// this.topMostWindow.groupId = this.topMostWindow.groupId
+				if (this.topMostWindow.customAssistantText) {
+					// this[ASSISTANT_MODE.action](AssistantModes.CUSTOM)
+					// this.customInfo = this.topMostWindow.customAssistantText
 				} else {
-					let component = this.associatedWindow.contentComponent,
-						componentProps = this.associatedWindow.contentComponentProps
+					let component = this.topMostWindow.contentComponent,
+						componentProps = this.topMostWindow.contentComponentProps
 
 					switch (component) {
-						case ContentTypes.collection.contentComponent:
-							this.assistantMode = AssistantModes.FILTER_COLLECTION
-							break
 						case ContentTypes.imagePortrait.contentComponent:
 						case ContentTypes.imageLandscape.contentComponent:
 						case ContentTypes.imageSquare.contentComponent:
@@ -669,10 +652,7 @@ export default {
 							}
 							break
 						case ContentTypes.wishList.contentComponent:
-							this.assistantMode = AssistantModes.WISHLIST
-							break
-						case ContentTypes.collage.contentComponent:
-							this.assistantMode = AssistantModes.COLLAGE
+							this[ASSISTANT_MODE.action](AssistantModes.WISHLIST)
 							break
 						default:
 							//No window type found?
@@ -684,9 +664,9 @@ export default {
 
 			if (noRelevantAssistantContent) {
 				if (this.wishList.length > 0) {
-					this.assistantMode = AssistantModes.COLLECTION_SEEN
+					this[ASSISTANT_MODE.action](AssistantModes.COLLECTION_SEEN)
 				} else {
-					this.assistantMode = AssistantModes.WELCOME
+					// this[ASSISTANT_MODE.action](AssistantModes.WELCOME)
 				}
 			}
 		},
@@ -695,12 +675,12 @@ export default {
 				newVal.length == 0 &&
 				this.assistantMode == AssistantModes.COLLECTION_SEEN
 			) {
-				this.assistantMode = AssistantModes.WELCOME
+				this[ASSISTANT_MODE.action](AssistantModes.WELCOME)
 			}
 		},
 		collageIsOpen(open) {
 			if (open) {
-				this.assistantMode = AssistantModes.COLLAGE
+				this[ASSISTANT_MODE.action](AssistantModes.COLLAGE)
 			}
 		}
 	},
@@ -727,6 +707,7 @@ export default {
 			SET_PREVIOUS_GROUP.action,
 			SET_NEXT_GROUP.action
 		]),
+		...mapActions('assistant', [ASSISTANT_MODE.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('collage', [
 			SAVE_COLLAGE.action,
@@ -756,7 +737,7 @@ export default {
 			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
-				addToGroupId: this.associatedWindowGroupId
+				addToGroupId: this.topMostWindow.groupId
 			})
 			this.hiddenAssetContent = []
 		},
@@ -836,13 +817,7 @@ export default {
 			}
 
 			//ready to show details
-			this.assistantMode = AssistantModes.STYLE_DETAILS
-		},
-		isSmallViewport() {
-			this.viewPortSize = ViewportSizes.SMALL
-		},
-		isLargeViewport() {
-			this.viewPortSize = ViewportSizes.LARGE
+			this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
 		},
 		toggleContentHandler() {
 			this.assistantExpanded = !this.assistantExpanded
@@ -876,13 +851,8 @@ export default {
 		}
 	},
 	mounted() {
-		let isMobile = addMediaChangeListener(
-			this.isSmallViewport,
-			this.isLargeViewport
-		)
-		if (!isMobile) {
+		if (!this.isMobile) {
 			this.assistantExpanded = false
-			this.viewPortSize = ViewportSizes.LARGE
 		}
 	}
 }

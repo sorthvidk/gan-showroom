@@ -7,6 +7,7 @@ import {
 } from '~/model/constants'
 
 import getAssetType from '~/utils/asset-type'
+import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	assetsConnected: false,
@@ -52,6 +53,13 @@ export const actions = {
 			contentComponentProps: { asset },
 			statusComponentProps: {
 				text: 'TIP! Hit ESC to close all'
+			},
+			assistant: {
+				mode: AssistantModes.CUSTOM,
+				text: {
+					headline: exhibition.name,
+					bodyText: exhibition.description
+				}
 			}
 		}))
 

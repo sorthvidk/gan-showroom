@@ -21,7 +21,6 @@
 				></video>
 				<div>
 					<p v-html="item.name" />
-					<p v-html="item.description" />
 				</div>
 			</button>
 		</div>
@@ -31,7 +30,7 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
-import { ASSISTANT_TEXT, OPEN_EXHIBITION_CONTENT } from '~/model/constants'
+import { OPEN_EXHIBITION_CONTENT } from '~/model/constants'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import WindowContent from '~/components/framework/WindowContent.vue'
@@ -44,7 +43,6 @@ export default {
 	},
 	methods: {
 		...mapActions('exhibition', [OPEN_EXHIBITION_CONTENT.action]),
-		...mapActions('assistant', [ASSISTANT_TEXT.action]),
 		getMediaUrl(type, cURL) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -54,10 +52,6 @@ export default {
 			)
 		},
 		itemClickHandler(item) {
-			this[ASSISTANT_TEXT.action]({
-				headline: item.name,
-				bodyText: item.description
-			})
 			this[OPEN_EXHIBITION_CONTENT.action](item.exhibitionId)
 		}
 	}

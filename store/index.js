@@ -18,7 +18,9 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PASSWORDS_FETCH
+	PASSWORDS_FETCH,
+	ASSISTANT_TEXT,
+	ASSISTANT_MODE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -28,6 +30,8 @@ import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
+import { lastElement } from '~/utils/array-helpers'
+import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	rehydrated: false,
@@ -139,10 +143,8 @@ export const mutations = {
 	 *	Bring window to top.
 	 *
 	 */
-	[TOPMOST_WINDOW.mutation](state, windowId) {
+	[TOPMOST_WINDOW.mutation](state, { dispatch, windowId }) {
 		if (window.GS_LOGS) console.warn('TOPMOST_WINDOW', windowId)
-		let wll = state.windowList.length
-
 		//console.log("zIndexes after",state.zIndexes)
 
 		let matchingWindow = state.windowList.filter(
@@ -152,8 +154,21 @@ export const mutations = {
 		if (matchingWindow) {
 			matchingWindow.positionZ = state.highestZIndex + 1
 			state.windowList = resetZOrder(state.windowList)
-			state.highestZIndex = state.windowList[wll - 1].positionZ
+			state.highestZIndex = lastElement(state.windowList).positionZ
 			state.topMostWindow = matchingWindow
+		}
+
+		if (matchingWindow && matchingWindow.assistant) {
+			dispatch(
+				'assistant/' + ASSISTANT_MODE.action,
+				matchingWindow.assistant.mode
+			)
+			if (matchingWindow.assistant.text) {
+				const { headline, bodyText } = matchingWindow.assistant.text
+				dispatch('assistant/' + ASSISTANT_TEXT.action, { headline, bodyText })
+			}
+		} else {
+			// dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
 
@@ -161,27 +176,22 @@ export const mutations = {
 	 *	Single window close. Wipes window group history, so user has to close all windows individually after
 	 *
 	 */
-	[CLOSE_WINDOW.mutation](state, ids) {
+	[CLOSE_WINDOW.mutation](state, { contentId, windowId }) {
 		state.content.list = state.content.list.filter(
-			e => e.contentId !== ids.contentId
+			e => e.contentId !== contentId
 		)
 
-		let currentWindow = state.windowList.filter(
-			e => e.windowId === ids.windowId
-		)[0]
-
 		//remove window
-		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
+		state.windowList = state.windowList.filter(e => e.windowId !== windowId)
 
 		//search for and remove dead ids in groups
-		let groupsLength = state.windowGroupList.length
-		if (groupsLength > 0) {
-			for (var i = groupsLength - 1; i >= 0; i--) {
+		if (state.windowGroupList.length) {
+			for (var i = state.windowGroupList.length - 1; i >= 0; i--) {
 				let windowGroup = state.windowGroupList[i]
-				if (windowGroup.windowIds.indexOf(ids.windowId) > -1) {
+				if (windowGroup.windowIds.indexOf(windowId) > -1) {
 					//if id found in id list, remove it
 					windowGroup.windowIds.splice(
-						windowGroup.windowIds.indexOf(ids.windowId),
+						windowGroup.windowIds.indexOf(windowId),
 						1
 					)
 				}
@@ -192,20 +202,20 @@ export const mutations = {
 			}
 		}
 
-		state.windowList = resetZOrder(state.windowList)
-		let wll = state.windowList.length
+		// state.windowList = resetZOrder(state.windowList)
+		// let wll = state.windowList.length
 
-		if (wll == 0) {
-			state.highestZIndex = 0
-		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ
-		}
-		state.topMostWindow = state.windowList[wll - 1]
+		// if (wll == 0) {
+		// 	state.highestZIndex = 0
+		// } else {
+		// 	state.highestZIndex = state.windowList[wll - 1].positionZ
+		// }
+		// state.topMostWindow = state.windowList[wll - 1]
 
 		if (window.GS_LOGS)
 			console.warn(
 				'CLOSE_WINDOW | removed id:' +
-					ids.windowId +
+					windowId +
 					', remaining windows: ' +
 					state.windowList.length
 			)
@@ -256,31 +266,41 @@ export const mutations = {
 					(params && params.styleWindowGroup)
 			)
 
-		state.windowList = resetZOrder(state.windowList)
-		let wll = state.windowList.length
+		// state.windowList = resetZOrder(state.windowList)
+		// let wll = state.windowList.length
 
-		if (wll == 0) {
-			state.highestZIndex = 0
-		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ
-		}
-		state.topMostWindow = state.windowList[wll - 1]
+		// if (wll == 0) {
+		// 	state.highestZIndex = 0
+		// } else {
+		// 	state.highestZIndex = state.windowList[wll - 1].positionZ
+		// }
+		// state.topMostWindow = state.windowList[wll - 1]
 	}
 }
 
 export const actions = {
-	[TOPMOST_WINDOW.action]({ commit }, windowId) {
-		commit(TOPMOST_WINDOW.mutation, windowId)
+	[TOPMOST_WINDOW.action]({ commit, dispatch }, windowId) {
+		commit(TOPMOST_WINDOW.mutation, { dispatch, windowId })
 	},
 
-	[CLOSE_WINDOW.action]({ commit }, ids) {
+	[CLOSE_WINDOW.action]({ commit, dispatch, state }, ids) {
 		commit(CLOSE_WINDOW.mutation, ids)
+		if (state.windowList.length) {
+			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		} else {
+			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+		}
 	},
 	[OPEN_CONTENT.action]({ commit }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 	},
-	[CLOSE_WINDOW_GROUP.action]({ commit }, params) {
+	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)
+		if (state.windowList.length) {
+			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		} else {
+			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+		}
 	},
 	[UPDATE_WINDOW.action]({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)

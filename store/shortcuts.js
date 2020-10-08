@@ -3,12 +3,15 @@ import {
 	SET_GROUP_BY_IDENTIFIER,
 	SET_GROUP_BY_INDEX,
 	TOGGLE_MUSIC_PLAYER,
-	COLLECTION_LAYOUT_CHANGE
+	COLLECTION_LAYOUT_CHANGE,
+	ASSISTANT_MODE,
+	ASSISTANT_TEXT
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
+import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	list: [
@@ -31,7 +34,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -51,9 +57,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'Films!! YAY!'
 					},
-					customAssistantText: {
-						headline: 'FILMS',
-						bodyText: 'See all the awesome films<br><br><br>BRUH!'
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'FILMS',
+							bodyText: 'See all the awesome films<br><br><br>BRUH!'
+						}
 					}
 				}
 			]
@@ -80,9 +89,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -98,9 +110,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -116,9 +131,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -134,9 +152,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -152,9 +173,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -170,25 +194,14 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
-				// {
-				// 	title: 'Ditte_inspiration_image_07',
-				// 	contentId: 'ditte-image7',
-				// 	type: ContentTypes.imagePortraitLarge,
-				// 	canOverride: false,
-				// 	contentComponentProps: {
-				// 		asset: {
-				// 			defaultImageUrl: '/img/ditte/ditte7.jpg'
-				// 		}
-				// 	},
-				// 	statusComponentProps: {
-				// 		text: 'TIP! Hit ESC to close all'
-				// 	}
-				// },
 				{
 					title: 'Ditte_inspiration_image_07',
 					contentId: 'ditte-image7',
@@ -202,9 +215,12 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'TIP! Hit ESC to close all'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				},
 				{
@@ -216,9 +232,12 @@ export const state = () => ({
 						text:
 							'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the GANNI team!'
 					},
-					customAssistantText: {
-						headline: 'WELCOME!',
-						bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'WELCOME!',
+							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
+						}
 					}
 				}
 			]
@@ -235,28 +254,14 @@ export const state = () => ({
 					title: 'GANNI FM',
 					contentId: 'ganni-fm',
 					type: ContentTypes.musicPlayer,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.WELCOME
+					}
 				}
 			]
 		},
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'ganni-girls',
-		// 	icon: '/img/shortcuts/ganni_girls.png',
-		// 	label: 'GANNI Girls',
-		// 	posH: 2,
-		// 	posV: 2,
-		// 	windowContent: [
-		// 		{
-		// 			title: '#GANNIGirls',
-		// 			contentId: 'ganni-girls',
-		// 			type: ContentTypes.ganniGirls,
-		// 			statusComponentProps: {
-		// 				text: 'http://#gannigirls.weblog/'
-		// 			}
-		// 		}
-		// 	]
-		// },
+
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
@@ -271,6 +276,9 @@ export const state = () => ({
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
 						text: 'Photo credit: Josefine Seifert'
+					},
+					assistant: {
+						mode: AssistantModes.WELCOME
 					}
 				}
 			]
@@ -301,7 +309,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -327,7 +338,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -357,7 +371,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -391,7 +408,10 @@ export const state = () => ({
 				{
 					title: 'Hampster Dance',
 					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
+					type: ContentTypes.hampsterDance,
+					assistant: {
+						mode: AssistantModes.WELCOME
+					}
 				}
 			]
 		},
@@ -407,7 +427,10 @@ export const state = () => ({
 				{
 					title: 'PLAY DRESS UP',
 					contentId: 'collage',
-					type: ContentTypes.collage
+					type: ContentTypes.collage,
+					assistant: {
+						mode: AssistantModes.COLLAGE
+					}
 				}
 			]
 		},
@@ -428,7 +451,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -443,6 +469,9 @@ export const state = () => ({
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
 						text: 'Photo credit: Jakob Landvik'
+					},
+					assistant: {
+						mode: AssistantModes.WELCOME
 					}
 				}
 			]
@@ -466,7 +495,10 @@ export const state = () => ({
 					title: 'PS21 collection',
 					contentId: 'ps21-collection',
 					type: ContentTypes.collection,
-					canOverride: true
+					canOverride: true,
+					assistant: {
+						mode: AssistantModes.FILTER_COLLECTION
+					}
 				}
 			]
 		},
@@ -485,29 +517,17 @@ export const state = () => ({
 					statusComponentProps: {
 						text: 'Check out the exhibition'
 					},
-					customAssistantText: {
-						headline: 'PRE SPRING 21 RAILS',
-						bodyText:
-							'This is the new rail section. Click on an image to explore the rail'
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'PRE SPRING 21 RAILS',
+							bodyText:
+								'This is the new rail section. Click on an image to explore the rail'
+						}
 					}
 				}
 			]
 		}
-		// {
-		// 	type: ShortcutTypes.MARQUEE,
-		// 	text: 'Meet the  ',
-		// 	label: 'GANNI girls',
-		// 	windowContent: [
-		// 		{
-		// 			title: '#GANNIGirls',
-		// 			contentId: 'ganni-girls',
-		// 			type: ContentTypes.ganniGirls,
-		// 			statusComponentProps: {
-		// 				text: 'http://#gannigirls.weblog/'
-		// 			}
-		// 		}
-		// 	]
-		// }
 	]
 })
 

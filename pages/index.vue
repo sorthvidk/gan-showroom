@@ -96,6 +96,7 @@ export default {
 			this.toggleScreenSaver.bind(this, false)
 		)
 
+		this.onMediaChange(window.innerWidth <= 1024) // todo: ugly way of init
 		addMediaChangeListener(
 			this.onMediaChange.bind(null, true),
 			this.onMediaChange.bind(null, false)
