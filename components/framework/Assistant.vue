@@ -275,6 +275,11 @@
 				</div>
 
 				<div class="assistant__content" v-if="assistantMode == 6">
+					<div class="assistant__text" v-if="customText">
+						<h3 v-if="customText.headline">{{ customText.headline }}</h3>
+						<p v-if="customText.bodyText" v-html="customText.bodyText"></p>
+					</div>
+
 					<div class="assistant__text" v-if="customInfo">
 						<h3 v-if="customInfo.headline">{{ customInfo.headline }}</h3>
 						<p v-if="customInfo.bodyText" v-html="customInfo.bodyText"></p>
@@ -551,6 +556,7 @@ export default {
 		...mapState('collage', ['collageIsOpen', 'clothes']),
 		...mapState('user', ['keyPressed']),
 		...mapState('utils', ['clipBoardCopyComplete']),
+		...mapState('assistant', ['customText']),
 		viewWishListButtonLabel() {
 			return `View wishlist (${this.wishList.length})`
 		},

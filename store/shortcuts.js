@@ -484,6 +484,11 @@ export const state = () => ({
 					type: ContentTypes.exhibition,
 					statusComponentProps: {
 						text: 'Check out the exhibition'
+					},
+					customAssistantText: {
+						headline: 'PRE SPRING 21 RAILS',
+						bodyText:
+							'This is the new rail section. Click on an image to explore the rail'
 					}
 				}
 			]
