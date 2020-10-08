@@ -1,0 +1,21 @@
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.mobile-disclamer {
+	animation: spin 10s linear infinite;
+
+	font-size: 10vw;
+	color: $color-green;
+
+	height: 100%;
+	width: 100%;
+
+	position: fixed;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

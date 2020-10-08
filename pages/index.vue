@@ -7,6 +7,8 @@
 		<v-idle :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
 
+		<mobile-disclamer v-if="isMobile" />
+
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
@@ -14,24 +16,38 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
+import addMediaChangeListener from '~/utils/media-change'
+import ViewportSizes from '~/model/viewport-sizes'
+
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
 import Screensaver from '~/components/framework/Screensaver.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
+import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 
-import { INDEX_COLLECTION_DATA, INIT_PROGRESS, IDLE } from '~/model/constants'
+import {
+	INDEX_COLLECTION_DATA,
+	INIT_PROGRESS,
+	IDLE,
+	IS_MOBILE
+} from '~/model/constants'
 
 export default {
 	components: {
 		Login,
 		Desktop,
 		Screensaver,
-		CookieBanner
+		CookieBanner,
+		MobileDisclamer
 	},
 	computed: {
-		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle'])
+		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
+		...mapState('utils', ['isMobile']),
+		mobile() {
+			return (this.viewPortSize = ViewportSizes.SMALL)
+		}
 	},
 	head() {
 		return {
@@ -51,6 +67,7 @@ export default {
 	},
 	methods: {
 		...mapActions('user', [IDLE.action]),
+		...mapActions('utils', [IS_MOBILE.action]),
 		toggleScreenSaver(idle) {
 			if (this.idle) {
 				this[IDLE.action](idle)
@@ -58,6 +75,9 @@ export default {
 		},
 		onidle() {
 			this[IDLE.action](true)
+		},
+		onMediaChange(isMobile) {
+			this[IS_MOBILE.action](isMobile)
 		}
 	},
 	mounted() {
@@ -74,6 +94,11 @@ export default {
 		document.body.addEventListener(
 			'mousemove',
 			this.toggleScreenSaver.bind(this, false)
+		)
+
+		addMediaChangeListener(
+			this.onMediaChange.bind(null, true),
+			this.onMediaChange.bind(null, false)
 		)
 	}
 }
