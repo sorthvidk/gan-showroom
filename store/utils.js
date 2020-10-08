@@ -1,8 +1,13 @@
-import { CLIPBOARD_COPY, DOWNLOAD_PREPARING } from '~/model/constants'
+import {
+	CLIPBOARD_COPY,
+	DOWNLOAD_PREPARING,
+	IS_MOBILE
+} from '~/model/constants'
 
 export const state = () => ({
 	clipBoardCopyComplete: false,
-	downloadPreparing: false
+	downloadPreparing: false,
+	isMobile: false
 })
 
 export const mutations = {
@@ -13,6 +18,9 @@ export const mutations = {
 	[DOWNLOAD_PREPARING.mutation](state, value) {
 		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
 		state.downloadPreparing = value
+	},
+	[IS_MOBILE.mutation](state, value) {
+		state.isMobile = value
 	}
 }
 
@@ -22,5 +30,8 @@ export const actions = {
 	},
 	[DOWNLOAD_PREPARING.action]({ commit }, value) {
 		commit(DOWNLOAD_PREPARING.mutation, value)
+	},
+	[IS_MOBILE.action]({ commit }, value) {
+		commit(IS_MOBILE.mutation, value)
 	}
 }

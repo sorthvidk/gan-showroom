@@ -2,7 +2,7 @@
 	<transition name="startup-transition" mode="out-in">
 		<div
 			class="desktop"
-			:class="screensaverActive && 'screensaver-running'"
+			:class="idle && 'screensaver-running'"
 			v-lazy:background-image="webcamImage || backgroundImageObj"
 			:style="{ backgroundSize: webcamImage && '400px' }"
 		>
@@ -60,7 +60,8 @@
 				<assistant />
 				<support />
 			</div>
-			<marquee v-if="viewPortSize.name == 'LARGE'" />
+			<!-- <marquee v-if="viewPortSize.name == 'LARGE'" /> -->
+			<marquee v-if="!isMobile" />
 
 			<div class="logo">
 				<img
@@ -159,9 +160,9 @@ import {
 	CONNECT_EXHIBITION_ASSETS
 } from '~/model/constants'
 
-import addMediaChangeListener from '~/utils/media-change'
+// import addMediaChangeListener from '~/utils/media-change'
 
-import ViewportSizes from '~/model/viewport-sizes'
+// import ViewportSizes from '~/model/viewport-sizes'
 import ShortcutTypes from '~/model/shortcut-types'
 
 import ProgressBar from '~/components/framework/ProgressBar.vue'
@@ -187,11 +188,11 @@ export default {
 		...mapState(['wallpaperIndex', 'windowList']),
 		...mapState('collage', ['webcamImage']),
 		...mapState('shortcuts', ['list']),
-		...mapState('user', ['copyrightAccepted', 'mousepos']),
+		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
 		...mapState('utils', [
 			'downloadPreparing',
 			'clipBoardCopyComplete',
-			'screensaverActive'
+			'isMobile'
 		]),
 		desktopIcons() {
 			return this.list.filter(
@@ -229,7 +230,7 @@ export default {
 	},
 	data() {
 		return {
-			viewPortSize: ViewportSizes.SMALL,
+			// viewPortSize: ViewportSizes.SMALL,
 			showClipboardMessage: false,
 			showDownloadMessage: false,
 			wallpaperCount: 6
@@ -245,12 +246,12 @@ export default {
 			KEYPRESS.action,
 			MOUSEMOVE.action
 		]),
-		isSmallViewport() {
-			this.viewPortSize = ViewportSizes.SMALL
-		},
-		isLargeViewport() {
-			this.viewPortSize = ViewportSizes.LARGE
-		},
+		// isSmallViewport() {
+		// 	this.viewPortSize = ViewportSizes.SMALL
+		// },
+		// isLargeViewport() {
+		// 	this.viewPortSize = ViewportSizes.LARGE
+		// },
 		startClipboardTimeout() {
 			setTimeout(() => {
 				this[CLIPBOARD_COPY.action](false)
@@ -322,13 +323,13 @@ export default {
 			debounce(() => this[MOUSEMOVE.action](event), 200)
 		})
 
-		let isMobile = addMediaChangeListener(
-			this.isSmallViewport,
-			this.isLargeViewport
-		)
-		if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
+		// let isMobile = addMediaChangeListener(
+		// 	this.isSmallViewport,
+		// 	this.isLargeViewport
+		// )
+		// if (!isMobile) this.viewPortSize = ViewportSizes.LARGE
 
-		if (!isMobile) {
+		if (!this.isMobile) {
 			this.openMusicPlayer()
 		}
 
