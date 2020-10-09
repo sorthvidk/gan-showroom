@@ -27,6 +27,10 @@ export const state = () => ({
 				{
 					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
 					param: CollectionLayouts.GRID
+				},
+				{
+					name: 'assistant/' + ASSISTANT_MODE.action,
+					param: AssistantModes.FILTER_COLLECTION
 				}
 			],
 			windowContent: [

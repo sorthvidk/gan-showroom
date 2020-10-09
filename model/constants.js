@@ -29,6 +29,9 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
+export const CURRENT_STYLE = createMutation('CURRENT_STYLE')
+export const SET_HIDDEN_ASSETS = createMutation('SET_HIDDEN_ASSETS')
+
 export const AUTHORIZE_GROUPS = createMutation('AUTHORIZE_GROUPS')
 
 export const KEYPRESS = createMutation('KEYPRESS')
@@ -66,6 +69,7 @@ export const FORCE_STOP_MUSIC = createMutation('FORCE_STOP_MUSIC')
 export const MUSIC_PLAY_PAUSE = createMutation('MUSIC_PLAY_PAUSE')
 export const CLIPBOARD_COPY = createMutation('CLIPBOARD_COPY')
 export const DOWNLOAD_PREPARING = createMutation('DOWNLOAD_PREPARING')
+export const SHORTENED_URL = createMutation('SHORTENED_URL')
 
 export const CONNECT_EXHIBITION_ASSETS = createMutation(
 	'CONNECT_EXHIBITION_ASSETS'
@@ -79,3 +83,4 @@ export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
 
 export const ASSISTANT_TEXT = createMutation('ASSISTANT_TEXT')
 export const ASSISTANT_MODE = createMutation('ASSISTANT_MODE')
+export const ASSISTANT_EXPANDED = createMutation('ASSISTANT_EXPANDED')

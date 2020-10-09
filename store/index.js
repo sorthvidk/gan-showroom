@@ -167,8 +167,6 @@ export const mutations = {
 				const { headline, bodyText } = matchingWindow.assistant.text
 				dispatch('assistant/' + ASSISTANT_TEXT.action, { headline, bodyText })
 			}
-		} else {
-			// dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
 
@@ -201,16 +199,6 @@ export const mutations = {
 				}
 			}
 		}
-
-		// state.windowList = resetZOrder(state.windowList)
-		// let wll = state.windowList.length
-
-		// if (wll == 0) {
-		// 	state.highestZIndex = 0
-		// } else {
-		// 	state.highestZIndex = state.windowList[wll - 1].positionZ
-		// }
-		// state.topMostWindow = state.windowList[wll - 1]
 
 		if (window.GS_LOGS)
 			console.warn(
@@ -265,16 +253,6 @@ export const mutations = {
 					' | close style? ' +
 					(params && params.styleWindowGroup)
 			)
-
-		// state.windowList = resetZOrder(state.windowList)
-		// let wll = state.windowList.length
-
-		// if (wll == 0) {
-		// 	state.highestZIndex = 0
-		// } else {
-		// 	state.highestZIndex = state.windowList[wll - 1].positionZ
-		// }
-		// state.topMostWindow = state.windowList[wll - 1]
 	}
 }
 
@@ -291,8 +269,9 @@ export const actions = {
 			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
-	[OPEN_CONTENT.action]({ commit }, content) {
+	[OPEN_CONTENT.action]({ commit, dispatch, state }, content) {
 		commit(OPEN_CONTENT.mutation, content)
+		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 	},
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)

@@ -20,7 +20,9 @@ import {
 	OPEN_STYLE_CONTENT,
 	CLOSE_WINDOW_GROUP,
 	COLLECTION_LAYOUT_CHANGE,
-	AUTHORIZE_GROUPS
+	AUTHORIZE_GROUPS,
+	CURRENT_STYLE,
+	SET_HIDDEN_ASSETS
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
@@ -63,8 +65,18 @@ export const state = () => ({
 	},
 
 	//new list
-	wishList: []
+	wishList: [],
+
+	currentStyle: null,
+	hiddenAssetContent: []
 })
+
+export const getters = {
+	wishListUrl: state =>
+		`${window.location}export/?styles=${state.wishList
+			.map(style => style.styleId)
+			.join(',')}`
+}
 
 export const mutations = {
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
@@ -409,6 +421,29 @@ export const mutations = {
 			// or if group has the used password defined
 			return group.passwords.includes(rootState.user.loggedIn)
 		})
+	},
+
+	[CURRENT_STYLE.mutation](state, data) {
+		state.currentStyle = data
+	},
+
+	[SET_HIDDEN_ASSETS.mutation](state, fill) {
+		state.hiddenAssetContent = []
+
+		if (!state.currentStyle || fill !== false) return
+
+		state.hiddenAssetContent = [...state.currentStyle.assets]
+			.filter(asset => !asset.visible)
+			.reverse()
+			.map(asset => ({
+				title: asset.name,
+				contentId: asset.assetId,
+				type: getAssetType(asset),
+				canOverride: false,
+				windowProps: getAssetType(asset).defaultWindowProps,
+				contentComponentProps: { asset },
+				statusComponentProps: getAssetType(asset).defaultStatusComponentProps
+			}))
 	}
 }
 
@@ -529,5 +564,13 @@ export const actions = {
 
 	[AUTHORIZE_GROUPS.action]({ commit, rootState }) {
 		commit(AUTHORIZE_GROUPS.mutation, rootState)
+	},
+
+	[CURRENT_STYLE.action]({ commit }, data) {
+		commit(CURRENT_STYLE.mutation, data)
+	},
+
+	[SET_HIDDEN_ASSETS.action]({ commit }, fill) {
+		commit(SET_HIDDEN_ASSETS.mutation, fill)
 	}
 }

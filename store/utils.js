@@ -1,13 +1,15 @@
 import {
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
-	IS_MOBILE
+	IS_MOBILE,
+	SHORTENED_URL
 } from '~/model/constants'
 
 export const state = () => ({
 	clipBoardCopyComplete: false,
 	downloadPreparing: false,
-	isMobile: true
+	isMobile: true,
+	shortenedReceiptUrl: ''
 })
 
 export const mutations = {
@@ -21,6 +23,9 @@ export const mutations = {
 	},
 	[IS_MOBILE.mutation](state, value) {
 		state.isMobile = value
+	},
+	[SHORTENED_URL.mutation](state, value) {
+		state.shortenedReceiptUrl = value
 	}
 }
 
@@ -33,5 +38,8 @@ export const actions = {
 	},
 	[IS_MOBILE.action]({ commit }, value) {
 		commit(IS_MOBILE.mutation, value)
+	},
+	[SHORTENED_URL.action]({ commit }, value) {
+		commit(SHORTENED_URL.mutation, value)
 	}
 }
