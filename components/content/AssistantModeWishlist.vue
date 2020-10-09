@@ -7,13 +7,16 @@
 					done you can download to see your favorites or share with your team
 				</p>
 			</div>
-			<div class="assistant__text" v-if="shortenedReceiptUrl">
+			<div
+				class="assistant__text"
+				v-if="shortenedReceiptUrl && wishList.length"
+			>
 				<p>Your Wishlist link</p>
 				<strong @click="shareUrlClickHandler">{{ shortenedReceiptUrl }}</strong>
 			</div>
 		</div>
 
-		<div class="assistant__ctas">
+		<div class="assistant__ctas" v-if="wishList.length">
 			<a
 				class="button download-wishlist button--half"
 				@click="downloadWishListClickHandler"
@@ -92,17 +95,18 @@ export default {
 
 			getShortUrl(this.wishListUrl).then(shortenedUrl => {
 				if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
-				if (typeof shortenedUrl === 'string' && shortenedUrl != '')
-					this[SHORTENED_URL.action](shortenedUrl)
+				if (typeof shortenedUrl !== 'string' || shortenedUrl === '') {
+					return
+				}
 
-				this.$nextTick(() =>
+				this[SHORTENED_URL.action](shortenedUrl).then(() => {
 					copyToClipboard(
 						this.shortenedReceiptUrl,
 						this.copyToClipboardComplete.bind(this)
 					)
-				)
-				let wLS = this.wishList.map(style => style.styleId).join(',')
-				sendTracking('Share wish list', wLS)
+					let wLS = this.wishList.map(style => style.styleId).join(',')
+					sendTracking('Share wish list', wLS)
+				})
 			})
 		},
 		copyToClipboardComplete(success) {

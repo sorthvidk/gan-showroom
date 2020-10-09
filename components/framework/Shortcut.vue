@@ -86,17 +86,14 @@ export default {
 				window.open(this.href, '_blank')
 			} else {
 				if (this.actions) {
-					for (let i = 0; i < this.actions.length; i++) {
-						let action = this.actions[i]
-						if (typeof action.param != 'undefined')
-							this.$store.dispatch(action.name, action.param)
-						else this.$store.dispatch(action.name)
-					}
-
-					//TODO: Fix race condition!!
-					setTimeout(() => {
+					const openContent = () =>
 						this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
-					}, 500)
+
+					this.actions.forEach(action => {
+						if (typeof action.param !== 'undefined')
+							this.$store.dispatch(action.name, action.param).then(openContent)
+						else this.$store.dispatch(action.name).then(openContent)
+					})
 				} else {
 					this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
 				}

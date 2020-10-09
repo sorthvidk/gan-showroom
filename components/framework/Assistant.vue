@@ -206,7 +206,8 @@ export default {
 								e => e.styleId === contentComponentProps.asset.styleId
 							)[0]
 							this[CURRENT_STYLE.action](currentStyle)
-							this.parseAssets()
+							this[SET_HIDDEN_ASSETS.action]()
+							this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -259,11 +260,7 @@ export default {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 
-		parseAssets() {
-			this[SET_HIDDEN_ASSETS.action]()
-			//ready to show details
-			this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
-		},
+		parseAssets() {},
 		toggleContentHandler() {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
 		}

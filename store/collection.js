@@ -360,6 +360,8 @@ export const mutations = {
 				e => e.filterId === filterId
 			)[0]
 
+			// console.log(state.activeFilter, state.groupFilters, filterId)
+
 			let styleIds = state.activeFilter.styleIds
 			let newCurrentStyles = findArrayMatches(
 				styleIds,
