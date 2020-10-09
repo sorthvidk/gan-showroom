@@ -42,7 +42,6 @@ export default {
 			selectText(event)
 		},
 		viewWishListClickHandler() {
-			//VIEW WISHLIST
 			this[OPEN_WISH_LIST.action]()
 		}
 	}

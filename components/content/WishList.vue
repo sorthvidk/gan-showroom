@@ -37,7 +37,9 @@
 				<div
 					class="inner"
 					v-if="
-						currentWishListItem.assets && currentWishListItem.assets.length > 0
+						currentWishListItem &&
+							currentWishListItem.assets &&
+							currentWishListItem.assets.length > 0
 					"
 					:key="currentWishListIndex"
 				>
@@ -152,6 +154,7 @@ export default {
 	computed: {
 		...mapState('utils', ['isMobile']),
 		...mapState('collection', ['wishList']),
+
 		currentWishListItem() {
 			if (this.wishList.length > 0)
 				return this.wishList[this.currentWishListIndex]

@@ -138,7 +138,6 @@ import AssistantModeCollectionSeen from '~/components/content/AssistantModeColle
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 
 import ContentTypes from '~/model/content-types'
-import ViewportSizes from '~/model/viewport-sizes'
 import AssistantModes from '~/model/assistant-modes'
 
 export default {
@@ -154,7 +153,6 @@ export default {
 	},
 	data() {
 		return {
-			viewPortSize: ViewportSizes.SMALL,
 			filterName: null
 		}
 	},
@@ -249,9 +247,11 @@ export default {
 			ASSISTANT_MODE.action,
 			ASSISTANT_EXPANDED.action
 		]),
+
 		previousStyleHandler() {
 			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
 		},
+
 		nextStyleHandler() {
 			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 		},
@@ -260,7 +260,6 @@ export default {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 
-		parseAssets() {},
 		toggleContentHandler() {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
 		}
