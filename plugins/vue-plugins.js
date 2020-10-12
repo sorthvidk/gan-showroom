@@ -5,7 +5,7 @@ import VueTyper from 'vue-typer'
 import visibility from 'vue-visibility-change'
 import WebCam from 'vue-web-cam'
 import Vidle from 'v-idle'
-
+import headbreaker from 'headbreaker'
 import Konva from 'konva'
 
 Vue.use(VueLazyload)
@@ -15,6 +15,7 @@ Vue.use(visibility)
 Vue.use(Konva)
 Vue.use(WebCam)
 Vue.use(Vidle)
+Vue.use(headbreaker)
 
 /**
  * todo: turn of when bugfixing is done

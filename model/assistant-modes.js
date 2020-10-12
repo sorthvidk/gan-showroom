@@ -5,5 +5,6 @@ export default {
 	WISHLIST: 3,
 	COLLECTION_SEEN: 4,
 	COLLAGE: 5,
-	CUSTOM: 6
+	CUSTOM: 6,
+	PUZZLE: 7
 }

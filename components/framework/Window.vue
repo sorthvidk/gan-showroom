@@ -74,6 +74,7 @@ import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
 import Collage from '~/components/content/Collage.vue'
+import Puzzle from '~/components/content/Puzzle.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -98,7 +99,8 @@ export default {
 		HampsterDance,
 		GanniGirls,
 		LookBook,
-		Collage
+		Collage,
+		Puzzle
 	},
 	props: {
 		modifierClass: {

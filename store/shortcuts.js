@@ -510,9 +510,9 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'exhibition',
 			icon: '/img/shortcuts/rails.png',
-			label: 'rails (wip)',
-			posH: 6,
-			posV: 2,
+			label: 'rails (new)',
+			posH: 3,
+			posV: 3,
 			windowContent: [
 				{
 					title: 'rails',
@@ -528,6 +528,25 @@ export const state = () => ({
 							bodyText:
 								'This is the new rail section. Click on an image to explore the rail'
 						}
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'puzzle',
+			label: 'Puzzle',
+			icon: '/img/shortcuts/puzzle.png',
+			posH: 10,
+			posV: 5,
+			windowContent: [
+				{
+					title: 'Puzzle',
+					contentId: 'puzzle',
+					type: ContentTypes.puzzle,
+					assistant: {
+						mode: AssistantModes.PUZZLE
 					}
 				}
 			]

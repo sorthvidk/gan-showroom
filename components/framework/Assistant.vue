@@ -106,12 +106,13 @@
 		<div class="window__content">
 			<div class="assistant">
 				<assistant-mode-welcome v-if="assistantMode === 0" />
-				<assistant-mode-filter-collection v-if="assistantMode == 1" />
-				<assistant-mode-style-details v-if="assistantMode == 2" />
-				<assistant-mode-wishlist v-if="assistantMode == 3" />
-				<assistant-mode-collection-seen v-if="assistantMode == 4" />
-				<assistant-mode-collage v-if="assistantMode == 5" />
-				<assistant-mode-custom v-if="assistantMode == 6" />
+				<assistant-mode-filter-collection v-if="assistantMode === 1" />
+				<assistant-mode-style-details v-if="assistantMode === 2" />
+				<assistant-mode-wishlist v-if="assistantMode === 3" />
+				<assistant-mode-collection-seen v-if="assistantMode === 4" />
+				<assistant-mode-collage v-if="assistantMode === 5" />
+				<assistant-mode-custom v-if="assistantMode === 6" />
+				<assistant-mode-puzzle v-if="assistantMode === 7" />
 			</div>
 		</div>
 	</section>
@@ -136,6 +137,7 @@ import AssistantModeCollage from '~/components/content/AssistantModeCollage.vue'
 import AssistantModeWishlist from '~/components/content/AssistantModeWishlist.vue'
 import AssistantModeCollectionSeen from '~/components/content/AssistantModeCollectionSeen.vue'
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
+import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
 
 import ContentTypes from '~/model/content-types'
 import AssistantModes from '~/model/assistant-modes'
@@ -149,7 +151,8 @@ export default {
 		AssistantModeCollage,
 		AssistantModeWishlist,
 		AssistantModeCollectionSeen,
-		AssistantModeCustom
+		AssistantModeCustom,
+		AssistantModePuzzle
 	},
 	data() {
 		return {
