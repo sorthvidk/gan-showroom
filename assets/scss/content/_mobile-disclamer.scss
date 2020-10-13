@@ -7,8 +7,10 @@
 .mobile-disclamer {
 	animation: spin 10s linear infinite;
 
-	font-size: 10vw;
-	color: $color-green;
+	font-size: 25vw;
+	color: $color-red;
+	text-align: center;
+	font-weight: bold;
 
 	height: 100%;
 	width: 100%;
@@ -18,6 +20,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: -20vw;
 
 	pointer-events: none;
 }

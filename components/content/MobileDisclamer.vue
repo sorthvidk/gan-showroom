@@ -1,6 +1,6 @@
 <template>
 	<div class="mobile-disclamer">
-		<p>GET OFF YOUR PHONE</p>
+		<p>GET OFF<br />YOUR PHONE</p>
 	</div>
 </template>
 

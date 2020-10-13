@@ -519,7 +519,7 @@ export const state = () => ({
 					contentId: 'exhibition',
 					type: ContentTypes.exhibition,
 					statusComponentProps: {
-						text: 'Check out the exhibition'
+						text: 'PRE SPRING 21 RAILS'
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
