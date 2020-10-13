@@ -77,8 +77,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Konva from 'konva'
 import { SAVE_AS_BACKGROUND, COLLAGE_IS_OPEN } from '~/model/constants'
-import isMobile from '~/utils/is-mobile'
+import { nextIndex } from '~/utils/array-helpers'
 
 export default {
 	name: 'collage',
@@ -89,9 +90,6 @@ export default {
 
 			webcamImageRadius: 130,
 			webcamImageOffset: 100,
-
-			stageWidth: isMobile() ? 350 : 530,
-			stageHeight: isMobile() ? 440 : 520,
 
 			openPhotobooth: false,
 			photo: null,
@@ -105,7 +103,14 @@ export default {
 			'saveCollage',
 			'makeBackground',
 			'changeCollage'
-		])
+		]),
+		...mapState('utils', ['isMobile']),
+		stageWidth() {
+			return this.isMobile ? 350 : 530
+		},
+		stageHeight() {
+			return this.isMobile ? 440 : 520
+		}
 	},
 	watch: {
 		saveCollage() {
@@ -131,10 +136,7 @@ export default {
 			this.currentCameraIndex = 0
 		},
 		getNextCamera() {
-			this.currentCameraIndex =
-				this.currentCameraIndex + 1 < this.cameras.length
-					? this.currentCameraIndex + 1
-					: 0
+			this.currentCameraIndex = nextIndex(this.cameras, this.currentCameraIndex)
 			this.$refs.webcam.changeCamera(
 				this.cameras[this.currentCameraIndex].deviceId
 			)
@@ -152,7 +154,11 @@ export default {
 			const image = new Image()
 
 			const extract = val =>
-				typeof val === 'object' ? (isMobile() ? val.mobile : val.desktop) : val
+				typeof val === 'object'
+					? this.isMobile
+						? val.mobile
+						: val.desktop
+					: val
 
 			const w = extract(width)
 			const h = extract(height)
@@ -162,7 +168,7 @@ export default {
 			image.onload = () => {
 				let output
 
-				const img = new this.$Konva.Image({
+				const img = new Konva.Image({
 					image,
 					x: left,
 					y: top,
@@ -174,7 +180,7 @@ export default {
 					var group = new Konva.Group({
 						clipFunc: ctx => {
 							ctx.arc(
-								isMobile()
+								this.isMobile
 									? this.webcamImageRadius / 3 + this.webcamImageOffset
 									: this.webcamImageRadius / 1.5 + this.webcamImageOffset,
 								this.webcamImageRadius / 2.1 + this.webcamImageOffset, // y
@@ -311,22 +317,22 @@ export default {
 	mounted() {
 		this[COLLAGE_IS_OPEN.action](true)
 
-		this.stage = new this.$Konva.Stage({
+		this.stage = new Konva.Stage({
 			container: 'container',
 			width: this.stageWidth,
 			height: this.stageHeight
 		})
 
-		this.background = new this.$Konva.Layer()
+		this.background = new Konva.Layer()
 		this.stage.add(this.background)
 
-		this.doll = new this.$Konva.Layer()
+		this.doll = new Konva.Layer()
 		this.stage.add(this.doll)
 
-		this.layer = new this.$Konva.Layer()
+		this.layer = new Konva.Layer()
 		this.stage.add(this.layer)
 
-		this.watermark = new this.$Konva.Layer()
+		this.watermark = new Konva.Layer()
 		this.stage.add(this.watermark)
 
 		this.background.setZIndex(1)
@@ -336,8 +342,8 @@ export default {
 
 		this.insertPhoto({
 			src: '/img/collage/ballon.svg',
-			y: isMobile() ? 50 : 50,
-			x: isMobile() ? 100 : 230,
+			y: this.isMobile ? 50 : 50,
+			x: this.isMobile ? 100 : 230,
 			width: 80,
 			height: 240,
 			// draggable: false,

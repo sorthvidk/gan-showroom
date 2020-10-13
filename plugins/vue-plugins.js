@@ -34,5 +34,5 @@ Vue.prototype.$cloudinary = $cloudinary
 export default ({ app }, inject) => {
 	inject('cloudinary', $cloudinary)
 	inject('visibility', visibility)
-	inject('Konva', Konva)
+	// inject('Konva', Konva)
 }
