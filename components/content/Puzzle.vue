@@ -23,22 +23,21 @@ export default {
 			image.onload = () => {
 				const autogen = new headbreaker.Canvas('puzzle', {
 					width: 800,
-					height: 700,
+					height: 800,
+					proximity: 20,
 					fixed: true,
 					pieceSize: 100,
-					borderFill: 0,
-					lineSoftness: 0.5,
-					strokeWidth: 5,
+					borderFill: 10,
+					lineSoftness: 0.2,
+					strokeWidth: 1,
 					strokeColor: '#fff',
 					image,
+					maxPiecesCount: { x: 8, y: 8 },
 					painter: new headbreaker.painters.Konva()
 				})
 
 				autogen.adjustImagesToPuzzleHeight()
-				autogen.autogenerate({
-					horizontalPiecesCount: 8,
-					verticalPiecesCount: 7
-				})
+				autogen.autogenerate()
 				autogen.shuffle(0.7)
 				autogen.draw()
 			}

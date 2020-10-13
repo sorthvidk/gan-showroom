@@ -445,9 +445,9 @@ export default {
 		statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
-				[ViewportSizes.XLARGE.name]: { w: 800, h: 730 },
-				[ViewportSizes.LARGE.name]: { w: 800, h: 730 },
-				[ViewportSizes.SMALL.name]: { w: 350, h: 440 }
+				[ViewportSizes.XLARGE.name]: { w: 800, h: 830 },
+				[ViewportSizes.LARGE.name]: { w: 800, h: 830 },
+				[ViewportSizes.SMALL.name]: { w: 800, h: 830 }
 			},
 			noStatus: true,
 			canResize: false,

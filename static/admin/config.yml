@@ -472,3 +472,121 @@ collections:
           widget: 'string',
           hint: 'A SHA256 representation of the password. Type your password in the textfield here: https://passwordsgenerator.net/sha256-hash-generator/ and copy/paste the output. ex. 16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009',
         }
+
+  - name: 'exhibition'
+    sortableFields: ['exhibitionId']
+    label: 'Exhibition'
+    folder: 'assets/content/exhibition'
+    summary: '{{exhibitionId}} - {{name}}'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{exhibitionId}}-{{name}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Exhibition #',
+          name: 'exhibitionId',
+          widget: 'string',
+          hint: "Unique identifier ex. 'exhibition1'",
+        }
+      - {
+          label: 'Name',
+          name: 'name',
+          widget: 'string',
+          default: '',
+          hint: "Name of exhibition ex. 'John Doe'",
+        }
+      - {
+          label: 'Description',
+          name: 'description',
+          widget: 'string',
+          default: '',
+          required: false,
+          hint: "Long description of exhibition ex. 'John Doe is awesome.'",
+        }
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Clickable image/video background',
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          required: true,
+          options: ['video', 'image'],
+          hint: 'Either image or video',
+        }
+      - { name: 'assets', default: [], widget: 'hidden' }
+
+  - name: 'exhibitionAssets'
+    sortableFields: ['exhibitionId']
+    summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
+    label: 'Exhibition assets'
+    folder: 'assets/content/exhibitionAssets'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{assetId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Asset #',
+          name: 'assetId',
+          widget: 'string',
+          required: true,
+          hint: 'Unique asset ID',
+        }
+      - {
+          label: 'exhibition #',
+          name: 'exhibitionId',
+          widget: 'relation',
+          collection: 'exhibitions',
+          required: true,
+          searchFields: ['exhibitionId', 'name'],
+          valueField: 'exhibitionId',
+          displayFields: ['exhibitionId', 'name'],
+          hint: 'Reference to unique exhibition ID',
+        }
+      - {
+          label: 'Asset title',
+          name: 'name',
+          widget: 'string',
+          required: true,
+          hint: "Title for image window ex. 'Image 1'",
+        }
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: true,
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          required: true,
+          options: ['video', 'image', 'text'],
+          hint: 'Either image, video or text',
+        }
+      - {
+          label: 'Aspect',
+          name: 'aspect',
+          widget: 'select',
+          required: true,
+          options: ['landscape', 'portrait', 'square'],
+          default: 'portrait',
+          hint: 'Aspect of media',
+        }
+      - {
+          label: 'Text content',
+          name: 'text',
+          widget: 'text',
+          default: '',
+          required: false,
+          hint: 'Raw text for text panel (only when using text asset)',
+        }

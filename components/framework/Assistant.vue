@@ -229,9 +229,9 @@ export default {
 				}
 			}
 		},
-		wishList(newVal) {
+		wishList() {
 			if (
-				newVal.length == 0 &&
+				this.wishList.length == 0 &&
 				this.assistantMode == AssistantModes.COLLECTION_SEEN
 			) {
 				this[ASSISTANT_MODE.action](AssistantModes.WELCOME)

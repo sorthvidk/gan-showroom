@@ -82,12 +82,13 @@ export default {
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
 		onClick() {
+			const { windowContent } = this
+
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
 				if (this.actions) {
-					const openContent = () =>
-						this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+					const openContent = () => this[OPEN_CONTENT.action]({ windowContent })
 
 					this.actions.forEach(action => {
 						if (typeof action.param !== 'undefined')
@@ -95,7 +96,7 @@ export default {
 						else this.$store.dispatch(action.name).then(openContent)
 					})
 				} else {
-					this[OPEN_CONTENT.action]({ windowContent: this.windowContent })
+					this[OPEN_CONTENT.action]({ windowContent })
 				}
 			}
 		},
