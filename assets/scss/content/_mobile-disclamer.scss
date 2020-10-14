@@ -1,26 +1,19 @@
-@keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
-}
-
 .mobile-disclamer {
-	animation: spin 10s linear infinite;
+	font-size: 12vmin;
+	line-height: 0.8;
+	text-transform: uppercase;
 
-	font-size: 25vw;
-	color: $color-red;
-	text-align: center;
-	font-weight: bold;
-
-	height: 100%;
-	width: 100%;
+	background: $color-amaranth;
 
 	position: fixed;
+	top: 7%;
+	left: 5%;
+	width: 66%;
+	padding: 0.2em;
 
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: -20vw;
 
 	pointer-events: none;
 }
