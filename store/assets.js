@@ -2,7 +2,8 @@ import {
 	FILMS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
-	GENERAL_FETCH
+	GENERAL_FETCH,
+	ANNAS_FETCH
 } from '~/model/constants'
 
 export const state = () => ({
@@ -164,7 +165,9 @@ export const state = () => ({
 			cloudinaryUrl:
 				'/img/lookbook/00026-Ganni-Pre-Fall-20-Credit-Jakoblandvik.jpg'
 		}
-	]
+	],
+
+	annas: []
 })
 
 export const mutations = {
@@ -176,6 +179,9 @@ export const mutations = {
 	},
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.lookBook = data
+	},
+	[ANNAS_FETCH.mutation](state, data) {
+		state.annas = data
 	},
 	[GENERAL_FETCH.mutation](state, { data, rootState }) {
 		//Insert Ganni Girls bg image

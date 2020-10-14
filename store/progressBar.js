@@ -1,5 +1,9 @@
-import { INIT_PROGRESS } from '~/model/constants'
+import { INIT_PROGRESS, UPDATE_PROGRESS } from '~/model/constants'
 import ContentTypes from '~/model/content-types'
+
+/**
+ * !TODO: get progressItems from showtcuts, right now it counts unused ones
+ */
 
 export const state = () => ({
 	progressItems: {},
@@ -8,37 +12,32 @@ export const state = () => ({
 })
 
 export const mutations = {
-	/*
-	 *	Activate content block, opens window with matching contentComponent
-	 *
-	 */
 	[INIT_PROGRESS.mutation](state) {
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = false
-		})
-
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = {
+		Object.values(ContentTypes).forEach(({ name, contentScore }) => {
+			state.progressItems[name] = {
 				complete: false,
-				score: ContentTypes[type].contentScore
+				score: contentScore
 			}
+
+			state.progressMax += contentScore
 		})
+	},
+	[UPDATE_PROGRESS.mutation](state, name) {
+		state.progressItems[name].complete = true
 
-		let pIA = Object.entries(state.progressItems)
-		let pIL = pIA.length
-		let pM = 0
-		for (let [key, value] of pIA) {
-			pM += value.score
-		}
-		state.progressMax = pM
+		const totalScore = Object.values(state.progressItems)
+			.filter(i => i.complete)
+			.reduce((acc, i) => (acc += i.score), 0)
 
-		// if ( window.GS_LOGS ) console.warn('INIT_PROGRESS', state.progressItems)
-		state.progressPct = 0
+		state.progressPct = Math.round((totalScore / state.progressMax) * 100)
 	}
 }
 
 export const actions = {
 	[INIT_PROGRESS.action]({ commit }) {
 		commit(INIT_PROGRESS.mutation)
+	},
+	[UPDATE_PROGRESS.action]({ commit }, name) {
+		commit(UPDATE_PROGRESS.mutation, name)
 	}
 }

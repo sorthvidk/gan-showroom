@@ -14,64 +14,27 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 import { TweenLite } from 'gsap'
-import { OPEN_CONTENT } from '~/model/constants'
+import { OPEN_CONTENT, SET_GROUP_BY_IDENTIFIER } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
 	props: {
-		positionH: {
-			type: Number,
-			default: 0,
-			required: true
-		},
-		positionV: {
-			type: Number,
-			default: 0,
-			required: true
-		},
-		icon: {
-			type: String,
-			default: null,
-			required: true
-		},
-		label: {
-			type: String,
-			default: null,
-			required: true
-		},
-		shortcutId: {
-			type: String,
-			default: null,
-			required: true
-		},
-		type: {
-			type: Number,
-			default: -1,
-			required: true
-		},
-		windowContent: {
-			type: Array,
-			default: () => [],
-			required: true
-		},
-		actions: {
-			type: Array,
-			default: null,
-			required: false
-		},
-		href: {
-			type: String,
-			default: null,
-			required: false
-		},
-		nthChild: {
-			type: Number
-		}
+		positionH: { type: Number, default: 0, required: true },
+		positionV: { type: Number, default: 0, required: true },
+		icon: { type: String, default: null, required: true },
+		label: { type: String, default: null, required: true },
+		shortcutId: { type: String, default: null, required: true },
+		type: { type: Number, default: -1, required: true },
+		windowContent: { type: Array, default: () => [], required: true },
+		actions: { type: Array, default: null, required: false },
+		href: { type: String, default: null, required: false },
+		nthChild: { type: Number }
 	},
 	computed: {
+		...mapGetters('collection', ['authorizedGroupsIds']),
 		styleGridRow() {
 			return this.positionV + '/' + (this.positionV + 1)
 		},

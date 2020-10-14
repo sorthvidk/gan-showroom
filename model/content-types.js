@@ -396,6 +396,7 @@ export default {
 			}
 		}
 	},
+
 	lookBook: {
 		name: 'lookBook',
 		contentComponent: 'look-book',
@@ -415,6 +416,7 @@ export default {
 			}
 		}
 	},
+
 	collage: {
 		name: 'collage',
 		contentComponent: 'collage',

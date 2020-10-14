@@ -47,7 +47,7 @@
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{ ...contentComponentProps }"
+					v-bind="{ ...contentComponentProps, contentId }"
 					ref="contentComponent"
 				/>
 			</div>

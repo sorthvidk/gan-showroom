@@ -2,11 +2,11 @@ import {
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
 	SET_GROUP_BY_INDEX,
-	TOGGLE_MUSIC_PLAYER,
 	COLLECTION_LAYOUT_CHANGE,
-	ASSISTANT_MODE,
-	ASSISTANT_TEXT
+	ASSISTANT_MODE
 } from '~/model/constants'
+
+import * as assets from './assets'
 
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
@@ -276,7 +276,7 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
-					contentId: 'look-book',
+					contentId: 'lookBook',
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
 						text: 'Photo credit: Josefine Seifert'
@@ -287,6 +287,7 @@ export const state = () => ({
 				}
 			]
 		},
+
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'animal-print',
@@ -550,9 +551,69 @@ export const state = () => ({
 					}
 				}
 			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'annas',
+			icon: '/img/shortcuts/anna.png',
+			label: 'Annas',
+			posH: 3,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'Annas Copenhagen',
+					contentId: 'annas', // should match assets[contentId] to define content
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Welcome to CPH, Annas Copenhagen'
+					},
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'ANNA for the win',
+							bodyText: 'Lorem Ipsum'
+						}
+					}
+				}
+			]
 		}
 	]
 })
+
+export const getters = {
+	// filter shortcuts that opens a group,
+	// and that group is not part of the authorized groups
+	authorizedShortcuts: (state, getters, rootState, rootGetters) => {
+		return state.list.filter(s => {
+			// authorize by default
+			if (!s.actions) return true
+
+			// authorize if actions are not pw protected
+			// (i.e. doesn't include an action that shows a maybe hidden group)
+			if (
+				!s.actions
+					.map(a => a.name)
+					.find(name => name.includes(SET_GROUP_BY_IDENTIFIER.action))
+			)
+				return true
+
+			// we're left with shortcuts that includes an action that might show a hidden group
+			return s.actions.find(action => {
+				const isRelevantAction = action.name.includes(
+					SET_GROUP_BY_IDENTIFIER.action
+				)
+
+				// authorize the shortcut if the action opens a group,
+				// and that group is part of the authorized groups
+				return (
+					isRelevantAction &&
+					rootGetters['collection/authorizedGroupsIds'].includes(action.param)
+				)
+			})
+		})
+	}
+}
 
 export const mutations = {}
 

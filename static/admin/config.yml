@@ -1,16 +1,17 @@
 # used for local development:
-backend:
-  name: proxy
-  proxy_url: http://localhost:8081/api/v1
-  branch: feature/rails
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+#   branch: blueprint
 
 # used for production:
-# backend:
-#   name: git-gateway
-#   branch: releases/2020-july
+backend:
+  name: git-gateway
+  branch: blueprint
 
 # when using the default proxy server port
 local_backend: true
+# site_domain: cms.netlify.com
 
 media_library:
   name: cloudinary
@@ -474,7 +475,7 @@ collections:
         }
 
   - name: 'exhibition'
-    sortableFields: ['exhibitionId']
+    sortable_fields: ['exhibitionId']
     label: 'Exhibition'
     folder: 'assets/content/exhibition'
     summary: '{{exhibitionId}} - {{name}}'
@@ -523,7 +524,7 @@ collections:
       - { name: 'assets', default: [], widget: 'hidden' }
 
   - name: 'exhibitionAssets'
-    sortableFields: ['exhibitionId']
+    sortable_fields: ['exhibitionId']
     summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
     label: 'Exhibition assets'
     folder: 'assets/content/exhibitionAssets'
@@ -546,9 +547,9 @@ collections:
           widget: 'relation',
           collection: 'exhibitions',
           required: true,
-          searchFields: ['exhibitionId', 'name'],
-          valueField: 'exhibitionId',
-          displayFields: ['exhibitionId', 'name'],
+          search_fields: ['exhibitionId', 'name'],
+          value_field: 'exhibitionId',
+          display_fields: ['exhibitionId', 'name'],
           hint: 'Reference to unique exhibition ID',
         }
       - {

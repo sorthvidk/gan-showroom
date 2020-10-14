@@ -10,7 +10,6 @@ export default ({ store }) => {
 				'user.cookiesAccepted',
 				'user.copyrightAccepted',
 				'progressBar.progressItems',
-				'progressBar.progressMax',
 				'progressBar.progressPct',
 				'collection.wishList'
 			],

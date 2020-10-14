@@ -19,3 +19,8 @@ export const nextIndex = (arr, i) => (i === arr.length - 1 ? 0 : i + 1)
 // returns previous of last index of array
 // (any[], number) => number
 export const prevIndex = (arr, i) => (i === 0 ? arr.length - 1 : i - 1)
+
+/**
+ * to be used with map, filter etc.
+ */
+export const has = key => x => x[key]

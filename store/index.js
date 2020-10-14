@@ -10,6 +10,7 @@ import {
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
+	ANNAS_FETCH,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -20,7 +21,8 @@ import {
 	OPEN_STYLE_CONTENT,
 	PASSWORDS_FETCH,
 	ASSISTANT_TEXT,
-	ASSISTANT_MODE
+	ASSISTANT_MODE,
+	UPDATE_PROGRESS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -99,33 +101,14 @@ export const mutations = {
 			windowGroup.groupSize++
 
 			state.topMostWindow = newWindow
-
-			//FLAG PROGRESS!
-			state.progressBar.progressItems[
-				newWindow.contentType.name
-			].complete = true
 		})
 
 		//only add the group if it has content
 		if (windowGroup.groupSize > 0 && !params.addToGroupId)
 			state.windowGroupList.push(windowGroup)
 
-		//calculate progress
-		let pIA = Object.entries(state.progressBar.progressItems)
-		let pIL = pIA.length
-		let pIC = 0
-		for (let [key, value] of pIA) {
-			if (value.complete) pIC += value.score
-		}
-
-		state.progressBar.progressPct = Math.round(
-			(pIC / state.progressBar.progressMax) * 100
-		)
-
-		let wll = state.windowList.length
-
 		state.windowList = resetZOrder(state.windowList)
-		state.highestZIndex = state.windowList[wll - 1].positionZ
+		state.highestZIndex = lastElement(state.windowList).positionZ
 	},
 	/*
 	 *	Save window position and size values
@@ -272,6 +255,10 @@ export const actions = {
 	[OPEN_CONTENT.action]({ commit, dispatch, state }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		dispatch(
+			'progressBar/' + UPDATE_PROGRESS.action,
+			content.windowContent[0].type.name
+		)
 	},
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)
@@ -425,6 +412,13 @@ export const actions = {
 			'assets/' + LOOKBOOK_FETCH.mutation,
 			await getData(
 				require.context('~/assets/content/lookBook/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + ANNAS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/annas/', false, /\.json$/)
 			)
 		)
 

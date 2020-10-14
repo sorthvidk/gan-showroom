@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 
 import {
 	COPYRIGHT_ACCEPT,
@@ -190,8 +190,11 @@ export default {
 			'clipBoardCopyComplete',
 			'isMobile'
 		]),
+
+		...mapGetters('shortcuts', ['authorizedShortcuts']),
+
 		desktopIcons() {
-			return this.list.filter(
+			return this.authorizedShortcuts.filter(
 				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
 			)
 		},

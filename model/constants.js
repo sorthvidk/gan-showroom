@@ -27,6 +27,7 @@ export const COLLECTION_ASSETS_FETCH = createMutation('COLLECTION_ASSETS_FETCH')
 export const FILMS_FETCH = createMutation('FILMS_FETCH')
 export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
+export const ANNAS_FETCH = createMutation('ANNAS_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 
 export const CURRENT_STYLE = createMutation('CURRENT_STYLE')
@@ -36,7 +37,10 @@ export const AUTHORIZE_GROUPS = createMutation('AUTHORIZE_GROUPS')
 
 export const KEYPRESS = createMutation('KEYPRESS')
 export const MOUSEMOVE = createMutation('MOUSEMOVE')
+
 export const INIT_PROGRESS = createMutation('INIT_PROGRESS')
+export const UPDATE_PROGRESS = createMutation('UPDATE_PROGRESS')
+
 export const CONNECT_ASSETS = createMutation('CONNECT_ASSETS')
 export const INDEX_COLLECTION_DATA = createMutation('INDEX_COLLECTION_DATA')
 export const COLLECTION_LAYOUT_CHANGE = createMutation(

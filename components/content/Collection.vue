@@ -4,15 +4,15 @@
 			<!-- ALL STYLES -->
 			<div
 				class="collection__group"
-				v-for="(group, groupKey) in groupsRenderList"
-				:key="'group' + groupKey"
+				v-for="(group, i) in groupsRenderList"
+				:key="'group' + i"
 			>
-				<h4 v-if="groupsRenderList.length > 1">{{ group.name }}</h4>
+				<h4 v-if="groupsRenderList.length">{{ group.name }}</h4>
 				<div>
 					<collection-item
-						v-for="(item, key) in group.styles"
-						:key="'group' + groupKey + 'collectionItem' + key"
-						v-bind="{ ...item }"
+						v-for="(item, j) in group.styles"
+						:key="'group' + i + 'collectionItem' + j"
+						v-bind="item"
 					/>
 				</div>
 			</div>
@@ -22,9 +22,9 @@
 			<div class="collection__group">
 				<div>
 					<collection-item
-						v-for="(item, key) in currentStyles"
-						:key="'collectionItem' + key"
-						v-bind="{ ...item }"
+						v-for="(item, i) in currentStyles"
+						:key="'collectionItem' + i"
+						v-bind="item"
 					/>
 				</div>
 			</div>

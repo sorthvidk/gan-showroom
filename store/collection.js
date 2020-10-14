@@ -75,7 +75,9 @@ export const getters = {
 	wishListUrl: state =>
 		`${window.location}export/?styles=${state.wishList
 			.map(style => style.styleId)
-			.join(',')}`
+			.join(',')}`,
+
+	authorizedGroupsIds: state => state.authorizedGroups.map(g => g.groupId)
 }
 
 export const mutations = {
@@ -415,14 +417,12 @@ export const mutations = {
 	},
 
 	[AUTHORIZE_GROUPS.mutation](state, rootState) {
-		state.authorizedGroups = state.allGroups.filter(group => {
-			// authorize per default
-			if (!group.passwords || !group.passwords.length) {
-				return true
-			}
-			// or if group has the used password defined
-			return group.passwords.includes(rootState.user.loggedIn)
-		})
+		state.authorizedGroups = state.allGroups.filter(
+			group =>
+				!group.passwords ||
+				!group.passwords.length ||
+				group.passwords.includes(rootState.user.loggedIn)
+		)
 	},
 
 	[CURRENT_STYLE.mutation](state, data) {
