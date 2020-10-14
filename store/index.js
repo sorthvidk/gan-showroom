@@ -110,6 +110,7 @@ export const mutations = {
 		state.windowList = resetZOrder(state.windowList)
 		state.highestZIndex = lastElement(state.windowList).positionZ
 	},
+
 	/*
 	 *	Save window position and size values
 	 *
@@ -122,6 +123,7 @@ export const mutations = {
 			currentWindow.windowProps[key] = params.windowProps[key]
 		}
 	},
+
 	/*
 	 *	Bring window to top.
 	 *
@@ -191,6 +193,7 @@ export const mutations = {
 					state.windowList.length
 			)
 	},
+
 	/*
 	 *	Close a window group. Closes the last added group.
 	 *
@@ -252,6 +255,7 @@ export const actions = {
 			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
+
 	[OPEN_CONTENT.action]({ commit, dispatch, state }, content) {
 		commit(OPEN_CONTENT.mutation, content)
 		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
@@ -260,6 +264,7 @@ export const actions = {
 			content.windowContent[0].type.name
 		)
 	},
+
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)
 		if (state.windowList.length) {
@@ -268,6 +273,7 @@ export const actions = {
 			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
+
 	[UPDATE_WINDOW.action]({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
 	},

@@ -206,10 +206,7 @@ export default {
 					e.target.moveToTop()
 					this.layer.draw()
 				})
-				// output.on('dblclick dbltap', e => {
-				// 	e.target.destroy()
-				// 	this.layer.draw()
-				// })
+
 				/**
 				 * Add to the scene
 				 */

@@ -1,7 +1,8 @@
 {
-	"order": 10,
-	"styles": [],
-	"filters": [],
-	"groupId": "cotton-fun",
-	"name": "Cotton Fun"
+  "order": 10,
+  "styles": [],
+  "filters": [],
+  "groupId": "cotton-fun",
+  "name": "Cotton Fun",
+  "passwords": []
 }

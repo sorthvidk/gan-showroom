@@ -6,8 +6,6 @@ import {
 	ASSISTANT_MODE
 } from '~/model/constants'
 
-import * as assets from './assets'
-
 import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
@@ -582,8 +580,8 @@ export const state = () => ({
 })
 
 export const getters = {
-	// filter shortcuts that opens a group,
-	// and that group is not part of the authorized groups
+	// filter out shortcuts that opens a group,
+	// that is not part of the authorized groups
 	authorizedShortcuts: (state, getters, rootState, rootGetters) => {
 		return state.list.filter(s => {
 			// authorize by default

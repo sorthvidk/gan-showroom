@@ -1,17 +1,16 @@
 # used for local development:
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
-#   branch: blueprint
-
-# used for production:
 backend:
-  name: git-gateway
-  branch: blueprint
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  branch: develop
+
+# # used for production:
+# backend:
+#   name: git-gateway
+#   branch: blueprint
 
 # when using the default proxy server port
 local_backend: true
-# site_domain: cms.netlify.com
 
 media_library:
   name: cloudinary
@@ -44,6 +43,7 @@ collections:
     summary: 'Style {{styleId}}: {{name}}'
     create: true
     format: 'json'
+    extention: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
     editor:
       preview: false
@@ -144,6 +144,13 @@ collections:
           required: false,
         }
       - {
+          label: 'Wholesale Price GBP',
+          name: 'wholesalePriceGBP',
+          widget: 'number',
+          hint: "Wholesale price in GBP ex. '110'",
+          required: false,
+        }
+      - {
           label: 'Retail Price DKK',
           name: 'retailPriceDKK',
           widget: 'number',
@@ -162,6 +169,13 @@ collections:
           name: 'retailPriceUSD',
           widget: 'number',
           hint: "Retail price in USD ex. '170'",
+          required: false,
+        }
+      - {
+          label: 'Retail Price GBP',
+          name: 'retailPriceGBP',
+          widget: 'number',
+          hint: "Retail price in GBP ex. '130'",
           required: false,
         }
       - {
@@ -248,6 +262,19 @@ collections:
           max: 100,
           default: 0,
           hint: 'Optional ordering position',
+        }
+      - {
+          label: 'Authorized for',
+          name: 'passwords',
+          widget: 'relation',
+          multiple: true,
+          required: false,
+          collection: 'passwords',
+          search_fields: ['passwordId'],
+          value_field: 'hash',
+          display_fields: ['passwordId'],
+          default: [],
+          hint: 'List of passwords that can be used to see the group. (leave blank to make everybody see the group)',
         }
       - { name: 'styles', default: [], widget: 'hidden' }
       - { name: 'filters', default: [], widget: 'hidden' }
@@ -418,10 +445,43 @@ collections:
           name: 'cloudinaryUrl',
           widget: 'image',
         }
+
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
     label: 'Lookbook item'
     folder: 'assets/content/lookBook'
+    sortable_fields: ['itemId']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Item #',
+          name: 'itemId',
+          widget: 'string',
+          hint: 'Unique item ID',
+        }
+      - {
+          label: 'Cloudinary video reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          options: ['video', 'image'],
+          hint: 'Either image or video',
+          default: 'image',
+        }
+
+  - name: 'annas'
+    summary: 'Item {{itemId}}'
+    label: 'Annas item'
+    folder: 'assets/content/annas'
     sortable_fields: ['itemId']
     create: true
     format: 'json'

@@ -59,6 +59,10 @@
 							<th>Wholesale price</th>
 							<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
 						</tr>
+						<tr v-if="currentStyle.wholesalePriceGBP">
+							<th>Wholesale price</th>
+							<td>GBP {{ currentStyle.wholesalePriceGBP }}</td>
+						</tr>
 
 						<tr>
 							<th>&nbsp;</th>
@@ -76,6 +80,10 @@
 						<tr>
 							<th>Suggested retail price</th>
 							<td>USD {{ currentStyle.retailPriceUSD }}</td>
+						</tr>
+						<tr v-if="currentStyle.retailPriceGBP">
+							<th>Suggested retail price</th>
+							<td>GBP {{ currentStyle.retailPriceGBP }}</td>
 						</tr>
 					</tbody>
 				</table>

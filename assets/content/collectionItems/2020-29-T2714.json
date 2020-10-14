@@ -16,8 +16,10 @@
 	"weight": 1,
 	"wholesalePriceDKK": 285,
 	"wholesalePriceUSD": 57,
+	"wholesalePriceGBP": 45,
 	"filters": ["rtw4"],
 	"retailPriceEUR": 115,
 	"retailPriceDKK": 799,
+	"retailPriceGBP": 620,
 	"colorId": "307, 694"
 }

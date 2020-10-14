@@ -50,6 +50,7 @@ export const mutations = {
 			return pw
 		})
 	},
+
 	[IDLE.mutation](state, key) {
 		state.idle = key
 	}
