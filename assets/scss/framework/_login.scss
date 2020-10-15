@@ -68,27 +68,37 @@
 
 .login-input {
 	display: flex;
-	align-items: center;
+	justify-content: flex-end;
+	// align-items: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
 
 	background-size: cover;
 
-	@include mq($from: screen-md) {
-		align-items: flex-end;
-	}
+	// @include mq($from: screen-md) {
+	// 	align-items: flex-end;
+	// }
 
 	.form {
 		position: relative;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		// justify-content: flex-end;
+		flex-direction: column;
+		align-items: flex-end;
 
-		height: 10vw;
+		// height: 10vw;
 
-		margin-bottom: rem(80);
+		// margin-bottom: rem(80);
 		@include mq($from: screen-md) {
 			margin-bottom: 0;
+		}
+
+		font-size: 9vw;
+
+		h1 {
+			font-size: 1em;
+			max-width: 10.3em;
+			display: inline-block;
 		}
 
 		&__input {
@@ -98,10 +108,11 @@
 			border: none;
 			background: none;
 
-			font-size: 10vw;
-			width: 75%;
-			text-align: center;
-			color: $color-lime;
+			font-size: 1em;
+			width: 100%;
+			max-width: 10.3em;
+			// text-align: center;
+			// color: $color-lime;
 
 			outline: none;
 
@@ -110,7 +121,7 @@
 			}
 
 			&::placeholder {
-				color: $color-lightyellow;
+				color: $color-black;
 			}
 
 			&:focus::placeholder {
@@ -129,7 +140,7 @@
 			height: rem(80);
 
 			font-weight: 600;
-			color: $color-lime;
+			// color: $color-lime;
 
 			svg {
 				display: inline-flex;
@@ -172,21 +183,82 @@
 
 	transform: translateZ(0);
 
+	.background {
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		z-index: -1;
+		background-size: 100%;
+		object-fit: cover;
+	}
+
 	&.one {
 	}
 
 	&.two {
-		color: $color-purple;
+		// color: $color-purple;
 		font-size: 8vmax;
+	}
+
+	&.three {
+		align-items: flex-start;
+		justify-content: flex-end;
 	}
 
 	.logo {
 		top: auto;
-		bottom: rem(80);
+		bottom: rem(20);
 
 		svg {
 			opacity: 1;
-			fill: $color-lime;
+			fill: $color-black;
 		}
+	}
+}
+
+.slide-show {
+	$gap: 20px;
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@keyframes slide {
+		to {
+			transform: translateY(-100%);
+		}
+	}
+
+	.col {
+		width: calc(25% - #{($gap / 4) * 3});
+
+		// demo
+		display: flex;
+		flex-direction: column;
+		// flex-wrap: wrap;
+
+		&:nth-of-type(odd) {
+			div {
+				animation-direction: reverse;
+				flex-direction: column-reverse;
+			}
+		}
+
+		div {
+			animation: slide 150s infinite linear;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+		}
+	}
+
+	img {
+		display: flex;
+		width: 100%;
+		margin-bottom: $gap;
 	}
 }

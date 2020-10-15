@@ -4,7 +4,7 @@
 		<login v-if="!loggedIn" />
 		<desktop v-else />
 
-		<v-idle :duration="15000" @idle="onidle" />
+		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
 
 		<mobile-disclamer v-if="isMobile" />

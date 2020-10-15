@@ -1,6 +1,9 @@
 <template>
-	<div class="login-input" v-lazy:background-image="backgroundImageObj">
+	<div class="login-input">
+		<login-slide-show />
+
 		<form ref="form" @submit.prevent="loginInput" class="form">
+			<h1>Introducing GANNI PF21 Collection</h1>
 			<input
 				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
@@ -36,9 +39,13 @@
 import { mapActions, mapState } from 'vuex'
 import { LOGIN } from '~/model/constants'
 import hash from 'hash.js'
+import LoginSlideShow from '~/components/content/LoginSlideShow.vue'
 
 export default {
 	name: 'login',
+	components: {
+		LoginSlideShow
+	},
 	data() {
 		return {
 			pwd: '',

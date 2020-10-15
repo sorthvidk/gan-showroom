@@ -51,9 +51,9 @@ export const actions = {
 			canOverride: false,
 			windowProps: getAssetType(asset).defaultWindowProps,
 			contentComponentProps: { asset },
-			statusComponentProps: {
-				text: 'TIP! Hit ESC to close all'
-			},
+			// statusComponentProps: {
+			// 	text: 'TIP! Hit ESC to close all'
+			// },
 			assistant: {
 				mode: AssistantModes.CUSTOM,
 				text: {

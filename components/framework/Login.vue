@@ -1,6 +1,10 @@
 <template>
 	<div class="login" @click="dispatchNext(true)">
-		<component :key="current" v-bind:is="`slide${current}`" v-bind="content[current]" />
+		<component
+			:key="current"
+			v-bind:is="`slide${current}`"
+			v-bind="content[current]"
+		/>
 	</div>
 </template>
 
@@ -12,35 +16,29 @@ export default {
 	name: 'login',
 	components: {
 		slide0: LoginSlide,
-		slide1: LoginSlide,
-		slide2: LoginInput
+		// slide1: Logically nSlide,
+		slide1: LoginInput
 	},
 	data() {
 		return {
 			current: 0,
-			timeout: null
+			timeout: null,
+			slideDuration: 150000000
 		}
 	},
 	computed: {
 		content() {
 			return [
 				{
-					type: 'one',
-					backgroundImage: '/img/login-slide.jpg',
-					backgroundImageLow: '/img/login-slide_lo.jpg'
-				},
-				{
-					type: 'two',
-					backgroundImage: '/img/login-slide-2.jpg',
-					backgroundImageLow: '/img/login-slide-2_lo.jpg',
-					text: `You are now entering\nGANNI Pre-Spring 21\n"Home Is Where The\nHeart Is” collection`
+					type: 'one'
+					// backgroundImageLow: '/img/login-slide_lo.jpg'
 				}
 			]
 		}
 	},
 	methods: {
 		dispatchNext(immediate = false) {
-			this.debounce(this.nextSlide, 7000, immediate)()
+			this.debounce(this.nextSlide, this.slideDuration, immediate)()
 		},
 		nextSlide() {
 			this.current = Math.min(this.content.length, this.current + 1) // cap at slide-amount + 1
