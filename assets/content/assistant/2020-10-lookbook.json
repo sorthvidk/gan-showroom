@@ -1,0 +1,5 @@
+{
+  "itemId": "lookBook",
+  "headline": "Just a lookbook headline",
+  "bodyText": "This text will show up in the assistant, whenever the lookbook is opened and is on top."
+}

@@ -446,6 +446,26 @@ collections:
           widget: 'image',
         }
 
+  - name: 'assistant'
+    summary: '{{itemId}}'
+    label: 'Assistant texts'
+    folder: 'assets/content/assistant'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    sortable_fields: ['itemId']
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Belongs to:',
+          name: 'itemId',
+          widget: 'string',
+          hint: 'Do not change this value.',
+        }
+      - { label: 'Headline', name: 'headline', widget: 'string' }
+      - { label: 'Text', name: 'bodyText', widget: 'text' }
+
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
     label: 'Lookbook item'

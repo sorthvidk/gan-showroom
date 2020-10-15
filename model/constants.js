@@ -29,6 +29,7 @@ export const GANNIGIRLS_FETCH = createMutation('GANNIGIRLS_FETCH')
 export const LOOKBOOK_FETCH = createMutation('LOOKBOOK_FETCH')
 export const ANNAS_FETCH = createMutation('ANNAS_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
+export const ASSISTANT_FETCH = createMutation('ASSISTANT_FETCH')
 
 export const CURRENT_STYLE = createMutation('CURRENT_STYLE')
 export const SET_HIDDEN_ASSETS = createMutation('SET_HIDDEN_ASSETS')

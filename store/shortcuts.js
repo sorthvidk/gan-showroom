@@ -93,10 +93,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -114,10 +111,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -135,10 +129,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -156,10 +147,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -177,10 +165,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -198,10 +183,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -219,10 +201,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				},
 				{
@@ -236,10 +215,7 @@ export const state = () => ({
 					},
 					assistant: {
 						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'WELCOME!',
-							bodyText: "Hey! I'm DITTE! Look at all my stuff!"
-						}
+						text: 'ditte'
 					}
 				}
 			]
@@ -256,10 +232,10 @@ export const state = () => ({
 					title: 'GANNI FM',
 					contentId: 'ganni-fm',
 					type: ContentTypes.musicPlayer,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.WELCOME
-					}
+					canOverride: true
+					// assistant: {
+					// 	mode: AssistantModes.WELCOME
+					// }
 				}
 			]
 		},
@@ -280,7 +256,8 @@ export const state = () => ({
 						text: 'Photo credit: Josefine Seifert'
 					},
 					assistant: {
-						mode: AssistantModes.WELCOME
+						mode: AssistantModes.CUSTOM,
+						text: 'lookBook'
 					}
 				}
 			]
@@ -411,10 +388,7 @@ export const state = () => ({
 				{
 					title: 'Hampster Dance',
 					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance,
-					assistant: {
-						mode: AssistantModes.WELCOME
-					}
+					type: ContentTypes.hampsterDance
 				}
 			]
 		},
@@ -472,9 +446,6 @@ export const state = () => ({
 					type: ContentTypes.lookBook,
 					statusComponentProps: {
 						text: 'Photo credit: Jakob Landvik'
-					},
-					assistant: {
-						mode: AssistantModes.WELCOME
 					}
 				}
 			]

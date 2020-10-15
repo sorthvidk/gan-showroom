@@ -11,6 +11,7 @@ import {
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
 	ANNAS_FETCH,
+	ASSISTANT_FETCH,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -149,8 +150,10 @@ export const mutations = {
 				matchingWindow.assistant.mode
 			)
 			if (matchingWindow.assistant.text) {
-				const { headline, bodyText } = matchingWindow.assistant.text
-				dispatch('assistant/' + ASSISTANT_TEXT.action, { headline, bodyText })
+				dispatch(
+					'assistant/' + ASSISTANT_TEXT.action,
+					matchingWindow.assistant.text
+				)
 			}
 		}
 	},
@@ -357,6 +360,13 @@ export const actions = {
 				return res
 			})
 		}
+
+		commit(
+			'assistant/' + ASSISTANT_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/assistant/`, false, /\.json$/)
+			)
+		)
 
 		commit(
 			'exhibition/' + EXHIBITION_FETCH.mutation,

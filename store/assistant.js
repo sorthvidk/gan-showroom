@@ -1,11 +1,13 @@
 import AssistantModes from '~/model/assistant-modes'
 import {
+	ASSISTANT_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
 	ASSISTANT_EXPANDED
 } from '~/model/constants'
 
 export const state = () => ({
+	texts: [],
 	expanded: true,
 	assistantMode: AssistantModes.WELCOME,
 	pdfDownloadLink:
@@ -22,13 +24,31 @@ export const getters = {
 }
 
 export const mutations = {
+	[ASSISTANT_FETCH.mutation](state, data) {
+		/**
+		 * [itemId]: {
+		 *   headline: 'foo',
+		 *   bodyText: 'bar'
+		 * }
+		 */
+		state.texts = data.reduce((acc, cur) => {
+			acc[cur.itemId] = { ...cur }
+			return acc
+		}, {})
+	},
+
 	[ASSISTANT_EXPANDED.mutation](state, data) {
 		state.expanded = data
 	},
-	[ASSISTANT_TEXT.mutation](state, { headline, bodyText }) {
-		state.customText.headline = headline
-		state.customText.bodyText = bodyText
+
+	[ASSISTANT_TEXT.mutation](state, data) {
+		/**
+		 * can either be an object with { headline, bodyText },
+		 * or a string with a reference to cms/assistant/itemId
+		 */
+		state.customText = data
 	},
+
 	[ASSISTANT_MODE.mutation](state, data) {
 		state.assistantMode = data
 	}
@@ -38,9 +58,11 @@ export const actions = {
 	[ASSISTANT_EXPANDED.action]({ commit }, data) {
 		commit(ASSISTANT_EXPANDED.mutation, data)
 	},
+
 	[ASSISTANT_TEXT.action]({ commit }, data) {
 		commit(ASSISTANT_TEXT.mutation, data)
 	},
+
 	[ASSISTANT_MODE.action]({ commit }, data) {
 		commit(ASSISTANT_MODE.mutation, data)
 	}
