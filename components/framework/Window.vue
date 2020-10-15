@@ -34,14 +34,14 @@
 				</button>
 			</header>
 			<div
-				v-if="!noStatus"
+				v-if="statusComponent"
 				class="window__status"
 				@click="contentActivateHandler"
 			>
 				<component :is="statusComponent" v-bind="{ ...statusComponentProps }" />
 			</div>
 
-			<hr v-if="!noStatus" />
+			<hr v-if="statusComponent" />
 
 			<div class="window__content" @click="contentActivateHandler">
 				<component
@@ -137,10 +137,10 @@ export default {
 			default: null
 		},
 
-		noStatus: {
-			type: Boolean,
-			default: false
-		},
+		// noStatus: {
+		// 	type: Boolean,
+		// 	default: false
+		// },
 		statusComponent: {
 			type: String,
 			default: null,
@@ -212,7 +212,7 @@ export default {
 		concatClassName() {
 			let cn = 'window'
 			if (this.modifierClass != '') cn += ' ' + this.modifierClass
-			if (this.noStatus) cn += ' window--no-status'
+			if (!this.statusComponent) cn += ' window--no-status'
 
 			return cn
 		}
@@ -356,6 +356,8 @@ export default {
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
+
+		console.log(this.statusComponent)
 
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
 	}
