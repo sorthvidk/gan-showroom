@@ -80,7 +80,7 @@
 .assistant {
 	h3 {
 		@include headline();
-		color: $color-lime;
+		color: $color-amaranth;
 	}
 	p {
 		@include bodytext();

@@ -1,4 +1,9 @@
 .marquee {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 11;
+
 	box-sizing: border-box;
 
 	font-family: $font-sansserif;
@@ -40,7 +45,10 @@
 
 	p,
 	button {
-		@include megatype();
+		font-size: 26px;
+		text-transform: uppercase;
+		// @include megatype();
+
 		white-space: nowrap;
 		font-family: inherit;
 		margin-top: 0;
@@ -50,7 +58,7 @@
 		position: relative;
 		&:after {
 			display: block;
-			content:'';
+			content: '';
 			position: absolute;
 			top: 85%;
 			left: 0;

@@ -75,7 +75,7 @@ export default {
 		name: 'musicPlayer',
 		contentComponent: 'music-player',
 		contentScore: 0,
-		statusComponent: 'status-static',
+		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -421,7 +421,7 @@ export default {
 		name: 'collage',
 		contentComponent: 'collage',
 		contentScore: 10,
-		statusComponent: 'status-static',
+		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -444,7 +444,7 @@ export default {
 		name: 'puzzle',
 		contentComponent: 'puzzle',
 		contentScore: 10,
-		statusComponent: 'status-static',
+		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: { w: 800, h: 830 },
