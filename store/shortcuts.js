@@ -3,7 +3,8 @@ import {
 	SET_GROUP_BY_IDENTIFIER,
 	SET_GROUP_BY_INDEX,
 	COLLECTION_LAYOUT_CHANGE,
-	ASSISTANT_MODE
+	ASSISTANT_MODE,
+	OPEN_CONTENT
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
@@ -43,6 +44,7 @@ export const state = () => ({
 				}
 			]
 		},
+
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'films',
@@ -56,9 +58,6 @@ export const state = () => ({
 					contentId: 'ps21-films',
 					type: ContentTypes.films,
 					canOverride: true,
-					// statusComponentProps: {
-					// 	text: 'Films!! YAY!'
-					// },
 					assistant: {
 						mode: AssistantModes.CUSTOM,
 						text: {
@@ -69,6 +68,7 @@ export const state = () => ({
 				}
 			]
 		},
+
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'dittes-folder',
@@ -77,148 +77,7 @@ export const state = () => ({
 			posH: 3,
 			posV: 1,
 			widthSpan: 2,
-			windowContent: [
-				{
-					title: 'Ditte_inspiration_image_01',
-					contentId: 'ditte-image1',
-					type: ContentTypes.imageLandscapeLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte1.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_02',
-					contentId: 'ditte-image2',
-					type: ContentTypes.imageLandscapeLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte2.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_03',
-					contentId: 'ditte-image3',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte3.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_04',
-					contentId: 'ditte-image4',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte4.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_05',
-					contentId: 'ditte-image5',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte5.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_06',
-					contentId: 'ditte-image6',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte6.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_letter',
-					contentId: 'ditte-letter',
-					type: ContentTypes.textFile,
-					canOverride: false,
-					contentComponentProps: {
-						text:
-							'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the GANNI team!'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				},
-				{
-					title: 'Ditte_inspiration_image_07',
-					contentId: 'ditte-image7',
-					type: ContentTypes.imagePortraitLarge,
-					canOverride: false,
-					contentComponentProps: {
-						asset: {
-							defaultImageUrl: '/img/ditte/ditte8.jpg'
-						}
-					},
-					statusComponentProps: {
-						text: 'TIP! Hit ESC to close all'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'ditte'
-					}
-				}
-			]
+			windowContent: 'assets.ditte'
 		},
 		{
 			type: ShortcutTypes.WINDOW,
@@ -293,6 +152,7 @@ export const state = () => ({
 				}
 			]
 		},
+
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',

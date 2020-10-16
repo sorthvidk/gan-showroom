@@ -28,7 +28,7 @@ export default {
 		label: { type: String, default: null, required: true },
 		shortcutId: { type: String, default: null, required: true },
 		type: { type: Number, default: -1, required: true },
-		windowContent: { type: Array, default: () => [], required: true },
+		windowContent: { type: [Array, String], default: () => [], required: true },
 		actions: { type: Array, default: null, required: false },
 		href: { type: String, default: null, required: false },
 		nthChild: { type: Number }

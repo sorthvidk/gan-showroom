@@ -478,6 +478,12 @@ collections:
       preview: false
     fields:
       - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          hint: 'The text in the topbar of the window',
+        }
+      - {
           label: 'Item #',
           name: 'itemId',
           widget: 'string',

@@ -30,6 +30,7 @@ import {
 import ContentTypes from '~/model/content-types'
 import _ from 'lodash'
 
+import { getNested } from '~/utils/get-nested'
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
@@ -89,6 +90,7 @@ export const mutations = {
 			let alreadyExists =
 				state.content.list.filter(hasSame('contentId')).length > 0
 
+			console.log('FOUND IT!!', alreadyExists)
 			// don't open a window twice
 			if (alreadyExists) return
 
@@ -260,7 +262,13 @@ export const actions = {
 		}
 	},
 
-	[OPEN_CONTENT.action]({ commit, dispatch, state }, content) {
+	[OPEN_CONTENT.action]({ commit, dispatch, state, rootState }, content) {
+		// if passed windowContent is a string:
+		// use the string as a path to find an array of windowContent (starting from rootState)
+		if (typeof content.windowContent === 'string') {
+			content.windowContent = getNested(rootState, content.windowContent)
+		}
+
 		commit(OPEN_CONTENT.mutation, content)
 		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 		dispatch(
