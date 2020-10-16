@@ -1,6 +1,6 @@
 <template>
 	<div class="login-input">
-		<login-slide-show />
+		<fullpage-slide-show />
 
 		<form ref="form" @submit.prevent="loginInput" class="form">
 			<h1>Introducing GANNI PF21 Collection</h1>
@@ -39,12 +39,12 @@
 import { mapActions, mapState } from 'vuex'
 import { LOGIN } from '~/model/constants'
 import hash from 'hash.js'
-import LoginSlideShow from '~/components/content/LoginSlideShow.vue'
+import FullpageSlideShow from '~/components/content/FullpageSlideShow.vue'
 
 export default {
 	name: 'login',
 	components: {
-		LoginSlideShow
+		FullpageSlideShow
 	},
 	data() {
 		return {

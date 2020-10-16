@@ -75,20 +75,12 @@
 
 	background-size: cover;
 
-	// @include mq($from: screen-md) {
-	// 	align-items: flex-end;
-	// }
-
 	.form {
 		position: relative;
 		display: flex;
-		// justify-content: flex-end;
 		flex-direction: column;
 		align-items: flex-end;
 
-		// height: 10vw;
-
-		// margin-bottom: rem(80);
 		@include mq($from: screen-md) {
 			margin-bottom: 0;
 		}
@@ -111,8 +103,6 @@
 			font-size: 1em;
 			width: 100%;
 			max-width: 10.3em;
-			// text-align: center;
-			// color: $color-lime;
 
 			outline: none;
 
@@ -213,52 +203,5 @@
 			opacity: 1;
 			fill: $color-black;
 		}
-	}
-}
-
-.slide-show {
-	$gap: 20px;
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
-	z-index: -1;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: flex-start;
-
-	@keyframes slide {
-		to {
-			transform: translateY(-100%);
-		}
-	}
-
-	.col {
-		width: calc(25% - #{($gap / 4) * 3});
-
-		// demo
-		display: flex;
-		flex-direction: column;
-		// flex-wrap: wrap;
-
-		&:nth-of-type(odd) {
-			div {
-				animation-direction: reverse;
-				flex-direction: column-reverse;
-			}
-		}
-
-		div {
-			animation: slide 150s infinite linear;
-			display: flex;
-			flex-wrap: wrap;
-			flex-direction: column;
-		}
-	}
-
-	img {
-		display: flex;
-		width: 100%;
-		margin-bottom: $gap;
 	}
 }

@@ -1,0 +1,51 @@
+.fullpage-slide-show {
+	$gap: 20px;
+
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	padding: 0 $gap;
+	box-sizing: border-box;
+
+	z-index: -1;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@keyframes slide {
+		to {
+			transform: translateY(-100%);
+		}
+	}
+
+	.col {
+		width: calc(25% - #{($gap / 4) * 3});
+
+		// demo
+		display: flex;
+		flex-direction: column;
+
+		&:nth-of-type(odd) {
+			> div {
+				animation-direction: reverse;
+				flex-direction: column-reverse;
+			}
+		}
+
+		> div {
+			animation: slide 250s infinite linear;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+		}
+	}
+
+	img,
+	video {
+		display: flex;
+		width: 100%;
+		margin-bottom: $gap;
+	}
+}
