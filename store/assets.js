@@ -3,7 +3,8 @@ import {
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	ANNAS_FETCH
+	ANNAS_FETCH,
+	DITTE_FETCH
 } from '~/model/constants'
 
 export const state = () => ({
@@ -167,7 +168,8 @@ export const state = () => ({
 		}
 	],
 
-	annas: []
+	annas: [],
+	ditte: []
 })
 
 export const mutations = {
@@ -182,6 +184,9 @@ export const mutations = {
 	},
 	[ANNAS_FETCH.mutation](state, data) {
 		state.annas = data
+	},
+	[DITTE_FETCH.mutation](state, data) {
+		state.ditte = data
 	},
 	[GENERAL_FETCH.mutation](state, { data, rootState }) {
 		//Insert Ganni Girls bg image

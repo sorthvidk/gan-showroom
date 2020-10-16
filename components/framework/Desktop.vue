@@ -60,6 +60,7 @@
 				<assistant />
 				<support />
 			</div>
+
 			<marquee v-show="!isMobile" />
 
 			<div class="logo">

@@ -14,6 +14,7 @@
 						v-if="asset.type === 'video'"
 						:src="getMediaUrl(asset.type, asset.cloudinaryUrl)"
 						preload
+						loop
 						muted
 						autoplay
 					/>

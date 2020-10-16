@@ -466,6 +466,45 @@ collections:
       - { label: 'Headline', name: 'headline', widget: 'string' }
       - { label: 'Text', name: 'bodyText', widget: 'text' }
 
+  - name: 'ditte'
+    summary: 'Item {{itemId}}'
+    label: 'Dittes folder'
+    folder: 'assets/content/ditte'
+    sortable_fields: ['itemId']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Item #',
+          name: 'itemId',
+          widget: 'string',
+          hint: 'Unique item ID',
+        }
+      - {
+          label: '(if media window) Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: '(if text window) The text',
+          name: 'text',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'Item type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          options: ['video', 'image', 'text'],
+          hint: 'Either image, video or text',
+          default: 'image',
+        }
+
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
     label: 'Lookbook item'

@@ -15,7 +15,8 @@ em {
 }
 
 @mixin windowtitle() {
-	font-size: rem(15);
+	font-size: rem(11);
+	// font-size: rem(15);
 	font-weight: $weight-medium;
 	line-height: 1.2;
 	letter-spacing: -0.01em;

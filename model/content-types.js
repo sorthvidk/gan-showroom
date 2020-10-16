@@ -55,7 +55,7 @@ export default {
 		name: 'films',
 		contentComponent: 'films',
 		contentScore: 15,
-		statusComponent: 'status-static',
+		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {

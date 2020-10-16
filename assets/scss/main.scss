@@ -5,6 +5,8 @@
 @import 'core/normalize';
 @import 'core/display';
 
+@import 'framework/window';
+
 @import 'framework/assistant';
 @import 'framework/cookie-banner';
 @import 'framework/cookie-policy';
@@ -18,7 +20,6 @@
 @import 'framework/screensaver';
 @import 'framework/shortcut';
 @import 'framework/support';
-@import 'framework/window';
 
 @import 'content/collage';
 @import 'content/collection';

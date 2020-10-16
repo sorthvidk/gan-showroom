@@ -12,6 +12,7 @@ import {
 	GENERAL_FETCH,
 	ANNAS_FETCH,
 	ASSISTANT_FETCH,
+	DITTE_FETCH,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -435,6 +436,13 @@ export const actions = {
 			'assets/' + ANNAS_FETCH.mutation,
 			await getData(
 				require.context('~/assets/content/annas/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + DITTE_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/ditte/', false, /\.json$/)
 			)
 		)
 

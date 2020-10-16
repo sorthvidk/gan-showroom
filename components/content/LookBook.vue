@@ -17,7 +17,7 @@
 					preload
 					muted
 					controls
-				></video>
+				/>
 			</div>
 		</div>
 	</transition>
