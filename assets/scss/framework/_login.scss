@@ -85,7 +85,10 @@
 			margin-bottom: 0;
 		}
 
-		font-size: 9vw;
+		font-size: 8vw;
+		margin: 0.5em 0.1em;
+		font-weight: normal;
+		line-height: 0.8;
 
 		h1 {
 			font-size: 1em;
@@ -94,15 +97,19 @@
 		}
 
 		&__input {
+			position: absolute;
+			bottom: 1em;
+
 			font-family: $font-sansserif;
 			padding: 0;
-			font-weight: 500;
+			font-weight: inherit;
 			border: none;
 			background: none;
 
 			font-size: 1em;
+			line-height: inherit;
 			width: 100%;
-			max-width: 10.3em;
+			// max-width: 10.3em;
 
 			outline: none;
 

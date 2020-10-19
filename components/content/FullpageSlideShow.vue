@@ -5,6 +5,7 @@
 				<div
 					v-for="asset in filteredContent(i === 1 || i === 2 ? i : i + 1)"
 					:key="asset.assetId"
+					:class="{ withGap: Math.random() > 0.5 }"
 				>
 					<img
 						v-if="asset.type === 'image'"

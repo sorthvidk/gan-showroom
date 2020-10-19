@@ -42,6 +42,7 @@
 		"nuxt-polyfill": "^1.0.3",
 		"v-idle": "^0.2.0",
 		"vue-draggable-resizable": "^2.1.2",
+		"vue-fragment": "^1.5.1",
 		"vue-lazyload": "^1.3.3",
 		"vue-typer": "^1.2.0",
 		"vue-visibility-change": "^1.2.1",

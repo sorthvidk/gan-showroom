@@ -1,17 +1,10 @@
 <template>
 	<div class="window__status--collection">
-		<p class="count">{{ text }}</p>
+		<!-- <p class="count">{{ text }}</p> -->
 
-		<div class="group-navigation">
-			<button class="group-navigation__prev" @click="groupPrevHandler">
-				<span>←</span>
-			</button>
-			<p>{{ groupName }}</p>
-			<button class="group-navigation__next" @click="groupNextHandler">
-				<span>→</span>
-			</button>
-		</div>
+		<group-navigation />
 
+		<!--
 		<div class="layout-buttons">
 			<button
 				class="button layout-grid"
@@ -50,57 +43,35 @@
 				</span>
 			</button>
 		</div>
-	</div>
+		--></div>
 </template>
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 
 import CollectionLayouts from '~/model/collection-layouts'
+import GroupNavigation from '~/components/content/GroupNavigation.vue'
 
-import {
-	COLLECTION_LAYOUT_CHANGE,
-	SET_NEXT_GROUP,
-	SET_PREVIOUS_GROUP
-} from '~/model/constants'
+import { COLLECTION_LAYOUT_CHANGE } from '~/model/constants'
 
 export default {
 	name: 'status-collection',
+	components: {
+		GroupNavigation
+	},
 	computed: {
-		...mapState('collection', [
-			'collectionLayout',
-			'currentStyles',
-			'collectionGroups',
-			'activeGroup'
-		]),
+		...mapState('collection', ['collectionLayout', 'currentStyles']),
 		text() {
 			return this.currentStyles.length + ' items'
-		},
-		groupName() {
-			if (this.activeGroup) {
-				return this.activeGroup.name
-			} else {
-				return 'All styles'
-			}
 		}
 	},
 	methods: {
-		...mapActions('collection', [
-			COLLECTION_LAYOUT_CHANGE.action,
-			SET_PREVIOUS_GROUP.action,
-			SET_NEXT_GROUP.action
-		]),
+		...mapActions('collection', [COLLECTION_LAYOUT_CHANGE.action]),
 		layoutGridClickHandler() {
 			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.GRID)
 		},
 		layoutFunClickHandler() {
 			this[COLLECTION_LAYOUT_CHANGE.action](CollectionLayouts.FUN)
-		},
-		groupPrevHandler() {
-			this[SET_PREVIOUS_GROUP.action]()
-		},
-		groupNextHandler() {
-			this[SET_NEXT_GROUP.action]()
 		}
 	}
 }

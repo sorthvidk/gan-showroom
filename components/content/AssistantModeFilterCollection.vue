@@ -88,15 +88,14 @@ export default {
 		}
 	},
 	watch: {
-		keyPressed(event) {
-			if (event.key === 'ArrowLeft') {
-				this.previousGroupHandler()
-			}
-
-			if (event.key === 'ArrowRight') {
-				this.nextGroupHandler()
-			}
-		}
+		// keyPressed(event) {
+		// 	if (event.key === 'ArrowLeft') {
+		// 		this.previousGroupHandler()
+		// 	}
+		// 	if (event.key === 'ArrowRight') {
+		// 		this.nextGroupHandler()
+		// 	}
+		// }
 	},
 	methods: {
 		...mapActions([OPEN_WISH_LIST.action]),

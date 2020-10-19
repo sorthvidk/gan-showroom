@@ -23,14 +23,24 @@
 				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{
 					title
 				}}</span>
-				<button class="button close" @click.stop="closeHandler">
-					<span class="icon">
+				<button
+					:style="{
+						lineHeight: 0,
+						fontSize: '20px',
+						fontWeight: 'normal',
+						marginTop: '-0.2em'
+					}"
+					class="button close"
+					@click.stop="closeHandler"
+				>
+					<!-- <span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 							<path
 								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
 							/>
 						</svg>
-					</span>
+					</span> -->
+					&times;
 				</button>
 			</header>
 			<div
@@ -41,7 +51,7 @@
 				<component :is="statusComponent" v-bind="{ ...statusComponentProps }" />
 			</div>
 
-			<hr v-if="statusComponent" />
+			<!-- <hr v-if="statusComponent" /> -->
 
 			<div class="window__content" @click="contentActivateHandler">
 				<component

@@ -25,6 +25,32 @@
 	}
 }
 
+@mixin smiley-scrollbar() {
+	scrollbar-width: auto;
+	// scrollbar-color: $color-white $color-grey;
+
+	&::-webkit-scrollbar {
+		width: rem(30);
+	}
+	&::-webkit-scrollbar-track {
+		// background: $color-lightgrey;
+		// border-left: rem(1) solid $color-black;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-white;
+		padding: rem(10);
+		border-radius: 0;
+		border: 0;
+		height: 2em;
+		// border-left: rem(1) solid $color-black;
+		box-shadow: rem(1) rem(1) 0 0 $color-black, 0 rem(-1) 0 0 $color-black;
+
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
 @mixin details-table() {
 	table-layout: fixed;
 	text-align: left;
