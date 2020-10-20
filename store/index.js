@@ -64,7 +64,10 @@ export const state = () => ({
 			image: '/img/ditte/ditte5.jpg'
 		}
 	],
-	desktopBackground: {},
+	desktopBackground: {
+		color: 'rgb(234, 63, 247)',
+		image: ''
+	},
 
 	windowList: [],
 	windowGroupList: [],
@@ -276,7 +279,7 @@ export const mutations = {
 		state.desktopBackground =
 			data !== false
 				? state.desktopBackgrounds[data % state.desktopBackgrounds.length]
-				: { color: '', image: '' }
+				: { color: state.desktopBackground.color, image: '' }
 	}
 }
 
