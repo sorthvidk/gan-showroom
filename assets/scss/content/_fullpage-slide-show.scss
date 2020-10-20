@@ -40,7 +40,7 @@
 		&:nth-of-type(4) {
 			position: absolute;
 			right: $gap;
-			width: calc(25% - #{($gap / 4) * 3});
+			width: calc(33% - #{($gap / 4) * 3});
 		}
 
 		&:nth-of-type(1) {
@@ -48,6 +48,7 @@
 				animation-direction: reverse;
 			}
 		}
+
 		&:nth-of-type(4) {
 			> div {
 				animation-direction: reverse;
@@ -56,8 +57,13 @@
 
 		> div {
 			animation: slide 400s infinite linear;
+			display: flex;
+			flex-direction: column;
 
 			> div {
+				width: 100%;
+				flex-shrink: 0;
+
 				&.withGap {
 					padding-bottom: 100%;
 				}

@@ -68,7 +68,7 @@
 
 .login-input {
 	display: flex;
-	justify-content: flex-end;
+	// justify-content: flex-end;
 	// align-items: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
@@ -76,19 +76,17 @@
 	background-size: cover;
 
 	.form {
+		@include desktop-text();
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
+		justify-content: space-between;
 
 		@include mq($from: screen-md) {
 			margin-bottom: 0;
 		}
 
-		font-size: 8vw;
-		margin: 0.5em 0.1em;
-		font-weight: normal;
-		line-height: 0.8;
+		padding: rem(25) rem(20);
 
 		h1 {
 			font-size: 1em;
@@ -97,9 +95,6 @@
 		}
 
 		&__input {
-			position: absolute;
-			bottom: 1em;
-
 			font-family: $font-sansserif;
 			padding: 0;
 			font-weight: inherit;

@@ -134,11 +134,11 @@ export const state = () => ({
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
 					param: 'misc4'
-				},
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.FUN
 				}
+				// {
+				// 	name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
+				// 	param: CollectionLayouts.FUN
+				// }
 			],
 			windowContent: [
 				{

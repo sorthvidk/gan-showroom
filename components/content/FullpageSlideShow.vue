@@ -3,9 +3,9 @@
 		<div class="col" v-for="(_, i) in [...Array(cols)]" :key="`col${i}`">
 			<div v-for="(_, j) in [1, 2]" :key="`wrap-overlap${j}`">
 				<div
-					v-for="asset in filteredContent(i === 1 || i === 2 ? i : i + 1)"
+					v-for="(asset, x) in filteredContent(i === 1 || i === 2 ? i : i + 1)"
 					:key="asset.assetId"
-					:class="{ withGap: Math.random() > 0.5 }"
+					:class="{ withGap: randomNumbers[i + 1 * x + 1] > 0.5 }"
 				>
 					<img
 						v-if="asset.type === 'image'"
@@ -33,7 +33,10 @@ export default {
 	name: 'fullpage-slide-show',
 	data: () => ({ cols: 4 }),
 	computed: {
-		...mapState('collection', ['allMediaAssets'])
+		...mapState('collection', ['allMediaAssets']),
+		randomNumbers() {
+			return [...Array(200)].map(Math.random)
+		}
 	},
 	methods: {
 		getMediaUrl(type, cloudinaryUrl) {
@@ -48,6 +51,9 @@ export default {
 		filteredContent(n) {
 			return this.allMediaAssets.filter((item, i) => (n + i) % 2 === 0)
 		}
+	},
+	mounted() {
+		console.log(this.randomNumbers)
 	}
 }
 </script>
