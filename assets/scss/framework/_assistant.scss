@@ -57,7 +57,8 @@
 		}
 		hr {
 			border-top: rem(1) solid $color-black;
-			border-bottom: rem(1) solid $color-black;
+			border-bottom: 0;
+			height: 0;
 
 			@include mq($until: screen-md) {
 				border-bottom: 0;

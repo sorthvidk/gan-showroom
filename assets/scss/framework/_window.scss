@@ -10,7 +10,7 @@
 }
 
 .window {
-	$chrome-height: 70;
+	$chrome-height: 65;
 	// $chrome-height-no-status: 30;
 	$chrome-height-no-status: 30;
 
@@ -210,8 +210,8 @@
 		position: absolute;
 		width: rem(31);
 		height: rem(31);
-		background: #eee;
-		border: rem(1) solid $color-black;
+		// background: #eee;
+		// border: rem(1) solid $color-black;
 		display: block;
 		z-index: 2;
 

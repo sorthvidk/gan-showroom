@@ -46,6 +46,7 @@ em {
 	font-weight: $weight-medium;
 	// line-height: 1.27;
 	line-height: 1;
+	text-transform: uppercase;
 }
 @mixin headline() {
 	@include bodytext();
