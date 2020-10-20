@@ -114,9 +114,6 @@
 }
 
 @mixin window-button() {
-	position: absolute;
-	right: 0;
-
 	flex: 0 0 rem(30);
 	width: rem(30);
 	height: rem(30);

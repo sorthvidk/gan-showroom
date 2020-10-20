@@ -13,6 +13,7 @@ import ShortcutTypes from '~/model/shortcut-types'
 import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
+	textStyledWithoutIcon: true,
 	list: [
 		{
 			type: ShortcutTypes.WINDOW,
@@ -45,29 +46,29 @@ export const state = () => ({
 			]
 		},
 
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'films',
-			icon: '/img/shortcuts/films.png',
-			label: 'PS21 Films',
-			posH: 2,
-			posV: 1,
-			windowContent: [
-				{
-					title: 'PS21 films',
-					contentId: 'ps21-films',
-					type: ContentTypes.films,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'FILMS',
-							bodyText: 'See all the awesome films<br><br><br>BRUH!'
-						}
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'films',
+		// 	icon: '/img/shortcuts/films.png',
+		// 	label: 'PS21 Films',
+		// 	posH: 2,
+		// 	posV: 1,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PS21 films',
+		// 			contentId: 'ps21-films',
+		// 			type: ContentTypes.films,
+		// 			canOverride: true,
+		// 			assistant: {
+		// 				mode: AssistantModes.CUSTOM,
+		// 				text: {
+		// 					headline: 'FILMS',
+		// 					bodyText: 'See all the awesome films<br><br><br>BRUH!'
+		// 				}
+		// 			}
+		// 		}
+		// 	]
+		// },
 
 		{
 			type: ShortcutTypes.WINDOW,
@@ -79,22 +80,23 @@ export const state = () => ({
 			widthSpan: 2,
 			windowContent: 'assets.ditte'
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'music-player',
-			icon: '/img/shortcuts/ganni_fm.png',
-			label: 'GANNI FM',
-			posH: 1,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI FM',
-					contentId: 'ganni-fm',
-					type: ContentTypes.musicPlayer,
-					canOverride: true
-				}
-			]
-		},
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'music-player',
+		// 	icon: '/img/shortcuts/ganni_fm.png',
+		// 	label: 'GANNI FM',
+		// 	posH: 1,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'GANNI FM',
+		// 			contentId: 'ganni-fm',
+		// 			type: ContentTypes.musicPlayer,
+		// 			canOverride: true
+		// 		}
+		// 	]
+		// },
 
 		{
 			type: ShortcutTypes.WINDOW,
@@ -182,39 +184,41 @@ export const state = () => ({
 				}
 			]
 		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'accessories',
-			icon: '/img/shortcuts/acces.png',
-			label: 'Jerseys',
-			posH: 12,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_GROUP_BY_INDEX.action,
-					param: -1
-				},
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'rtw4'
-				},
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
-			windowContent: [
-				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'accessories',
+		// 	icon: '/img/shortcuts/acces.png',
+		// 	label: 'Jerseys',
+		// 	posH: 12,
+		// 	posV: 6,
+		// 	actions: [
+		// 		{
+		// 			name: 'collection/' + SET_GROUP_BY_INDEX.action,
+		// 			param: -1
+		// 		},
+		// 		{
+		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
+		// 			param: 'rtw4'
+		// 		},
+		// 		{
+		// 			name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
+		// 			param: CollectionLayouts.GRID
+		// 		}
+		// 	],
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PS21 collection',
+		// 			contentId: 'ps21-collection',
+		// 			type: ContentTypes.collection,
+		// 			canOverride: true,
+		// 			assistant: {
+		// 				mode: AssistantModes.FILTER_COLLECTION
+		// 			}
+		// 		}
+		// 	]
+		// },
+
 		{
 			type: ShortcutTypes.URL,
 			shortcutId: 'responsibility-report',
@@ -225,49 +229,50 @@ export const state = () => ({
 			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
 		},
 
-		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'rails',
-			icon: '/img/shortcuts/rails.png',
-			label: 'Rails (pdf)',
-			posH: 2,
-			posV: 3,
-			href: '/files/GANNI_PS21_Rails.pdf'
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'hampster-dance',
-			icon: '/img/shortcuts/hamster_dance.png',
-			label: 'Hampster Dance',
-			posH: 12,
-			posV: 5,
-			windowContent: [
-				{
-					title: 'Hampster Dance',
-					contentId: 'hampster-dance',
-					type: ContentTypes.hampsterDance
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.URL,
+		// 	shortcutId: 'rails',
+		// 	icon: '/img/shortcuts/rails.png',
+		// 	label: 'Rails (pdf)',
+		// 	posH: 2,
+		// 	posV: 3,
+		// 	href: '/files/GANNI_PS21_Rails.pdf'
+		// },
 
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'collage',
-			label: 'PLAY DRESS UP',
-			icon: '/img/shortcuts/ganni_dressup.png',
-			posH: 11,
-			posV: 5,
-			windowContent: [
-				{
-					title: 'PLAY DRESS UP',
-					contentId: 'collage',
-					type: ContentTypes.collage,
-					assistant: {
-						mode: AssistantModes.COLLAGE
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'hampster-dance',
+		// 	icon: '/img/shortcuts/hamster_dance.png',
+		// 	label: 'Hampster Dance',
+		// 	posH: 12,
+		// 	posV: 5,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Hampster Dance',
+		// 			contentId: 'hampster-dance',
+		// 			type: ContentTypes.hampsterDance
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'collage',
+		// 	label: 'PLAY DRESS UP',
+		// 	icon: '/img/shortcuts/ganni_dressup.png',
+		// 	posH: 11,
+		// 	posV: 5,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PLAY DRESS UP',
+		// 			contentId: 'collage',
+		// 			type: ContentTypes.collage,
+		// 			assistant: {
+		// 				mode: AssistantModes.COLLAGE
+		// 			}
+		// 		}
+		// 	]
+		// },
 
 		{
 			type: ShortcutTypes.MARQUEE,
@@ -337,7 +342,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'exhibition',
 			icon: '/img/shortcuts/rails.png',
-			label: 'rails (new)',
+			label: 'rails',
 			posH: 3,
 			posV: 3,
 			windowContent: [
@@ -360,35 +365,35 @@ export const state = () => ({
 			]
 		},
 
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'puzzle',
-			label: 'Puzzle',
-			icon: '/img/shortcuts/puzzle.png',
-			posH: 10,
-			posV: 5,
-			windowContent: [
-				{
-					title: 'Puzzle',
-					contentId: 'puzzle',
-					type: ContentTypes.puzzle,
-					assistant: {
-						mode: AssistantModes.PUZZLE
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'puzzle',
+		// 	label: 'Puzzle',
+		// 	icon: '/img/shortcuts/puzzle.png',
+		// 	posH: 10,
+		// 	posV: 5,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Puzzle',
+		// 			contentId: 'puzzle',
+		// 			type: ContentTypes.puzzle,
+		// 			assistant: {
+		// 				mode: AssistantModes.PUZZLE
+		// 			}
+		// 		}
+		// 	]
+		// },
 
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'annas',
 			icon: '/img/shortcuts/anna.png',
-			label: 'Annas',
+			label: `Ana's Copenhagen`,
 			posH: 3,
 			posV: 2,
 			windowContent: [
 				{
-					title: 'Annas Copenhagen',
+					title: `Ana's Copenhagen`,
 					contentId: 'annas', // should match assets[contentId] to define content
 					type: ContentTypes.lookBook,
 					statusComponentProps: {

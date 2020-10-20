@@ -9,7 +9,6 @@
 	font-family: $font-sansserif;
 
 	background-color: $color-white;
-	color: $color-black;
 	height: rem(60);
 	border-top: rem(1) solid $color-black;
 
@@ -45,9 +44,9 @@
 
 	p,
 	button {
-		font-size: 26px;
+		@include megatype();
+		font-size: 36px;
 		text-transform: uppercase;
-		// @include megatype();
 
 		white-space: nowrap;
 		font-family: inherit;
@@ -56,6 +55,7 @@
 
 	button {
 		position: relative;
+
 		&:after {
 			display: block;
 			content: '';
@@ -66,8 +66,10 @@
 			height: rem(3);
 			background-color: $color-black;
 		}
+
 		&:hover {
 			color: $color-blue;
+
 			&:after {
 				background-color: $color-blue;
 			}

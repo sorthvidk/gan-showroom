@@ -2,10 +2,13 @@
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
 		<button
 			@click="onClick"
+			@mouseenter="changeBackground"
+			@mouseleave="changeBackground(false)"
 			class="shortcut"
+			:class="{ shortcut__text: textLayout, shortcut__icon: !textLayout }"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>
-			<span class="icon">
+			<span class="icon" v-if="!textLayout">
 				<img :src="icon" />
 			</span>
 			<span class="text">{{ label }}</span>
@@ -16,12 +19,17 @@
 <script>
 import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 import { TweenLite } from 'gsap'
-import { OPEN_CONTENT, SET_GROUP_BY_IDENTIFIER } from '~/model/constants'
+import {
+	OPEN_CONTENT,
+	SET_GROUP_BY_IDENTIFIER,
+	DESKTOP_BACKGROUND
+} from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
 	props: {
+		textLayout: { type: Boolean, default: false, required: false },
 		positionH: { type: Number, default: 0, required: true },
 		positionV: { type: Number, default: 0, required: true },
 		icon: { type: String, default: null, required: true },
@@ -43,7 +51,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action]),
+		...mapActions([OPEN_CONTENT.action, DESKTOP_BACKGROUND.action]),
 		onClick() {
 			const { windowContent } = this
 
@@ -73,6 +81,11 @@ export default {
 				opacity: 1,
 				ease: 'power4.inOut'
 			})
+		},
+		changeBackground(color) {
+			if (!this.textLayout) return
+
+			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
 		}
 	}
 }

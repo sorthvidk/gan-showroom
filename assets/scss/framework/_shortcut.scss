@@ -1,93 +1,101 @@
 .shortcut {
-	position: relative;
-	box-sizing: border-box;
-	padding: rem(10) rem(20);
-	max-height: rem(75);
-	flex: 0 0 25%;
-	max-width: 25%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background-color: transparent;
-	border: 0;
-	display: block;
-	text-align: center;
-
-	user-select: none;
-
-	@include mq($from: screen-xxs) {
-		max-height: rem(100);
-	}
-
-	@include mq($from: screen-xs) {
-		padding: rem(20);
-		max-height: rem(120);
-		max-width: 20%;
-		flex: 0 0 20%;
-	}
-	@include mq($from: screen-md) {
-		width: 100%;
-		height: 100%;
-		max-height: none;
-		max-width: none;
-		flex: 0 0 100%;
-	}
-
-	.icon {
+	&__icon {
 		position: relative;
-		display: inline-block;
-		font-size: rem(60);
-		height: rem(60);
-		width: rem(60);
-		margin-bottom: rem(10);
+		box-sizing: border-box;
+		padding: rem(10) rem(20);
+		max-height: rem(75);
+		flex: 0 0 25%;
+		max-width: 25%;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		background-color: transparent;
+		border: 0;
+		display: block;
+		text-align: center;
 
-		img {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: rem(60);
-			height: rem(60);
+		user-select: none;
+
+		@include mq($from: screen-xxs) {
+			max-height: rem(100);
+		}
+
+		@include mq($from: screen-xs) {
+			padding: rem(20);
+			max-height: rem(120);
+			max-width: 20%;
+			flex: 0 0 20%;
+		}
+		@include mq($from: screen-md) {
+			width: 100%;
+			height: 100%;
+			max-height: none;
 			max-width: none;
+			flex: 0 0 100%;
+		}
 
-			image-rendering: pixelated;
+		.icon {
+			position: relative;
+			display: inline-block;
+			font-size: rem(60);
+			height: rem(60);
+			width: rem(60);
+			margin-bottom: rem(10);
 
-			@include mq($from: screen-xxxl) {
-				width: rem(80);
-				height: rem(80);
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: rem(60);
+				height: rem(60);
+				max-width: none;
+
+				image-rendering: pixelated;
+
+				@include mq($from: screen-xxxl) {
+					width: rem(80);
+					height: rem(80);
+				}
+			}
+		}
+		.text {
+			display: inline-block;
+			position: absolute;
+			top: 80%;
+			left: 50%;
+			transform: translateX(-50%);
+			@include bodytext();
+			background-color: $color-white;
+			padding: rem(2) rem(5);
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			max-width: 60%;
+			overflow: hidden;
+
+			@include mq($from: screen-xxs) {
+				top: 70%;
+				max-width: none;
+				overflow: visible;
+			}
+		}
+		&:hover {
+			.text {
+				background-color: $color-grey;
+			}
+		}
+
+		&:active {
+			.text {
+				background-color: $color-yellow;
 			}
 		}
 	}
-	.text {
-		display: inline-block;
-		position: absolute;
-		top: 80%;
-		left: 50%;
-		transform: translateX(-50%);
-		@include bodytext();
-		background-color: $color-white;
-		padding: rem(2) rem(5);
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		max-width: 60%;
-		overflow: hidden;
 
-		@include mq($from: screen-xxs) {
-			top: 70%;
-			max-width: none;
-			overflow: visible;
-		}
-	}
-	&:hover {
-		.text {
-			background-color: $color-grey;
-		}
-	}
-
-	&:active {
-		.text {
-			background-color: $color-yellow;
-		}
+	&__text {
+		@include desktop-text();
+		display: block;
+		text-align: left;
 	}
 }

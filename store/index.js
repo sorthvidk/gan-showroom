@@ -24,7 +24,8 @@ import {
 	PASSWORDS_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
-	UPDATE_PROGRESS
+	UPDATE_PROGRESS,
+	DESKTOP_BACKGROUND
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -40,6 +41,30 @@ import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	rehydrated: false,
+
+	desktopBackgrounds: [
+		{
+			color: 'rgb(255, 253, 84)',
+			image: '/img/ditte/ditte1.jpg'
+		},
+		{
+			color: 'rgb(234, 63, 247)',
+			image: '/img/ditte/ditte2.jpg'
+		},
+		{
+			color: 'rgb(117, 249, 76)',
+			image: '/img/ditte/ditte3.jpg'
+		},
+		{
+			color: 'rgb(235, 50, 35)',
+			image: '/img/ditte/ditte4.jpg'
+		},
+		{
+			color: 'rgb(0, 35, 245)',
+			image: '/img/ditte/ditte5.jpg'
+		}
+	],
+	desktopBackground: {},
 
 	windowList: [],
 	windowGroupList: [],
@@ -245,6 +270,13 @@ export const mutations = {
 					' | close style? ' +
 					(params && params.styleWindowGroup)
 			)
+	},
+
+	[DESKTOP_BACKGROUND.mutation](state, data) {
+		state.desktopBackground =
+			data !== false
+				? state.desktopBackgrounds[data % state.desktopBackgrounds.length]
+				: { color: '', image: '' }
 	}
 }
 
@@ -354,6 +386,10 @@ export const actions = {
 
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
+	},
+
+	[DESKTOP_BACKGROUND.action]({ commit }, data) {
+		commit(DESKTOP_BACKGROUND.mutation, data)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */

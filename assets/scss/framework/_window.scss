@@ -12,13 +12,14 @@
 .window {
 	$chrome-height: 70;
 	// $chrome-height-no-status: 30;
-	$chrome-height-no-status: 35;
+	$chrome-height-no-status: 30;
 
 	$module: '.window';
 
 	background-color: $color-white;
 	// border: rem(1) solid $color-black;
-	box-shadow: rem(4) rem(4) 0 0 rgba(0, 0, 0, 0.2);
+	// box-shadow: rem(4) rem(4) 0 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 rem(4) 0 rgba(0, 0, 0, 0.1);
 
 	position: absolute;
 	top: 0;
@@ -88,6 +89,9 @@
 			// @include bevel();
 			// border-left: rem(1) solid $color-black;
 			// border-bottom: rem(1) solid $color-black;
+
+			position: absolute;
+			right: 0;
 
 			display: inline-flex;
 			align-items: center;

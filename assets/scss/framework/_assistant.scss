@@ -58,6 +58,7 @@
 		hr {
 			border-top: rem(1) solid $color-black;
 			border-bottom: rem(1) solid $color-black;
+
 			@include mq($until: screen-md) {
 				border-bottom: 0;
 			}
@@ -80,7 +81,7 @@
 .assistant {
 	h3 {
 		@include headline();
-		color: $color-amaranth;
+		// color: $color-amaranth;
 	}
 	p {
 		@include bodytext();

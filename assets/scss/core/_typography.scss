@@ -7,18 +7,18 @@ em {
 }
 
 @mixin desktop-text() {
-	font-size: rem(123);
+	font-size: 11vh;
 	line-height: 1;
 	font-weight: $weight-medium;
 	letter-spacing: -0.03em;
 	text-transform: uppercase;
 
 	@include mq($until: screen-xxl) {
-		font-size: rem(100);
+		font-size: rem(90);
 	}
 
 	@include mq($until: screen-lg) {
-		font-size: rem(88);
+		font-size: rem(80);
 	}
 }
 
@@ -39,17 +39,20 @@ em {
 	text-transform: uppercase;
 }
 
-@mixin headline() {
-	font-size: rem(16);
-	font-weight: $weight-medium;
-	line-height: 1.2;
-	letter-spacing: -0.01em;
-}
-
 @mixin bodytext() {
-	font-size: rem(11);
-	font-weight: $weight-normal;
-	line-height: 1.27;
+	// font-size: rem(11);
+	font-size: rem(12);
+	// font-weight: $weight-normal;
+	font-weight: $weight-medium;
+	// line-height: 1.27;
+	line-height: 1;
+}
+@mixin headline() {
+	@include bodytext();
+	// font-size: rem(16);
+	// font-weight: $weight-medium;
+	// line-height: 1.2;
+	// letter-spacing: -0.01em;
 }
 
 @mixin link() {
