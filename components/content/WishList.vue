@@ -85,15 +85,15 @@
 								<td>&nbsp;</td>
 							</tr>
 
-							<tr>
+							<tr v-if="SHOW_WHOLESALE_PRICE">
 								<th>Wholesale price</th>
 								<td>DKK {{ currentWishListItem.wholesalePriceDKK }}</td>
 							</tr>
-							<tr>
+							<tr v-if="SHOW_WHOLESALE_PRICE">
 								<th>Wholesale price</th>
 								<td>EUR {{ currentWishListItem.wholesalePriceEUR }}</td>
 							</tr>
-							<tr>
+							<tr v-if="SHOW_WHOLESALE_PRICE">
 								<th>Wholesale price</th>
 								<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
 							</tr>
@@ -152,6 +152,7 @@ export default {
 		SingleImage
 	},
 	computed: {
+		...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
 		...mapState('collection', ['wishList']),
 

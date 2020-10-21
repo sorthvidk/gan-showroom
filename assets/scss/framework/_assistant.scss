@@ -18,9 +18,9 @@
 			width: rem(276);
 		}
 		@include mq($from: screen-md) {
-			top: rem(80);
+			top: 4vh; // align with text
 			left: auto;
-			right: rem(30);
+			right: rem(20);
 			bottom: auto;
 		}
 
@@ -263,6 +263,7 @@
 			flex: 0 0 100%;
 
 			&--half {
+				width: 50%;
 				flex: 0 0 50%;
 				border-right: rem(1) solid $color-black;
 			}

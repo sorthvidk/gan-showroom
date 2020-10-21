@@ -58,7 +58,7 @@ export default {
 			dataArray: null,
 			ctx: null,
 			barWidth: null,
-			BG_COLOR: null,
+			BG_COLOR: null, // computed from css value
 			WIDTH: null,
 			HEIGHT: null,
 
@@ -205,9 +205,9 @@ export default {
 				this.ctx.fillRect(0, 0, this.WIDTH, this.HEIGHT)
 
 				const grd = this.ctx.createLinearGradient(0, 0, 0, this.HEIGHT)
-				grd.addColorStop(0, 'darksalmon')
-				grd.addColorStop(0.5, 'peachpuff')
-				grd.addColorStop(1, '#FBD5C5')
+				grd.addColorStop(0, '#000')
+				grd.addColorStop(0.5, '#000')
+				grd.addColorStop(1, '#000')
 
 				// print bars in corrent height
 				this.dataArray.forEach((freq, i) => {

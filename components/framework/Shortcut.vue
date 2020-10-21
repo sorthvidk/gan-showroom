@@ -30,8 +30,8 @@ export default {
 	name: 'shortcut',
 	props: {
 		textLayout: { type: Boolean, default: false, required: false },
-		positionH: { type: Number, default: 0, required: true },
-		positionV: { type: Number, default: 0, required: true },
+		positionH: { type: Number, default: 0, required: false },
+		positionV: { type: Number, default: 0, required: false },
 		icon: { type: String, default: null, required: true },
 		label: { type: String, default: null, required: true },
 		shortcutId: { type: String, default: null, required: true },
@@ -59,13 +59,17 @@ export default {
 				window.open(this.href, '_blank')
 			} else {
 				if (this.actions) {
-					const openContent = () => this[OPEN_CONTENT.action]({ windowContent })
+					console.log(this.actions)
+					const openContent = () =>
+						this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
 					this.actions.forEach(action => {
 						if (typeof action.param !== 'undefined')
-							this.$store.dispatch(action.name, action.param).then(openContent)
-						else this.$store.dispatch(action.name).then(openContent)
+							this.$store.dispatch(action.name, action.param)
+						else this.$store.dispatch(action.name)
 					})
+
+					openContent()
 				} else {
 					this[OPEN_CONTENT.action]({ windowContent })
 				}
@@ -76,7 +80,7 @@ export default {
 		},
 		animateIn(el) {
 			TweenLite.to(el, 0, {
-				delay: Math.floor(this.nthChild) / 30 + 0.5,
+				delay: Math.floor(this.nthChild) / 20 + 0.5,
 				scale: 1,
 				opacity: 1,
 				ease: 'power4.inOut'

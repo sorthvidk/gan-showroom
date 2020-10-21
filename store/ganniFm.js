@@ -42,7 +42,7 @@ export const mutations = {
 	},
 
 	[SONGS_FETCH.mutation](state, data) {
-		state.songs = data || state.songs
+		state.songs = { ...state.songs, data }
 	}
 }
 

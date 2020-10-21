@@ -81,23 +81,6 @@ export const state = () => ({
 			windowContent: 'assets.ditte'
 		},
 
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'music-player',
-		// 	icon: '/img/shortcuts/ganni_fm.png',
-		// 	label: 'GANNI FM',
-		// 	posH: 1,
-		// 	posV: 2,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'GANNI FM',
-		// 			contentId: 'ganni-fm',
-		// 			type: ContentTypes.musicPlayer,
-		// 			canOverride: true
-		// 		}
-		// 	]
-		// },
-
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
@@ -365,24 +348,41 @@ export const state = () => ({
 			]
 		},
 
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'puzzle',
-		// 	label: 'Puzzle',
-		// 	icon: '/img/shortcuts/puzzle.png',
-		// 	posH: 10,
-		// 	posV: 5,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'Puzzle',
-		// 			contentId: 'puzzle',
-		// 			type: ContentTypes.puzzle,
-		// 			assistant: {
-		// 				mode: AssistantModes.PUZZLE
-		// 			}
-		// 		}
-		// 	]
-		// },
+		{
+			type: ShortcutTypes.BADGE,
+			shortcutId: 'puzzle',
+			label: 'Puzzle',
+			icon: '/img/shortcuts/puzzle.png',
+			posH: 10,
+			posV: 5,
+			windowContent: [
+				{
+					title: 'Puzzle',
+					contentId: 'puzzle',
+					type: ContentTypes.puzzle,
+					assistant: {
+						mode: AssistantModes.PUZZLE
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.BADGE,
+			shortcutId: 'music-player',
+			icon: '/img/shortcuts/ganni_fm.png',
+			label: 'GANNI FM',
+			posH: 1,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'GANNI FM',
+					contentId: 'ganni-fm',
+					type: ContentTypes.musicPlayer,
+					canOverride: true
+				}
+			]
+		},
 
 		{
 			type: ShortcutTypes.WINDOW,
@@ -396,9 +396,9 @@ export const state = () => ({
 					title: `Ana's Copenhagen`,
 					contentId: 'annas', // should match assets[contentId] to define content
 					type: ContentTypes.lookBook,
-					statusComponentProps: {
-						text: 'Welcome to CPH, Annas Copenhagen'
-					},
+					// statusComponentProps: {
+					// 	text: 'Welcome to CPH, Annas Copenhagen'
+					// },
 					assistant: {
 						mode: AssistantModes.CUSTOM,
 						text: {

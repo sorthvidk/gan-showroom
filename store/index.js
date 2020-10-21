@@ -41,6 +41,8 @@ import { lastElement } from '~/utils/array-helpers'
 import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
+	SHOW_WHOLESALE_PRICE: true,
+
 	rehydrated: false,
 
 	desktopBackgrounds: [

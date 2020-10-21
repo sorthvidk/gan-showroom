@@ -47,19 +47,19 @@
 							<td>&nbsp;</td>
 						</tr>
 
-						<tr>
+						<tr v-if="SHOW_WHOLESALE_PRICE">
 							<th>Wholesale price</th>
 							<td>DKK {{ currentStyle.wholesalePriceDKK }}</td>
 						</tr>
-						<tr>
+						<tr v-if="SHOW_WHOLESALE_PRICE">
 							<th>Wholesale price</th>
 							<td>EUR {{ currentStyle.wholesalePriceEUR }}</td>
 						</tr>
-						<tr>
+						<tr v-if="SHOW_WHOLESALE_PRICE">
 							<th>Wholesale price</th>
 							<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
 						</tr>
-						<tr v-if="currentStyle.wholesalePriceGBP">
+						<tr v-if="currentStyle.wholesalePriceGBP && SHOW_WHOLESALE_PRICE">
 							<th>Wholesale price</th>
 							<td>GBP {{ currentStyle.wholesalePriceGBP }}</td>
 						</tr>
@@ -143,6 +143,7 @@ export default {
 	name: 'assistant-mode-style-details',
 	data: () => ({ styleHasBeenAdded: false }),
 	computed: {
+		...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
 		...mapState('user', ['keyPressed']),
 		...mapState('assistant', ['assistantMode', 'expanded']),

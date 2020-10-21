@@ -1,15 +1,13 @@
 .mobile-disclamer {
-	font-size: 12vmin;
-	line-height: 0.8;
-	text-transform: uppercase;
+	@include desktop-text();
 
-	background: $color-amaranth;
+	background: $color-black;
+	color: $color-white;
 
 	position: fixed;
-	top: 7%;
-	left: 5%;
+	margin: rem(50) rem(40);
+	padding: rem(50) rem(40);
 	width: 66%;
-	padding: 0.2em;
 
 	display: inline-flex;
 	justify-content: center;

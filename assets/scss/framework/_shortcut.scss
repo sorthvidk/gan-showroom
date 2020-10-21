@@ -98,4 +98,32 @@
 		display: block;
 		text-align: left;
 	}
+
+	&__badge {
+		width: 200px;
+		height: auto;
+		min-height: 200px;
+		display: inline-block;
+		padding: 0;
+
+		.icon {
+			display: flex;
+			width: inherit;
+			height: inherit;
+			margin-bottom: 0;
+
+			img {
+				position: relative;
+				top: 0;
+				left: 0;
+				transform: translate(0);
+				width: inherit;
+				height: inherit;
+			}
+		}
+
+		.text {
+			display: none;
+		}
+	}
 }
