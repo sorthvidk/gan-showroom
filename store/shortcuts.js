@@ -123,15 +123,15 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'animal-print',
+			shortcutId: 'software',
 			icon: '/img/shortcuts/animal_print.png',
-			label: 'Animal Print',
+			label: 'GANNI software',
 			posH: 10,
 			posV: 6,
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
-					param: 'cotton-fun'
+					param: 'software'
 				},
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
@@ -159,13 +159,13 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: 'Drop 2 Feb',
+			label: 'GANNI X Levis',
 			posH: 11,
 			posV: 6,
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
-					param: 'drop2-feb'
+					param: 'drop-2'
 				},
 				{
 					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
@@ -348,7 +348,7 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: 'rails',
-					contentId: 'exhibition',
+					contentId: 'rails',
 					type: ContentTypes.exhibition,
 					statusComponentProps: {
 						text: 'PRE SPRING 21 RAILS'

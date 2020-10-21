@@ -149,6 +149,12 @@ export const mutations = {
 			let stateGroup = state.allGroups.filter(
 				e => e.groupId === style.groupId
 			)[0]
+
+			if (!stateGroup) {
+				console.log(`style is part of invalid group: ${style.groupId}`)
+				return
+			}
+
 			if (window.GS_LOGS)
 				console.warn(
 					'ADD STYLE ' + style.styleId + ' TO GROUP:',
