@@ -6,12 +6,17 @@ em {
 	font-style: italic;
 }
 
+::selection {
+	color: $color-white;
+	background-color: $color-black;
+}
+
 @mixin desktop-text() {
 	// calc([available space]) / [item-count] / [line-height]
 	font-size: calc((100vh - 120px) / 8 / 0.9);
 	line-height: 0.9;
 	font-weight: $weight-medium;
-	letter-spacing: -0.03em;
+	letter-spacing: -0.01em;
 	text-transform: uppercase;
 
 	@include mq($until: screen-xxl) {

@@ -55,6 +55,7 @@
 	}
 
 	&__top {
+		user-select: none;
 		// background-color: $color-lightgrey;
 		display: flex;
 		justify-content: space-between;
@@ -103,6 +104,7 @@
 		}
 	}
 	&__status {
+		user-select: none;
 		height: rem(35);
 		box-sizing: border-box;
 		position: relative;

@@ -352,7 +352,7 @@ export const state = () => ({
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'puzzle',
 			label: 'Puzzle',
-			icon: '/img/shortcuts/puzzle.png',
+			icon: '/img/gan_color_wheel.png',
 			posH: 10,
 			posV: 5,
 			windowContent: [
@@ -370,7 +370,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'music-player',
-			icon: '/img/shortcuts/ganni_fm.png',
+			icon: '/img/smiley-bw.png',
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
