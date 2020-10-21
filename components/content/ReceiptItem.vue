@@ -5,31 +5,31 @@
 				<td rowspan="12" class="image">
 					<img style="width: 3.9cm;" :src="imageUrl" alt />
 				</td>
-				<td colspan="2" class="title">{{receiptItem.name}}</td>
+				<td colspan="2" class="title">{{ receiptItem.name }}</td>
 			</tr>
-			
+
 			<tr>
 				<td style="color: #666; padding-right: 5em;">Color</td>
-				<td>{{receiptItem.colorNames}}</td>
+				<td>{{ receiptItem.colorNames }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Style #</td>
-				<td>{{receiptItem.styleId}}</td>
+				<td>{{ receiptItem.styleId }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Program name</td>
-				<td>{{receiptItem.programName}}</td>
+				<td>{{ receiptItem.programName }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Collection</td>
-				<td>{{receiptItem.collectionId}}</td>
+				<td>{{ receiptItem.collectionId }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Drop</td>
-				<td>{{receiptItem.drop}}</td>
+				<td>{{ receiptItem.drop }}</td>
 			</tr>
-			
-			<tr>
+
+			<!-- <tr>
 				<td style="color: #666;">Wholesale price</td>
 				<td>DKK {{receiptItem.wholesalePriceDKK}}</td>
 			</tr>
@@ -40,18 +40,18 @@
 			<tr>
 				<td style="color: #666;">Wholesale price</td>
 				<td>USD {{receiptItem.wholesalePriceUSD}}</td>
+			</tr> -->
+			<tr>
+				<td style="color: #666;">Retail price</td>
+				<td>DKK {{ receiptItem.retailPriceDKK }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Retail price</td>
-				<td>DKK {{receiptItem.retailPriceDKK}}</td>
+				<td>EUR {{ receiptItem.retailPriceEUR }}</td>
 			</tr>
 			<tr>
 				<td style="color: #666;">Retail price</td>
-				<td>EUR {{receiptItem.retailPriceEUR}}</td>
-			</tr>
-			<tr>
-				<td style="color: #666;">Retail price</td>
-				<td>USD {{receiptItem.retailPriceUSD}}</td>
+				<td>USD {{ receiptItem.retailPriceUSD }}</td>
 			</tr>
 		</tbody>
 	</table>
