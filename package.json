@@ -8,6 +8,9 @@
 		"Jonas Landt <landt@sorthvid.net>",
 		"Erik Thalen <erik@sorthvid.net>"
 	],
+	"engines": {
+		"node": ">=14.9"
+	},
 	"browserslist": [
 		"last 4 versions",
 		"> 1%",
