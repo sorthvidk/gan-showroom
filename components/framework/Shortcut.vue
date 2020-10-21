@@ -72,11 +72,11 @@ export default {
 			}
 		},
 		beforeAnimateIn(el) {
-			TweenLite.set(el, { scale: 0, opacity: 0 })
+			TweenLite.set(el, { scale: 1, opacity: 0 })
 		},
 		animateIn(el) {
-			TweenLite.to(el, 0.3, {
-				delay: Math.floor(Math.random() * 10 /*this.nthChild*/) / 15 + 1,
+			TweenLite.to(el, 0, {
+				delay: Math.floor(this.nthChild) / 30 + 0.5,
 				scale: 1,
 				opacity: 1,
 				ease: 'power4.inOut'

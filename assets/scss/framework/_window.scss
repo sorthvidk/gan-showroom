@@ -205,6 +205,7 @@
 		box-sizing: border-box;
 		border: rem(1) dashed $color-black;
 	}
+
 	.handle {
 		box-sizing: border-box;
 		position: absolute;
@@ -222,7 +223,7 @@
 			position: absolute;
 			height: rem(1);
 			left: rem(10);
-			bottom: rem(8);
+			bottom: rem(10);
 			background-color: $color-black;
 		}
 		&:after {

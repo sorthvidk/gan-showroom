@@ -159,7 +159,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-software',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: 'Drop 2 Feb!?',
+			label: 'Drop 2 Feb',
 			posH: 11,
 			posV: 6,
 			actions: [
