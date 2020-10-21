@@ -1,4 +1,8 @@
-import { MUSIC_PLAY_PAUSE, FORCE_STOP_MUSIC } from '~/model/constants'
+import {
+	MUSIC_PLAY_PAUSE,
+	FORCE_STOP_MUSIC,
+	SONGS_FETCH
+} from '~/model/constants'
 
 export const state = () => ({
 	musicPlaying: false,
@@ -35,6 +39,10 @@ export const mutations = {
 	[FORCE_STOP_MUSIC.mutation](state) {
 		if (window.GS_LOGS) console.warn('FORCE_STOP_MUSIC | pause music')
 		state.musicPlaying = false
+	},
+
+	[SONGS_FETCH.mutation](state, data) {
+		state.songs = data || state.songs
 	}
 }
 

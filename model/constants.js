@@ -31,6 +31,7 @@ export const ANNAS_FETCH = createMutation('ANNAS_FETCH')
 export const GENERAL_FETCH = createMutation('GENERAL_FETCH')
 export const ASSISTANT_FETCH = createMutation('ASSISTANT_FETCH')
 export const DITTE_FETCH = createMutation('DITTE_FETCH')
+export const SONGS_FETCH = createMutation('SONGS_FETCH')
 
 export const CURRENT_STYLE = createMutation('CURRENT_STYLE')
 export const SET_HIDDEN_ASSETS = createMutation('SET_HIDDEN_ASSETS')

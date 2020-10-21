@@ -384,6 +384,36 @@ collections:
           hint: 'Video file thumbnail image',
         }
 
+  - name: 'songs'
+    sortable_fields: ['songId']
+    label: 'Songs'
+    summary: '{{songName}}'
+    folder: 'assets/content/songs'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{songId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Song #',
+          name: 'songId',
+          widget: 'string',
+          hint: 'Unique song ID',
+        }
+      - {
+          label: 'Song name',
+          name: 'songName',
+          widget: 'string',
+          hint: 'Title of the song',
+        }
+      - {
+          label: 'Cloudinary audio reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Reference to song file (do not mind the "Choose image")',
+        }
+
   - name: 'ganniGirls'
     sortable_fields: ['postId']
     summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"

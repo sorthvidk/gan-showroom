@@ -7,6 +7,7 @@ import {
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
 	FILMS_FETCH,
+	SONGS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
@@ -504,6 +505,13 @@ export const actions = {
 			'user/' + PASSWORDS_FETCH.mutation,
 			await getData(
 				require.context('~/assets/content/passwords/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'ganniFm/' + SONGS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
 			)
 		)
 
