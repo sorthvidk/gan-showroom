@@ -4,8 +4,8 @@
 			<div
 				class="wish-list__overview__item"
 				v-for="(item, index) in sortedWishlist"
-				:key="'wishListItem'+index"
-				:class="{'is-active': currentWishListIndex == index}"
+				:key="'wishListItem' + index"
+				:class="{ 'is-active': currentWishListIndex == index }"
 			>
 				<button
 					v-if="item.styleItem.assets && item.styleItem.assets.length > 0"
@@ -13,9 +13,12 @@
 					@click="overviewItemActivateHandler(index)"
 				>
 					<img :src="getImageUrl(index)" alt />
-					<p>{{item.styleItem.name}}</p>
+					<p>{{ item.styleItem.name }}</p>
 				</button>
-				<button class="button remove" @click.stop="overviewItemRemoveHandler(index)">
+				<button
+					class="button remove"
+					@click.stop="overviewItemRemoveHandler(index)"
+				>
 					<span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 							<path
@@ -33,7 +36,12 @@
 				</div>
 				<div
 					class="inner"
-					v-if="currentWishListItem && currentWishListItem.styleItem && currentWishListItem.styleItem.assets && currentWishListItem.styleItem.assets.length > 0"
+					v-if="
+						currentWishListItem &&
+							currentWishListItem.styleItem &&
+							currentWishListItem.styleItem.assets &&
+							currentWishListItem.styleItem.assets.length > 0
+					"
 					:key="currentWishListIndex"
 				>
 					<single-image
@@ -41,22 +49,24 @@
 						:parent-window-id="parentWindowId"
 					/>
 
-					<h3>{{currentWishListItem.name}}</h3>
-					<button class="button" @click="removeItemHandler">Remove from wishlist</button>
+					<h3>{{ currentWishListItem.name }}</h3>
+					<button class="button" @click="removeItemHandler">
+						Remove from wishlist
+					</button>
 
 					<table>
 						<tbody>
 							<tr>
 								<th>Collection</th>
-								<td>{{currentWishListItem.styleItem.collectionId}}</td>
+								<td>{{ currentWishListItem.styleItem.collectionId }}</td>
 							</tr>
 							<tr>
 								<th>Drop</th>
-								<td>{{currentWishListItem.styleItem.drop}}</td>
+								<td>{{ currentWishListItem.styleItem.drop }}</td>
 							</tr>
 							<tr>
 								<th>Name</th>
-								<td>{{currentWishListItem.styleItem.name}}</td>
+								<td>{{ currentWishListItem.styleItem.name }}</td>
 							</tr>
 							<tr>
 								<th>
@@ -70,27 +80,35 @@
 										:key="item"
 									>
 										<span v-if="key > 0">,</span>
-										{{item}}
+										{{ item }}
 									</span>
-									<button v-if="hasMoreColors" class="button" @click="editColorsHandler">Edit colors</button>
-									<span v-else>{{currentWishListItem.styleItem.colorNames}}</span>
+									<button
+										v-if="hasMoreColors"
+										class="button"
+										@click="editColorsHandler"
+									>
+										Edit colors
+									</button>
+									<span v-else>{{
+										currentWishListItem.styleItem.colorNames
+									}}</span>
 								</td>
 							</tr>
 							<tr>
 								<th>Material</th>
-								<td>{{currentWishListItem.styleItem.material}}</td>
+								<td>{{ currentWishListItem.styleItem.material }}</td>
 							</tr>
 							<tr>
 								<th>Style #</th>
-								<td>{{currentWishListItem.styleItem.styleId}}</td>
+								<td>{{ currentWishListItem.styleItem.styleId }}</td>
 							</tr>
 							<tr>
 								<th>Program #</th>
-								<td>{{currentWishListItem.styleItem.program}}</td>
+								<td>{{ currentWishListItem.styleItem.program }}</td>
 							</tr>
 							<tr>
 								<th>Program name</th>
-								<td>{{currentWishListItem.styleItem.programName}}</td>
+								<td>{{ currentWishListItem.styleItem.programName }}</td>
 							</tr>
 
 							<tr>
@@ -98,7 +116,7 @@
 								<td>&nbsp;</td>
 							</tr>
 
-							<tr>
+							<!-- <tr>
 								<th>Wholesale price</th>
 								<td>DKK {{currentWishListItem.styleItem.wholesalePriceDKK}}</td>
 							</tr>
@@ -109,7 +127,7 @@
 							<tr>
 								<th>Wholesale price</th>
 								<td>USD {{currentWishListItem.styleItem.wholesalePriceUSD}}</td>
-							</tr>
+							</tr> -->
 
 							<tr>
 								<th>&nbsp;</th>
@@ -118,17 +136,16 @@
 
 							<tr>
 								<th>Suggested retail price</th>
-								<td>DKK {{currentWishListItem.styleItem.retailPriceDKK}}</td>
+								<td>DKK {{ currentWishListItem.styleItem.retailPriceDKK }}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>EUR {{currentWishListItem.styleItem.retailPriceEUR}}</td>
+								<td>EUR {{ currentWishListItem.styleItem.retailPriceEUR }}</td>
 							</tr>
 							<tr>
 								<th>Suggested retail price</th>
-								<td>USD {{currentWishListItem.styleItem.retailPriceUSD}}</td>
+								<td>USD {{ currentWishListItem.styleItem.retailPriceUSD }}</td>
 							</tr>
-							
 						</tbody>
 					</table>
 				</div>
@@ -137,7 +154,7 @@
 		<div v-if="viewPortSize.name == 'SMALL'">
 			<wish-list-accordion
 				v-for="(item, key) in sortedWishlist"
-				:key="'wishListItem'+key"
+				:key="'wishListItem' + key"
 				:wish-list-item="item"
 			/>
 		</div>
