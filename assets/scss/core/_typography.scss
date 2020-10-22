@@ -65,7 +65,7 @@ em {
 @mixin link() {
 	font-size: rem(11);
 	font-weight: $weight-medium;
-	color: $color-blue;
+	// color: $color-blue;
 	line-height: 1.27;
 	text-decoration: underline;
 }

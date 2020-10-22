@@ -101,7 +101,8 @@ export default {
 		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
-			SET_NEXT_GROUP.action
+			SET_NEXT_GROUP.action,
+			DOWNLOAD_PREPARING.action
 		]),
 		viewWishList() {
 			this[OPEN_WISH_LIST.action]()

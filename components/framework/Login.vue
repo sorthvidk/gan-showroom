@@ -16,14 +16,14 @@ export default {
 	name: 'login',
 	components: {
 		slide0: LoginSlide,
-		// slide1: Logically nSlide,
+		// slide1: LoginSlide,
 		slide1: LoginInput
 	},
 	data() {
 		return {
-			current: 0,
+			current: 1,
 			timeout: null,
-			slideDuration: 150000000
+			slideDuration: 100000000000
 		}
 	},
 	computed: {

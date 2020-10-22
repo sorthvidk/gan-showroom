@@ -19,7 +19,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'PS21 collection',
+			label: 'Collection',
 			posH: 1,
 			posV: 1,
 			actions: [
@@ -36,7 +36,7 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
 					assistant: {
@@ -46,39 +46,38 @@ export const state = () => ({
 			]
 		},
 
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'films',
-		// 	icon: '/img/shortcuts/films.png',
-		// 	label: 'PS21 Films',
-		// 	posH: 2,
-		// 	posV: 1,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 films',
-		// 			contentId: 'ps21-films',
-		// 			type: ContentTypes.films,
-		// 			canOverride: true,
-		// 			assistant: {
-		// 				mode: AssistantModes.CUSTOM,
-		// 				text: {
-		// 					headline: 'FILMS',
-		// 					bodyText: 'See all the awesome films<br><br><br>BRUH!'
-		// 				}
-		// 			}
-		// 		}
-		// 	]
-		// },
-
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'dittes-folder',
+			shortcutId: 'about',
 			icon: '/img/shortcuts/dittes_private.png',
-			label: 'Private',
+			label: 'About GANNI',
 			posH: 3,
 			posV: 1,
 			widthSpan: 2,
 			windowContent: 'assets.ditte'
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'annas',
+			icon: '/img/shortcuts/anna.png',
+			label: `Ana's Copenhagen`,
+			posH: 3,
+			posV: 2,
+			windowContent: [
+				{
+					title: `Ana's Copenhagen`,
+					contentId: 'annas', // should match assets[contentId] to define content
+					type: ContentTypes.lookBook,
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'ANNA for the win',
+							bodyText: 'Lorem Ipsum'
+						}
+					}
+				}
+			]
 		},
 
 		{
@@ -106,29 +105,59 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'exhibition',
+			icon: '/img/shortcuts/rails.png',
+			label: 'rails',
+			posH: 3,
+			posV: 3,
+			windowContent: [
+				{
+					title: 'rails',
+					contentId: 'rails',
+					type: ContentTypes.exhibition,
+					statusComponentProps: {
+						text: 'PRE SPRING 21 RAILS'
+					},
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: {
+							headline: 'PRE SPRING 21 RAILS',
+							bodyText:
+								'This is the new rail section. Click on an image to explore the rail'
+						}
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'dittes-folder',
+			icon: '/img/shortcuts/dittes_private.png',
+			label: `Ditte's folder`,
+			posH: 3,
+			posV: 1,
+			widthSpan: 2,
+			windowContent: 'assets.ditte'
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'software',
 			icon: '/img/shortcuts/animal_print.png',
-			label: 'GANNI software',
+			label: 'Software',
 			posH: 10,
 			posV: 6,
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
 					param: 'software'
-				},
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc4'
 				}
-				// {
-				// 	name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-				// 	param: CollectionLayouts.FUN
-				// }
 			],
 			windowContent: [
 				{
 					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
 					assistant: {
@@ -140,25 +169,21 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-software',
+			shortcutId: 'ganni-favourites',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: 'GANNI X Levis',
+			label: `GANNI's favourite`,
 			posH: 11,
 			posV: 6,
 			actions: [
 				{
-					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
-					param: 'drop-2'
-				},
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					name: 'collection/' + SET_CURRENT_FILTER.action,
+					param: 'rtw10'
 				}
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					title: 'Collection',
+					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
 					assistant: {
@@ -167,95 +192,6 @@ export const state = () => ({
 				}
 			]
 		},
-
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'accessories',
-		// 	icon: '/img/shortcuts/acces.png',
-		// 	label: 'Jerseys',
-		// 	posH: 12,
-		// 	posV: 6,
-		// 	actions: [
-		// 		{
-		// 			name: 'collection/' + SET_GROUP_BY_INDEX.action,
-		// 			param: -1
-		// 		},
-		// 		{
-		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
-		// 			param: 'rtw4'
-		// 		},
-		// 		{
-		// 			name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-		// 			param: CollectionLayouts.GRID
-		// 		}
-		// 	],
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PS21 collection',
-		// 			contentId: 'ps21-collection',
-		// 			type: ContentTypes.collection,
-		// 			canOverride: true,
-		// 			assistant: {
-		// 				mode: AssistantModes.FILTER_COLLECTION
-		// 			}
-		// 		}
-		// 	]
-		// },
-
-		{
-			type: ShortcutTypes.URL,
-			shortcutId: 'responsibility-report',
-			icon: '/img/shortcuts/responsible.png',
-			label: 'Responsibility (pdf)',
-			posH: 1,
-			posV: 3,
-			href: '/files/GANNI_RESPONSIBILITY_REPORT_19.pdf'
-		},
-
-		// {
-		// 	type: ShortcutTypes.URL,
-		// 	shortcutId: 'rails',
-		// 	icon: '/img/shortcuts/rails.png',
-		// 	label: 'Rails (pdf)',
-		// 	posH: 2,
-		// 	posV: 3,
-		// 	href: '/files/GANNI_PS21_Rails.pdf'
-		// },
-
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'hampster-dance',
-		// 	icon: '/img/shortcuts/hamster_dance.png',
-		// 	label: 'Hampster Dance',
-		// 	posH: 12,
-		// 	posV: 5,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'Hampster Dance',
-		// 			contentId: 'hampster-dance',
-		// 			type: ContentTypes.hampsterDance
-		// 		}
-		// 	]
-		// },
-
-		// {
-		// 	type: ShortcutTypes.WINDOW,
-		// 	shortcutId: 'collage',
-		// 	label: 'PLAY DRESS UP',
-		// 	icon: '/img/shortcuts/ganni_dressup.png',
-		// 	posH: 11,
-		// 	posV: 5,
-		// 	windowContent: [
-		// 		{
-		// 			title: 'PLAY DRESS UP',
-		// 			contentId: 'collage',
-		// 			type: ContentTypes.collage,
-		// 			assistant: {
-		// 				mode: AssistantModes.COLLAGE
-		// 			}
-		// 		}
-		// 	]
-		// },
 
 		{
 			type: ShortcutTypes.MARQUEE,
@@ -271,7 +207,7 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
 					assistant: {
@@ -312,37 +248,11 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: 'PS21 collection',
-					contentId: 'ps21-collection',
+					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
 					assistant: {
 						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'exhibition',
-			icon: '/img/shortcuts/rails.png',
-			label: 'rails',
-			posH: 3,
-			posV: 3,
-			windowContent: [
-				{
-					title: 'rails',
-					contentId: 'rails',
-					type: ContentTypes.exhibition,
-					statusComponentProps: {
-						text: 'PRE SPRING 21 RAILS'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'PRE SPRING 21 RAILS',
-							bodyText:
-								'This is the new rail section. Click on an image to explore the rail'
-						}
 					}
 				}
 			]
@@ -352,7 +262,7 @@ export const state = () => ({
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'puzzle',
 			label: 'Puzzle',
-			icon: '/img/gan_color_wheel.png',
+			icon: '/img/shortcuts/Expert_level_puzzle.png',
 			posH: 10,
 			posV: 5,
 			windowContent: [
@@ -370,7 +280,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'music-player',
-			icon: '/img/smiley-bw.png',
+			icon: '/img/shortcuts/Hits_for_buyers.png',
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
@@ -380,32 +290,6 @@ export const state = () => ({
 					contentId: 'ganni-fm',
 					type: ContentTypes.musicPlayer,
 					canOverride: true
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'annas',
-			icon: '/img/shortcuts/anna.png',
-			label: `Ana's Copenhagen`,
-			posH: 3,
-			posV: 2,
-			windowContent: [
-				{
-					title: `Ana's Copenhagen`,
-					contentId: 'annas', // should match assets[contentId] to define content
-					type: ContentTypes.lookBook,
-					// statusComponentProps: {
-					// 	text: 'Welcome to CPH, Annas Copenhagen'
-					// },
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'ANNA for the win',
-							bodyText: 'Lorem Ipsum'
-						}
-					}
 				}
 			]
 		}

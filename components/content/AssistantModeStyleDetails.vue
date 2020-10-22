@@ -180,13 +180,13 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([]),
+		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			OPEN_CONTENT.action,
 			ALL_ASSETS_VISIBLE.action,
 			SHOW_PREVIOUS_STYLE.action,
 			SHOW_NEXT_STYLE.action,
-			OPEN_WISH_LIST.action,
+
 			ADD_TO_WISHLIST.action,
 			SET_HIDDEN_ASSETS.action
 		]),

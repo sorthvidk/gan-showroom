@@ -131,7 +131,7 @@
 			font-family: $font-serif;
 			font-size: rem(15);
 			line-height: rem(17);
-			color: $color-blue;
+			// color: $color-blue;
 		}
 		ol {
 			li {
@@ -254,7 +254,13 @@
 
 			&.add-to-wishlist,
 			&.download-wishlist {
-				background-color: $color-yellow;
+				background-color: $color-black;
+				color: white;
+
+				* {
+					fill: currentColor;
+				}
+
 				&.is-active {
 					background-color: lighten($color-yellow, 20%);
 				}

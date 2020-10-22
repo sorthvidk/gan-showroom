@@ -52,8 +52,6 @@
 				height: rem(60);
 				max-width: none;
 
-				image-rendering: pixelated;
-
 				@include mq($from: screen-xxxl) {
 					width: rem(80);
 					height: rem(80);
@@ -97,14 +95,27 @@
 		@include desktop-text();
 		display: block;
 		text-align: left;
+		overflow: hidden; // make correct hoverarea
 	}
 
 	&__badge {
-		width: 200px;
+		position: absolute;
+		bottom: 10vh;
+		right: 5vh;
+
+		width: 300px;
 		height: auto;
-		min-height: 200px;
 		display: inline-block;
 		padding: 0;
+
+		&:nth-of-type(2) {
+			bottom: calc(10vh + 220px);
+			right: calc(5vh + 50px);
+		}
+
+		@include mq($from: screen-lg) {
+			width: 400px;
+		}
 
 		.icon {
 			display: flex;

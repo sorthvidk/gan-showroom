@@ -59,7 +59,6 @@ export default {
 				window.open(this.href, '_blank')
 			} else {
 				if (this.actions) {
-					console.log(this.actions)
 					const openContent = () =>
 						this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 

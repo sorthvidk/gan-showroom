@@ -32,17 +32,12 @@
 				/>
 			</div>
 
-			<vue-draggable-resizable
-				:style="{ position: 'absolute', top: 0, left: 0 }"
+			<shortcut
+				:class="'shortcut__badge'"
 				v-for="(item, i) in badgeShortcuts"
 				:key="`badge-${i}`"
-				:x="1200 + i * 150"
-				:y="500 + i * 100"
-				:w="'auto'"
-				:h="'auto'"
-			>
-				<shortcut :class="'shortcut__badge'" v-bind="item" />
-			</vue-draggable-resizable>
+				v-bind="item"
+			/>
 
 			<div class="desktop__windows">
 				<transition-group
@@ -260,18 +255,7 @@ export default {
 				this[DOWNLOAD_PREPARING.action](false)
 			}, 3000)
 		},
-		// // openMusicPlayer() {
-		// // 	this[OPEN_CONTENT.action]({
-		// 		windowContent: [
-		// 			{
-		// 				title: 'GANNI FM',
-		// 				contentId: 'ganni-fm',
-		// 				type: ContentTypes.musicPlayer,
-		// 				canOverride: true
-		// 			}
-		// 		]
-		// 	})
-		// },
+
 		setTransformOrigin(el) {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`

@@ -151,7 +151,7 @@ export const mutations = {
 			)[0]
 
 			if (!stateGroup) {
-				console.log(`style is part of invalid group: ${style.groupId}`)
+				console.log(`style is part of non-existing group: ${style.groupId}`)
 				return
 			}
 
@@ -368,7 +368,9 @@ export const mutations = {
 				e => e.filterId === filterId
 			)[0]
 
-			// console.log(state.activeFilter, state.groupFilters, filterId)
+			if (!state.activeFilter) {
+				return
+			}
 
 			let styleIds = state.activeFilter.styleIds
 			let newCurrentStyles = findArrayMatches(

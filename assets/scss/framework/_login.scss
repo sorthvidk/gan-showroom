@@ -86,7 +86,7 @@
 			margin-bottom: 0;
 		}
 
-		padding: rem(25) rem(20);
+		// padding: rem(25) rem(20);
 
 		h1 {
 			font-size: 1em;
@@ -156,6 +156,32 @@
 			&.is-active {
 				display: block;
 			}
+		}
+	}
+
+	@keyframes down {
+		to {
+			transform: translateY(-100vh);
+		}
+	}
+
+	.moving {
+		animation: down 10s linear forwards;
+
+		div {
+			display: flex;
+			align-items: flex-end;
+		}
+
+		> * {
+			box-sizing: border-box;
+			height: 100vh;
+			width: 100vw;
+			padding: rem(25) rem(20);
+		}
+
+		svg {
+			width: 100%;
 		}
 	}
 }

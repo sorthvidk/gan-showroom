@@ -20,6 +20,10 @@
 		}
 	}
 
+	.gap {
+		height: 100vh;
+	}
+
 	.col {
 		width: calc(25% - #{($gap / 4) * 3});
 		position: relative;

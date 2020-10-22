@@ -9,7 +9,7 @@
 				name="group-navigation"
 				type="radio"
 				@change="e => e.target.checked && groupHandler('')"
-				checked
+				:checked="!activeGroup"
 			/>
 			All
 		</label>
@@ -23,7 +23,8 @@
 				:id="group.groupId"
 				name="group-navigation"
 				type="radio"
-				@change="groupHandler(group.groupId)"
+				@change="e => e.target.checked && groupHandler(group.groupId)"
+				:checked="activeGroup && activeGroup.groupId === group.groupId"
 			/>
 			{{ group.name }}
 		</label>
