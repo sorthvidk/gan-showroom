@@ -448,7 +448,7 @@ collections:
         }
 
   - name: 'songs'
-    sortable_fields: ['songId']
+    sortable_fields: ['songName']
     label: 'Songs'
     summary: '{{songName}}'
     folder: 'assets/content/songs'
@@ -458,12 +458,6 @@ collections:
     editor:
       preview: false
     fields:
-      - {
-          label: 'Song #',
-          name: 'songId',
-          widget: 'string',
-          hint: 'Unique song ID',
-        }
       - {
           label: 'Song name',
           name: 'songName',

@@ -42,7 +42,19 @@ export const mutations = {
 	},
 
 	[SONGS_FETCH.mutation](state, data) {
-		state.songs = { ...state.songs, data }
+		const parsed = data =>
+			data.reduce(
+				(acc, cur) => [
+					...acc,
+					{
+						title: cur.songName,
+						src: cur.cloudinaryUrl
+					}
+				],
+				[]
+			)
+
+		state.songs = [...state.songs, ...parsed(data)]
 	}
 }
 

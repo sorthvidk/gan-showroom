@@ -1,50 +1,62 @@
 <template>
-	<div id="puzzle" />
+	<canvas class="puzzle" ref="puzzle" />
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import headbreaker from 'headbreaker'
+import { mapState, mapActions } from 'vuex'
+import { puzzle } from './puzzle-game'
+import { SAVE_PUZZLE, PUZZLE_INSTANCE } from '~/model/constants'
 
 export default {
 	name: 'puzzle',
+	data: () => ({ puzzle: null }),
 	computed: {
-		...mapState('puzzle', ['images', 'curIndex'])
+		...mapState('puzzle', ['images', 'curIndex', 'puzzleState'])
 	},
 	watch: {
 		curIndex() {
-			this.init()
+			this.puzzle.destroy()
+			setTimeout(this.init, 100)
 		}
 	},
 	methods: {
+		...mapActions('puzzle', [SAVE_PUZZLE.action, PUZZLE_INSTANCE.action]),
 		init() {
-			let image = new Image()
-			image.src = this.images[this.curIndex]
-			image.onload = () => {
-				const autogen = new headbreaker.Canvas('puzzle', {
-					width: 800,
-					height: 800,
-					proximity: 20,
-					fixed: true,
-					pieceSize: 100,
-					borderFill: 10,
-					lineSoftness: 0.2,
-					strokeWidth: 1,
-					strokeColor: '#fff',
-					image,
-					maxPiecesCount: { x: 8, y: 8 },
-					painter: new headbreaker.painters.Konva()
-				})
-
-				autogen.adjustImagesToPuzzleHeight()
-				autogen.autogenerate()
-				autogen.shuffle(0.7)
-				autogen.draw()
-			}
+			this.$nextTick(async () => {
+				if (this.puzzleState[this.curIndex]) {
+					this.puzzle = await puzzle({
+						element: this.$refs.puzzle,
+						image: this.images[this.curIndex],
+						restore: this.puzzleState[this.curIndex],
+						onComplete: this.onComplete,
+						onChange: this[SAVE_PUZZLE.action]
+					}).then(p => {
+						this[PUZZLE_INSTANCE.action](p)
+						return p
+					})
+				} else {
+					this.puzzle = await puzzle({
+						element: this.$refs.puzzle,
+						image: this.images[this.curIndex],
+						pieces: { x: 6, y: 6 },
+						attraction: 75,
+						size: 0.7,
+						onComplete: this.onComplete,
+						onChange: this[SAVE_PUZZLE.action]
+					}).then(p => {
+						this[PUZZLE_INSTANCE.action](p)
+						return p
+					})
+				}
+			})
+		},
+		onComplete() {
+			console.log('you won')
 		}
 	},
 	mounted() {
-		this.init()
+		// wait for winndow anim to be done
+		setTimeout(this.init, 500)
 	}
 }
 </script>

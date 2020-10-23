@@ -93,3 +93,6 @@ export const ASSISTANT_MODE = createMutation('ASSISTANT_MODE')
 export const ASSISTANT_EXPANDED = createMutation('ASSISTANT_EXPANDED')
 
 export const DESKTOP_BACKGROUND = createMutation('DESKTOP_BACKGROUND')
+
+export const PUZZLE_INSTANCE = createMutation('PUZZLE_INSTANCE')
+export const SAVE_PUZZLE = createMutation('SAVE_PUZZLE')

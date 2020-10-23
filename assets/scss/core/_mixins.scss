@@ -62,6 +62,7 @@
 		padding: 0;
 		@include bodytext();
 	}
+
 	tr th {
 		@include bodytext();
 		color: $color-darkgrey;
@@ -129,6 +130,7 @@
 	transition: all 0.2s ease;
 	font-size: rem(11);
 	font-weight: $weight-medium;
+
 	.icon {
 		// width: rem(30);
 		width: rem(20);
@@ -136,6 +138,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+
 		svg {
 			width: rem(30);
 			height: rem(30);
@@ -158,10 +161,10 @@
 	}
 }
 
-.checkmark {
-	fill: none;
-	stroke: #000;
-	stroke-linecap: round;
-	stroke-miterlimit: 10;
-	stroke-width: 5px;
-}
+// .checkmark {
+// 	fill: none;
+// 	stroke: #000;
+// 	stroke-linecap: round;
+// 	stroke-miterlimit: 10;
+// 	stroke-width: 5px;
+// }

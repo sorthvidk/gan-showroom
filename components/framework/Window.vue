@@ -197,6 +197,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState('puzzle', ['puzzle']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -336,6 +337,11 @@ export default {
 		},
 		onDragStop() {
 			this.constrain()
+			if (this.contentId === 'puzzle') {
+				this.$nextTick(() => {
+					this.puzzle.update()
+				})
+			}
 		},
 		constrain() {
 			this.x = Math.min(
