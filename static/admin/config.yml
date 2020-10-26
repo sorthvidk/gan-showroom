@@ -45,6 +45,19 @@ collections:
     format: 'json'
     extention: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
+    view_filters:
+      - label: 'Drop I'
+        field: groupId
+        pattern: 'drop-1'
+      - label: 'Drop II'
+        field: groupId
+        pattern: 'drop-2'
+      - label: 'Drop III'
+        field: groupId
+        pattern: 'drop-3'
+      - label: 'GANNI Software'
+        field: groupId
+        pattern: 'software'
     editor:
       preview: false
     fields:
