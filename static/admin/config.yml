@@ -4,7 +4,7 @@
 #   proxy_url: http://localhost:8081/api/v1
 #   branch: blueprint
 
-# # used for production:
+# used for production:
 backend:
   name: git-gateway
   branch: blueprint
@@ -45,65 +45,6 @@ collections:
     format: 'json'
     extention: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
-    view_filters:
-      - label: 'Drop I'
-        field: groupId
-        pattern: 'drop-1'
-      - label: 'Drop II'
-        field: groupId
-        pattern: 'drop-2'
-      - label: 'Drop III'
-        field: groupId
-        pattern: 'drop-3'
-      - label: 'GANNI Software'
-        field: groupId
-        pattern: 'software'
-
-      - label: 'Dresses'
-        field: filters
-        pattern: 'rtw1'
-      - label: 'Denim'
-        field: filters
-        pattern: 'rtw2'
-      - label: 'Coats / Jackets'
-        field: filters
-        pattern: 'rtw3'
-      - label: 'Jersey'
-        field: filters
-        pattern: 'rtw4'
-      - label: 'Knitwear'
-        field: filters
-        pattern: 'rtw5'
-      - label: 'Skirts'
-        field: filters
-        pattern: 'rtw6'
-      - label: 'Suiting'
-        field: filters
-        pattern: 'rtw7'
-      - label: 'Tops'
-        field: filters
-        pattern: 'rtw8'
-      - label: 'Trousers'
-        field: filters
-        pattern: 'rtw9'
-      - label: 'T-Shirts'
-        field: filters
-        pattern: 'rtw10'
-      - label: 'Accessories'
-        field: filters
-        pattern: 'acc1'
-      - label: 'Bags'
-        field: filters
-        pattern: 'acc2'
-      - label: 'Shoes'
-        field: filters
-        pattern: 'acc3'
-      - label: 'Swimwear'
-        field: filters
-        pattern: 'acc4'
-      - label: 'Underwear'
-        field: filters
-        pattern: 'acc6'
     editor:
       preview: false
     fields:
@@ -347,9 +288,64 @@ collections:
     format: 'json'
     slug: '{{year}}-{{month}}-{{assetId}}'
     view_filters:
-      - label: 'To be decided'
-        field: 'styleId'
-        pattern: 'todo'
+      - label: 'Drop I'
+        field: groupId
+        pattern: 'drop-1'
+      - label: 'Drop II'
+        field: groupId
+        pattern: 'drop-2'
+      - label: 'Drop III'
+        field: groupId
+        pattern: 'drop-3'
+      - label: 'GANNI Software'
+        field: groupId
+        pattern: 'software'
+
+      - label: 'Dresses'
+        field: filters
+        pattern: 'dresses'
+      - label: 'Denim'
+        field: filters
+        pattern: 'denim'
+      - label: 'Coats / Jackets'
+        field: filters
+        pattern: 'coats-jackets'
+      - label: 'Jersey'
+        field: filters
+        pattern: 'jersey'
+      - label: 'Knitwear'
+        field: filters
+        pattern: 'knitwear'
+      - label: 'Skirts'
+        field: filters
+        pattern: 'skirts'
+      - label: 'Suiting'
+        field: filters
+        pattern: 'suiting'
+      - label: 'Tops'
+        field: filters
+        pattern: 'tops'
+      - label: 'Trousers'
+        field: filters
+        pattern: 'trousers'
+      - label: 'T-Shirts'
+        field: filters
+        pattern: 't-shirts'
+      - label: 'Accessories'
+        field: filters
+        pattern: 'accessories'
+      - label: 'Bags'
+        field: filters
+        pattern: 'bags'
+      - label: 'Shoes'
+        field: filters
+        pattern: 'shoes'
+      - label: 'Swimwear'
+        field: filters
+        pattern: 'swimwear'
+      - label: 'Underwear'
+        field: filters
+        pattern: 'underwear'
     editor:
       preview: false
     fields:
@@ -358,6 +354,40 @@ collections:
           name: 'assetId',
           widget: 'string',
           hint: 'Unique asset ID',
+        }
+      - {
+          label: 'Group filter',
+          name: 'groupId',
+          required: false,
+          widget: 'select',
+          options: ['drop-1', 'drop-2', 'drop-3', 'software'],
+          hint: 'Used for filtering in the CMS',
+        }
+      - {
+          label: 'Category filter',
+          name: 'filters',
+          required: false,
+          multiple: true,
+          widget: 'select',
+          options:
+            [
+              'dresses',
+              'denim',
+              'coats-jackets',
+              'jersey',
+              'knitwear',
+              'skirts',
+              'suiting',
+              'tops',
+              'trousers',
+              't-shirts',
+              'accessories',
+              'bags',
+              'shoes',
+              'swimwear',
+              'underwear',
+            ],
+          hint: 'Used for filtering in the CMS',
         }
       - {
           label: 'Style #',
