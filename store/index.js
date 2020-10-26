@@ -448,9 +448,7 @@ export const actions = {
 
 		commit(
 			'assets/' + ANAS_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/annas/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
 		)
 
 		commit(
