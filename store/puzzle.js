@@ -3,7 +3,7 @@ import { PUZZLE_INSTANCE, SAVE_PUZZLE } from '~/model/constants'
 
 export const state = () => ({
 	curIndex: 0,
-	images: ['/img/puzzle/one.jpg', '/img/puzzle/two.jpg'],
+	images: ['/img/puzzle/01.jpg', '/img/puzzle/02.jpg', '/img/puzzle/03.jpg'],
 	puzzle: null,
 	puzzleState: [...Array(20)]
 })

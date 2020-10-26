@@ -31,12 +31,16 @@
 		font-weight: 500;
 		margin-bottom: rem(10);
 		font-size: rem(20);
+
 		@include mq($from: screen-md) {
 			font-size: rem(31);
 		}
 	}
 	p {
+		@include bodytext();
+
 		max-width: rem(400);
+
 		@include mq($from: screen-md) {
 			max-width: rem(650);
 		}
@@ -45,6 +49,7 @@
 	p {
 		line-height: 1.25;
 		font-size: rem(12);
+
 		@include mq($from: screen-md) {
 			font-size: rem(14);
 		}

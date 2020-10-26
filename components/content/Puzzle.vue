@@ -1,5 +1,8 @@
 <template>
-	<canvas class="puzzle" ref="puzzle" />
+	<div class="puzzle" style="height: 100%;">
+		<canvas ref="puzzle" />
+		<div class="border" />
+	</div>
 </template>
 
 <script>
@@ -38,9 +41,9 @@ export default {
 					this.puzzle = await puzzle({
 						element: this.$refs.puzzle,
 						image: this.images[this.curIndex],
-						pieces: { x: 6, y: 6 },
-						attraction: 75,
-						size: 0.7,
+						pieces: { x: 6, y: 8 },
+						attraction: 50,
+						size: 0.75,
 						onComplete: this.onComplete,
 						onChange: this[SAVE_PUZZLE.action]
 					}).then(p => {

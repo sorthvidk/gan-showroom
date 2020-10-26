@@ -1,12 +1,16 @@
 <template>
 	<div class="fullpage-slide-show">
 		<div class="col" v-for="(_, i) in [...Array(cols)]" :key="`col${i}`">
-			<div v-for="(_, j) in [1, 2]" :key="`wrap-overlap${j}`">
+			<div
+				v-for="(_, j) in [1, 2]"
+				:key="`wrap-overlap${j}`"
+				:style="{ animationPlayState: animate ? 'running' : 'paused' }"
+			>
 				<div class="gap" />
 				<div
 					v-for="(asset, x) in filteredContent(i === 1 || i === 2 ? i : i + 1)"
 					:key="asset.assetId"
-					:class="{ withGap: randomNumbers[i * x + 1] > 0.5 }"
+					:class="{ withGap: randomNumbers[i + 1 * x] > 0.5 }"
 				>
 					<img
 						v-if="asset.type === 'image'"
@@ -32,12 +36,13 @@ import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
 	name: 'fullpage-slide-show',
+	props: { animate: { type: Boolean, defaults: false, required: false } },
 	data: () => ({ cols: 4 }),
 	computed: {
 		...mapState('collection', ['allMediaAssets']),
 		randomNumbers() {
 			// first element always 0
-			return [0, ...Array(200).map(Math.random)]
+			return [0, ...[...Array(200)].map(Math.random)]
 		}
 	},
 	methods: {

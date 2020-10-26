@@ -34,6 +34,12 @@
 	opacity: 0;
 }
 
+@keyframes up {
+	from {
+		transform: translateY(100vh);
+	}
+}
+
 // style the 'vue-typer' text
 .vue-typer {
 	padding-bottom: rem(80);
@@ -76,11 +82,14 @@
 	background-size: cover;
 
 	.form {
+		animation: up 10s linear forwards;
 		@include desktop-text();
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+
+		height: 100%;
 
 		@include mq($from: screen-md) {
 			margin-bottom: 0;
@@ -173,15 +182,46 @@
 			align-items: flex-end;
 		}
 
-		> * {
-			box-sizing: border-box;
-			height: 100vh;
-			width: 100vw;
-			padding: rem(25) rem(20);
+		svg {
+			width: 100%;
+		}
+	}
+
+	.logo-container {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		align-items: flex-end;
+		padding: rem(25) rem(20);
+		box-sizing: border-box;
+		position: absolute;
+	}
+
+	.logo-letter {
+		display: inline-block;
+		height: 25.5vw;
+		margin-right: 1vh;
+
+		&:first-of-type {
+			margin-bottom: -0.2em;
+			height: 27vw;
+		}
+
+		&:nth-of-type(2) {
+			animation-duration: 8s;
+		}
+
+		&:nth-of-type(3) {
+			animation-duration: 9s;
+		}
+
+		&:nth-of-type(4) {
+			animation-duration: 11s;
 		}
 
 		svg {
-			width: 100%;
+			height: inherit;
+			width: auto;
 		}
 	}
 }
