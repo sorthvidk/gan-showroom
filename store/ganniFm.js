@@ -54,7 +54,7 @@ export const mutations = {
 				[]
 			)
 
-		state.songs = [...state.songs, ...parsed(data)]
+		state.songs = parsed(data)
 	}
 }
 

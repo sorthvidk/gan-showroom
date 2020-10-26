@@ -22,19 +22,19 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - label: 'General'
-    name: 'general'
-    files:
-      - label: 'Misc strings'
-        name: 'misc'
-        file: 'assets/content/general/misc.json'
-        fields:
-          - {
-              label: 'Ganni Girls background',
-              name: 'ganniGirlsUrl',
-              widget: 'image',
-            }
-          - { label: 'Ditte Letter', name: 'ditteLetter', widget: 'text' }
+  # - label: 'General'
+  #   name: 'general'
+  #   files:
+  #     - label: 'Misc strings'
+  #       name: 'misc'
+  #       file: 'assets/content/general/misc.json'
+  #       fields:
+  #         - {
+  #             label: 'Ganni Girls background',
+  #             name: 'ganniGirlsUrl',
+  #             widget: 'image',
+  #           }
+  #         - { label: 'Ditte Letter', name: 'ditteLetter', widget: 'text' }
 
   - name: 'collectionItems'
     sortable_fields: ['styleId']
@@ -411,41 +411,41 @@ collections:
           hint: 'If true, the asset will be used for Collection overview list thumbnail. NOTE: Try to only set 1 asset on top pr. style',
         }
 
-  - name: 'films'
-    sortable_fields: ['filmId']
-    label: 'Films item'
-    summary: "Film {{filmId}}: '{{filmName}}'"
-    folder: 'assets/content/films'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{filmId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Film #',
-          name: 'filmId',
-          widget: 'string',
-          hint: 'Unique film ID',
-        }
-      - {
-          label: 'Film name',
-          name: 'filmName',
-          widget: 'string',
-          hint: 'Title for film',
-        }
-      - {
-          label: 'Cloudinary video reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          hint: 'Reference to video file',
-        }
-      - {
-          label: 'Poster url',
-          name: 'posterUrl',
-          widget: 'image',
-          hint: 'Video file thumbnail image',
-        }
+  # - name: 'films'
+  #   sortable_fields: ['filmId']
+  #   label: 'Films item'
+  #   summary: "Film {{filmId}}: '{{filmName}}'"
+  #   folder: 'assets/content/films'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{filmId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Film #',
+  #         name: 'filmId',
+  #         widget: 'string',
+  #         hint: 'Unique film ID',
+  #       }
+  #     - {
+  #         label: 'Film name',
+  #         name: 'filmName',
+  #         widget: 'string',
+  #         hint: 'Title for film',
+  #       }
+  #     - {
+  #         label: 'Cloudinary video reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         hint: 'Reference to video file',
+  #       }
+  #     - {
+  #         label: 'Poster url',
+  #         name: 'posterUrl',
+  #         widget: 'image',
+  #         hint: 'Video file thumbnail image',
+  #       }
 
   - name: 'songs'
     sortable_fields: ['songName']
@@ -471,67 +471,67 @@ collections:
           hint: 'Reference to song file (do not mind the "Choose image")',
         }
 
-  - name: 'ganniGirls'
-    sortable_fields: ['postId']
-    summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
-    label: 'Ganni Girls post'
-    folder: 'assets/content/ganniGirls'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{postId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Post #',
-          name: 'postId',
-          widget: 'string',
-          hint: 'Unique post ID',
-        }
-      - {
-          label: 'Thumbnail image',
-          name: 'thumbnailUrl',
-          widget: 'image',
-          hint: 'Small photo next to post',
-        }
-      - {
-          label: 'Poster handle',
-          name: 'posterHandle',
-          widget: 'string',
-          hint: "ex. '@chloechill'",
-        }
-      - {
-          label: 'Posted date',
-          name: 'postedDate',
-          widget: 'string',
-          hint: "ex. '12 may 2020'",
-        }
-      - {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
-          hint: 'Title below media',
-        }
-      - {
-          label: 'Body text',
-          name: 'bodyText',
-          widget: 'text',
-          hint: 'Body text below media',
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
-          default: 'image',
-        }
-      - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-        }
+  # - name: 'ganniGirls'
+  #   sortable_fields: ['postId']
+  #   summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
+  #   label: 'Ganni Girls post'
+  #   folder: 'assets/content/ganniGirls'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{postId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Post #',
+  #         name: 'postId',
+  #         widget: 'string',
+  #         hint: 'Unique post ID',
+  #       }
+  #     - {
+  #         label: 'Thumbnail image',
+  #         name: 'thumbnailUrl',
+  #         widget: 'image',
+  #         hint: 'Small photo next to post',
+  #       }
+  #     - {
+  #         label: 'Poster handle',
+  #         name: 'posterHandle',
+  #         widget: 'string',
+  #         hint: "ex. '@chloechill'",
+  #       }
+  #     - {
+  #         label: 'Posted date',
+  #         name: 'postedDate',
+  #         widget: 'string',
+  #         hint: "ex. '12 may 2020'",
+  #       }
+  #     - {
+  #         label: 'Title',
+  #         name: 'title',
+  #         widget: 'string',
+  #         hint: 'Title below media',
+  #       }
+  #     - {
+  #         label: 'Body text',
+  #         name: 'bodyText',
+  #         widget: 'text',
+  #         hint: 'Body text below media',
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image'],
+  #         hint: 'Either image or video',
+  #         default: 'image',
+  #       }
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #       }
 
   - name: 'assistant'
     summary: '{{itemId}}'
@@ -645,7 +645,7 @@ collections:
 
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
-    label: 'Lookbook item'
+    label: 'Lookbook'
     folder: 'assets/content/lookBook'
     sortable_fields: ['itemId']
     create: true
@@ -675,10 +675,10 @@ collections:
           default: 'image',
         }
 
-  - name: 'annas'
+  - name: 'anas'
     summary: 'Item {{itemId}}'
-    label: 'Annas item'
-    folder: 'assets/content/annas'
+    label: "Ana's CPH"
+    folder: 'assets/content/anas'
     sortable_fields: ['itemId']
     create: true
     format: 'json'
@@ -733,7 +733,7 @@ collections:
 
   - name: 'exhibition'
     sortable_fields: ['exhibitionId']
-    label: 'Exhibition'
+    label: 'Rails'
     folder: 'assets/content/exhibition'
     summary: '{{exhibitionId}} - {{name}}'
     create: true
@@ -783,7 +783,7 @@ collections:
   - name: 'exhibitionAssets'
     sortable_fields: ['exhibitionId']
     summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
-    label: 'Exhibition assets'
+    label: 'Rails assets'
     folder: 'assets/content/exhibitionAssets'
     create: true
     format: 'json'
@@ -802,7 +802,7 @@ collections:
           label: 'exhibition #',
           name: 'exhibitionId',
           widget: 'relation',
-          collection: 'exhibitions',
+          collection: 'exhibition',
           required: true,
           search_fields: ['exhibitionId', 'name'],
           value_field: 'exhibitionId',
@@ -850,20 +850,22 @@ collections:
         }
 
   - name: 'intro'
-    summary: 'Item {{itemId}}'
+    summary: '{{cloudinaryUrl}}'
     label: 'Intro slideshow'
     folder: 'assets/content/intro'
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{itemId}}'
+    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
     editor:
       preview: false
     fields:
       - {
           label: 'Column',
           name: 'column',
-          widget: 'number',
-          hint: 'Between 1 and 4, left to right',
+          widget: 'select',
+          multiple: false,
+          options: ['1', '2', '3', '4'],
+          hint: 'Left to right',
         }
       - {
           label: 'Cloudinary media reference',
@@ -882,9 +884,9 @@ collections:
         }
 
   - name: 'desktop'
-    label: 'Songs'
-    summary: '{{songName}}'
-    folder: 'assets/content/songs'
+    label: 'Desktop images'
+    summary: '{{cloudinaryUrl}}'
+    folder: 'assets/content/desktop'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{songId}}'
@@ -892,14 +894,8 @@ collections:
       preview: false
     fields:
       - {
-          label: 'Song name',
-          name: 'songName',
-          widget: 'string',
-          hint: 'Title of the song',
-        }
-      - {
-          label: 'Cloudinary audio reference',
+          label: 'Cloudinary media reference',
           name: 'cloudinaryUrl',
           widget: 'image',
-          hint: 'Reference to song file (do not mind the "Choose image")',
+          hint: 'Reference to media file',
         }

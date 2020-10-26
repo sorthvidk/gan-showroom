@@ -54,12 +54,12 @@ export const state = () => ({
 			posH: 3,
 			posV: 1,
 			widthSpan: 2,
-			windowContent: 'assets.ditte'
+			windowContent: 'assets.about'
 		},
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'annas',
+			shortcutId: 'anas',
 			icon: '/img/shortcuts/anna.png',
 			label: `Ana's Copenhagen`,
 			posH: 3,
@@ -67,14 +67,10 @@ export const state = () => ({
 			windowContent: [
 				{
 					title: `Ana's Copenhagen`,
-					contentId: 'annas', // should match assets[contentId] to define content
+					contentId: 'anas', // should match assets[contentId] to define content
 					type: ContentTypes.lookBook,
 					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'ANNA for the win',
-							bodyText: 'Lorem Ipsum'
-						}
+						mode: AssistantModes.CUSTOM
 					}
 				}
 			]
@@ -175,6 +171,10 @@ export const state = () => ({
 			posH: 11,
 			posV: 6,
 			actions: [
+				{
+					name: 'collection/' + SET_GROUP_BY_INDEX.action,
+					param: -1
+				},
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
 					param: 'rtw10'

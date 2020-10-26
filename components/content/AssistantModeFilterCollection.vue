@@ -7,12 +7,8 @@
 			}"
 		>
 			<div class="assistant__filters">
-				<h3>PS21 COLLECTION</h3>
-				<p>
-					Browse the full line-up, find out more about each piece, get a close
-					up look at the collection, fall in love. Skip to the good stuff by
-					choosing from the below:
-				</p>
+				<h3>{{ texts.collection.headline }}</h3>
+				<p>{{ texts.collection.bodyText }}</p>
 				<div class="assistant__filters__list">
 					<filter-button
 						v-for="(item, key) in groupFilters"
@@ -62,7 +58,7 @@ export default {
 	computed: {
 		...mapState('user', ['keyPressed']),
 		...mapState('utils', ['isMobile']),
-		...mapState('assistant', ['expanded', 'pdfDownloadLink']),
+		...mapState('assistant', ['expanded', 'pdfDownloadLink', 'texts']),
 		...mapState('collection', ['groupFilters', 'activeGroup', 'activeFilter']),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
 		downloadCollectionButtonLabel() {

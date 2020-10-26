@@ -239,6 +239,7 @@ export default {
 	},
 	mounted() {
 		this.audio = new Audio(this.songs[0].src)
+		this.audio.crossOrigin = 'anonymous'
 		this.audio.volume = 0.5
 		this.audio.addEventListener(
 			'canplaythrough',

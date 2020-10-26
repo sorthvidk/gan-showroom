@@ -3,8 +3,12 @@ import {
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	ANNAS_FETCH,
-	DITTE_FETCH
+	ANAS_FETCH,
+	DITTE_FETCH,
+	ABOUT_FETCH,
+	INTRO_FETCH,
+	DESKTOP_FETCH,
+	DESKTOP_BACKGROUND
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -171,8 +175,16 @@ export const state = () => ({
 		}
 	],
 
-	annas: [],
-	ditte: []
+	anas: [],
+	ditte: [],
+	about: [],
+	desktop: [],
+	intro: [],
+
+	desktopBackground: {
+		color: 'rgb(234, 63, 247)',
+		image: ''
+	}
 })
 
 export const mutations = {
@@ -185,8 +197,8 @@ export const mutations = {
 	[LOOKBOOK_FETCH.mutation](state, data) {
 		state.lookBook = data
 	},
-	[ANNAS_FETCH.mutation](state, data) {
-		state.annas = data
+	[ANAS_FETCH.mutation](state, data) {
+		state.anas = data
 	},
 	[DITTE_FETCH.mutation](state, data) {
 		const windowContent = data.map((item, i) => {
@@ -216,163 +228,83 @@ export const mutations = {
 			}
 		})
 
-		// {
-		// 	title: 'Ditte_inspiration_image_03',
-		// 	contentId: 'ditte-image3',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte3.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-
-		// {
-		// 	title: 'Ditte_letter',
-		// 	contentId: 'ditte-letter',
-		// 	type: ContentTypes.textFile,
-		// 	contentComponentProps: {
-		// 		text:
-		// 			'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the GANNI team!'
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-
-		// {
-		// 	title: 'Ditte_inspiration_image_02',
-		// 	contentId: 'ditte-image2',
-		// 	type: ContentTypes.imageLandscapeLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte2.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_inspiration_image_03',
-		// 	contentId: 'ditte-image3',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte3.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_inspiration_image_04',
-		// 	contentId: 'ditte-image4',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte4.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_inspiration_image_05',
-		// 	contentId: 'ditte-image5',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte5.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_inspiration_image_06',
-		// 	contentId: 'ditte-image6',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte6.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_letter',
-		// 	contentId: 'ditte-letter',
-		// 	type: ContentTypes.textFile,
-		// 	contentComponentProps: {
-		// 		text:
-		// 			'Dear friend,<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lectus quis sem lacinia nonummy. Proin mollis lorem non dolor. In hac habitasse platea dictumst. Nulla ultrices odio. Donec augue. Phasellus dui. Maecenas facilisis nisl vitae nibh. Proin vel seo est vitae eros pretium dignissim. Aliquam aliquam sodales orci. Suspendisse potenti. Nunc adipiscing euismod arcu. Quisque facilisis mattis lacus. Fusce bibendum, velit in venenatis viverra, tellus ligula dignissim felis, quis euismod mauris tellus ut urna. Proin scelerisque. Nulla in mi. Integer ac leo. Nunc urna ligula, gravida a, pretium vitae, bibendum nec, ante. Aliquam ullamcorper iaculis lectus. Sed vel dui. Etiam lacinia risus vitae lacus. Aliquam elementum imperdiet turpis. In id metus. Mauris eu nisl. Nam pharetra nisi nec enim. Nulla aliquam, tellus sed laoreet blandit, eros urna vehicula lectus, et vulputate mauris arcu ut arcu. Praesent eros metus lirum larum, accumsan a, malesuada et, commodo vel, nulla. Aliquam sagittis auctor sapien. Morbi a nibh.<br/><br/>Love from Ditte and the GANNI team!'
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// },
-		// {
-		// 	title: 'Ditte_inspiration_image_07',
-		// 	contentId: 'ditte-image7',
-		// 	type: ContentTypes.imagePortraitLarge,
-		// 	contentComponentProps: {
-		// 		asset: {
-		// 			defaultImageUrl: '/img/ditte/ditte8.jpg'
-		// 		}
-		// 	},
-		// 	assistant: {
-		// 		mode: AssistantModes.CUSTOM,
-		// 		text: 'ditte'
-		// 	}
-		// }
-		// ]
-
 		// array of windowContent
 		state.ditte = windowContent
 	},
+	[ABOUT_FETCH.mutation](state, data) {
+		const windowContent = data.map((item, i) => {
+			return {
+				title: item.title || 'Default title' + i,
+				contentId: item.itemId,
+				type:
+					// todo: switch/case
+					ContentTypes[
+						item.type === 'video'
+							? 'videoLandscape'
+							: item.type === 'image'
+							? 'imagePortraitLarge' // todo: multiple aspects/sizes
+							: 'textFile'
+					],
+				contentComponentProps: {
+					text: item.text,
+					asset: {
+						type: item.type,
+						cloudinaryUrl: item.cloudinaryUrl
+					}
+				},
+				assistant: {
+					mode: AssistantModes.CUSTOM,
+					text: 'about'
+				}
+			}
+		})
+
+		// array of windowContent
+		state.about = windowContent
+	},
+
 	[GENERAL_FETCH.mutation](state, { data, rootState }) {
+		/**
+		 * is this is use?
+		 */
 		//Insert Ganni Girls bg image
 		let misc = data.filter(e => e.slug === 'misc')[0]
 		state.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
+	},
 
-		//Insert Ditte's letter
+	[DESKTOP_FETCH.mutation](state, data) {
+		const colors = [
+			'rgb(234, 63, 247)',
+			'rgb(255, 253, 84)',
+			'rgb(117, 249, 76)',
+			'rgb(235, 50, 35)',
+			'rgb(0, 35, 245)'
+		]
 
-		// let dittesFolder = rootState.shortcuts.list.filter(
-		// 	e => e.shortcutId === 'dittes-folder'
-		// )[0]
+		state.desktop = data.map((item, i) => ({
+			color: colors[i % colors.length],
+			image: item.cloudinaryUrl
+		}))
+	},
 
-		// if (!dittesFolder) return false
-		// let content = dittesFolder.windowContent.filter(
-		// 	f => f.contentId === 'ditte-letter'
-		// )
+	[INTRO_FETCH.mutation](state, data) {
+		state.intro = data.map(({ type, column, cloudinaryUrl }) => ({
+			type,
+			column,
+			cloudinaryUrl
+		}))
+	},
 
-		// if (!content) return false
-		// let props = content[0].contentComponentProps
-
-		// if (!props.text) return false
-		// props.text = misc.ditteLetter
+	[DESKTOP_BACKGROUND.mutation](state, data) {
+		state.desktopBackground =
+			data !== false
+				? state.desktop[data % state.desktop.length]
+				: { color: state.desktopBackground.color, image: '' }
 	}
 }
 
 export const actions = {
-	// [OPEN_ASSETS_WINDOWS.action]({ commit }, data) {
-	// 	commit([OPEN_ASSETS_WINDOWS.mutation], data)
-	// }
+	[DESKTOP_BACKGROUND.action]({ commit }, data) {
+		commit(DESKTOP_BACKGROUND.mutation, data)
+	}
 }

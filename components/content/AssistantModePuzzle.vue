@@ -1,18 +1,13 @@
 <template>
 	<div>
-		<div class="window__status">
-			<p>Puzzle</p>
+		<div class="assistant__content">
+			<div class="assistant__text">
+				<h3>{{ texts.puzzle.headline }}</h3>
+				<p>{{ texts.puzzle.bodyText }}</p>
+			</div>
 		</div>
 
 		<div class="assistant__content scroll">
-			<!-- <div class="assistant__text">
-				<ol>
-					<li>Take a portrait photo of yourself and upload it.</li>
-					<li>Try our new GANNI Pre-Spring 21 collection on for fun.</li>
-					<li>Share looks with your team</li>
-				</ol>
-			</div> -->
-
 			<div class="assistant__ctas">
 				<div class="puzzle-buttons">
 					<div class="row">
@@ -51,10 +46,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 	name: 'assistant-mode-puzzle',
+	computed: {
+		...mapState('assistant', ['texts'])
+	},
 	methods: {
 		...mapActions('puzzle', ['next', 'prev'])
 	}

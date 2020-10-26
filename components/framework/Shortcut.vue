@@ -51,7 +51,8 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action, DESKTOP_BACKGROUND.action]),
+		...mapActions([OPEN_CONTENT.action]),
+		...mapActions('assets', [DESKTOP_BACKGROUND.action]),
 		onClick() {
 			const { windowContent } = this
 

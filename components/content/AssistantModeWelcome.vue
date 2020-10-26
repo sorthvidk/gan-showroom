@@ -2,12 +2,8 @@
 	<div>
 		<div class="assistant__content">
 			<div class="assistant__text">
-				<h3>WELCOME TO DITTE’S DESKTOP</h3>
-				<p>
-					Hey there, how’s it going? I’m your Desktop Assistant and I’ll be
-					showing you around the place. Kick back, relax, pour a drink, explore
-					– I’m here if you need me. Let’s go!
-				</p>
+				<h3>{{ texts.default.headline }}</h3>
+				<p>{{ texts.default.bodyText }}</p>
 			</div>
 		</div>
 		<div class="assistant__ctas" v-if="wishList.length > 0">
@@ -26,6 +22,7 @@ export default {
 	name: 'assistant-mode-welcome',
 	computed: {
 		...mapState('collection', ['wishList']),
+		...mapState('assistant', ['texts']),
 		...mapGetters('assistant', ['viewWishListButtonLabel'])
 	},
 	methods: {

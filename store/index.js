@@ -6,13 +6,16 @@ import {
 	COLLECTION_GROUPS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
+	INTRO_FETCH,
 	FILMS_FETCH,
 	SONGS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	ANNAS_FETCH,
+	ANAS_FETCH,
+	ABOUT_FETCH,
 	ASSISTANT_FETCH,
+	DESKTOP_FETCH,
 	DITTE_FETCH,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
@@ -25,8 +28,7 @@ import {
 	PASSWORDS_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
-	UPDATE_PROGRESS,
-	DESKTOP_BACKGROUND
+	UPDATE_PROGRESS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -41,36 +43,9 @@ import { lastElement } from '~/utils/array-helpers'
 import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
-	SHOW_WHOLESALE_PRICE: true,
+	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
 
 	rehydrated: false,
-
-	desktopBackgrounds: [
-		{
-			color: 'rgb(255, 253, 84)',
-			image: '/img/ditte/ditte1.jpg'
-		},
-		{
-			color: 'rgb(234, 63, 247)',
-			image: '/img/ditte/ditte2.jpg'
-		},
-		{
-			color: 'rgb(117, 249, 76)',
-			image: '/img/ditte/ditte3.jpg'
-		},
-		{
-			color: 'rgb(235, 50, 35)',
-			image: '/img/ditte/ditte4.jpg'
-		},
-		{
-			color: 'rgb(0, 35, 245)',
-			image: '/img/ditte/ditte5.jpg'
-		}
-	],
-	desktopBackground: {
-		color: 'rgb(234, 63, 247)',
-		image: ''
-	},
 
 	windowList: [],
 	windowGroupList: [],
@@ -276,13 +251,6 @@ export const mutations = {
 					' | close style? ' +
 					(params && params.styleWindowGroup)
 			)
-	},
-
-	[DESKTOP_BACKGROUND.mutation](state, data) {
-		state.desktopBackground =
-			data !== false
-				? state.desktopBackgrounds[data % state.desktopBackgrounds.length]
-				: { color: state.desktopBackground.color, image: '' }
 	}
 }
 
@@ -394,10 +362,6 @@ export const actions = {
 		commit(RESET_STATE.mutation)
 	},
 
-	[DESKTOP_BACKGROUND.action]({ commit }, data) {
-		commit(DESKTOP_BACKGROUND.mutation, data)
-	},
-
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 	// FETCH ALL CONTENT!
@@ -483,7 +447,7 @@ export const actions = {
 		)
 
 		commit(
-			'assets/' + ANNAS_FETCH.mutation,
+			'assets/' + ANAS_FETCH.mutation,
 			await getData(
 				require.context('~/assets/content/annas/', false, /\.json$/)
 			)
@@ -493,6 +457,27 @@ export const actions = {
 			'assets/' + DITTE_FETCH.mutation,
 			await getData(
 				require.context('~/assets/content/ditte/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + ABOUT_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/about/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + DESKTOP_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + INTRO_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/intro/', false, /\.json$/)
 			)
 		)
 

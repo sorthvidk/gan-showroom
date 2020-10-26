@@ -4,12 +4,15 @@
 			<div
 				v-for="(_, j) in [1, 2]"
 				:key="`wrap-overlap${j}`"
-				:style="{ animationPlayState: animate ? 'running' : 'paused' }"
+				:style="{
+					animationPlayState: animate ? 'running' : 'paused',
+					animationDuration: `${columnContent(i).length * 10}s`
+				}"
 			>
 				<div class="gap" />
 				<div
-					v-for="(asset, x) in filteredContent(i === 1 || i === 2 ? i : i + 1)"
-					:key="asset.assetId"
+					v-for="(asset, x) in columnContent(i)"
+					:key="`introslideasset-${i}-${j}-${x}`"
 					:class="{ withGap: randomNumbers[i + 1 * x] > 0.5 }"
 				>
 					<img
@@ -39,7 +42,7 @@ export default {
 	props: { animate: { type: Boolean, defaults: false, required: false } },
 	data: () => ({ cols: 4 }),
 	computed: {
-		...mapState('collection', ['allMediaAssets']),
+		...mapState('assets', ['intro']),
 		randomNumbers() {
 			// first element always 0
 			return [0, ...[...Array(200)].map(Math.random)]
@@ -54,9 +57,9 @@ export default {
 				2
 			)
 		},
-		// used for demo, to give each col random images
-		filteredContent(n) {
-			return this.allMediaAssets.filter((item, i) => (n + i) % 2 === 0)
+
+		columnContent(n) {
+			return this.intro.filter(item => parseInt(item.column) === n + 1)
 		}
 	}
 }

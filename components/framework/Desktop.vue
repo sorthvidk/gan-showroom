@@ -176,8 +176,8 @@ export default {
 		VueDraggableResizable
 	},
 	computed: {
-		...mapState(['desktopBackground']),
 		...mapState(['wallpaperIndex', 'windowList']),
+		...mapState('assets', ['desktopBackground']),
 		...mapState('collage', ['webcamImage']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
 		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
