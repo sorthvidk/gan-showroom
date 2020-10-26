@@ -598,6 +598,51 @@ collections:
           default: 'image',
         }
 
+  - name: 'about'
+    summary: 'Item {{itemId}}'
+    label: 'About'
+    folder: 'assets/content/about'
+    sortable_fields: ['itemId']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          hint: 'The text in the topbar of the window',
+        }
+      - {
+          label: 'Item #',
+          name: 'itemId',
+          widget: 'string',
+          hint: 'Unique item ID',
+        }
+      - {
+          label: '(if media window) Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: '(if text window) The text',
+          name: 'text',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'Item type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          options: ['video', 'image', 'text'],
+          hint: 'Either image, video or text',
+          default: 'image',
+        }
+
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
     label: 'Lookbook item'
@@ -802,4 +847,36 @@ collections:
           default: '',
           required: false,
           hint: 'Raw text for text panel (only when using text asset)',
+        }
+
+  - name: 'intro'
+    summary: 'Item {{itemId}}'
+    label: 'Intro slideshow'
+    folder: 'assets/content/intro'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Column',
+          name: 'column',
+          widget: 'number',
+          hint: 'Between 1 and 4, left to right',
+        }
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Can be either an image or video',
+        }
+      - {
+          label: 'Media type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          options: ['video', 'image'],
+          hint: 'Either image or video',
+          default: 'image',
         }
