@@ -164,6 +164,8 @@ import Marquee from '~/components/content/Marquee.vue'
 
 import ContentTypes from '~/model/content-types'
 
+import { getRandomInt } from '~/utils/get-random-int'
+
 export default {
 	name: 'desktop',
 	components: {
@@ -206,7 +208,7 @@ export default {
 			return {
 				src: `/img/wallpapers/wallpaper3.jpg`
 			}
-			// src: `/img/wallpapers/wallpaper${this.getRandomInt(1,this.wallpaperCount)}.jpg`
+			// src: `/img/wallpapers/wallpaper${getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
 		}
 	},
@@ -260,11 +262,7 @@ export default {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
-		getRandomInt(min, max) {
-			min = Math.ceil(min)
-			max = Math.floor(max)
-			return Math.floor(Math.random() * (max - min + 1)) + min
-		},
+
 		copyrightMessageClickHandler() {
 			this[COPYRIGHT_ACCEPT.action](true)
 		},
@@ -304,10 +302,6 @@ export default {
 
 			debounce(() => this[MOUSEMOVE.action](event), 200)
 		})
-
-		// if (!this.isMobile) {
-		// 	this.openMusicPlayer()
-		// }
 
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()

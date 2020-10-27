@@ -19,7 +19,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'Collection',
+			label: 'PF21 Collection',
 			posH: 1,
 			posV: 1,
 			actions: [
@@ -167,7 +167,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-favourites',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: `GANNI's favourite`,
+			label: `GANNI's favourites`,
 			posH: 11,
 			posV: 6,
 			actions: [

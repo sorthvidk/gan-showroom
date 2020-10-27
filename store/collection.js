@@ -85,12 +85,14 @@ export const mutations = {
 		state.allStyles = data
 	},
 	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
-		state.allGroups = data.map(group => {
-			if (group.passwords) {
-				group.passwords = group.passwords.map(pw => pw.toLowerCase())
-			}
-			return group
-		})
+		state.allGroups = data
+			.map(group => {
+				if (group.passwords) {
+					group.passwords = group.passwords.map(pw => pw.toLowerCase())
+				}
+				return group
+			})
+			.sort((a, b) => (a.order < b.order ? -1 : 1))
 	},
 	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
 		state.allFilters = data

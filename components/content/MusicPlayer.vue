@@ -77,8 +77,7 @@ export default {
 			} else if (event.key === 'ArrowRight') {
 				this.playlist(1)
 			} else if (event.code === 'Space') {
-				if (this.musicPlaying) this[MUSIC_PLAY_PAUSE.action](false)
-				else this[MUSIC_PLAY_PAUSE.action](true)
+				this[MUSIC_PLAY_PAUSE.action](!this.musicPlaying)
 			}
 		},
 		musicPlaying(playing) {
@@ -180,6 +179,7 @@ export default {
 			this.loaded = true
 			const AudioContext = window.AudioContext || window.webkitAudioContext
 			this.audioContext = new AudioContext()
+			this.toggle()
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
 
 			// run first time audio gets played

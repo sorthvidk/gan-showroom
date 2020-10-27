@@ -161,9 +161,9 @@ export default {
 			this[LOGIN.action](authorized)
 			this.valid = authorized
 
-			if (authorized) {
-				this.playSound()
-			}
+			// if (authorized) {
+			// 	this.playSound()
+			// }
 		},
 
 		loginInput(e) {
