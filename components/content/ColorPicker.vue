@@ -87,8 +87,6 @@ export default {
 				this.showErrorMessage = true
 				return
 			}
-
-			console.log('colorPickerCallback', this.colorPickerCallback)
 			if (this.colorPickerCallback) {
 				try {
 					this.colorPickerCallback(this.colorPickerStyle, this.chosenColorList)
@@ -114,17 +112,13 @@ export default {
 		toggleColorClickHandler(colorString) {
 			this.showErrorMessage = false
 
-			console.log("toggle '" + colorString + "'")
 			if (!this.colorIsChosen(colorString)) {
-				console.log('this.chosenColorList??? a', this.chosenColorList)
 				this.chosenColorList.push(colorString)
 			} else {
-				console.log('this.chosenColorList??? r', this.chosenColorList)
 				this.chosenColorList = this.chosenColorList.filter(
 					e => e != colorString
 				)
 			}
-			console.log('after toggle', this.chosenColorList)
 		}
 	}
 }

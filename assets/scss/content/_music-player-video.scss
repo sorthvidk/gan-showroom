@@ -113,8 +113,9 @@
 		background-color: $color-202020-red;
 
 		svg {
-			height: 100%;
-			width: auto;
+			display: inline-flex;
+			width: rem(30);
+			height: rem(30);
 		}
 
 		&.is-playing {

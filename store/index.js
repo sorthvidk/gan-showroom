@@ -41,7 +41,8 @@ import {
 	COLLAGE_IS_OPEN,
 	SAVE_COLLAGE,
 	MAKE_BACKGROUND,
-	CHANGE_COLLAGE
+	CHANGE_COLLAGE,
+	CURRENT_COLLECTION_ID
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -737,26 +738,36 @@ export const actions = {
 		let content = []
 		let al = listStyle.assets.length
 
+		let lsci = listStyle.collectionId
+
 		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
 		for (var i = al - 1; i >= 0; i--) {
 			let asset = listStyle.assets[i]
 
 			if (asset.visible) {
 				let type = getAssetType(asset)
+				let aa = [
+					{
+						name: 'collection/' + CURRENT_COLLECTION_ID.action,
+						param: lsci
+					}
+				]
 
-				content.push({
+				let contentItem = {
 					title: asset.name,
 					contentId: asset.assetId,
 					type: type,
 					canOverride: false,
-					windowProps: type.defaultWindowProps,
+					windowProps: {...type.defaultWindowProps, activateActions:aa},
 					contentComponentProps: { asset: asset },
 					statusComponentProps: type.defaultStatusComponentProps
-				})
+				}
+				content.push(contentItem);
 			}
 		}
 
 		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
+
 		commit(OPEN_CONTENT.mutation, {
 			windowContent: content,
 			styleWindowGroup: true

@@ -1,8 +1,9 @@
 {
-  "aspect": "landscape",
+  "aspect": "portrait",
   "assetId": "MARJON5",
   "artistId": "artist3",
   "name": "GANNI202020",
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/video/upload/v1597845029/SS21/ARTISTS/MARJON%20CARLOS/r%C3%B8dmur_G_01_x05ouh.mp4",
-  "text": "", "type": "video"
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598352415/SS21/ARTISTS/ROSIE%20MARKS/Annotation_2020-08-25_kbhfdp.png",
+  "text": "",
+  "type": "image"
 }
