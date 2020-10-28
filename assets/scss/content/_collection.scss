@@ -2,10 +2,14 @@
 	user-select: none;
 	display: flex;
 	flex-wrap: wrap;
-	padding: rem(5);
 	align-items: flex-start;
-	@include mq($from: screen-md) {
-		padding: rem(25);
+
+	> * {
+		padding: rem(5);
+
+		@include mq($from: screen-md) {
+			padding: rem(25);
+		}
 	}
 
 	&__group {
@@ -26,7 +30,7 @@
 		}
 	}
 	&__group + &__group {
-		margin-top: rem(30);
+		margin-bottom: rem(30);
 	}
 
 	.collection-item {

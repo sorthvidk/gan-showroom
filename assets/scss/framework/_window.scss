@@ -78,7 +78,9 @@
 
 			cursor: grab;
 
-			display: block;
+			display: flex;
+			justify-content: center;
+
 			text-align: center;
 
 			line-height: 1.2;
@@ -141,9 +143,10 @@
 	&__content {
 		overflow-x: hidden;
 		overflow-y: scroll;
+		// overflow: overlay;
 		height: calc(100% - #{rem($chrome-height)});
 
-		@include smiley-scrollbar();
+		// @include smiley-scrollbar();
 	}
 
 	&:hover {
