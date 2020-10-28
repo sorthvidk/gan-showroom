@@ -2,10 +2,10 @@
   "retailPriceUSD": 165,
   "assets": [],
   "program": 3490,
-  "colorNames": "Black",
+  "colorNames": "Black, Egret, Kalamata, Paloma Melange",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2774099_Pants",
-  "styleId": "T2774099",
+  "name": "T2774_Pants",
+  "styleId": "T2774",
   "drop": "SOFTWARE",
   "programName": "Software Isoli",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
-  "colorId": 99
+  "colorId": "099, 135, 861, 921"
 }
