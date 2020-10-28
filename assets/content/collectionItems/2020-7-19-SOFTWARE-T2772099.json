@@ -2,7 +2,7 @@
   "retailPriceUSD": 165,
   "assets": [],
   "program": 3490,
-  "colorNames": "Black, Egret, Sweet Lilac, Sky Captain, Heather",
+  "colorNames": "Black, Egret, Sweet Lilac, Sky Captain, Heather, Paloma Melange",
   "material": "50% Recycled Cot, 50% Recycled Poly",
   "name": "T2772_Elasticated Pants",
   "styleId": "T2772",
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
-  "colorId": "099, 135, 465, 683, 694"
+  "colorId": "099, 135, 465, 683, 694, 921"
 }
