@@ -341,7 +341,7 @@ export default {
 		name: 'wishList',
 		contentComponent: 'wish-list',
 		contentScore: 15,
-		statusComponent: 'status-wish-list',
+		// statusComponent: 'status-wish-list',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {

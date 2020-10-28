@@ -5,10 +5,13 @@
 			:class="idle && 'screensaver-running'"
 			:style="{
 				backgroundSize: webcamImage && '400px',
-				backgroundColor: desktopBackground.color,
-				backgroundImage: `url(${desktopBackground.image})`
+				backgroundColor: desktopBackground.color
 			}"
 		>
+			<div class="desktop__background">
+				<img v-if="desktopBackground.image" :src="desktopBackground.image" />
+			</div>
+
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,
