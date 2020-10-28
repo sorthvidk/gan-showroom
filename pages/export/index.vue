@@ -2,10 +2,10 @@
 	<receipt />
 </template>
 
-
 <script>
 import Receipt from '~/components/framework/Receipt.vue'
-import { CONNECT_ASSETS } from '~/model/constants'
+
+import { INDEX_COLLECTION_DATA } from '~/model/constants'
 
 export default {
 	components: {
@@ -19,7 +19,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.$store.commit(CONNECT_ASSETS.mutation)
+		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 	}
 }
 </script>

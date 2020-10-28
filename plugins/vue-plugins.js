@@ -4,7 +4,8 @@ import VueLazyload from 'vue-lazyload'
 import VueTyper from 'vue-typer'
 import visibility from 'vue-visibility-change'
 import WebCam from 'vue-web-cam'
-
+import Vidle from 'v-idle'
+import headbreaker from 'headbreaker'
 import Konva from 'konva'
 
 Vue.use(VueLazyload)
@@ -13,11 +14,13 @@ Vue.use(VueTyper)
 Vue.use(visibility)
 Vue.use(Konva)
 Vue.use(WebCam)
+Vue.use(Vidle)
+Vue.use(headbreaker)
 
 /**
  * todo: turn of when bugfixing is done
  */
-// Vue.config.devtools = true
+Vue.config.devtools = true
 
 import cloudinary from 'cloudinary-core'
 
@@ -31,5 +34,5 @@ Vue.prototype.$cloudinary = $cloudinary
 export default ({ app }, inject) => {
 	inject('cloudinary', $cloudinary)
 	inject('visibility', visibility)
-	inject('Konva', Konva)
+	// inject('Konva', Konva)
 }

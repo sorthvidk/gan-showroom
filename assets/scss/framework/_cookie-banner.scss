@@ -1,19 +1,19 @@
 .cookie-banner {
 	animation: cookie-animation 0.5s;
 	animation-delay: 3s;
-	animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;
 	animation-iteration-count: 1;
 
-    transform: translateY(100%);
-    
+	transform: translateY(100%);
+
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	z-index: $z-index-cookies;
 
-
-	background-color: $color-lime;
+	background-color: $color-white;
+	border-top: 1px solid;
 	color: $color-black;
 	padding: rem(15) rem(20);
 
@@ -31,49 +31,58 @@
 		font-weight: 500;
 		margin-bottom: rem(10);
 		font-size: rem(20);
+
 		@include mq($from: screen-md) {
 			font-size: rem(31);
 		}
 	}
 	p {
+		@include bodytext();
+
 		max-width: rem(400);
+
 		@include mq($from: screen-md) {
 			max-width: rem(650);
 		}
 	}
-	a, p {
+	a,
+	p {
 		line-height: 1.25;
 		font-size: rem(12);
+
 		@include mq($from: screen-md) {
 			font-size: rem(14);
 		}
 	}
 
 	button {
+		position: absolute;
+		right: 1rem;
+
 		display: block;
 
-		font-family: $font-serif;
+		font-family: $font-sansserif;
+		border: 1px solid;
+		padding: 0.5em 2em;
 		line-height: 1.5;
-		color: $color-blue;
-		text-decoration: underline;
-		font-size: rem(20);
+		// color: $color-blue;
+		// text-decoration: underline;
+		font-size: rem(12);
 		margin-top: rem(20);
 		@include mq($from: screen-sm) {
 			margin-top: 0;
 		}
 		@include mq($from: screen-md) {
-			font-size: rem(30);
+			font-size: rem(16);
 		}
 	}
 }
 
-
-
 @keyframes cookie-animation {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }

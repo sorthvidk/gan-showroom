@@ -5,7 +5,7 @@ body {
 }
 
 .desktop {
-	background-color: $color-black;
+	// background-color: $color-marigold;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -18,9 +18,10 @@ body {
 
 	overflow: hidden;
 
-	background-size: cover;
-	background-position: center;
-	image-rendering: pixelated;
+	// background-size: cover;
+	background-position: center 45%;
+	background-repeat: no-repeat;
+	// image-rendering: pixelated;
 
 	* {
 		image-rendering: initial;
@@ -36,7 +37,8 @@ body {
 		box-sizing: border-box;
 
 		@include mq($from: screen-md) {
-			height: calc(100vh - #{rem(40 + 60)});
+			height: 100%;
+			// height: calc(100vh - #{rem(40 + 60)});
 			padding: 0 rem(30);
 			display: grid;
 

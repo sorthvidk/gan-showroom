@@ -3411,6 +3411,12 @@ he@1.2.x, he@^1.1.0, he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
 
+headbreaker@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/headbreaker/-/headbreaker-1.1.1.tgz#a35fb7f5868c7d8d2eb0681d88deee005a6ea763"
+  optionalDependencies:
+    konva "^6.0.0"
+
 hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
@@ -7171,6 +7177,10 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
 
+v-idle@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/v-idle/-/v-idle-0.2.0.tgz#340e67f44f4e3d1edf7804b9e71b2e65cb88f85e"
+
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
@@ -7205,6 +7215,10 @@ vue-client-only@^2.0.0:
 vue-draggable-resizable@^2.1.2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/vue-draggable-resizable/-/vue-draggable-resizable-2.2.0.tgz#eb4581b6ddd6a20c5f54f99993c8646382523296"
+
+vue-fragment@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/vue-fragment/-/vue-fragment-1.5.1.tgz#44c070d55ed1e9a6c698ef57a5c83f64bb06feeb"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

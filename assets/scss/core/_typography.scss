@@ -6,8 +6,30 @@ em {
 	font-style: italic;
 }
 
+::selection {
+	color: $color-white;
+	background-color: $color-black;
+}
+
+@mixin desktop-text() {
+	// calc([available space]) / [item-count] / [line-height]
+	font-size: calc((100vh - 120px) / 8 / 0.9);
+	line-height: 0.9;
+	font-weight: $weight-medium;
+	letter-spacing: -0.01em;
+	text-transform: uppercase;
+
+	@include mq($until: screen-xxl) {
+		font-size: rem(90);
+	}
+
+	@include mq($until: screen-lg) {
+		font-size: rem(80);
+	}
+}
+
 @mixin megatype() {
-	font-size: rem(50);
+	font-size: rem(55);
 	line-height: 1.2;
 	font-weight: $weight-medium;
 	letter-spacing: -0.03em;
@@ -15,29 +37,35 @@ em {
 }
 
 @mixin windowtitle() {
-	font-size: rem(15);
-	font-weight: $weight-medium;
-	line-height: 1.2;
-	letter-spacing: -0.01em;
-}
-
-@mixin headline() {
 	font-size: rem(16);
-	font-weight: $weight-medium;
-	line-height: 1.2;
+	font-weight: 500;
+	line-height: 1;
 	letter-spacing: -0.01em;
+
+	text-transform: uppercase;
 }
 
 @mixin bodytext() {
-	font-size: rem(11);
-	font-weight: $weight-normal;
-	line-height: 1.27;
+	// font-size: rem(11);
+	font-size: rem(12);
+	// font-weight: $weight-normal;
+	font-weight: $weight-medium;
+	// line-height: 1.27;
+	line-height: 1;
+	text-transform: uppercase;
+}
+@mixin headline() {
+	@include bodytext();
+	// font-size: rem(16);
+	// font-weight: $weight-medium;
+	// line-height: 1.2;
+	// letter-spacing: -0.01em;
 }
 
 @mixin link() {
 	font-size: rem(11);
 	font-weight: $weight-medium;
-	color: $color-blue;
+	// color: $color-blue;
 	line-height: 1.27;
 	text-decoration: underline;
 }

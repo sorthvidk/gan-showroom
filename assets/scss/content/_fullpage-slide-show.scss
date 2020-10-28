@@ -1,0 +1,84 @@
+.fullpage-slide-show {
+	$gap: 20px;
+
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	padding: 0 $gap;
+	box-sizing: border-box;
+
+	z-index: -1;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@keyframes slide {
+		to {
+			transform: translateY(-100%);
+		}
+	}
+
+	.gap {
+		height: 100vh;
+	}
+
+	.col {
+		width: calc(25% - #{($gap / 4) * 3});
+		position: relative;
+
+		&:first-of-type {
+			width: calc(15% - #{($gap / 4) * 3});
+		}
+
+		&:nth-of-type(2) {
+			width: calc(40% - #{($gap / 4) * 3});
+		}
+
+		&:nth-of-type(3) {
+			width: calc(30% - #{($gap / 4) * 3});
+			margin-right: 15%;
+		}
+
+		&:nth-of-type(4) {
+			position: absolute;
+			right: $gap;
+			width: calc(33% - #{($gap / 4) * 3});
+		}
+
+		&:nth-of-type(1) {
+			> div {
+				animation-direction: reverse;
+			}
+		}
+
+		&:nth-of-type(4) {
+			> div {
+				animation-direction: reverse;
+			}
+		}
+
+		> div {
+			animation: slide 4s infinite linear;
+			display: flex;
+			flex-direction: column;
+
+			> div {
+				width: 100%;
+				flex-shrink: 0;
+
+				&.withGap {
+					padding-bottom: 100%;
+				}
+			}
+		}
+	}
+
+	img,
+	video {
+		display: flex;
+		width: 100%;
+		margin-bottom: $gap;
+	}
+}

@@ -14,11 +14,15 @@
   "wholesalePriceEUR": 52,
   "weight": 1,
   "wholesalePriceDKK": 357,
+  "groupId": "drop-1",
   "wholesalePriceUSD": 69,
   "filters": [
     "rtw4"
   ],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
-  "colorId": "500"
+  "colorId": "500",
+  "group": [
+    "drop-2"
+  ]
 }

@@ -1,9 +1,14 @@
 .text-reader {
-	padding: rem(20);
-	
+	min-height: 100%;
+
 	p {
-		font-family: $font-typewriter; 
+		padding: rem(20);
+		font-family: $font-typewriter;
 		font-size: rem(12);
 		line-height: 1.5;
+	}
+
+	b {
+		font-weight: bold;
 	}
 }

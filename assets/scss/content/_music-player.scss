@@ -24,7 +24,7 @@
 }
 
 .window--music-player .window__content {
-	background-color: $color-salmon;
+	// background-color: $color-salmon;
 }
 
 .music-player {
@@ -41,7 +41,7 @@
 		padding: rem(9) rem(10);
 
 		display: grid;
-		grid-template: 1fr / rem(50) 1fr;
+		grid-template: 1fr / rem(60) 1fr;
 		white-space: nowrap;
 
 		@keyframes swipe {
@@ -81,7 +81,7 @@
 			line-height: 1;
 
 			&:hover {
-				background-color: darken($color-salmon, 5%);
+				background-color: darken($color-white, 5%);
 			}
 
 			svg {
@@ -92,7 +92,7 @@
 	}
 
 	&__canvas-container {
-		background: $color-darkgrey;
+		background: $color-white;
 		width: 100%;
 		height: rem(50);
 

@@ -1,24 +1,22 @@
 import {
 	RESET_STATE,
-	LOGIN,
-	VISIBILITY,
-	COPYRIGHT_ACCEPT,
-	COOKIES_ACCEPT,
+	EXHIBITION_FETCH,
+	EXHIBITION_ASSETS_FETCH,
 	COLLECTION_ITEMS_FETCH,
+	COLLECTION_GROUPS_FETCH,
 	COLLECTION_FILTERS_FETCH,
 	COLLECTION_ASSETS_FETCH,
+	INTRO_FETCH,
 	FILMS_FETCH,
+	SONGS_FETCH,
 	GANNIGIRLS_FETCH,
 	LOOKBOOK_FETCH,
 	GENERAL_FETCH,
-	CONNECT_ASSETS,
-	FILTER_COLLECTION,
-	COLLECTION_LAYOUT_CHANGE,
-	INIT_PROGRESS,
-	KEYPRESS,
-	MOUSEMOVE,
-	MUSIC_PLAY_PAUSE,
-	FORCE_STOP_MUSIC,
+	ANAS_FETCH,
+	ABOUT_FETCH,
+	ASSISTANT_FETCH,
+	DESKTOP_FETCH,
+	DITTE_FETCH,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -27,82 +25,32 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	CLIPBOARD_COPY,
-	DOWNLOAD_PREPARING,
-	SAVE_AS_BACKGROUND,
-	COLLAGE_IS_OPEN,
-	SAVE_COLLAGE,
-	MAKE_BACKGROUND,
-	CHANGE_COLLAGE
+	PASSWORDS_FETCH,
+	ASSISTANT_TEXT,
+	ASSISTANT_MODE,
+	UPDATE_PROGRESS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
-import CollectionLayouts from '~/model/collection-layouts'
 import _ from 'lodash'
 
+import { getNested } from '~/utils/get-nested'
 import getUniqueId from '~/utils/get-unique-id'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
+import { lastElement } from '~/utils/array-helpers'
+import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
-	webcamImage: '',
+	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
 
-	collageIsOpen: false,
-	saveCollage: false,
-	makeBackground: false,
-	changeCollage: {},
-
-	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
-
-	screensaverActive: false,
-
-	progressItems: {},
-	progressPct: 0,
-	progressMax: 0,
-
-	mousepos: { x: 0, y: 0 },
+	rehydrated: false,
 
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
-
-	collectionLayout: CollectionLayouts.GRID,
-
-	keyPressed: null,
-	highestZIndex: 0,
-
-	rehydrated: false,
-	cookiesAccepted: false,
-	copyrightAccepted: false,
-
-	musicPlaying: false,
-	songs: [
-		{
-			title: 'All Saints - Never Ever.mp3',
-			src: `/audio/1-01 Never Ever.mp3`
-		},
-		{
-			title: 'Sugababes - Overload.mp3',
-			src: `/audio/1-01 Overload.mp3`
-		},
-		{
-			title: 'Nirvana - Come As You Are.mp3',
-			src: `/audio/1-03 Come As You Are.mp3`
-		},
-		{
-			title: 'Janet Jackson - Together Again.mp3',
-			src: `/audio/1-11 Together Again.mp3`
-		},
-		{
-			title: 'Madonna - Express Yourself.mp3',
-			src: `/audio/1-12 Express Yourself.mp3`
-		}
-	],
-
-	clipBoardCopyComplete: false,
-	downloadPreparing: false
+	highestZIndex: 0
 })
 
 export const mutations = {
@@ -113,181 +61,17 @@ export const mutations = {
 		state.rehydrated = true
 	},
 
-	isOnWishList(state) {
-		state.collection.list.forEach(style => {
-			const sameStyleId = e => e.styleId === style.styleId
-			style.onWishList = state.collection.wishList.find(sameStyleId)
-		})
-	},
-
-	[SAVE_COLLAGE.mutation](state) {
-		state.saveCollage = !state.saveCollage
-	},
-
-	[MAKE_BACKGROUND.mutation](state) {
-		state.makeBackground = !state.makeBackground
-	},
-
-	[COLLAGE_IS_OPEN.mutation](state, open) {
-		state.collageIsOpen = open
-	},
-
-	[SAVE_AS_BACKGROUND.mutation](state, img) {
-		state.webcamImage = img
-	},
-
-	[CHANGE_COLLAGE.mutation](state, change) {
-		state.changeCollage = change
-	},
-
 	[RESET_STATE.mutation](state) {
 		state.collection.wishList = []
-		state.progressPct = 0
+		state.progressBar.progressPct = 0
 		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type].complete = false
+			state.progressBar.progressItems[type].complete = false
 		})
-		state.loggedIn = false
-		state.cookiesAccepted = false
-		state.copyrightAccepted = false
+		state.user.loggedIn = false
+		state.user.cookiesAccepted = false
+		state.user.copyrightAccepted = false
 	},
 
-	[LOGIN.mutation](state, key) {
-		state.loggedIn = key
-		if (window.GS_LOGS) console.log('state.loggedIn', state.loggedIn)
-	},
-
-	[VISIBILITY.mutation](state, key) {
-		state.screensaverActive = key
-	},
-
-
-	[COOKIES_ACCEPT.mutation](state) {
-		state.cookiesAccepted = true
-	},
-
-	[COPYRIGHT_ACCEPT.mutation](state, value) {
-		state.copyrightAccepted = value
-	},
-
-	[KEYPRESS.mutation](state, key) {
-		state.keyPressed = key
-	},
-
-	[MOUSEMOVE.mutation](state, { x, y }) {
-		state.mousepos = { x, y }
-	},
-
-	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
-		state.collection.list = data
-	},
-	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
-		state.collection.filters = data
-	},
-	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
-		state.assets.list = data
-	},
-
-	[FILMS_FETCH.mutation](state, data) {
-		state.assets.films = data
-	},
-	[GANNIGIRLS_FETCH.mutation](state, data) {
-		state.assets.ganniGirls.posts = data
-	},
-	[LOOKBOOK_FETCH.mutation](state, data) {
-		state.assets.lookBook = data
-	},
-	[GENERAL_FETCH.mutation](state, data) {
-		//Insert Ganni Girls bg image
-		let misc = data.filter(e => e.slug === 'misc')[0]
-		state.assets.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
-
-		//Insert Ditte's letter
-
-		let dittesFolder = state.shortcuts.list.filter(
-			e => e.shortcutId === 'dittes-folder'
-		)[0]
-
-		if (!dittesFolder) return false
-		let content = dittesFolder.windowContent.filter(
-			f => f.contentId === 'ditte-letter'
-		)
-
-		if (!content) return false
-		let props = content[0].contentComponentProps
-
-		if (!props.text) return false
-		props.text = misc.ditteLetter
-	},
-
-	[CONNECT_ASSETS.mutation](state) {
-		if (state.collection.assetsConnected) return false
-
-		let al = state.assets.list.length
-
-		for (var i = 0; i < al; i++) {
-			let asset = state.assets.list[i]
-			let style = state.collection.list.filter(
-				e => e.styleId === asset.styleId
-			)[0]
-			if (style && style.assets) style.assets.push(asset)
-			else if (window.GS_LOGS)
-				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
-		}
-
-		//sort style assets to have onTop asset first in assets array
-		let cl = state.collection.list.length
-		for (var j = 0; j < cl; j++) {
-			let style = state.collection.list[j]
-			if (style.assets.length === 0) {
-				style.assets.push({
-					assetId: getUniqueId(),
-					styleId: style.styleId,
-					type: 'image',
-					name: 'Asset pending',
-					aspect: 'portrait',
-					onTop: true,
-					visible: true,
-					defaultImageUrl: '/img/styles/dummy.jpg'
-				})
-			}
-			let sortedAssets = style.assets.sort((a, b) =>
-				a.onTop && !b.onTop ? -1 : 1
-			)
-			style.assets = sortedAssets
-			style.onWishList = false
-		}
-
-		//to ensure only one connection operation
-		state.collection.assetsConnected = true
-	},
-
-	/*
-	 *	Activate content block, opens window with matching contentComponent
-	 *
-	 */
-	[INIT_PROGRESS.mutation](state) {
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = false
-		})
-
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressItems[type] = {
-				complete: false,
-				score: ContentTypes[type].contentScore
-			}
-		})
-
-		let pIA = Object.entries(state.progressItems)
-		let pIL = pIA.length
-		let pM = 0
-		for (let [key, value] of pIA) {
-			pM += value.score
-		}
-		state.progressMax = pM
-
-		// if ( window.GS_LOGS ) console.warn('INIT_PROGRESS', state.progressItems)
-		state.progressPct = 0
-	},
 	/*
 	 *	Activate content block, opens window with matching contentComponent
 	 *
@@ -307,19 +91,12 @@ export const mutations = {
 		if (params.styleWindowGroup) windowGroup.styleWindowGroup = true
 
 		params.windowContent.forEach(content => {
-			const { contentId, canOverride } = content
-
 			const hasSame = prop => x => x[prop] === content[prop]
-			const hasNotSame = prop => x => x[prop] !== content[prop]
 
 			let alreadyExists =
 				state.content.list.filter(hasSame('contentId')).length > 0
 
-			// in use?
-			// if (alreadyExists && canOverride) {
-			// 	state.windowList = state.windowList.filter(hasNotSame('contentType'))
-			// }
-
+			console.log('FOUND IT!!', alreadyExists)
 			// don't open a window twice
 			if (alreadyExists) return
 
@@ -334,30 +111,16 @@ export const mutations = {
 			windowGroup.groupSize++
 
 			state.topMostWindow = newWindow
-
-			//FLAG PROGRESS!
-			state.progressItems[newWindow.contentType.name].complete = true
 		})
 
 		//only add the group if it has content
 		if (windowGroup.groupSize > 0 && !params.addToGroupId)
 			state.windowGroupList.push(windowGroup)
 
-		//calculate progress
-		let pIA = Object.entries(state.progressItems)
-		let pIL = pIA.length
-		let pIC = 0
-		for (let [key, value] of pIA) {
-			if (value.complete) pIC += value.score
-		}
-
-		state.progressPct = Math.round((pIC / state.progressMax) * 100)
-
-		let wll = state.windowList.length
-
 		state.windowList = resetZOrder(state.windowList)
-		state.highestZIndex = state.windowList[wll - 1].positionZ
+		state.highestZIndex = lastElement(state.windowList).positionZ
 	},
+
 	/*
 	 *	Save window position and size values
 	 *
@@ -370,14 +133,13 @@ export const mutations = {
 			currentWindow.windowProps[key] = params.windowProps[key]
 		}
 	},
+
 	/*
 	 *	Bring window to top.
 	 *
 	 */
-	[TOPMOST_WINDOW.mutation](state, windowId) {
+	[TOPMOST_WINDOW.mutation](state, { dispatch, windowId }) {
 		if (window.GS_LOGS) console.warn('TOPMOST_WINDOW', windowId)
-		let wll = state.windowList.length
-
 		//console.log("zIndexes after",state.zIndexes)
 
 		let matchingWindow = state.windowList.filter(
@@ -387,8 +149,21 @@ export const mutations = {
 		if (matchingWindow) {
 			matchingWindow.positionZ = state.highestZIndex + 1
 			state.windowList = resetZOrder(state.windowList)
-			state.highestZIndex = state.windowList[wll - 1].positionZ
+			state.highestZIndex = lastElement(state.windowList).positionZ
 			state.topMostWindow = matchingWindow
+		}
+
+		if (matchingWindow && matchingWindow.assistant) {
+			dispatch(
+				'assistant/' + ASSISTANT_MODE.action,
+				matchingWindow.assistant.mode
+			)
+			if (matchingWindow.assistant.text) {
+				dispatch(
+					'assistant/' + ASSISTANT_TEXT.action,
+					matchingWindow.assistant.text
+				)
+			}
 		}
 	},
 
@@ -396,27 +171,22 @@ export const mutations = {
 	 *	Single window close. Wipes window group history, so user has to close all windows individually after
 	 *
 	 */
-	[CLOSE_WINDOW.mutation](state, ids) {
+	[CLOSE_WINDOW.mutation](state, { contentId, windowId }) {
 		state.content.list = state.content.list.filter(
-			e => e.contentId !== ids.contentId
+			e => e.contentId !== contentId
 		)
 
-		let currentWindow = state.windowList.filter(
-			e => e.windowId === ids.windowId
-		)[0]
-
 		//remove window
-		state.windowList = state.windowList.filter(e => e.windowId !== ids.windowId)
+		state.windowList = state.windowList.filter(e => e.windowId !== windowId)
 
 		//search for and remove dead ids in groups
-		let groupsLength = state.windowGroupList.length
-		if (groupsLength > 0) {
-			for (var i = groupsLength - 1; i >= 0; i--) {
+		if (state.windowGroupList.length) {
+			for (var i = state.windowGroupList.length - 1; i >= 0; i--) {
 				let windowGroup = state.windowGroupList[i]
-				if (windowGroup.windowIds.indexOf(ids.windowId) > -1) {
+				if (windowGroup.windowIds.indexOf(windowId) > -1) {
 					//if id found in id list, remove it
 					windowGroup.windowIds.splice(
-						windowGroup.windowIds.indexOf(ids.windowId),
+						windowGroup.windowIds.indexOf(windowId),
 						1
 					)
 				}
@@ -427,24 +197,15 @@ export const mutations = {
 			}
 		}
 
-		state.windowList = resetZOrder(state.windowList)
-		let wll = state.windowList.length
-
-		if (wll == 0) {
-			state.highestZIndex = 0
-		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ
-		}
-		state.topMostWindow = state.windowList[wll - 1]
-
 		if (window.GS_LOGS)
 			console.warn(
 				'CLOSE_WINDOW | removed id:' +
-					ids.windowId +
+					windowId +
 					', remaining windows: ' +
 					state.windowList.length
 			)
 	},
+
 	/*
 	 *	Close a window group. Closes the last added group.
 	 *
@@ -455,10 +216,12 @@ export const mutations = {
 		if (groupsLength < 1) return false
 
 		let windowGroup = state.windowGroupList[groupsLength - 1] //get latest group
-		if (params && params.styleWindowGroup)
+
+		if (params && params.styleWindowGroup) {
 			windowGroup = state.windowGroupList.filter(
 				e => e.styleWindowGroup === true
 			)[0]
+		}
 
 		if (!windowGroup) return false
 
@@ -488,121 +251,55 @@ export const mutations = {
 					' | close style? ' +
 					(params && params.styleWindowGroup)
 			)
-
-		state.windowList = resetZOrder(state.windowList)
-		let wll = state.windowList.length
-
-		if (wll == 0) {
-			state.highestZIndex = 0
-		} else {
-			state.highestZIndex = state.windowList[wll - 1].positionZ
-		}
-		state.topMostWindow = state.windowList[wll - 1]
-	},
-
-	[MUSIC_PLAY_PAUSE.mutation](state, playing) {
-		if (window.GS_LOGS) console.warn('MUSIC_PLAY_PAUSE', playing)
-		state.musicPlaying = playing
-	},
-
-	[FORCE_STOP_MUSIC.mutation](state, playing) {
-		if (window.GS_LOGS) console.warn('FORCE_STOP_MUSIC | pause music')
-		state.musicPlaying = false
-	},
-
-	[CLIPBOARD_COPY.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')
-		state.clipBoardCopyComplete = value
-	},
-
-	[DOWNLOAD_PREPARING.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('DOWNLOAD_PREPARING')
-		state.downloadPreparing = value
-	},
-
-	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
-		if (window.GS_LOGS) console.warn('COLLECTION_LAYOUT_CHANGE')
-		state.collectionLayout = value
 	}
 }
 
 export const actions = {
-	//first action, injects assets into collection
-	[CONNECT_ASSETS.action]({ commit }) {
-		commit(CONNECT_ASSETS.mutation)
+	[TOPMOST_WINDOW.action]({ commit, dispatch }, windowId) {
+		commit(TOPMOST_WINDOW.mutation, { dispatch, windowId })
 	},
 
-	[LOGIN.action]({ commit }, authorized) {
-		commit(LOGIN.mutation, authorized)
-	},
-
-	[SAVE_COLLAGE.action]({ commit }) {
-		commit(SAVE_COLLAGE.mutation)
-	},
-
-	[MAKE_BACKGROUND.action]({ commit }) {
-		commit(MAKE_BACKGROUND.mutation)
-	},
-
-	[COLLAGE_IS_OPEN.action]({ commit }, open) {
-		commit(COLLAGE_IS_OPEN.mutation, open)
-	},
-
-	[CHANGE_COLLAGE.action]({ commit }, change) {
-		commit(CHANGE_COLLAGE.mutation, change)
-	},
-
-	[SAVE_AS_BACKGROUND.action]({ commit }, img) {
-		commit(SAVE_AS_BACKGROUND.mutation, img)
-	},
-
-	[VISIBILITY.action]({ commit }, hidden) {
-		commit(VISIBILITY.mutation, hidden)
-	},
-
-	[COOKIES_ACCEPT.action]({ commit }, value) {
-		commit(COOKIES_ACCEPT.mutation, value)
-	},
-	[COPYRIGHT_ACCEPT.action]({ commit }, value) {
-		commit(COPYRIGHT_ACCEPT.mutation, value)
-	},
-	[INIT_PROGRESS.action]({ commit }) {
-		commit(INIT_PROGRESS.mutation)
-	},
-
-	[KEYPRESS.action]({ commit }, event) {
-		commit(KEYPRESS.mutation, event)
-
-		if (event.key === 'Escape') {
-			commit(CLOSE_WINDOW_GROUP.mutation)
+	[CLOSE_WINDOW.action]({ commit, dispatch, state }, ids) {
+		commit(CLOSE_WINDOW.mutation, ids)
+		if (state.windowList.length) {
+			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		} else {
+			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
 		}
 	},
 
-	[MOUSEMOVE.action]({ commit }, event) {
-		commit(MOUSEMOVE.mutation, {
-			x: event.clientX,
-			y: event.clientY
-		})
-	},
-	[TOPMOST_WINDOW.action]({ commit }, windowId) {
-		commit(TOPMOST_WINDOW.mutation, windowId)
+	[OPEN_CONTENT.action]({ commit, dispatch, state, rootState }, content) {
+		// if passed windowContent is a string:
+		// use the string as a path to find an array of windowContent (starting from rootState)
+		if (typeof content.windowContent === 'string') {
+			content.windowContent = getNested(rootState, content.windowContent)
+		}
+
+		commit(OPEN_CONTENT.mutation, content)
+		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		dispatch(
+			'progressBar/' + UPDATE_PROGRESS.action,
+			content.windowContent[0].type.name
+		)
 	},
 
-	[CLOSE_WINDOW.action]({ commit }, ids) {
-		commit(CLOSE_WINDOW.mutation, ids)
+	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
+		commit(CLOSE_WINDOW_GROUP.mutation, params)
+		if (state.windowList.length) {
+			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
+		} else {
+			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+		}
 	},
-	[OPEN_CONTENT.action]({ commit }, content) {
-		commit(OPEN_CONTENT.mutation, content)
-	},
-	[CLOSE_WINDOW_GROUP.action]({ commit }) {
-		commit(CLOSE_WINDOW_GROUP.mutation)
-	},
+
 	[UPDATE_WINDOW.action]({ commit }, params) {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
 	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
-		let listStyle = state.collection.list.filter(e => e.styleId === styleId)[0]
+		let listStyle = state.collection.allStyles.filter(
+			e => e.styleId === styleId
+		)[0]
 		if (!listStyle) return false
 
 		let content = []
@@ -648,14 +345,6 @@ export const actions = {
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
-	[MUSIC_PLAY_PAUSE.action]({ commit }, playing) {
-		if (window.GS_LOGS) console.log('playing', playing)
-		if (typeof playing === 'undefined') commit(MUSIC_PLAY_PAUSE.mutation, true)
-		else commit(MUSIC_PLAY_PAUSE.mutation, playing)
-	},
-	[FORCE_STOP_MUSIC.action]({ commit }) {
-		commit(FORCE_STOP_MUSIC.mutation)
-	},
 
 	[OPEN_WISH_LIST.action]({ commit }, asset) {
 		let wishListContent = [
@@ -669,109 +358,147 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
 	},
 
-	[CLIPBOARD_COPY.action]({ commit }, value) {
-		commit(CLIPBOARD_COPY.mutation, value)
-	},
-	[DOWNLOAD_PREPARING.action]({ commit }, value) {
-		commit(DOWNLOAD_PREPARING.mutation, value)
-	},
-
 	[RESET_STATE.action]({ commit }) {
 		commit(RESET_STATE.mutation)
-	},
-	[COLLECTION_LAYOUT_CHANGE.action]({ commit }, value) {
-		if (window.GS_LOGS) console.log('value', value)
-		commit(COLLECTION_LAYOUT_CHANGE.mutation, value)
 	},
 
 	/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 	// FETCH ALL CONTENT!
 
-	async nuxtServerInit({ commit, dispatch }) {
-		let collectionFiles = await require.context(
-			'~/assets/content/collectionItems/',
-			false,
-			/\.json$/
-		)
-		let collection = collectionFiles.keys().map(key => {
-			let res = collectionFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_ITEMS_FETCH.mutation, collection)
+	async nuxtServerInit({ commit, dispatch, state }) {
+		const getData = async req => {
+			let files = await req
+			return files.keys().map(key => {
+				let res = files(key)
+				res.slug = key.slice(2, -5)
+				return res
+			})
+		}
 
-		let filterFiles = await require.context(
-			'~/assets/content/collectionFilters/',
-			false,
-			/\.json$/
+		commit(
+			'assistant/' + ASSISTANT_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/assistant/`, false, /\.json$/)
+			)
 		)
-		let filters = filterFiles.keys().map(key => {
-			let res = filterFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_FILTERS_FETCH.mutation, filters)
 
-		let assetFiles = await require.context(
-			'~/assets/content/mediaAssets/',
-			false,
-			/\.json$/
+		commit(
+			'exhibition/' + EXHIBITION_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
+			)
 		)
-		let assets = assetFiles.keys().map(key => {
-			let res = assetFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(COLLECTION_ASSETS_FETCH.mutation, assets)
 
-		let filmsFiles = await require.context(
-			'~/assets/content/films/',
-			false,
-			/\.json$/
+		commit(
+			'exhibition/' + EXHIBITION_ASSETS_FETCH.mutation,
+			await getData(
+				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
+			)
 		)
-		let films = filmsFiles.keys().map(key => {
-			let res = filmsFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(FILMS_FETCH.mutation, films)
 
-		let ganniGirlsFiles = await require.context(
-			'~/assets/content/ganniGirls/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_ITEMS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionItems/', false, /\.json$/)
+			)
 		)
-		let posts = ganniGirlsFiles.keys().map(key => {
-			let res = ganniGirlsFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(GANNIGIRLS_FETCH.mutation, posts)
 
-		let lookBookFiles = await require.context(
-			'~/assets/content/lookBook/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_FILTERS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
+			)
 		)
-		let lookBook = lookBookFiles.keys().map(key => {
-			let res = lookBookFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
-		})
-		commit(LOOKBOOK_FETCH.mutation, lookBook)
 
-		let generalFiles = await require.context(
-			'~/assets/content/general/',
-			false,
-			/\.json$/
+		commit(
+			'collection/' + COLLECTION_GROUPS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
+			)
 		)
-		let general = generalFiles.keys().map(key => {
-			let res = generalFiles(key)
-			res.slug = key.slice(2, -5)
-			return res
+
+		commit(
+			'collection/' + COLLECTION_ASSETS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + FILMS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/films/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + GANNIGIRLS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + LOOKBOOK_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/lookBook/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + ANAS_FETCH.mutation,
+			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
+		)
+
+		commit(
+			'assets/' + DITTE_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/ditte/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + ABOUT_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/about/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + DESKTOP_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + INTRO_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/intro/', false, /\.json$/)
+			)
+		)
+
+		commit('assets/' + GENERAL_FETCH.mutation, {
+			data: await getData(
+				require.context('~/assets/content/general/', false, /\.json$/)
+			),
+			rootState: state
 		})
-		commit(GENERAL_FETCH.mutation, general)
+
+		commit(
+			'user/' + PASSWORDS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/passwords/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'ganniFm/' + SONGS_FETCH.mutation,
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
+		)
 
 		console.log('NUXT SERVER INIT DONE')
 	}
