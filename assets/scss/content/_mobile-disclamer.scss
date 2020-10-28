@@ -1,0 +1,19 @@
+.mobile-disclamer {
+	@include desktop-text();
+
+	background: $color-black;
+	color: $color-white;
+
+	position: fixed;
+	margin: rem(50) rem(40);
+	padding: rem(50) rem(40);
+	width: 66%;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	pointer-events: none;
+
+	z-index: 1000000000;
+}

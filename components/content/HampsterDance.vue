@@ -2,10 +2,10 @@
 	<div class="hampster-dance">
 		<span v-for="n in iterations" :key="`hampster${n}`">
 			<img
-				v-for="(item,key) in hamsterList"
+				v-for="(item, key) in hamsterList"
 				v-lazy="danceUrl(item)"
 				alt="'hamster'+item"
-				:key="'hamster'+n+key"
+				:key="'hamster' + n + key"
 			/>
 		</span>
 	</div>
@@ -28,7 +28,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([FORCE_STOP_MUSIC.action]),
+		...mapActions('ganniFm', [FORCE_STOP_MUSIC.action]),
 		danceUrl(item) {
 			return `/img/hamster${item}.gif`
 		},
@@ -40,10 +40,10 @@ export default {
 			}
 		},
 		audioTimeUpdate() {
-			if(this.audio.currentTime > this.audio.duration - 1.2){
-		        this.audio.currentTime = 0.05
-		        this.audio.play()
-		    }
+			if (this.audio.currentTime > this.audio.duration - 1.2) {
+				this.audio.currentTime = 0.05
+				this.audio.play()
+			}
 		}
 	},
 	mounted() {
@@ -52,11 +52,14 @@ export default {
 		this[FORCE_STOP_MUSIC.action]()
 		this.audio.volume = 0.7
 		this.audio.play()
-		this.audio.addEventListener('timeupdate', this.audioTimeUpdate.bind(this) );
+		this.audio.addEventListener('timeupdate', this.audioTimeUpdate.bind(this))
 	},
 	beforeDestroy() {
 		this.audio.pause()
-		this.audio.removeEventListener('timeupdate', this.audioTimeUpdate.bind(this) );
+		this.audio.removeEventListener(
+			'timeupdate',
+			this.audioTimeUpdate.bind(this)
+		)
 		let l = this.el.removeEventListener(
 			'scroll',
 			this.scrollListener.bind(this)

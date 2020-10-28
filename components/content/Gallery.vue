@@ -2,15 +2,15 @@
 	<div class="gallery">
 		<gallery-image
 			class="gallery__item"
-			v-for="(asset,key) in images"
-			 :key="'galleryImage'+key"
+			v-for="(asset, key) in images"
+			:key="'galleryImage' + key"
 			:asset="asset"
 			:focused="focusedAssetId === asset.assetId"
 		/>
 		<gallery-video
 			class="gallery__item"
-			v-for="(asset,key) in videos"
-			 :key="'galleryVideo'+key"
+			v-for="(asset, key) in videos"
+			:key="'galleryVideo' + key"
 			:asset="asset"
 			:focused="focusedAssetId === asset.assetId"
 		/>
@@ -47,7 +47,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			collection: state => state.collection.list
+			collection: state => state.collection.allStyles
 		}),
 		assets() {
 			let styleRef = this.collection.filter(e => e.styleId === this.styleId)[0]
@@ -56,13 +56,13 @@ export default {
 		},
 		images() {
 			let i = this.assets.filter(asset => asset.type === 'image')
-			return i;
+			return i
 		},
 		videos() {
 			let i = this.assets.filter(asset => asset.type === 'video')
-			return i;
+			return i
 		}
 	},
 	methods: {}
-};
+}
 </script>

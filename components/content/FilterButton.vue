@@ -1,16 +1,22 @@
 <template>
-	<button class="filter-button" :class="{'is-active': activeFilter.filterId === filterId}" @click="clickHandler"><span>{{name}}</span><em>({{count}})</em></button>
+	<button
+		class="filter-button"
+		:class="{ 'is-active': activeFilter.filterId === filterId }"
+		@click="clickHandler"
+	>
+		<span>{{ name }}</span
+		><em>({{ count }})</em>
+	</button>
 </template>
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
 import { SET_CURRENT_FILTER } from '~/model/constants'
 
 import sendTracking from '~/utils/send-tracking'
 
 export default {
-	name:'filter-button',
+	name: 'filter-button',
 	props: {
 		name: {
 			type: String,
@@ -29,23 +35,20 @@ export default {
 	},
 	computed: {
 		...mapState({
-			activeFilter: state => state.collection.activeFilter,
+			activeFilter: state => state.collection.activeFilter
 		})
 	},
 	methods: {
-		...mapActions([
-			'collection/'+SET_CURRENT_FILTER.action
-		]),
+		...mapActions(['collection/' + SET_CURRENT_FILTER.action]),
 		clickHandler() {
-			if ( this.activeFilter.filterId === this.filterId ) {
-				this['collection/'+SET_CURRENT_FILTER.action]();
-			}
-			else {
-				this['collection/'+SET_CURRENT_FILTER.action](this.filterId);	
+			if (this.activeFilter.filterId === this.filterId) {
+				this['collection/' + SET_CURRENT_FILTER.action]()
+			} else {
+				this['collection/' + SET_CURRENT_FILTER.action](this.filterId)
 
-				sendTracking('Filter added',this.name)
+				sendTracking('Filter added', this.name)
 			}
 		}
 	}
-};
+}
 </script>

@@ -1,16 +1,17 @@
 <template>
 	<div class="progress-bar">
-		<p><strong>{{progressPct}}% COMPLETE - </strong>{{text}}</p>
-		<span class="fill" :style="{width: progressPct+'%'}">&nbsp;</span>
+		<p>
+			<strong>{{ progressPct }}% COMPLETE - </strong>{{ text }}
+		</p>
+		<span class="fill" :style="{ width: progressPct + '%' }">&nbsp;</span>
 	</div>
 </template>
 
 <script>
-
 import { vuex, mapActions, mapState } from 'vuex'
 
 export default {
-	name:'progress-bar',
+	name: 'progress-bar',
 	props: {
 		textStart: {
 			type: String,
@@ -24,16 +25,14 @@ export default {
 			type: String,
 			default: ''
 		}
-	},	
+	},
 	computed: {
-		...mapState({
-			progressPct: state => state.progressPct
-		}),
+		...mapState('progressBar', ['progressPct']),
 		text() {
-			if ( this.progressPct == 0 ) return this.textStart;
-			else if (this.progressPct == 100 ) return this.textEnd;
-			else return this.textProgress;
+			if (this.progressPct == 0) return this.textStart
+			else if (this.progressPct == 100) return this.textEnd
+			else return this.textProgress
 		}
 	}
-};
+}
 </script>

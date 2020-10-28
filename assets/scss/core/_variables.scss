@@ -12,15 +12,16 @@
 		url('/font/HelveticaNeueLTPro-Md/font.woff') format('woff');
 }
 @font-face {
-	font-family: 'HellVetica' ;
+	font-family: 'HellVetica';
 	font-weight: 600;
 	src: url('/font/HelveticaNeueLTPro-Bd/font.woff2') format('woff2'),
 		url('/font/HelveticaNeueLTPro-Bd/font.woff') format('woff');
 }
 
 /* --- FONTS --- */
-$font-sansserif: 'Helvetica Neue', 'HellVetica', 'Roboto', Arial, monaco, monospace;
-$font-serif: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif;
+$font-sansserif: 'Helvetica Neue', 'HellVetica', 'Roboto', Arial, monaco,
+	monospace;
+$font-serif: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
 $font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 
 /* --- COLORS --- */
@@ -41,6 +42,11 @@ $color-purple: #bd00ff;
 $color-red: #ff0000;
 
 $color-medium-violet: #c32c85;
+
+/* --- COLORS: OCTOBER 2020 --- */
+$color-amaranth: #e63755;
+$color-chetwode: #7581e3;
+$color-marigold: #fdef76;
 
 $z-index-assistant: 4000;
 $z-index-support: 5000;
