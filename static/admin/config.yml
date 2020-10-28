@@ -7,7 +7,7 @@
 # used for production:
 backend:
   name: git-gateway
-  branch: blueprint
+  branch: staging
 
 # when using the default proxy server port
 # local_backend: true
