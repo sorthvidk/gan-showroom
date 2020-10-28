@@ -82,7 +82,7 @@
 	background-size: cover;
 
 	.form {
-		animation: up 10s linear forwards;
+		animation: up 8s linear forwards;
 		@include desktop-text();
 		position: relative;
 		display: flex;
@@ -175,7 +175,7 @@
 	}
 
 	.moving {
-		animation: down 10s linear forwards;
+		animation: down 8s linear forwards;
 
 		div {
 			display: flex;
@@ -208,15 +208,15 @@
 		}
 
 		&:nth-of-type(2) {
-			animation-duration: 8s;
+			animation-duration: 6s;
 		}
 
 		&:nth-of-type(3) {
-			animation-duration: 9s;
+			animation-duration: 7s;
 		}
 
 		&:nth-of-type(4) {
-			animation-duration: 11s;
+			animation-duration: 9s;
 		}
 
 		svg {

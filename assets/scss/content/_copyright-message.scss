@@ -30,20 +30,21 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+			}
 
-				svg {
-					flex: 0 0 rem(55);
-					width: rem(55);
-					height: rem(55);
-					display: inline-flex;
+			svg,
+			img {
+				flex: 0 0 rem(55);
+				width: rem(55);
+				height: rem(55);
+				display: inline-flex;
 
-					animation: rotate 3s infinite linear;
-				}
+				animation: rotate 3s infinite linear;
+			}
 
-				p {
-					margin-left: rem(30);
-					@include bodytext();
-				}
+			p {
+				margin-left: rem(30);
+				@include bodytext();
 			}
 
 			.button {

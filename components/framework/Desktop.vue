@@ -101,7 +101,7 @@
 						</header>
 						<div class="window__content">
 							<span class="icon">
-								<svg
+								<!-- <svg
 									viewBox="0 0 56 56"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,8 @@
 										d="M21.115 27.625c1.336 0 2.42-2.616 2.42-5.843 0-3.226-1.084-5.842-2.42-5.842-1.337 0-2.42 2.616-2.42 5.842 0 3.227 1.083 5.843 2.42 5.843zM33.633 27.625c1.337 0 2.42-2.616 2.42-5.843 0-3.226-1.083-5.842-2.42-5.842s-2.42 2.616-2.42 5.842c0 3.227 1.084 5.843 2.42 5.843z"
 										fill="#000"
 									/>
-								</svg>
+								</svg> -->
+								<img src="/img/smiley-bw.png" />
 
 								<p>
 									Hi, we hope you will enjoy your Ganni Space Virtual Showroom
