@@ -2,10 +2,10 @@
   "retailPriceUSD": 135,
   "assets": [],
   "program": 3492,
-  "colorNames": "Black",
+  "colorNames": "Black, Sweet Lilac, Paloma Melange",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2787099_Relaxed T-Shirt Dress",
-  "styleId": "T2787099",
+  "name": "T2787_Relaxed T-Shirt Dress",
+  "styleId": "T2787",
   "drop": "SOFTWARE",
   "programName": "Software Jersey",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 115,
   "retailPriceDKK": 799,
-  "colorId": 99
+  "colorId": "99, 465, 921"
 }
