@@ -2,7 +2,7 @@
   "retailPriceUSD": 105,
   "assets": [],
   "program": 3491,
-  "colorNames": "White, Black, Sky Captain, Heather, Paloma Melange, Sweet Lilac",
+  "colorNames": "White, Black, Sweet Lilac, Sky Captain, Heather, Paloma Melange, Chicory Coffee",
   "material": "50% Recycled Cot, 50% Recycled Poly",
   "name": "T2785_Long Sleeve T-shirt",
   "styleId": "T2785",
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 85,
   "retailPriceDKK": 599,
-  "colorId": "001, 099, 683, 694, 921, 465"
+  "colorId": "001, 099, 465, 683, 694, 921, 979"
 }
