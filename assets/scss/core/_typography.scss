@@ -12,9 +12,10 @@ em {
 }
 
 @mixin desktop-text() {
+	$line-height: 1.05;
 	// calc([available space]) / [item-count] / [line-height]
-	font-size: calc((100vh - 120px) / 8 / 0.9);
-	line-height: 0.9;
+	font-size: calc((100vh - 120px) / 8 / #{$line-height});
+	line-height: $line-height;
 	font-weight: $weight-medium;
 	letter-spacing: -0.01em;
 	text-transform: uppercase;
