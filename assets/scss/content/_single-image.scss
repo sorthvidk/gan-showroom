@@ -1,7 +1,7 @@
 .single-image {
 	height: 100%;
 	width: 100%;
-	display: flex;
+	display: flex !important;
 	justify-content: center;
 
 	background: url('/img/hourglass.gif') no-repeat center center;

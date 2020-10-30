@@ -48,17 +48,6 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'about',
-			icon: '/img/shortcuts/dittes_private.png',
-			label: 'About GANNI',
-			posH: 3,
-			posV: 1,
-			widthSpan: 2,
-			windowContent: 'assets.about'
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
 			shortcutId: 'anas',
 			icon: '/img/shortcuts/anna.png',
 			label: `Ana's Copenhagen`,
@@ -78,9 +67,20 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'dittes-folder',
+			icon: '/img/shortcuts/dittes_private.png',
+			label: `Ditte now`,
+			posH: 3,
+			posV: 1,
+			widthSpan: 2,
+			windowContent: 'assets.ditte'
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'look-book',
 			icon: '/img/shortcuts/look_book.png',
-			label: 'LookBook',
+			label: 'PF21 LookBook',
 			posH: 2,
 			posV: 2,
 			windowContent: [
@@ -103,7 +103,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'exhibition',
 			icon: '/img/shortcuts/rails.png',
-			label: 'rails',
+			label: 'On display',
 			posH: 3,
 			posV: 3,
 			windowContent: [
@@ -128,20 +128,9 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'dittes-folder',
-			icon: '/img/shortcuts/dittes_private.png',
-			label: `Ditte's folder`,
-			posH: 3,
-			posV: 1,
-			widthSpan: 2,
-			windowContent: 'assets.ditte'
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
 			shortcutId: 'software',
 			icon: '/img/shortcuts/animal_print.png',
-			label: 'Software',
+			label: 'GANNI Software',
 			posH: 10,
 			posV: 6,
 			actions: [
@@ -167,7 +156,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-favourites',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: `GANNI's favourites`,
+			label: `#InstantGood`,
 			posH: 11,
 			posV: 6,
 			actions: [
@@ -191,6 +180,17 @@ export const state = () => ({
 					}
 				}
 			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'about',
+			icon: '/img/shortcuts/dittes_private.png',
+			label: 'Our world',
+			posH: 3,
+			posV: 1,
+			widthSpan: 2,
+			windowContent: 'assets.about'
 		},
 
 		{
