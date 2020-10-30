@@ -2,6 +2,7 @@
 	<div class="puzzle" style="height: 100%;">
 		<canvas ref="puzzle" />
 		<div class="border" />
+		<p :style="{ position: 'absolute' }" v-if="solved">GOOD JOB!</p>
 	</div>
 </template>
 
@@ -12,7 +13,7 @@ import { SAVE_PUZZLE, PUZZLE_INSTANCE } from '~/model/constants'
 
 export default {
 	name: 'puzzle',
-	data: () => ({ puzzle: null }),
+	data: () => ({ puzzle: null, solved: false }),
 	computed: {
 		...mapState('puzzle', ['images', 'curIndex', 'puzzleState'])
 	},
@@ -31,6 +32,7 @@ export default {
 						element: this.$refs.puzzle,
 						image: this.images[this.curIndex],
 						restore: this.puzzleState[this.curIndex],
+						onInit: this.onComplete,
 						onComplete: this.onComplete,
 						onChange: this[SAVE_PUZZLE.action]
 					}).then(p => {
@@ -42,8 +44,10 @@ export default {
 						element: this.$refs.puzzle,
 						image: this.images[this.curIndex],
 						pieces: { x: 6, y: 8 },
+						// pieces: { x: 2, y: 2 },
 						attraction: 50,
 						size: 0.75,
+						onInit: this.onComplete,
 						onComplete: this.onComplete,
 						onChange: this[SAVE_PUZZLE.action]
 					}).then(p => {
@@ -53,8 +57,9 @@ export default {
 				}
 			})
 		},
-		onComplete() {
-			console.log('you won')
+		onComplete({ puzzle }) {
+			console.log(puzzle.done)
+			this.solved = puzzle.done
 		}
 	},
 	mounted() {

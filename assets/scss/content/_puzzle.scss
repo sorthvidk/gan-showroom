@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100%;
 
-	display: flex;
+	display: flex !important;
 	align-items: center;
 	justify-content: center;
 
@@ -18,6 +18,11 @@
 	canvas {
 		width: inherit;
 		height: inherit;
+	}
+
+	p {
+		@include desktop-text();
+		color: $color-green;
 	}
 
 	&-buttons {
