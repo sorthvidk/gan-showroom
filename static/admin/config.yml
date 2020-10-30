@@ -9,7 +9,7 @@ backend:
 #   branch: staging
 
 # when using the default proxy server port
-local_backend: true
+# local_backend: true
 
 media_library:
   name: cloudinary
