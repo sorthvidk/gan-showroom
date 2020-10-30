@@ -19,9 +19,9 @@
 		<div class="assistant__ctas" v-if="wishList.length">
 			<a
 				class="button download-wishlist button--half"
-				@click="downloadWishListClickHandler"
-				:href="pdfDownloadLink"
+				@click="downloadWishListClickHandler(pdfDownloadLink)"
 			>
+				<!-- :href="pdfDownloadLink" -->
 				<span class="icon">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
 						<path
@@ -84,11 +84,12 @@ export default {
 			SHORTENED_URL.action
 		]),
 
-		downloadWishListClickHandler() {
+		downloadWishListClickHandler(url) {
 			if (window.GS_LOGS) console.log('Download wishlist')
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
+			setTimeout(() => this.$router.push(url), 1000)
 		},
 		shareWishListClickHandler() {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
@@ -118,6 +119,9 @@ export default {
 		shareUrlClickHandler(event) {
 			selectText(event)
 		}
+	},
+	mounted() {
+		console.log(this)
 	}
 }
 </script>

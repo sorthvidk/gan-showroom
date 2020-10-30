@@ -7,7 +7,7 @@
 			:receipt-item="item"
 		/>
 		<receipt-watermark />
-		<!-- <a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a> -->
+		<!-- <a :href="pdfDownloadLink">Save to PDF</a> -->
 	</div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState('assistant', ['pdfDownloadLink']),
 		...mapState('collection', ['allStyles']),
 		usableStyles() {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?

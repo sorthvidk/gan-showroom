@@ -377,7 +377,7 @@ export default {
 	},
 	mounted() {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
-		console.log(this)
+
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
 	}
 }

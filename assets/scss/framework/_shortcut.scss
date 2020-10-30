@@ -96,6 +96,11 @@
 		display: block;
 		text-align: left;
 		overflow: hidden; // make correct hoverarea
+
+		// quick way of fixing '#InstantGood' on PF21
+		&:nth-of-type(7) {
+			text-transform: none;
+		}
 	}
 
 	&__badge {
