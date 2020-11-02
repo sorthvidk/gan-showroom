@@ -3,6 +3,13 @@
 		<canvas ref="puzzle" />
 		<div class="border" />
 		<p :style="{ position: 'absolute' }" v-if="solved">GOOD JOB!</p>
+		<div v-if="solved">
+			<div
+				v-for="i in 150"
+				:key="`confetti-${i}`"
+				:class="`confetti-${i}`"
+			></div>
+		</div>
 	</div>
 </template>
 
