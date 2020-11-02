@@ -9,9 +9,11 @@
 		<receipt-watermark />
 		<a :href="pdfDownloadLink">Save to PDF</a>
 		<a
-			href="https://pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm"
-			>Save to PDF</a
+			href="//pdfcrowd.com/url_to_pdf/?"
+			onclick="if(!this.p)href+='&url='+encodeURIComponent(location.href);this.p=1"
 		>
+			Save to PDF
+		</a>
 	</div>
 </template>
 
