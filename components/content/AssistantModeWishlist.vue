@@ -20,7 +20,7 @@
 			<a
 				class="button download-wishlist button--half"
 				@click="downloadWishListClickHandler(pdfDownloadLink)"
-				onclick="if(!this.p)href+='&url='+encodeURIComponent(location.href);this.p=1"
+				onclick="setTimeout(() => {if(!this.p)href+='&url='+encodeURIComponent(location.href);this.p=1}, 10)"
 			>
 				<!-- :href="pdfDownloadLink" -->
 				<span class="icon">
