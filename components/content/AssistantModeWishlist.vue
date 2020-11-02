@@ -87,8 +87,6 @@ export default {
 
 		downloadWishListClickHandler(url) {
 			if (window.GS_LOGS) console.log('Download wishlist')
-			// history.pushState({}, '', this.wishListUrl)
-			// setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		shareWishListClickHandler() {

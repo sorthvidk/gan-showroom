@@ -346,11 +346,11 @@ export default {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
 					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+					h: 640 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.LARGE.name]: {
 					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+					h: 640 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			},
