@@ -19,8 +19,9 @@
 		<div class="assistant__ctas" v-if="wishList.length">
 			<a
 				class="button download-wishlist button--half"
-				@click="downloadWishListClickHandler(pdfDownloadLink)"
-				onclick="setTimeout(() => {if(!this.p)href+='&url='+encodeURIComponent(location.href);this.p=1}, 10)"
+				:href="pdfDownloadLink"
+				@click="downloadWishListClickHandler"
+				onclick="if(!this.p)href+='&url='+encodeURIComponent(location.href);this.p=1"
 			>
 				<!-- :href="pdfDownloadLink" -->
 				<span class="icon">
