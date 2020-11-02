@@ -19,7 +19,7 @@
 		<div class="assistant__ctas" v-if="wishList.length">
 			<a
 				class="button download-wishlist button--half"
-				:href="`${pdfDownloadLink}&url='${encodeURIComponent(wishListUrl)}`"
+				:href="`${pdfDownloadLink}&url=${encodeURIComponent(wishListUrl)}`"
 				@click="downloadWishListClickHandler"
 			>
 				<!-- :href="pdfDownloadLink" -->
@@ -87,11 +87,9 @@ export default {
 
 		downloadWishListClickHandler(url) {
 			if (window.GS_LOGS) console.log('Download wishlist')
-			history.pushState({}, '', this.wishListUrl)
-			setTimeout(() => history.back(), 30000) // revert url after 30 sec
+			// history.pushState({}, '', this.wishListUrl)
+			// setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
-			// console.log('url', url)
-			// setTimeout(() => {}, 1000)
 		},
 		shareWishListClickHandler() {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
@@ -121,9 +119,6 @@ export default {
 		shareUrlClickHandler(event) {
 			selectText(event)
 		}
-	},
-	mounted() {
-		console.log(this)
 	}
 }
 </script>
