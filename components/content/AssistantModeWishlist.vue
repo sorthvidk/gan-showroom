@@ -89,8 +89,12 @@ export default {
 			history.pushState({}, '', this.wishListUrl)
 			setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
-			console.log('url', url)
-			setTimeout(() => (window.location.href = url), 1000)
+
+			setTimeout(() => {
+				if (!this.p)
+					window.location.href += '&url=' + encodeURIComponent(location.href)
+				this.p = 1
+			}, 1000)
 		},
 		shareWishListClickHandler() {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
