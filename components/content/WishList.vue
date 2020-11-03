@@ -105,7 +105,7 @@
 									"
 								>
 									<th>Wholesale price</th>
-									<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
+									<td>GBP {{ currentWishListItem.wholesalePriceGBP }}</td>
 								</tr>
 
 								<tr>
@@ -127,7 +127,7 @@
 								</tr>
 								<tr v-if="currentWishListItem.retailPriceGBP">
 									<th>Suggested retail price</th>
-									<td>USD {{ currentWishListItem.retailPriceGDP }}</td>
+									<td>GBP {{ currentWishListItem.retailPriceGBP }}</td>
 								</tr>
 							</tbody>
 						</table>

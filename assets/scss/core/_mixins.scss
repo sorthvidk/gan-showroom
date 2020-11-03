@@ -35,6 +35,10 @@
 	background-size: 60%;
 	background-repeat: no-repeat;
 	background-position: center center;
+
+	.vb-invisible & {
+		opacity: 0;
+	}
 }
 
 @mixin details-table() {
