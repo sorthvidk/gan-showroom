@@ -34,6 +34,12 @@
 	opacity: 0;
 }
 
+@keyframes up {
+	from {
+		transform: translateY(100vh);
+	}
+}
+
 // style the 'vue-typer' text
 .vue-typer {
 	padding-bottom: rem(80);
@@ -68,40 +74,46 @@
 
 .login-input {
 	display: flex;
-	align-items: center;
+	// justify-content: flex-end;
+	// align-items: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
 
 	background-size: cover;
 
-	@include mq($from: screen-md) {
-		align-items: flex-end;
-	}
-
 	.form {
+		animation: up 8s linear forwards;
+		@include desktop-text();
 		position: relative;
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
 
-		height: 10vw;
+		height: 100%;
 
-		margin-bottom: rem(80);
 		@include mq($from: screen-md) {
 			margin-bottom: 0;
+		}
+
+		// padding: rem(25) rem(20);
+
+		h1 {
+			font-size: 1em;
+			max-width: 10.3em;
+			display: inline-block;
 		}
 
 		&__input {
 			font-family: $font-sansserif;
 			padding: 0;
-			font-weight: 500;
+			font-weight: inherit;
 			border: none;
 			background: none;
 
-			font-size: 10vw;
-			width: 75%;
-			text-align: center;
-			color: $color-lime;
+			font-size: 1em;
+			line-height: inherit;
+			width: 100%;
+			// max-width: 10.3em;
 
 			outline: none;
 
@@ -110,7 +122,7 @@
 			}
 
 			&::placeholder {
-				color: $color-lightyellow;
+				color: $color-black;
 			}
 
 			&:focus::placeholder {
@@ -129,7 +141,7 @@
 			height: rem(80);
 
 			font-weight: 600;
-			color: $color-lime;
+			// color: $color-lime;
 
 			svg {
 				display: inline-flex;
@@ -155,6 +167,63 @@
 			}
 		}
 	}
+
+	@keyframes down {
+		to {
+			transform: translateY(-100vh);
+		}
+	}
+
+	.moving {
+		animation: down 8s linear forwards;
+
+		div {
+			display: flex;
+			align-items: flex-end;
+		}
+
+		svg {
+			width: 100%;
+		}
+	}
+
+	.logo-container {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		align-items: flex-end;
+		padding: rem(25) rem(20);
+		box-sizing: border-box;
+		position: absolute;
+	}
+
+	.logo-letter {
+		display: inline-block;
+		height: 25.5vw;
+		margin-right: 1vh;
+
+		&:first-of-type {
+			margin-bottom: -0.2em;
+			height: 27vw;
+		}
+
+		&:nth-of-type(2) {
+			animation-duration: 6s;
+		}
+
+		&:nth-of-type(3) {
+			animation-duration: 7s;
+		}
+
+		&:nth-of-type(4) {
+			animation-duration: 9s;
+		}
+
+		svg {
+			height: inherit;
+			width: auto;
+		}
+	}
 }
 
 .login-slide {
@@ -172,21 +241,35 @@
 
 	transform: translateZ(0);
 
+	.background {
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		z-index: -1;
+		background-size: 100%;
+		object-fit: cover;
+	}
+
 	&.one {
 	}
 
 	&.two {
-		color: $color-purple;
+		// color: $color-purple;
 		font-size: 8vmax;
+	}
+
+	&.three {
+		align-items: flex-start;
+		justify-content: flex-end;
 	}
 
 	.logo {
 		top: auto;
-		bottom: rem(80);
+		bottom: rem(20);
 
 		svg {
 			opacity: 1;
-			fill: $color-lime;
+			fill: $color-black;
 		}
 	}
 }

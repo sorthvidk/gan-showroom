@@ -1,19 +1,21 @@
 .single-image {
 	height: 100%;
 	width: 100%;
-	display: flex;
+	display: flex !important;
 	justify-content: center;
 
 	background: url('/img/hourglass.gif') no-repeat center center;
 	background-size: 25%;
 
 	img {
-		object-fit: contain;
-    	height: 100%;
+		// object-fit: contain;
+		object-fit: cover;
+		height: 100%;
 	}
+
 	&.is-interactive {
 		img {
-    		cursor: zoom-in;
+			cursor: zoom-in;
 		}
 	}
 }

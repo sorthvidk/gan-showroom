@@ -1,0 +1,115 @@
+.puzzle {
+	width: 100%;
+	height: 100%;
+
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+
+	.border {
+		position: absolute;
+		z-index: -1;
+
+		width: 53%;
+		height: 72%;
+		border: 1px dashed rgba(0, 0, 0, 0.2);
+	}
+
+	canvas {
+		width: inherit;
+		height: inherit;
+	}
+
+	p {
+		@include desktop-text();
+		color: $color-green;
+	}
+
+	&-buttons {
+		width: 100%;
+
+		.row {
+			display: flex;
+		}
+
+		.title {
+			display: flex;
+			align-items: center;
+			width: 70%;
+			border-top: 1px solid;
+			padding: 0 rem(10);
+		}
+
+		svg {
+			// width: 100%;
+			height: 100%;
+		}
+
+		.left {
+			transform: rotate(-90deg);
+		}
+		.right {
+			transform: rotate(90deg);
+		}
+
+		.button {
+			&--half {
+				width: 50%;
+			}
+
+			&--inline {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: auto;
+				flex: 0 0 15%;
+
+				border-left: 1px solid;
+
+				p {
+					color: black;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+[class|='confetti'] {
+	position: absolute;
+}
+
+$colors: (
+	$color-pf21-blue,
+	$color-pf21-yellow,
+	$color-pf21-green,
+	$color-pf21-lilac,
+	$color-pf21-lightblue,
+	$color-pf21-purple
+);
+
+@for $i from 0 through 150 {
+	$w: random(32);
+	$l: random(100);
+	.confetti-#{$i} {
+		width: #{$w}px;
+		height: #{$w * 0.4}px;
+		background-color: nth($colors, random(6));
+		top: -10%;
+		left: unquote($l + '%');
+		opacity: random() + 0.5;
+		transform: rotate(#{random() * 360}deg);
+		animation: drop-#{$i}
+			unquote(2 + random() * 4 + 's')
+			unquote(random() * 6 + 's')
+			infinite
+			ease-in;
+	}
+
+	@keyframes drop-#{$i} {
+		100% {
+			top: 110%;
+			left: unquote($l + random(15) - random(30) + '%');
+		}
+	}
+}

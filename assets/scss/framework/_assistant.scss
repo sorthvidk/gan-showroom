@@ -18,9 +18,9 @@
 			width: rem(276);
 		}
 		@include mq($from: screen-md) {
-			top: rem(80);
+			top: 4vh; // align with text
 			left: auto;
-			right: rem(30);
+			right: rem(20);
 			bottom: auto;
 		}
 
@@ -57,7 +57,9 @@
 		}
 		hr {
 			border-top: rem(1) solid $color-black;
-			border-bottom: rem(1) solid $color-black;
+			border-bottom: 0;
+			height: 0;
+
 			@include mq($until: screen-md) {
 				border-bottom: 0;
 			}
@@ -80,10 +82,14 @@
 .assistant {
 	h3 {
 		@include headline();
-		color: $color-lime;
+		// color: $color-amaranth;
 	}
 	p {
 		@include bodytext();
+	}
+
+	b {
+		font-weight: bold;
 	}
 
 	&__content {
@@ -125,7 +131,7 @@
 			font-family: $font-serif;
 			font-size: rem(15);
 			line-height: rem(17);
-			color: $color-blue;
+			// color: $color-blue;
 		}
 		ol {
 			li {
@@ -240,23 +246,31 @@
 				background-color: $color-lightgrey;
 			}
 			img {
-				width: rem(20);
-				height: rem(20);
+				width: 1em;
+				height: 1em;
 				display: inline-flex;
 				animation: color-wheel 2s infinite linear;
 			}
 
 			&.add-to-wishlist,
 			&.download-wishlist {
-				background-color: $color-yellow;
+				background-color: $color-black;
+				color: white;
+
+				* {
+					fill: currentColor;
+				}
+
 				&.is-active {
-					background-color: lighten($color-yellow, 20%);
+					// background-color: lighten($color-yellow, 20%);
+					background-color: $color-black;
 				}
 			}
 
 			flex: 0 0 100%;
 
 			&--half {
+				width: 50%;
 				flex: 0 0 50%;
 				border-right: rem(1) solid $color-black;
 			}
@@ -284,12 +298,12 @@
 				margin: 0;
 
 				.checkmark {
-					stroke-dasharray: 400;
-					stroke-dashoffset: 400;
+					opacity: 0;
 				}
+
 				svg {
-					width: rem(20);
-					height: rem(20);
+					width: 1em;
+					height: 1em;
 				}
 			}
 
@@ -324,12 +338,16 @@
 				p {
 					padding-left: rem(20);
 				}
+
 				.checkmark {
-					animation: checkmark-stroke 0.5s;
-					animation-fill-mode: forwards;
-					animation-iteration-count: 1;
-					animation-delay: 0.2s;
-					stroke-linejoin: round;
+					transition: opacity 0.2em 0.2em;
+					opacity: 1;
+
+					// animation: checkmark-stroke 0.5s;
+					// animation-fill-mode: forwards;
+					// animation-iteration-count: 1;
+					// animation-delay: 0.2s;
+					// stroke-linejoin: round;
 				}
 			}
 		}

@@ -20,7 +20,11 @@
 			@mouseleave="openPhotobooth = false"
 			@click="takePhotoWithTimer(3)"
 		>
-			<svg v-if="!photoTimer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+			<svg
+				v-if="!photoTimer"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 512 512"
+			>
 				<circle cx="256" cy="277.3" r="106.7" />
 				<path
 					d="M469.3 106.7h-67.6c-8.6 0-16.6-3.4-22.7-9.4l-39-39a53 53 0 00-37.7-15.6h-92.6A53 53 0 00172 58.3l-39 39c-6 6-14.1 9.4-22.7 9.4H42.7A42.7 42.7 0 000 149.3v277.4a42.7 42.7 0 0042.7 42.6h426.6a42.7 42.7 0 0042.7-42.6V149.3a42.7 42.7 0 00-42.7-42.6zM256 405.3c-70.6 0-128-57.4-128-128s57.4-128 128-128 128 57.5 128 128-57.4 128-128 128zm170.7-192a21.4 21.4 0 110-42.7 21.4 21.4 0 010 42.7z"
@@ -31,8 +35,13 @@
 				v-for="count in countdown"
 				:class="count === photoTimer ? 'active' : ''"
 				:key="count"
-			>{{ count }}</span>
-			<svg v-if="photoTimer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+				>{{ count }}</span
+			>
+			<svg
+				v-if="photoTimer"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 512 512"
+			>
 				<path
 					d="M256 0a256 256 0 100 512 256 256 0 000-512zm0 480a224 224 0 110-448 224 224 0 010 448z"
 				/>
@@ -42,7 +51,11 @@
 			</svg>
 		</div>
 
-		<div title="Change camera" @click="getNextCamera" class="button change-camera">
+		<div
+			title="Change camera"
+			@click="getNextCamera"
+			class="button change-camera"
+		>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 46 32">
 				<g fill="#000" clip-path="url(#clip0)">
 					<path
@@ -64,8 +77,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Konva from 'konva'
 import { SAVE_AS_BACKGROUND, COLLAGE_IS_OPEN } from '~/model/constants'
-import isMobile from '~/utils/is-mobile'
+import { nextIndex } from '~/utils/array-helpers'
 
 export default {
 	name: 'collage',
@@ -77,9 +91,6 @@ export default {
 			webcamImageRadius: 130,
 			webcamImageOffset: 100,
 
-			stageWidth: isMobile() ? 350 : 530,
-			stageHeight: isMobile() ? 440 : 520,
-
 			openPhotobooth: false,
 			photo: null,
 			photoTimer: false,
@@ -87,8 +98,19 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(['saveCollage', 'makeBackground', 'changeCollage']),
-		...mapState('collage', ['clothes'])
+		...mapState('collage', [
+			'clothes',
+			'saveCollage',
+			'makeBackground',
+			'changeCollage'
+		]),
+		...mapState('utils', ['isMobile']),
+		stageWidth() {
+			return this.isMobile ? 350 : 530
+		},
+		stageHeight() {
+			return this.isMobile ? 440 : 520
+		}
 	},
 	watch: {
 		saveCollage() {
@@ -105,16 +127,16 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([SAVE_AS_BACKGROUND.action, COLLAGE_IS_OPEN.action]),
+		...mapActions('collage', [
+			SAVE_AS_BACKGROUND.action,
+			COLLAGE_IS_OPEN.action
+		]),
 		setCameras(cameras) {
 			this.cameras = cameras
 			this.currentCameraIndex = 0
 		},
 		getNextCamera() {
-			this.currentCameraIndex =
-				this.currentCameraIndex + 1 < this.cameras.length
-					? this.currentCameraIndex + 1
-					: 0
+			this.currentCameraIndex = nextIndex(this.cameras, this.currentCameraIndex)
 			this.$refs.webcam.changeCamera(
 				this.cameras[this.currentCameraIndex].deviceId
 			)
@@ -132,7 +154,11 @@ export default {
 			const image = new Image()
 
 			const extract = val =>
-				typeof val === 'object' ? (isMobile() ? val.mobile : val.desktop) : val
+				typeof val === 'object'
+					? this.isMobile
+						? val.mobile
+						: val.desktop
+					: val
 
 			const w = extract(width)
 			const h = extract(height)
@@ -142,7 +168,7 @@ export default {
 			image.onload = () => {
 				let output
 
-				const img = new this.$Konva.Image({
+				const img = new Konva.Image({
 					image,
 					x: left,
 					y: top,
@@ -154,7 +180,7 @@ export default {
 					var group = new Konva.Group({
 						clipFunc: ctx => {
 							ctx.arc(
-								isMobile()
+								this.isMobile
 									? this.webcamImageRadius / 3 + this.webcamImageOffset
 									: this.webcamImageRadius / 1.5 + this.webcamImageOffset,
 								this.webcamImageRadius / 2.1 + this.webcamImageOffset, // y
@@ -180,10 +206,7 @@ export default {
 					e.target.moveToTop()
 					this.layer.draw()
 				})
-				// output.on('dblclick dbltap', e => {
-				// 	e.target.destroy()
-				// 	this.layer.draw()
-				// })
+
 				/**
 				 * Add to the scene
 				 */
@@ -213,7 +236,7 @@ export default {
 		},
 		savePhoto() {
 			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
-			this.downloadURI(dataURL, 'stage.png')
+			this.downloadURI(dataURL, 'GANNI-DRESS-UP.png')
 		},
 		saveAsBG() {
 			const dataURL = this.stage.toDataURL({ pixelRatio: 3 })
@@ -291,22 +314,22 @@ export default {
 	mounted() {
 		this[COLLAGE_IS_OPEN.action](true)
 
-		this.stage = new this.$Konva.Stage({
+		this.stage = new Konva.Stage({
 			container: 'container',
 			width: this.stageWidth,
 			height: this.stageHeight
 		})
 
-		this.background = new this.$Konva.Layer()
+		this.background = new Konva.Layer()
 		this.stage.add(this.background)
 
-		this.doll = new this.$Konva.Layer()
+		this.doll = new Konva.Layer()
 		this.stage.add(this.doll)
 
-		this.layer = new this.$Konva.Layer()
+		this.layer = new Konva.Layer()
 		this.stage.add(this.layer)
 
-		this.watermark = new this.$Konva.Layer()
+		this.watermark = new Konva.Layer()
 		this.stage.add(this.watermark)
 
 		this.background.setZIndex(1)
@@ -316,8 +339,8 @@ export default {
 
 		this.insertPhoto({
 			src: '/img/collage/ballon.svg',
-			y: isMobile() ? 50 : 50,
-			x: isMobile() ? 100 : 230,
+			y: this.isMobile ? 50 : 50,
+			x: this.isMobile ? 100 : 230,
 			width: 80,
 			height: 240,
 			// draggable: false,

@@ -1,7 +1,7 @@
 <template>
 	<section
 		:class="wrapperClass"
-		:style="{position: 'relative', zIndex: zIndexStyle, transformOrigin }"
+		:style="{ position: 'relative', zIndex: zIndexStyle, transformOrigin }"
 	>
 		<vue-draggable-resizable
 			ref="draggableResizable"
@@ -20,28 +20,48 @@
 			:h="computedSizeH"
 		>
 			<header class="window__top">
-				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{title}}</span>
-				<button class="button close" @click.stop="closeHandler">
-					<span class="icon">
+				<span class="title" @touchstart="titleClick" @mouseDown="titleClick"
+					>{{ title }}&nbsp;
+					<p v-if="contentComponent === 'collection'">
+						({{ currentStyles.length }})
+					</p>
+					<p v-if="contentComponent === 'wish-list'">({{ wishList.length }})</p>
+				</span>
+				<button
+					:style="{
+						lineHeight: 0,
+						fontSize: '20px',
+						fontWeight: 'normal',
+						marginTop: '-0.2em'
+					}"
+					class="button close"
+					@click.stop="closeHandler"
+				>
+					<!-- <span class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 							<path
 								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
 							/>
 						</svg>
-					</span>
+					</span> -->
+					&times;
 				</button>
 			</header>
-			<div v-if="!noStatus" class="window__status" @click="contentActivateHandler">
-				<component :is="statusComponent" v-bind="{...statusComponentProps}" />
+			<div
+				v-if="statusComponent"
+				class="window__status"
+				@click="contentActivateHandler"
+			>
+				<component :is="statusComponent" v-bind="statusComponentProps" />
 			</div>
 
-			<hr v-if="!noStatus" />
+			<!-- <hr v-if="statusComponent" /> -->
 
-			<div class="window__content" @click="contentActivateHandler">
+			<div v-bar class="window__content" @click="contentActivateHandler">
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
-					v-bind="{...contentComponentProps}"
+					v-bind="{ ...contentComponentProps, contentId }"
 					ref="contentComponent"
 				/>
 			</div>
@@ -55,6 +75,7 @@ import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
 
+import Exhibition from '~/components/content/Exhibition.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import Collection from '~/components/content/Collection.vue'
 import SingleImage from '~/components/content/SingleImage.vue'
@@ -67,6 +88,7 @@ import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
 import Collage from '~/components/content/Collage.vue'
+import Puzzle from '~/components/content/Puzzle.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -76,6 +98,7 @@ export default {
 	name: 'window',
 	components: {
 		VueDraggableResizable,
+		Exhibition,
 		StatusStatic,
 		StatusCollection,
 		StatusWishList,
@@ -90,7 +113,8 @@ export default {
 		HampsterDance,
 		GanniGirls,
 		LookBook,
-		Collage
+		Collage,
+		Puzzle
 	},
 	props: {
 		modifierClass: {
@@ -127,10 +151,10 @@ export default {
 			default: null
 		},
 
-		noStatus: {
-			type: Boolean,
-			default: false
-		},
+		// noStatus: {
+		// 	type: Boolean,
+		// 	default: false
+		// },
 		statusComponent: {
 			type: String,
 			default: null,
@@ -139,6 +163,10 @@ export default {
 		statusComponentProps: {
 			type: Object,
 			default: null
+		},
+
+		customAssistantText: {
+			type: Object
 		},
 
 		title: {
@@ -173,6 +201,8 @@ export default {
 		}
 	},
 	computed: {
+		...mapState('puzzle', ['puzzle']),
+		...mapState('collection', ['currentStyles', 'wishList']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},
@@ -198,7 +228,7 @@ export default {
 		concatClassName() {
 			let cn = 'window'
 			if (this.modifierClass != '') cn += ' ' + this.modifierClass
-			if (this.noStatus) cn += ' window--no-status'
+			if (!this.statusComponent) cn += ' window--no-status'
 
 			return cn
 		}
@@ -312,6 +342,11 @@ export default {
 		},
 		onDragStop() {
 			this.constrain()
+			if (this.contentId === 'puzzle') {
+				this.$nextTick(() => {
+					this.puzzle.update()
+				})
+			}
 		},
 		constrain() {
 			this.x = Math.min(

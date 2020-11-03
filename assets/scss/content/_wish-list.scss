@@ -9,7 +9,6 @@
 		overflow: hidden;
 		overflow-y: scroll;
 		max-height: 100%;
-		@include custom-scrollbar();
 	}
 
 	position: relative;
@@ -27,7 +26,7 @@
 
 		overflow: hidden;
 		overflow-y: auto;
-		@include custom-scrollbar();
+
 		&__item {
 			display: flex;
 			justify-content: space-between;
@@ -38,19 +37,18 @@
 				background-color: $color-lightgrey;
 
 				.remove {
-					opacity: 1;				
+					opacity: 1;
 				}
 			}
 			&.is-active {
 				background-color: $color-lightgrey;
-			}			
+			}
 		}
 
 		.button {
 			cursor: pointer;
 			display: inline-flex;
 			align-items: center;
-
 		}
 		.remove {
 			padding: rem(8) 0;
@@ -76,9 +74,10 @@
 				margin-right: rem(10);
 			}
 			p {
-				font-size: rem(13);
+				@include bodytext();
+				// font-size: rem(13);
 				overflow: hidden;
-				width: rem(185 + - 12 - 30 - 10);
+				width: rem(185 + -12 - 30 - 10);
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				text-align: left;
@@ -95,16 +94,20 @@
 
 		padding-left: rem(215);
 
-		overflow: hidden;
-		overflow-y: auto;
+		// overflow: hidden;
+		// overflow-y: auto;
 		max-height: 100%;
-		@include custom-scrollbar();
 
 		.inner {
 			padding-top: rem(28);
 			padding-bottom: rem(40);
 			max-width: rem(300);
 			margin: 0 auto;
+
+			h3 {
+				@include windowtitle();
+			}
+
 			table {
 				@include details-table();
 			}

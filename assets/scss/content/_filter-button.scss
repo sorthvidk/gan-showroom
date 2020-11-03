@@ -1,4 +1,5 @@
 .filter-button {
+	user-select: none;
 	flex: 0 0 50%;
 	box-sizing: border-box;
 
@@ -15,8 +16,9 @@
 
 	&.is-active {
 		color: $color-white;
-		background-color: $color-grey;
-		@include bevel(true);
+		// background-color: $color-grey;
+		// @include bevel(true);
+		background-color: $color-black;
 	}
 
 	&:nth-child(2n) {
@@ -46,6 +48,6 @@ button.filter-button {
 		background-color: $color-lightgrey;
 	}
 	&.is-active:hover {
-		background-color: $color-grey;		
+		background-color: $color-black;
 	}
 }

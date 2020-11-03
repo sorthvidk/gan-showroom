@@ -4,5 +4,7 @@ export default {
 	STYLE_DETAILS: 2,
 	WISHLIST: 3,
 	COLLECTION_SEEN: 4,
-	COLLAGE: 5
+	COLLAGE: 5,
+	CUSTOM: 6,
+	PUZZLE: 7
 }

@@ -23,11 +23,11 @@ export default {
 	},
 	watch: {
 		topMostWindow(newVal) {
-			this.inFocus = newVal.windowId === this.parentWindowId;
+			this.inFocus = newVal.windowId === this.parentWindowId
 		}
 	},
 	mounted() {
-		this.inFocus = this.topMostWindow.windowId === this.parentWindowId;
+		this.inFocus = this.topMostWindow.windowId === this.parentWindowId
 	}
-};
+}
 </script>

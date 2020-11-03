@@ -1,10 +1,36 @@
 .collection {
+	user-select: none;
 	display: flex;
 	flex-wrap: wrap;
-	padding: rem(5);
 	align-items: flex-start;
-	@include mq($from: screen-md) {
-		padding: rem(25);
+
+	> * {
+		padding: rem(5);
+
+		@include mq($from: screen-md) {
+			padding: rem(25);
+		}
+	}
+
+	&__group {
+		h4 {
+			@include megatype();
+			padding: 0 0 rem(5);
+			margin-bottom: rem(5);
+			// font-size: rem(16);
+			text-transform: uppercase;
+			font-weight: 500;
+			display: block;
+			color: $color-black;
+		}
+		> div {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+	}
+	&__group + &__group {
+		margin-bottom: rem(30);
 	}
 
 	.collection-item {
@@ -35,8 +61,8 @@
 			right: rem(5);
 			padding: rem(3);
 			svg {
-				width: rem(20);
-				height: rem(20);
+				width: rem(16);
+				height: rem(16);
 			}
 		}
 
@@ -60,7 +86,6 @@
 			@include bodytext();
 		}
 	}
-
 
 	&--fun {
 		max-width: rem(600);
@@ -96,7 +121,7 @@
 			.responsible-icon {
 				left: calc(10% + #{rem(5)});
 			}
-			
+
 			transition: all 0.2s ease;
 
 			&:hover {
@@ -104,88 +129,87 @@
 				opacity: 0.7;
 			}
 
-			&:nth-child(8n+1) {
-				transform: rotateZ(0) translate(0,0);
+			&:nth-child(8n + 1) {
+				transform: rotateZ(0) translate(0, 0);
 				animation: horiz-pan infinite 4s ease;
 			}
-			&:nth-child(8n+2) {
+			&:nth-child(8n + 2) {
 				transform: translate(20%, -20%);
 			}
-			&:nth-child(8n+3) {
+			&:nth-child(8n + 3) {
 				transform: rotateZ(180deg) translate(-5%, 30%);
 			}
-			&:nth-child(8n+4) {
-				transform: rotateZ(0) translate(0,0);
+			&:nth-child(8n + 4) {
+				transform: rotateZ(0) translate(0, 0);
 				animation: pulse infinite 2s ease 2s;
 				transform-origin: center center;
 			}
-			&:nth-child(8n+5) {
-				transform: rotateZ(0) translate(0,0);
+			&:nth-child(8n + 5) {
+				transform: rotateZ(0) translate(0, 0);
 				animation: vertic-pan infinite 3s ease 0.5s;
 			}
-			&:nth-child(8n+6) {
+			&:nth-child(8n + 6) {
 				transform: rotateZ(90deg) translate(-50%, -5%);
 			}
-			&:nth-child(8n+7) {
-				transform: rotateZ(0) translate(0,0);
+			&:nth-child(8n + 7) {
+				transform: rotateZ(0) translate(0, 0);
 				animation: dangle infinite 3s ease-in-out;
 				transform-origin: top center;
 			}
-			&:nth-child(8n+8) {
+			&:nth-child(8n + 8) {
 				transform: translate(10%, -50%);
 			}
 
-						
 			@keyframes dangle {
-			  0% {
-			    transform: rotateZ(-20deg);
-			  }
-			  50% {
-			    transform: rotateZ(20deg);
-			  }
-			  100% {
-			    transform: rotateZ(-20deg);
-			  }
-			}	
+				0% {
+					transform: rotateZ(-20deg);
+				}
+				50% {
+					transform: rotateZ(20deg);
+				}
+				100% {
+					transform: rotateZ(-20deg);
+				}
+			}
 			@keyframes pulse {
-			  0% {
-			    transform: scale(1) rotateZ(0deg);
-			  }
-			  40% {
-			    transform: scale(1) rotateZ(0deg);
-			  }
-			  60% {
-			    transform: scale(1.2) rotateZ(10deg);
-			  }
-			  70% {
-			    transform: scale(0.95) rotateZ(-2deg);
-			  }
-			  100% {
-			    transform: scale(1) rotateZ(0deg);
-			  }
-			}			
+				0% {
+					transform: scale(1) rotateZ(0deg);
+				}
+				40% {
+					transform: scale(1) rotateZ(0deg);
+				}
+				60% {
+					transform: scale(1.2) rotateZ(10deg);
+				}
+				70% {
+					transform: scale(0.95) rotateZ(-2deg);
+				}
+				100% {
+					transform: scale(1) rotateZ(0deg);
+				}
+			}
 			@keyframes horiz-pan {
-			  0% {
-			    transform: translateX(0);
-			  }
-			  50% {
-			    transform: translateX(-20%);
-			  }
-			  100% {
-			    transform: translateX(0);
-			  }
-			}			
+				0% {
+					transform: translateX(0);
+				}
+				50% {
+					transform: translateX(-20%);
+				}
+				100% {
+					transform: translateX(0);
+				}
+			}
 			@keyframes vertic-pan {
-			  0% {
-			    transform: translateY(0);
-			  }
-			  50% {
-			    transform: translateY(20%);
-			  }
-			  100% {
-			    transform: translateY(0);
-			  }
-			}	
+				0% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(20%);
+				}
+				100% {
+					transform: translateY(0);
+				}
+			}
 		}
 	}
 }
@@ -196,10 +220,11 @@
 	justify-content: space-between;
 	align-items: center;
 
-	p {
+	.count {
+		box-sizing: border-box;
+		flex: 0 0 10%;
 		@include bodytext();
 
-		flex: 1 1 100%;
 		overflow: hidden;
 		padding: rem(5) rem(10);
 
@@ -208,7 +233,7 @@
 	}
 
 	.layout-buttons {
-		flex: 0 0 rem(60);
+		flex: 0 0 10%;
 		display: flex;
 		justify-content: center;
 
@@ -234,7 +259,7 @@
 			&:hover {
 				background-color: $color-lightgrey;
 			}
-				
+
 			opacity: 0.5;
 			&.is-active {
 				opacity: 1;

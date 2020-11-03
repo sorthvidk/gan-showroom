@@ -1,0 +1,54 @@
+.group-navigation {
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0 auto;
+
+	label {
+		@include windowtitle();
+		text-align: center;
+	}
+
+	input[type='radio'] {
+		appearance: none;
+		width: 0.9em;
+		height: 0.9em;
+		border: 1px solid;
+		border-radius: 2em;
+
+		&:checked {
+			background-color: $color-black;
+		}
+
+		outline: none;
+	}
+
+	// loop layout
+	button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: bold;
+		line-height: 1;
+		flex: 0 0 rem(30);
+		// width: rem(30);
+		height: rem(35);
+
+		white-space: nowrap;
+
+		margin: 0 1em;
+
+		&:hover {
+			background-color: $color-lightgrey;
+		}
+	}
+
+	p {
+		display: block;
+		width: rem(160);
+		padding: 0 rem(10);
+		@include headline();
+		text-align: center;
+	}
+}

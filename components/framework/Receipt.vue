@@ -1,9 +1,12 @@
 <template>
 	<div class="receipt">
 		<h1 class="receipt__title" style="font-weight: 500;">ganni export</h1>
-		<receipt-item v-for="(item, key) in receiptStyles" :key="'receiptItem'+key" :receipt-item="item" />
+		<receipt-item
+			v-for="(item, key) in receiptStyles"
+			:key="'receiptItem' + key"
+			:receipt-item="item"
+		/>
 		<receipt-watermark />
-		<!-- <a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a> -->
 	</div>
 </template>
 
@@ -20,39 +23,50 @@ export default {
 	},
 	data() {
 		return {
+			group: null,
+			filter: null,
+			styles: null,
 			urlParams: []
 		}
 	},
 	computed: {
-		...mapState({
-			allStyles: state => state.collection.list
-		}),
+		...mapState('assistant', ['pdfDownloadLink']),
+		...mapState('collection', ['allStyles']),
 		usableStyles() {
 			return this.allStyles.filter(s => !s.styleId.includes('TEST')) // [fix this] - weird check..?
 		},
+		filterGroup() {
+			return this.group
+				? this.usableStyles.filter(s => s.groupId === this.group)
+				: this.usableStyles
+		},
+		filterFilter() {
+			return this.filter
+				? this.filterGroup.filter(s => s.filters.includes(this.filter))
+				: this.filterGroup
+		},
+		filterStyles() {
+			return this.styles
+				? this.filterFilter.filter(s => this.styles.includes(s.styleId))
+				: this.filterFilter
+		},
 		receiptStyles() {
-			// go through all the styles in the DB
-			return this.urlParams[0] === 'all'
-				? this.usableStyles
-				: this.usableStyles.filter(
-						// return style if:
-						s =>
-							this.urlParams.includes(s.styleId) || // url includes the specific styleID
-							this.urlParams.find(param => s.filters.includes(param)) // url includes any of a style's filters
-				  )
+			return this.filterStyles
 		}
 	},
 	methods: {
 		parseUrl() {
 			const url = new URL(window.location.href)
-			const styles = url.searchParams.get('styles') || 'all'
+			const styles = url.searchParams.get('styles')
+			this.filter = url.searchParams.get('filter')
+			this.group = url.searchParams.get('group')
+			this.styles = styles && styles.split(',')
 
-			// /receipt <- shows all styles
-			// /receipt/?styles=F5987334,F8907234,F1121095 <- shows those three styles
-			// /receipt/?styles=c1 <- shows that filter/category
-			// /receipt/?styles=F5987334,LEOPARD%20PRINT <- shows that style, and all leopard-print-styles
+			// example urls to show all styles with filter in a group:
+			// http://localhost:3000/export/?filter=rtw10&group=drop1-nov
 
-			this.urlParams = styles.split(',')
+			// example to show a list of styles:
+			// http://localhost:3000/export/?styles=T2685,T2692
 		}
 	},
 	mounted() {

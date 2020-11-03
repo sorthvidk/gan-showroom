@@ -4,11 +4,11 @@
 			<p>Playing:</p>
 			<div :key="songs[current].title">
 				<!-- print 5 times so it can be css-animated -->
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
-				<p class="title-marquee">{{songs[current].title}} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
+				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
 			</div>
 		</div>
 		<div class="music-player__controls">
@@ -18,7 +18,11 @@
 				</svg>
 			</button>
 			<button class="button" @click="toggle">
-				<svg v-if="musicPlaying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+				<svg
+					v-if="musicPlaying"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 30 30"
+				>
 					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
 				</svg>
 				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -54,7 +58,7 @@ export default {
 			dataArray: null,
 			ctx: null,
 			barWidth: null,
-			BG_COLOR: null,
+			BG_COLOR: null, // computed from css value
 			WIDTH: null,
 			HEIGHT: null,
 
@@ -73,8 +77,7 @@ export default {
 			} else if (event.key === 'ArrowRight') {
 				this.playlist(1)
 			} else if (event.code === 'Space') {
-				if (this.musicPlaying) this[MUSIC_PLAY_PAUSE.action](false)
-				else this[MUSIC_PLAY_PAUSE.action](true)
+				this[MUSIC_PLAY_PAUSE.action](!this.musicPlaying)
 			}
 		},
 		musicPlaying(playing) {
@@ -93,15 +96,13 @@ export default {
 			}
 		}
 	},
-	computed: mapState([
-		'keyPressed',
-		'musicPlaying',
-		'songs',
-		'appTabUnfocused',
-		'topMostWindow'
-	]),
+	computed: {
+		...mapState(['appTabUnfocused', 'topMostWindow']),
+		...mapState('ganniFm', ['songs', 'musicPlaying']),
+		...mapState('user', ['keyPressed'])
+	},
 	methods: {
-		...mapActions([MUSIC_PLAY_PAUSE.action]),
+		...mapActions('ganniFm', [MUSIC_PLAY_PAUSE.action]),
 		playlist(n) {
 			const newCurrent = this.current + n
 			this.current =
@@ -178,6 +179,7 @@ export default {
 			this.loaded = true
 			const AudioContext = window.AudioContext || window.webkitAudioContext
 			this.audioContext = new AudioContext()
+			this.toggle()
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
 
 			// run first time audio gets played
@@ -203,9 +205,9 @@ export default {
 				this.ctx.fillRect(0, 0, this.WIDTH, this.HEIGHT)
 
 				const grd = this.ctx.createLinearGradient(0, 0, 0, this.HEIGHT)
-				grd.addColorStop(0, 'darksalmon')
-				grd.addColorStop(0.5, 'peachpuff')
-				grd.addColorStop(1, '#FBD5C5')
+				grd.addColorStop(0, '#000')
+				grd.addColorStop(0.5, '#000')
+				grd.addColorStop(1, '#000')
 
 				// print bars in corrent height
 				this.dataArray.forEach((freq, i) => {
@@ -237,6 +239,7 @@ export default {
 	},
 	mounted() {
 		this.audio = new Audio(this.songs[0].src)
+		this.audio.crossOrigin = 'anonymous'
 		this.audio.volume = 0.5
 		this.audio.addEventListener(
 			'canplaythrough',
