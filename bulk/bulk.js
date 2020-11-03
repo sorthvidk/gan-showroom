@@ -1,26 +1,27 @@
-const file = require('./assets.json')
+const fileMA = require('./mediaAssets.json')
+const fileCI = require('./collectionItems.json')
+
 const path = require('path')
 const fs = require('fs')
 
 const date = new Date()
-const patchCollection = item => {
-	return {
-		...item
-	}
-}
-file.forEach(item => {
-	// console.log(
-	// 	`${date.getFullYear()}-${date.getDate()}-${item['STYLE #']}}`,
-	// 	item
-	// )
-	fs.writeFile(
-		`../assets/content/collectionItems/${date.getFullYear()}-${date.getDate()}-${
-			item['styleId']
-		}.json`,
-		JSON.stringify(item),
-		err => {
-			if (err) throw err
-			console.log('The file has been saved!')
-		}
-	)
+const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+const patchCollection = item => ({ ...item })
+
+fileMA.forEach(item => {
+	let fn = `../assets/content/mediaAssets/${dateString}-${item['assetId']}-${item['styleId']}.json`
+	fn = fn.replace(/ /g, '_')
+	fs.writeFile(fn, JSON.stringify(item), err => {
+		if (err) throw err
+		console.log(`Media asset ${fn} done`)
+	})
+})
+
+fileCI.forEach(item => {
+	let fn = `../assets/content/collectionItems/${dateString}-${item['groupId']}-${item['styleId']}.json`
+	fn = fn.replace(/ /g, '_')
+	fs.writeFile(fn, JSON.stringify(item), err => {
+		if (err) throw err
+		console.log(`Collection item ${fn} done`)
+	})
 })
