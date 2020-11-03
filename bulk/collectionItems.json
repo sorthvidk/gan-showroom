@@ -7,7 +7,9 @@
     "groupId": "Drop 1",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 5000,
     "wholesalePriceDKK": 360,
@@ -28,7 +30,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 4990,
     "wholesalePriceDKK": 320,
@@ -49,7 +53,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 4980,
     "wholesalePriceDKK": 400,
@@ -70,7 +76,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 4970,
     "wholesalePriceDKK": 600,
@@ -91,7 +99,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 4960,
     "wholesalePriceDKK": 600,
@@ -112,7 +122,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 4950,
     "wholesalePriceDKK": 800,
@@ -133,7 +145,9 @@
     "groupId": "Drop 1",
     "colorNames": "Flan",
     "colorId": 302,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 4940,
     "wholesalePriceDKK": 760,
@@ -154,7 +168,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 4930,
     "wholesalePriceDKK": 760,
@@ -175,7 +191,9 @@
     "groupId": "Drop 1",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 4920,
     "wholesalePriceDKK": 285,
@@ -196,7 +214,9 @@
     "groupId": "Drop 1",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 4910,
     "wholesalePriceDKK": 357,
@@ -217,7 +237,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 4900,
     "wholesalePriceDKK": 285,
@@ -238,7 +260,9 @@
     "groupId": "Drop 1",
     "colorNames": "Sharkskin",
     "colorId": 256,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 4890,
     "wholesalePriceDKK": 285,
@@ -259,7 +283,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 4880,
     "wholesalePriceDKK": 285,
@@ -280,7 +306,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 4870,
     "wholesalePriceDKK": 357,
@@ -301,7 +329,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 4860,
     "wholesalePriceDKK": 535,
@@ -322,7 +352,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 4850,
     "wholesalePriceDKK": 678,
@@ -343,7 +375,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 4840,
     "wholesalePriceDKK": 250,
@@ -364,7 +398,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 4830,
     "wholesalePriceDKK": 214,
@@ -385,7 +421,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 4820,
     "wholesalePriceDKK": 250,
@@ -406,7 +444,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4810,
     "wholesalePriceDKK": 920,
@@ -427,7 +467,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4800,
     "wholesalePriceDKK": 600,
@@ -448,7 +490,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4790,
     "wholesalePriceDKK": 680,
@@ -469,7 +513,9 @@
     "groupId": "Drop 1",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4780,
     "wholesalePriceDKK": 600,
@@ -490,7 +536,9 @@
     "groupId": "Drop 1",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4770,
     "wholesalePriceDKK": 680,
@@ -511,7 +559,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4760,
     "wholesalePriceDKK": 600,
@@ -532,7 +582,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4750,
     "wholesalePriceDKK": 600,
@@ -553,7 +605,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4740,
     "wholesalePriceDKK": 680,
@@ -574,7 +628,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4730,
     "wholesalePriceDKK": 1000,
@@ -595,7 +651,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4720,
     "wholesalePriceDKK": 1080,
@@ -616,7 +674,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4710,
     "wholesalePriceDKK": 1320,
@@ -637,7 +697,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4700,
     "wholesalePriceDKK": 1000,
@@ -658,7 +720,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4690,
     "wholesalePriceDKK": 1080,
@@ -679,7 +743,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4680,
     "wholesalePriceDKK": 1320,
@@ -700,7 +766,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4670,
     "wholesalePriceDKK": 1000,
@@ -721,7 +789,9 @@
     "groupId": "Drop 1",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4660,
     "wholesalePriceDKK": 920,
@@ -742,7 +812,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4650,
     "wholesalePriceDKK": 920,
@@ -763,7 +835,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4640,
     "wholesalePriceDKK": 560,
@@ -784,7 +858,9 @@
     "groupId": "Drop 1",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4630,
     "wholesalePriceDKK": 560,
@@ -805,7 +881,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4620,
     "wholesalePriceDKK": 560,
@@ -826,7 +904,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4610,
     "wholesalePriceDKK": 560,
@@ -847,7 +927,9 @@
     "groupId": "Drop 1",
     "colorNames": "Corydalis Blue",
     "colorId": 870,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4600,
     "wholesalePriceDKK": 560,
@@ -868,7 +950,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4590,
     "wholesalePriceDKK": 720,
@@ -889,7 +973,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4580,
     "wholesalePriceDKK": 1000,
@@ -910,7 +996,9 @@
     "groupId": "Drop 1",
     "colorNames": "Olive Drab",
     "colorId": 780,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4570,
     "wholesalePriceDKK": 1000,
@@ -931,7 +1019,9 @@
     "groupId": "Drop 1",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4560,
     "wholesalePriceDKK": 920,
@@ -952,7 +1042,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4550,
     "wholesalePriceDKK": 920,
@@ -973,7 +1065,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4540,
     "wholesalePriceDKK": 360,
@@ -994,7 +1088,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4530,
     "wholesalePriceDKK": 360,
@@ -1015,7 +1111,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolor",
     "colorId": 999,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4520,
     "wholesalePriceDKK": 360,
@@ -1036,7 +1134,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4510,
     "wholesalePriceDKK": 760,
@@ -1057,7 +1157,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4500,
     "wholesalePriceDKK": 760,
@@ -1078,7 +1180,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4490,
     "wholesalePriceDKK": 760,
@@ -1099,7 +1203,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": false,
     "weight": 4480,
     "wholesalePriceDKK": 760,
@@ -1120,7 +1226,9 @@
     "groupId": "Drop 1",
     "colorNames": "Denim",
     "colorId": 630,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4470,
     "wholesalePriceDKK": 800,
@@ -1141,7 +1249,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc3",
+    "filters": [
+      "acc3"
+    ],
     "responsible": true,
     "weight": 4460,
     "wholesalePriceDKK": 800,
@@ -1162,7 +1272,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4450,
     "wholesalePriceDKK": 280,
@@ -1183,7 +1295,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4440,
     "wholesalePriceDKK": 280,
@@ -1204,7 +1318,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 4430,
     "wholesalePriceDKK": 200,
@@ -1225,7 +1341,9 @@
     "groupId": "Drop 1",
     "colorNames": "Egret",
     "colorId": 131,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": false,
     "weight": 4420,
     "wholesalePriceDKK": 240,
@@ -1246,7 +1364,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale banana",
     "colorId": 321,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": false,
     "weight": 4410,
     "wholesalePriceDKK": 240,
@@ -1267,7 +1387,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": false,
     "weight": 4400,
     "wholesalePriceDKK": 240,
@@ -1288,7 +1410,9 @@
     "groupId": "Drop 1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 4390,
     "wholesalePriceDKK": 360,
@@ -1309,7 +1433,9 @@
     "groupId": "Drop 1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4380,
     "wholesalePriceDKK": 720,
@@ -1330,7 +1456,9 @@
     "groupId": "Drop 1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4370,
     "wholesalePriceDKK": 880,
@@ -1351,7 +1479,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4360,
     "wholesalePriceDKK": 440,
@@ -1372,7 +1502,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4350,
     "wholesalePriceDKK": 200,
@@ -1393,7 +1525,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4340,
     "wholesalePriceDKK": 200,
@@ -1414,7 +1548,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4330,
     "wholesalePriceDKK": 320,
@@ -1435,7 +1571,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4320,
     "wholesalePriceDKK": 200,
@@ -1456,7 +1594,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4310,
     "wholesalePriceDKK": 440,
@@ -1477,7 +1617,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4300,
     "wholesalePriceDKK": 280,
@@ -1498,7 +1640,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4290,
     "wholesalePriceDKK": 200,
@@ -1519,7 +1663,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4280,
     "wholesalePriceDKK": 480,
@@ -1540,7 +1686,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4270,
     "wholesalePriceDKK": 440,
@@ -1561,7 +1709,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 4260,
     "wholesalePriceDKK": 280,
@@ -1582,7 +1732,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": true,
     "weight": 4250,
     "wholesalePriceDKK": 240,
@@ -1603,7 +1755,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": false,
     "weight": 4240,
     "wholesalePriceDKK": 428,
@@ -1624,7 +1778,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": false,
     "weight": 4230,
     "wholesalePriceDKK": 285,
@@ -1645,7 +1801,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc4",
+    "filters": [
+      "acc4"
+    ],
     "responsible": false,
     "weight": 4220,
     "wholesalePriceDKK": 250,
@@ -1666,7 +1824,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4210,
     "wholesalePriceDKK": 400,
@@ -1687,7 +1847,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4200,
     "wholesalePriceDKK": 400,
@@ -1708,7 +1870,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4190,
     "wholesalePriceDKK": 400,
@@ -1729,7 +1893,9 @@
     "groupId": "Drop 1",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4180,
     "wholesalePriceDKK": 400,
@@ -1750,7 +1916,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4170,
     "wholesalePriceDKK": 400,
@@ -1771,7 +1939,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4160,
     "wholesalePriceDKK": 400,
@@ -1792,7 +1962,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4150,
     "wholesalePriceDKK": 400,
@@ -1813,7 +1985,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4140,
     "wholesalePriceDKK": 280,
@@ -1834,7 +2008,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4130,
     "wholesalePriceDKK": 560,
@@ -1855,7 +2031,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 4120,
     "wholesalePriceDKK": 240,
@@ -1876,7 +2054,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 4110,
     "wholesalePriceDKK": 240,
@@ -1897,7 +2077,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4100,
     "wholesalePriceDKK": 280,
@@ -1918,7 +2100,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4090,
     "wholesalePriceDKK": 480,
@@ -1939,7 +2123,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4080,
     "wholesalePriceDKK": 560,
@@ -1960,7 +2146,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4070,
     "wholesalePriceDKK": 480,
@@ -1981,7 +2169,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4060,
     "wholesalePriceDKK": 480,
@@ -2002,7 +2192,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 4050,
     "wholesalePriceDKK": 240,
@@ -2023,7 +2215,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 4040,
     "wholesalePriceDKK": 100,
@@ -2044,7 +2238,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4030,
     "wholesalePriceDKK": 280,
@@ -2065,7 +2261,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4020,
     "wholesalePriceDKK": 560,
@@ -2086,7 +2284,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 4010,
     "wholesalePriceDKK": 200,
@@ -2107,7 +2307,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc2",
+    "filters": [
+      "acc2"
+    ],
     "responsible": true,
     "weight": 4000,
     "wholesalePriceDKK": 480,
@@ -2128,7 +2330,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3990,
     "wholesalePriceDKK": 100,
@@ -2149,7 +2353,9 @@
     "groupId": "Drop 1",
     "colorNames": "Nature",
     "colorId": 119,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3980,
     "wholesalePriceDKK": 640,
@@ -2170,7 +2376,9 @@
     "groupId": "Drop 1",
     "colorNames": "Denim",
     "colorId": 630,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3970,
     "wholesalePriceDKK": 640,
@@ -2191,7 +2399,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3960,
     "wholesalePriceDKK": 140,
@@ -2212,7 +2422,9 @@
     "groupId": "Drop 1",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3950,
     "wholesalePriceDKK": 140,
@@ -2233,7 +2445,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3940,
     "wholesalePriceDKK": 140,
@@ -2254,7 +2468,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3930,
     "wholesalePriceDKK": 140,
@@ -2275,7 +2491,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black/Egret",
     "colorId": 87,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3920,
     "wholesalePriceDKK": 160,
@@ -2296,7 +2514,9 @@
     "groupId": "Drop 1",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3910,
     "wholesalePriceDKK": 160,
@@ -2317,7 +2537,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3900,
     "wholesalePriceDKK": 160,
@@ -2338,7 +2560,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3890,
     "wholesalePriceDKK": 160,
@@ -2359,7 +2583,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 3880,
     "wholesalePriceDKK": 280,
@@ -2380,7 +2606,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 3870,
     "wholesalePriceDKK": 280,
@@ -2401,7 +2629,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 3860,
     "wholesalePriceDKK": 280,
@@ -2422,7 +2652,7 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -2446,7 +2676,7 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -2470,7 +2700,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3830,
     "wholesalePriceDKK": 357,
@@ -2491,7 +2723,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3820,
     "wholesalePriceDKK": 571,
@@ -2512,7 +2746,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3810,
     "wholesalePriceDKK": 518,
@@ -2533,7 +2769,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3800,
     "wholesalePriceDKK": 518,
@@ -2554,7 +2792,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3790,
     "wholesalePriceDKK": 143,
@@ -2575,7 +2815,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3780,
     "wholesalePriceDKK": 607,
@@ -2596,7 +2838,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3770,
     "wholesalePriceDKK": 607,
@@ -2617,7 +2861,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3760,
     "wholesalePriceDKK": 464,
@@ -2638,7 +2884,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 3750,
     "wholesalePriceDKK": 428,
@@ -2659,7 +2907,9 @@
     "groupId": "Drop 1",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3740,
     "wholesalePriceDKK": 428,
@@ -2680,7 +2930,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3730,
     "wholesalePriceDKK": 285,
@@ -2701,7 +2953,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3720,
     "wholesalePriceDKK": 464,
@@ -2722,7 +2976,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3710,
     "wholesalePriceDKK": 607,
@@ -2743,7 +2999,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3700,
     "wholesalePriceDKK": 464,
@@ -2764,7 +3022,7 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc3"
     ],
@@ -2788,7 +3046,7 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": [
+    "filters": [
       "rtw6",
       "misc3"
     ],
@@ -2812,7 +3070,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3670,
     "wholesalePriceDKK": 143,
@@ -2833,7 +3093,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3660,
     "wholesalePriceDKK": 53,
@@ -2854,7 +3116,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3650,
     "wholesalePriceDKK": 678,
@@ -2875,7 +3139,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3640,
     "wholesalePriceDKK": 500,
@@ -2896,7 +3162,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3630,
     "wholesalePriceDKK": 250,
@@ -2917,7 +3185,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3620,
     "wholesalePriceDKK": 464,
@@ -2938,7 +3208,9 @@
     "groupId": "Drop 1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3610,
     "wholesalePriceDKK": 428,
@@ -2959,7 +3231,7 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -2983,7 +3255,7 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -3007,7 +3279,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 3580,
     "wholesalePriceDKK": 53,
@@ -3028,7 +3302,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 3570,
     "wholesalePriceDKK": 571,
@@ -3049,7 +3325,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 3560,
     "wholesalePriceDKK": 571,
@@ -3070,7 +3348,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": false,
     "weight": 3550,
     "wholesalePriceDKK": 464,
@@ -3091,7 +3371,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 3540,
     "wholesalePriceDKK": 428,
@@ -3112,7 +3394,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3530,
     "wholesalePriceDKK": 214,
@@ -3133,7 +3417,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3520,
     "wholesalePriceDKK": 750,
@@ -3154,7 +3440,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3510,
     "wholesalePriceDKK": 785,
@@ -3175,7 +3463,9 @@
     "groupId": "Drop 1",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3500,
     "wholesalePriceDKK": 785,
@@ -3196,7 +3486,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 3490,
     "wholesalePriceDKK": 800,
@@ -3217,7 +3509,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 3480,
     "wholesalePriceDKK": 1160,
@@ -3238,7 +3532,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 3470,
     "wholesalePriceDKK": 1160,
@@ -3259,7 +3555,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 3460,
     "wholesalePriceDKK": 800,
@@ -3280,7 +3578,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3450,
     "wholesalePriceDKK": 53,
@@ -3301,7 +3601,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3440,
     "wholesalePriceDKK": 535,
@@ -3322,7 +3624,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 3430,
     "wholesalePriceDKK": 357,
@@ -3343,7 +3647,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3420,
     "wholesalePriceDKK": 571,
@@ -3364,7 +3670,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3410,
     "wholesalePriceDKK": 357,
@@ -3385,7 +3693,9 @@
     "groupId": "Drop 1",
     "colorNames": "Multicolour",
     "colorId": 999,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3400,
     "wholesalePriceDKK": 500,
@@ -3406,7 +3716,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3390,
     "wholesalePriceDKK": 607,
@@ -3427,7 +3739,9 @@
     "groupId": "Drop 1",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3380,
     "wholesalePriceDKK": 643,
@@ -3448,7 +3762,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 3370,
     "wholesalePriceDKK": 500,
@@ -3469,7 +3785,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3360,
     "wholesalePriceDKK": 571,
@@ -3490,7 +3808,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3350,
     "wholesalePriceDKK": 240,
@@ -3511,7 +3831,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3340,
     "wholesalePriceDKK": 518,
@@ -3532,7 +3854,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3330,
     "wholesalePriceDKK": 703,
@@ -3553,7 +3877,9 @@
     "groupId": "Drop 1",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 3320,
     "wholesalePriceDKK": 407,
@@ -3574,7 +3900,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3310,
     "wholesalePriceDKK": 53,
@@ -3595,7 +3923,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3300,
     "wholesalePriceDKK": 285,
@@ -3616,7 +3946,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3290,
     "wholesalePriceDKK": 535,
@@ -3637,7 +3969,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 3280,
     "wholesalePriceDKK": 357,
@@ -3658,7 +3992,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3270,
     "wholesalePriceDKK": 571,
@@ -3679,7 +4015,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3260,
     "wholesalePriceDKK": 357,
@@ -3700,7 +4038,9 @@
     "groupId": "Drop 1",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3250,
     "wholesalePriceDKK": 571,
@@ -3721,7 +4061,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3240,
     "wholesalePriceDKK": 480,
@@ -3742,7 +4084,9 @@
     "groupId": "Drop 1",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3230,
     "wholesalePriceDKK": 280,
@@ -3763,7 +4107,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3220,
     "wholesalePriceDKK": 480,
@@ -3784,7 +4130,9 @@
     "groupId": "Drop 1",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 3210,
     "wholesalePriceDKK": 280,
@@ -3805,7 +4153,9 @@
     "groupId": "Drop 1",
     "colorNames": "Denim",
     "colorId": 630,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3200,
     "wholesalePriceDKK": 407,
@@ -3826,7 +4176,9 @@
     "groupId": "Drop 1",
     "colorNames": "Denim",
     "colorId": 630,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3190,
     "wholesalePriceDKK": 444,
@@ -3847,7 +4199,9 @@
     "groupId": "Drop 2",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 3180,
     "wholesalePriceDKK": 480,
@@ -3868,7 +4222,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 3170,
     "wholesalePriceDKK": 440,
@@ -3889,7 +4245,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 3160,
     "wholesalePriceDKK": 320,
@@ -3910,7 +4268,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 3150,
     "wholesalePriceDKK": 400,
@@ -3931,7 +4291,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 3140,
     "wholesalePriceDKK": 600,
@@ -3952,7 +4314,9 @@
     "groupId": "Drop 2",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 3130,
     "wholesalePriceDKK": 760,
@@ -3973,7 +4337,9 @@
     "groupId": "Drop 2",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 3120,
     "wholesalePriceDKK": 1000,
@@ -3994,7 +4360,9 @@
     "groupId": "Drop 2",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 3110,
     "wholesalePriceDKK": 560,
@@ -4015,7 +4383,9 @@
     "groupId": "Drop 2",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 3100,
     "wholesalePriceDKK": 214,
@@ -4036,7 +4406,9 @@
     "groupId": "Drop 2",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 3090,
     "wholesalePriceDKK": 250,
@@ -4057,7 +4429,9 @@
     "groupId": "Drop 2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3080,
     "wholesalePriceDKK": 555,
@@ -4078,7 +4452,9 @@
     "groupId": "Drop 2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 3070,
     "wholesalePriceDKK": 555,
@@ -4099,7 +4475,9 @@
     "groupId": "Drop 2",
     "colorNames": "Sharkskin",
     "colorId": 256,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3060,
     "wholesalePriceDKK": 1320,
@@ -4120,7 +4498,9 @@
     "groupId": "Drop 2",
     "colorNames": "Sharkskin",
     "colorId": 256,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3050,
     "wholesalePriceDKK": 520,
@@ -4141,7 +4521,9 @@
     "groupId": "Drop 2",
     "colorNames": "Sharkskin",
     "colorId": 256,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3040,
     "wholesalePriceDKK": 960,
@@ -4162,7 +4544,9 @@
     "groupId": "Drop 2",
     "colorNames": "Sharkskin",
     "colorId": 256,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3030,
     "wholesalePriceDKK": 1200,
@@ -4183,7 +4567,9 @@
     "groupId": "Drop 2",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 3020,
     "wholesalePriceDKK": 428,
@@ -4204,7 +4590,9 @@
     "groupId": "Drop 2",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 3010,
     "wholesalePriceDKK": 464,
@@ -4225,7 +4613,9 @@
     "groupId": "Drop 2",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 3000,
     "wholesalePriceDKK": 607,
@@ -4246,7 +4636,9 @@
     "groupId": "Drop 2",
     "colorNames": "Heather",
     "colorId": 694,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2990,
     "wholesalePriceDKK": 464,
@@ -4267,7 +4659,7 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc3"
     ],
@@ -4291,7 +4683,7 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": [
+    "filters": [
       "rtw1",
       "misc3"
     ],
@@ -4315,7 +4707,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2960,
     "wholesalePriceDKK": 357,
@@ -4336,7 +4730,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2950,
     "wholesalePriceDKK": 285,
@@ -4357,7 +4753,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2940,
     "wholesalePriceDKK": 643,
@@ -4378,7 +4776,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 2930,
     "wholesalePriceDKK": 53,
@@ -4399,7 +4799,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2920,
     "wholesalePriceDKK": 500,
@@ -4420,7 +4822,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 2910,
     "wholesalePriceDKK": 393,
@@ -4441,7 +4845,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2900,
     "wholesalePriceDKK": 464,
@@ -4462,7 +4868,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2890,
     "wholesalePriceDKK": 393,
@@ -4483,7 +4891,9 @@
     "groupId": "Drop 2",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 2880,
     "wholesalePriceDKK": 357,
@@ -4504,7 +4914,9 @@
     "groupId": "Drop 2",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2870,
     "wholesalePriceDKK": 1080,
@@ -4525,7 +4937,9 @@
     "groupId": "Drop 2",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2860,
     "wholesalePriceDKK": 560,
@@ -4546,7 +4960,9 @@
     "groupId": "Drop 2",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2850,
     "wholesalePriceDKK": 1000,
@@ -4567,7 +4983,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": false,
     "weight": 2840,
     "wholesalePriceDKK": 428,
@@ -4588,7 +5006,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2830,
     "wholesalePriceDKK": 500,
@@ -4609,7 +5029,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 2820,
     "wholesalePriceDKK": 500,
@@ -4630,7 +5052,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 2810,
     "wholesalePriceDKK": 53,
@@ -4651,7 +5075,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2800,
     "wholesalePriceDKK": 643,
@@ -4672,7 +5098,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2790,
     "wholesalePriceDKK": 571,
@@ -4693,7 +5121,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2780,
     "wholesalePriceDKK": 357,
@@ -4714,7 +5144,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2770,
     "wholesalePriceDKK": 464,
@@ -4735,7 +5167,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 2760,
     "wholesalePriceDKK": 1040,
@@ -4756,7 +5190,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 2750,
     "wholesalePriceDKK": 760,
@@ -4777,7 +5213,9 @@
     "groupId": "Drop 2",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 2740,
     "wholesalePriceDKK": 840,
@@ -4798,7 +5236,9 @@
     "groupId": "Drop 2",
     "colorNames": "Dark Indigo",
     "colorId": 696,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 2730,
     "wholesalePriceDKK": 592,
@@ -4819,7 +5259,9 @@
     "groupId": "Drop 2",
     "colorNames": "Dark Indigo",
     "colorId": 696,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 2720,
     "wholesalePriceDKK": 814,
@@ -4840,7 +5282,9 @@
     "groupId": "Drop 2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2710,
     "wholesalePriceDKK": 666,
@@ -4861,7 +5305,9 @@
     "groupId": "Drop 2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2700,
     "wholesalePriceDKK": 889,
@@ -4882,7 +5328,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 2690,
     "wholesalePriceDKK": 407,
@@ -4903,7 +5351,9 @@
     "groupId": "Drop 2",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 2680,
     "wholesalePriceDKK": 407,
@@ -4924,7 +5374,9 @@
     "groupId": "Drop 2",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2670,
     "wholesalePriceDKK": 560,
@@ -4945,7 +5397,9 @@
     "groupId": "Drop 3",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 2660,
     "wholesalePriceDKK": 760,
@@ -4966,7 +5420,9 @@
     "groupId": "Drop 3",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 2650,
     "wholesalePriceDKK": 760,
@@ -4987,7 +5443,9 @@
     "groupId": "Drop 3",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2640,
     "wholesalePriceDKK": 760,
@@ -5008,7 +5466,9 @@
     "groupId": "Drop 3",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2630,
     "wholesalePriceDKK": 640,
@@ -5029,7 +5489,9 @@
     "groupId": "Drop 3",
     "colorNames": "Pale Banana",
     "colorId": 321,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2620,
     "wholesalePriceDKK": 880,
@@ -5050,7 +5512,9 @@
     "groupId": "Drop 3",
     "colorNames": "Airy Blue",
     "colorId": 574,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2610,
     "wholesalePriceDKK": 480,
@@ -5071,7 +5535,9 @@
     "groupId": "Drop 3",
     "colorNames": "Airy Blue",
     "colorId": 574,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2600,
     "wholesalePriceDKK": 480,
@@ -5092,7 +5558,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2590,
     "wholesalePriceDKK": 480,
@@ -5113,7 +5581,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": true,
     "weight": 2580,
     "wholesalePriceDKK": 480,
@@ -5134,7 +5604,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 2570,
     "wholesalePriceDKK": 321,
@@ -5155,7 +5627,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 2560,
     "wholesalePriceDKK": 321,
@@ -5176,7 +5650,9 @@
     "groupId": "Drop 3",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 2550,
     "wholesalePriceDKK": 321,
@@ -5197,7 +5673,9 @@
     "groupId": "Drop 3",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 2540,
     "wholesalePriceDKK": 321,
@@ -5218,7 +5696,9 @@
     "groupId": "Drop 3",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2530,
     "wholesalePriceDKK": 357,
@@ -5239,7 +5719,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw5",
+    "filters": [
+      "rtw5"
+    ],
     "responsible": false,
     "weight": 2520,
     "wholesalePriceDKK": 285,
@@ -5260,7 +5742,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 2510,
     "wholesalePriceDKK": 357,
@@ -5281,7 +5765,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2500,
     "wholesalePriceDKK": 535,
@@ -5302,7 +5788,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2490,
     "wholesalePriceDKK": 678,
@@ -5323,7 +5811,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": false,
     "weight": 2480,
     "wholesalePriceDKK": 285,
@@ -5344,7 +5834,9 @@
     "groupId": "Drop 3",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 2470,
     "wholesalePriceDKK": 214,
@@ -5365,7 +5857,9 @@
     "groupId": "Drop 3",
     "colorNames": "Medium Indigo",
     "colorId": 691,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 2460,
     "wholesalePriceDKK": 407,
@@ -5386,7 +5880,9 @@
     "groupId": "Drop 3",
     "colorNames": "Medium Indigo",
     "colorId": 691,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": true,
     "weight": 2450,
     "wholesalePriceDKK": 407,
@@ -5407,7 +5903,7 @@
     "groupId": "Drop 3",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc3"
     ],
@@ -5431,7 +5927,7 @@
     "groupId": "Drop 3",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": [
+    "filters": [
       "rtw6",
       "misc3"
     ],
@@ -5455,7 +5951,7 @@
     "groupId": "Drop 3",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc3"
     ],
@@ -5479,7 +5975,7 @@
     "groupId": "Drop 3",
     "colorNames": "Madder Brown",
     "colorId": 470,
-    "Ja_filters": [
+    "filters": [
       "rtw1",
       "misc3"
     ],
@@ -5503,7 +5999,9 @@
     "groupId": "Drop 3",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": false,
     "weight": 2400,
     "wholesalePriceDKK": 678,
@@ -5524,7 +6022,9 @@
     "groupId": "Drop 3",
     "colorNames": "Leopard",
     "colorId": 943,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": false,
     "weight": 2390,
     "wholesalePriceDKK": 428,
@@ -5545,7 +6045,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 2380,
     "wholesalePriceDKK": 143,
@@ -5566,7 +6068,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 2370,
     "wholesalePriceDKK": 53,
@@ -5587,7 +6091,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2360,
     "wholesalePriceDKK": 678,
@@ -5608,7 +6114,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 2350,
     "wholesalePriceDKK": 500,
@@ -5629,7 +6137,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2340,
     "wholesalePriceDKK": 250,
@@ -5650,7 +6160,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2330,
     "wholesalePriceDKK": 643,
@@ -5671,7 +6183,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2320,
     "wholesalePriceDKK": 393,
@@ -5692,7 +6206,7 @@
     "groupId": "Drop 3",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -5716,7 +6230,7 @@
     "groupId": "Drop 3",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw8",
       "misc1"
     ],
@@ -5740,7 +6254,7 @@
     "groupId": "Drop 3",
     "colorNames": "Bright White",
     "colorId": 151,
-    "Ja_filters": [
+    "filters": [
       "rtw1",
       "misc1"
     ],
@@ -5764,7 +6278,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": true,
     "weight": 2280,
     "wholesalePriceDKK": 53,
@@ -5785,7 +6301,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2270,
     "wholesalePriceDKK": 607,
@@ -5806,7 +6324,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2260,
     "wholesalePriceDKK": 500,
@@ -5827,7 +6347,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 2250,
     "wholesalePriceDKK": 393,
@@ -5848,7 +6370,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2240,
     "wholesalePriceDKK": 464,
@@ -5869,7 +6393,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 2230,
     "wholesalePriceDKK": 393,
@@ -5890,7 +6416,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc1",
+    "filters": [
+      "acc1"
+    ],
     "responsible": false,
     "weight": 2220,
     "wholesalePriceDKK": 60,
@@ -5911,7 +6439,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2210,
     "wholesalePriceDKK": 1320,
@@ -5932,7 +6462,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": false,
     "weight": 2200,
     "wholesalePriceDKK": 760,
@@ -5953,7 +6485,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2190,
     "wholesalePriceDKK": 1160,
@@ -5974,7 +6508,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 2180,
     "wholesalePriceDKK": 760,
@@ -5995,7 +6531,9 @@
     "groupId": "Drop 3",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2170,
     "wholesalePriceDKK": 1400,
@@ -6016,7 +6554,9 @@
     "groupId": "Drop 3",
     "colorNames": "Airy Blue",
     "colorId": 574,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2160,
     "wholesalePriceDKK": 643,
@@ -6037,7 +6577,9 @@
     "groupId": "Drop 3",
     "colorNames": "Airy Blue",
     "colorId": 574,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": true,
     "weight": 2150,
     "wholesalePriceDKK": 500,
@@ -6058,7 +6600,9 @@
     "groupId": "Drop 3",
     "colorNames": "Airy Blue",
     "colorId": 574,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2140,
     "wholesalePriceDKK": 678,
@@ -6079,7 +6623,9 @@
     "groupId": "Drop 3",
     "colorNames": "Fossil",
     "colorId": 189,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": true,
     "weight": 2130,
     "wholesalePriceDKK": 643,
@@ -6100,7 +6646,9 @@
     "groupId": "Drop 3",
     "colorNames": "Fossil",
     "colorId": 189,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 2120,
     "wholesalePriceDKK": 357,
@@ -6121,7 +6669,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": false,
     "weight": 2110,
     "wholesalePriceDKK": 643,
@@ -6142,7 +6692,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": false,
     "weight": 2100,
     "wholesalePriceDKK": 464,
@@ -6163,7 +6715,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 2090,
     "wholesalePriceDKK": 464,
@@ -6184,7 +6738,9 @@
     "groupId": "Drop 3",
     "colorNames": "Kelly Green",
     "colorId": 801,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": false,
     "weight": 2080,
     "wholesalePriceDKK": 357,
@@ -6205,7 +6761,9 @@
     "groupId": "Drop 3",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": false,
     "weight": 2070,
     "wholesalePriceDKK": 321,
@@ -6226,7 +6784,9 @@
     "groupId": "Drop 3",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": false,
     "weight": 2060,
     "wholesalePriceDKK": 893,
@@ -6247,7 +6807,9 @@
     "groupId": "Drop 3",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": false,
     "weight": 2050,
     "wholesalePriceDKK": 535,
@@ -6268,7 +6830,9 @@
     "groupId": "Drop 3",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": false,
     "weight": 2040,
     "wholesalePriceDKK": 500,
@@ -6289,7 +6853,9 @@
     "groupId": "Drop 3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw2",
+    "filters": [
+      "rtw2"
+    ],
     "responsible": false,
     "weight": 2030,
     "wholesalePriceDKK": 518,
@@ -6310,7 +6876,9 @@
     "groupId": "Drop 3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw6",
+    "filters": [
+      "rtw6"
+    ],
     "responsible": false,
     "weight": 2020,
     "wholesalePriceDKK": 481,
@@ -6331,7 +6899,9 @@
     "groupId": "Drop 3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
-    "Ja_filters": "rtw3",
+    "filters": [
+      "rtw3"
+    ],
     "responsible": false,
     "weight": 2010,
     "wholesalePriceDKK": 814,
@@ -6352,7 +6922,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 2000,
     "wholesalePriceDKK": 393,
@@ -6373,7 +6945,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1990,
     "wholesalePriceDKK": 214,
@@ -6394,7 +6968,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1980,
     "wholesalePriceDKK": 214,
@@ -6415,7 +6991,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1970,
     "wholesalePriceDKK": 357,
@@ -6436,7 +7014,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1960,
     "wholesalePriceDKK": 393,
@@ -6457,7 +7037,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1950,
     "wholesalePriceDKK": 357,
@@ -6478,7 +7060,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1940,
     "wholesalePriceDKK": 393,
@@ -6499,7 +7083,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1930,
     "wholesalePriceDKK": 357,
@@ -6520,7 +7106,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1920,
     "wholesalePriceDKK": 250,
@@ -6541,7 +7129,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1910,
     "wholesalePriceDKK": 357,
@@ -6562,7 +7152,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1900,
     "wholesalePriceDKK": 393,
@@ -6583,7 +7175,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1890,
     "wholesalePriceDKK": 357,
@@ -6604,7 +7198,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1880,
     "wholesalePriceDKK": 393,
@@ -6625,7 +7221,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1870,
     "wholesalePriceDKK": 357,
@@ -6646,7 +7244,9 @@
     "groupId": "Software",
     "colorNames": "Egret",
     "colorId": 135,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1860,
     "wholesalePriceDKK": 250,
@@ -6667,7 +7267,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1850,
     "wholesalePriceDKK": 357,
@@ -6688,7 +7290,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1840,
     "wholesalePriceDKK": 393,
@@ -6709,7 +7313,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1830,
     "wholesalePriceDKK": 357,
@@ -6730,7 +7336,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1820,
     "wholesalePriceDKK": 393,
@@ -6751,7 +7359,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1810,
     "wholesalePriceDKK": 357,
@@ -6772,7 +7382,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1800,
     "wholesalePriceDKK": 250,
@@ -6793,7 +7405,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1790,
     "wholesalePriceDKK": 357,
@@ -6814,7 +7428,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1780,
     "wholesalePriceDKK": 393,
@@ -6835,7 +7451,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1770,
     "wholesalePriceDKK": 357,
@@ -6856,7 +7474,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1760,
     "wholesalePriceDKK": 393,
@@ -6877,7 +7497,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1750,
     "wholesalePriceDKK": 357,
@@ -6898,7 +7520,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1740,
     "wholesalePriceDKK": 250,
@@ -6919,7 +7543,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1730,
     "wholesalePriceDKK": 357,
@@ -6940,7 +7566,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1720,
     "wholesalePriceDKK": 393,
@@ -6961,7 +7589,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1710,
     "wholesalePriceDKK": 357,
@@ -6982,7 +7612,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1700,
     "wholesalePriceDKK": 393,
@@ -7003,7 +7635,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1690,
     "wholesalePriceDKK": 357,
@@ -7024,7 +7658,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1680,
     "wholesalePriceDKK": 250,
@@ -7045,7 +7681,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1670,
     "wholesalePriceDKK": 357,
@@ -7066,7 +7704,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1660,
     "wholesalePriceDKK": 393,
@@ -7087,7 +7727,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1650,
     "wholesalePriceDKK": 357,
@@ -7108,7 +7750,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1640,
     "wholesalePriceDKK": 393,
@@ -7129,7 +7773,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1630,
     "wholesalePriceDKK": 357,
@@ -7150,7 +7796,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1620,
     "wholesalePriceDKK": 250,
@@ -7171,7 +7819,9 @@
     "groupId": "Software",
     "colorNames": "Daphne",
     "colorId": 572,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1610,
     "wholesalePriceDKK": 464,
@@ -7192,7 +7842,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1600,
     "wholesalePriceDKK": 357,
@@ -7213,7 +7865,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1590,
     "wholesalePriceDKK": 393,
@@ -7234,7 +7888,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1580,
     "wholesalePriceDKK": 357,
@@ -7255,7 +7911,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1570,
     "wholesalePriceDKK": 393,
@@ -7276,7 +7934,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1560,
     "wholesalePriceDKK": 357,
@@ -7297,7 +7957,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1550,
     "wholesalePriceDKK": 250,
@@ -7318,7 +7980,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1540,
     "wholesalePriceDKK": 357,
@@ -7339,7 +8003,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1530,
     "wholesalePriceDKK": 393,
@@ -7360,7 +8026,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1520,
     "wholesalePriceDKK": 357,
@@ -7381,7 +8049,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw8",
+    "filters": [
+      "rtw8"
+    ],
     "responsible": true,
     "weight": 1510,
     "wholesalePriceDKK": 393,
@@ -7402,7 +8072,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw9",
+    "filters": [
+      "rtw9"
+    ],
     "responsible": true,
     "weight": 1500,
     "wholesalePriceDKK": 357,
@@ -7423,7 +8095,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw11",
+    "filters": [
+      "rtw11"
+    ],
     "responsible": true,
     "weight": 1490,
     "wholesalePriceDKK": 250,
@@ -7444,7 +8118,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 1480,
     "wholesalePriceDKK": 285,
@@ -7465,7 +8141,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 1470,
     "wholesalePriceDKK": 285,
@@ -7486,7 +8164,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 1460,
     "wholesalePriceDKK": 285,
@@ -7507,7 +8187,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 1450,
     "wholesalePriceDKK": 285,
@@ -7528,7 +8210,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw1",
+    "filters": [
+      "rtw1"
+    ],
     "responsible": true,
     "weight": 1440,
     "wholesalePriceDKK": 285,
@@ -7549,7 +8233,9 @@
     "groupId": "Software",
     "colorNames": "White",
     "colorId": 1,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1430,
     "wholesalePriceDKK": 178,
@@ -7570,7 +8256,9 @@
     "groupId": "Software",
     "colorNames": "White",
     "colorId": 1,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1420,
     "wholesalePriceDKK": 178,
@@ -7591,7 +8279,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1410,
     "wholesalePriceDKK": 178,
@@ -7612,7 +8302,9 @@
     "groupId": "Software",
     "colorNames": "Black",
     "colorId": 99,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1400,
     "wholesalePriceDKK": 178,
@@ -7633,7 +8325,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1390,
     "wholesalePriceDKK": 178,
@@ -7654,7 +8348,9 @@
     "groupId": "Software",
     "colorNames": "Anise Flower",
     "colorId": 304,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1380,
     "wholesalePriceDKK": 178,
@@ -7675,7 +8371,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1370,
     "wholesalePriceDKK": 178,
@@ -7696,7 +8394,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1360,
     "wholesalePriceDKK": 178,
@@ -7717,7 +8417,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1350,
     "wholesalePriceDKK": 178,
@@ -7738,7 +8440,9 @@
     "groupId": "Software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1340,
     "wholesalePriceDKK": 178,
@@ -7759,7 +8463,9 @@
     "groupId": "Software",
     "colorNames": "Sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1330,
     "wholesalePriceDKK": 178,
@@ -7780,7 +8486,9 @@
     "groupId": "Software",
     "colorNames": "sky Captain",
     "colorId": 683,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1320,
     "wholesalePriceDKK": 178,
@@ -7801,7 +8509,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1310,
     "wholesalePriceDKK": 178,
@@ -7822,7 +8532,9 @@
     "groupId": "Software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
-    "Ja_filters": "rtw10",
+    "filters": [
+      "rtw10"
+    ],
     "responsible": true,
     "weight": 1300,
     "wholesalePriceDKK": 178,
@@ -7843,7 +8555,9 @@
     "groupId": "Software",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1290,
     "wholesalePriceDKK": 240,
@@ -7864,7 +8578,9 @@
     "groupId": "Software",
     "colorNames": "Phantom",
     "colorId": 252,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1280,
     "wholesalePriceDKK": 240,
@@ -7885,7 +8601,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1270,
     "wholesalePriceDKK": 240,
@@ -7906,7 +8624,9 @@
     "groupId": "Software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1260,
     "wholesalePriceDKK": 240,
@@ -7927,7 +8647,9 @@
     "groupId": "Software",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1250,
     "wholesalePriceDKK": 240,
@@ -7948,7 +8670,9 @@
     "groupId": "Software",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1240,
     "wholesalePriceDKK": 240,
@@ -7969,7 +8693,9 @@
     "groupId": "Software",
     "colorNames": "Hazel",
     "colorId": 933,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1230,
     "wholesalePriceDKK": 240,
@@ -7990,7 +8716,9 @@
     "groupId": "Software",
     "colorNames": "Hazel",
     "colorId": 933,
-    "Ja_filters": "acc5",
+    "filters": [
+      "acc5"
+    ],
     "responsible": true,
     "weight": 1220,
     "wholesalePriceDKK": 240,

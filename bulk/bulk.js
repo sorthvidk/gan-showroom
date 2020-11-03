@@ -6,10 +6,16 @@ const fs = require('fs')
 
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
-const patchCollection = item => ({ ...item })
+const patchCollection = item => {
+	return {
+		...item
+	}
+}
 
 fileMA.forEach(item => {
-	let fn = `../assets/content/mediaAssets/${dateString}-${item['assetId']}-${item['styleId']}.json`
+	let fn = `../assets/content/mediaAssets/${dateString}-${item[
+		'assetId'
+	].replace('/', '_')}-${item['styleId'].replace('/', '_')}.json`
 	fn = fn.replace(/ /g, '_')
 	fs.writeFile(fn, JSON.stringify(item), err => {
 		if (err) throw err
