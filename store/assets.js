@@ -182,7 +182,7 @@ export const state = () => ({
 	intro: [],
 
 	desktopBackground: {
-		color: 'rgb(234, 63, 247)',
+		color: '#d8aab7',
 		image: ''
 	}
 })
