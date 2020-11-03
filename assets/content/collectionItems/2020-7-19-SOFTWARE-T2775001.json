@@ -2,10 +2,10 @@
   "retailPriceUSD": 85,
   "assets": [],
   "program": 3491,
-  "colorNames": "White",
+  "colorNames": "White, Sweet Lilac, Sky Captain, Heather, Kalamata, Paloma Melange, Chicory Coffee",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2775001_T-shirt",
-  "styleId": "T2775001",
+  "name": "T27751_T-shirt",
+  "styleId": "T27751",
   "drop": "SOFTWARE",
   "programName": "Thin Software Jersey",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 65,
   "retailPriceDKK": 499,
-  "colorId": 1
+  "colorId": "001, 465, 683, 694, 861, 921, 979"
 }

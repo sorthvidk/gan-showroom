@@ -2,10 +2,10 @@
   "retailPriceUSD": 115,
   "assets": [],
   "program": 3490,
-  "colorNames": "Black",
+  "colorNames": "Black, Egret, Sweet Lilac, Paloma Melange",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2815099_Shorts",
-  "styleId": "T2815099",
+  "name": "T28151_Shorts",
+  "styleId": "T28151",
   "drop": "SOFTWARE",
   "programName": "Software Isoli",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 95,
   "retailPriceDKK": 699,
-  "colorId": 99
+  "colorId": "099, 135, 465, 921"
 }

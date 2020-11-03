@@ -2,10 +2,10 @@
   "retailPriceUSD": 165,
   "assets": [],
   "program": 3490,
-  "colorNames": "Black",
+  "colorNames": "Black, Egret, Sky Captain, Heather, Kalamata, Paloma Melange, Chicory Coffee",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2770099_Sweatshirt",
-  "styleId": "T2770099",
+  "name": "T27701_Sweatshirt",
+  "styleId": "T27701",
   "drop": "SOFTWARE",
   "programName": "Software Isoli",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 145,
   "retailPriceDKK": 999,
-  "colorId": 99
+  "colorId": "099, 135, 683, 694, 861, 921, 979"
 }

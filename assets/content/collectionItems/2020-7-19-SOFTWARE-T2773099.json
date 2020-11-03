@@ -2,10 +2,10 @@
   "retailPriceUSD": 185,
   "assets": [],
   "program": 3490,
-  "colorNames": "Black",
+  "colorNames": "Black, Egret, Sweet Lilac, Sky Captain, Kalamata",
   "material": "50% Recycled Cot, 50% Recycled Poly",
-  "name": "T2773099_Oversized Hoodie",
-  "styleId": "T2773099",
+  "name": "T27731_Oversized Hoodie",
+  "styleId": "T27731",
   "drop": "SOFTWARE",
   "programName": "Software Isoli",
   "index": 0,
@@ -18,5 +18,5 @@
   "filters": [],
   "retailPriceEUR": 165,
   "retailPriceDKK": 1099,
-  "colorId": 99
+  "colorId": "099, 135, 465, 683, 861"
 }
