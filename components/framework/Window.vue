@@ -20,9 +20,13 @@
 			:h="computedSizeH"
 		>
 			<header class="window__top">
-				<span class="title" @touchstart="titleClick" @mouseDown="titleClick">{{
-					title
-				}}</span>
+				<span class="title" @touchstart="titleClick" @mouseDown="titleClick"
+					>{{ title }}&nbsp;
+					<p v-if="contentComponent === 'collection'">
+						({{ currentStyles.length }})
+					</p>
+					<p v-if="contentComponent === 'wish-list'">({{ wishList.length }})</p>
+				</span>
 				<button
 					:style="{
 						lineHeight: 0,
@@ -48,12 +52,12 @@
 				class="window__status"
 				@click="contentActivateHandler"
 			>
-				<component :is="statusComponent" v-bind="{ ...statusComponentProps }" />
+				<component :is="statusComponent" v-bind="statusComponentProps" />
 			</div>
 
 			<!-- <hr v-if="statusComponent" /> -->
 
-			<div class="window__content" @click="contentActivateHandler">
+			<div v-bar class="window__content" @click="contentActivateHandler">
 				<component
 					:is="contentComponent"
 					:parent-window-id="windowId"
@@ -198,6 +202,7 @@ export default {
 	},
 	computed: {
 		...mapState('puzzle', ['puzzle']),
+		...mapState('collection', ['currentStyles', 'wishList']),
 		computedPositionX() {
 			return this.x > -1 ? this.x : this.positionX
 		},

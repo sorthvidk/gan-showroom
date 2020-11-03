@@ -23,6 +23,7 @@ export const puzzle = async ({
 	attraction = 20,
 	size = 0.8,
 	draggable = false,
+	onInit = () => {},
 	onComplete = () => {},
 	onChange: cb = () => {}
 }) => {
@@ -60,6 +61,8 @@ export const puzzle = async ({
 
 	// initial paint
 	state = restore.puzzle ? pipe(paint)(state) : pipe(shuffle, paint)(state)
+
+	onInit(state)
 
 	// user interactions
 	const eventListeners = [

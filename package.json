@@ -19,7 +19,8 @@
 		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate",
-		"cmsdev": "npx netlify-cms-proxy-server"
+		"cmsdev": "npx netlify-cms-proxy-server",
+		"bulk": "cd bulk && node bulk.js && cd .."
 	},
 	"repository": {
 		"type": "git",
@@ -47,6 +48,7 @@
 		"vue-typer": "^1.2.0",
 		"vue-visibility-change": "^1.2.1",
 		"vue-web-cam": "^1.9.0",
+		"vuebar": "^0.0.20",
 		"vuex-persistedstate": "^3.0.1"
 	},
 	"devDependencies": {

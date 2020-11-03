@@ -9,7 +9,6 @@
 		overflow: hidden;
 		overflow-y: scroll;
 		max-height: 100%;
-		@include smiley-scrollbar();
 	}
 
 	position: relative;
@@ -27,7 +26,7 @@
 
 		overflow: hidden;
 		overflow-y: auto;
-		@include smiley-scrollbar();
+
 		&__item {
 			display: flex;
 			justify-content: space-between;
@@ -95,10 +94,9 @@
 
 		padding-left: rem(215);
 
-		overflow: hidden;
-		overflow-y: auto;
+		// overflow: hidden;
+		// overflow-y: auto;
 		max-height: 100%;
-		@include smiley-scrollbar();
 
 		.inner {
 			padding-top: rem(28);

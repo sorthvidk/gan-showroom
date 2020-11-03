@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100%;
 
-	display: flex;
+	display: flex !important;
 	align-items: center;
 	justify-content: center;
 
@@ -18,6 +18,11 @@
 	canvas {
 		width: inherit;
 		height: inherit;
+	}
+
+	p {
+		@include desktop-text();
+		color: $color-green;
 	}
 
 	&-buttons {
@@ -66,6 +71,45 @@
 					text-decoration: none;
 				}
 			}
+		}
+	}
+}
+
+[class|='confetti'] {
+	position: absolute;
+}
+
+$colors: (
+	$color-pf21-blue,
+	$color-pf21-yellow,
+	$color-pf21-green,
+	$color-pf21-lilac,
+	$color-pf21-lightblue,
+	$color-pf21-purple
+);
+
+@for $i from 0 through 150 {
+	$w: random(32);
+	$l: random(100);
+	.confetti-#{$i} {
+		width: #{$w}px;
+		height: #{$w * 0.4}px;
+		background-color: nth($colors, random(6));
+		top: -10%;
+		left: unquote($l + '%');
+		opacity: random() + 0.5;
+		transform: rotate(#{random() * 360}deg);
+		animation: drop-#{$i}
+			unquote(2 + random() * 4 + 's')
+			unquote(random() * 6 + 's')
+			infinite
+			ease-in;
+	}
+
+	@keyframes drop-#{$i} {
+		100% {
+			top: 110%;
+			left: unquote($l + random(15) - random(30) + '%');
 		}
 	}
 }

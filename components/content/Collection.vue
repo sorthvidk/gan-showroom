@@ -7,7 +7,9 @@
 				v-for="(group, i) in groupsRenderList"
 				:key="'group' + i"
 			>
-				<h4 v-if="groupsRenderList.length">{{ group.name }}</h4>
+				<h4 v-if="groupsRenderList.length && group.styles.length">
+					{{ group.name }}
+				</h4>
 				<div>
 					<collection-item
 						v-for="(item, j) in group.styles"

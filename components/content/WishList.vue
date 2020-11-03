@@ -31,92 +31,107 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="!isMobile">
-				<div class="inner" v-if="wishList.length < 1">
-					<p>Your wish list is empty!</p>
-				</div>
-				<div
-					class="inner"
-					v-if="
-						currentWishListItem &&
-							currentWishListItem.assets &&
-							currentWishListItem.assets.length > 0
-					"
-					:key="currentWishListIndex"
-				>
-					<single-image
-						:asset="currentWishListItem.assets[0]"
-						:parent-window-id="parentWindowId"
-					/>
+				<div v-bar>
+					<div class="inner" v-if="wishList.length < 1">
+						<p>Your wish list is empty!</p>
+					</div>
+					<div
+						class="inner"
+						v-if="
+							currentWishListItem &&
+								currentWishListItem.assets &&
+								currentWishListItem.assets.length > 0
+						"
+						:key="currentWishListIndex"
+					>
+						<single-image
+							:asset="currentWishListItem.assets[0]"
+							:parent-window-id="parentWindowId"
+						/>
 
-					<h3>{{ currentWishListItem.name }}</h3>
-					<button class="button" @click="removeItemHandler">
-						Remove from wishlist
-					</button>
+						<h3>{{ currentWishListItem.name }}</h3>
+						<button class="button" @click="removeItemHandler">
+							Remove from wishlist
+						</button>
 
-					<table>
-						<tbody>
-							<tr>
-								<th>Name</th>
-								<td>{{ currentWishListItem.name }}</td>
-							</tr>
-							<tr>
-								<th>Color</th>
-								<td>{{ currentWishListItem.colorNames }}</td>
-							</tr>
-							<tr>
-								<th>Material</th>
-								<td>{{ currentWishListItem.material }}</td>
-							</tr>
-							<tr>
-								<th>Style #</th>
-								<td>{{ currentWishListItem.styleId }}</td>
-							</tr>
-							<tr>
-								<th>Program #</th>
-								<td>{{ currentWishListItem.program }}</td>
-							</tr>
-							<tr>
-								<th>Program name</th>
-								<td>{{ currentWishListItem.programName }}</td>
-							</tr>
+						<table>
+							<tbody>
+								<tr>
+									<th>Name</th>
+									<td>{{ currentWishListItem.name }}</td>
+								</tr>
+								<tr>
+									<th>Color</th>
+									<td>{{ currentWishListItem.colorNames }}</td>
+								</tr>
+								<tr>
+									<th>Material</th>
+									<td>{{ currentWishListItem.material }}</td>
+								</tr>
+								<tr>
+									<th>Style #</th>
+									<td>{{ currentWishListItem.styleId }}</td>
+								</tr>
+								<tr>
+									<th>Program #</th>
+									<td>{{ currentWishListItem.program }}</td>
+								</tr>
+								<tr>
+									<th>Program name</th>
+									<td>{{ currentWishListItem.programName }}</td>
+								</tr>
 
-							<tr>
-								<th>&nbsp;</th>
-								<td>&nbsp;</td>
-							</tr>
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
 
-							<tr v-if="SHOW_WHOLESALE_PRICE">
-								<th>Wholesale price</th>
-								<td>DKK {{ currentWishListItem.wholesalePriceDKK }}</td>
-							</tr>
-							<tr v-if="SHOW_WHOLESALE_PRICE">
-								<th>Wholesale price</th>
-								<td>EUR {{ currentWishListItem.wholesalePriceEUR }}</td>
-							</tr>
-							<tr v-if="SHOW_WHOLESALE_PRICE">
-								<th>Wholesale price</th>
-								<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
-							</tr>
+								<tr v-if="SHOW_WHOLESALE_PRICE">
+									<th>Wholesale price</th>
+									<td>DKK {{ currentWishListItem.wholesalePriceDKK }}</td>
+								</tr>
+								<tr v-if="SHOW_WHOLESALE_PRICE">
+									<th>Wholesale price</th>
+									<td>EUR {{ currentWishListItem.wholesalePriceEUR }}</td>
+								</tr>
+								<tr v-if="SHOW_WHOLESALE_PRICE">
+									<th>Wholesale price</th>
+									<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
+								</tr>
+								<tr
+									v-if="
+										currentWishListItem.wholesalePriceGBP &&
+											SHOW_WHOLESALE_PRICE
+									"
+								>
+									<th>Wholesale price</th>
+									<td>GBP {{ currentWishListItem.wholesalePriceGBP }}</td>
+								</tr>
 
-							<tr>
-								<th>&nbsp;</th>
-								<td>&nbsp;</td>
-							</tr>
+								<tr>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+								</tr>
 
-							<tr>
-								<th>Suggested retail price</th>
-								<td>DKK {{ currentWishListItem.retailPriceDKK }}</td>
-							</tr>
-							<tr>
-								<th>Suggested retail price</th>
-								<td>EUR {{ currentWishListItem.retailPriceEUR }}</td>
-							</tr>
-							<tr>
-								<th>Suggested retail price</th>
-								<td>USD {{ currentWishListItem.retailPriceUSD }}</td>
-							</tr>
-						</tbody>
-					</table>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>DKK {{ currentWishListItem.retailPriceDKK }}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>EUR {{ currentWishListItem.retailPriceEUR }}</td>
+								</tr>
+								<tr>
+									<th>Suggested retail price</th>
+									<td>USD {{ currentWishListItem.retailPriceUSD }}</td>
+								</tr>
+								<tr v-if="currentWishListItem.retailPriceGBP">
+									<th>Suggested retail price</th>
+									<td>GBP {{ currentWishListItem.retailPriceGBP }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</transition>

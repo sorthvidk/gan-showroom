@@ -1,0 +1,21 @@
+{
+  "styleId": "A3296_196",
+  "name": "A3296_196_Drawstring Tote",
+  "program": 5643,
+  "programName": "Fishnet",
+  "material": "50% Organic cotton, 50% polyester",
+  "groupId": "drop-1",
+  "colorNames": "Brazilian sand",
+  "colorId": 196,
+  "filters": ["acc2"],
+  "responsible": true,
+  "weight": 4380,
+  "wholesalePriceDKK": 720,
+  "wholesalePriceEUR": 102,
+  "wholesalePriceUSD": 123,
+  "wholesalePriceGPB": 90,
+  "retailPriceDKK": 1799,
+  "retailPriceEUR": 255,
+  "retailPriceUSD": 295,
+  "retailPriceGBP": 225
+}

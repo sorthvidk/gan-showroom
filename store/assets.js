@@ -182,7 +182,7 @@ export const state = () => ({
 	intro: [],
 
 	desktopBackground: {
-		color: 'rgb(234, 63, 247)',
+		color: '#d8aab7',
 		image: ''
 	}
 })
@@ -274,11 +274,12 @@ export const mutations = {
 
 	[DESKTOP_FETCH.mutation](state, data) {
 		const colors = [
-			'rgb(234, 63, 247)',
-			'rgb(255, 253, 84)',
-			'rgb(117, 249, 76)',
-			'rgb(235, 50, 35)',
-			'rgb(0, 35, 245)'
+			'#0f5f9a',
+			'#fae199',
+			'#349c5e',
+			'#d8aab7',
+			'#93b7d5',
+			'#de5b8c'
 		]
 
 		state.desktop = data.map((item, i) => ({

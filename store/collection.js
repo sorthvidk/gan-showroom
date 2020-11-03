@@ -114,7 +114,7 @@ export const mutations = {
 		for (var i = 0; i < al; i++) {
 			let asset = state.allMediaAssets[i]
 			let style = state.allStyles.filter(e => e.styleId === asset.styleId)[0]
-			if (style && style.assets) style.assets.push(asset)
+			if (style) style.assets = [...(style.assets || []), asset]
 			else if (window.GS_LOGS)
 				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
 		}
@@ -122,7 +122,11 @@ export const mutations = {
 		//sort style assets to have onTop asset first in assets array
 		for (var j = 0; j < cl; j++) {
 			let style = state.allStyles[j]
-			if (style.assets.length === 0) {
+			if (!style.assets) {
+				console.log(`Didn't find assets for: `, style)
+				return
+			}
+			if (style.assets && style.assets.length === 0) {
 				style.assets.push({
 					assetId: getUniqueId(),
 					styleId: style.styleId,
@@ -166,6 +170,17 @@ export const mutations = {
 			stateGroup.styles.push(clonedStyle)
 		}
 
+		const validJSON = json =>
+			/^[\],:{}\s]*$/.test(
+				json
+					.replace(/\\["\\\/bfnrtu]/g, '@')
+					.replace(
+						/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+						']'
+					)
+					.replace(/(?:^|:|,)(?:\s*\[)+/g, '')
+			)
+
 		//parse groups
 		for (var j = 0; j < gl; j++) {
 			let stateGroup = state.allGroups[j]
@@ -189,7 +204,9 @@ export const mutations = {
 					// ==================================================================
 
 					//clone filter, check for existence in stateGroup.filters, then add
-					let clonedFilter = JSON.parse(JSON.stringify(stateFilter))
+					let clonedFilter = stateFilter
+						? JSON.parse(JSON.stringify(stateFilter))
+						: {}
 					var foundStateGroupFilter = stateGroup.filters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
@@ -236,7 +253,9 @@ export const mutations = {
 					// ==================================================================
 
 					//clone again, check for existence in referencedFilters array
-					let clonedFilter2 = JSON.parse(JSON.stringify(stateFilter))
+					let clonedFilter2 = stateFilter
+						? JSON.parse(JSON.stringify(stateFilter))
+						: {}
 					var foundReferencedFilter = state.referencedFilters.filter(
 						e => e.filterId === styleFilterId
 					)[0]

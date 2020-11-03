@@ -341,16 +341,16 @@ export default {
 		name: 'wishList',
 		contentComponent: 'wish-list',
 		contentScore: 15,
-		statusComponent: 'status-wish-list',
+		// statusComponent: 'status-wish-list',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
 					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+					h: 640 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.LARGE.name]: {
 					w: 705 + WINDOW_DEFAULT_CHROME_WIDTH,
-					h: 600 + WINDOW_DEFAULT_CHROME_HEIGHT
+					h: 640 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			},
