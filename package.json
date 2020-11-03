@@ -19,7 +19,8 @@
 		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate",
-		"cmsdev": "npx netlify-cms-proxy-server"
+		"cmsdev": "npx netlify-cms-proxy-server",
+		"bulk": "cd bulk && node bulk.js && cd .."
 	},
 	"repository": {
 		"type": "git",
