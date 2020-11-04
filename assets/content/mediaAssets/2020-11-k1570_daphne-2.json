@@ -4,7 +4,7 @@
   "name": "K1570_572_Top",
   "styleId": "K1570_572",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
