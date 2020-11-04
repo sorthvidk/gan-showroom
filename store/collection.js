@@ -123,7 +123,9 @@ export const mutations = {
 		for (var j = 0; j < cl; j++) {
 			let style = state.allStyles[j]
 			if (!style.assets) {
-				console.log(`Didn't find assets for: `, style)
+				if (window.GS_LOGS) {
+					console.log(`Didn't find assets for: `, style)
+				}
 				return
 			}
 			if (style.assets && style.assets.length === 0) {
@@ -157,7 +159,9 @@ export const mutations = {
 			)[0]
 
 			if (!stateGroup) {
-				console.log(`style is part of non-existing group: ${style.groupId}`)
+				if (window.GS_LOGS) {
+					console.log(`style is part of non-existing group: ${style.groupId}`)
+				}
 				return
 			}
 
@@ -191,7 +195,9 @@ export const mutations = {
 			for (var k = 0; k < gsl; k++) {
 				let style = stateGroup.styles[k]
 				let styleId = style.styleId
-				console.warn('PARSE STYLE ' + styleId)
+				if (window.GS_LOGS) {
+					console.warn('PARSE STYLE ' + styleId)
+				}
 				//extrapolate filters from styles
 				let fl = style.filters.length
 				for (var l = 0; l < fl; l++) {
@@ -199,7 +205,9 @@ export const mutations = {
 					let stateFilter = state.allFilters.filter(
 						e => e.filterId === styleFilterId
 					)[0]
-					console.warn('PARSE STYLE FILTER ' + styleFilterId, stateFilter)
+					if (window.GS_LOGS) {
+						console.warn('PARSE STYLE FILTER ' + styleFilterId, stateFilter)
+					}
 
 					// ==================================================================
 

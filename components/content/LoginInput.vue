@@ -2,7 +2,12 @@
 	<div class="login-input" @click="() => (animate = true)">
 		<fullpage-slide-show :animate="animate" />
 
-		<div>
+		<div
+			:style="{
+				transition: 'all 0.2s',
+				transform: `translateY(${!cookiesAccepted ? '-134px' : '0'})`
+			}"
+		>
 			<div class="logo-container">
 				<div
 					:style="{
@@ -143,7 +148,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState('user', ['loggedIn', 'passwords'])
+		...mapState('user', ['loggedIn', 'passwords', 'cookiesAccepted'])
 	},
 	methods: {
 		...mapActions('user', [LOGIN.action]),
