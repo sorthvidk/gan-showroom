@@ -2,11 +2,7 @@
 backend:
   name: git-gateway
   branch: master
-
-# used for production:
-# backend:
-#   name: git-gateway
-#   branch: staging
+  publish_mode: editorial_workflow
 
 # when using the default proxy server port
 # local_backend: true
@@ -893,6 +889,7 @@ collections:
 
   - name: 'intro'
     summary: '{{cloudinaryUrl}}'
+    identifier_field: label
     label: 'Intro slideshow'
     folder: 'assets/content/intro'
     create: true
@@ -927,6 +924,7 @@ collections:
 
   - name: 'desktop'
     label: 'Desktop images'
+    identifier_field: label
     summary: '{{cloudinaryUrl}}'
     folder: 'assets/content/desktop'
     create: true
