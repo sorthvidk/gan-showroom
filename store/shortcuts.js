@@ -195,54 +195,42 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Welcome to the GANNI Space! Check out the ',
-			label: 'PS21 Collection',
-			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
+			text: 'A loveletter to Copenhagen through artist ',
+			label: 'Ana Kraš lens',
 			windowContent: [
 				{
-					title: 'PS21 collection',
-					contentId: 'collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Take a look at the ',
-			label: 'Elevated Lookbook',
-			windowContent: [
-				{
-					title: 'GANNI LookBook',
-					contentId: 'look-book',
+					title: `Ana's Copenhagen`,
+					contentId: 'anas', // should match assets[contentId] to define content
 					type: ContentTypes.lookBook,
-					statusComponentProps: {
-						text: 'Photo credit: Jakob Landvik'
+					assistant: {
+						mode: AssistantModes.CUSTOM
 					}
 				}
 			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Check out the ',
-			label: 'Design Darlings',
+			text: 'Feel Complete. Piece together ',
+			label: 'our puzzle',
+			windowContent: [
+				{
+					title: 'Puzzle',
+					contentId: 'puzzle',
+					type: ContentTypes.puzzle,
+					assistant: {
+						mode: AssistantModes.PUZZLE
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Don’t miss our latest drop of ',
+			label: 'GANNI Software',
 			actions: [
 				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc2'
-				},
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+					param: 'software'
 				}
 			],
 			windowContent: [
@@ -256,6 +244,12 @@ export const state = () => ({
 					}
 				}
 			]
+		},
+
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Remember to collect your ',
+			label: 'digital goodiebag before you leave'
 		},
 
 		{
