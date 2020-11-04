@@ -315,49 +315,49 @@ collections:
 
       - label: 'Dresses'
         field: filters
-        pattern: 'dresses'
+        pattern: 'Dresses'
       - label: 'Denim'
         field: filters
-        pattern: 'denim'
+        pattern: 'Denim'
       - label: 'Coats / Jackets'
         field: filters
-        pattern: 'coats-jackets'
+        pattern: 'Coats / Jackets'
       - label: 'Jersey'
         field: filters
-        pattern: 'jersey'
+        pattern: 'Jersey'
       - label: 'Knitwear'
         field: filters
-        pattern: 'knitwear'
+        pattern: 'Knitwear'
       - label: 'Skirts'
         field: filters
-        pattern: 'skirts'
+        pattern: 'Skirts'
       - label: 'Suiting'
         field: filters
-        pattern: 'suiting'
+        pattern: 'Suiting'
       - label: 'Tops'
         field: filters
-        pattern: 'tops'
+        pattern: 'Tops'
       - label: 'Trousers'
         field: filters
-        pattern: 'trousers'
+        pattern: 'Trousers'
       - label: 'T-Shirts'
         field: filters
-        pattern: 't-shirts'
+        pattern: 'T-Shirts'
       - label: 'Accessories'
         field: filters
-        pattern: 'accessories'
+        pattern: 'Accessories'
       - label: 'Bags'
         field: filters
-        pattern: 'bags'
+        pattern: 'Bags'
       - label: 'Shoes'
         field: filters
-        pattern: 'shoes'
+        pattern: 'Shoes'
       - label: 'Swimwear'
         field: filters
-        pattern: 'swimwear'
+        pattern: 'Swimwear'
       - label: 'Underwear'
         field: filters
-        pattern: 'underwear'
+        pattern: 'Underwear'
     editor:
       preview: false
     fields:
