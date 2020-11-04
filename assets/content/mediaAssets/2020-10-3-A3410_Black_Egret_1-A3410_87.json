@@ -1,1 +1,12 @@
-{"assetId":"A3410_Black/Egret 1","styleId":"A3410_87","name":"A3410_87_Scarf","type":"image","aspect":"portrait","onTop":true,"visible":true,"groupId":"drop-1","filters":"Accessories"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604440368/PF21_21.2/packshots_collection/A3410_5676_087_zx309b.jpg",
+  "assetId": "A3410_Black/Egret 1",
+  "name": "A3410_87_Scarf",
+  "styleId": "A3410_87",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Accessories"
+}
