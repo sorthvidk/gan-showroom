@@ -6,7 +6,7 @@
   "visible": true,
   "onTop": false,
   "aspect": "portrait",
-  "type": "image",
+  "type": "video",
   "groupId": "drop-1",
   "filters": "Tops"
 }
