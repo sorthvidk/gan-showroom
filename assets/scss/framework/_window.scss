@@ -61,25 +61,28 @@
 		justify-content: space-between;
 		align-items: center;
 
+		border-bottom: rem(1) solid $color-black;
+
 		.title {
-			flex: 1 1 100%;
+			// flex: 1 1 100%;
 			padding: rem(5);
 			padding-right: rem(20);
+			margin: 0 auto;
 			overflow: hidden;
-			border-bottom: rem(1) solid $color-black;
+			// border-bottom: rem(1) solid $color-black;
 
 			min-height: rem(20);
 
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			text-align: center;
+			// text-align: center;
 			// @include bevel();
 			@include windowtitle();
 
 			cursor: grab;
 
-			display: flex;
-			justify-content: center;
+			// display: flex;
+			// justify-content: center;
 
 			text-align: center;
 
@@ -87,6 +90,10 @@
 
 			// min-height: rem(30);
 			box-sizing: border-box;
+
+			p {
+				display: inline-block;
+			}
 		}
 		.button {
 			@include window-button();

@@ -23,11 +23,11 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					name: 'collection/' + SET_GROUP_BY_INDEX.action,
+					param: -1
 				},
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: 'assistant/' + ASSISTANT_MODE.action,
 					param: AssistantModes.FILTER_COLLECTION
@@ -166,7 +166,7 @@ export const state = () => ({
 				},
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'rtw10'
+					param: 'misc2'
 				}
 			],
 			windowContent: [
@@ -195,54 +195,42 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Welcome to the GANNI Space! Check out the ',
-			label: 'PS21 Collection',
-			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
-				}
-			],
+			text: 'A loveletter to Copenhagen through artist ',
+			label: 'Ana Kraš lens',
 			windowContent: [
 				{
-					title: 'PS21 collection',
-					contentId: 'collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Take a look at the ',
-			label: 'Elevated Lookbook',
-			windowContent: [
-				{
-					title: 'GANNI LookBook',
-					contentId: 'look-book',
+					title: `Ana's Copenhagen`,
+					contentId: 'anas', // should match assets[contentId] to define content
 					type: ContentTypes.lookBook,
-					statusComponentProps: {
-						text: 'Photo credit: Jakob Landvik'
+					assistant: {
+						mode: AssistantModes.CUSTOM
 					}
 				}
 			]
 		},
 		{
 			type: ShortcutTypes.MARQUEE,
-			text: 'Check out the ',
-			label: 'Design Darlings',
+			text: 'Feel Complete. Piece together ',
+			label: 'our puzzle',
+			windowContent: [
+				{
+					title: 'Puzzle',
+					contentId: 'puzzle',
+					type: ContentTypes.puzzle,
+					assistant: {
+						mode: AssistantModes.PUZZLE
+					}
+				}
+			]
+		},
+		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Don’t miss our latest drop of ',
+			label: 'GANNI Software',
 			actions: [
 				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc2'
-				},
-				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+					param: 'software'
 				}
 			],
 			windowContent: [
@@ -259,10 +247,16 @@ export const state = () => ({
 		},
 
 		{
+			type: ShortcutTypes.MARQUEE,
+			text: 'Remember to collect your ',
+			label: 'digital goodiebag before you leave'
+		},
+
+		{
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'puzzle',
 			label: 'Puzzle',
-			icon: '/img/shortcuts/Expert_level_puzzle.png',
+			icon: '/img/shortcuts/Expert_level_puzzle_bw.png',
 			posH: 10,
 			posV: 5,
 			windowContent: [
@@ -280,7 +274,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'music-player',
-			icon: '/img/shortcuts/Hits_for_buyers.png',
+			icon: '/img/shortcuts/Hits_for_buyers_bw.png',
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
@@ -292,6 +286,23 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
+		},
+
+		{
+			type: ShortcutTypes.BADGE,
+			shortcutId: 'download',
+			icon: '/img/shortcuts/download.png',
+			label: 'Download',
+			posH: 1,
+			posV: 2
+			// windowContent: [
+			// 	{
+			// 		title: 'GANNI FM',
+			// 		contentId: 'ganni-fm',
+			// 		type: ContentTypes.musicPlayer,
+			// 		canOverride: true
+			// 	}
+			// ]
 		}
 	]
 })
