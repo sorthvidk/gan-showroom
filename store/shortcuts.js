@@ -294,15 +294,15 @@ export const state = () => ({
 			icon: '/img/shortcuts/download.png',
 			label: 'Download',
 			posH: 1,
-			posV: 2
-			// windowContent: [
-			// 	{
-			// 		title: 'GANNI FM',
-			// 		contentId: 'ganni-fm',
-			// 		type: ContentTypes.musicPlayer,
-			// 		canOverride: true
-			// 	}
-			// ]
+			posV: 2,
+			windowContent: [
+				{
+					title: 'Download',
+					contentId: 'download-modal',
+					type: ContentTypes.download,
+					canOverride: true
+				}
+			]
 		}
 	]
 })

@@ -1,17 +1,18 @@
 <template>
 	<div class="login-input" @click="() => (animate = true)">
-		<fullpage-slide-show :animate="animate" />
+		<fullpage-slide-show :animate="animate || cookiesAccepted" />
 
 		<div
 			:style="{
-				transition: 'all 0.2s',
-				transform: `translateY(${!cookiesAccepted ? '-134px' : '0'})`
+				transition: 'all 4s',
+				transform: `translateY(${!cookiesAccepted ? '-94px' : '0'})`
 			}"
 		>
 			<div class="logo-container">
 				<div
 					:style="{
-						animationPlayState: animate ? 'running' : 'paused',
+						animationPlayState:
+							animate || cookiesAccepted ? 'running' : 'paused',
 						animationName: i > 2 ? 'up' : 'down',
 						animationDirection: i > 2 ? 'reverse' : 'normal'
 					}"
@@ -32,7 +33,8 @@
 					</svg>
 					<svg
 						:style="{
-							animationPlayState: animate ? 'running' : 'paused',
+							animationPlayState:
+								animate || cookiesAccepted ? 'running' : 'paused',
 							animationName: i > 2 ? 'up' : 'down',
 							animationDirection: i > 2 ? 'reverse' : 'normal'
 						}"
@@ -48,7 +50,8 @@
 					</svg>
 					<svg
 						:style="{
-							animationPlayState: animate ? 'running' : 'paused',
+							animationPlayState:
+								animate || cookiesAccepted ? 'running' : 'paused',
 							animationName: i > 2 ? 'up' : 'down',
 							animationDirection: i > 2 ? 'reverse' : 'normal'
 						}"
@@ -64,7 +67,8 @@
 					</svg>
 					<svg
 						:style="{
-							animationPlayState: animate ? 'running' : 'paused',
+							animationPlayState:
+								animate || cookiesAccepted ? 'running' : 'paused',
 							animationName: i > 2 ? 'up' : 'down',
 							animationDirection: i > 2 ? 'reverse' : 'normal'
 						}"
@@ -82,7 +86,9 @@
 				</svg> -->
 			</div>
 			<form
-				:style="{ animationPlayState: animate ? 'running' : 'paused' }"
+				:style="{
+					animationPlayState: animate || cookiesAccepted ? 'running' : 'paused'
+				}"
 				ref="form"
 				@submit.prevent="loginInput"
 				class="form"

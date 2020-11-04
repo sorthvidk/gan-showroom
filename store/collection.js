@@ -174,17 +174,6 @@ export const mutations = {
 			stateGroup.styles.push(clonedStyle)
 		}
 
-		const validJSON = json =>
-			/^[\],:{}\s]*$/.test(
-				json
-					.replace(/\\["\\\/bfnrtu]/g, '@')
-					.replace(
-						/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
-						']'
-					)
-					.replace(/(?:^|:|,)(?:\s*\[)+/g, '')
-			)
-
 		//parse groups
 		for (var j = 0; j < gl; j++) {
 			let stateGroup = state.allGroups[j]

@@ -455,5 +455,22 @@ export default {
 			canResize: false,
 			modifierClass: 'window--tight'
 		}
+	},
+
+	download: {
+		name: 'download',
+		contentComponent: 'download-modal',
+		contentScore: 0,
+		// statusComponent: 'status-static',
+		defaultWindowProps: {
+			sizes: {
+				[ViewportSizes.XLARGE.name]: { w: 400, h: 160 },
+				[ViewportSizes.LARGE.name]: { w: 400, h: 160 },
+				[ViewportSizes.SMALL.name]: { w: 400, h: 160 }
+			},
+			// noStatus: true,
+			canResize: false,
+			modifierClass: 'window--tight'
+		}
 	}
 }

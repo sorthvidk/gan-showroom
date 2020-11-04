@@ -1,0 +1,28 @@
+.download-modal {
+	display: flex !important;
+	box-sizing: border-box !important;
+	padding: 2em;
+
+	.icon {
+		flex-shrink: 0;
+	}
+
+	img {
+		@keyframes spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+		animation: spin 3s infinite forwards linear;
+		width: 40px;
+		height: auto;
+		margin-right: 2em;
+	}
+
+	p,
+	a {
+		@include bodytext();
+
+		margin-bottom: 1em;
+	}
+}
