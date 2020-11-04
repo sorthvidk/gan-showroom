@@ -4,7 +4,7 @@
   "name": "F5989_151_Smock Dress",
   "styleId": "F5989_151",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "video",
   "groupId": "drop-1",
