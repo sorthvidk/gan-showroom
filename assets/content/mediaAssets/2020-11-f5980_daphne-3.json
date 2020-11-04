@@ -4,7 +4,7 @@
   "name": "F5980_572_Oversized Sleeveless Shirt",
   "styleId": "F5980_572",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
