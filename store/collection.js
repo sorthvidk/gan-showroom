@@ -396,7 +396,7 @@ export const mutations = {
 				state.currentStyles,
 				'styleId'
 			)
-			console.log('newCurrentStyles', newCurrentStyles)
+
 			newCurrentStyles = newCurrentStyles.sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)

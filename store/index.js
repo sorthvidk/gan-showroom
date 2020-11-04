@@ -96,7 +96,6 @@ export const mutations = {
 			let alreadyExists =
 				state.content.list.filter(hasSame('contentId')).length > 0
 
-			console.log('FOUND IT!!', alreadyExists)
 			// don't open a window twice
 			if (alreadyExists) return
 

@@ -93,41 +93,48 @@ collections:
           name: 'name',
           widget: 'string',
           hint: "Product name ex. 'Pleated georgette'",
+          required: false,
         }
       - {
           label: 'Program',
           name: 'program',
           widget: 'number',
+          required: false,
           hint: "ID of program ex. '1972'",
         }
       - {
           label: 'Program Display name',
           name: 'programName',
           widget: 'string',
+          required: false,
           hint: "Display name of program ex. 'Stripe cotton'",
         }
       - {
           label: 'Material',
           name: 'material',
           widget: 'string',
+          required: false,
           hint: "Name of material ex. '100% organic cotton'",
         }
       - {
           label: 'Drop',
           name: 'drop',
           widget: 'string',
+          required: false,
           hint: "Label for drop ex. 'November'",
         }
       - {
           label: 'Color names',
           name: 'colorNames',
           widget: 'string',
+          required: false,
           hint: "Names of colors available ex. 'Brunnera Blue, Sunflower Yellow'",
         }
       - {
           label: 'Color Id',
           name: 'colorId',
           widget: 'string',
+          required: false,
           hint: "IDs of colors ex. '568' or '699,844'",
         }
       - {
@@ -191,6 +198,7 @@ collections:
           name: 'responsible',
           widget: 'boolean',
           hint: 'Check to show style as responsible',
+          required: false,
         }
       - {
           label: 'Weight',

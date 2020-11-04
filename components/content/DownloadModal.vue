@@ -9,9 +9,6 @@
 			</p>
 			<a :href="path" download>Download</a>
 		</div>
-		<!-- <button class="button ok" @click="copyrightMessageClickHandler">
-						OK
-					</button> -->
 	</div>
 </template>
 

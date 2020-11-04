@@ -249,7 +249,15 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Remember to collect your ',
-			label: 'digital goodiebag before you leave'
+			label: 'digital goodiebag before you leave',
+			windowContent: [
+				{
+					title: 'Download',
+					contentId: 'download-modal',
+					type: ContentTypes.download,
+					canOverride: true
+				}
+			]
 		},
 
 		{
