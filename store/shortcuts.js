@@ -23,11 +23,11 @@ export const state = () => ({
 			posH: 1,
 			posV: 1,
 			actions: [
-				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
-					name: 'collection/' + COLLECTION_LAYOUT_CHANGE.action,
-					param: CollectionLayouts.GRID
+					name: 'collection/' + SET_GROUP_BY_INDEX.action,
+					param: -1
 				},
+				{ name: 'collection/' + SET_CURRENT_FILTER.action, param: '' },
 				{
 					name: 'assistant/' + ASSISTANT_MODE.action,
 					param: AssistantModes.FILTER_COLLECTION
@@ -166,7 +166,7 @@ export const state = () => ({
 				},
 				{
 					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'rtw10'
+					param: 'misc2'
 				}
 			],
 			windowContent: [
@@ -262,7 +262,7 @@ export const state = () => ({
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'puzzle',
 			label: 'Puzzle',
-			icon: '/img/shortcuts/Expert_level_puzzle.png',
+			icon: '/img/shortcuts/Expert_level_puzzle_bw.png',
 			posH: 10,
 			posV: 5,
 			windowContent: [
@@ -280,7 +280,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.BADGE,
 			shortcutId: 'music-player',
-			icon: '/img/shortcuts/Hits_for_buyers.png',
+			icon: '/img/shortcuts/Hits_for_buyers_bw.png',
 			label: 'GANNI FM',
 			posH: 1,
 			posV: 2,
@@ -292,6 +292,23 @@ export const state = () => ({
 					canOverride: true
 				}
 			]
+		},
+
+		{
+			type: ShortcutTypes.BADGE,
+			shortcutId: 'download',
+			icon: '/img/shortcuts/download.png',
+			label: 'Download',
+			posH: 1,
+			posV: 2
+			// windowContent: [
+			// 	{
+			// 		title: 'GANNI FM',
+			// 		contentId: 'ganni-fm',
+			// 		type: ContentTypes.musicPlayer,
+			// 		canOverride: true
+			// 	}
+			// ]
 		}
 	]
 })
