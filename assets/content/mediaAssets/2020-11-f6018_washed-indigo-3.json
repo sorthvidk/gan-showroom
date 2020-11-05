@@ -4,7 +4,7 @@
   "name": "F6018_687_Shirt",
   "styleId": "F6018_687",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-2",
