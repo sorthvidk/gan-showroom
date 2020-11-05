@@ -4,7 +4,7 @@
   "name": "T2799_151_T-shirt, Flowers Light",
   "styleId": "T2799_151",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-3",
