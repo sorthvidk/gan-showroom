@@ -1,6 +1,11 @@
 <template>
 	<div class="gallery-video">
-		<video-player :video-url="assetUrl" :controls="true" :muted="false" />
+		<video-player
+			:video-url="assetUrl"
+			:controls="false"
+			:muted="true"
+			:autoPlay="true"
+		/>
 	</div>
 </template>
 
@@ -9,7 +14,7 @@ import VideoPlayer from '~/components/content/VideoPlayer.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
 export default {
-	name:'gallery-video',
+	name: 'gallery-video',
 	components: {
 		VideoPlayer
 	},
@@ -25,13 +30,13 @@ export default {
 	},
 	computed: {
 		assetUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset, {width: 700}, 2);
+			return getCloudinaryUrl(this.$cloudinary, this.asset, { width: 700 }, 2)
 		}
 	},
 	mounted() {
-		if ( this.focused ) {
-			setTimeout(()=> this.$el.scrollIntoView({behavior:'smooth'}), 500);
+		if (this.focused) {
+			setTimeout(() => this.$el.scrollIntoView({ behavior: 'smooth' }), 500)
 		}
 	}
-};
+}
 </script>
