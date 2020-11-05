@@ -4,7 +4,7 @@
   "name": "F6033_151_Wavy Shirt",
   "styleId": "F6033_151",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-3",
