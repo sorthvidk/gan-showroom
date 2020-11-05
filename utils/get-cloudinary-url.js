@@ -12,18 +12,18 @@ export default function(cl, asset, tf = {}, pixelDensity = 1) {
 
 			let aspect = 342 / 608
 			if (typeof transform.width != 'undefined') {
-				transform.height = Math.round(aspect * transform.width)
+				// transform.height = Math.round(aspect * transform.width)
 			} else {
 				transform.width = 608
-				transform.height = 342
+				// transform.height = 342
 				if (asset.aspect === 'portrait') {
 					transform.width = 274
-					transform.height = 417
+					// transform.height = 417
 				}
 			}
 
 			transform.width *= pixelDensity
-			transform.height *= pixelDensity
+			// transform.height *= pixelDensity
 
 			resultUrl = cl.video_url(parseUrl, transform)
 		} else {

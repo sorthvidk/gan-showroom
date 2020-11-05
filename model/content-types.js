@@ -17,7 +17,6 @@ export default {
 		name: 'exhibition',
 		contentComponent: 'exhibition',
 		contentScore: 0,
-		statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -251,15 +250,15 @@ export default {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
 					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+					h: 487 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				},
 				[ViewportSizes.LARGE.name]: {
 					w: 274 + WINDOW_TIGHT_CHROME_WIDTH,
-					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+					h: 487 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: {
-					w: 274,
-					h: 417 + WINDOW_NOSTATUS_CHROME_HEIGHT
+					w: 200,
+					h: 355 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				}
 			},
 			modifierClass: 'window--tight'
