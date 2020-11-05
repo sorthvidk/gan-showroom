@@ -5,7 +5,7 @@
 		</span>
 		<div>
 			<p>
-				You are about to download a zip archive!
+				Collect your digital goodiebag!
 			</p>
 			<a :href="path" download>Download</a>
 		</div>
