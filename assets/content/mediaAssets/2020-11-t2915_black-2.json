@@ -4,7 +4,7 @@
   "name": "T2915_99_Straight Leg Pants",
   "styleId": "T2915_99",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
