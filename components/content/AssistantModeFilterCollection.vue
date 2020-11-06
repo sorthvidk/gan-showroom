@@ -56,7 +56,7 @@ export default {
 		FilterButton
 	},
 	computed: {
-		...mapState('user', ['keyPressed']),
+		// ...mapState('user', ['keyPressed']),
 		...mapState('utils', ['isMobile']),
 		...mapState('assistant', ['expanded', 'pdfDownloadLink', 'texts']),
 		...mapState('collection', ['groupFilters', 'activeGroup', 'activeFilter']),

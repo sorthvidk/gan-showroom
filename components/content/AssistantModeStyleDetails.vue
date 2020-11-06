@@ -173,11 +173,13 @@ export default {
 	watch: {
 		keyPressed(event) {
 			if (event.key === 'ArrowLeft') {
-				this.previousStyleHandler()
+				// this.previousStyleHandler()
+				this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
 			}
 
 			if (event.key === 'ArrowRight') {
-				this.nextStyleHandler()
+				// this.nextStyleHandler()
+				this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
 			}
 
 			if (event.code === 'Space') {
@@ -215,12 +217,8 @@ export default {
 				sendTracking('Add to wish list', this.currentStyle.styleId)
 			}
 		},
-		previousStyleHandler() {
-			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
-		},
-		nextStyleHandler() {
-			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
-		},
+		previousStyleHandler() {},
+		nextStyleHandler() {},
 		viewWishListClickHandler() {
 			this[OPEN_WISH_LIST.action]()
 		}

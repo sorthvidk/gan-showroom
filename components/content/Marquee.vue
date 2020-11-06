@@ -6,6 +6,7 @@
 			<span v-for="link in marqueeLinks" :key="link.label">
 				{{ link.text }}
 				<button @click="openWindow(link)">{{ link.label }}</button>
+				{{ link.textAfter }}
 				&nbsp;&bull;&nbsp;
 			</span>
 		</p>

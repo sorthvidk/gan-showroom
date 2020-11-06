@@ -429,12 +429,13 @@ export const mutations = {
 		}
 	},
 	[SHOW_PREVIOUS_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
+		// let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		// console.log(styleId, listStyle, listStyle.index)
 	},
+
 	[SHOW_NEXT_STYLE.mutation](state, styleId) {
-		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
-		console.log(styleId, listStyle, listStyle.index)
+		// let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		// console.log(styleId, listStyle, listStyle.index)
 	},
 
 	[COLLECTION_LAYOUT_CHANGE.mutation](state, value) {
@@ -548,14 +549,17 @@ export const actions = {
 		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		const groupStyles = state.currentStyles.filter(
+			e => e.groupId === listStyle.groupId
+		)
 
-		if (!listStyle) return false
+		if (!groupStyles) return false
 
-		let styleCount = state.currentStyles.length,
-			listStyleIndex = state.currentStyles.indexOf(listStyle),
+		let styleCount = groupStyles.length,
+			listStyleIndex = groupStyles.indexOf(listStyle),
 			index = listStyleIndex,
 			nextIndex = index === 0 ? styleCount - 1 : index - 1,
-			prevStyle = state.currentStyles[nextIndex]
+			prevStyle = groupStyles[nextIndex]
 
 		if (prevStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, prevStyle.styleId, {
@@ -571,14 +575,17 @@ export const actions = {
 		)
 
 		let listStyle = state.currentStyles.filter(e => e.styleId === styleId)[0]
+		const groupStyles = state.currentStyles.filter(
+			e => e.groupId === listStyle.groupId
+		)
 
-		if (!listStyle) return false
+		if (!groupStyles) return false
 
-		let styleCount = state.currentStyles.length,
-			listStyleIndex = state.currentStyles.indexOf(listStyle),
+		let styleCount = groupStyles.length,
+			listStyleIndex = groupStyles.indexOf(listStyle),
 			index = listStyleIndex,
 			nextIndex = index === styleCount - 1 ? 0 : index + 1,
-			nextStyle = state.currentStyles[nextIndex]
+			nextStyle = groupStyles[nextIndex]
 
 		if (nextStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, nextStyle.styleId, {

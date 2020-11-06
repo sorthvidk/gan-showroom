@@ -1,5 +1,5 @@
 <template>
-	<div :oncontextmenu="!__prod__">
+	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<!-- TO PREVENT DOWNLOADS -->
 		<login v-if="!loggedIn" />
 		<desktop v-else />

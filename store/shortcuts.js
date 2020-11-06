@@ -249,7 +249,8 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.MARQUEE,
 			text: 'Remember to collect your ',
-			label: 'digital goodiebag before you leave',
+			label: 'digital goodiebag',
+			textAfter: ' before you leave',
 			windowContent: [
 				{
 					title: 'Download',
