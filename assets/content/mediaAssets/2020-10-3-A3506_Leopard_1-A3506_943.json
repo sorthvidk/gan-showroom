@@ -1,1 +1,12 @@
-{"assetId":"A3506_Leopard 1","styleId":"A3506_943","name":"A3506_943_Cap","type":"image","aspect":"portrait","onTop":true,"visible":true,"groupId":"drop-1","filters":"Hats"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604692200/PF21_21.2/packshots_drawings/A3506_943_hwzohl.png",
+  "assetId": "A3506_Leopard 1",
+  "name": "A3506_943_Cap",
+  "styleId": "A3506_943",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Hats"
+}
