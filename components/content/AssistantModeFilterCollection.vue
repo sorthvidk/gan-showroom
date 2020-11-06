@@ -32,8 +32,9 @@
 			<a
 				class="button download-collection button--half"
 				@click="downloadCollection"
-				:href="pdfDownloadLink"
+				:href="`${pdfDownloadLink}&url=${encodeURIComponent(collectionUrl)}`"
 			>
+				<!-- :href="pdfDownloadLink" -->
 				<p>{{ downloadCollectionButtonLabel }}</p>
 			</a>
 		</div>
@@ -97,16 +98,16 @@ export default {
 		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
-			SET_NEXT_GROUP.action,
-			DOWNLOAD_PREPARING.action
+			SET_NEXT_GROUP.action
 		]),
+		...mapActions('utils', [DOWNLOAD_PREPARING.action]),
 		viewWishList() {
 			this[OPEN_WISH_LIST.action]()
 		},
 		downloadCollection() {
 			if (window.GS_LOGS) console.log('Download collection')
-			history.pushState({}, '', this.collectionUrl)
-			setTimeout(() => history.back(), 30000) // revert url after 30 sec
+			// history.pushState({}, '', this.collectionUrl)
+			// setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		previousGroupHandler() {

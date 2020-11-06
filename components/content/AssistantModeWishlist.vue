@@ -93,6 +93,7 @@ export default {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
 
 			getShortUrl(this.wishListUrl).then(shortenedUrl => {
+				console.log(shortenedUrl)
 				if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
 				if (typeof shortenedUrl !== 'string' || shortenedUrl === '') {
 					return

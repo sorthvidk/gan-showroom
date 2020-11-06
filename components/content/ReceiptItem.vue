@@ -38,7 +38,7 @@ export default {
 	},
 	computed: {
 		imageUrl() {
-			return this.receiptItem.assets[0]
+			return this.receiptItem.assets && this.receiptItem.assets[0]
 				? getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
 						width: 196
 				  })

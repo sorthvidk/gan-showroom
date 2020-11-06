@@ -10,7 +10,7 @@ export const state = () => ({
 	downloadPreparing: false,
 	isMobile: true,
 	shortenedReceiptUrl: '',
-	__prod__: process.env.NODE_VER === 'production'
+	__prod__: process.env.NODE_ENV === 'production'
 })
 
 export const mutations = {
