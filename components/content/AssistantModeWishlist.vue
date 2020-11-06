@@ -92,22 +92,24 @@ export default {
 		shareWishListClickHandler() {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
 
-			getShortUrl(this.wishListUrl).then(shortenedUrl => {
-				console.log(shortenedUrl)
-				if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
-				if (typeof shortenedUrl !== 'string' || shortenedUrl === '') {
-					return
-				}
+			return this.wishListUrl
 
-				this[SHORTENED_URL.action](shortenedUrl).then(() => {
-					copyToClipboard(
-						this.shortenedReceiptUrl,
-						this.copyToClipboardComplete.bind(this)
-					)
-					let wLS = this.wishList.map(style => style.styleId).join(',')
-					sendTracking('Share wish list', wLS)
-				})
-			})
+			// getShortUrl(this.wishListUrl).then(shortenedUrl => {
+			// 	console.log(shortenedUrl)
+			// 	if (window.GS_LOGS) console.log('shortenedUrl', shortenedUrl)
+			// 	if (typeof shortenedUrl !== 'string' || shortenedUrl === '') {
+			// 		return
+			// 	}
+
+			// 	this[SHORTENED_URL.action](shortenedUrl).then(() => {
+			// 		copyToClipboard(
+			// 			this.shortenedReceiptUrl,
+			// 			this.copyToClipboardComplete.bind(this)
+			// 		)
+			// 		let wLS = this.wishList.map(style => style.styleId).join(',')
+			// 		sendTracking('Share wish list', wLS)
+			// 	})
+			// })
 		},
 		copyToClipboardComplete(success) {
 			if (window.GS_LOGS)
