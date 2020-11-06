@@ -4,7 +4,7 @@
   "name": "T2910_304_Oversized Sweatshirt",
   "styleId": "T2910_304",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
