@@ -1,10 +1,10 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604440381/PF21_21.2/packshots_collection/F5948_6264_864_fxcfpr.jpg",
-  "assetId": "F5948_Kalamata 1",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604439619/PF21_21.2/ecom_lookbook/F5937_321_T2886_099_F5948_861_S1526_099_greobb.jpg",
+  "assetId": "F5948_Kalamata 2",
   "name": "F5948_861_Trench Coat",
   "styleId": "F5948_861",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
