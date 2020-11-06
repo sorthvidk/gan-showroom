@@ -43,7 +43,7 @@ export default {
 					h: 700 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.LARGE.name]: {
-					w: 3 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
+					w: 4 * 208 + 50 + WINDOW_DEFAULT_CHROME_WIDTH,
 					h: 510 + WINDOW_DEFAULT_CHROME_HEIGHT
 				},
 				[ViewportSizes.SMALL.name]: { w: 353, h: 390 }
@@ -54,7 +54,6 @@ export default {
 		name: 'films',
 		contentComponent: 'films',
 		contentScore: 15,
-		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -67,14 +66,12 @@ export default {
 				},
 				[ViewportSizes.SMALL.name]: { w: 353, h: 400 }
 			}
-			// noStatus: true
 		}
 	},
 	musicPlayer: {
 		name: 'musicPlayer',
 		contentComponent: 'music-player',
 		contentScore: 0,
-		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -90,7 +87,6 @@ export default {
 					h: 110 + WINDOW_NOSTATUS_CHROME_HEIGHT
 				}
 			},
-			// noStatus: true,
 			canResize: false,
 			noPlacement: true,
 			wrapperClass: 'window--music-player__wrapper',
@@ -101,7 +97,6 @@ export default {
 		name: 'textFile',
 		contentComponent: 'text-reader',
 		contentScore: 10,
-		// statusComponent: 'status-static',
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -114,17 +109,12 @@ export default {
 				},
 				[ViewportSizes.SMALL.name]: { w: 300, h: 300 }
 			}
-			// noStatus: true
 		}
 	},
 	imagePortrait: {
 		name: 'imagePortrait',
 		contentComponent: 'single-image',
 		contentScore: 0,
-		// statusComponent: 'status-static',
-		// defaultStatusComponentProps: {
-		// 	text: 'TIP! Click image to zoom.'
-		// },
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {
@@ -147,10 +137,6 @@ export default {
 		name: 'imagePortraitLarge',
 		contentComponent: 'single-image',
 		contentScore: 0,
-		// statusComponent: 'status-static',
-		// defaultStatusComponentProps: {
-		// 	text: 'TIP! Click image to zoom.'
-		// },
 		defaultWindowProps: {
 			sizes: {
 				[ViewportSizes.XLARGE.name]: {

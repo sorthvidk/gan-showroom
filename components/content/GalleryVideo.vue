@@ -1,5 +1,6 @@
 <template>
 	<div class="gallery-video">
+		<loading />
 		<video-player
 			:video-url="assetUrl"
 			:controls="false"
@@ -12,11 +13,13 @@
 <script>
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import Loading from '~/components/content/Loading.vue'
 
 export default {
 	name: 'gallery-video',
 	components: {
-		VideoPlayer
+		VideoPlayer,
+		Loading
 	},
 	props: {
 		asset: {

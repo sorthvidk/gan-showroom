@@ -1,5 +1,5 @@
 <template>
-	<div ref="marquee" class="marquee">
+	<div ref="marquee" class="marquee" :class="{ paused: windowList.length }">
 		<!-- loop a couple of times to make them fill the screen -->
 		<p v-for="i in 5" :key="i">
 			&nbsp;Welcome to the GANNI Space!&nbsp;&nbsp;&bull;&nbsp;
@@ -19,17 +19,11 @@ import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'marquee',
-	data() {
-		return {
-			amount: 0 // currently hardcoded loop, not in use
-		}
-	},
 	computed: {
-		...mapState({
-			shortcuts: state => state.shortcuts.list
-		}),
+		...mapState('shortcuts', ['list']),
+		...mapState(['windowList']),
 		marqueeLinks() {
-			return this.shortcuts.filter(s => s.type === ShortcutTypes.MARQUEE)
+			return this.list.filter(s => s.type === ShortcutTypes.MARQUEE)
 		}
 	},
 	methods: {

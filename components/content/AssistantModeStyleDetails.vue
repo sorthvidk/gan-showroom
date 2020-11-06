@@ -52,15 +52,15 @@
 							<td>DKK {{ currentStyle.wholesalePriceDKK }}</td>
 						</tr>
 						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
+							<th></th>
 							<td>EUR {{ currentStyle.wholesalePriceEUR }}</td>
 						</tr>
 						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
+							<th></th>
 							<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
 						</tr>
 						<tr v-if="currentStyle.wholesalePriceGBP && SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
+							<th></th>
 							<td>GBP {{ currentStyle.wholesalePriceGBP }}</td>
 						</tr>
 
@@ -74,15 +74,15 @@
 							<td>DKK {{ currentStyle.retailPriceDKK }}</td>
 						</tr>
 						<tr>
-							<th>Suggested retail price</th>
+							<th></th>
 							<td>EUR {{ currentStyle.retailPriceEUR }}</td>
 						</tr>
 						<tr>
-							<th>Suggested retail price</th>
+							<th></th>
 							<td>USD {{ currentStyle.retailPriceUSD }}</td>
 						</tr>
 						<tr v-if="currentStyle.retailPriceGBP">
-							<th>Suggested retail price</th>
+							<th></th>
 							<td>GBP {{ currentStyle.retailPriceGBP }}</td>
 						</tr>
 					</tbody>

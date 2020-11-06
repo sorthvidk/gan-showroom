@@ -17,6 +17,59 @@ export const state = () => ({
 	list: [
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'dittes-folder',
+			icon: '/img/shortcuts/dittes_private.png',
+			label: `Ditte now`,
+			posH: 3,
+			posV: 1,
+			widthSpan: 2,
+			windowContent: 'assets.ditte'
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'anas',
+			icon: '/img/shortcuts/anna.png',
+			label: `Ana's Copenhagen`,
+			posH: 3,
+			posV: 2,
+			windowContent: [
+				{
+					title: `Ana's Copenhagen`,
+					contentId: 'anas', // should match assets[contentId] to define content
+					type: ContentTypes.lookBook,
+					assistant: {
+						mode: AssistantModes.CUSTOM
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'look-book',
+			icon: '/img/shortcuts/look_book.png',
+			label: 'PF21 LookBook',
+			posH: 2,
+			posV: 2,
+			windowContent: [
+				{
+					title: 'GANNI LookBook',
+					contentId: 'lookBook',
+					type: ContentTypes.lookBook,
+					statusComponentProps: {
+						text: 'Photo credit: Josefine Seifert'
+					},
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: 'lookBook'
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
 			label: 'PF21 Collection',
@@ -41,59 +94,6 @@ export const state = () => ({
 					canOverride: true,
 					assistant: {
 						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'anas',
-			icon: '/img/shortcuts/anna.png',
-			label: `Ana's Copenhagen`,
-			posH: 3,
-			posV: 2,
-			windowContent: [
-				{
-					title: `Ana's Copenhagen`,
-					contentId: 'anas', // should match assets[contentId] to define content
-					type: ContentTypes.lookBook,
-					assistant: {
-						mode: AssistantModes.CUSTOM
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'dittes-folder',
-			icon: '/img/shortcuts/dittes_private.png',
-			label: `Ditte now`,
-			posH: 3,
-			posV: 1,
-			widthSpan: 2,
-			windowContent: 'assets.ditte'
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'look-book',
-			icon: '/img/shortcuts/look_book.png',
-			label: 'PF21 LookBook',
-			posH: 2,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI LookBook',
-					contentId: 'lookBook',
-					type: ContentTypes.lookBook,
-					statusComponentProps: {
-						text: 'Photo credit: Josefine Seifert'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'lookBook'
 					}
 				}
 			]
