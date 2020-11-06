@@ -4,7 +4,7 @@
   "name": "S1551_861_Retro Sneaker",
   "styleId": "S1551_861",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "landscape",
   "type": "image",
   "groupId": "drop-1",
