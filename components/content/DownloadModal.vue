@@ -15,6 +15,6 @@
 <script>
 export default {
 	name: 'download-modal',
-	data: () => ({ path: '/files/example.zip' })
+	data: () => ({ path: '/files/GANNI_digital_goodiebag.zip' })
 }
 </script>
