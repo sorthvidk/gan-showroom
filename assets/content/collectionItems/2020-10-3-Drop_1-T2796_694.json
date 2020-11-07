@@ -1,1 +1,26 @@
-{"styleId":"T2796_694","name":"T2796_694_Oversized Raglan Sweatshirt","program":3495,"programName":"Isoli","material":"50% Recycled Cot, 50% Recycled Poly","groupId":"drop-1","colorNames":"Heather","colorId":694,"filters":["rtw8"],"responsible":true,"weight":4910,"wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"wholesalePriceGBP":45,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125}
+{
+  "retailPriceUSD": 165,
+  "program": 3495,
+  "colorNames": "Heather",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "wholesalePriceGBP": 45,
+  "name": "T2796_694_Oversized Raglan Sweatshirt",
+  "styleId": "T2796_694",
+  "retailPriceGBP": 125,
+  "programName": "Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 4910,
+  "wholesalePriceDKK": 357,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 694,
+  "group": [
+    "drop-2"
+  ]
+}

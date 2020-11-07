@@ -3,9 +3,9 @@
   "program": 6278,
   "colorNames": "Black",
   "material": "44% REC POLY, 42% ORG COT, 14% PA",
+  "wholesalePriceGBP": 70,
   "name": "F6006_99_Dress",
   "styleId": "F6006_99",
-  "wholesalePriceGBP": 70,
   "retailPriceGBP": 195,
   "programName": "Seersucker Check",
   "responsible": true,
@@ -20,5 +20,8 @@
   ],
   "retailPriceEUR": 215,
   "retailPriceDKK": 1499,
-  "colorId": 99
+  "colorId": 99,
+  "group": [
+    "drop-3"
+  ]
 }

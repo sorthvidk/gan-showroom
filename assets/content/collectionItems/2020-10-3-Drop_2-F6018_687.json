@@ -3,9 +3,9 @@
   "program": 6277,
   "colorNames": "Washed Indigo",
   "material": "64% Organic Cotton, 36% Refibra",
+  "wholesalePriceGBP": 84,
   "name": "F6018_687_Shirt",
   "styleId": "F6018_687",
-  "wholesalePriceGBP": 84,
   "retailPriceGBP": 225,
   "programName": "Light Denim",
   "responsible": true,
@@ -16,7 +16,8 @@
   "wholesalePriceUSD": 123,
   "filters": [
     "rtw8",
-    "misc2"
+    "misc2",
+    "rtw2"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
