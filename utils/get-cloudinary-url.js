@@ -2,7 +2,7 @@ export default function(
 	cl,
 	asset,
 	tf = {},
-	pixelDensity = window.devicePixelRatio
+	pixelDensity = window.devicePixelRatio || 1
 ) {
 	let transform = tf
 	let resultUrl
