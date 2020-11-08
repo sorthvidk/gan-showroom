@@ -40,6 +40,10 @@ export default {
 			wishList: state => state.collection.wishList
 		}),
 		imageUrl() {
+			if (!this.assets || !this.assets.length) {
+				return ''
+			}
+
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 310 }),
 				loading: getCloudinaryUrl(this.$cloudinary, this.assets[0], {

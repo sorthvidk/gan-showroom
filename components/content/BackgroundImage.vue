@@ -37,7 +37,7 @@ export default {
 					asset: 'image'
 				},
 				{
-					width: 1200,
+					width: 1600,
 					quality: 90
 				}
 			)
