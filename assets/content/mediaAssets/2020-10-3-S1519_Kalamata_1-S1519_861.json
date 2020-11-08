@@ -4,7 +4,7 @@
   "name": "S1519_861_Rubber Sandal",
   "styleId": "S1519_861",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
