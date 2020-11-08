@@ -38,9 +38,9 @@ export default {
 			if (!this.asset.aspect || this.asset.aspect === 'portrait')
 				transform = { width: 370, height: 563 }
 			if (this.asset.aspect === 'landscape')
-				transform = { width: 417, height: 274 }
+				transform = { width: 592, height: 390 }
 			if (this.asset.aspect === 'square')
-				transform = { width: 320, height: 320 }
+				transform = { width: 370, height: 370 }
 			return getCloudinaryUrl(this.$cloudinary, this.asset, transform)
 		}
 	},
