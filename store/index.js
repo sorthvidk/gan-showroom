@@ -299,7 +299,7 @@ export const actions = {
 		let listStyle = state.collection.allStyles.filter(
 			e => e.styleId === styleId
 		)[0]
-		if (!listStyle) return false
+		if (!listStyle || !listStyle.assets) return false
 
 		let content = []
 		let al = listStyle.assets.length

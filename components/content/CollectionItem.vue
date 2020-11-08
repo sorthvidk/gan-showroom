@@ -52,7 +52,7 @@ export default {
 			}
 		},
 		imageName() {
-			if (this.assets[0]) return this.name
+			if (this.assets && this.assets[0]) return this.name
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
