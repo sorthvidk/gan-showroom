@@ -129,6 +129,11 @@ export const mutations = {
 				}
 				return
 			}
+
+			if (!style.assets) {
+				style.assets = []
+			}
+
 			if (style.assets && style.assets.length === 0) {
 				style.assets.push({
 					assetId: getUniqueId(),
