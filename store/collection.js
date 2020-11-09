@@ -345,7 +345,11 @@ export const mutations = {
 			state.activeGroup = state.allGroups.filter(e => e.groupId === groupId)[0]
 			state.activeGroupIndex = state.allGroups.indexOf(state.activeGroup)
 
-			state.currentStyles = state.activeGroup.styles
+			state.currentStyles = sortArrayMultipleProps(
+				state.activeGroup.styles,
+				'program',
+				'weight'
+			)
 			state.groupFilters = state.activeGroup.filters
 		}
 	},
