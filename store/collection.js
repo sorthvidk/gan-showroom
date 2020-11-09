@@ -84,6 +84,10 @@ export const getters = {
 export const mutations = {
 	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
 		state.allStyles = data
+		// .map(style => ({
+		// 	...style,
+		// 	assets: style.assets || []
+		// }))
 	},
 	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
 		state.allGroups = data
@@ -115,6 +119,9 @@ export const mutations = {
 		for (var i = 0; i < al; i++) {
 			let asset = state.allMediaAssets[i]
 			let style = state.allStyles.filter(e => e.styleId === asset.styleId)[0]
+			// if (style && !style.assets) {
+			// 	style.assets = []
+			// }
 			if (style) style.assets = [...(style.assets || []), asset]
 			else if (window.GS_LOGS)
 				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
@@ -123,15 +130,16 @@ export const mutations = {
 		//sort style assets to have onTop asset first in assets array
 		for (var j = 0; j < cl; j++) {
 			let style = state.allStyles[j]
-			if (!style.assets) {
-				if (window.GS_LOGS) {
-					console.log(`Didn't find assets for: `, style)
-				}
-				return
-			}
 
 			if (!style.assets) {
 				style.assets = []
+			}
+
+			if (!style.assets.length) {
+				if (window.GS_LOGS) {
+					console.log(`Didn't find assets for: `, style)
+				}
+				// return
 			}
 
 			if (style.assets && style.assets.length === 0) {
