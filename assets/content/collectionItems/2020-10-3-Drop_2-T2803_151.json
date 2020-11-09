@@ -3,9 +3,9 @@
   "program": 3503,
   "colorNames": "Bright White",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 34,
   "name": "T2803_151_T-shirt",
   "styleId": "T2803_151",
-  "wholesalePriceGBP": 34,
   "retailPriceGBP": 95,
   "programName": "Cotton Jersey",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 48,
   "filters": [
-    "rtw10",
-    "misc2"
+    "rtw10"
   ],
   "retailPriceEUR": 95,
   "retailPriceDKK": 699,
