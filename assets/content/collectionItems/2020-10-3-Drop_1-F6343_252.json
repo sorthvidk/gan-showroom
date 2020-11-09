@@ -3,9 +3,9 @@
   "program": 6264,
   "colorNames": "Phantom",
   "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
+  "wholesalePriceGBP": 102,
   "name": "F6343_252_Quited Wrap Coat",
   "styleId": "F6343_252",
-  "wholesalePriceGBP": 102,
   "retailPriceGBP": 255,
   "programName": "Stretch Canvas",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 144,
   "filters": [
-    "rtw3",
-    "misc2"
+    "rtw3"
   ],
   "retailPriceEUR": 275,
   "retailPriceDKK": 1999,
