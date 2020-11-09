@@ -3,9 +3,9 @@
   "program": 6246,
   "colorNames": "Bright White",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 81,
   "name": "F6341_151_Dress",
   "styleId": "F6341_151",
-  "wholesalePriceGBP": 81,
   "retailPriceGBP": 225,
   "programName": "Cotton Poplin",
   "responsible": true,
@@ -16,8 +16,7 @@
   "wholesalePriceUSD": 123,
   "filters": [
     "rtw1",
-    "misc1",
-    "misc2"
+    "misc1"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
