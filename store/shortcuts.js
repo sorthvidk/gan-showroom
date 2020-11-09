@@ -88,7 +88,7 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
+					title: 'PF21 collection',
 					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
@@ -141,7 +141,7 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
+					title: 'PF21 collection',
 					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
@@ -235,7 +235,7 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'PS21 collection',
+					title: 'PF21 collection',
 					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
