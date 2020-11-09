@@ -75,19 +75,19 @@ collections:
           default: [],
           hint: 'List of filters, the style will appear under',
         }
-      # - {
-      #     label: 'Group',
-      #     name: 'group',
-      #     widget: 'relation',
-      #     multiple: true,
-      #     required: false,
-      #     collection: 'collectionGroups',
-      #     search_fields: ['name'],
-      #     value_field: 'groupId',
-      #     display_fields: ['name'],
-      #     default: '',
-      #     hint: 'Which group, the style belongs to, ex. Drop 1',
-      #   }
+      - {
+          label: 'Group',
+          name: 'groupId',
+          widget: 'relation',
+          multiple: false,
+          required: false,
+          collection: 'collectionGroups',
+          search_fields: ['name'],
+          value_field: 'groupId',
+          display_fields: ['name'],
+          default: '',
+          hint: 'Which group, the style belongs to, ex. Drop 1',
+        }
       - {
           label: 'Name',
           name: 'name',
