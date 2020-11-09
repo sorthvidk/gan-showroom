@@ -1,1 +1,24 @@
-{"styleId":"A3449_252","name":"A3449_252_Gathered Swimsuit","program":5659,"programName":"Recycled Printed","material":"78% Recycled Polyamide, 22% Elastane","groupId":"drop-1","colorNames":"Phantom","colorId":252,"filters":["acc4"],"responsible":true,"weight":4310,"wholesalePriceDKK":440,"wholesalePriceEUR":62,"wholesalePriceUSD":78,"wholesalePriceGBP":58,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"retailPriceGBP":145}
+{
+  "retailPriceUSD": 185,
+  "program": 5659,
+  "colorNames": "Phantom",
+  "material": "78% Recycled Polyamide, 22% Elastane",
+  "wholesalePriceGBP": 58,
+  "name": "A3449_252_Gathered Swimsuit",
+  "styleId": "A3449_252",
+  "retailPriceGBP": 145,
+  "programName": "Recycled Printed",
+  "responsible": true,
+  "wholesalePriceEUR": 62,
+  "weight": 4310,
+  "wholesalePriceDKK": 440,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "acc4",
+    "misc2"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 252
+}
