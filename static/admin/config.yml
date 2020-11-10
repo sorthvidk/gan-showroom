@@ -5,7 +5,7 @@ backend:
   publish_mode: editorial_workflow
 
 # when using the default proxy server port
-# local_backend: true
+local_backend: true
 
 media_library:
   name: cloudinary
@@ -781,7 +781,7 @@ collections:
     sortable_fields: ['exhibitionId']
     label: 'Rails'
     folder: 'assets/content/exhibition'
-    summary: '{{exhibitionId}} - {{name}}'
+    summary: '{{name}}'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{exhibitionId}}-{{name}}'
@@ -850,9 +850,9 @@ collections:
           widget: 'relation',
           collection: 'exhibition',
           required: true,
-          search_fields: ['exhibitionId', 'name'],
+          search_fields: ['name'],
           value_field: 'exhibitionId',
-          display_fields: ['exhibitionId', 'name'],
+          display_fields: ['name'],
           hint: 'Reference to unique exhibition ID',
         }
       - {
