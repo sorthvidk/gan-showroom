@@ -3,9 +3,9 @@
   "program": 6276,
   "colorNames": "Dark Indigo",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 102,
   "name": "F6017_696_Jacket",
   "styleId": "F6017_696",
-  "wholesalePriceGBP": 102,
   "retailPriceGBP": 275,
   "programName": "Heavy Denim",
   "responsible": true,
@@ -16,7 +16,8 @@
   "wholesalePriceUSD": 157,
   "filters": [
     "rtw3",
-    "misc2"
+    "misc2",
+    "rtw2"
   ],
   "retailPriceEUR": 295,
   "retailPriceDKK": 2199,
