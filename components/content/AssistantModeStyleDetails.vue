@@ -3,7 +3,7 @@
 		<div
 			class="assistant__content"
 			:class="{
-				'is-collapsed': isMobile && !expanded
+				'is-collapsed': isMobile && !expanded,
 			}"
 		>
 			<div class="assistant__product-details">
@@ -105,7 +105,7 @@
 				class="button add-to-wishlist button--half"
 				:class="{
 					'is-active': styleOnWishList,
-					'is-animating': styleHasBeenAdded
+					'is-animating': styleHasBeenAdded,
 				}"
 				@click="addToWishListClickHandler"
 			>
@@ -139,9 +139,9 @@ import {
 	ADD_TO_WISHLIST,
 	OPEN_CONTENT,
 	OPEN_WISH_LIST,
-	SHOW_PREVIOUS_STYLE,
-	SHOW_NEXT_STYLE,
-	SET_HIDDEN_ASSETS
+	SHOW_NEW_STYLE,
+	// SHOW_NEXT_STYLE,
+	SET_HIDDEN_ASSETS,
 } from '~/model/constants'
 import sendTracking from '~/utils/send-tracking'
 
@@ -156,52 +156,58 @@ export default {
 		...mapState('collection', [
 			'currentStyle',
 			'wishList',
-			'hiddenAssetContent'
+			'hiddenAssetContent',
 		]),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
 		},
 		styleOnWishList() {
-			return this.wishList.find(s => s.styleId === this.currentStyle.styleId)
+			return this.wishList.find((s) => s.styleId === this.currentStyle.styleId)
 		},
 		addToWishListButtonLabel() {
 			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
-		}
+		},
 	},
 	watch: {
 		keyPressed(event) {
 			if (event.key === 'ArrowLeft') {
 				// this.previousStyleHandler()
-				this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
+				this[SHOW_NEW_STYLE.action]({
+					styleId: this.currentStyle.styleId,
+					previous: true,
+				})
 			}
 
 			if (event.key === 'ArrowRight') {
 				// this.nextStyleHandler()
-				this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+				this[SHOW_NEW_STYLE.action]({
+					styleId: this.currentStyle.styleId,
+					next: true,
+				})
 			}
 
 			if (event.code === 'Space') {
 				this.addToWishListClickHandler()
 			}
-		}
+		},
 	},
 	methods: {
 		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			OPEN_CONTENT.action,
 			ALL_ASSETS_VISIBLE.action,
-			SHOW_PREVIOUS_STYLE.action,
-			SHOW_NEXT_STYLE.action,
+			SHOW_NEW_STYLE.action,
+			// SHOW_NEXT_STYLE.action,
 			ADD_TO_WISHLIST.action,
-			SET_HIDDEN_ASSETS.action
+			SET_HIDDEN_ASSETS.action,
 		]),
 		showAllVariantsClickHandler() {
 			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
-				addToGroupId: this.topMostWindow.groupId
+				addToGroupId: this.topMostWindow.groupId,
 			})
 			this[SET_HIDDEN_ASSETS.action](false)
 		},
@@ -221,7 +227,7 @@ export default {
 		nextStyleHandler() {},
 		viewWishListClickHandler() {
 			this[OPEN_WISH_LIST.action]()
-		}
-	}
+		},
+	},
 }
 </script>

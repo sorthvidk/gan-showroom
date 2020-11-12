@@ -5,7 +5,7 @@ backend:
   publish_mode: editorial_workflow
 
 # when using the default proxy server port
-# local_backend: true
+local_backend: true
 
 media_library:
   name: cloudinary
@@ -100,7 +100,7 @@ collections:
           name: 'program',
           widget: 'number',
           required: false,
-          hint: "ID of program ex. '1972'",
+          hint: "ID of program ex. '1972'. Will determine the order of styles. (Lower nr is closer to top)",
         }
       - {
           label: 'Program Display name',
@@ -204,7 +204,7 @@ collections:
           label: 'Weight',
           name: 'weight',
           widget: 'number',
-          hint: 'Sorting parameter. The higher the number, the closer to the top of the collection folder.',
+          hint: 'Sorting parameter. The lower the number, the closer to the top (within it's program). Field "Program" has priority in sorting.',
           required: true,
           default: 1,
           min: 1,
