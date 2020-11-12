@@ -156,7 +156,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'ganni-favourites',
 			icon: '/img/shortcuts/ganni_software.png',
-			label: `#InstantGood`,
+			label: `Design Darlings`,
 			posH: 11,
 			posV: 6,
 			actions: [
