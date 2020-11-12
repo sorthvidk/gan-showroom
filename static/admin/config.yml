@@ -5,7 +5,7 @@ backend:
   publish_mode: editorial_workflow
 
 # when using the default proxy server port
-local_backend: true
+# local_backend: true
 
 media_library:
   name: cloudinary
@@ -204,7 +204,7 @@ collections:
           label: 'Weight',
           name: 'weight',
           widget: 'number',
-          hint: 'Sorting parameter. The lower the number, the closer to the top (within it's program). Field "Program" has priority in sorting.',
+          hint: 'Sorting parameter. The lower the number, the closer to the top (within its program). Field "Program" has priority in sorting.',
           required: true,
           default: 1,
           min: 1,
