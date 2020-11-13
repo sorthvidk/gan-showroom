@@ -3,9 +3,9 @@
   "program": 6236,
   "colorNames": "Daphne",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 56,
   "name": "F5980_572_Oversized Sleeveless Shirt",
   "styleId": "F5980_572",
-  "wholesalePriceGBP": 56,
   "retailPriceGBP": 155,
   "programName": "Stripe Cotton",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 86,
   "filters": [
-    "rtw8",
-    "misc2"
+    "rtw8"
   ],
   "retailPriceEUR": 175,
   "retailPriceDKK": 1199,
