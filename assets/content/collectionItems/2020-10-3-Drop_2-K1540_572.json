@@ -3,9 +3,9 @@
   "program": 2513,
   "colorNames": "Daphne",
   "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
+  "wholesalePriceGBP": 62,
   "name": "K1540_572_Vest",
   "styleId": "K1540_572",
-  "wholesalePriceGBP": 62,
   "retailPriceGBP": 155,
   "programName": "Rib Knit",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 86,
   "filters": [
-    "rtw5",
-    "misc2"
+    "rtw5"
   ],
   "retailPriceEUR": 175,
   "retailPriceDKK": 1199,
