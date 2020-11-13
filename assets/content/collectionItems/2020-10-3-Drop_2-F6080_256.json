@@ -3,9 +3,9 @@
   "program": 6237,
   "colorNames": "Sharkskin",
   "material": "78% Recycled Polyester, 20% Polyester, 2% Metal fiber",
+  "wholesalePriceGBP": 134,
   "name": "F6080_256_Dress",
   "styleId": "F6080_256",
-  "wholesalePriceGBP": 134,
   "retailPriceGBP": 375,
   "programName": "Structured Jacquard",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 207,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 425,
   "retailPriceDKK": 2999,
