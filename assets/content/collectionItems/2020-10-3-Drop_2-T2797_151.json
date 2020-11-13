@@ -3,9 +3,9 @@
   "program": 3501,
   "colorNames": "Bright White",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 27,
   "name": "T2797_151_T-shirt, Smiley",
   "styleId": "T2797_151",
-  "wholesalePriceGBP": 27,
   "retailPriceGBP": 75,
   "programName": "Basic Cotton Jersey",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 44,
   "filters": [
-    "rtw10",
-    "misc2"
+    "rtw10"
   ],
   "retailPriceEUR": 85,
   "retailPriceDKK": 599,
