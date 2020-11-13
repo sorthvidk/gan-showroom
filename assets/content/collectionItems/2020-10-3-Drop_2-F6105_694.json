@@ -3,9 +3,9 @@
   "program": 6238,
   "colorNames": "Heather",
   "material": "100% Recycled Polyester",
+  "wholesalePriceGBP": 77,
   "name": "F6105_694_Midi Dress",
   "styleId": "F6105_694",
-  "wholesalePriceGBP": 77,
   "retailPriceGBP": 215,
   "programName": "Pleated Georgette",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 119,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 245,
   "retailPriceDKK": 1699,
