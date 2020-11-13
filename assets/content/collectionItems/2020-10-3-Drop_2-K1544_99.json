@@ -3,9 +3,9 @@
   "program": 2515,
   "colorNames": "Black",
   "material": "55% Rayon, 29% Polyamide, 16% Elastane",
+  "wholesalePriceGBP": 78,
   "name": "K1544_99_Dress",
   "styleId": "K1544_99",
-  "wholesalePriceGBP": 78,
   "retailPriceGBP": 195,
   "programName": "Melange Knit",
   "responsible": false,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 103,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 215,
   "retailPriceDKK": 1499,
