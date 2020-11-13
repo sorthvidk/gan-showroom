@@ -3,9 +3,9 @@
   "program": 6239,
   "colorNames": "Black",
   "material": "100% Lamb Leather",
+  "wholesalePriceGBP": 210,
   "name": "F5969_99_Mini Dress",
   "styleId": "F5969_99",
-  "wholesalePriceGBP": 210,
   "retailPriceGBP": 525,
   "programName": "Lamb Leather",
   "responsible": false,
@@ -16,8 +16,7 @@
   "wholesalePriceUSD": 282,
   "filters": [
     "rtw1",
-    "misc3",
-    "misc2"
+    "misc3"
   ],
   "retailPriceEUR": 545,
   "retailPriceDKK": 3999,
