@@ -3,9 +3,9 @@
   "program": 6239,
   "colorNames": "Black",
   "material": "100% Lamb Leather",
+  "wholesalePriceGBP": 170,
   "name": "F5967_99_Skirt",
   "styleId": "F5967_99",
-  "wholesalePriceGBP": 170,
   "retailPriceGBP": 425,
   "programName": "Lamb Leather",
   "responsible": false,
@@ -16,8 +16,7 @@
   "wholesalePriceUSD": 219,
   "filters": [
     "rtw6",
-    "misc3",
-    "misc2"
+    "misc3"
   ],
   "retailPriceEUR": 445,
   "retailPriceDKK": 3199,
