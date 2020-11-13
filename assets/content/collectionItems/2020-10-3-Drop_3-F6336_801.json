@@ -3,9 +3,9 @@
   "program": 6245,
   "colorNames": "Kelly Green",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 88,
   "name": "F6336_801_Wrap Dress",
   "styleId": "F6336_801",
-  "wholesalePriceGBP": 88,
   "retailPriceGBP": 245,
   "programName": "Printed Cotton Poplin",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 136,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 265,
   "retailPriceDKK": 1899,
