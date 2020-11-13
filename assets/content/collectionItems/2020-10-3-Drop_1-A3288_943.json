@@ -3,9 +3,9 @@
   "program": 5488,
   "colorNames": "Leopard",
   "material": "100% Recycled Polyester Lining: 100% Recycled PL",
+  "wholesalePriceGBP": 26,
   "name": "A3288_943_Purse",
   "styleId": "A3288_943",
-  "wholesalePriceGBP": 26,
   "drop": "hej",
   "retailPriceGBP": 65,
   "programName": "Recycled Tech Fabric Bags",
@@ -16,7 +16,7 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 36,
   "filters": [
-    "acc1"
+    "acc2"
   ],
   "retailPriceEUR": 75,
   "retailPriceDKK": 499,
