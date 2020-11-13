@@ -3,9 +3,9 @@
   "program": 6248,
   "colorNames": "Phantom",
   "material": "50% viscose + 50% LENZING™ ECOVERO™",
+  "wholesalePriceGBP": 77,
   "name": "F5981_252_Wrap Dress",
   "styleId": "F5981_252",
-  "wholesalePriceGBP": 77,
   "retailPriceGBP": 215,
   "programName": "Printed Crepe",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 119,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 245,
   "retailPriceDKK": 1699,
