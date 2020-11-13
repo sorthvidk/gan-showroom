@@ -3,9 +3,9 @@
   "program": 6252,
   "colorNames": "Airy Blue",
   "material": "50% Recycled Polyester, 50% Acetate",
+  "wholesalePriceGBP": 81,
   "name": "F5996_574_Wrap Dress",
   "styleId": "F5996_574",
-  "wholesalePriceGBP": 81,
   "retailPriceGBP": 225,
   "programName": "Crispy Taffeta",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 123,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
