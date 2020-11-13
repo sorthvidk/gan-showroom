@@ -3,9 +3,9 @@
   "program": 6251,
   "colorNames": "Phantom",
   "material": "92% Silk, 8% Elastane",
+  "wholesalePriceGBP": 170,
   "name": "F5962_252_Dress",
   "styleId": "F5962_252",
-  "wholesalePriceGBP": 170,
   "retailPriceGBP": 425,
   "programName": "Silk Stretch Satin",
   "responsible": false,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 228,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 445,
   "retailPriceDKK": 3299,
