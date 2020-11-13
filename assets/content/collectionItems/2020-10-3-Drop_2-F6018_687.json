@@ -16,7 +16,6 @@
   "wholesalePriceUSD": 123,
   "filters": [
     "rtw8",
-    "misc2",
     "rtw2"
   ],
   "retailPriceEUR": 255,
