@@ -3,9 +3,9 @@
   "program": 6246,
   "colorNames": "Black",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 81,
   "name": "F6037_99_Dress",
   "styleId": "F6037_99",
-  "wholesalePriceGBP": 81,
   "retailPriceGBP": 225,
   "programName": "Cotton Poplin",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 123,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
