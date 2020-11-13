@@ -3,9 +3,9 @@
   "program": 6264,
   "colorNames": "Kalamata",
   "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
+  "wholesalePriceGBP": 150,
   "name": "F5948_861_Trench Coat",
   "styleId": "F5948_861",
-  "wholesalePriceGBP": 150,
   "retailPriceGBP": 375,
   "programName": "Stretch Canvas",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 198,
   "filters": [
-    "rtw3",
-    "misc2"
+    "rtw3"
   ],
   "retailPriceEUR": 395,
   "retailPriceDKK": 2899,
