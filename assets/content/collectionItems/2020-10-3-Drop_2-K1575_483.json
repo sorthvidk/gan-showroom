@@ -3,9 +3,9 @@
   "program": 2529,
   "colorNames": "Shocking Pink",
   "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
+  "wholesalePriceGBP": 98,
   "name": "K1575_483_Cardigan",
   "styleId": "K1575_483",
-  "wholesalePriceGBP": 98,
   "retailPriceGBP": 245,
   "programName": "Soft Wool Knit",
   "responsible": false,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 136,
   "filters": [
-    "rtw5",
-    "misc2"
+    "rtw5"
   ],
   "retailPriceEUR": 265,
   "retailPriceDKK": 1899,
