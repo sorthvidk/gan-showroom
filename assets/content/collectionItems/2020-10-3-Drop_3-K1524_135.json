@@ -3,9 +3,9 @@
   "program": 2513,
   "colorNames": "Egret",
   "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
+  "wholesalePriceGBP": 98,
   "name": "K1524_135_Cardigan",
   "styleId": "K1524_135",
-  "wholesalePriceGBP": 98,
   "retailPriceGBP": 245,
   "programName": "Rib Knit",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 136,
   "filters": [
-    "rtw5",
-    "misc2"
+    "rtw5"
   ],
   "retailPriceEUR": 265,
   "retailPriceDKK": 1899,
