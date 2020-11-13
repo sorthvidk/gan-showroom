@@ -3,9 +3,9 @@
   "program": 6273,
   "colorNames": "Pale Banana",
   "material": "56% Recycled Polyester, 44% Viscose",
+  "wholesalePriceGBP": 95,
   "name": "F6082_321_Pants",
   "styleId": "F6082_321",
-  "wholesalePriceGBP": 95,
   "retailPriceGBP": 265,
   "programName": "Summer Suiting",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 144,
   "filters": [
-    "rtw9",
-    "misc2"
+    "rtw9"
   ],
   "retailPriceEUR": 285,
   "retailPriceDKK": 2099,
