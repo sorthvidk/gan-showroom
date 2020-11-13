@@ -3,9 +3,9 @@
   "program": 6245,
   "colorNames": "Shocking Pink",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 59,
   "name": "F6029_483_Mini Dress",
   "styleId": "F6029_483",
-  "wholesalePriceGBP": 59,
   "retailPriceGBP": 165,
   "programName": "Printed Cotton Poplin",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 90,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 185,
   "retailPriceDKK": 1299,
