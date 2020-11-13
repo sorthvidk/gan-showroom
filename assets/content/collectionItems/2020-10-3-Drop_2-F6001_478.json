@@ -3,9 +3,9 @@
   "program": 6270,
   "colorNames": "Pink Nectar",
   "material": "100% Organic Cotton",
+  "wholesalePriceGBP": 81,
   "name": "F6001_478_Maxi Dress",
   "styleId": "F6001_478",
-  "wholesalePriceGBP": 81,
   "retailPriceGBP": 225,
   "programName": "Cotton Seersucker",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-2",
   "wholesalePriceUSD": 123,
   "filters": [
-    "rtw1",
-    "misc2"
+    "rtw1"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
