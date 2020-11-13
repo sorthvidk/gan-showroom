@@ -3,9 +3,9 @@
   "program": 6262,
   "colorNames": "Fossil",
   "material": "100% Recycled Nylon",
+  "wholesalePriceGBP": 81,
   "name": "F6100_189_Bomber Jacket",
   "styleId": "F6100_189",
-  "wholesalePriceGBP": 81,
   "retailPriceGBP": 225,
   "programName": "Outerwear Nylon",
   "responsible": true,
@@ -15,8 +15,7 @@
   "groupId": "drop-3",
   "wholesalePriceUSD": 123,
   "filters": [
-    "rtw3",
-    "misc2"
+    "rtw3"
   ],
   "retailPriceEUR": 255,
   "retailPriceDKK": 1799,
