@@ -99,3 +99,7 @@ export const DESKTOP_BACKGROUND = createMutation('DESKTOP_BACKGROUND')
 
 export const PUZZLE_INSTANCE = createMutation('PUZZLE_INSTANCE')
 export const SAVE_PUZZLE = createMutation('SAVE_PUZZLE')
+
+export const AUDIO_PLAYING = createMutation('AUDIO_PLAYING')
+export const AUDIO_PROGRESS = createMutation('AUDIO_PROGRESS')
+export const SCROLL_PROGRESS = createMutation('SCROLL_PROGRESS')

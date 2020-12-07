@@ -17,11 +17,11 @@ export const state = () => ({
 		},
 		{
 			title: 'Nirvana - Come As You Are.mp3',
-			src: `/audio/1-03 Come As You Are.mp3`
+			src: `/audio/1-03-Come-As-You-Are.mp3`
 		},
 		{
 			title: 'Janet Jackson - Together Again.mp3',
-			src: `/audio/1-11 Together Again.mp3`
+			src: `/audio/1-11-Together-Again.mp3`
 		},
 		{
 			title: 'Madonna - Express Yourself.mp3',
