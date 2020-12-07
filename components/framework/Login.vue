@@ -1,5 +1,11 @@
 <template>
-	<div class="login" @click="dispatchNext(true)">
+	<div class="login">
+		<button
+			:style="{ height: '2em', width: '4em', zIndex: 10 }"
+			@click="dispatchNext(true)"
+		>
+			Next
+		</button>
 		<component
 			:key="current"
 			v-bind:is="`slide${current}`"
@@ -9,32 +15,33 @@
 </template>
 
 <script>
+import AudioScrollGallery from '~/components/content/AudioScrollGallery.vue'
 import LoginSlide from '~/components/content/LoginSlide.vue'
 import LoginInput from '~/components/content/LoginInput.vue'
 
 export default {
 	name: 'login',
 	components: {
-		slide0: LoginSlide,
+		slide0: AudioScrollGallery,
 		// slide1: LoginSlide,
-		slide1: LoginInput
+		slide1: LoginInput,
 	},
 	data() {
 		return {
-			current: 1,
+			current: 0,
 			timeout: null,
-			slideDuration: 100000000000
+			slideDuration: 100000000000,
 		}
 	},
 	computed: {
 		content() {
 			return [
 				{
-					type: 'one'
+					type: 'one',
 					// backgroundImageLow: '/img/login-slide_lo.jpg'
-				}
+				},
 			]
-		}
+		},
 	},
 	methods: {
 		dispatchNext(immediate = false) {
@@ -54,10 +61,10 @@ export default {
 				clearTimeout(this.timeout)
 				this.timeout = setTimeout(later, immediate ? 0 : wait)
 			}
-		}
+		},
 	},
 	mounted() {
 		this.dispatchNext()
-	}
+	},
 }
 </script>

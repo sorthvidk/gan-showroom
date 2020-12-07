@@ -15,35 +15,35 @@ import AssistantModes from '~/model/assistant-modes'
 export const state = () => ({
 	textStyledWithoutIcon: true,
 	list: [
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'dittes-folder',
-			icon: '/img/shortcuts/dittes_private.png',
-			label: `Ditte now`,
-			posH: 3,
-			posV: 1,
-			widthSpan: 2,
-			windowContent: 'assets.ditte'
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'dittes-folder',
+		// 	icon: '/img/shortcuts/dittes_private.png',
+		// 	label: `Ditte now`,
+		// 	posH: 3,
+		// 	posV: 1,
+		// 	widthSpan: 2,
+		// 	windowContent: 'assets.ditte'
+		// },
 
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'anas',
-			icon: '/img/shortcuts/anna.png',
-			label: `Ana's Copenhagen`,
-			posH: 3,
-			posV: 2,
-			windowContent: [
-				{
-					title: `Ana's Copenhagen`,
-					contentId: 'anas', // should match assets[contentId] to define content
-					type: ContentTypes.lookBook,
-					assistant: {
-						mode: AssistantModes.CUSTOM
-					}
-				}
-			]
-		},
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'anas',
+		// 	icon: '/img/shortcuts/anna.png',
+		// 	label: `Ana's Copenhagen`,
+		// 	posH: 3,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: `Ana's Copenhagen`,
+		// 			contentId: 'anas', // should match assets[contentId] to define content
+		// 			type: ContentTypes.lookBook,
+		// 			assistant: {
+		// 				mode: AssistantModes.CUSTOM
+		// 			}
+		// 		}
+		// 	]
+		// },
 
 		{
 			type: ShortcutTypes.WINDOW,
@@ -124,195 +124,195 @@ export const state = () => ({
 					}
 				}
 			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'software',
-			icon: '/img/shortcuts/animal_print.png',
-			label: 'GANNI Software',
-			posH: 10,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
-					param: 'software'
-				}
-			],
-			windowContent: [
-				{
-					title: 'PF21 collection',
-					contentId: 'collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'ganni-favourites',
-			icon: '/img/shortcuts/ganni_software.png',
-			label: `Design Darlings`,
-			posH: 11,
-			posV: 6,
-			actions: [
-				{
-					name: 'collection/' + SET_GROUP_BY_INDEX.action,
-					param: -1
-				},
-				{
-					name: 'collection/' + SET_CURRENT_FILTER.action,
-					param: 'misc2'
-				}
-			],
-			windowContent: [
-				{
-					title: 'Collection',
-					contentId: 'collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'about',
-			icon: '/img/shortcuts/dittes_private.png',
-			label: 'Our world',
-			posH: 3,
-			posV: 1,
-			widthSpan: 2,
-			windowContent: 'assets.about'
-		},
-
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'A loveletter to Copenhagen through artist ',
-			label: 'Ana Kraš lens',
-			windowContent: [
-				{
-					title: `Ana's Copenhagen`,
-					contentId: 'anas', // should match assets[contentId] to define content
-					type: ContentTypes.lookBook,
-					assistant: {
-						mode: AssistantModes.CUSTOM
-					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Feel Complete. Piece together ',
-			label: 'our puzzle',
-			windowContent: [
-				{
-					title: 'Puzzle',
-					contentId: 'puzzle',
-					type: ContentTypes.puzzle,
-					assistant: {
-						mode: AssistantModes.PUZZLE
-					}
-				}
-			]
-		},
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Don’t miss our latest drop of ',
-			label: 'GANNI Software',
-			actions: [
-				{
-					name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
-					param: 'software'
-				}
-			],
-			windowContent: [
-				{
-					title: 'PF21 collection',
-					contentId: 'collection',
-					type: ContentTypes.collection,
-					canOverride: true,
-					assistant: {
-						mode: AssistantModes.FILTER_COLLECTION
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.MARQUEE,
-			text: 'Remember to collect your ',
-			label: 'digital goodiebag',
-			textAfter: ' before you leave',
-			windowContent: [
-				{
-					title: 'Download',
-					contentId: 'download-modal',
-					type: ContentTypes.download,
-					canOverride: true
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.BADGE,
-			shortcutId: 'puzzle',
-			label: 'Puzzle',
-			icon: '/img/shortcuts/Expert_level_puzzle_bw.png',
-			posH: 10,
-			posV: 5,
-			windowContent: [
-				{
-					title: 'Puzzle',
-					contentId: 'puzzle',
-					type: ContentTypes.puzzle,
-					assistant: {
-						mode: AssistantModes.PUZZLE
-					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.BADGE,
-			shortcutId: 'music-player',
-			icon: '/img/shortcuts/Hits_for_buyers_bw.png',
-			label: 'GANNI FM',
-			posH: 1,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'GANNI FM',
-					contentId: 'ganni-fm',
-					type: ContentTypes.musicPlayer,
-					canOverride: true
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.BADGE,
-			shortcutId: 'download',
-			icon: '/img/shortcuts/download.png',
-			label: 'Download',
-			posH: 1,
-			posV: 2,
-			windowContent: [
-				{
-					title: 'Download',
-					contentId: 'download-modal',
-					type: ContentTypes.download,
-					canOverride: true
-				}
-			]
 		}
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'software',
+		// 	icon: '/img/shortcuts/animal_print.png',
+		// 	label: 'GANNI Software',
+		// 	posH: 10,
+		// 	posV: 6,
+		// 	actions: [
+		// 		{
+		// 			name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+		// 			param: 'software'
+		// 		}
+		// 	],
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PF21 collection',
+		// 			contentId: 'collection',
+		// 			type: ContentTypes.collection,
+		// 			canOverride: true,
+		// 			assistant: {
+		// 				mode: AssistantModes.FILTER_COLLECTION
+		// 			}
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'ganni-favourites',
+		// 	icon: '/img/shortcuts/ganni_software.png',
+		// 	label: `Design Darlings`,
+		// 	posH: 11,
+		// 	posV: 6,
+		// 	actions: [
+		// 		{
+		// 			name: 'collection/' + SET_GROUP_BY_INDEX.action,
+		// 			param: -1
+		// 		},
+		// 		{
+		// 			name: 'collection/' + SET_CURRENT_FILTER.action,
+		// 			param: 'misc2'
+		// 		}
+		// 	],
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Collection',
+		// 			contentId: 'collection',
+		// 			type: ContentTypes.collection,
+		// 			canOverride: true,
+		// 			assistant: {
+		// 				mode: AssistantModes.FILTER_COLLECTION
+		// 			}
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'about',
+		// 	icon: '/img/shortcuts/dittes_private.png',
+		// 	label: 'Our world',
+		// 	posH: 3,
+		// 	posV: 1,
+		// 	widthSpan: 2,
+		// 	windowContent: 'assets.about'
+		// },
+
+		// {
+		// 	type: ShortcutTypes.MARQUEE,
+		// 	text: 'A loveletter to Copenhagen through artist ',
+		// 	label: 'Ana Kraš lens',
+		// 	windowContent: [
+		// 		{
+		// 			title: `Ana's Copenhagen`,
+		// 			contentId: 'anas', // should match assets[contentId] to define content
+		// 			type: ContentTypes.lookBook,
+		// 			assistant: {
+		// 				mode: AssistantModes.CUSTOM
+		// 			}
+		// 		}
+		// 	]
+		// },
+		// {
+		// 	type: ShortcutTypes.MARQUEE,
+		// 	text: 'Feel Complete. Piece together ',
+		// 	label: 'our puzzle',
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Puzzle',
+		// 			contentId: 'puzzle',
+		// 			type: ContentTypes.puzzle,
+		// 			assistant: {
+		// 				mode: AssistantModes.PUZZLE
+		// 			}
+		// 		}
+		// 	]
+		// },
+		// {
+		// 	type: ShortcutTypes.MARQUEE,
+		// 	text: 'Don’t miss our latest drop of ',
+		// 	label: 'GANNI Software',
+		// 	actions: [
+		// 		{
+		// 			name: 'collection/' + SET_GROUP_BY_IDENTIFIER.action,
+		// 			param: 'software'
+		// 		}
+		// 	],
+		// 	windowContent: [
+		// 		{
+		// 			title: 'PF21 collection',
+		// 			contentId: 'collection',
+		// 			type: ContentTypes.collection,
+		// 			canOverride: true,
+		// 			assistant: {
+		// 				mode: AssistantModes.FILTER_COLLECTION
+		// 			}
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.MARQUEE,
+		// 	text: 'Remember to collect your ',
+		// 	label: 'digital goodiebag',
+		// 	textAfter: ' before you leave',
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Download',
+		// 			contentId: 'download-modal',
+		// 			type: ContentTypes.download,
+		// 			canOverride: true
+		// 		}
+		// 	]
+		// }
+
+		// {
+		// 	type: ShortcutTypes.BADGE,
+		// 	shortcutId: 'puzzle',
+		// 	label: 'Puzzle',
+		// 	icon: '/img/shortcuts/Expert_level_puzzle_bw.png',
+		// 	posH: 10,
+		// 	posV: 5,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Puzzle',
+		// 			contentId: 'puzzle',
+		// 			type: ContentTypes.puzzle,
+		// 			assistant: {
+		// 				mode: AssistantModes.PUZZLE
+		// 			}
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.BADGE,
+		// 	shortcutId: 'music-player',
+		// 	icon: '/img/shortcuts/Hits_for_buyers_bw.png',
+		// 	label: 'GANNI FM',
+		// 	posH: 1,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'GANNI FM',
+		// 			contentId: 'ganni-fm',
+		// 			type: ContentTypes.musicPlayer,
+		// 			canOverride: true
+		// 		}
+		// 	]
+		// },
+
+		// {
+		// 	type: ShortcutTypes.BADGE,
+		// 	shortcutId: 'download',
+		// 	icon: '/img/shortcuts/download.png',
+		// 	label: 'Download',
+		// 	posH: 1,
+		// 	posV: 2,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'Download',
+		// 			contentId: 'download-modal',
+		// 			type: ContentTypes.download,
+		// 			canOverride: true
+		// 		}
+		// 	]
+		// }
 	]
 })
 

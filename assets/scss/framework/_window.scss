@@ -32,6 +32,12 @@
 		max-width: none;
 	}
 
+	&__static {
+		position: absolute;
+		height: 100%;
+		overflow: auto;
+	}
+
 	&.is-active {
 		#{$module}__top {
 			background-color: lighten($color-lightgrey, 5%);
@@ -62,6 +68,8 @@
 		align-items: center;
 
 		border-bottom: rem(1) solid $color-black;
+
+		background-color: $color-white;
 
 		.title {
 			padding: rem(5);

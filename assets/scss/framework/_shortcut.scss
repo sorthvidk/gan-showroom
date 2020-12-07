@@ -1,4 +1,11 @@
 .shortcut {
+	&-bottombar {
+		width: 33%;
+		flex-grow: 1;
+		height: rem(70);
+		border: 1px solid;
+	}
+
 	&__icon {
 		position: relative;
 		box-sizing: border-box;

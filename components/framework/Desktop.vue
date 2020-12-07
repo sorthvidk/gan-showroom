@@ -4,15 +4,15 @@
 			class="desktop"
 			:class="idle && 'screensaver-running'"
 			:style="{
-				backgroundSize: webcamImage && '400px'
+				backgroundSize: webcamImage && '400px',
 			}"
 		>
-			<background-image />
+			<!-- <background-image /> -->
 
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,
-					dashboard__shortcuts: textStyledWithoutIcon
+					dashboard__shortcuts: textStyledWithoutIcon,
 				}"
 			>
 				<shortcut
@@ -39,37 +39,37 @@
 				v-bind="item"
 			/>
 
-			<div class="desktop__windows">
-				<transition-group
+			<div class="desktop__static">
+				<!-- <transition-group
 					tag="div"
 					name="window-animation"
 					@before-enter="setTransformOrigin"
-				>
-					<window
-						v-for="(item, index) in windowList"
-						:key="item.windowId"
-						v-bind="item.windowProps"
-						:position-z="item.positionZ"
-						:window-id="item.windowId"
-						:content-type="item.contentType"
-						:content-name="item.contentName"
-						:content-component="item.contentComponent"
-						:status-component="item.statusComponent"
-						:content-component-props="item.contentComponentProps"
-						:group-id="item.groupId"
-						:status-component-props="item.statusComponentProps"
-						:window-info="item.customAssistantText"
-						:title="item.title"
-						:content-id="item.contentId"
-						:data-index="index"
-					/>
-				</transition-group>
+				> -->
+				<window-static
+					v-for="(item, index) in windowList"
+					:key="item.windowId"
+					v-bind="item.windowProps"
+					:position-z="item.positionZ"
+					:window-id="item.windowId"
+					:content-type="item.contentType"
+					:content-name="item.contentName"
+					:content-component="item.contentComponent"
+					:status-component="item.statusComponent"
+					:content-component-props="item.contentComponentProps"
+					:group-id="item.groupId"
+					:status-component-props="item.statusComponentProps"
+					:window-info="item.customAssistantText"
+					:title="item.title"
+					:content-id="item.contentId"
+					:data-index="index"
+				/>
+				<!-- </transition-group> -->
 
 				<assistant />
 				<!-- <support /> -->
 			</div>
 
-			<marquee v-show="!isMobile" />
+			<!-- <marquee v-show="!isMobile" /> -->
 
 			<div class="clipboard-message" v-if="showClipboardMessage">
 				<p>Copied to clipboard</p>
@@ -131,7 +131,7 @@ import {
 	DOWNLOAD_PREPARING,
 	OPEN_CONTENT,
 	AUTHORIZE_GROUPS,
-	CONNECT_EXHIBITION_ASSETS
+	CONNECT_EXHIBITION_ASSETS,
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -141,6 +141,7 @@ import ShortcutTypes from '~/model/shortcut-types'
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
+import WindowStatic from '~/components/framework/WindowStatic.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
@@ -160,7 +161,8 @@ export default {
 		Assistant,
 		Support,
 		VueDraggableResizable,
-		BackgroundImage
+		BackgroundImage,
+		WindowStatic,
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList']),
@@ -170,22 +172,22 @@ export default {
 		...mapState('utils', [
 			'downloadPreparing',
 			'clipBoardCopyComplete',
-			'isMobile'
+			'isMobile',
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),
 
 		desktopIcons() {
 			return this.authorizedShortcuts.filter(
-				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
+				(s) => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
 			)
 		},
 		marqueeLinks() {
-			return this.list.filter(s => s.type == ShortcutTypes.MARQUEE)
+			return this.list.filter((s) => s.type == ShortcutTypes.MARQUEE)
 		},
 
 		badgeShortcuts() {
-			return this.list.filter(s => s.type == ShortcutTypes.BADGE)
+			return this.list.filter((s) => s.type == ShortcutTypes.BADGE)
 		},
 
 		backgroundImage() {
@@ -194,7 +196,7 @@ export default {
 			// }
 			// src: `/img/wallpapers/wallpaper${getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
-		}
+		},
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {
@@ -212,14 +214,14 @@ export default {
 			} else {
 				this.showDownloadMessage = false
 			}
-		}
+		},
 	},
 	data() {
 		return {
 			showClipboardMessage: false,
 			showDownloadMessage: false,
 			wallpaperCount: 6,
-			backgrounds: []
+			backgrounds: [],
 		}
 	},
 	methods: {
@@ -230,7 +232,7 @@ export default {
 		...mapActions('user', [
 			COPYRIGHT_ACCEPT.action,
 			KEYPRESS.action,
-			MOUSEMOVE.action
+			MOUSEMOVE.action,
 		]),
 		startClipboardTimeout() {
 			setTimeout(() => {
@@ -259,22 +261,22 @@ export default {
 				delay: 2,
 				scale: 1,
 				opacity: 1,
-				ease: 'power4.inOut'
+				ease: 'power4.inOut',
 			})
-		}
+		},
 	},
 	mounted() {
-		window.addEventListener('keyup', event => {
+		window.addEventListener('keyup', (event) => {
 			this[KEYPRESS.action](event)
 		})
-		window.addEventListener('keydown', event => {
+		window.addEventListener('keydown', (event) => {
 			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
 				this[RESET_STATE.action](event)
 			}
 		})
 
 		let timeout = null
-		window.addEventListener('mousemove', event => {
+		window.addEventListener('mousemove', (event) => {
 			const debounce = (func, wait, immediate) => {
 				var later = () => {
 					timeout = null
@@ -294,6 +296,6 @@ export default {
 		// this.$store.commit('collection/isOnWishList')
 	},
 
-	created() {}
+	created() {},
 }
 </script>

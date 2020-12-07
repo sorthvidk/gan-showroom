@@ -4,13 +4,13 @@
 	flex-wrap: wrap;
 	align-items: flex-start;
 
-	> * {
-		padding: rem(5);
+	// > * {
+	// 	padding: rem(5);
 
-		@include mq($from: screen-md) {
-			padding: rem(25);
-		}
-	}
+	// 	@include mq($from: screen-md) {
+	// 		padding: rem(25);
+	// 	}
+	// }
 
 	&__group {
 		h4 {
@@ -34,25 +34,31 @@
 	}
 
 	.collection-item {
-		display: block;
-		padding: rem(5);
-		flex: 0 0 50%;
+		// display: block;
+		display: flex;
+		// padding: rem(5);
+		// flex: 0 0 50%;
+		width: 100%;
 		min-width: 0;
 		box-sizing: border-box;
-		border: rem(1) solid transparent;
+		// border: rem(1) solid transparent;
 		position: relative;
 		cursor: pointer;
 		transition: border 0.3s ease;
 
 		@include mq($from: screen-xxs) {
-			flex: 0 0 rem(156);
+			width: 50%;
+			// flex: 0 0 rem(156);
 		}
 		@include mq($from: screen-md) {
-			flex: 0 0 rem(208);
+			width: 25%;
+			// flex: 0 0 rem(208);
 		}
 
 		&:hover {
-			border: rem(1) solid $color-black;
+			// border: rem(1) solid $color-black;
+			outline: rem(1) solid $color-black;
+			z-index: 1;
 		}
 
 		.on-wishlist {
@@ -71,9 +77,9 @@
 			background-color: $color-lightgrey;
 			object-fit: cover;
 
-			@include mq($from: screen-md) {
-				height: rem(298);
-			}
+			// @include mq($from: screen-md) {
+			// 	height: rem(298);
+			// }
 		}
 
 		p {
@@ -82,10 +88,15 @@
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			margin-top: rem(10);
+			// margin-top: rem(10);
 			display: block;
 			text-align: center;
 			@include bodytext();
+
+			position: absolute;
+			bottom: 1em;
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
 

@@ -17,6 +17,9 @@
 	background-repeat: no-repeat;
 	// image-rendering: pixelated;
 
+	display: flex;
+	flex-direction: column-reverse;
+
 	* {
 		image-rendering: initial;
 	}
@@ -45,6 +48,12 @@
 		z-index: 20;
 		top: 0;
 		left: 0;
+	}
+
+	&__static {
+		position: relative;
+		height: 1%;
+		flex-grow: 1;
 	}
 
 	.logo {

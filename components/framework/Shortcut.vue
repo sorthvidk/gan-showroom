@@ -5,7 +5,7 @@
 			@mouseenter="changeBackground"
 			@mouseleave="changeBackground(false)"
 			class="shortcut"
-			:class="{ shortcut__text: textLayout, shortcut__icon: !textLayout }"
+			:class="cssClass"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>
 			<span class="icon" v-if="!textLayout">
@@ -22,7 +22,7 @@ import { TweenLite } from 'gsap'
 import {
 	OPEN_CONTENT,
 	SET_GROUP_BY_IDENTIFIER,
-	DESKTOP_BACKGROUND
+	DESKTOP_BACKGROUND,
 } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
@@ -39,8 +39,11 @@ export default {
 		windowContent: { type: [Array, String], default: () => [], required: true },
 		actions: { type: Array, default: null, required: false },
 		href: { type: String, default: null, required: false },
-		nthChild: { type: Number }
+		nthChild: { type: Number },
 	},
+	data: () => ({
+		cssClass: 'shortcut-bottombar',
+	}),
 	computed: {
 		...mapGetters('collection', ['authorizedGroupsIds']),
 		styleGridRow() {
@@ -48,7 +51,7 @@ export default {
 		},
 		styleGridColumn() {
 			return this.positionH + '/' + (this.positionH + 1)
-		}
+		},
 	},
 	methods: {
 		...mapActions([OPEN_CONTENT.action]),
@@ -63,7 +66,7 @@ export default {
 					const openContent = () =>
 						this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
-					this.actions.forEach(action => {
+					this.actions.forEach((action) => {
 						if (typeof action.param !== 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
@@ -83,14 +86,14 @@ export default {
 				delay: Math.floor(this.nthChild) / 20 + 0.5,
 				scale: 1,
 				opacity: 1,
-				ease: 'power4.inOut'
+				ease: 'power4.inOut',
 			})
 		},
 		changeBackground(color) {
 			if (!this.textLayout) return
 
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
-		}
-	}
+		},
+	},
 }
 </script>
