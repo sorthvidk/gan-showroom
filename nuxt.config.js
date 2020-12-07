@@ -34,6 +34,12 @@ export default {
 	 ** Customize the progress-bar color
 	 */
 	loading: { color: '#fff' },
+	/**
+	 * Always search for static in root
+	 */
+	static: {
+		prefix: false
+	},
 	/*
 	 ** Global CSS
 	 */
@@ -73,7 +79,7 @@ export default {
 			'nuxt-cookie-control',
 			{
 				css: true,
-    			controlButton: false
+				controlButton: false
 			}
 		]
 	],
@@ -89,7 +95,7 @@ export default {
 		 */
 		devtools: true,
 		analyze: false, // only for debugging
-		extend (config, ctx) {
+		extend(config, ctx) {
 			// console.log('config.entry: ', config.entry);
 		},
 		postcss: {
