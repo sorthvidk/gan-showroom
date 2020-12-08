@@ -1,9 +1,11 @@
 .shortcut {
 	&-bottombar {
+		@include headline();
 		width: 33%;
 		flex-grow: 1;
 		height: rem(70);
 		border: 1px solid;
+		z-index: 1;
 	}
 
 	&__icon {

@@ -15,7 +15,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { puzzle } from './jigsaw-puzzle'
+import { puzzle } from 'jigsaw-puzzle'
 import { SAVE_PUZZLE, PUZZLE_INSTANCE } from '~/model/constants'
 
 export default {

@@ -40,12 +40,15 @@
 			/>
 
 			<div class="desktop__static">
-				<!-- <transition-group
-					tag="div"
-					name="window-animation"
-					@before-enter="setTransformOrigin"
-				> -->
 				<window-static
+					v-if="dashboardContent.contentComponent"
+					:content="dashboardContent"
+					:key="dashboardContent.windowId"
+				/>
+			</div>
+
+			<div class="desktop__windows">
+				<window
 					v-for="(item, index) in windowList"
 					:key="item.windowId"
 					v-bind="item.windowProps"
@@ -63,7 +66,6 @@
 					:content-id="item.contentId"
 					:data-index="index"
 				/>
-				<!-- </transition-group> -->
 
 				<assistant />
 				<!-- <support /> -->
@@ -165,7 +167,7 @@ export default {
 		WindowStatic,
 	},
 	computed: {
-		...mapState(['wallpaperIndex', 'windowList']),
+		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
 		...mapState('collage', ['webcamImage']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
 		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),

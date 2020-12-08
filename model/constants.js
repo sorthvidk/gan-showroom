@@ -58,6 +58,9 @@ export const UPDATE_WINDOW = createMutation('UPDATE_WINDOW')
 export const CLOSE_WINDOW_GROUP = createMutation('CLOSE_WINDOW_GROUP')
 export const EXPAND_WINDOW_GROUP = createMutation('EXPAND_WINDOW_GROUP')
 export const OPEN_CONTENT = createMutation('OPEN_CONTENT')
+export const OPEN_CONTENT_IN_DASHBOARD = createMutation(
+	'OPEN_CONTENT_IN_DASHBOARD'
+)
 export const OPEN_GALLERY = createMutation('OPEN_GALLERY')
 export const ADD_TO_WISHLIST = createMutation('ADD_TO_WISHLIST')
 export const REMOVE_FROM_WISHLIST = createMutation('REMOVE_FROM_WISHLIST')
@@ -94,6 +97,7 @@ export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
 export const ASSISTANT_TEXT = createMutation('ASSISTANT_TEXT')
 export const ASSISTANT_MODE = createMutation('ASSISTANT_MODE')
 export const ASSISTANT_EXPANDED = createMutation('ASSISTANT_EXPANDED')
+export const ASSISTANT_TOGGLE = createMutation('ASSISTANT_TOGGLE')
 
 export const DESKTOP_BACKGROUND = createMutation('DESKTOP_BACKGROUND')
 

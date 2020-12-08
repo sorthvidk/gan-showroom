@@ -278,7 +278,7 @@ export const state = () => ({
 		// 			}
 		// 		}
 		// 	]
-		// },
+		// }
 
 		// {
 		// 	type: ShortcutTypes.BADGE,

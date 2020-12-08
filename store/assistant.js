@@ -3,12 +3,14 @@ import {
 	ASSISTANT_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
-	ASSISTANT_EXPANDED
+	ASSISTANT_EXPANDED,
+	ASSISTANT_TOGGLE
 } from '~/model/constants'
 
 export const state = () => ({
 	texts: [],
 	expanded: true,
+	closed: false,
 	assistantMode: AssistantModes.WELCOME,
 	pdfDownloadLink:
 		'//pdfcrowd.com/url_to_pdf/?pdf_name=ganni-space-export&width=210mm&height=297mm&hmargin=0mm&vmargin=0mm',
@@ -41,6 +43,10 @@ export const mutations = {
 		state.expanded = data
 	},
 
+	[ASSISTANT_TOGGLE.mutation](state, data) {
+		state.closed = data
+	},
+
 	[ASSISTANT_TEXT.mutation](state, data) {
 		/**
 		 * can either be an object with { headline, bodyText },
@@ -57,6 +63,10 @@ export const mutations = {
 export const actions = {
 	[ASSISTANT_EXPANDED.action]({ commit }, data) {
 		commit(ASSISTANT_EXPANDED.mutation, data)
+	},
+
+	[ASSISTANT_TOGGLE.action]({ commit }, data) {
+		commit(ASSISTANT_TOGGLE.mutation, data)
 	},
 
 	[ASSISTANT_TEXT.action]({ commit }, data) {

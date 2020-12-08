@@ -21,6 +21,7 @@ import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 import { TweenLite } from 'gsap'
 import {
 	OPEN_CONTENT,
+	OPEN_CONTENT_IN_DASHBOARD,
 	SET_GROUP_BY_IDENTIFIER,
 	DESKTOP_BACKGROUND,
 } from '~/model/constants'
@@ -54,7 +55,7 @@ export default {
 		},
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action]),
+		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		...mapActions('assets', [DESKTOP_BACKGROUND.action]),
 		onClick() {
 			const { windowContent } = this
@@ -62,20 +63,23 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
+				const openContentInDashboard = () => {
+					this.$nextTick(() =>
+						this[OPEN_CONTENT_IN_DASHBOARD.action]({ windowContent })
+					)
+				}
 				if (this.actions) {
-					const openContent = () =>
-						this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
+					// const openContent = () =>
+					// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
 					this.actions.forEach((action) => {
 						if (typeof action.param !== 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					})
-
-					openContent()
-				} else {
-					this[OPEN_CONTENT.action]({ windowContent })
 				}
+
+				openContentInDashboard()
 			}
 		},
 		beforeAnimateIn(el) {

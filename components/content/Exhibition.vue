@@ -43,7 +43,7 @@ export default {
 	name: 'exhibition',
 	components: { Loading },
 	computed: {
-		...mapState('exhibition', ['list'])
+		...mapState('exhibition', ['list']),
 	},
 	methods: {
 		...mapActions('exhibition', [OPEN_EXHIBITION_CONTENT.action]),
@@ -51,13 +51,13 @@ export default {
 			return getCloudinaryUrl(
 				this.$cloudinary,
 				{ type: type, cloudinaryUrl: cURL },
-				{ width: 500 },
+				{ width: window.innerWidth },
 				2
 			)
 		},
 		itemClickHandler(item) {
 			this[OPEN_EXHIBITION_CONTENT.action](item.exhibitionId)
-		}
-	}
+		},
+	},
 }
 </script>

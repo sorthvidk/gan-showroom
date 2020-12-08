@@ -3956,9 +3956,9 @@ jest-worker@^25.4.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jigsaw-puzzle@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jigsaw-puzzle/-/jigsaw-puzzle-1.0.1.tgz#82c53aa3f966c66928d8b7c26d36bd977ded7ac4"
+jigsaw-puzzle@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/jigsaw-puzzle/-/jigsaw-puzzle-1.0.3.tgz#cc974fdc1be3b9d648be4b3c507bb1e5a8bc2c7a"
 
 js-base64@^2.1.8:
   version "2.5.2"

@@ -6,7 +6,7 @@
 		<loading />
 
 		<transition name="fade">
-			<img :src="assetUrl" alt="img" @click="clickHandler" />
+			<img v-lazy="assetUrl" alt="img" @click="clickHandler" />
 		</transition>
 	</div>
 </template>
@@ -26,8 +26,8 @@ export default {
 	props: {
 		asset: {
 			type: Object,
-			required: true
-		}
+			required: true,
+		},
 	},
 	computed: {
 		belongsToStyle() {
@@ -42,7 +42,7 @@ export default {
 			if (this.asset.aspect === 'square')
 				transform = { width: 370, height: 370 }
 			return getCloudinaryUrl(this.$cloudinary, this.asset, transform)
-		}
+		},
 	},
 	methods: {
 		...mapActions([OPEN_GALLERY.action]),
@@ -50,7 +50,7 @@ export default {
 			if (this.belongsToStyle && this.inFocus) {
 				this[OPEN_GALLERY.action](this.asset)
 			}
-		}
-	}
+		},
+	},
 }
 </script>

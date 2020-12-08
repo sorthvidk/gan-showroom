@@ -5,6 +5,9 @@
 	>
 		<div class="window__top">
 			<span class="title">Ganni space assistant</span>
+			<button @click="toggle" :style="{ padding: '0 1em' }">
+				{{ closed ? '&darr;' : '&uarr;' }}
+			</button>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
@@ -99,22 +102,24 @@
 			</button>
 		</div>
 
-		<hr v-if="assistantMode == 2 && (!isMobile || (isMobile && expanded))" />
+		<!-- <hr v-if="assistantMode == 2 && (!isMobile || (isMobile && expanded))" /> -->
 
 		<!-- ####################### CONTENT ####################### -->
 
-		<div class="window__content">
-			<div class="assistant">
-				<assistant-mode-welcome v-if="assistantMode === 0" />
-				<assistant-mode-filter-collection v-if="assistantMode === 1" />
-				<assistant-mode-style-details v-if="assistantMode === 2" />
-				<assistant-mode-wishlist v-if="assistantMode === 3" />
-				<assistant-mode-collection-seen v-if="assistantMode === 4" />
-				<assistant-mode-collage v-if="assistantMode === 5" />
-				<assistant-mode-custom v-if="assistantMode === 6" />
-				<assistant-mode-puzzle v-if="assistantMode === 7" />
+		<TransitionExpand>
+			<div v-show="!closed" class="window__content">
+				<div class="assistant">
+					<assistant-mode-welcome v-if="assistantMode === 0" />
+					<assistant-mode-filter-collection v-if="assistantMode === 1" />
+					<assistant-mode-style-details v-if="assistantMode === 2" />
+					<assistant-mode-wishlist v-if="assistantMode === 3" />
+					<assistant-mode-collection-seen v-if="assistantMode === 4" />
+					<assistant-mode-collage v-if="assistantMode === 5" />
+					<assistant-mode-custom v-if="assistantMode === 6" />
+					<assistant-mode-puzzle v-if="assistantMode === 7" />
+				</div>
 			</div>
-		</div>
+		</TransitionExpand>
 	</section>
 </template>
 
@@ -122,12 +127,12 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import {
 	CLOSE_WINDOW_GROUP,
-	// SHOW_NEXT_STYLE,
 	SHOW_NEW_STYLE,
 	ASSISTANT_MODE,
 	ASSISTANT_EXPANDED,
 	CURRENT_STYLE,
 	SET_HIDDEN_ASSETS,
+	ASSISTANT_TOGGLE,
 } from '~/model/constants'
 
 import AssistantModeWelcome from '~/components/content/AssistantModeWelcome.vue'
@@ -138,6 +143,8 @@ import AssistantModeWishlist from '~/components/content/AssistantModeWishlist.vu
 import AssistantModeCollectionSeen from '~/components/content/AssistantModeCollectionSeen.vue'
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
+
+import TransitionExpand from '~/components/transitions/Expand.vue'
 
 import ContentTypes from '~/model/content-types'
 import AssistantModes from '~/model/assistant-modes'
@@ -153,6 +160,7 @@ export default {
 		AssistantModeCollectionSeen,
 		AssistantModeCustom,
 		AssistantModePuzzle,
+		TransitionExpand,
 	},
 	data() {
 		return {
@@ -168,7 +176,7 @@ export default {
 			'currentStyles',
 			'activeFilter',
 		]),
-		...mapState('assistant', ['assistantMode', 'expanded']),
+		...mapState('assistant', ['assistantMode', 'expanded', 'closed']),
 		...mapState('utils', ['isMobile']),
 
 		filterStatusText() {
@@ -242,13 +250,13 @@ export default {
 		...mapActions([CLOSE_WINDOW_GROUP.action]),
 		...mapActions('collection', [
 			SHOW_NEW_STYLE.action,
-			// SHOW_NEXT_STYLE.action,
 			CURRENT_STYLE.action,
 			SET_HIDDEN_ASSETS.action,
 		]),
 		...mapActions('assistant', [
 			ASSISTANT_MODE.action,
 			ASSISTANT_EXPANDED.action,
+			ASSISTANT_TOGGLE.action,
 		]),
 
 		previousStyleHandler() {
@@ -271,6 +279,10 @@ export default {
 
 		toggleContentHandler() {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
+		},
+
+		toggle() {
+			this[ASSISTANT_TOGGLE.action](!this.closed)
 		},
 	},
 	mounted() {

@@ -28,7 +28,8 @@ import {
 	PASSWORDS_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
-	UPDATE_PROGRESS
+	UPDATE_PROGRESS,
+	OPEN_CONTENT_IN_DASHBOARD
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -50,7 +51,9 @@ export const state = () => ({
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
-	highestZIndex: 0
+	highestZIndex: 0,
+
+	dashboardContent: {}
 })
 
 export const mutations = {
@@ -118,6 +121,18 @@ export const mutations = {
 
 		state.windowList = resetZOrder(state.windowList)
 		state.highestZIndex = lastElement(state.windowList).positionZ
+	},
+
+	/**
+	 * opens a window content, but in the dashboard instead of a draggable window
+	 */
+	[OPEN_CONTENT_IN_DASHBOARD.mutation](state, params) {
+		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
+
+		params.windowContent.forEach(content => {
+			const newWindow = getOptimalProp(state, content, getUniqueId())
+			state.dashboardContent = newWindow
+		})
 	},
 
 	/*
@@ -280,6 +295,10 @@ export const actions = {
 			'progressBar/' + UPDATE_PROGRESS.action,
 			content.windowContent[0].type.name
 		)
+	},
+
+	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit }, content) {
+		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, content)
 	},
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {

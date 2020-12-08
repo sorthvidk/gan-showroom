@@ -1,0 +1,7 @@
+img[lazy] {
+	transition: opacity 0.4s $easeInOutQuint;
+}
+
+img[lazy='loading'] {
+	opacity: 0;
+}

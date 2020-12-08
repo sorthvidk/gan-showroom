@@ -37,7 +37,7 @@ export default {
 	props: CollectionItemModel,
 	computed: {
 		...mapState({
-			wishList: state => state.collection.wishList
+			wishList: (state) => state.collection.wishList,
 		}),
 		imageUrl() {
 			if (!this.assets || !this.assets.length) {
@@ -46,9 +46,8 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 310 }),
-				loading: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
-					width: 10
-				})
+				loading:
+					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
 			}
 		},
 		imageName() {
@@ -56,8 +55,8 @@ export default {
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.filter(e => e.styleId === this.styleId).length > 0
-		}
+			return this.wishList.filter((e) => e.styleId === this.styleId).length > 0
+		},
 	},
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action]),
@@ -65,7 +64,7 @@ export default {
 			sendTracking('Product click', this.styleId)
 
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
-		}
-	}
+		},
+	},
 }
 </script>

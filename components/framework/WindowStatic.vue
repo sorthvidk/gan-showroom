@@ -1,41 +1,20 @@
 <template>
 	<div class="window__static">
-		<header class="window__top">
-			<span class="title"
-				>{{ title }}&nbsp;
-				<p v-if="contentComponent === 'collection'">
-					({{ currentStyles.length }})
-				</p>
-				<p v-if="contentComponent === 'wish-list'">({{ wishList.length }})</p>
-			</span>
-			<button
-				:style="{
-					lineHeight: 0,
-					fontSize: '20px',
-					fontWeight: 'normal',
-					marginTop: '-0.2em',
-				}"
-				class="button close"
-				@click.stop="closeHandler"
-			>
-				&times;
-			</button>
-		</header>
-		<div
-			v-if="statusComponent"
-			class="window__status"
-			@click="contentActivateHandler"
-		>
-			<component :is="statusComponent" v-bind="statusComponentProps" />
+		<div v-if="content.statusComponent" class="window__status">
+			<component
+				:is="content.statusComponent"
+				v-bind="content.statusComponentProps"
+			/>
 		</div>
 
-		<!-- <hr v-if="statusComponent" /> -->
-
-		<div v-bar class="window__content" @click="contentActivateHandler">
+		<div v-bar class="window__content">
 			<component
-				:is="contentComponent"
-				:parent-window-id="windowId"
-				v-bind="{ ...contentComponentProps, contentId }"
+				:is="content.contentComponent"
+				:parent-window-id="content.windowId"
+				v-bind="{
+					...content.contentComponentProps,
+					contentId: content.contentId,
+				}"
 				ref="contentComponent"
 			/>
 		</div>
@@ -44,7 +23,6 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-import { TOPMOST_WINDOW, CLOSE_WINDOW, UPDATE_WINDOW } from '~/model/constants'
 
 import Exhibition from '~/components/content/Exhibition.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
@@ -89,91 +67,12 @@ export default {
 		DownloadModal,
 	},
 	props: {
-		modifierClass: {
-			type: String,
-			default: '',
-		},
-		wrapperClass: {
-			type: String,
-			default: '',
-		},
-		contentType: {
+		content: {
 			type: Object,
-			required: true,
-		},
-		contentName: {
-			type: String,
-			required: true,
-		},
-		canResize: {
-			type: Boolean,
-			default: true,
-		},
-		canReorder: {
-			type: Boolean,
-			default: true,
-		},
-
-		contentComponent: {
-			type: String,
-			default: null,
-		},
-		contentComponentProps: {
-			type: Object,
-			default: null,
-		},
-
-		// noStatus: {
-		// 	type: Boolean,
-		// 	default: false
-		// },
-		statusComponent: {
-			type: String,
-			default: null,
-			required: false,
-		},
-		statusComponentProps: {
-			type: Object,
-			default: null,
-		},
-
-		customAssistantText: {
-			type: Object,
-		},
-
-		title: {
-			type: String,
-		},
-		positionX: {
-			type: Number,
-		},
-		positionY: {
-			type: Number,
-		},
-		positionZ: {
-			type: Number,
-		},
-		sizeW: {
-			type: Number,
-		},
-		sizeH: {
-			type: Number,
-		},
-		contentId: {
-			type: String,
-		},
-		windowId: {
-			type: String,
-		},
-		groupId: {
-			type: String,
-		},
-		nthChild: {
-			type: Number,
+			default: () => ({}),
 		},
 	},
 	computed: {
-		...mapState('puzzle', ['puzzle']),
 		...mapState('collection', ['currentStyles', 'wishList']),
 
 		concatClassName() {
@@ -184,33 +83,12 @@ export default {
 			return cn
 		},
 	},
-	data: () => ({
-		resetPositionDistance: 40,
-		maximizeOffset: 0,
-		maximizeTimeoutHandle: -1,
-		maximizeClicked: false,
-		isMaximized: false,
-
-		transformOrigin: 0,
-	}),
+	data: () => ({}),
 	methods: {
-		...mapActions([
-			TOPMOST_WINDOW.action,
-			CLOSE_WINDOW.action,
-			UPDATE_WINDOW.action,
-		]),
-		closeHandler(e) {
-			this[CLOSE_WINDOW.action]({
-				windowId: this.windowId,
-				contentId: this.contentId,
-			})
-		},
-		contentActivateHandler(e) {
-			if (this.canReorder) {
-				this[TOPMOST_WINDOW.action](this.windowId)
-			}
-		},
+		...mapActions([]),
 	},
-	mounted() {},
+	mounted() {
+		console.log(this)
+	},
 }
 </script>

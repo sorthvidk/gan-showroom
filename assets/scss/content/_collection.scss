@@ -3,6 +3,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
+	background-color: $color-imagebg;
 
 	// > * {
 	// 	padding: rem(5);
@@ -34,25 +35,25 @@
 	}
 
 	.collection-item {
-		// display: block;
 		display: flex;
-		// padding: rem(5);
-		// flex: 0 0 50%;
 		width: 100%;
+		min-height: calc(100vw / 3 * 4);
 		min-width: 0;
 		box-sizing: border-box;
-		// border: rem(1) solid transparent;
+
 		position: relative;
 		cursor: pointer;
 		transition: border 0.3s ease;
+		background-color: $color-imagebg;
 
 		@include mq($from: screen-xxs) {
 			width: 50%;
-			// flex: 0 0 rem(156);
+			min-height: calc(50vw / 3 * 4);
 		}
+
 		@include mq($from: screen-md) {
 			width: 25%;
-			// flex: 0 0 rem(208);
+			min-height: calc(25vw / 3 * 4);
 		}
 
 		&:hover {

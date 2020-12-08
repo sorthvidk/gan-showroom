@@ -20,7 +20,7 @@ Vue.use(Vuebar)
 /**
  * todo: turn of when bugfixing is done
  */
-Vue.config.devtools = true
+Vue.config.devtools = process.env.NODE_ENV !== 'production'
 
 import cloudinary from 'cloudinary-core'
 

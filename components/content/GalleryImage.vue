@@ -15,22 +15,24 @@ export default {
 	props: {
 		asset: {
 			type: Object,
-			required: true
+			required: true,
 		},
 		focused: {
 			type: Boolean,
-			default: false
-		}
+			default: false,
+		},
 	},
 	computed: {
 		imageUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset, { width: 1000 })
-		}
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {
+				width: window.innerWidth,
+			})
+		},
 	},
 	mounted() {
 		if (this.focused) {
 			setTimeout(() => this.$el.scrollIntoView({ behavior: 'smooth' }), 500)
 		}
-	}
+	},
 }
 </script>

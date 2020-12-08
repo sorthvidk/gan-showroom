@@ -5,6 +5,11 @@
 @import 'core/normalize';
 @import 'core/display';
 
+@import 'transitions/variables';
+@import 'transitions/lazy';
+@import 'transitions/vue-transitions';
+@import 'transitions/expand';
+
 @import 'framework/window';
 
 @import 'framework/assistant';

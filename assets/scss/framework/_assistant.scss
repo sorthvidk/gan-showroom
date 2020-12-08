@@ -18,14 +18,15 @@
 			width: rem(276);
 		}
 		@include mq($from: screen-md) {
-			top: 4vh; // align with text
+			top: 7vh; // align with text
 			left: auto;
-			right: rem(20);
+			right: rem(40);
 			bottom: auto;
 		}
 
 		.window__content {
-			height: auto;
+			// height: auto;
+			overflow: hidden;
 		}
 		// .window__top {
 		// 	.title {
