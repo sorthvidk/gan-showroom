@@ -102,8 +102,6 @@ export default {
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
 		},
 	},
-	mounted() {
-		console.log(this.dashboardContent, this)
-	},
+	mounted() {},
 }
 </script>

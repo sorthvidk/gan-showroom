@@ -1,6 +1,20 @@
 <template>
 	<button class="collection-item" @click.stop="onItemClick">
-		<img v-lazy="imageUrl" alt="imageName" />
+		<img v-lazy="imageUrl" :alt="`An image of ${imageName}`" />
+		<div v-if="imageUrl2" class="collection-item__extra">
+			<img
+				v-if="assets[1].type === 'image'"
+				v-lazy="imageUrl2"
+				:alt="imageName"
+			/>
+			<video
+				autoplay="true"
+				muted="true"
+				loop="true"
+				v-if="assets[1].type === 'video'"
+				:src="imageUrl2.src"
+			></video>
+		</div>
 		<p>{{ imageName }}</p>
 
 		<responsible-icon v-if="responsible" />
@@ -27,13 +41,14 @@ import CollectionItemModel from '~/model/collection-item'
 import capitalize from 'lodash/capitalize'
 
 import ResponsibleIcon from '~/components/content/ResponsibleIcon.vue'
+import VideoPlayer from '~/components/content/VideoPlayer.vue'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
 
 export default {
 	name: 'collectionItem',
-	components: { ResponsibleIcon },
+	components: { ResponsibleIcon, VideoPlayer },
 	props: CollectionItemModel,
 	computed: {
 		...mapState({
@@ -45,7 +60,22 @@ export default {
 			}
 
 			return {
-				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], { width: 310 }),
+				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
+					width: window.innerWidth / 4,
+				}),
+				loading:
+					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+			}
+		},
+		imageUrl2() {
+			if (!this.assets || this.assets.length < 2) {
+				return
+			}
+
+			return {
+				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
+					width: window.innerWidth / 4,
+				}),
 				loading:
 					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
 			}
@@ -65,6 +95,9 @@ export default {
 
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		},
+	},
+	mounted() {
+		console.log(this.assets[1] && this.imageUrl2)
 	},
 }
 </script>
