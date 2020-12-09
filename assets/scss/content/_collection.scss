@@ -16,13 +16,14 @@
 	&__group {
 		h4 {
 			@include megatype();
-			padding: 0 0 rem(5);
-			margin-bottom: rem(5);
+			padding: 0 0 rem(10);
+			// margin-bottom: rem(5);
 			// font-size: rem(16);
 			text-transform: uppercase;
 			font-weight: 500;
 			display: block;
 			color: $color-black;
+			background-color: $color-white;
 		}
 		> div {
 			display: flex;

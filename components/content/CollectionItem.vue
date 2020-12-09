@@ -96,8 +96,6 @@ export default {
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		},
 	},
-	mounted() {
-		console.log(this.assets[1] && this.imageUrl2)
-	},
+	mounted() {},
 }
 </script>

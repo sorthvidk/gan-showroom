@@ -38,12 +38,13 @@ em {
 }
 
 @mixin windowtitle() {
-	font-size: rem(16);
-	font-weight: 500;
-	line-height: 1;
-	letter-spacing: -0.01em;
+	@include bodytext();
+	// font-size: rem(16);
+	// font-weight: 500;
+	// line-height: 1;
+	// letter-spacing: -0.01em;
 
-	text-transform: uppercase;
+	// text-transform: uppercase;
 }
 
 @mixin bodytext() {

@@ -108,14 +108,14 @@
 		<TransitionExpand>
 			<div v-show="!closed" class="window__content">
 				<div class="assistant">
-					<assistant-mode-welcome v-if="assistantMode === 0" />
-					<assistant-mode-filter-collection v-if="assistantMode === 1" />
-					<assistant-mode-style-details v-if="assistantMode === 2" />
-					<assistant-mode-wishlist v-if="assistantMode === 3" />
-					<assistant-mode-collection-seen v-if="assistantMode === 4" />
-					<assistant-mode-collage v-if="assistantMode === 5" />
-					<assistant-mode-custom v-if="assistantMode === 6" />
-					<assistant-mode-puzzle v-if="assistantMode === 7" />
+					<assistant-mode-welcome v-if="mode === 0" />
+					<assistant-mode-filter-collection v-if="mode === 1" />
+					<assistant-mode-style-details v-if="mode === 2" />
+					<assistant-mode-wishlist v-if="mode === 3" />
+					<assistant-mode-collection-seen v-if="mode === 4" />
+					<assistant-mode-collage v-if="mode === 5" />
+					<assistant-mode-custom v-if="mode === 6" />
+					<assistant-mode-puzzle v-if="mode === 7" />
 				</div>
 			</div>
 		</TransitionExpand>
@@ -167,7 +167,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(['topMostWindow']),
+		...mapState(['topMostWindow', 'dashboardContent']),
 		...mapState('collection', [
 			'wishList',
 			'allStyles',
@@ -180,6 +180,11 @@ export default {
 
 		filterStatusText() {
 			return this.filterName || 'Filter'
+		},
+		mode() {
+			return !this.topMostWindow && this.dashboardContent.assistant
+				? this.dashboardContent.assistant.mode
+				: this.assistantMode
 		},
 	},
 	watch: {
