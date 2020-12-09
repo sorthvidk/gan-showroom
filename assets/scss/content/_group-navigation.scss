@@ -8,6 +8,7 @@
 	label {
 		@include windowtitle();
 		text-align: center;
+		cursor: pointer;
 	}
 
 	input[type='radio'] {
@@ -16,6 +17,8 @@
 		height: 0.9em;
 		border: 1px solid;
 		border-radius: 2em;
+
+		cursor: pointer;
 
 		&:checked {
 			background-color: $color-black;

@@ -122,7 +122,7 @@
 		display: flex;
 		justify-content: space-between;
 
-		border-top: rem(1) solid $color-black;
+		// border-top: rem(1) solid $color-black;
 
 		> p {
 			@include bodytext();
@@ -148,14 +148,16 @@
 				background-color: $color-lightgrey;
 			}
 		}
+
+		+ .window__content {
+			border-top: rem(1) solid $color-black;
+		}
 	}
 	&__content {
 		overflow-x: hidden;
 		overflow-y: scroll;
 		// overflow: overlay;
 		height: calc(100% - #{rem($chrome-height)});
-
-		border-top: rem(1) solid $color-black;
 
 		// @include smiley-scrollbar();
 		flex-grow: 1;

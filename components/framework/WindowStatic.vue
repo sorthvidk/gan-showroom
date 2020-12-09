@@ -7,7 +7,8 @@
 			/>
 		</div>
 
-		<div v-bar class="window__content">
+		<!-- <div v-bar class="window__content" ref="scroller"> -->
+		<vue-bar class="window__content">
 			<component
 				:is="content.contentComponent"
 				:parent-window-id="content.windowId"
@@ -17,7 +18,8 @@
 				}"
 				ref="contentComponent"
 			/>
-		</div>
+			<!-- </div> -->
+		</vue-bar>
 	</div>
 </template>
 
@@ -44,6 +46,8 @@ import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
 import StatusWishList from '~/components/content/StatusWishList.vue'
 
+import VueBar from '~/components/content/VueBar.vue'
+
 export default {
 	name: 'window',
 	components: {
@@ -65,6 +69,7 @@ export default {
 		Collage,
 		Puzzle,
 		DownloadModal,
+		VueBar,
 	},
 	props: {
 		content: {
@@ -84,11 +89,12 @@ export default {
 		},
 	},
 	data: () => ({}),
+
 	methods: {
 		...mapActions([]),
 	},
 	mounted() {
-		console.log(this)
+		// this.$refs.scroller
 	},
 }
 </script>

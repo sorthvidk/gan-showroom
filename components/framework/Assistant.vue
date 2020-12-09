@@ -3,11 +3,10 @@
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
 	>
-		<div class="window__top">
-			<span class="title">Ganni space assistant</span>
-			<button @click="toggle" :style="{ padding: '0 1em' }">
-				{{ closed ? '&darr;' : '&uarr;' }}
-			</button>
+		<div class="window__top" @click="toggle">
+			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
+				>Ganni space assistant</span
+			>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->

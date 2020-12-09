@@ -1,11 +1,11 @@
 @import 'core/variables';
+@import 'transitions/variables';
 @import 'core/media-query';
 @import 'core/mixins';
 @import 'core/typography';
 @import 'core/normalize';
 @import 'core/display';
 
-@import 'transitions/variables';
 @import 'transitions/lazy';
 @import 'transitions/vue-transitions';
 @import 'transitions/expand';

@@ -4,8 +4,10 @@
 			@click="onClick"
 			@mouseenter="changeBackground"
 			@mouseleave="changeBackground(false)"
-			class="shortcut"
-			:class="cssClass"
+			class="shortcut shortcut-bottombar"
+			:class="{
+				active: dashboardContent.contentComponent === shortcutId,
+			}"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>
 			<span class="icon" v-if="!textLayout">
@@ -43,9 +45,10 @@ export default {
 		nthChild: { type: Number },
 	},
 	data: () => ({
-		cssClass: 'shortcut-bottombar',
+		cssClass: '',
 	}),
 	computed: {
+		...mapState(['dashboardContent']),
 		...mapGetters('collection', ['authorizedGroupsIds']),
 		styleGridRow() {
 			return this.positionV + '/' + (this.positionV + 1)
@@ -98,6 +101,9 @@ export default {
 
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
 		},
+	},
+	mounted() {
+		console.log(this.dashboardContent, this)
 	},
 }
 </script>

@@ -31,7 +31,7 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="!isMobile">
-				<div v-bar>
+				<vue-bar>
 					<div class="inner" v-if="wishList.length < 1">
 						<p>Your wish list is empty!</p>
 					</div>
@@ -39,8 +39,8 @@
 						class="inner"
 						v-if="
 							currentWishListItem &&
-								currentWishListItem.assets &&
-								currentWishListItem.assets.length > 0
+							currentWishListItem.assets &&
+							currentWishListItem.assets.length > 0
 						"
 						:key="currentWishListIndex"
 					>
@@ -101,7 +101,7 @@
 								<tr
 									v-if="
 										currentWishListItem.wholesalePriceGBP &&
-											SHOW_WHOLESALE_PRICE
+										SHOW_WHOLESALE_PRICE
 									"
 								>
 									<th></th>
@@ -132,7 +132,7 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
+				</vue-bar>
 			</div>
 		</transition>
 		<div v-if="isMobile">
@@ -158,13 +158,15 @@ import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
 
 import WindowContent from '~/components/framework/WindowContent.vue'
+import VueBar from '~/components/content/VueBar.vue'
 
 export default {
 	extends: WindowContent,
 	name: 'wish-list',
 	components: {
 		WishListAccordion,
-		SingleImage
+		SingleImage,
+		VueBar,
 	},
 	computed: {
 		...mapState(['SHOW_WHOLESALE_PRICE']),
@@ -176,13 +178,13 @@ export default {
 				return this.wishList[this.currentWishListIndex]
 			else this.currentWishListIndex = -1
 			return {}
-		}
+		},
 	},
 	data() {
 		return {
 			currentWishListIndex: 0,
 			accordionStates: [],
-			viewPortSize: ViewportSizes.SMALL
+			viewPortSize: ViewportSizes.SMALL,
 		}
 	},
 	methods: {
@@ -207,8 +209,8 @@ export default {
 				this.wishList[index].assets[0],
 				{ width: 30 }
 			)
-		}
+		},
 	},
-	mounted() {}
+	mounted() {},
 }
 </script>

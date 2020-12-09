@@ -29,7 +29,8 @@ import {
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
 	UPDATE_PROGRESS,
-	OPEN_CONTENT_IN_DASHBOARD
+	OPEN_CONTENT_IN_DASHBOARD,
+	ASSISTANT_TOGGLE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -295,10 +296,12 @@ export const actions = {
 			'progressBar/' + UPDATE_PROGRESS.action,
 			content.windowContent[0].type.name
 		)
+		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
-	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit }, content) {
+	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, content) {
 		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, content)
+		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
@@ -314,7 +317,7 @@ export const actions = {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
+	[OPEN_STYLE_CONTENT.action]({ commit, state, dispatch }, styleId) {
 		let listStyle = state.collection.allStyles.filter(
 			e => e.styleId === styleId
 		)[0]
@@ -347,6 +350,7 @@ export const actions = {
 			windowContent: content,
 			styleWindowGroup: true
 		})
+		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -364,7 +368,7 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
-	[OPEN_WISH_LIST.action]({ commit }, asset) {
+	[OPEN_WISH_LIST.action]({ commit, dispatch }, asset) {
 		let wishListContent = [
 			{
 				title: 'Your wishlist',
@@ -374,6 +378,7 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
+		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[RESET_STATE.action]({ commit }) {

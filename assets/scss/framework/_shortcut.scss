@@ -4,8 +4,17 @@
 		width: 33%;
 		flex-grow: 1;
 		height: rem(70);
-		border: 1px solid;
+		border-left: 1px solid;
+		border-top: 1px solid;
 		z-index: 1;
+
+		&:first-of-type {
+			border-left: none;
+		}
+
+		&.active {
+			background: $color-lightgrey;
+		}
 	}
 
 	&__icon {
