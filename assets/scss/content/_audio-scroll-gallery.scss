@@ -1,14 +1,20 @@
 .audio-gallery {
+	width: 100%;
 	height: 100vh;
 	max-height: 100%;
 	overflow: auto;
+	background: $color-white;
+
+	position: relative;
+	z-index: 1;
 
 	&__container {
+		height: inherit;
 	}
 
 	&__scroller {
-		transition: width 0.5s;
-		width: 20px;
+		transition: width 0.5s $easeInOutQuint;
+		width: 9px;
 		height: 100px;
 		position: fixed;
 		right: 0;
@@ -18,7 +24,7 @@
 		cursor: pointer;
 
 		&:hover {
-			width: 25px;
+			width: 15px;
 		}
 	}
 
@@ -37,10 +43,11 @@
 
 	&__images {
 		position: relative;
+		width: 70%;
 		height: 70vh;
-		width: 100%;
 
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
@@ -52,16 +59,26 @@
 		img {
 			height: 100%;
 		}
+
+		&:nth-child(2n) {
+			align-self: flex-end;
+		}
+		&:nth-child(3n) {
+			align-self: flex-start;
+		}
 	}
 
 	&__text {
-		margin-top: 0.63em;
+		@include bodytext();
+		margin-top: 1.63em;
 	}
 
 	&__modal {
+		@include bodytext();
+
 		cursor: pointer;
 		display: inline-flex;
-		padding: 100px 200px;
+		padding: 100px 150px;
 		background: black;
 		text-decoration: underline;
 		color: white;

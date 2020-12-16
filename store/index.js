@@ -399,112 +399,104 @@ export const actions = {
 			})
 		}
 
+		const MOCK = true
+
 		commit(
 			'assistant/' + ASSISTANT_FETCH.mutation,
 			await getData(
-				require.context(`~/assets/content/assistant/`, false, /\.json$/)
+				require.context(`~/assets/mock/assistant/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'exhibition/' + EXHIBITION_FETCH.mutation,
 			await getData(
-				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
+				require.context(`~/assets/mock/exhibition/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'exhibition/' + EXHIBITION_ASSETS_FETCH.mutation,
 			await getData(
-				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
+				require.context(`~/assets/mock/exhibitionAssets/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + COLLECTION_ITEMS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/collectionItems/', false, /\.json$/)
+				require.context('~/assets/mock/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + COLLECTION_FILTERS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
+				require.context('~/assets/mock/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + COLLECTION_GROUPS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
+				require.context('~/assets/mock/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + COLLECTION_ASSETS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
+				require.context('~/assets/mock/mediaAssets/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + FILMS_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/films/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/films/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + GANNIGIRLS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
+				require.context('~/assets/mock/ganniGirls/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + LOOKBOOK_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/lookBook/', false, /\.json$/)
+				require.context('~/assets/mock/lookBook/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + ANAS_FETCH.mutation,
-			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
+			await getData(require.context('~/assets/mock/anas/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + DITTE_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/ditte/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/ditte/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + ABOUT_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/about/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/about/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + DESKTOP_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/desktop/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/desktop/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + INTRO_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/intro/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/intro/', false, /\.json$/))
 		)
 
 		commit('assets/' + GENERAL_FETCH.mutation, {
 			data: await getData(
-				require.context('~/assets/content/general/', false, /\.json$/)
+				require.context('~/assets/mock/general/', false, /\.json$/)
 			),
 			rootState: state
 		})
@@ -512,15 +504,13 @@ export const actions = {
 		commit(
 			'user/' + PASSWORDS_FETCH.mutation,
 			await getData(
-				require.context('~/assets/content/passwords/', false, /\.json$/)
+				require.context('~/assets/mock/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'ganniFm/' + SONGS_FETCH.mutation,
-			await getData(
-				require.context('~/assets/content/songs/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/songs/', false, /\.json$/))
 		)
 
 		console.log('NUXT SERVER INIT DONE')

@@ -1,0 +1,28 @@
+.audio-player {
+	@include bodytext();
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	display: flex;
+	align-items: center;
+
+	height: rem(40);
+	padding: 0 rem(10);
+
+	&__time {
+		position: fixed;
+		left: 25vw;
+	}
+
+	button {
+		display: flex;
+		margin-right: rem(10);
+	}
+
+	svg {
+		width: 30px;
+		height: 30px;
+	}
+}

@@ -33,12 +33,29 @@
 	}
 
 	&__static {
-		position: absolute;
+		// position: absolute;
 		width: 100%;
 		height: 100%;
-		overflow: auto;
+		// overflow: auto;
 		display: flex;
 		flex-direction: column;
+		background-color: $color-imagebg;
+
+		.window__content {
+			overflow: initial;
+		}
+
+		> * {
+			height: 100%;
+		}
+
+		&__status {
+			position: fixed;
+			top: 0;
+			z-index: 1;
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&.is-active {
@@ -70,11 +87,11 @@
 		justify-content: space-between;
 		align-items: center;
 
-		background-color: $color-white;
+		background-color: $color-marigold-yellow;
 
 		.title {
-			padding: rem(5);
-			padding-right: rem(20);
+			padding: rem(15);
+			// padding-right: rem(20);
 			margin: 0 auto;
 			overflow: hidden;
 
@@ -89,8 +106,6 @@
 
 			text-align: center;
 			width: 100%;
-
-			line-height: 1.2;
 
 			box-sizing: border-box;
 
@@ -118,11 +133,11 @@
 		height: rem(35);
 		box-sizing: border-box;
 		position: relative;
-		background-color: $color-white;
+		background-color: $color-marigold-yellow;
 		display: flex;
 		justify-content: space-between;
 
-		// border-top: rem(1) solid $color-black;
+		border-top: rem(1) solid $color-black;
 
 		> p {
 			@include bodytext();

@@ -2,12 +2,9 @@ import {
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
 	SET_GROUP_BY_INDEX,
-	COLLECTION_LAYOUT_CHANGE,
-	ASSISTANT_MODE,
-	OPEN_CONTENT
+	ASSISTANT_MODE
 } from '~/model/constants'
 
-import CollectionLayouts from '~/model/collection-layouts'
 import ContentTypes from '~/model/content-types'
 import ShortcutTypes from '~/model/shortcut-types'
 import AssistantModes from '~/model/assistant-modes'
@@ -47,19 +44,37 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'look-book',
-			icon: '/img/shortcuts/look_book.png',
+			shortcutId: 'video-player',
+			label: 'Fall Winter 2021 Collection',
+			windowContent: [
+				{
+					contentId: 'video-player',
+					type: ContentTypes.videoBackground,
+					assistant: {
+						mode: AssistantModes.CUSTOM,
+						text: 'lookBook'
+					},
+					contentComponentProps: {
+						videoUrl:
+							'https://res.cloudinary.com/dd6fpxydm/video/upload/v1591703359/films/Stine/PS21_Bags_cn8cm4.mp4',
+						autoPlay: true,
+						controls: false,
+						muted: true,
+						loop: true
+					}
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
+			shortcutId: 'lookBook',
 			label: 'PF21 LookBook',
-			posH: 2,
-			posV: 2,
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
 					contentId: 'lookBook',
-					type: ContentTypes.lookBook,
-					statusComponentProps: {
-						text: 'Photo credit: Josefine Seifert'
-					},
+					type: ContentTypes.lookbookSlideshow,
 					assistant: {
 						mode: AssistantModes.CUSTOM,
 						text: 'lookBook'

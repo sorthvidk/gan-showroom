@@ -1,6 +1,8 @@
 <template>
 	<div v-bar ref="vuebar">
-		<slot></slot>
+		<div>
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -20,7 +22,15 @@ export default {
 		onScroll() {
 			const newScroll = this.$el._vuebarState && this.$el._vuebarState.barTop
 
-			if (!closed && this.lastScroll !== newScroll) {
+			// console.log(
+			// 	!closed,
+			// 	this.lastScroll,
+			// 	newScroll,
+			// 	this.lastScroll !== newScroll,
+			// 	newScroll !== 0
+			// )
+
+			if (!closed && this.lastScroll !== newScroll && newScroll !== 0) {
 				this[ASSISTANT_TOGGLE.action](true)
 			}
 

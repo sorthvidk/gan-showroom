@@ -3,12 +3,13 @@
 		class="background-image"
 		:style="{ backgroundColor: desktopBackgroundColor }"
 	>
-		<img
+		<img v-if="backgrounds.length" :src="backgrounds[0].image" />
+		<!-- <img
 			v-for="(background, i) in backgrounds"
 			v-show="i === desktopBackground"
 			:key="'sfgsdfgsdfg' + i"
 			:src="background.image"
-		/>
+		/> -->
 	</div>
 </template>
 
@@ -23,25 +24,25 @@ export default {
 		...mapState('assets', [
 			'desktop',
 			'desktopBackground',
-			'desktopBackgroundColor'
-		])
+			'desktopBackgroundColor',
+		]),
 	},
 
 	mounted() {
-		this.backgrounds = this.desktop.map(x => ({
+		this.backgrounds = this.desktop.map((x) => ({
 			...x,
 			image: getCloudinaryUrl(
 				this.$cloudinary,
 				{
 					cloudinaryUrl: x.image,
-					asset: 'image'
+					asset: 'image',
 				},
 				{
 					width: 1600,
-					quality: 90
+					quality: 90,
 				}
-			)
+			),
 		}))
-	}
+	},
 }
 </script>

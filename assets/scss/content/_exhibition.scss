@@ -33,9 +33,7 @@
 
 			p {
 				@include bodytext();
-				font-size: rem(13);
-				font-weight: $weight-medium;
-				color: $color-white;
+				// color: $color-white;
 			}
 		}
 	}

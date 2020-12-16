@@ -35,7 +35,7 @@ export default {
 		textLayout: { type: Boolean, default: false, required: false },
 		positionH: { type: Number, default: 0, required: false },
 		positionV: { type: Number, default: 0, required: false },
-		icon: { type: String, default: null, required: true },
+		icon: { type: String | null, default: null, required: true },
 		label: { type: String, default: null, required: true },
 		shortcutId: { type: String, default: null, required: true },
 		type: { type: Number, default: -1, required: true },
@@ -102,6 +102,8 @@ export default {
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
 		},
 	},
-	mounted() {},
+	mounted() {
+		console.log(this.shortcutId)
+	},
 }
 </script>

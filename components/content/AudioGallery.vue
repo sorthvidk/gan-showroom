@@ -16,7 +16,7 @@
 						v-for="(image, idx) in lookBook"
 						:key="image.cloudinaryUrl"
 						class="audio-gallery__image"
-						:style="{ opacity: activeImage === idx ? 1 : 0 }"
+						:style="{ opacity: activeImage >= idx ? 1 : 0 }"
 					>
 						<img :src="getMediaUrl(image.type, image.cloudinaryUrl)" alt="" />
 					</div>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div class="audio-gallery__modal" v-if="!audioPlaying">
-			<h1>Click the page to start audio</h1>
+			<p>Click the page to start audio</p>
 		</div>
 	</div>
 </template>
@@ -53,7 +53,7 @@ export default {
 			return this.height - window.innerHeight
 		},
 		activeImage() {
-			return Math.round(this.audioProgress * (this.lookBook.length - 1))
+			return Math.round(this.audioProgress * this.lookBook.length)
 		},
 		scrollerPos() {
 			return (
@@ -75,7 +75,7 @@ export default {
 		onScroll(e) {
 			const val = this.audioProgress + e.deltaY / this.accountedHeight
 			const scrollTo = val >= 1 ? 0 : val
-			this[SCROLL_PROGRESS.action](clamp(0, scrollTo, 1))
+			this[SCROLL_PROGRESS.action](clamp(0, val, 1))
 		},
 		scrollTo(e) {
 			if (!this.scrolling) return

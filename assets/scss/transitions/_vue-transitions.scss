@@ -18,3 +18,35 @@
 	transform: translateX(10px);
 	opacity: 0;
 }
+
+.slide-out-leave-active {
+	position: absolute;
+	transition: all 2s $easeInOutQuint;
+}
+.slide-out-leave-to {
+	transform: translateY(-100%);
+}
+
+.slide-in-enter-active {
+	position: absolute !important;
+	top: 0;
+	transition: all 2s $easeInOutQuint;
+}
+
+.slide-in-enter {
+	transform: translateY(100%);
+}
+
+.slide-in-out-enter-active,
+.slide-in-out-leave-active {
+	position: absolute !important;
+	top: 0;
+	transition: all 2s $easeInOutQuint;
+}
+.slide-in-out-enter {
+	transform: translateY(100%);
+}
+
+.slide-in-out-leave-to {
+	transform: translateY(-100%);
+}

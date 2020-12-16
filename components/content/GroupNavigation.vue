@@ -1,14 +1,12 @@
 <template>
 	<div class="group-navigation">
-		<label
-			for="all"
-			:style="{ width: `${75 / (authorizedGroups.length + 1)}%` }"
-		>
+		<label for="all">
+			<!-- :style="{ width: `${75 / (authorizedGroups.length + 1)}%` }" -->
 			<input
 				id="all"
 				name="group-navigation"
 				type="radio"
-				@change="e => e.target.checked && groupHandler('')"
+				@change="(e) => e.target.checked && groupHandler('')"
 				:checked="!activeGroup"
 			/>
 			All
@@ -17,19 +15,19 @@
 			:for="group.groupId"
 			v-for="(group, i) in authorizedGroups"
 			:key="group.name"
-			:style="{
+		>
+			<!-- :style="{
 				width: `${
 					i === authorizedGroups.length - 1
 						? 25
 						: 75 / (authorizedGroups.length + 1)
 				}%`
-			}"
-		>
+			}" -->
 			<input
 				:id="group.groupId"
 				name="group-navigation"
 				type="radio"
-				@change="e => e.target.checked && groupHandler(group.groupId)"
+				@change="(e) => e.target.checked && groupHandler(group.groupId)"
 				:checked="activeGroup && activeGroup.groupId === group.groupId"
 			/>
 			{{ group.name }}
@@ -50,7 +48,7 @@ import { mapState, mapActions } from 'vuex'
 import {
 	SET_NEXT_GROUP,
 	SET_PREVIOUS_GROUP,
-	SET_GROUP_BY_IDENTIFIER
+	SET_GROUP_BY_IDENTIFIER,
 } from '~/model/constants'
 export default {
 	name: 'group-navigation',
@@ -62,13 +60,13 @@ export default {
 			} else {
 				return 'All styles'
 			}
-		}
+		},
 	},
 	methods: {
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
 			SET_NEXT_GROUP.action,
-			SET_GROUP_BY_IDENTIFIER.action
+			SET_GROUP_BY_IDENTIFIER.action,
 		]),
 		groupPrevHandler() {
 			this[SET_PREVIOUS_GROUP.action]()
@@ -78,7 +76,7 @@ export default {
 		},
 		groupHandler(id) {
 			this[SET_GROUP_BY_IDENTIFIER.action](id)
-		}
-	}
+		},
+	},
 }
 </script>

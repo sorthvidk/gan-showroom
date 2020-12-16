@@ -5,34 +5,54 @@
 	align-items: flex-start;
 	background-color: $color-imagebg;
 
-	// > * {
-	// 	padding: rem(5);
+	margin-top: rem(80);
 
-	// 	@include mq($from: screen-md) {
-	// 		padding: rem(25);
-	// 	}
-	// }
+	> * {
+		width: 100%;
+	}
 
 	&__group {
-		h4 {
-			@include megatype();
-			padding: 0 0 rem(10);
-			// margin-bottom: rem(5);
-			// font-size: rem(16);
-			text-transform: uppercase;
-			font-weight: 500;
-			display: block;
-			color: $color-black;
-			background-color: $color-white;
+		margin-top: rem(-30);
+
+		&:only-child {
+			margin-top: rem(0);
+
+			> * {
+				margin-top: rem(7);
+			}
 		}
+
+		> * {
+			margin-top: rem(15);
+		}
+
+		h4 {
+			@include bodytext();
+
+			padding: rem(5);
+			margin-left: rem(20);
+			margin-top: 0;
+			display: inline-block;
+
+			background-color: $color-marigold-yellow;
+
+			position: sticky;
+			top: 50px;
+			z-index: 1;
+		}
+
 		> div {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
 		}
 	}
-	&__group + &__group {
-		margin-bottom: rem(30);
+	&__group {
+		margin-bottom: rem(45);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 
 	&--fun {

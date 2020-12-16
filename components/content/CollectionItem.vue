@@ -61,7 +61,7 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
-					width: window.innerWidth / 4,
+					width: Math.floor(window.innerWidth / 4),
 				}),
 				loading:
 					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
@@ -74,7 +74,7 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
-					width: window.innerWidth / 4,
+					width: Math.floor(window.innerWidth / 4),
 				}),
 				loading:
 					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',

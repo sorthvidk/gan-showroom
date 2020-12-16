@@ -2,6 +2,8 @@
 	&--assistant {
 		z-index: $z-index-assistant !important;
 
+		background-color: $color-marigold-yellow;
+
 		.title {
 			cursor: default;
 		}
@@ -18,9 +20,9 @@
 			width: rem(276);
 		}
 		@include mq($from: screen-md) {
-			top: 7vh; // align with text
+			top: rem(10);
 			left: auto;
-			right: rem(40);
+			right: rem(10);
 			bottom: auto;
 		}
 

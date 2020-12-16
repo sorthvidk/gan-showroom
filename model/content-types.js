@@ -275,6 +275,14 @@ export default {
 			// noStatus: true
 		}
 	},
+
+	videoBackground: {
+		name: 'videoBackground',
+		contentComponent: 'video-player',
+		defaultWindowProps: {},
+		modifierClass: 'window--tight'
+	},
+
 	videoSquare: {
 		name: 'videoSquare',
 		contentComponent: 'single-video',
@@ -400,6 +408,14 @@ export default {
 				[ViewportSizes.SMALL.name]: { w: 353, h: 355 }
 			}
 		}
+	},
+
+	lookbookSlideshow: {
+		name: 'lookbookSlideshow',
+		contentComponent: 'lookbook-slideshow',
+		contentScore: 15,
+		// statusComponent: 'status-static',
+		defaultWindowProps: {}
 	},
 
 	collage: {

@@ -1,6 +1,5 @@
 .collection-item {
-	transition: outline 0.2s $easeInOutQuint;
-	box-shadow: 0 0 0 1px $color-black;
+	box-shadow: 0 0 0 1px $color-white;
 
 	display: flex;
 	width: 100%;
@@ -10,7 +9,6 @@
 
 	position: relative;
 	cursor: pointer;
-	transition: border 0.3s ease;
 	background-color: $color-imagebg;
 
 	@include mq($from: screen-xxs) {

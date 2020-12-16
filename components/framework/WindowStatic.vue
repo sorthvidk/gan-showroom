@@ -1,6 +1,6 @@
 <template>
 	<div class="window__static">
-		<div v-if="content.statusComponent" class="window__status">
+		<div v-if="content.statusComponent" class="window__static__status">
 			<component
 				:is="content.statusComponent"
 				v-bind="content.statusComponentProps"
@@ -8,7 +8,7 @@
 		</div>
 
 		<!-- <div v-bar class="window__content" ref="scroller"> -->
-		<vue-bar class="window__content">
+		<div class="window__content">
 			<component
 				:is="content.contentComponent"
 				:parent-window-id="content.windowId"
@@ -19,7 +19,7 @@
 				ref="contentComponent"
 			/>
 			<!-- </div> -->
-		</vue-bar>
+		</div>
 	</div>
 </template>
 
@@ -38,9 +38,11 @@ import WishList from '~/components/content/WishList.vue'
 import HampsterDance from '~/components/content/HampsterDance.vue'
 import GanniGirls from '~/components/content/GanniGirls.vue'
 import LookBook from '~/components/content/LookBook.vue'
+import LookbookSlideshow from '~/components/content/LookbookSlideshow.vue'
 import Collage from '~/components/content/Collage.vue'
 import Puzzle from '~/components/content/Puzzle.vue'
 import DownloadModal from '~/components/content/DownloadModal.vue'
+import VideoPlayer from '~/components/content/VideoPlayer.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -70,6 +72,8 @@ export default {
 		Puzzle,
 		DownloadModal,
 		VueBar,
+		LookbookSlideshow,
+		VideoPlayer,
 	},
 	props: {
 		content: {
@@ -88,13 +92,14 @@ export default {
 			return cn
 		},
 	},
+
 	data: () => ({}),
 
 	methods: {
 		...mapActions([]),
 	},
 	mounted() {
-		// this.$refs.scroller
+		console.log(this.content)
 	},
 }
 </script>

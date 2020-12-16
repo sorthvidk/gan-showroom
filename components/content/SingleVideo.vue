@@ -68,5 +68,8 @@ export default {
 			}
 		},
 	},
+	mounted() {
+		console.log(this.asset, this)
+	},
 }
 </script>

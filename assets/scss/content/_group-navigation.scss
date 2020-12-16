@@ -1,24 +1,34 @@
+$topbar-height: 40px;
+
 .group-navigation {
+	padding-top: $topbar-height;
+
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 100%;
+
+	width: 50%;
+	height: $topbar-height;
+
 	margin: 0 auto;
 
 	label {
-		@include windowtitle();
+		@include bodytext();
 		text-align: center;
 		cursor: pointer;
 	}
 
 	input[type='radio'] {
+		font-size: 1.2rem;
 		appearance: none;
-		width: 0.9em;
-		height: 0.9em;
+		width: 1em;
+		height: 1em;
 		border: 1px solid;
 		border-radius: 2em;
 
-		margin-bottom: -0.15em;
+		margin: 0;
+		margin-bottom: -0.3em;
+		margin-right: 0.1em;
 
 		cursor: pointer;
 

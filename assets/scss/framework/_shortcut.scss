@@ -4,17 +4,16 @@
 		width: 33%;
 		flex-grow: 1;
 		height: rem(70);
-		border-left: 1px solid $color-black;
-		border-top: 1px solid $color-black;
+		// border-left: 1px solid $color-white;
+		// border-top: 1px solid $color-white;
+		box-shadow: 0 0 0 1px $color-white;
 		z-index: 1;
 
-		&:first-of-type {
-			border-left: none;
-		}
+		background: $color-black;
+		color: $color-white;
 
 		&.active {
-			background: $color-black;
-			color: $color-white;
+			color: $color-marigold-yellow;
 		}
 	}
 

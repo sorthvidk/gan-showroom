@@ -5,7 +5,7 @@
 	>
 		<div class="window__top" @click="toggle">
 			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
-				>Ganni space assistant</span
+				>Ganni space</span
 			>
 		</div>
 
@@ -105,7 +105,7 @@
 
 		<!-- ####################### CONTENT ####################### -->
 
-		<TransitionExpand>
+		<transition-expand>
 			<div v-show="!closed" class="window__content">
 				<div class="assistant">
 					<assistant-mode-welcome v-if="mode === 0" />
@@ -118,7 +118,7 @@
 					<assistant-mode-puzzle v-if="mode === 7" />
 				</div>
 			</div>
-		</TransitionExpand>
+		</transition-expand>
 	</section>
 </template>
 
