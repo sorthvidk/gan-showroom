@@ -2,9 +2,9 @@
 <template>
 	<div class="audio-player">
 		<div>
-			<button @click="togglePlayback">
+			<button @click="toggle">
 				<svg
-					v-if="playing"
+					v-if="audioPlaying"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 30 30"
 				>
@@ -23,7 +23,12 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
-import { AUDIO_PROGRESS, AUDIO_PLAYING, AUDIO_DONE } from '~/model/constants'
+import {
+	AUDIO_PROGRESS,
+	AUDIO_PLAYING,
+	AUDIO_SCROLLABLE,
+	IS_INTRO,
+} from '~/model/constants'
 import { HHMMSS } from '~/utils/HHMMSS'
 
 export default {
@@ -32,7 +37,11 @@ export default {
 		title: { type: String, default: 'Artist - Song name' },
 	},
 	computed: {
-		...mapState('audio', ['scrollProgress', 'audioGalleryDone']),
+		...mapState('audio', [
+			'scrollProgress',
+			'audioIsScrollable',
+			'audioPlaying',
+		]),
 		currentTime() {
 			return HHMMSS(this.duration * this.progress)
 		},
@@ -42,24 +51,37 @@ export default {
 			this[AUDIO_PROGRESS.action](this.progress)
 
 			if (this.progress >= 0.99) {
-				this[AUDIO_DONE.action]()
+				this[IS_INTRO.action](false)
 			}
 		},
 		scrollProgress() {
-			if (typeof this.scrollProgress === 'number' && !this.audioGalleryDone) {
+			if (typeof this.scrollProgress === 'number' && this.audioIsScrollable) {
 				this.setProgress(this.scrollProgress)
 			}
 		},
-		playing() {
-			this[AUDIO_PLAYING.action](this.playing)
+		audioPlaying: {
+			immediate: true,
+			handler() {
+				this.$nextTick(() => {
+					if (this.audioPlaying) {
+						this.play()
+					} else {
+						this.pause()
+					}
+				})
+			},
 		},
 	},
 	methods: {
 		...mapActions('audio', [
 			AUDIO_PROGRESS.action,
 			AUDIO_PLAYING.action,
-			AUDIO_DONE.action,
+			AUDIO_SCROLLABLE.action,
+			IS_INTRO.action,
 		]),
+		toggle() {
+			this[AUDIO_PLAYING.action](!this.audioPlaying)
+		},
 	},
 }
 </script>

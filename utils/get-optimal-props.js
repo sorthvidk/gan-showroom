@@ -58,7 +58,7 @@ export default function(state, currentWindow, groupId) {
 	const {
 		contentComponent,
 		statusComponent,
-		defaultWindowProps
+		defaultWindowProps = {}
 	} = currentWindow.type
 
 	const viewportSize = getViewportSize()

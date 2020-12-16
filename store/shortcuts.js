@@ -44,23 +44,29 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'video-player',
+			shortcutId: 'audio-gallery',
 			label: 'Fall Winter 2021 Collection',
 			windowContent: [
+				// {
+				// 	contentId: 'video-player',
+				// 	type: ContentTypes.videoBackground,
+				// 	assistant: {
+				// 		mode: AssistantModes.CUSTOM,
+				// 		text: 'lookBook'
+				// 	},
+				// 	contentComponentProps: {
+				// 		videoUrl:
+				// 			'https://res.cloudinary.com/dd6fpxydm/video/upload/v1591703359/films/Stine/PS21_Bags_cn8cm4.mp4',
+				// 		autoPlay: true,
+				// 		controls: false,
+				// 		muted: true,
+				// 		loop: true
+				// 	}
+				// }
 				{
-					contentId: 'video-player',
-					type: ContentTypes.videoBackground,
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'lookBook'
-					},
-					contentComponentProps: {
-						videoUrl:
-							'https://res.cloudinary.com/dd6fpxydm/video/upload/v1591703359/films/Stine/PS21_Bags_cn8cm4.mp4',
-						autoPlay: true,
-						controls: false,
-						muted: true,
-						loop: true
+					contentId: 'audio-gallery',
+					type: {
+						contentComponent: 'audio-gallery'
 					}
 				}
 			]

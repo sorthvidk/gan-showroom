@@ -3,15 +3,17 @@ import {
 	AUDIO_PROGRESS,
 	SCROLL_PROGRESS,
 	AUDIO_PLAYING,
-	AUDIO_DONE
+	AUDIO_SCROLLABLE,
+	IS_INTRO
 } from '~/model/constants'
 
 export const state = () => ({
 	track: {},
-	audioPlaying: false,
+	audioPlaying: true,
 	audioProgress: 0,
 	scrollProgress: 0,
-	audioGalleryDone: false
+	audioIsScrollable: false,
+	isIntro: true
 })
 
 export const mutations = {
@@ -27,8 +29,11 @@ export const mutations = {
 	[SCROLL_PROGRESS.mutation](state, data) {
 		state.scrollProgress = data
 	},
-	[AUDIO_DONE.mutation](state) {
-		state.audioGalleryDone = true
+	[AUDIO_SCROLLABLE.mutation](state, data) {
+		state.audioIsScrollable = data
+	},
+	[IS_INTRO.mutation](state) {
+		state.isIntro = false
 	}
 }
 
@@ -45,7 +50,10 @@ export const actions = {
 	[SCROLL_PROGRESS.action]({ commit }, data) {
 		commit(SCROLL_PROGRESS.mutation, data)
 	},
-	[AUDIO_DONE.action]({ commit }) {
-		commit(AUDIO_DONE.mutation)
+	[AUDIO_SCROLLABLE.action]({ commit }, data) {
+		commit(AUDIO_SCROLLABLE.mutation, data)
+	},
+	[IS_INTRO.action]({ commit }) {
+		commit(IS_INTRO.mutation)
 	}
 }

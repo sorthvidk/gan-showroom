@@ -1,10 +1,13 @@
 <template>
-	<div :oncontextmenu="__prod__ ? `return false;` : ''">
+	<div
+		:oncontextmenu="__prod__ ? `return false;` : ''"
+		:style="{ overflow: 'hidden' }"
+	>
 		<audio-player
 			v-if="loggedIn && track.src"
 			:sources="[track.src]"
 			:title="track.title"
-			:autoplay="true"
+			:autoplay="audioPlaying"
 		/>
 
 		<!-- <login v-if="!loggedIn" />
@@ -17,12 +20,12 @@
 
 		<!-- step 2 -->
 		<transition name="slide-in-out">
-			<audio-gallery v-if="loggedIn && !audioGalleryDone" />
+			<audio-gallery v-if="loggedIn && isIntro" />
 		</transition>
 
 		<!-- step 3 -->
 		<transition name="slide-in">
-			<desktop v-if="audioGalleryDone" />
+			<desktop v-if="!isIntro" />
 		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
@@ -74,7 +77,12 @@ export default {
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__']),
 		...mapState('ganniFm', ['songs']),
-		...mapState('audio', ['track', 'audioGalleryDone']),
+		...mapState('audio', [
+			'track',
+			'audioIsScrollable',
+			'isIntro',
+			'audioPlaying',
+		]),
 		mobile() {
 			return (this.viewPortSize = ViewportSizes.SMALL)
 		},

@@ -228,7 +228,7 @@ export default {
 	mounted() {
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()
-		this[AUDIO_TRACK.action](this.songs[1])
+		// this[AUDIO_TRACK.action](this.songs[1])
 		this[OPEN_CONTENT_IN_DASHBOARD.action]({
 			windowContent: this.list[0].windowContent,
 		})

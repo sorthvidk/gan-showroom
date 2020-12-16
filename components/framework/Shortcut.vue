@@ -103,7 +103,7 @@ export default {
 		},
 	},
 	mounted() {
-		console.log(this.shortcutId)
+		// console.log(this.shortcutId)
 	},
 }
 </script>

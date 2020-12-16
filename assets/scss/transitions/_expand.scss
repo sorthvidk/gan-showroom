@@ -1,10 +1,10 @@
 .expand-enter-active,
 .expand-leave-active {
 	transition: height 0.6s $easeInOutQuint;
-	overflow: hidden;
+	// overflow: hidden;
 }
 
 .expand-enter,
 .expand-leave-to {
-	height: 0;
+	// height: 0;
 }

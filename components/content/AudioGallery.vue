@@ -1,14 +1,24 @@
 <template>
 	<div
 		class="audio-gallery"
+		ref="audio-gallery"
 		@mousemove="scrollTo"
 		@mouseup="() => (scrolling = false)"
 	>
 		<div
-			class="audio-gallery__scroller"
-			:style="{ transform: `translateY(${scrollerPos}vh)` }"
-			@mousedown="() => (scrolling = true)"
-		></div>
+			class="audio-gallery__scrollbar"
+			@mousedown="
+				(e) => {
+					scrolling = true
+					scrollTo(e)
+				}
+			"
+		>
+			<div
+				class="audio-gallery__scroller"
+				:style="{ transform: `scaleY(${scrollerPos / 100})` }"
+			/>
+		</div>
 		<div class="audio-gallery__container">
 			<div class="audio-gallery__wrapper">
 				<div class="audio-gallery__images">
@@ -35,7 +45,13 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-import { AUDIO_TRACK, AUDIO_PROGRESS, SCROLL_PROGRESS } from '~/model/constants'
+import {
+	AUDIO_TRACK,
+	AUDIO_PROGRESS,
+	SCROLL_PROGRESS,
+	AUDIO_SCROLLABLE,
+	AUDIO_PLAYING,
+} from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 
 export default {
@@ -43,7 +59,8 @@ export default {
 	data: () => ({
 		scroll: 0,
 		scrolling: false,
-		scrollerHeight: 100,
+		scrollerHeight: 0,
+		componentHeight: 0,
 		height: 5000,
 	}),
 	computed: {
@@ -51,7 +68,7 @@ export default {
 		...mapState('assets', ['lookBook']),
 		...mapState('audio', ['audioPlaying', 'audioProgress', 'scrollProgress']),
 		accountedHeight() {
-			return this.height - window.innerHeight
+			return this.height - this.componentHeight
 		},
 		activeImage() {
 			return Math.round(this.audioProgress * this.lookBook.length)
@@ -59,12 +76,17 @@ export default {
 		scrollerPos() {
 			return (
 				this.audioProgress *
-				(100 - this.scrollerHeight / (window.innerHeight / 100))
+				(100 - this.scrollerHeight / this.componentHeight / 100)
 			)
 		},
 	},
 	methods: {
-		...mapActions('audio', [AUDIO_TRACK.action, SCROLL_PROGRESS.action]),
+		...mapActions('audio', [
+			AUDIO_TRACK.action,
+			SCROLL_PROGRESS.action,
+			AUDIO_SCROLLABLE.action,
+			AUDIO_PLAYING.action,
+		]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -81,15 +103,25 @@ export default {
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			this[SCROLL_PROGRESS.action](clamp(0, e.clientY / window.innerHeight, 1))
+			this[SCROLL_PROGRESS.action](
+				clamp(0, e.clientY / this.componentHeight, 1)
+			)
 		},
 	},
 	mounted() {
 		window.addEventListener('wheel', this.onScroll.bind(this))
+		this[AUDIO_SCROLLABLE.action](true)
+		this[AUDIO_PLAYING.action](true)
 		this[AUDIO_TRACK.action](this.songs[0])
+		this.componentHeight = parseInt(
+			getComputedStyle(this.$refs['audio-gallery']).height
+		)
 	},
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.onScroll.bind(this))
+		this[AUDIO_SCROLLABLE.action](false)
+		this[AUDIO_PLAYING.action](false)
+		this[AUDIO_TRACK.action](this.songs[1])
 	},
 }
 </script>
