@@ -100,7 +100,7 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
-			@include windowtitle();
+			@include bodytext();
 
 			cursor: grab;
 

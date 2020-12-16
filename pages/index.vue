@@ -2,8 +2,8 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<audio-player
 			v-if="loggedIn"
-			:sources="[songs[0].src]"
-			:title="songs[0].title"
+			:sources="[track.src]"
+			:title="track.title"
 			:autoplay="true"
 		/>
 
@@ -74,7 +74,7 @@ export default {
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__']),
 		...mapState('ganniFm', ['songs']),
-		...mapState('audio', ['audioGalleryDone']),
+		...mapState('audio', ['track', 'audioGalleryDone']),
 		mobile() {
 			return (this.viewPortSize = ViewportSizes.SMALL)
 		},

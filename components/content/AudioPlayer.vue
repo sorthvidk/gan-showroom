@@ -32,8 +32,7 @@ export default {
 		title: { type: String, default: 'Artist - Song name' },
 	},
 	computed: {
-		...mapState('audio', ['scrollProgress']),
-		...mapState('user', ['loggedIn']),
+		...mapState('audio', ['scrollProgress', 'audioGalleryDone']),
 		currentTime() {
 			return HHMMSS(this.duration * this.progress)
 		},
@@ -42,12 +41,12 @@ export default {
 		progress() {
 			this[AUDIO_PROGRESS.action](this.progress)
 
-			if (this.progress >= 0.97) {
+			if (this.progress >= 0.99) {
 				this[AUDIO_DONE.action]()
 			}
 		},
 		scrollProgress() {
-			if (typeof this.scrollProgress === 'number') {
+			if (typeof this.scrollProgress === 'number' && !this.audioGalleryDone) {
 				this.setProgress(this.scrollProgress)
 			}
 		},

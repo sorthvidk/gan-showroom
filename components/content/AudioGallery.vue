@@ -35,7 +35,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-import { AUDIO_PROGRESS, SCROLL_PROGRESS } from '~/model/constants'
+import { AUDIO_TRACK, AUDIO_PROGRESS, SCROLL_PROGRESS } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 
 export default {
@@ -47,6 +47,7 @@ export default {
 		height: 5000,
 	}),
 	computed: {
+		...mapState('ganniFm', ['songs']),
 		...mapState('assets', ['lookBook']),
 		...mapState('audio', ['audioPlaying', 'audioProgress', 'scrollProgress']),
 		accountedHeight() {
@@ -63,7 +64,7 @@ export default {
 		},
 	},
 	methods: {
-		...mapActions('audio', [SCROLL_PROGRESS.action]),
+		...mapActions('audio', [AUDIO_TRACK.action, SCROLL_PROGRESS.action]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -85,6 +86,7 @@ export default {
 	},
 	mounted() {
 		window.addEventListener('wheel', this.onScroll.bind(this))
+		this[AUDIO_TRACK.action](this.songs[0])
 	},
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.onScroll.bind(this))

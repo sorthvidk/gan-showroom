@@ -5,6 +5,7 @@
 		background-color: $color-marigold-yellow;
 
 		.title {
+			@include windowtitle();
 			cursor: default;
 		}
 

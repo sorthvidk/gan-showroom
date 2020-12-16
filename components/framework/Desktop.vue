@@ -97,6 +97,8 @@ import {
 	OPEN_CONTENT,
 	AUTHORIZE_GROUPS,
 	CONNECT_EXHIBITION_ASSETS,
+	AUDIO_TRACK,
+	OPEN_CONTENT_IN_DASHBOARD,
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -142,6 +144,7 @@ export default {
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
 		...mapState('collage', ['webcamImage']),
+		...mapState('ganniFm', ['songs']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
 		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
 		...mapState('utils', [
@@ -200,10 +203,11 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action]),
+		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
+		...mapActions('audio', [AUDIO_TRACK.action]),
 
 		startClipboardTimeout() {
 			setTimeout(() => {
@@ -224,7 +228,10 @@ export default {
 	mounted() {
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()
-
+		this[AUDIO_TRACK.action](this.songs[1])
+		this[OPEN_CONTENT_IN_DASHBOARD.action]({
+			windowContent: this.list[0].windowContent,
+		})
 		// this.$store.commit('collection/isOnWishList')
 	},
 

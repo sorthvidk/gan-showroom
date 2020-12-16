@@ -1,4 +1,5 @@
 import {
+	AUDIO_TRACK,
 	AUDIO_PROGRESS,
 	SCROLL_PROGRESS,
 	AUDIO_PLAYING,
@@ -6,6 +7,7 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
+	track: {},
 	audioPlaying: false,
 	audioProgress: 0,
 	scrollProgress: 0,
@@ -13,6 +15,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+	[AUDIO_TRACK.mutation](state, data) {
+		state.track = data
+	},
 	[AUDIO_PLAYING.mutation](state, data) {
 		state.audioPlaying = data
 	},
@@ -28,6 +33,9 @@ export const mutations = {
 }
 
 export const actions = {
+	[AUDIO_TRACK.action]({ commit }, data) {
+		commit(AUDIO_TRACK.mutation, data)
+	},
 	[AUDIO_PLAYING.action]({ commit }, data) {
 		commit(AUDIO_PLAYING.mutation, data)
 	},
