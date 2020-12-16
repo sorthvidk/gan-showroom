@@ -1,7 +1,7 @@
 <template>
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<audio-player
-			v-if="loggedIn"
+			v-if="loggedIn && track.src"
 			:sources="[track.src]"
 			:title="track.title"
 			:autoplay="true"

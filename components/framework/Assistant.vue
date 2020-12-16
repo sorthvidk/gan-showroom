@@ -106,7 +106,7 @@
 		<!-- ####################### CONTENT ####################### -->
 
 		<transition-expand>
-			<div v-show="!closed" class="window__content">
+			<div v-show="!closed || windowList.length" class="window__content">
 				<div class="assistant">
 					<assistant-mode-welcome v-if="mode === 0" />
 					<assistant-mode-filter-collection v-if="mode === 1" />
@@ -167,7 +167,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(['topMostWindow', 'dashboardContent']),
+		...mapState(['topMostWindow', 'dashboardContent', 'windowList']),
 		...mapState('collection', [
 			'wishList',
 			'allStyles',
