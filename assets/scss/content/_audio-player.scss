@@ -16,6 +16,11 @@
 		left: 25vw;
 	}
 
+	&__name {
+		@include truncate();
+		width: calc(25vw - 60px);
+	}
+
 	button {
 		display: flex;
 		margin-right: rem(10);
@@ -24,5 +29,21 @@
 	svg {
 		width: 30px;
 		height: 30px;
+	}
+
+	&__modal {
+		@include bodytext();
+
+		cursor: pointer;
+		display: inline-flex;
+		padding: 100px 150px;
+		background: black;
+		text-decoration: underline;
+		color: white;
+		position: fixed;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
 	}
 }

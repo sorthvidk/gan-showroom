@@ -1,22 +1,29 @@
 
 <template>
-	<div class="audio-player">
-		<div>
-			<button @click="toggle">
-				<svg
-					v-if="audioPlaying"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 30 30"
-				>
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
-				</svg>
-				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
-				</svg>
-			</button>
+	<div>
+		<div class="audio-player">
+			<div>
+				<button @click="toggle">
+					<svg
+						v-if="audioPlaying"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 30 30"
+					>
+						<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
+					</svg>
+					<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+						<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
+					</svg>
+				</button>
+			</div>
+			<p class="audio-player__name">
+				{{ title }}
+			</p>
+			<p class="audio-player__time">{{ currentTime }}</p>
 		</div>
-		<div>{{ title }}</div>
-		<p class="audio-player__time">{{ currentTime }}</p>
+		<!-- <div class="audio-player__modal" v-if="!playing">
+			<p>Click the page to start audio</p>
+		</div> -->
 	</div>
 </template>
 
@@ -34,13 +41,14 @@ import { HHMMSS } from '~/utils/HHMMSS'
 export default {
 	mixins: [VueHowler],
 	props: {
-		title: { type: String, default: 'Artist - Song name' },
+		title: { type: String, default: '' },
 	},
 	computed: {
 		...mapState('audio', [
 			'scrollProgress',
 			'audioIsScrollable',
 			'audioPlaying',
+			'audioActivate',
 		]),
 		currentTime() {
 			return HHMMSS(this.duration * this.progress)
@@ -65,6 +73,7 @@ export default {
 				this.$nextTick(() => {
 					if (this.audioPlaying) {
 						this.play()
+						this.setProgress(this.scrollProgress)
 					} else {
 						this.pause()
 					}
@@ -82,6 +91,11 @@ export default {
 		toggle() {
 			this[AUDIO_PLAYING.action](!this.audioPlaying)
 		},
+	},
+	mounted() {
+		if (!this.audioActivate) {
+			this[IS_INTRO.action]()
+		}
 	},
 }
 </script>

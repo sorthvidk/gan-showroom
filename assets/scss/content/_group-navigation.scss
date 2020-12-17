@@ -1,14 +1,12 @@
-$topbar-height: 40px;
-
 .group-navigation {
-	padding-top: $topbar-height;
+	padding-top: rem(30);
 
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
 
 	width: 50%;
-	height: $topbar-height;
+	height: rem(40);
 
 	margin: 0 auto;
 

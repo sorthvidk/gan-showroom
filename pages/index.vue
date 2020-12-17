@@ -7,11 +7,8 @@
 			v-if="loggedIn && track.src"
 			:sources="[track.src]"
 			:title="track.title"
-			:autoplay="audioPlaying"
 		/>
-
-		<!-- <login v-if="!loggedIn" />
-		<desktop v-else /> -->
+		<!-- :autoplay="audioPlaying" -->
 
 		<!-- step 1 -->
 		<transition name="slide-out">
@@ -30,9 +27,7 @@
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
-
 		<mobile-disclamer v-if="isMobile" />
-
 		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
 	</div>
 </template>
@@ -135,6 +130,11 @@ export default {
 				this[RESET_STATE.action](event)
 			}
 		})
+		document.body.addEventListener('click', this[IDLE.action].bind(this, false))
+		document.body.addEventListener(
+			'mousemove',
+			this[IDLE.action].bind(this, false)
+		)
 
 		let timeout = null
 		window.addEventListener('mousemove', (event) => {

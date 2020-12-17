@@ -36,9 +36,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="audio-gallery__modal" v-if="!audioPlaying">
-			<p>Click the page to start audio</p>
-		</div>
 	</div>
 </template>
 
@@ -62,6 +59,7 @@ export default {
 		scrollerHeight: 0,
 		componentHeight: 0,
 		height: 5000,
+		audioWasPlaying: null,
 	}),
 	computed: {
 		...mapState('ganniFm', ['songs']),
@@ -75,8 +73,7 @@ export default {
 		},
 		scrollerPos() {
 			return (
-				this.audioProgress *
-				(100 - this.scrollerHeight / this.componentHeight / 100)
+				this.audioProgress * (100 - this.scrollerHeight / this.componentHeight)
 			)
 		},
 	},
@@ -97,7 +94,6 @@ export default {
 		},
 		onScroll(e) {
 			const val = this.audioProgress + e.deltaY / this.accountedHeight
-			const scrollTo = val >= 1 ? 0 : val
 			this[SCROLL_PROGRESS.action](clamp(0, val, 1))
 		},
 		scrollTo(e) {
@@ -109,6 +105,7 @@ export default {
 		},
 	},
 	mounted() {
+		this.audioWasPlaying = this.audioPlaying
 		window.addEventListener('wheel', this.onScroll.bind(this))
 		this[AUDIO_SCROLLABLE.action](true)
 		this[AUDIO_PLAYING.action](true)
@@ -120,8 +117,12 @@ export default {
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.onScroll.bind(this))
 		this[AUDIO_SCROLLABLE.action](false)
-		this[AUDIO_PLAYING.action](false)
+		this[SCROLL_PROGRESS.action](0)
 		this[AUDIO_TRACK.action](this.songs[1])
+		this[AUDIO_PLAYING.action](this.audioWasPlaying)
 	},
+	// afterDestroy() {
+	// 	this[AUDIO_PLAYING.action](this.audioWasPlaying)
+	// },
 }
 </script>

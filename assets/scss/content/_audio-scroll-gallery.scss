@@ -81,19 +81,4 @@
 		@include bodytext();
 		margin-top: 1.63em;
 	}
-
-	&__modal {
-		@include bodytext();
-
-		cursor: pointer;
-		display: inline-flex;
-		padding: 100px 150px;
-		background: black;
-		text-decoration: underline;
-		color: white;
-		position: fixed;
-		top: 40%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
 }

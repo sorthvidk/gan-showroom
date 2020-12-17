@@ -8,6 +8,7 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
+	audioActivate: true,
 	track: {},
 	audioPlaying: true,
 	audioProgress: 0,

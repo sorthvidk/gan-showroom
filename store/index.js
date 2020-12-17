@@ -127,12 +127,18 @@ export const mutations = {
 	/**
 	 * opens a window content, but in the dashboard instead of a draggable window
 	 */
-	[OPEN_CONTENT_IN_DASHBOARD.mutation](state, params) {
+	[OPEN_CONTENT_IN_DASHBOARD.mutation](state, { dispatch, params }) {
 		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
 
 		params.windowContent.forEach(content => {
 			const newWindow = getOptimalProp(state, content, getUniqueId())
 			state.dashboardContent = newWindow
+			if (content && content.assistant) {
+				dispatch('assistant/' + ASSISTANT_MODE.action, content.assistant.mode)
+				if (content.assistant.text) {
+					dispatch('assistant/' + ASSISTANT_TEXT.action, content.assistant.text)
+				}
+			}
 		})
 	},
 
@@ -299,8 +305,8 @@ export const actions = {
 		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
-	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, content) {
-		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, content)
+	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
+		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
 		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
@@ -398,8 +404,6 @@ export const actions = {
 				return res
 			})
 		}
-
-		const MOCK = true
 
 		commit(
 			'assistant/' + ASSISTANT_FETCH.mutation,

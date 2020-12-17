@@ -5,7 +5,7 @@
 	align-items: flex-start;
 	background-color: $color-imagebg;
 
-	margin-top: rem(80);
+	margin-top: rem(68);
 
 	> * {
 		width: 100%;
@@ -13,6 +13,11 @@
 
 	&__group {
 		margin-top: rem(-30);
+		margin-bottom: rem(45);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
 
 		&:only-child {
 			margin-top: rem(0);
@@ -37,7 +42,7 @@
 			background-color: $color-marigold-yellow;
 
 			position: sticky;
-			top: 50px;
+			top: 40px;
 			z-index: 1;
 		}
 
@@ -48,11 +53,6 @@
 		}
 	}
 	&__group {
-		margin-bottom: rem(45);
-
-		&:last-of-type {
-			margin-bottom: 0;
-		}
 	}
 
 	&--fun {

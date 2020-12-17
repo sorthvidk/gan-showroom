@@ -50,22 +50,28 @@
 	}
 
 	p {
+		@include bodytext();
+		@include truncate();
 		// transition: opacity 0.2s $easeInOutQuint;
 		opacity: 0;
 		max-width: 100%;
 		max-height: 1.27em;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+
 		// margin-top: rem(10);
 		display: block;
 		text-align: center;
-		@include bodytext();
 
 		position: absolute;
 		bottom: 1em;
 		left: 50%;
 		transform: translateX(-50%);
+
+		background-color: $color-marigold-yellow;
+		padding: 0.25em 0.5em;
+	}
+
+	.responsible-icon {
+		opacity: 0;
 	}
 
 	&:hover {
@@ -78,6 +84,10 @@
 		}
 
 		.collection-item__extra {
+			opacity: 1;
+		}
+
+		.responsible-icon {
 			opacity: 1;
 		}
 	}

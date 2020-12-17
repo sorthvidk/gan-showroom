@@ -1,6 +1,8 @@
 <template>
 	<button class="collection-item" @click.stop="onItemClick">
 		<img v-lazy="imageUrl" :alt="`An image of ${imageName}`" />
+		<!-- <img :src="imageUrl.src" :alt="`An image of ${imageName}`" /> -->
+
 		<div v-if="imageUrl2" class="collection-item__extra">
 			<img
 				v-if="assets[1].type === 'image'"
@@ -64,7 +66,7 @@ export default {
 					width: Math.floor(window.innerWidth / 4),
 				}),
 				loading:
-					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+					'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8df3KfwAIngOGGPuXAwAAAABJRU5ErkJggg==',
 			}
 		},
 		imageUrl2() {
@@ -77,7 +79,7 @@ export default {
 					width: Math.floor(window.innerWidth / 4),
 				}),
 				loading:
-					'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+					'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8df3KfwAIngOGGPuXAwAAAABJRU5ErkJggg==',
 			}
 		},
 		imageName() {
