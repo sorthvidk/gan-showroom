@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="single-image"
-		:class="{ 'is-interactive': belongsToStyle && inFocus }"
+		:class="{ 'is-interactive': asset.styleId && inFocus }"
 	>
 		<loading />
 
@@ -30,24 +30,17 @@ export default {
 		},
 	},
 	computed: {
-		belongsToStyle() {
-			return this.asset.styleId ? true : false
-		},
 		assetUrl() {
-			let transform = {}
-			if (!this.asset.aspect || this.asset.aspect === 'portrait')
-				transform = { width: 370, height: 563 }
-			if (this.asset.aspect === 'landscape')
-				transform = { width: 592, height: 390 }
-			if (this.asset.aspect === 'square')
-				transform = { width: 370, height: 370 }
-			return getCloudinaryUrl(this.$cloudinary, this.asset, transform)
+			return getCloudinaryUrl(this.$cloudinary, this.asset, {
+				width: this.asset.aspect === 'landscape' ? 592 : 370,
+				height: this.asset.aspect === 'portrait' ? 563 : 390,
+			})
 		},
 	},
 	methods: {
 		...mapActions([OPEN_GALLERY.action]),
 		clickHandler() {
-			if (this.belongsToStyle && this.inFocus) {
+			if (this.asset.styleId && this.inFocus) {
 				this[OPEN_GALLERY.action](this.asset)
 			}
 		},

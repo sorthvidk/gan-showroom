@@ -4,6 +4,20 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top" @click="toggle">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="10 10 10 10"
+				:style="{
+					width: '20px',
+					height: '20px',
+					position: 'absolute',
+					transform: closed ? 'rotate(90deg)' : '',
+					transition: 'transform .5s',
+					left: '15px',
+				}"
+			>
+				<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
+			</svg>
 			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
 				>Ganni space</span
 			>
@@ -27,7 +41,7 @@
 						<path d="M0 7h15v1H0V7z" />
 					</svg>
 				</span>
-				<p>{{ filterStatusText }}</p>
+				<p>{{ filterName || 'Filter' }}</p>
 			</button>
 		</div>
 
@@ -108,14 +122,14 @@
 		<transition-expand>
 			<div v-show="!closed || windowList.length" class="window__content">
 				<div class="assistant">
-					<assistant-mode-welcome v-if="mode === 0" />
-					<assistant-mode-filter-collection v-if="mode === 1" />
-					<assistant-mode-style-details v-if="mode === 2" />
-					<assistant-mode-wishlist v-if="mode === 3" />
-					<assistant-mode-collection-seen v-if="mode === 4" />
-					<assistant-mode-collage v-if="mode === 5" />
-					<assistant-mode-custom v-if="mode === 6" />
-					<assistant-mode-puzzle v-if="mode === 7" />
+					<assistant-mode-welcome v-if="assistantMode === 0" />
+					<assistant-mode-filter-collection v-if="assistantMode === 1" />
+					<assistant-mode-style-details v-if="assistantMode === 2" />
+					<assistant-mode-wishlist v-if="assistantMode === 3" />
+					<assistant-mode-collection-seen v-if="assistantMode === 4" />
+					<assistant-mode-collage v-if="assistantMode === 5" />
+					<assistant-mode-custom v-if="assistantMode === 6" />
+					<assistant-mode-puzzle v-if="assistantMode === 7" />
 				</div>
 			</div>
 		</transition-expand>
@@ -177,15 +191,6 @@ export default {
 		]),
 		...mapState('assistant', ['assistantMode', 'expanded', 'closed']),
 		...mapState('utils', ['isMobile']),
-
-		filterStatusText() {
-			return this.filterName || 'Filter'
-		},
-		mode() {
-			return !this.topMostWindow && this.dashboardContent.assistant
-				? this.dashboardContent.assistant.mode
-				: this.assistantMode
-		},
 	},
 	watch: {
 		activeFilter(newVal) {
@@ -196,8 +201,6 @@ export default {
 		},
 		topMostWindow() {
 			let noRelevantAssistantContent = false
-			// this.shareUrl = null
-			// this.styleHasBeenAdded = false
 
 			if (!this.topMostWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -220,7 +223,6 @@ export default {
 							)[0]
 							this[CURRENT_STYLE.action](currentStyle)
 							this[SET_HIDDEN_ASSETS.action]()
-							this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
 						} else {
 							noRelevantAssistantContent = true
 						}

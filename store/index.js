@@ -26,11 +26,9 @@ import {
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
 	PASSWORDS_FETCH,
-	ASSISTANT_TEXT,
-	ASSISTANT_MODE,
 	UPDATE_PROGRESS,
 	OPEN_CONTENT_IN_DASHBOARD,
-	ASSISTANT_TOGGLE
+	ASSISTANT_UPDATE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -42,7 +40,6 @@ import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 import { lastElement } from '~/utils/array-helpers'
-import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
@@ -133,13 +130,9 @@ export const mutations = {
 		params.windowContent.forEach(content => {
 			const newWindow = getOptimalProp(state, content, getUniqueId())
 			state.dashboardContent = newWindow
-			if (content && content.assistant) {
-				dispatch('assistant/' + ASSISTANT_MODE.action, content.assistant.mode)
-				if (content.assistant.text) {
-					dispatch('assistant/' + ASSISTANT_TEXT.action, content.assistant.text)
-				}
-			}
 		})
+
+		dispatch('assistant/' + ASSISTANT_UPDATE.action)
 	},
 
 	/*
@@ -174,18 +167,7 @@ export const mutations = {
 			state.topMostWindow = matchingWindow
 		}
 
-		if (matchingWindow && matchingWindow.assistant) {
-			dispatch(
-				'assistant/' + ASSISTANT_MODE.action,
-				matchingWindow.assistant.mode
-			)
-			if (matchingWindow.assistant.text) {
-				dispatch(
-					'assistant/' + ASSISTANT_TEXT.action,
-					matchingWindow.assistant.text
-				)
-			}
-		}
+		dispatch('assistant/' + ASSISTANT_UPDATE.action)
 	},
 
 	/*
@@ -285,7 +267,7 @@ export const actions = {
 		if (state.windowList.length) {
 			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 		} else {
-			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+			dispatch('assistant/' + ASSISTANT_UPDATE.action)
 		}
 	},
 
@@ -302,12 +284,12 @@ export const actions = {
 			'progressBar/' + UPDATE_PROGRESS.action,
 			content.windowContent[0].type.name
 		)
-		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
 		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
-		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
@@ -315,7 +297,7 @@ export const actions = {
 		if (state.windowList.length) {
 			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 		} else {
-			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+			dispatch('assistant/' + ASSISTANT_UPDATE.action)
 		}
 	},
 
@@ -356,7 +338,7 @@ export const actions = {
 			windowContent: content,
 			styleWindowGroup: true
 		})
-		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -384,7 +366,7 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
-		dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[RESET_STATE.action]({ commit }) {

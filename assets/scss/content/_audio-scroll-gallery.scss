@@ -18,7 +18,7 @@
 
 	&__scrollbar {
 		transition: width 0.5s $easeInOutQuint;
-		width: 9px;
+		width: rem(10);
 		height: 100%;
 		position: fixed;
 		right: 0;
@@ -27,7 +27,7 @@
 		cursor: pointer;
 
 		&:hover {
-			width: 15px;
+			width: rem(15);
 		}
 	}
 

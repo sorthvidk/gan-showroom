@@ -44,6 +44,7 @@ export default {
 		title: { type: String, default: '' },
 	},
 	computed: {
+		...mapState('utils', ['__prod__']),
 		...mapState('audio', [
 			'scrollProgress',
 			'audioIsScrollable',
@@ -93,7 +94,7 @@ export default {
 		},
 	},
 	mounted() {
-		if (!this.audioActivate) {
+		if (!this.__prod__) {
 			this[IS_INTRO.action]()
 		}
 	},

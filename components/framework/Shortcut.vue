@@ -1,9 +1,9 @@
 <template>
 	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
+		<!-- @mouseenter="changeBackground"
+			@mouseleave="changeBackground(false)" -->
 		<button
 			@click="onClick"
-			@mouseenter="changeBackground"
-			@mouseleave="changeBackground(false)"
 			class="shortcut shortcut-bottombar"
 			:class="{
 				active: dashboardContent.contentComponent === shortcutId,

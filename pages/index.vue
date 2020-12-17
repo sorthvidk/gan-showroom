@@ -1,29 +1,27 @@
 <template>
-	<div
-		:oncontextmenu="__prod__ ? `return false;` : ''"
-		:style="{ overflow: 'hidden' }"
-	>
+	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<audio-player
 			v-if="loggedIn && track.src"
 			:sources="[track.src]"
 			:title="track.title"
 		/>
-		<!-- :autoplay="audioPlaying" -->
 
-		<!-- step 1 -->
-		<transition name="slide-out">
-			<login v-if="!loggedIn" />
-		</transition>
+		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
+			<!-- step 1 -->
+			<transition name="slide-out">
+				<login v-if="!loggedIn" />
+			</transition>
 
-		<!-- step 2 -->
-		<transition name="slide-in-out">
-			<audio-gallery v-if="loggedIn && isIntro" />
-		</transition>
+			<!-- step 2 -->
+			<transition name="slide-in-out">
+				<audio-gallery v-if="loggedIn && isIntro" />
+			</transition>
 
-		<!-- step 3 -->
-		<transition name="slide-in">
-			<desktop v-if="!isIntro" />
-		</transition>
+			<!-- step 3 -->
+			<transition name="slide-in">
+				<desktop v-if="!isIntro" />
+			</transition>
+		</div>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
@@ -47,6 +45,7 @@ import AudioPlayer from '~/components/content/AudioPlayer.vue'
 import AudioGallery from '~/components/content/AudioGallery.vue'
 
 import getShortUrl from '~/utils/get-short-url'
+import { debounce } from '~/utils/debounce'
 
 import {
 	INDEX_COLLECTION_DATA,
@@ -78,9 +77,6 @@ export default {
 			'isIntro',
 			'audioPlaying',
 		]),
-		mobile() {
-			return (this.viewPortSize = ViewportSizes.SMALL)
-		},
 	},
 	head() {
 		return {
@@ -106,6 +102,12 @@ export default {
 		onidle() {
 			this[IDLE.action](true)
 		},
+		nonidle() {
+			if (this.idle) {
+				this[IDLE.action](false)
+			}
+		},
+
 		onMediaChange(isMobile) {
 			this[IS_MOBILE.action](isMobile)
 		},
@@ -122,32 +124,16 @@ export default {
 			this.onMediaChange.bind(null, false)
 		)
 
-		window.addEventListener('keyup', (event) => {
-			this[KEYPRESS.action](event)
-		})
+		window.addEventListener('keyup', this[KEYPRESS.action])
 		window.addEventListener('keydown', (event) => {
 			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
 				this[RESET_STATE.action](event)
 			}
 		})
-		document.body.addEventListener('click', this[IDLE.action].bind(this, false))
-		document.body.addEventListener(
-			'mousemove',
-			this[IDLE.action].bind(this, false)
-		)
+		document.body.addEventListener('click', this.nonidle.bind(this))
+		document.body.addEventListener('mousemove', this.nonidle.bind(this))
 
-		let timeout = null
 		window.addEventListener('mousemove', (event) => {
-			const debounce = (func, wait, immediate) => {
-				var later = () => {
-					timeout = null
-					func.apply(this)
-				}
-
-				clearTimeout(timeout)
-				timeout = setTimeout(later, immediate ? 0 : wait)
-			}
-
 			debounce(() => this[MOUSEMOVE.action](event), 200)
 		})
 	},

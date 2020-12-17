@@ -87,9 +87,11 @@ export const getters = {
 
 	authorizedGroupsIds: state => state.authorizedGroups.map(g => g.groupId),
 
-	currentStyleGroupId: state => state.currentStyle.groupId,
+	currentStyleGroupId: state =>
+		state.currentStyle && state.currentStyle.groupId,
 
 	currentStyleGroupIndex: state =>
+		state.currentStyle &&
 		state.authorizedGroups.findIndex(
 			g => g.groupId === state.currentStyle.groupId
 		)

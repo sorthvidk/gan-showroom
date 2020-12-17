@@ -94,6 +94,7 @@ export const MAKE_BACKGROUND = createMutation('MAKE_BACKGROUND')
 export const COLLAGE_IS_OPEN = createMutation('COLLAGE_IS_OPEN')
 export const CHANGE_COLLAGE = createMutation('CHANGE_COLLAGE')
 
+export const ASSISTANT_UPDATE = createMutation('ASSISTANT_UPDATE')
 export const ASSISTANT_TEXT = createMutation('ASSISTANT_TEXT')
 export const ASSISTANT_MODE = createMutation('ASSISTANT_MODE')
 export const ASSISTANT_EXPANDED = createMutation('ASSISTANT_EXPANDED')

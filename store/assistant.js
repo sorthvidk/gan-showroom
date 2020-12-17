@@ -1,5 +1,6 @@
 import AssistantModes from '~/model/assistant-modes'
 import {
+	ASSISTANT_UPDATE,
 	ASSISTANT_FETCH,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
@@ -8,7 +9,7 @@ import {
 } from '~/model/constants'
 
 export const state = () => ({
-	texts: [],
+	texts: {},
 	expanded: true,
 	closed: false,
 	assistantMode: AssistantModes.WELCOME,
@@ -75,5 +76,37 @@ export const actions = {
 
 	[ASSISTANT_MODE.action]({ commit }, data) {
 		commit(ASSISTANT_MODE.mutation, data)
+	},
+
+	[ASSISTANT_UPDATE.action]({ commit, rootState }, data) {
+		commit(ASSISTANT_TOGGLE.mutation, false)
+
+		if (rootState.windowList.length) {
+			if (
+				rootState.topMostWindow &&
+				rootState.topMostWindow.contentComponentProps.asset &&
+				rootState.topMostWindow.contentComponentProps.asset.styleId
+			) {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.STYLE_DETAILS)
+			} else if (rootState.topMostWindow.assistant) {
+				commit(ASSISTANT_MODE.mutation, rootState.topMostWindow.assistant.mode)
+				commit(ASSISTANT_TEXT.mutation, rootState.topMostWindow.assistant.text)
+			} else {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
+			}
+		} else {
+			if (rootState.dashboardContent.assistant) {
+				commit(
+					ASSISTANT_MODE.mutation,
+					rootState.dashboardContent.assistant.mode
+				)
+				commit(
+					ASSISTANT_TEXT.mutation,
+					rootState.dashboardContent.assistant.text
+				)
+			} else {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
+			}
+		}
 	}
 }
