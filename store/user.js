@@ -5,7 +5,7 @@ import {
 	CLOSE_WINDOW_GROUP,
 	KEYPRESS,
 	MOUSEMOVE,
-	PASSWORDS_FETCH,
+	FETCH_PASSWORDS,
 	IDLE
 } from '~/model/constants'
 
@@ -44,7 +44,7 @@ export const mutations = {
 		state.mousepos = { x, y }
 	},
 
-	[PASSWORDS_FETCH.mutation](state, data) {
+	[FETCH_PASSWORDS.mutation](state, data) {
 		state.passwords = data.map(pw => {
 			pw.hash = pw.hash.toLowerCase()
 			return pw

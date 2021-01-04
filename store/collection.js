@@ -2,10 +2,10 @@ import sortArrayMultipleProps from '~/utils/sort-array-multiple'
 import findArrayMatches from '~/utils/find-array-matches'
 
 import {
-	COLLECTION_ITEMS_FETCH,
-	COLLECTION_GROUPS_FETCH,
-	COLLECTION_FILTERS_FETCH,
-	COLLECTION_ASSETS_FETCH,
+	FETCH_COLLECTION_ITEMS,
+	FETCH_COLLECTION_GROUPS,
+	FETCH_COLLECTION_FILTERS,
+	FETCH_COLLECTION_ASSETS,
 	INDEX_COLLECTION_DATA,
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
@@ -98,14 +98,14 @@ export const getters = {
 }
 
 export const mutations = {
-	[COLLECTION_ITEMS_FETCH.mutation](state, data) {
+	[FETCH_COLLECTION_ITEMS.mutation](state, data) {
 		state.allStyles = data
 		// .map(style => ({
 		// 	...style,
 		// 	assets: style.assets || []
 		// }))
 	},
-	[COLLECTION_GROUPS_FETCH.mutation](state, data) {
+	[FETCH_COLLECTION_GROUPS.mutation](state, data) {
 		state.allGroups = data
 			.map(group => {
 				if (group.passwords) {
@@ -115,10 +115,10 @@ export const mutations = {
 			})
 			.sort((a, b) => (a.order < b.order ? -1 : 1))
 	},
-	[COLLECTION_FILTERS_FETCH.mutation](state, data) {
+	[FETCH_COLLECTION_FILTERS.mutation](state, data) {
 		state.allFilters = data
 	},
-	[COLLECTION_ASSETS_FETCH.mutation](state, data) {
+	[FETCH_COLLECTION_ASSETS.mutation](state, data) {
 		state.allMediaAssets = data
 	},
 

@@ -52,7 +52,7 @@
 
 	&__images {
 		position: relative;
-		width: 70%;
+		width: 50%;
 		height: 70vh;
 
 		display: flex;
@@ -67,6 +67,8 @@
 
 		img {
 			height: 100%;
+			max-width: 75vh;
+			object-fit: contain;
 		}
 
 		&:nth-child(2n) {

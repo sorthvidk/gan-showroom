@@ -50,15 +50,18 @@
 				height: rem(20);
 				margin-right: rem(10);
 			}
+
 			svg {
 				width: rem(15);
 				height: rem(15);
 			}
+
 			p {
 				color: $color-black;
 				text-decoration: underline;
 			}
 		}
+
 		hr {
 			border-top: rem(1) solid $color-black;
 			border-bottom: 0;
@@ -100,7 +103,7 @@
 		overflow: hidden;
 		max-height: rem(180);
 		transition: max-height 0.2s ease;
-		border-top: rem(1) solid $color-black;
+		border-top: rem(1) solid rgba(0, 0, 0, 0.2);
 
 		&.is-collapsed {
 			border-top: 0;
@@ -124,11 +127,14 @@
 			max-height: none;
 		}
 	}
+
 	&__text {
 		padding: rem(9) rem(10);
+
 		h3 {
 			margin-bottom: rem(10);
 		}
+
 		strong {
 			display: block;
 			margin-top: rem(5);
@@ -137,12 +143,14 @@
 			line-height: rem(17);
 			// color: $color-blue;
 		}
+
 		ol {
 			li {
 				@include bodytext();
 				margin-left: rem(15);
 				list-style-type: decimal;
 			}
+
 			li + li {
 				margin-top: rem(5);
 			}
@@ -159,22 +167,27 @@
 			max-height: none;
 			overflow: visible;
 		}
+
 		h3 {
 			padding: rem(9) rem(10) 0;
 			margin-bottom: rem(10);
 		}
+
 		p {
 			padding: 0 rem(9) rem(10);
 		}
+
 		&__list {
 			display: flex;
 			flex-wrap: wrap;
-			border-top: rem(1) solid $color-black;
+			border-top: rem(1) solid rgba(0, 0, 0, 0.2);
 		}
 	}
+
 	&__product-details {
-		position: relative;
+		@include bodytext();
 		@include custom-scrollbar();
+		position: relative;
 		overflow: hidden;
 		overflow-y: scroll;
 		max-height: rem(160);
@@ -186,18 +199,15 @@
 		}
 
 		.responsible {
+			@include bodytext();
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			display: flex;
-			margin-bottom: rem(20);
-			// background-color: $color-lime;
+
 			background-color: $color-black;
 			color: $color-white;
-			font-size: rem(11);
-			font-weight: 500;
-			text-transform: uppercase;
 			white-space: nowrap;
 			padding: rem(3) 0;
 			text-align: center;
@@ -217,18 +227,35 @@
 				display: inline-block;
 			}
 		}
+
 		p {
 			@include bodytext();
 			margin-bottom: rem(20);
 		}
+
 		table {
 			@include details-table();
 		}
+
 		.link {
 			cursor: pointer;
 			display: block;
 			padding: 0;
 			@include link();
+		}
+	}
+
+	&__row {
+		margin-top: rem(10);
+		display: flex;
+
+		&:first-of-type {
+			margin-top: rem(20);
+		}
+
+		span {
+			display: inline-block;
+			width: 50%;
 		}
 	}
 
@@ -244,7 +271,7 @@
 		.button {
 			@include full-width-button();
 
-			border-top: rem(1) solid $color-black;
+			border-top: rem(1) solid rgba(0, 0, 0, 0.2);
 			text-align: left;
 			box-sizing: border-box;
 
@@ -279,7 +306,7 @@
 			&--half {
 				width: 50%;
 				flex: 0 0 50%;
-				border-right: rem(1) solid $color-black;
+				border-right: rem(1) solid rgba(0, 0, 0, 0.2);
 			}
 		}
 		.button--half + .button--half {

@@ -70,10 +70,18 @@ export default {
 		dev: false,
 		id: 'GTM-P2ZL2V6'
 	},
+	/**
+	 * options for svg-sprite
+	 */
+	svgSprite: {
+		input: '~/static/svg',
+		output: '~/static/svg/sprite'
+	},
 	/*
 	 ** Nuxt.js modules
 	 */
 	modules: [
+		'@nuxtjs/svg-sprite',
 		'@nuxtjs/markdownit',
 		[
 			'nuxt-cookie-control',
@@ -111,6 +119,7 @@ export default {
 					grid: true
 				}
 			}
-		}
+		},
+		vendor: ['vue-vimeo-player']
 	}
 }

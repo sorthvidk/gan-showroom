@@ -1,12 +1,48 @@
 .lookbook-slideshow {
 	height: 100%;
 	display: flex !important;
+	align-items: flex-start;
 
-	&__button {
-		// position: absolute;
+	padding-top: rem(73);
+	box-sizing: border-box;
+
+	&__content {
+		max-height: 100%;
+		width: 50%;
 	}
 
-	img {
-		height: 100%;
+	&__button {
+		width: 30px;
+		height: 30px;
+		margin: 0.25em;
+	}
+
+	&__standard {
+		height: inherit;
+
+		img,
+		video {
+			object-fit: contain;
+			height: 100%;
+			width: 70%;
+		}
+	}
+
+	&__overview {
+		height: inherit;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+
+		div {
+			display: flex;
+		}
+
+		img,
+		video {
+			object-fit: contain;
+			height: 100px;
+			width: auto;
+		}
 	}
 }

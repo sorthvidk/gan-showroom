@@ -23,16 +23,19 @@
 			<div class="audio-gallery__wrapper">
 				<div class="audio-gallery__images">
 					<div
-						v-for="(image, idx) in lookBook"
+						v-for="(image, idx) in images"
 						:key="image.cloudinaryUrl"
 						class="audio-gallery__image"
-						:style="{ opacity: activeImage >= idx ? 1 : 0 }"
+						:style="{
+							opacity: activeImage >= idx ? 1 : 0,
+							height: height(idx),
+						}"
 					>
 						<img :src="getMediaUrl(image.type, image.cloudinaryUrl)" alt="" />
 					</div>
 				</div>
 				<div class="audio-gallery__text">
-					<h1>Current image: {{ activeImage + 1 }} / {{ lookBook.length }}</h1>
+					<h1>Current image: {{ activeImage + 1 }} / {{ images.length }}</h1>
 				</div>
 			</div>
 		</div>
@@ -50,6 +53,7 @@ import {
 	AUDIO_PLAYING,
 } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
+import { getRandomIntHash } from '~/utils/get-random-int-hash'
 
 export default {
 	name: 'audio-scroll-gallery',
@@ -58,18 +62,21 @@ export default {
 		scrolling: false,
 		scrollerHeight: 0,
 		componentHeight: 0,
-		height: 5000,
+		scrollHeight: 5000,
 		audioWasPlaying: null,
 	}),
 	computed: {
 		...mapState('ganniFm', ['songs']),
-		...mapState('assets', ['lookBook']),
+		...mapState('assets', ['intro']),
 		...mapState('audio', ['audioPlaying', 'audioProgress', 'scrollProgress']),
+		images() {
+			return this.intro.filter((i) => i.type === 'image')
+		},
 		accountedHeight() {
-			return this.height - this.componentHeight
+			return this.scrollHeight - this.componentHeight
 		},
 		activeImage() {
-			return Math.round(this.audioProgress * this.lookBook.length)
+			return Math.round(this.audioProgress * this.images.length)
 		},
 		scrollerPos() {
 			return (
@@ -102,6 +109,9 @@ export default {
 			this[SCROLL_PROGRESS.action](
 				clamp(0, e.clientY / this.componentHeight, 1)
 			)
+		},
+		height(idx) {
+			return `${getRandomIntHash(idx) * 20 + 80}%`
 		},
 	},
 	mounted() {

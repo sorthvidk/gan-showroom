@@ -45,7 +45,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'audio-gallery',
-			label: 'Fall Winter 2021 Collection',
+			label: 'Film',
 			windowContent: [
 				// {
 				// 	contentId: 'video-player',

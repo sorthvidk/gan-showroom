@@ -1,22 +1,23 @@
 import {
 	RESET_STATE,
-	EXHIBITION_FETCH,
-	EXHIBITION_ASSETS_FETCH,
-	COLLECTION_ITEMS_FETCH,
-	COLLECTION_GROUPS_FETCH,
-	COLLECTION_FILTERS_FETCH,
-	COLLECTION_ASSETS_FETCH,
-	INTRO_FETCH,
-	FILMS_FETCH,
-	SONGS_FETCH,
-	GANNIGIRLS_FETCH,
-	LOOKBOOK_FETCH,
-	GENERAL_FETCH,
-	ANAS_FETCH,
-	ABOUT_FETCH,
-	ASSISTANT_FETCH,
-	DESKTOP_FETCH,
-	DITTE_FETCH,
+	FETCH_EXHIBITION,
+	FETCH_EXHIBITION_ASSETS,
+	FETCH_COLLECTION_ITEMS,
+	FETCH_COLLECTION_GROUPS,
+	FETCH_COLLECTION_FILTERS,
+	FETCH_COLLECTION_ASSETS,
+	FETCH_INTRO,
+	FETCH_FILMS,
+	FETCH_SONGS,
+	FETCH_GANNIGIRLS,
+	FETCH_LOOKBOOK,
+	FETCH_GENERAL,
+	FETCH_ANAS,
+	FETCH_ABOUT,
+	FETCH_ASSISTANT,
+	FETCH_DESKTOP,
+	FETCH_DITTE,
+	FETCH_VIMEO,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -25,7 +26,7 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PASSWORDS_FETCH,
+	FETCH_PASSWORDS,
 	UPDATE_PROGRESS,
 	OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_UPDATE
@@ -388,115 +389,134 @@ export const actions = {
 		}
 
 		commit(
-			'assistant/' + ASSISTANT_FETCH.mutation,
+			'assistant/' + FETCH_ASSISTANT.mutation,
 			await getData(
-				require.context(`~/assets/mock/assistant/`, false, /\.json$/)
+				require.context(`~/assets/content/assistant/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'exhibition/' + EXHIBITION_FETCH.mutation,
+			'exhibition/' + FETCH_EXHIBITION.mutation,
 			await getData(
-				require.context(`~/assets/mock/exhibition/`, false, /\.json$/)
+				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'exhibition/' + EXHIBITION_ASSETS_FETCH.mutation,
+			'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
 			await getData(
-				require.context(`~/assets/mock/exhibitionAssets/`, false, /\.json$/)
+				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_ITEMS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionItems/', false, /\.json$/)
+				require.context('~/assets/content/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_FILTERS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionFilters/', false, /\.json$/)
+				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_GROUPS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionGroups/', false, /\.json$/)
+				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_ASSETS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
 			await getData(
-				require.context('~/assets/mock/mediaAssets/', false, /\.json$/)
+				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + FILMS_FETCH.mutation,
-			await getData(require.context('~/assets/mock/films/', false, /\.json$/))
-		)
-
-		commit(
-			'assets/' + GANNIGIRLS_FETCH.mutation,
+			'assets/' + FETCH_FILMS.mutation,
 			await getData(
-				require.context('~/assets/mock/ganniGirls/', false, /\.json$/)
+				require.context('~/assets/content/films/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + LOOKBOOK_FETCH.mutation,
+			'assets/' + FETCH_GANNIGIRLS.mutation,
 			await getData(
-				require.context('~/assets/mock/lookBook/', false, /\.json$/)
+				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + ANAS_FETCH.mutation,
-			await getData(require.context('~/assets/mock/anas/', false, /\.json$/))
+			'assets/' + FETCH_LOOKBOOK.mutation,
+			await getData(
+				require.context('~/assets/content/lookBook/', false, /\.json$/)
+			)
 		)
 
 		commit(
-			'assets/' + DITTE_FETCH.mutation,
-			await getData(require.context('~/assets/mock/ditte/', false, /\.json$/))
+			'assets/' + FETCH_ANAS.mutation,
+			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
 		)
 
 		commit(
-			'assets/' + ABOUT_FETCH.mutation,
-			await getData(require.context('~/assets/mock/about/', false, /\.json$/))
+			'assets/' + FETCH_DITTE.mutation,
+			await getData(
+				require.context('~/assets/content/ditte/', false, /\.json$/)
+			)
 		)
 
 		commit(
-			'assets/' + DESKTOP_FETCH.mutation,
-			await getData(require.context('~/assets/mock/desktop/', false, /\.json$/))
+			'assets/' + FETCH_ABOUT.mutation,
+			await getData(
+				require.context('~/assets/content/about/', false, /\.json$/)
+			)
 		)
 
 		commit(
-			'assets/' + INTRO_FETCH.mutation,
-			await getData(require.context('~/assets/mock/intro/', false, /\.json$/))
+			'assets/' + FETCH_DESKTOP.mutation,
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
 		)
 
-		commit('assets/' + GENERAL_FETCH.mutation, {
+		commit(
+			'assets/' + FETCH_INTRO.mutation,
+			await getData(
+				require.context('~/assets/content/intro/', false, /\.json$/)
+			)
+		)
+
+		commit('assets/' + FETCH_GENERAL.mutation, {
 			data: await getData(
-				require.context('~/assets/mock/general/', false, /\.json$/)
+				require.context('~/assets/content/general/', false, /\.json$/)
 			),
 			rootState: state
 		})
 
 		commit(
-			'user/' + PASSWORDS_FETCH.mutation,
+			'user/' + FETCH_PASSWORDS.mutation,
 			await getData(
-				require.context('~/assets/mock/passwords/', false, /\.json$/)
+				require.context('~/assets/content/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'ganniFm/' + SONGS_FETCH.mutation,
-			await getData(require.context('~/assets/mock/songs/', false, /\.json$/))
+			'ganniFm/' + FETCH_SONGS.mutation,
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'utils/' + FETCH_VIMEO.mutation,
+			await getData(
+				require.context('~/assets/content/vimeo/', false, /\.json$/)
+			)
 		)
 
 		console.log('NUXT SERVER INIT DONE')

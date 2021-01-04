@@ -17,25 +17,11 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  # - label: 'General'
-  #   name: 'general'
-  #   files:
-  #     - label: 'Misc strings'
-  #       name: 'misc'
-  #       file: 'assets/content/general/misc.json'
-  #       fields:
-  #         - {
-  #             label: 'Ganni Girls background',
-  #             name: 'ganniGirlsUrl',
-  #             widget: 'image',
-  #           }
-  #         - { label: 'Ditte Letter', name: 'ditteLetter', widget: 'text' }
-
   - name: 'collectionItems'
     sortable_fields: ['styleId']
     label: 'Collection item'
     folder: 'assets/content/collectionItems'
-    summary: 'Style {{styleId}}: {{name}}'
+    summary: '{{styleId}} — {{name}}'
     create: true
     format: 'json'
     extention: 'json'
@@ -216,7 +202,7 @@ collections:
   - name: 'collectionFilters'
     sortable_fields: ['filterId']
     label: 'Collection filter'
-    summary: "Filter {{filterId}}: '{{name}}'"
+    summary: '{{filterId}} — {{name}}'
     folder: 'assets/content/collectionFilters'
     create: true
     format: 'json'
@@ -250,7 +236,7 @@ collections:
   - name: 'collectionGroups'
     sortable_fields: ['groupId']
     label: 'Collection group'
-    summary: "Group {{groupId}}: '{{name}}'"
+    summary: '{{name}}'
     folder: 'assets/content/collectionGroups'
     create: true
     format: 'json'
@@ -297,7 +283,7 @@ collections:
 
   - name: 'mediaAssets'
     sortable_fields: ['styleId']
-    summary: 'Style {{styleId}}: {{name}} asset ({{assetId}})'
+    summary: '{{styleId}} — {{name}} — ({{assetId}})'
     label: 'Media asset'
     folder: 'assets/content/mediaAssets'
     create: true
@@ -317,6 +303,9 @@ collections:
         field: groupId
         pattern: 'software'
 
+      - label: 'GANNI Software'
+        field: filters
+        pattern: 'GANNI Software'
       - label: 'Dresses'
         field: filters
         pattern: 'Dresses'
@@ -344,9 +333,12 @@ collections:
       - label: 'Trousers'
         field: filters
         pattern: 'Trousers'
-      - label: 'T-Shirts'
+      - label: 'T-shirts'
         field: filters
-        pattern: 'T-Shirts'
+        pattern: 'T-shirts'
+      - label: 'Shorts'
+        field: filters
+        pattern: 'Shorts'
       - label: 'Accessories'
         field: filters
         pattern: 'Accessories'
@@ -359,9 +351,25 @@ collections:
       - label: 'Swimwear'
         field: filters
         pattern: 'Swimwear'
+      - label: 'Hats'
+        field: filters
+        pattern: 'Hats'
       - label: 'Underwear'
         field: filters
         pattern: 'Underwear'
+      - label: 'White Cotton Poplin'
+        field: filters
+        pattern: 'White Cotton Poplin'
+      - label: 'Design Darlings'
+        field: filters
+        pattern: 'Design Darlings'
+      - label: 'Leather'
+        field: filters
+        pattern: 'Leather'
+      - label: 'Love for Leopard'
+        field: filters
+        pattern: 'Love for Leopard'
+
     editor:
       preview: false
     fields:
@@ -387,6 +395,7 @@ collections:
           widget: 'select',
           options:
             [
+              'GANNI Software',
               'Dresses',
               'Denim',
               'Coats / Jackets',
@@ -396,12 +405,18 @@ collections:
               'Suiting',
               'Tops',
               'Trousers',
-              'T-Shirts',
+              'T-shirts',
+              'Shorts',
               'Accessories',
               'Bags',
               'Shoes',
               'Swimwear',
+              'Hats',
               'Underwear',
+              'White Cotton Poplin',
+              'Design Darlings',
+              'Leather',
+              'Love for Leopard',
             ],
           hint: 'Used for filtering in the CMS',
         }
@@ -517,68 +532,6 @@ collections:
           hint: 'Reference to song file (do not mind the "Choose image")',
         }
 
-  # - name: 'ganniGirls'
-  #   sortable_fields: ['postId']
-  #   summary: "Post {{postId}}: {{posterHandle}} '{{title}}'"
-  #   label: 'Ganni Girls post'
-  #   folder: 'assets/content/ganniGirls'
-  #   create: true
-  #   format: 'json'
-  #   slug: '{{year}}-{{month}}-{{postId}}'
-  #   editor:
-  #     preview: false
-  #   fields:
-  #     - {
-  #         label: 'Post #',
-  #         name: 'postId',
-  #         widget: 'string',
-  #         hint: 'Unique post ID',
-  #       }
-  #     - {
-  #         label: 'Thumbnail image',
-  #         name: 'thumbnailUrl',
-  #         widget: 'image',
-  #         hint: 'Small photo next to post',
-  #       }
-  #     - {
-  #         label: 'Poster handle',
-  #         name: 'posterHandle',
-  #         widget: 'string',
-  #         hint: "ex. '@chloechill'",
-  #       }
-  #     - {
-  #         label: 'Posted date',
-  #         name: 'postedDate',
-  #         widget: 'string',
-  #         hint: "ex. '12 may 2020'",
-  #       }
-  #     - {
-  #         label: 'Title',
-  #         name: 'title',
-  #         widget: 'string',
-  #         hint: 'Title below media',
-  #       }
-  #     - {
-  #         label: 'Body text',
-  #         name: 'bodyText',
-  #         widget: 'text',
-  #         hint: 'Body text below media',
-  #       }
-  #     - {
-  #         label: 'Media type',
-  #         name: 'type',
-  #         widget: 'select',
-  #         multiple: false,
-  #         options: ['video', 'image'],
-  #         hint: 'Either image or video',
-  #         default: 'image',
-  #       }
-  #     - {
-  #         label: 'Cloudinary media reference',
-  #         name: 'cloudinaryUrl',
-  #         widget: 'image',
-  #       }
-
   - name: 'assistant'
     summary: '{{itemId}}'
     label: 'Assistant texts'
@@ -599,95 +552,95 @@ collections:
       - { label: 'Headline', name: 'headline', widget: 'string' }
       - { label: 'Text', name: 'bodyText', widget: 'text' }
 
-  - name: 'ditte'
-    summary: 'Item {{itemId}}'
-    label: 'Dittes folder'
-    folder: 'assets/content/ditte'
-    sortable_fields: ['itemId']
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{itemId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
-          hint: 'The text in the topbar of the window',
-        }
-      - {
-          label: 'Item #',
-          name: 'itemId',
-          widget: 'string',
-          hint: 'Unique item ID',
-        }
-      - {
-          label: '(if media window) Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          required: false,
-        }
-      - {
-          label: '(if text window) The text',
-          name: 'text',
-          widget: 'text',
-          required: false,
-        }
-      - {
-          label: 'Item type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image', 'text'],
-          hint: 'Either image, video or text',
-          default: 'image',
-        }
+  # - name: 'ditte'
+  #   summary: 'Item {{itemId}}'
+  #   label: 'Dittes folder'
+  #   folder: 'assets/content/ditte'
+  #   sortable_fields: ['itemId']
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{itemId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Title',
+  #         name: 'title',
+  #         widget: 'string',
+  #         hint: 'The text in the topbar of the window',
+  #       }
+  #     - {
+  #         label: 'Item #',
+  #         name: 'itemId',
+  #         widget: 'string',
+  #         hint: 'Unique item ID',
+  #       }
+  #     - {
+  #         label: '(if media window) Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: '(if text window) The text',
+  #         name: 'text',
+  #         widget: 'text',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: 'Item type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image', 'text'],
+  #         hint: 'Either image, video or text',
+  #         default: 'image',
+  #       }
 
-  - name: 'about'
-    summary: 'Item {{itemId}}'
-    label: 'About'
-    folder: 'assets/content/about'
-    sortable_fields: ['itemId']
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{itemId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Title',
-          name: 'title',
-          widget: 'string',
-          hint: 'The text in the topbar of the window',
-        }
-      - {
-          label: 'Item #',
-          name: 'itemId',
-          widget: 'string',
-          hint: 'Unique item ID',
-        }
-      - {
-          label: '(if media window) Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          required: false,
-        }
-      - {
-          label: '(if text window) The text',
-          name: 'text',
-          widget: 'text',
-          required: false,
-        }
-      - {
-          label: 'Item type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image', 'text'],
-          hint: 'Either image, video or text',
-          default: 'image',
-        }
+  # - name: 'about'
+  #   summary: 'Item {{itemId}}'
+  #   label: 'About'
+  #   folder: 'assets/content/about'
+  #   sortable_fields: ['itemId']
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{itemId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Title',
+  #         name: 'title',
+  #         widget: 'string',
+  #         hint: 'The text in the topbar of the window',
+  #       }
+  #     - {
+  #         label: 'Item #',
+  #         name: 'itemId',
+  #         widget: 'string',
+  #         hint: 'Unique item ID',
+  #       }
+  #     - {
+  #         label: '(if media window) Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: '(if text window) The text',
+  #         name: 'text',
+  #         widget: 'text',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: 'Item type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image', 'text'],
+  #         hint: 'Either image, video or text',
+  #         default: 'image',
+  #       }
 
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
@@ -721,37 +674,37 @@ collections:
           default: 'image',
         }
 
-  - name: 'anas'
-    summary: 'Item {{itemId}}'
-    label: "Ana's CPH"
-    folder: 'assets/content/anas'
-    sortable_fields: ['itemId']
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{itemId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Item #',
-          name: 'itemId',
-          widget: 'string',
-          hint: 'Unique item ID',
-        }
-      - {
-          label: 'Cloudinary video reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
-          default: 'image',
-        }
+  # - name: 'anas'
+  #   summary: 'Item {{itemId}}'
+  #   label: "Ana's CPH"
+  #   folder: 'assets/content/anas'
+  #   sortable_fields: ['itemId']
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{itemId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Item #',
+  #         name: 'itemId',
+  #         widget: 'string',
+  #         hint: 'Unique item ID',
+  #       }
+  #     - {
+  #         label: 'Cloudinary video reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image'],
+  #         hint: 'Either image or video',
+  #         default: 'image',
+  #       }
 
   - name: 'passwords'
     sortable_fields: ['passwordId']
@@ -895,55 +848,97 @@ collections:
           hint: 'Raw text for text panel (only when using text asset)',
         }
 
-  - name: 'intro'
-    summary: '{{cloudinaryUrl}}'
+  # - name: 'intro'
+  #   summary: '{{cloudinaryUrl}}'
+  #   identifier_field: label
+  #   label: 'Intro slideshow'
+  #   folder: 'assets/content/intro'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Column',
+  #         name: 'column',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['1', '2', '3', '4'],
+  #         hint: 'Left to right',
+  #       }
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         hint: 'Can be either an image or video',
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image'],
+  #         hint: 'Either image or video',
+  #         default: 'image',
+  #       }
+
+  # - name: 'desktop'
+  #   label: 'Desktop images'
+  #   identifier_field: label
+  #   summary: '{{cloudinaryUrl}}'
+  #   folder: 'assets/content/desktop'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{songId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         hint: 'Reference to media file',
+  #       }
+
+  - name: 'vimeo'
+    label: 'Vimeo'
     identifier_field: label
-    label: 'Intro slideshow'
-    folder: 'assets/content/intro'
+    summary: '{{vimeoUrl}}'
+    folder: 'assets/content/vimeo'
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+    slug: '{{year}}-{{month}}-{{vimeoUrl}}'
     editor:
       preview: false
     fields:
       - {
-          label: 'Column',
-          name: 'column',
-          widget: 'select',
-          multiple: false,
-          options: ['1', '2', '3', '4'],
-          hint: 'Left to right',
-        }
-      - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          hint: 'Can be either an image or video',
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
-          default: 'image',
+          label: 'Vimeo URL',
+          name: 'vimeoUrl',
+          widget: 'string',
+          hint: 'Can be either video id or url',
         }
 
-  - name: 'desktop'
-    label: 'Desktop images'
+  - name: 'subtitles'
+    label: 'Subtitles'
     identifier_field: label
-    summary: '{{cloudinaryUrl}}'
-    folder: 'assets/content/desktop'
+    summary: '{{time}} — {{text}}'
+    folder: 'assets/content/subtitles'
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{songId}}'
+    slug: '{{year}}-{{month}}-{{text}}'
     editor:
       preview: false
     fields:
       - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          hint: 'Reference to media file',
+          label: 'Time',
+          name: 'time',
+          widget: 'string',
+          hint: 'After how many seconds',
+        }
+      - {
+          label: 'Vimeo URL',
+          name: 'vimeoUrl',
+          widget: 'string',
+          hint: 'Can be either video id or url',
         }

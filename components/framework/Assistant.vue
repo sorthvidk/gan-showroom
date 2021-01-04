@@ -4,20 +4,17 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top" @click="toggle">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="10 10 10 10"
+			<svg-icon
+				name="pause"
 				:style="{
-					width: '20px',
-					height: '20px',
+					pointerEvents: 'none',
+					width: '50px',
+					height: '50px',
 					position: 'absolute',
 					transform: closed ? 'rotate(90deg)' : '',
 					transition: 'transform .5s',
-					left: '15px',
 				}"
-			>
-				<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
-			</svg>
+			/>
 			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
 				>Ganni space</span
 			>
@@ -27,91 +24,36 @@
 
 		<div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
-						/>
-					</svg>
-				</span>
-				<span v-if="expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path d="M0 7h15v1H0V7z" />
-					</svg>
+				<span class="icon">
+					<svg-icon v-if="!expanded" name="plus" />
+					<svg-icon v-else name="minus" />
 				</span>
 				<p>{{ filterName || 'Filter' }}</p>
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && isMobile">
-			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
-						/>
-					</svg>
-				</span>
-				<span v-if="expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path d="M0 7h15v1H0V7z" />
-					</svg>
+		<div class="window__status" v-if="assistantMode == 2">
+			<button
+				class="button expand"
+				@click="toggleContentHandler"
+				v-if="isMobile"
+			>
+				<span class="icon">
+					<svg-icon v-if="!expanded" name="plus" />
+					<svg-icon v-else name="minus" />
 				</span>
 				<p>{{ currentStyle.name }}</p>
 			</button>
-			<button class="window-button previous" @click="previousStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
-					</svg>
-				</span>
-			</button>
-			<button class="window-button next" @click="nextStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
-					</svg>
-				</span>
-			</button>
-			<button class="window-button close" @click="closeStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path
-							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-						/>
-					</svg>
-				</span>
-			</button>
-		</div>
+			<p v-else>{{ currentStyle.name }}</p>
 
-		<div class="window__status" v-if="assistantMode == 2 && !isMobile">
-			<p>{{ currentStyle.name }}</p>
 			<button class="window-button previous" @click="previousStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
-					</svg>
-				</span>
+				<svg-icon style="transform: scaleX(-1)" name="arrow--right" />
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
-					</svg>
-				</span>
+				<svg-icon name="arrow--right" />
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path
-							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-						/>
-					</svg>
-				</span>
+				<svg-icon name="cross" />
 			</button>
 		</div>
 
@@ -288,7 +230,9 @@ export default {
 		},
 
 		toggle() {
-			this[ASSISTANT_TOGGLE.action](!this.closed)
+			if (!this.windowList.length) {
+				this[ASSISTANT_TOGGLE.action](!this.closed)
+			}
 		},
 	},
 	mounted() {

@@ -46,6 +46,14 @@
 						:content="dashboardContent"
 						:key="dashboardContent.windowId"
 					/>
+					<div
+						v-else
+						:style="{
+							backgroundColor: '#fae199',
+							width: '100%',
+							height: '100%',
+						}"
+					></div>
 				</vue-bar>
 			</div>
 
@@ -143,6 +151,7 @@ export default {
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
+		...mapState('assets', ['desktop']),
 		...mapState('collage', ['webcamImage']),
 		...mapState('ganniFm', ['songs']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
@@ -229,9 +238,9 @@ export default {
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()
 		// this[AUDIO_TRACK.action](this.songs[1])
-		this[OPEN_CONTENT_IN_DASHBOARD.action]({
-			windowContent: this.list[0].windowContent,
-		})
+		// this[OPEN_CONTENT_IN_DASHBOARD.action]({
+		// 	windowContent: this.list[0].windowContent,
+		// })
 		// this.$store.commit('collection/isOnWishList')
 	},
 

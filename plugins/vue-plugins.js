@@ -7,6 +7,7 @@ import WebCam from 'vue-web-cam'
 import Vidle from 'v-idle'
 import Konva from 'konva'
 import Vuebar from 'vuebar'
+import vueVimeoPlayer from 'vue-vimeo-player'
 
 Vue.use(VueLazyload)
 Vue.use(VueDraggableResizable)
@@ -16,6 +17,7 @@ Vue.use(Konva)
 Vue.use(WebCam)
 Vue.use(Vidle)
 Vue.use(Vuebar)
+Vue.use(vueVimeoPlayer)
 
 /**
  * todo: turn of when bugfixing is done

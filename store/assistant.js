@@ -1,7 +1,7 @@
 import AssistantModes from '~/model/assistant-modes'
 import {
 	ASSISTANT_UPDATE,
-	ASSISTANT_FETCH,
+	FETCH_ASSISTANT,
 	ASSISTANT_TEXT,
 	ASSISTANT_MODE,
 	ASSISTANT_EXPANDED,
@@ -27,7 +27,7 @@ export const getters = {
 }
 
 export const mutations = {
-	[ASSISTANT_FETCH.mutation](state, data) {
+	[FETCH_ASSISTANT.mutation](state, data) {
 		/**
 		 * [itemId]: {
 		 *   headline: 'foo',

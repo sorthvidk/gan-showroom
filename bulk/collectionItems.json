@@ -1,10 +1,11 @@
 [{
+    "numberOfAssets": 4,
     "styleId": "K1525_196",
     "name": "K1525_196_Top",
     "program": 2513,
     "programName": "Rib Knit",
     "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
     "filters": [
@@ -22,12 +23,13 @@
     "retailPriceGBP": 115
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1570_572",
     "name": "K1570_572_Top",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -45,12 +47,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1571_572",
     "name": "K1571_572_Blouse",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -68,12 +71,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1572_572",
     "name": "K1572_572_Dress",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -91,12 +95,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1533_478",
     "name": "K1533_478_Vest",
     "program": 2516,
     "programName": "Chunky Glitter Knit",
     "material": "37% Polyamide, 25% Cotton, 12% Viscose, 19% Metaliic fibers, 6% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -114,12 +119,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1545_478",
     "name": "K1545_478_Cardigan",
     "program": 2516,
     "programName": "Chunky Glitter Knit",
     "material": "37% Polyamide, 25% Cotton, 12% Viscose, 19% Metaliic fibers, 6% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -137,12 +143,13 @@
     "retailPriceGBP": 255
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1569_302",
     "name": "K1569_302_Cardigan",
     "program": 2529,
     "programName": "Soft Wool Knit",
     "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Flan",
     "colorId": 302,
     "filters": [
@@ -160,12 +167,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1576_861",
     "name": "K1576_861_Cardigan",
     "program": 2529,
     "programName": "Soft Wool Knit",
     "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -183,12 +191,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2795_694",
     "name": "T2795_694_Shorts",
     "program": 3495,
     "programName": "Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -206,12 +215,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2796_694",
     "name": "T2796_694_Oversized Raglan Sweatshirt",
     "program": 3495,
     "programName": "Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -229,12 +239,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2792_151",
     "name": "T2792_151_Puff Sleeve Pullover",
     "program": 3497,
     "programName": "Striped Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -252,12 +263,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2885_256",
     "name": "T2885_256_Puff Sleeve Pullover",
     "program": 3497,
     "programName": "Striped Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Sharkskin",
     "colorId": 256,
     "filters": [
@@ -275,12 +287,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2887_999",
     "name": "T2887_999_Rollneck",
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -298,12 +311,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2889_999",
     "name": "T2889_999_Blouse",
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -321,12 +335,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2891_999",
     "name": "T2891_999_Mini Dress",
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -344,12 +359,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2892_999",
     "name": "T2892_999_Dress",
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -367,12 +383,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2798_151",
     "name": "T2798_151_T-shirt, Butterfly",
     "program": 3501,
     "programName": "Basic Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -390,12 +407,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2800_252",
     "name": "T2800_252_T-shirt, Flowers Dark",
     "program": 3501,
     "programName": "Basic Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -413,12 +431,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2886_99",
     "name": "T2886_99_T-shirt",
     "program": 3503,
     "programName": "Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -436,12 +455,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1174_99",
     "name": "S1174_99_Jewel Mocassin",
     "program": 4621,
     "programName": "Jewel",
     "material": "100% Calf Leather Sole: Micro & Mazonite",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -459,12 +479,13 @@
     "retailPriceGBP": 295
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1526_99",
     "name": "S1526_99_City Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -482,12 +503,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1527_99",
     "name": "S1527_99_Country Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -505,12 +527,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1541_470",
     "name": "S1541_470_City Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -528,12 +551,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1545_470",
     "name": "S1545_470_Country Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -551,12 +575,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1553_546",
     "name": "S1553_546_City Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
     "filters": [
@@ -574,12 +599,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1526_861",
     "name": "S1526_861_City Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -597,12 +623,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1527_861",
     "name": "S1527_861_Country Boot",
     "program": 4628,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -620,12 +647,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1315_99",
     "name": "S1315_99_Low Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -643,12 +671,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1388_99",
     "name": "S1388_99_Mid Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -666,12 +695,13 @@
     "retailPriceGBP": 345
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1389_99",
     "name": "S1389_99_High Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -689,12 +719,13 @@
     "retailPriceGBP": 425
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1490_99",
     "name": "S1490_99_Low Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -712,12 +743,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1548_99",
     "name": "S1548_99_Mid Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -735,12 +767,13 @@
     "retailPriceGBP": 345
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1549_99",
     "name": "S1549_99_High Chelsea",
     "program": 4682,
     "programName": "Calf Leather",
     "material": "100% Calf Leather Sole: TR",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -758,12 +791,13 @@
     "retailPriceGBP": 425
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1505_99",
     "name": "S1505_99_Platform Deco Sandal",
     "program": 4782,
     "programName": "Polido",
     "material": "U: 100% Calf, L: 100% Calf, O: 100% Micro",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -781,12 +815,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1506_135",
     "name": "S1506_135_Platform Sandal",
     "program": 4783,
     "programName": "Juta",
     "material": "U: 50% CO 50% Jute, L: 100% Calf, O: 100% Micro",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -804,12 +839,13 @@
     "retailPriceGBP": 295
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1516_99",
     "name": "S1516_99_Slingback Mocassin",
     "program": 4792,
     "programName": "Brush Off",
     "material": "100% Calf Leather Sole: Micro & Mazonite",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -827,12 +863,13 @@
     "retailPriceGBP": 295
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1555_99",
     "name": "S1555_99_Rubber Sandal",
     "program": 4794,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -850,12 +887,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1556_470",
     "name": "S1556_470_Rubber Sandal",
     "program": 4794,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -873,12 +911,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1554_546",
     "name": "S1554_546_Rubber Sandal",
     "program": 4794,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
     "filters": [
@@ -896,12 +935,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1519_861",
     "name": "S1519_861_Rubber Sandal",
     "program": 4794,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -919,12 +959,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1557_870",
     "name": "S1557_870_Rubber Sandal",
     "program": 4794,
     "programName": "Recycled Rubber",
     "material": "50% Recycled Rubber 50% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Corydalis Blue",
     "colorId": 870,
     "filters": [
@@ -942,12 +983,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1530_99",
     "name": "S1530_99_Retro Sneaker",
     "program": 4801,
     "programName": "Sporty Mix",
     "material": "U:60%RecPL 40%PL, L:100% PL, O:85% Rub 15%Rec Rub",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -965,12 +1007,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1552_252",
     "name": "S1552_252_Slingback Mocassin",
     "program": 4803,
     "programName": "Embossed Snake",
     "material": "100% Calf Leather Sole: Micro & Mazonite",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -988,12 +1031,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1517_780",
     "name": "S1517_780_Slingback Mocassin",
     "program": 4803,
     "programName": "Embossed Snake",
     "material": "100% Calf Leather Sole: Micro & Mazonite",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Olive Drab",
     "colorId": 780,
     "filters": [
@@ -1011,12 +1055,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1535_135",
     "name": "S1535_135_Mid Deco Sandal",
     "program": 4806,
     "programName": "Juta",
     "material": "U: 50% CO 50% Jute, L: 100% Calf, O: 100% Micro",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -1034,12 +1079,13 @@
     "retailPriceGBP": 295
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1537_861",
     "name": "S1537_861_Mid Deco Sandal",
     "program": 4807,
     "programName": "Vacchetta",
     "material": "U: 100% Calf, L: 100% Calf, O: 100% Micro",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -1057,12 +1103,13 @@
     "retailPriceGBP": 295
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1540_99",
     "name": "S1540_99_Sandal",
     "program": 4810,
     "programName": "Recycled Tech Fabric",
     "material": "100% Recycled Polyester Sole: Leather",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1080,12 +1127,13 @@
     "retailPriceGBP": 115
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1558_943",
     "name": "S1558_943_Sandal",
     "program": 4810,
     "programName": "Recycled Tech Fabric",
     "material": "100% Recycled Polyester Sole: Leather",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1103,12 +1151,13 @@
     "retailPriceGBP": 115
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1559_999",
     "name": "S1559_999_Sandal",
     "program": 4810,
     "programName": "Recycled Tech Fabric",
     "material": "100% Recycled Polyester Sole: Leather",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolor",
     "colorId": 999,
     "filters": [
@@ -1126,12 +1175,13 @@
     "retailPriceGBP": 115
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1543_546",
     "name": "S1543_546_Heeled Bow Sandal",
     "program": 4811,
     "programName": "Moire",
     "material": "U: 100% PL, L: 100% Goeat L Sole: 100% Tunit",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
     "filters": [
@@ -1149,12 +1199,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1542_99",
     "name": "S1542_99_Heeled Bow Sandal",
     "program": 4812,
     "programName": "Recycled Nylon",
     "material": "100% Rec Nyl, Lining 100% Goat Leather, Sole Tunit",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1172,12 +1223,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1546_99",
     "name": "S1546_99_Heeled Bow Sandal",
     "program": 4813,
     "programName": "Seersucker Check",
     "material": "U:44%REC PL42%ORG CO14%PA L:100% Goat O:100% Tunit",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1195,12 +1247,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1547_252",
     "name": "S1547_252_Heeled Bow Sandal",
     "program": 4814,
     "programName": "Silk Stretch Satin",
     "material": "U:92%Silk 8%EL L:100% Goat O:100% Tunit",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -1218,12 +1271,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1550_630",
     "name": "S1550_630_Retro Sneaker",
     "program": 4816,
     "programName": "Sporty Mix",
     "material": "U:60%Rec CO 40%Rec PL, L: 100%PL O:100%Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Denim",
     "colorId": 630,
     "filters": [
@@ -1241,12 +1295,13 @@
     "retailPriceGBP": 255
   },
   {
+    "numberOfAssets": 4,
     "styleId": "S1551_861",
     "name": "S1551_861_Retro Sneaker",
     "program": 4817,
     "programName": "Sporty Mix",
     "material": "60% PL 40% Calf Leather Outsole: 100% Rubber",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -1264,12 +1319,13 @@
     "retailPriceGBP": 255
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3431_99",
     "name": "A3431_99_Festival Bag",
     "program": 5488,
     "programName": "Recycled Tech Fabric Bags",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1287,12 +1343,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3431_943",
     "name": "A3431_943_Festival Bag",
     "program": 5488,
     "programName": "Recycled Tech Fabric Bags",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1310,12 +1367,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3288_943",
     "name": "A3288_943_Purse",
     "program": 5488,
     "programName": "Recycled Tech Fabric Bags",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1333,12 +1391,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3485_131",
     "name": "A3485_131_Beret",
     "program": 5592,
     "programName": "Cotton knit",
     "material": "100% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Egret",
     "colorId": 131,
     "filters": [
@@ -1356,12 +1415,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3520_321",
     "name": "A3520_321_Beret",
     "program": 5592,
     "programName": "Cotton knit",
     "material": "100% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale banana",
     "colorId": 321,
     "filters": [
@@ -1379,12 +1439,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3521_861",
     "name": "A3521_861_Beret",
     "program": 5592,
     "programName": "Cotton knit",
     "material": "100% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -1402,12 +1463,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3295_196",
     "name": "A3295_196_Drawstring Purse",
     "program": 5643,
     "programName": "Fishnet",
     "material": "52% Organic cotton, 48% polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
     "filters": [
@@ -1425,12 +1487,13 @@
     "retailPriceGBP": 115
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3296_196",
     "name": "A3296_196_Drawstring Tote",
     "program": 5643,
     "programName": "Fishnet",
     "material": "50% Organic cotton, 50% polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
     "filters": [
@@ -1448,12 +1511,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3297_196",
     "name": "A3297_196_Duffle Bag",
     "program": 5643,
     "programName": "Fishnet",
     "material": "52% Organic cotton, 48% polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Brazilian sand",
     "colorId": 196,
     "filters": [
@@ -1471,12 +1535,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3353_478",
     "name": "A3353_478_Gathered Swimsuit",
     "program": 5658,
     "programName": "Recycled Matte",
     "material": "79% Recycled Polyamide, 21% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -1494,12 +1559,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3445_478",
     "name": "A3445_478_String Bikini Top",
     "program": 5658,
     "programName": "Recycled Matte",
     "material": "79% Recycled Polyamide, 21% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -1517,12 +1583,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3446_478",
     "name": "A3446_478_String Bikini Briefs",
     "program": 5658,
     "programName": "Recycled Matte",
     "material": "79% Recycled Polyamide, 21% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -1540,12 +1607,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3447_252",
     "name": "A3447_252_Tie Front Bikini Top",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -1563,12 +1631,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3448_252",
     "name": "A3448_252_Midrise Bikini Briefs",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -1586,12 +1655,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3449_252",
     "name": "A3449_252_Gathered Swimsuit",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -1609,12 +1679,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3358_801",
     "name": "A3358_801_Twisted Bikini Top",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -1632,12 +1703,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3359_801",
     "name": "A3359_801_Twisted Bikini Briefs",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -1655,12 +1727,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3360_801",
     "name": "A3360_801_Tie-front Swimsuit",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -1678,12 +1751,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3357_943",
     "name": "A3357_943_V-neck Swimsuit",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1701,12 +1775,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3441_943",
     "name": "A3441_943_Bandeau Bikini Top",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1724,12 +1799,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3442_943",
     "name": "A3442_943_Highrise Bikini Briefs",
     "program": 5659,
     "programName": "Recycled Printed",
     "material": "78% Recycled Polyamide, 22% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -1747,12 +1823,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3369_99",
     "name": "A3369_99_One Shoulder Swimsuit",
     "program": 5660,
     "programName": "Glitter Swim",
     "material": "70% Polyester, 16% Polyester lurex, 8% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1770,12 +1847,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3370_99",
     "name": "A3370_99_Bandeau Bikini Top",
     "program": 5660,
     "programName": "Glitter Swim",
     "material": "70% Polyester, 16% Polyester lurex, 8% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1793,12 +1871,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3371_99",
     "name": "A3371_99_Highrise Bikini Briefs",
     "program": 5660,
     "programName": "Glitter Swim",
     "material": "70% Polyester, 16% Polyester lurex, 8% Polyamide, 6% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -1816,12 +1895,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3420_252",
     "name": "A3420_252_Small Crossbody Bag Printed",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -1839,12 +1919,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3500_321",
     "name": "A3500_321_Small Crossbody Bag Printed",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -1862,12 +1943,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3378_321",
     "name": "A3378_321_Small Crossbody Bag solid",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -1885,12 +1967,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3496_470",
     "name": "A3496_470_Small Crossbody Bag solid",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -1908,12 +1991,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3497_478",
     "name": "A3497_478_Small Crossbody Bag solid",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -1931,12 +2015,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3498_572",
     "name": "A3498_572_Small Crossbody Bag solid",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -1954,12 +2039,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3499_801",
     "name": "A3499_801_Small Crossbody Bag solid",
     "program": 5668,
     "programName": "Recycled Leather",
     "material": "100% Recycled Leather Lining: 80% PL 20% Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -1977,12 +2063,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3380_252",
     "name": "A3380_252_Festival Bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -2000,12 +2087,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3444_252",
     "name": "A3444_252_Drawstring Tote",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -2023,12 +2111,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3403_252",
     "name": "A3403_252_Bucket Hat",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -2046,12 +2135,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3404_252",
     "name": "A3404_252_Cap",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -2069,12 +2159,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3501_478",
     "name": "A3501_478_Festival Bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -2092,12 +2183,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3519_478",
     "name": "A3519_478_Duffle bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -2115,12 +2207,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3432_943",
     "name": "A3432_943_Drawstring Tote",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -2138,12 +2231,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3503_943",
     "name": "A3503_943_Duffle bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -2161,12 +2255,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3382_943",
     "name": "A3382_943_Duffle bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -2184,12 +2279,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3506_943",
     "name": "A3506_943_Cap",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -2207,12 +2303,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3405_943",
     "name": "A3405_943_Wiered Headband",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -2230,12 +2327,13 @@
     "retailPriceGBP": 35
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3502_999",
     "name": "A3502_999_Festival Bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2253,12 +2351,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3518_999",
     "name": "A3518_999_Drawstring Tote",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2276,12 +2375,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3381_999",
     "name": "A3381_999_Purse",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2299,12 +2399,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3504_999",
     "name": "A3504_999_Duffle bag",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2322,12 +2423,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3507_999",
     "name": "A3507_999_Wiered Headband",
     "program": 5669,
     "programName": "Seasonal Recycled Tech Fabric",
     "material": "100% Recycled Polyester Lining: 100% Recycled PL",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2345,12 +2447,13 @@
     "retailPriceGBP": 35
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3387_119",
     "name": "A3387_119_Rhinestone purse",
     "program": 5671,
     "programName": "Linen",
     "material": "45% cotton 55% Linen - Lining Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Nature",
     "colorId": 119,
     "filters": [
@@ -2368,12 +2471,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3389_630",
     "name": "A3389_630_Purse",
     "program": 5673,
     "programName": "Denim",
     "material": "85%cotton 15% polyester - Lining Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Denim",
     "colorId": 630,
     "filters": [
@@ -2391,12 +2495,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3409_321",
     "name": "A3409_321_Belt",
     "program": 5675,
     "programName": "Webbing",
     "material": "100% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -2414,12 +2519,13 @@
     "retailPriceGBP": 45
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3508_470",
     "name": "A3508_470_Belt",
     "program": 5675,
     "programName": "Webbing",
     "material": "100% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -2437,12 +2543,13 @@
     "retailPriceGBP": 45
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3509_546",
     "name": "A3509_546_Belt",
     "program": 5675,
     "programName": "Webbing",
     "material": "100% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 546,
     "filters": [
@@ -2460,12 +2567,13 @@
     "retailPriceGBP": 45
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3510_572",
     "name": "A3510_572_Belt",
     "program": 5675,
     "programName": "Webbing",
     "material": "100% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2483,12 +2591,13 @@
     "retailPriceGBP": 45
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3410_87",
     "name": "A3410_87_Scarf",
     "program": 5676,
     "programName": "Cotton Voile",
     "material": "100% organic cotton voile",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black/Egret",
     "colorId": 87,
     "filters": [
@@ -2506,12 +2615,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3511_135",
     "name": "A3511_135_Scarf",
     "program": 5676,
     "programName": "Cotton Voile",
     "material": "100% organic cotton voile",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -2529,12 +2639,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3512_252",
     "name": "A3512_252_Scarf",
     "program": 5676,
     "programName": "Cotton Voile",
     "material": "100% organic cotton voile",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -2552,12 +2663,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3514_999",
     "name": "A3514_999_Scarf",
     "program": 5676,
     "programName": "Cotton Voile",
     "material": "100% organic cotton voile",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2575,12 +2687,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3439_99",
     "name": "A3439_99_Hat",
     "program": 5684,
     "programName": "Recycled Tech",
     "material": "100% recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -2598,12 +2711,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3515_478",
     "name": "A3515_478_Hat",
     "program": 5684,
     "programName": "Recycled Tech",
     "material": "100% recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -2621,12 +2735,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3516_801",
     "name": "A3516_801_Hat",
     "program": 5684,
     "programName": "Recycled Tech",
     "material": "100% recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -2644,12 +2759,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F4715_151",
     "name": "F4715_151_Sleeveless Shirt",
     "program": 6027,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -2668,12 +2784,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5500_151",
     "name": "F5500_151_Fitted Shirt",
     "program": 6045,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -2692,12 +2809,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5805_99",
     "name": "F5805_99_Mini Skirt",
     "program": 6176,
     "programName": "Heavy Crepe",
     "material": "57% Rec Poly, 40% Poly, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -2715,12 +2833,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5806_99",
     "name": "F5806_99_Wrap Dress",
     "program": 6176,
     "programName": "Heavy Crepe",
     "material": "57% Rec Poly, 40% Poly, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -2738,12 +2857,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5722_151",
     "name": "F5722_151_High-waisted Cropped Jeans",
     "program": 6183,
     "programName": "Classic Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -2761,12 +2881,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5723_151",
     "name": "F5723_151_High-waisted Straight Jeans",
     "program": 6183,
     "programName": "Classic Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -2784,12 +2905,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3394_572",
     "name": "A3394_572_Collar",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2807,12 +2929,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5974_572",
     "name": "F5974_572_Oversized Dress",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2830,12 +2953,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5976_572",
     "name": "F5976_572_Strap Dress",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2853,12 +2977,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5978_572",
     "name": "F5978_572_Shirt",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2876,12 +3001,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5979_572",
     "name": "F5979_572_Pants",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2899,12 +3025,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5980_572",
     "name": "F5980_572_Oversized Sleeveless Shirt",
     "program": 6236,
     "programName": "Stripe Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -2922,12 +3049,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6044_999",
     "name": "F6044_999_Top",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2945,12 +3073,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6333_999",
     "name": "F6333_999_Skirt",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2968,12 +3097,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6334_999",
     "name": "F6334_999_Midi Dress",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -2991,12 +3121,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6335_999",
     "name": "F6335_999_Oversized Mini Dress",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3014,12 +3145,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5961_99",
     "name": "F5961_99_Shirt",
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3038,12 +3170,13 @@
     "retailPriceGBP": 375
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5967_99",
     "name": "F5967_99_Skirt",
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3062,12 +3195,13 @@
     "retailPriceGBP": 425
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3398_483",
     "name": "A3398_483_Collar",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3085,12 +3219,13 @@
     "retailPriceGBP": 50
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3399_483",
     "name": "A3399_483_Scrunchie",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3108,12 +3243,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6024_483",
     "name": "F6024_483_Wrap Dress",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3131,12 +3267,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6026_483",
     "name": "F6026_483_Maxi Skirt",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3154,12 +3291,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6027_483",
     "name": "F6027_483_Top",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3177,12 +3315,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6029_483",
     "name": "F6029_483_Mini Dress",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3200,12 +3339,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6031_483",
     "name": "F6031_483_Smock Blouse",
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -3223,12 +3363,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6035_151",
     "name": "F6035_151_Wrap Blouse",
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3247,12 +3388,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6340_151",
     "name": "F6340_151_Wrap Top",
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3271,12 +3413,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3392_321",
     "name": "A3392_321_Scrunchie",
     "program": 6254,
     "programName": "Crinkled Satin",
     "material": "95% Polyester, 5% Spandex",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3294,12 +3437,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5951_321",
     "name": "F5951_321_Dress",
     "program": 6254,
     "programName": "Crinkled Satin",
     "material": "95% Polyester, 5% Spandex",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3317,12 +3461,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5954_321",
     "name": "F5954_321_Oversized Dress",
     "program": 6254,
     "programName": "Crinkled Satin",
     "material": "95% Polyester, 5% Spandex",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3340,12 +3485,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6111_321",
     "name": "F6111_321_Skirt",
     "program": 6254,
     "programName": "Crinkled Satin",
     "material": "95% Polyester, 5% Spandex",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3363,12 +3509,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6112_321",
     "name": "F6112_321_Shirt",
     "program": 6254,
     "programName": "Crinkled Satin",
     "material": "95% Polyester, 5% Spandex",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3386,12 +3533,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3390_151",
     "name": "A3390_151_Collar",
     "program": 6263,
     "programName": "Broderie Anglaise",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3409,12 +3557,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5989_151",
     "name": "F5989_151_Smock Dress",
     "program": 6263,
     "programName": "Broderie Anglaise",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3432,12 +3581,13 @@
     "retailPriceGBP": 265
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5990_151",
     "name": "F5990_151_Oversized Dress",
     "program": 6263,
     "programName": "Broderie Anglaise",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3455,12 +3605,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5992_151",
     "name": "F5992_151_Blouse",
     "program": 6263,
     "programName": "Broderie Anglaise",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -3478,12 +3629,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6343_252",
     "name": "F6343_252_Quited Wrap Coat",
     "program": 6264,
     "programName": "Stretch Canvas",
     "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -3501,12 +3653,13 @@
     "retailPriceGBP": 255
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6342_252",
     "name": "F6342_252_Trench Coat",
     "program": 6264,
     "programName": "Stretch Canvas",
     "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -3524,12 +3677,13 @@
     "retailPriceGBP": 375
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5948_861",
     "name": "F5948_861_Trench Coat",
     "program": 6264,
     "programName": "Stretch Canvas",
     "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -3547,12 +3701,13 @@
     "retailPriceGBP": 375
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6098_861",
     "name": "F6098_861_Quited Wrap Coat",
     "program": 6264,
     "programName": "Stretch Canvas",
     "material": "72% Organic Cotton, 25% Polyamide, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -3570,12 +3725,13 @@
     "retailPriceGBP": 255
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3400_999",
     "name": "A3400_999_Scrunchie",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3593,12 +3749,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6067_999",
     "name": "F6067_999_Wrap Dress",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3616,12 +3773,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6070_999",
     "name": "F6070_999_Shorts",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3639,12 +3797,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6071_999",
     "name": "F6071_999_Midi Dress",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3662,12 +3821,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6072_999",
     "name": "F6072_999_Blouse",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3685,12 +3845,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6074_999",
     "name": "F6074_999_Midi Dress",
     "program": 6266,
     "programName": "Seersucker Check",
     "material": "58% ORG COT, 37% REC PES, 5% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Multicolour",
     "colorId": 999,
     "filters": [
@@ -3708,12 +3869,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6052_943",
     "name": "F6052_943_Mini Dress",
     "program": 6268,
     "programName": "Organza",
     "material": "50% Recycled Polyester + 50% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -3731,12 +3893,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6126_943",
     "name": "F6126_943_Midi Dress",
     "program": 6268,
     "programName": "Organza",
     "material": "50% Recycled Polyester + 50% Polyester",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -3754,12 +3917,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6039_99",
     "name": "F6039_99_Belt Pants",
     "program": 6269,
     "programName": "Heavy Crepe",
     "material": "57% Rec Poly, 40% Poly, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3777,12 +3941,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6113_99",
     "name": "F6113_99_Maxi Dress",
     "program": 6269,
     "programName": "Heavy Crepe",
     "material": "57% Rec Poly, 40% Poly, 3% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3800,12 +3965,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3393_321",
     "name": "A3393_321_Collar",
     "program": 6274,
     "programName": "Print Denim",
     "material": "99% Organic cotton, 1% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3823,12 +3989,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5937_321",
     "name": "F5937_321_High-waisted Bootcut Jeans",
     "program": 6274,
     "programName": "Print Denim",
     "material": "99% Organic cotton, 1% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3846,12 +4013,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5938_321",
     "name": "F5938_321_Dress",
     "program": 6274,
     "programName": "Print Denim",
     "material": "99% Organic cotton, 1% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3869,12 +4037,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5940_321",
     "name": "F5940_321_High-wasted Shorts",
     "program": 6274,
     "programName": "Print Denim",
     "material": "99% Organic cotton, 1% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -3892,12 +4061,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3401_99",
     "name": "A3401_99_Scrunchie",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3915,12 +4085,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6005_99",
     "name": "F6005_99_Top",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3938,12 +4109,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6006_99",
     "name": "F6006_99_Dress",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3961,12 +4133,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6007_99",
     "name": "F6007_99_Shorts",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -3984,12 +4157,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6008_99",
     "name": "F6008_99_Midi Dress",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4007,12 +4181,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6009_99",
     "name": "F6009_99_Blouse",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4030,12 +4205,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6120_99",
     "name": "F6120_99_Maxi Dress",
     "program": 6278,
     "programName": "Seersucker Check",
     "material": "44% REC POLY, 42% ORG COT, 14% PA",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4053,12 +4229,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6013_252",
     "name": "F6013_252_Kaftan",
     "program": 6279,
     "programName": "Light Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -4076,12 +4253,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6014_252",
     "name": "F6014_252_Sarong",
     "program": 6279,
     "programName": "Light Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -4099,12 +4277,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6323_801",
     "name": "F6323_801_Kaftan",
     "program": 6279,
     "programName": "Light Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -4122,12 +4301,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6324_801",
     "name": "F6324_801_Sarong",
     "program": 6279,
     "programName": "Light Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -4145,12 +4325,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6021_630",
     "name": "F6021_630_High-waisted Relaxed Fit Jeans",
     "program": 6280,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Denim",
     "colorId": 630,
     "filters": [
@@ -4168,12 +4349,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6022_630",
     "name": "F6022_630_Midi Skirt",
     "program": 6280,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 1",
+    "groupId": "drop-1",
     "colorNames": "Denim",
     "colorId": 630,
     "filters": [
@@ -4191,12 +4373,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1540_572",
     "name": "K1540_572_Vest",
     "program": 2513,
     "programName": "Rib Knit",
     "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -4214,12 +4397,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1522_99",
     "name": "K1522_99_Cropped Cardigan",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4237,12 +4421,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1523_99",
     "name": "K1523_99_Top",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4260,12 +4445,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1536_99",
     "name": "K1536_99_Blouse",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4283,12 +4469,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1544_99",
     "name": "K1544_99_Dress",
     "program": 2515,
     "programName": "Melange Knit",
     "material": "55% Rayon, 29% Polyamide, 16% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4306,12 +4493,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1575_483",
     "name": "K1575_483_Cardigan",
     "program": 2529,
     "programName": "Soft Wool Knit",
     "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -4329,12 +4517,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1577_196",
     "name": "K1577_196_Cardigan",
     "program": 2530,
     "programName": "Cotton Rope Knit",
     "material": "55% Cotton, 45% Polyamide + 100% Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
     "filters": [
@@ -4352,12 +4541,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 3,
     "styleId": "K1578_196",
     "name": "K1578_196_Vest",
     "program": 2530,
     "programName": "Cotton Rope Knit",
     "material": "55% Cotton, 45% Polyamide + 100% Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Brazilian Sand",
     "colorId": 196,
     "filters": [
@@ -4375,12 +4565,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "T2797_151",
     "name": "T2797_151_T-shirt, Smiley",
     "program": 3501,
     "programName": "Basic Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -4398,12 +4589,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 3,
     "styleId": "T2803_151",
     "name": "T2803_151_T-shirt",
     "program": 3503,
     "programName": "Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -4421,12 +4613,13 @@
     "retailPriceGBP": 95
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5718_687",
     "name": "F5718_687_High-waisted Cropped Jeans",
     "program": 6182,
     "programName": "Classic Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
     "filters": [
@@ -4444,12 +4637,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5721_687",
     "name": "F5721_687_Mid-waist Slim Jeans",
     "program": 6182,
     "programName": "Classic Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
     "filters": [
@@ -4467,12 +4661,13 @@
     "retailPriceGBP": 195
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6076_256",
     "name": "F6076_256_Maxi Dress",
     "program": 6237,
     "programName": "Structured Jacquard",
     "material": "78% Recycled Polyester, 20% Polyester, 2% Metal fiber",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Sharkskin",
     "colorId": 256,
     "filters": [
@@ -4490,12 +4685,13 @@
     "retailPriceGBP": 425
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6079_256",
     "name": "F6079_256_Skirt",
     "program": 6237,
     "programName": "Structured Jacquard",
     "material": "78% Recycled Polyester, 20% Polyester, 2% Metal fiber",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Sharkskin",
     "colorId": 256,
     "filters": [
@@ -4513,12 +4709,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6104_256",
     "name": "F6104_256_Wrap Blouse",
     "program": 6237,
     "programName": "Structured Jacquard",
     "material": "78% Recycled Polyester, 20% Polyester, 2% Metal fiber",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Sharkskin",
     "colorId": 256,
     "filters": [
@@ -4536,12 +4733,13 @@
     "retailPriceGBP": 305
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6080_256",
     "name": "F6080_256_Dress",
     "program": 6237,
     "programName": "Structured Jacquard",
     "material": "78% Recycled Polyester, 20% Polyester, 2% Metal fiber",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Sharkskin",
     "colorId": 256,
     "filters": [
@@ -4559,12 +4757,13 @@
     "retailPriceGBP": 375
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6043_694",
     "name": "F6043_694_One Shoulder Blouse",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -4582,12 +4781,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6051_694",
     "name": "F6051_694_Skirt",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -4605,12 +4805,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6105_694",
     "name": "F6105_694_Midi Dress",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -4628,12 +4829,13 @@
     "retailPriceGBP": 215
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6116_694",
     "name": "F6116_694_Oversized Mini Dress",
     "program": 6238,
     "programName": "Pleated Georgette",
     "material": "100% Recycled Polyester",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Heather",
     "colorId": 694,
     "filters": [
@@ -4651,12 +4853,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5968_99",
     "name": "F5968_99_Top",
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4675,12 +4878,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5969_99",
     "name": "F5969_99_Mini Dress",
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4699,12 +4903,13 @@
     "retailPriceGBP": 525
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6032_99",
     "name": "F6032_99_Shirt",
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4722,12 +4927,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6036_99",
     "name": "F6036_99_Wrap Top",
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4745,12 +4951,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6037_99",
     "name": "F6037_99_Dress",
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4768,12 +4975,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3395_135",
     "name": "A3395_135_Scrunchie",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4791,12 +4999,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5984_135",
     "name": "F5984_135_Dress",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4814,12 +5023,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5985_135",
     "name": "F5985_135_Pants",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4837,12 +5047,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5986_135",
     "name": "F5986_135_Mini Dress",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4860,12 +5071,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5987_135",
     "name": "F5987_135_Blouse",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4883,12 +5095,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6122_135",
     "name": "F6122_135_Skirt",
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -4906,12 +5119,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5970_470",
     "name": "F5970_470_Dress",
     "program": 6253,
     "programName": "Embellished Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -4929,12 +5143,13 @@
     "retailPriceGBP": 345
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5971_470",
     "name": "F5971_470_Top",
     "program": 6253,
     "programName": "Embellished Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -4952,12 +5167,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F5972_470",
     "name": "F5972_470_Wrap Dress",
     "program": 6253,
     "programName": "Embellished Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -4975,12 +5191,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6056_99",
     "name": "F6056_99_Skirt",
     "program": 6265,
     "programName": "Viscose Satin",
     "material": "100% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -4998,12 +5215,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6060_99",
     "name": "F6060_99_Slip Dress",
     "program": 6265,
     "programName": "Viscose Satin",
     "material": "100% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -5021,12 +5239,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6109_99",
     "name": "F6109_99_Open Back Top",
     "program": 6265,
     "programName": "Viscose Satin",
     "material": "100% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -5044,12 +5263,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 3,
     "styleId": "A3397_478",
     "name": "A3397_478_Scrunchie",
     "program": 6270,
     "programName": "Cotton Seersucker",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -5067,12 +5287,13 @@
     "retailPriceGBP": 20
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6001_478",
     "name": "F6001_478_Maxi Dress",
     "program": 6270,
     "programName": "Cotton Seersucker",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -5090,12 +5311,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6002_478",
     "name": "F6002_478_Mini Dress",
     "program": 6270,
     "programName": "Cotton Seersucker",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -5113,12 +5335,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6003_478",
     "name": "F6003_478_Top",
     "program": 6270,
     "programName": "Cotton Seersucker",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -5136,12 +5359,13 @@
     "retailPriceGBP": 125
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6103_478",
     "name": "F6103_478_Oversized Blouse",
     "program": 6270,
     "programName": "Cotton Seersucker",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -5159,12 +5383,13 @@
     "retailPriceGBP": 165
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6081_321",
     "name": "F6081_321_Blazer",
     "program": 6273,
     "programName": "Summer Suiting",
     "material": "56% Recycled Polyester, 44% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -5182,12 +5407,13 @@
     "retailPriceGBP": 325
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6108_321",
     "name": "F6108_321_Skirt",
     "program": 6273,
     "programName": "Summer Suiting",
     "material": "56% Recycled Polyester, 44% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -5205,12 +5431,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6082_321",
     "name": "F6082_321_Pants",
     "program": 6273,
     "programName": "Summer Suiting",
     "material": "56% Recycled Polyester, 44% Viscose",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -5228,12 +5455,13 @@
     "retailPriceGBP": 265
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6016_696",
     "name": "F6016_696_High-waisted Bootcut Jeans",
     "program": 6276,
     "programName": "Heavy Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Dark Indigo",
     "colorId": 696,
     "filters": [
@@ -5251,12 +5479,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6017_696",
     "name": "F6017_696_Jacket",
     "program": 6276,
     "programName": "Heavy Denim",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Dark Indigo",
     "colorId": 696,
     "filters": [
@@ -5274,12 +5503,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6018_687",
     "name": "F6018_687_Shirt",
     "program": 6277,
     "programName": "Light Denim",
     "material": "64% Organic Cotton, 36% Refibra",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
     "filters": [
@@ -5297,12 +5527,13 @@
     "retailPriceGBP": 225
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6106_687",
     "name": "F6106_687_Dress",
     "program": 6277,
     "programName": "Light Denim",
     "material": "64% Organic Cotton, 36% Refibra",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Washed Indigo",
     "colorId": 687,
     "filters": [
@@ -5320,12 +5551,13 @@
     "retailPriceGBP": 305
   },
   {
+    "numberOfAssets": 3,
     "styleId": "F6020_99",
     "name": "F6020_99_Mid-waist Straight Jeans",
     "program": 6280,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -5343,12 +5575,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 4,
     "styleId": "F6110_99",
     "name": "F6110_99_High-waisted Shorts",
     "program": 6280,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -5366,12 +5599,13 @@
     "retailPriceGBP": 145
   },
   {
+    "numberOfAssets": 4,
     "styleId": "F6107_470",
     "name": "F6107_470_Slip Dress",
     "program": 6298,
     "programName": "Grid Lace",
     "material": "100% Polyester",
-    "groupId": "Drop 2",
+    "groupId": "drop-2",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -5389,12 +5623,13 @@
     "retailPriceGBP": 175
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1208_921",
     "name": "K1208_921_Cardigan",
     "program": 2446,
     "programName": "Soft Wool Knit",
     "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -5412,12 +5647,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1454_135",
     "name": "K1454_135_Cardigan",
     "program": 2500,
     "programName": "Soft Wool Knit",
     "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -5435,12 +5671,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1524_135",
     "name": "K1524_135_Cardigan",
     "program": 2513,
     "programName": "Rib Knit",
     "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -5458,12 +5695,13 @@
     "retailPriceGBP": 245
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1529_321",
     "name": "K1529_321_Short Sleeve Cardigan",
     "program": 2517,
     "programName": "Slub Cotton Knit",
     "material": "56% Organic Cotton, 32% Viscose, 9% Polyamide, 3% Polyester",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -5481,12 +5719,13 @@
     "retailPriceGBP": 205
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1530_321",
     "name": "K1530_321_Dress",
     "program": 2517,
     "programName": "Slub Cotton Knit",
     "material": "56% Organic Cotton, 32% Viscose, 9% Polyamide, 3% Polyester",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Pale Banana",
     "colorId": 321,
     "filters": [
@@ -5504,12 +5743,13 @@
     "retailPriceGBP": 275
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1527_574",
     "name": "K1527_574_Pullover",
     "program": 2518,
     "programName": "Wool Mix",
     "material": "80% Recycled Wool, 20% Polyamide",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Airy Blue",
     "colorId": 574,
     "filters": [
@@ -5527,12 +5767,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1528_574",
     "name": "K1528_574_Vest",
     "program": 2518,
     "programName": "Wool Mix",
     "material": "80% Recycled Wool, 20% Polyamide",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Airy Blue",
     "colorId": 574,
     "filters": [
@@ -5550,12 +5791,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1573_801",
     "name": "K1573_801_Pullover",
     "program": 2518,
     "programName": "Wool Mix",
     "material": "80% Recycled Wool, 20% Polyamide",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5573,12 +5815,13 @@
     "retailPriceGBP": 155
   },
   {
+    "numberOfAssets": 4,
     "styleId": "K1574_801",
     "name": "K1574_801_Vest",
     "program": 2518,
     "programName": "Wool Mix",
     "material": "80% Recycled Wool, 20% Polyamide",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5601,7 +5844,7 @@
     "program": 3494,
     "programName": "Linen Jersey",
     "material": "85% Recycled Linen, 15% Virgin linen",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -5624,7 +5867,7 @@
     "program": 3494,
     "programName": "Linen Jersey",
     "material": "85% Recycled Linen, 15% Virgin linen",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -5647,7 +5890,7 @@
     "program": 3494,
     "programName": "Linen Jersey",
     "material": "85% Recycled Linen, 15% Virgin linen",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -5670,7 +5913,7 @@
     "program": 3494,
     "programName": "Linen Jersey",
     "material": "85% Recycled Linen, 15% Virgin linen",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -5693,7 +5936,7 @@
     "program": 3495,
     "programName": "Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -5716,7 +5959,7 @@
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5739,7 +5982,7 @@
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5762,7 +6005,7 @@
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5785,7 +6028,7 @@
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5808,7 +6051,7 @@
     "program": 3499,
     "programName": "Printed Mesh",
     "material": "94% Polyamide, 6% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -5831,7 +6074,7 @@
     "program": 3501,
     "programName": "Basic Cotton Jersey",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -5854,7 +6097,7 @@
     "program": 6210,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Medium Indigo",
     "colorId": 691,
     "filters": [
@@ -5877,7 +6120,7 @@
     "program": 6210,
     "programName": "Comfort Stretch",
     "material": "55% Organic Cotton, 43% Cotton, 2% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Medium Indigo",
     "colorId": 691,
     "filters": [
@@ -5900,7 +6143,7 @@
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -5924,7 +6167,7 @@
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -5948,7 +6191,7 @@
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -5972,7 +6215,7 @@
     "program": 6239,
     "programName": "Lamb Leather",
     "material": "100% Lamb Leather",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Madder Brown",
     "colorId": 470,
     "filters": [
@@ -5996,7 +6239,7 @@
     "program": 6240,
     "programName": "Linen Canvas",
     "material": "55% Linen, 45% Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -6019,7 +6262,7 @@
     "program": 6240,
     "programName": "Linen Canvas",
     "material": "55% Linen, 45% Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
@@ -6042,7 +6285,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6065,7 +6308,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6088,7 +6331,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6111,7 +6354,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6134,7 +6377,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6157,7 +6400,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6180,7 +6423,7 @@
     "program": 6245,
     "programName": "Printed Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6203,7 +6446,7 @@
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -6227,7 +6470,7 @@
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -6251,7 +6494,7 @@
     "program": 6246,
     "programName": "Cotton Poplin",
     "material": "100% Organic Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
@@ -6275,7 +6518,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6298,7 +6541,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6321,7 +6564,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6344,7 +6587,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6367,7 +6610,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6390,7 +6633,7 @@
     "program": 6248,
     "programName": "Printed Crepe",
     "material": "50% viscose + 50% LENZING™ ECOVERO™",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6413,7 +6656,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6436,7 +6679,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6459,7 +6702,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6482,7 +6725,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6505,7 +6748,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6528,7 +6771,7 @@
     "program": 6251,
     "programName": "Silk Stretch Satin",
     "material": "92% Silk, 8% Elastane",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -6551,7 +6794,7 @@
     "program": 6252,
     "programName": "Crispy Taffeta",
     "material": "50% Recycled Polyester, 50% Acetate",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Airy Blue",
     "colorId": 574,
     "filters": [
@@ -6574,7 +6817,7 @@
     "program": 6252,
     "programName": "Crispy Taffeta",
     "material": "50% Recycled Polyester, 50% Acetate",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Airy Blue",
     "colorId": 574,
     "filters": [
@@ -6597,7 +6840,7 @@
     "program": 6252,
     "programName": "Crispy Taffeta",
     "material": "50% Recycled Polyester, 50% Acetate",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Airy Blue",
     "colorId": 574,
     "filters": [
@@ -6620,7 +6863,7 @@
     "program": 6262,
     "programName": "Outerwear Nylon",
     "material": "100% Recycled Nylon",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Fossil",
     "colorId": 189,
     "filters": [
@@ -6643,7 +6886,7 @@
     "program": 6262,
     "programName": "Outerwear Nylon",
     "material": "100% Recycled Nylon",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Fossil",
     "colorId": 189,
     "filters": [
@@ -6666,7 +6909,7 @@
     "program": 6267,
     "programName": "Ripstop Viscose",
     "material": "66% Viscose, 34% Lenzing ECOVERO Viscose",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6689,7 +6932,7 @@
     "program": 6267,
     "programName": "Ripstop Viscose",
     "material": "66% Viscose, 34% Lenzing ECOVERO Viscose",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6712,7 +6955,7 @@
     "program": 6267,
     "programName": "Ripstop Viscose",
     "material": "66% Viscose, 34% Lenzing ECOVERO Viscose",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6735,7 +6978,7 @@
     "program": 6267,
     "programName": "Ripstop Viscose",
     "material": "66% Viscose, 34% Lenzing ECOVERO Viscose",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Kelly Green",
     "colorId": 801,
     "filters": [
@@ -6758,7 +7001,7 @@
     "program": 6272,
     "programName": "Stretch Stripe",
     "material": "62% POLY, 32% VIS, 6% EL",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -6781,7 +7024,7 @@
     "program": 6272,
     "programName": "Stretch Stripe",
     "material": "62% POLY, 32% VIS, 6% EL",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -6804,7 +7047,7 @@
     "program": 6272,
     "programName": "Stretch Stripe",
     "material": "62% POLY, 32% VIS, 6% EL",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -6827,7 +7070,7 @@
     "program": 6272,
     "programName": "Stretch Stripe",
     "material": "62% POLY, 32% VIS, 6% EL",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -6850,7 +7093,7 @@
     "program": 6275,
     "programName": "Yarndyed Denim",
     "material": "85% Cotton, 15% Recycled Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -6873,7 +7116,7 @@
     "program": 6275,
     "programName": "Yarndyed Denim",
     "material": "85% Cotton, 15% Recycled Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -6896,7 +7139,7 @@
     "program": 6275,
     "programName": "Yarndyed Denim",
     "material": "85% Cotton, 15% Recycled Cotton",
-    "groupId": "Drop 3",
+    "groupId": "drop-3",
     "colorNames": "Pink Nectar",
     "colorId": 478,
     "filters": [
@@ -6919,7 +7162,7 @@
     "program": 3522,
     "programName": "Stripe Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -6942,7 +7185,7 @@
     "program": 3523,
     "programName": "Stripe Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -6965,7 +7208,7 @@
     "program": 3523,
     "programName": "Stripe Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -6988,7 +7231,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7011,7 +7254,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7034,7 +7277,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7057,7 +7300,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7080,7 +7323,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7103,7 +7346,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -7126,7 +7369,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7149,7 +7392,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7172,7 +7415,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7195,7 +7438,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7218,7 +7461,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7241,7 +7484,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
@@ -7264,7 +7507,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7287,7 +7530,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7310,7 +7553,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7333,7 +7576,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7356,7 +7599,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7379,7 +7622,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -7402,7 +7645,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7425,7 +7668,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7448,7 +7691,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7471,7 +7714,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7494,7 +7737,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7517,7 +7760,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -7540,7 +7783,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7563,7 +7806,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7586,7 +7829,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7609,7 +7852,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7632,7 +7875,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7655,7 +7898,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -7678,7 +7921,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7701,7 +7944,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7724,7 +7967,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7747,7 +7990,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7770,7 +8013,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7793,7 +8036,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7816,7 +8059,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Daphne",
     "colorId": 572,
     "filters": [
@@ -7839,7 +8082,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7862,7 +8105,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7885,7 +8128,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7908,7 +8151,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7931,7 +8174,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7954,7 +8197,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -7977,7 +8220,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8000,7 +8243,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8023,7 +8266,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8046,7 +8289,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8069,7 +8312,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8092,7 +8335,7 @@
     "program": 3529,
     "programName": "Software Isoli",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8115,7 +8358,7 @@
     "program": 3530,
     "programName": "Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -8138,7 +8381,7 @@
     "program": 3530,
     "programName": "Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -8161,7 +8404,7 @@
     "program": 3530,
     "programName": "Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -8184,7 +8427,7 @@
     "program": 3530,
     "programName": "Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -8207,7 +8450,7 @@
     "program": 3530,
     "programName": "Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8225,12 +8468,13 @@
     "retailPriceGBP": 105
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_1",
     "name": "T2917_1_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "White",
     "colorId": 1,
     "filters": [
@@ -8248,12 +8492,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_1",
     "name": "T2918_1_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "White",
     "colorId": 1,
     "filters": [
@@ -8271,12 +8516,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_99",
     "name": "T2917_99_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -8294,12 +8540,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_99",
     "name": "T2918_99_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
@@ -8317,12 +8564,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_304",
     "name": "T2917_304_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -8340,12 +8588,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_304",
     "name": "T2918_304_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Anise Flower",
     "colorId": 304,
     "filters": [
@@ -8363,12 +8612,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_465",
     "name": "T2917_465_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -8386,12 +8636,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_465",
     "name": "T2918_465_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -8409,12 +8660,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_483",
     "name": "T2917_483_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -8432,12 +8684,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_483",
     "name": "T2918_483_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Shocking Pink",
     "colorId": 483,
     "filters": [
@@ -8455,12 +8708,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_683",
     "name": "T2917_683_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
@@ -8478,12 +8732,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_683",
     "name": "T2918_683_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "sky Captain",
     "colorId": 683,
     "filters": [
@@ -8501,12 +8756,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2917_921",
     "name": "T2917_921_O-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8524,12 +8780,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "T2918_921",
     "name": "T2918_921_V-neck T-shirt",
     "program": 3531,
     "programName": "Thin Software Jersey",
     "material": "50% Recycled Cot, 50% Recycled Poly",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
@@ -8547,12 +8804,13 @@
     "retailPriceGBP": 65
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3429_252",
     "name": "A3429_252_Hat",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -8570,12 +8828,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3430_252",
     "name": "A3430_252_Cap",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
@@ -8593,12 +8852,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3429_465",
     "name": "A3429_465_Hat",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -8616,12 +8876,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3430_465",
     "name": "A3430_465_Cap",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Sweet Lilac",
     "colorId": 465,
     "filters": [
@@ -8639,12 +8900,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3429_861",
     "name": "A3429_861_Hat",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -8662,12 +8924,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3430_861",
     "name": "A3430_861_Cap",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
@@ -8685,12 +8948,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3429_933",
     "name": "A3429_933_Hat",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Hazel",
     "colorId": 933,
     "filters": [
@@ -8708,12 +8972,13 @@
     "retailPriceGBP": 75
   },
   {
+    "numberOfAssets": 4,
     "styleId": "A3430_933",
     "name": "A3430_933_Cap",
     "program": 5682,
     "programName": "Software Heavy Cotton",
     "material": "100% Organic Cotton",
-    "groupId": "Software",
+    "groupId": "software",
     "colorNames": "Hazel",
     "colorId": 933,
     "filters": [

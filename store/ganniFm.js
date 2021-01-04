@@ -1,7 +1,7 @@
 import {
 	MUSIC_PLAY_PAUSE,
 	FORCE_STOP_MUSIC,
-	SONGS_FETCH
+	FETCH_SONGS
 } from '~/model/constants'
 
 export const state = () => ({
@@ -20,7 +20,7 @@ export const mutations = {
 		state.musicPlaying = false
 	},
 
-	[SONGS_FETCH.mutation](state, data) {
+	[FETCH_SONGS.mutation](state, data) {
 		const parsed = data =>
 			data.reduce(
 				(acc, cur) => [

@@ -1,6 +1,21 @@
 <template>
 	<div class="login">
-		<background-image />
+		<!-- <background-image /> -->
+		<client-only>
+			<vimeo-player
+				class="login__video"
+				ref="player"
+				:video-id="videoId"
+				:autoplay="true"
+				:loop="true"
+				:controls="false"
+				:options="{ muted }"
+			/>
+		</client-only>
+
+		<button @click="toggleMute" style="position: absolute; z-index: 1">
+			{{ muted ? 'SOUND' : 'MUTE' }}
+		</button>
 
 		<h1>
 			Ganni<br />love<br />
@@ -28,12 +43,14 @@ export default {
 	},
 	data() {
 		return {
+			muted: true,
 			// current: 0,
 			// timeout: null,
 			// slideDuration: 100000000000,
 		}
 	},
 	computed: {
+		...mapState('utils', ['videoId']),
 		...mapState('user', ['loggedIn']),
 		content() {
 			return [
@@ -45,6 +62,14 @@ export default {
 		},
 	},
 	methods: {
+		toggleMute() {
+			if (this.muted) {
+				this.$refs.player.unmute()
+			} else {
+				this.$refs.player.mute()
+			}
+			this.muted = !this.muted
+		},
 		// dispatchNext(immediate = false) {
 		// 	this.debounce(this.nextSlide, this.slideDuration, immediate)()
 		// },
