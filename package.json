@@ -1,7 +1,7 @@
 {
 	"name": "gan-showroom",
 	"version": "1.0.0",
-	"description": "Windows 98 styled desktop site",
+	"description": "Virtual showroom for GANNI's upcoming collections",
 	"author": "Sorthvid part of DEPT <adm@sorthvid.net>",
 	"contributors": [
 		"Esben Juul Mortensen <esben@sorthvid.net>",

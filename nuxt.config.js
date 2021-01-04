@@ -15,6 +15,12 @@ export default {
 				hid: 'description',
 				name: 'description',
 				content: process.env.npm_package_description || ''
+			},
+			{
+				hid: 'image',
+				property: 'og:image',
+				content:
+					'https://res.cloudinary.com/dd6fpxydm/image/upload/c_fill,q_60,w_1000/v1604531348/PF21_21.2/rails_ondisplay/original/DSC_4565_k0ipyx.jpg'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
