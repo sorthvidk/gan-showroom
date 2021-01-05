@@ -1,5 +1,7 @@
 <template>
-	<div class="responsible-icon">responsible</div>
+	<div class="responsible-icon">
+		<svg-icon name="ganni-smiley" />
+	</div>
 </template>
 
 <script>

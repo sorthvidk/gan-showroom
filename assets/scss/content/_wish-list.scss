@@ -114,10 +114,11 @@
 		}
 
 		.button {
+			@include bodytext();
 			@include link();
 			font-size: rem(12);
 			display: inline-flex;
-			margin-bottom: rem(20);
+			margin: rem(10) 0;
 		}
 
 		.single-image {

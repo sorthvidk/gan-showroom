@@ -17,7 +17,7 @@ export const state = () => ({
 
 export const mutations = {
 	[FETCH_VIMEO.mutation](state, data) {
-		state.videoId = data[0].vimeoUrl
+		state.videoId = data.length ? data[0].vimeoUrl : ''
 	},
 	[CLIPBOARD_COPY.mutation](state, data) {
 		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')

@@ -41,11 +41,11 @@
 								:src="
 									getMediaUrl(item.type, item.cloudinaryUrl, {
 										thumbnail: true,
-									})
+									}).src
 								"
 								preload
 								muted
-								controls
+								autoplay
 							/>
 						</div>
 					</div>
@@ -95,9 +95,11 @@ export default {
 		overview: false,
 	}),
 	computed: {
+		...mapState('assets', ['intro']),
 		// weird syntax to get state dynamically based on props.contentId
 		content() {
-			return this.$store.state.assets[this.contentId]
+			return this.intro
+			// return this.$store.state.assets[this.contentId]
 		},
 		activeContent() {
 			return this.content[this.idx]

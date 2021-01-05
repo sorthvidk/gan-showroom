@@ -1,0 +1,71 @@
+.style-info {
+	@include bodytext();
+	@include custom-scrollbar();
+	position: relative;
+	overflow: hidden;
+	overflow-y: scroll;
+	max-height: rem(160);
+
+	@include mq($from: screen-md) {
+		max-height: none;
+		overflow: visible;
+	}
+
+	&__row {
+		padding-top: rem(10);
+		display: flex;
+
+		&:first-of-type {
+			padding-top: 0;
+		}
+
+		span {
+			display: inline-block;
+			width: 50%;
+		}
+	}
+
+	p {
+		@include bodytext();
+		margin-bottom: rem(20);
+	}
+
+	.responsible {
+		@include bodytext();
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+
+		background-color: $color-black;
+		color: $color-white;
+		white-space: nowrap;
+		padding: rem(3) 0;
+		text-align: center;
+
+		user-select: none;
+
+		@keyframes marquee {
+			to {
+				transform: translateX(-100%);
+			}
+		}
+
+		div {
+			animation: marquee 10s linear infinite;
+			display: inline-flex;
+		}
+
+		svg {
+			height: 1em;
+			width: 1em;
+			fill: $color-white;
+		}
+
+		// give margin to element after
+		+ div {
+			padding-top: rem(30);
+		}
+	}
+}

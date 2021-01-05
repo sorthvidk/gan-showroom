@@ -17,6 +17,8 @@
 				/>
 			</transition-group> -->
 
+			<collection-header :group="group" />
+
 			<transition-group
 				name="staggered-fade"
 				tag="div"
@@ -39,6 +41,7 @@
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
 import CollectionItem from '~/components/content/CollectionItem.vue'
+import CollectionHeader from '~/components/content/CollectionHeader.vue'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import { TweenLite } from 'gsap'
 
@@ -47,6 +50,7 @@ export default {
 	name: 'collection',
 	components: {
 		CollectionItem,
+		CollectionHeader,
 	},
 	computed: {
 		...mapState('collection', [
@@ -61,12 +65,10 @@ export default {
 			const isActive = (g) =>
 				!this.activeGroup || g.groupId === this.activeGroup.groupId
 
-			return this.authorizedGroups
-				.filter(isActive)
-				.map(({ name, groupId }) => ({
-					name,
-					styles: this.currentStyles.filter((e) => e.groupId === groupId),
-				}))
+			return this.authorizedGroups.filter(isActive).map((group) => ({
+				...group,
+				styles: this.currentStyles.filter((e) => e.groupId === group.groupId),
+			}))
 
 			// let groups = []
 

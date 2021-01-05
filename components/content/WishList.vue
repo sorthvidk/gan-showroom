@@ -2,31 +2,37 @@
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="!isMobile">
 			<div
-				class="wish-list__overview__item"
-				v-for="(item, index) in wishList"
-				:key="'wishListItem' + index"
-				:class="{ 'is-active': currentWishListIndex == index }"
+				v-for="(value, key, index) in sortedWishlist"
+				:key="'wishListGroup' + index"
+				:style="{
+					display: 'flex',
+					flexDirection: 'column',
+				}"
 			>
-				<button
-					v-if="item.assets && item.assets.length > 0"
-					class="button activate"
-					@click="overviewItemActivateHandler(index)"
+				<div class="label">
+					{{ authorizedGroups.find((g) => g.groupId === key).name }}
+				</div>
+				<div
+					class="wish-list__overview__item"
+					v-for="(item, index) in value"
+					:key="'wishListItem' + index"
 				>
-					<img :src="getImageUrl(index)" alt />
-					<p>{{ item.name }}</p>
-				</button>
-				<button
-					class="button remove"
-					@click.stop="overviewItemRemoveHandler(index)"
-				>
-					<span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							<path
-								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-							/>
-						</svg>
-					</span>
-				</button>
+					<!-- :class="{ 'is-active': currentWishListIndex == index }" -->
+					<button
+						v-if="item.assets && item.assets.length > 0"
+						class="button activate"
+						@click="overviewItemActivateHandler(index)"
+					>
+						<img :src="getImageUrl(index)" alt />
+						<p>{{ item.name }}</p>
+					</button>
+					<button
+						class="button remove"
+						@click.stop="overviewItemRemoveHandler(index)"
+					>
+						&times;
+					</button>
+				</div>
 			</div>
 		</div>
 		<transition name="fade" mode="in-out">
@@ -54,83 +60,7 @@
 							Remove from wishlist
 						</button>
 
-						<table>
-							<tbody>
-								<tr>
-									<th>Name</th>
-									<td>{{ currentWishListItem.name }}</td>
-								</tr>
-								<tr>
-									<th>Color</th>
-									<td>{{ currentWishListItem.colorNames }}</td>
-								</tr>
-								<tr>
-									<th>Material</th>
-									<td>{{ currentWishListItem.material }}</td>
-								</tr>
-								<tr>
-									<th>Style #</th>
-									<td>{{ currentWishListItem.styleId }}</td>
-								</tr>
-								<tr>
-									<th>Program #</th>
-									<td>{{ currentWishListItem.program }}</td>
-								</tr>
-								<tr>
-									<th>Program name</th>
-									<td>{{ currentWishListItem.programName }}</td>
-								</tr>
-
-								<tr>
-									<th>&nbsp;</th>
-									<td>&nbsp;</td>
-								</tr>
-
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th>Wholesale price</th>
-									<td>DKK {{ currentWishListItem.wholesalePriceDKK }}</td>
-								</tr>
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th></th>
-									<td>EUR {{ currentWishListItem.wholesalePriceEUR }}</td>
-								</tr>
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th></th>
-									<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
-								</tr>
-								<tr
-									v-if="
-										currentWishListItem.wholesalePriceGBP &&
-										SHOW_WHOLESALE_PRICE
-									"
-								>
-									<th></th>
-									<td>GBP {{ currentWishListItem.wholesalePriceGBP }}</td>
-								</tr>
-
-								<tr>
-									<th>&nbsp;</th>
-									<td>&nbsp;</td>
-								</tr>
-
-								<tr>
-									<th>Suggested retail price</th>
-									<td>DKK {{ currentWishListItem.retailPriceDKK }}</td>
-								</tr>
-								<tr>
-									<th></th>
-									<td>EUR {{ currentWishListItem.retailPriceEUR }}</td>
-								</tr>
-								<tr>
-									<th></th>
-									<td>USD {{ currentWishListItem.retailPriceUSD }}</td>
-								</tr>
-								<tr v-if="currentWishListItem.retailPriceGBP">
-									<th></th>
-									<td>GBP {{ currentWishListItem.retailPriceGBP }}</td>
-								</tr>
-							</tbody>
-						</table>
+						<style-info :item="currentWishListItem" />
 					</div>
 				</vue-bar>
 			</div>
@@ -159,6 +89,7 @@ import addMediaChangeListener from '~/utils/media-change'
 
 import WindowContent from '~/components/framework/WindowContent.vue'
 import VueBar from '~/components/content/VueBar.vue'
+import StyleInfo from '~/components/content/StyleInfo.vue'
 
 export default {
 	extends: WindowContent,
@@ -167,17 +98,26 @@ export default {
 		WishListAccordion,
 		SingleImage,
 		VueBar,
+		StyleInfo,
 	},
 	computed: {
-		...mapState(['SHOW_WHOLESALE_PRICE']),
+		// ...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
-		...mapState('collection', ['wishList']),
+		...mapState('collection', ['wishList', 'authorizedGroups']),
 
 		currentWishListItem() {
 			if (this.wishList.length > 0)
 				return this.wishList[this.currentWishListIndex]
 			else this.currentWishListIndex = -1
 			return {}
+		},
+
+		sortedWishlist() {
+			return this.wishList.reduce((acc, cur) => {
+				acc[cur.groupId] = acc[cur.groupId] || []
+				acc[cur.groupId] = [...acc[cur.groupId], cur]
+				return acc
+			}, {})
 		},
 	},
 	data() {
@@ -211,6 +151,8 @@ export default {
 			)
 		},
 	},
-	mounted() {},
+	mounted() {
+		console.log(this.sortedWishlist)
+	},
 }
 </script>

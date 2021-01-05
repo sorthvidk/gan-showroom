@@ -84,6 +84,7 @@ export const actions = {
 		if (rootState.windowList.length) {
 			if (
 				rootState.topMostWindow &&
+				rootState.topMostWindow.contentComponentProps &&
 				rootState.topMostWindow.contentComponentProps.asset &&
 				rootState.topMostWindow.contentComponentProps.asset.styleId
 			) {

@@ -4,7 +4,7 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top" @click="toggle">
-			<svg-icon
+			<!-- <svg-icon
 				name="pause"
 				:style="{
 					pointerEvents: 'none',
@@ -14,7 +14,11 @@
 					transform: closed ? 'rotate(90deg)' : '',
 					transition: 'transform .5s',
 				}"
-			/>
+			/> -->
+			<div class="icon" :class="{ closed }">
+				<div></div>
+				<div></div>
+			</div>
 			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
 				>Ganni space</span
 			>

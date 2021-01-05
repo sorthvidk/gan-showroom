@@ -1,0 +1,15 @@
+.label {
+	@include bodytext();
+	@include truncate();
+
+	max-width: 100%;
+	max-height: 1.27em;
+
+	display: inline-block;
+	text-align: center;
+
+	background-color: $color-black;
+	color: $color-white;
+	padding: 0.25em 0.5em;
+	margin: rem(10);
+}

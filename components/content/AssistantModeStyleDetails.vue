@@ -7,7 +7,8 @@
 			}"
 		>
 			<div class="assistant__product-details">
-				<span v-if="currentStyle.responsible" class="responsible">
+				<style-info :item="currentStyle" />
+				<!-- <span v-if="currentStyle.responsible" class="responsible">
 					<div>I am a certified responsible material —&nbsp;</div>
 					<div>I am a certified responsible material —&nbsp;</div>
 					<div>I am a certified responsible material —&nbsp;</div>
@@ -53,82 +54,7 @@
 							GBP {{ currentStyle.retailPriceGBP }}
 						</div></span
 					>
-				</div>
-
-				<!-- <table>
-					<tbody>
-						<tr>
-							<th>Color</th>
-							<td>{{ currentStyle.colorNames }}</td>
-						</tr>
-
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr>
-							<th>Material</th>
-							<td>{{ currentStyle.material }}</td>
-						</tr>
-						<tr>
-							<th>Style #</th>
-							<td>{{ currentStyle.styleId }}</td>
-						</tr>
-						<tr>
-							<th>Program #</th>
-							<td>{{ currentStyle.program }}</td>
-						</tr>
-						<tr>
-							<th>Program name</th>
-							<td>{{ currentStyle.programName }}</td>
-						</tr>
-
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
-							<td>DKK {{ currentStyle.wholesalePriceDKK }}</td>
-						</tr>
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th></th>
-							<td>EUR {{ currentStyle.wholesalePriceEUR }}</td>
-						</tr>
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th></th>
-							<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
-						</tr>
-						<tr v-if="currentStyle.wholesalePriceGBP && SHOW_WHOLESALE_PRICE">
-							<th></th>
-							<td>GBP {{ currentStyle.wholesalePriceGBP }}</td>
-						</tr>
-
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr>
-							<th>Suggested retail price</th>
-							<td>DKK {{ currentStyle.retailPriceDKK }}</td>
-						</tr>
-						<tr>
-							<th></th>
-							<td>EUR {{ currentStyle.retailPriceEUR }}</td>
-						</tr>
-						<tr>
-							<th></th>
-							<td>USD {{ currentStyle.retailPriceUSD }}</td>
-						</tr>
-						<tr v-if="currentStyle.retailPriceGBP">
-							<th></th>
-							<td>GBP {{ currentStyle.retailPriceGBP }}</td>
-						</tr>
-					</tbody>
-				</table> -->
+				</div> -->
 			</div>
 		</div>
 
@@ -186,12 +112,16 @@ import {
 	SET_HIDDEN_ASSETS,
 } from '~/model/constants'
 import sendTracking from '~/utils/send-tracking'
+import StyleInfo from '~/components/content/StyleInfo.vue'
 
 export default {
 	name: 'assistant-mode-style-details',
+	components: {
+		StyleInfo,
+	},
 	data: () => ({ styleHasBeenAdded: false }),
 	computed: {
-		...mapState(['SHOW_WHOLESALE_PRICE']),
+		// ...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
 		...mapState('user', ['keyPressed']),
 		...mapState('assistant', ['assistantMode', 'expanded']),

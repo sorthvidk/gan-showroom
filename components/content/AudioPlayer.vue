@@ -17,6 +17,7 @@ import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
 import {
 	AUDIO_PROGRESS,
+	AUDIO_DURATION,
 	AUDIO_PLAYING,
 	AUDIO_SCROLLABLE,
 	IS_INTRO,
@@ -66,10 +67,17 @@ export default {
 				})
 			},
 		},
+		duration: {
+			immediate: true,
+			handler() {
+				this[AUDIO_DURATION.action](this.duration)
+			},
+		},
 	},
 	methods: {
 		...mapActions('audio', [
 			AUDIO_PROGRESS.action,
+			AUDIO_DURATION.action,
 			AUDIO_PLAYING.action,
 			AUDIO_SCROLLABLE.action,
 			IS_INTRO.action,
@@ -79,9 +87,9 @@ export default {
 		},
 	},
 	mounted() {
-		// if (!this.__prod__) {
-		// 	this[IS_INTRO.action]()
-		// }
+		if (!this.__prod__) {
+			this[IS_INTRO.action]()
+		}
 	},
 }
 </script>

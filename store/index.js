@@ -18,6 +18,7 @@ import {
 	FETCH_DESKTOP,
 	FETCH_DITTE,
 	FETCH_VIMEO,
+	FETCH_SUBTITLES,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -516,6 +517,13 @@ export const actions = {
 			'utils/' + FETCH_VIMEO.mutation,
 			await getData(
 				require.context('~/assets/content/vimeo/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'audio/' + FETCH_SUBTITLES.mutation,
+			await getData(
+				require.context('~/assets/content/subtitles/', false, /\.json$/)
 			)
 		)
 

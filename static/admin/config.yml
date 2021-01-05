@@ -20,7 +20,7 @@ collections:
   - name: 'collectionItems'
     sortable_fields: ['styleId']
     label: 'Collection item'
-    folder: 'assets/content/collectionItems'
+    folder: 'assets/test/collectionItems'
     summary: '{{styleId}} — {{name}}'
     create: true
     format: 'json'
@@ -203,7 +203,7 @@ collections:
     sortable_fields: ['filterId']
     label: 'Collection filter'
     summary: '{{filterId}} — {{name}}'
-    folder: 'assets/content/collectionFilters'
+    folder: 'assets/test/collectionFilters'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -237,7 +237,7 @@ collections:
     sortable_fields: ['groupId']
     label: 'Collection group'
     summary: '{{name}}'
-    folder: 'assets/content/collectionGroups'
+    folder: 'assets/test/collectionGroups'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -249,6 +249,19 @@ collections:
           name: 'groupId',
           widget: 'string',
           hint: "ex. 'drop1-nov'",
+        }
+      - {
+          label: 'Cover image',
+          name: 'cloudinaryUrl',
+          required: false,
+          widget: 'image',
+          hint: 'An image that is displayed in the top of the collection page',
+        }
+      - {
+          label: 'Cover text',
+          name: 'text',
+          widget: 'text',
+          hint: 'A text that is displayed in the top of the collection page',
         }
       - {
           label: 'Display name',
@@ -285,7 +298,7 @@ collections:
     sortable_fields: ['styleId']
     summary: '{{styleId}} — {{name}} — ({{assetId}})'
     label: 'Media asset'
-    folder: 'assets/content/mediaAssets'
+    folder: 'assets/test/mediaAssets'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{assetId}}'
@@ -476,7 +489,7 @@ collections:
   #   sortable_fields: ['filmId']
   #   label: 'Films item'
   #   summary: "Film {{filmId}}: '{{filmName}}'"
-  #   folder: 'assets/content/films'
+  #   folder: 'assets/test/films'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{filmId}}'
@@ -512,7 +525,7 @@ collections:
     sortable_fields: ['songName']
     label: 'Songs'
     summary: '{{songName}}'
-    folder: 'assets/content/songs'
+    folder: 'assets/test/songs'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{songId}}'
@@ -535,7 +548,7 @@ collections:
   - name: 'assistant'
     summary: '{{itemId}}'
     label: 'Assistant texts'
-    folder: 'assets/content/assistant'
+    folder: 'assets/test/assistant'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{itemId}}'
@@ -555,7 +568,7 @@ collections:
   # - name: 'ditte'
   #   summary: 'Item {{itemId}}'
   #   label: 'Dittes folder'
-  #   folder: 'assets/content/ditte'
+  #   folder: 'assets/test/ditte'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -600,7 +613,7 @@ collections:
   # - name: 'about'
   #   summary: 'Item {{itemId}}'
   #   label: 'About'
-  #   folder: 'assets/content/about'
+  #   folder: 'assets/test/about'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -645,7 +658,7 @@ collections:
   - name: 'lookBook'
     summary: 'Item {{itemId}}'
     label: 'Lookbook'
-    folder: 'assets/content/lookBook'
+    folder: 'assets/test/lookBook'
     sortable_fields: ['itemId']
     create: true
     format: 'json'
@@ -677,7 +690,7 @@ collections:
   # - name: 'anas'
   #   summary: 'Item {{itemId}}'
   #   label: "Ana's CPH"
-  #   folder: 'assets/content/anas'
+  #   folder: 'assets/test/anas'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -710,7 +723,7 @@ collections:
     sortable_fields: ['passwordId']
     label: 'Passwords'
     summary: '{{passwordId}}'
-    folder: 'assets/content/passwords'
+    folder: 'assets/test/passwords'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{passwordId}}'
@@ -730,129 +743,129 @@ collections:
           hint: 'A SHA256 representation of the password. Type your password in the textfield here: https://passwordsgenerator.net/sha256-hash-generator/ and copy/paste the output. ex. 16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009',
         }
 
-  - name: 'exhibition'
-    sortable_fields: ['exhibitionId']
-    label: 'Rails'
-    folder: 'assets/content/exhibition'
-    summary: '{{name}}'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{exhibitionId}}-{{name}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Exhibition #',
-          name: 'exhibitionId',
-          widget: 'string',
-          hint: "Unique identifier ex. 'exhibition1'",
-        }
-      - {
-          label: 'Name',
-          name: 'name',
-          widget: 'string',
-          default: '',
-          hint: "Name of exhibition ex. 'John Doe'",
-        }
-      - {
-          label: 'Description',
-          name: 'description',
-          widget: 'string',
-          default: '',
-          required: false,
-          hint: "Long description of exhibition ex. 'John Doe is awesome.'",
-        }
-      - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          hint: 'Clickable image/video background',
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          required: true,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
-        }
-      - { name: 'assets', default: [], widget: 'hidden' }
+  # - name: 'exhibition'
+  #   sortable_fields: ['exhibitionId']
+  #   label: 'Rails'
+  #   folder: 'assets/test/exhibition'
+  #   summary: '{{name}}'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{exhibitionId}}-{{name}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Exhibition #',
+  #         name: 'exhibitionId',
+  #         widget: 'string',
+  #         hint: "Unique identifier ex. 'exhibition1'",
+  #       }
+  #     - {
+  #         label: 'Name',
+  #         name: 'name',
+  #         widget: 'string',
+  #         default: '',
+  #         hint: "Name of exhibition ex. 'John Doe'",
+  #       }
+  #     - {
+  #         label: 'Description',
+  #         name: 'description',
+  #         widget: 'string',
+  #         default: '',
+  #         required: false,
+  #         hint: "Long description of exhibition ex. 'John Doe is awesome.'",
+  #       }
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         hint: 'Clickable image/video background',
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         required: true,
+  #         options: ['video', 'image'],
+  #         hint: 'Either image or video',
+  #       }
+  #     - { name: 'assets', default: [], widget: 'hidden' }
 
-  - name: 'exhibitionAssets'
-    sortable_fields: ['exhibitionId']
-    summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
-    label: 'Rails assets'
-    folder: 'assets/content/exhibitionAssets'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{assetId}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Asset #',
-          name: 'assetId',
-          widget: 'string',
-          required: true,
-          hint: 'Unique asset ID',
-        }
-      - {
-          label: 'exhibition #',
-          name: 'exhibitionId',
-          widget: 'relation',
-          collection: 'exhibition',
-          required: true,
-          search_fields: ['name'],
-          value_field: 'exhibitionId',
-          display_fields: ['name'],
-          hint: 'Reference to unique exhibition ID',
-        }
-      - {
-          label: 'Asset title',
-          name: 'name',
-          widget: 'string',
-          required: true,
-          hint: "Title for image window ex. 'Image 1'",
-        }
-      - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          required: true,
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          required: true,
-          options: ['video', 'image', 'text'],
-          hint: 'Either image, video or text',
-        }
-      - {
-          label: 'Aspect',
-          name: 'aspect',
-          widget: 'select',
-          required: true,
-          options: ['landscape', 'portrait', 'square'],
-          default: 'portrait',
-          hint: 'Aspect of media',
-        }
-      - {
-          label: 'Text content',
-          name: 'text',
-          widget: 'text',
-          default: '',
-          required: false,
-          hint: 'Raw text for text panel (only when using text asset)',
-        }
+  # - name: 'exhibitionAssets'
+  #   sortable_fields: ['exhibitionId']
+  #   summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
+  #   label: 'Rails assets'
+  #   folder: 'assets/test/exhibitionAssets'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{assetId}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Asset #',
+  #         name: 'assetId',
+  #         widget: 'string',
+  #         required: true,
+  #         hint: 'Unique asset ID',
+  #       }
+  #     - {
+  #         label: 'exhibition #',
+  #         name: 'exhibitionId',
+  #         widget: 'relation',
+  #         collection: 'exhibition',
+  #         required: true,
+  #         search_fields: ['name'],
+  #         value_field: 'exhibitionId',
+  #         display_fields: ['name'],
+  #         hint: 'Reference to unique exhibition ID',
+  #       }
+  #     - {
+  #         label: 'Asset title',
+  #         name: 'name',
+  #         widget: 'string',
+  #         required: true,
+  #         hint: "Title for image window ex. 'Image 1'",
+  #       }
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         required: true,
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         required: true,
+  #         options: ['video', 'image', 'text'],
+  #         hint: 'Either image, video or text',
+  #       }
+  #     - {
+  #         label: 'Aspect',
+  #         name: 'aspect',
+  #         widget: 'select',
+  #         required: true,
+  #         options: ['landscape', 'portrait', 'square'],
+  #         default: 'portrait',
+  #         hint: 'Aspect of media',
+  #       }
+  #     - {
+  #         label: 'Text content',
+  #         name: 'text',
+  #         widget: 'text',
+  #         default: '',
+  #         required: false,
+  #         hint: 'Raw text for text panel (only when using text asset)',
+  #       }
 
   # - name: 'intro'
   #   summary: '{{cloudinaryUrl}}'
   #   identifier_field: label
   #   label: 'Intro slideshow'
-  #   folder: 'assets/content/intro'
+  #   folder: 'assets/test/intro'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
@@ -887,7 +900,7 @@ collections:
   #   label: 'Desktop images'
   #   identifier_field: label
   #   summary: '{{cloudinaryUrl}}'
-  #   folder: 'assets/content/desktop'
+  #   folder: 'assets/test/desktop'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{songId}}'
@@ -905,7 +918,7 @@ collections:
     label: 'Vimeo'
     identifier_field: label
     summary: '{{vimeoUrl}}'
-    folder: 'assets/content/vimeo'
+    folder: 'assets/test/vimeo'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{vimeoUrl}}'
@@ -923,7 +936,7 @@ collections:
     label: 'Subtitles'
     identifier_field: label
     summary: '{{time}} — {{text}}'
-    folder: 'assets/content/subtitles'
+    folder: 'assets/test/subtitles'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{text}}'
@@ -933,12 +946,13 @@ collections:
       - {
           label: 'Time',
           name: 'time',
-          widget: 'string',
-          hint: 'After how many seconds',
+          widget: 'number',
+          value_type: 'int',
+          hint: 'After how many seconds. F.ex. "75" will show this at 1min 15sec',
         }
       - {
-          label: 'Vimeo URL',
-          name: 'vimeoUrl',
+          label: 'Text',
+          name: 'text',
           widget: 'string',
-          hint: 'Can be either video id or url',
+          hint: 'What is being said at this moment',
         }

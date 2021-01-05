@@ -1,0 +1,25 @@
+.collection-header {
+	margin-top: rem(15);
+
+	border-top: 1px solid $color-white;
+
+	.inner {
+		display: flex;
+		align-items: flex-end;
+		width: 100%;
+	}
+
+	img {
+		width: 50%;
+		box-sizing: border-box;
+		border-right: 1px solid $color-white;
+	}
+
+	p {
+		@include windowtitle();
+		width: 50%;
+		box-sizing: border-box;
+		white-space: pre-line;
+		padding: rem(10);
+	}
+}

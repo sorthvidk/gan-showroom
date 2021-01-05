@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<div class="audio-gallery__text">
-					<h1>Current image: {{ activeImage + 1 }} / {{ images.length }}</h1>
+					<h1>{{ currentSubtitle }}</h1>
 				</div>
 			</div>
 		</div>
@@ -48,12 +48,14 @@ import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import {
 	AUDIO_TRACK,
 	AUDIO_PROGRESS,
+	AUDIO_DURATION,
 	SCROLL_PROGRESS,
 	AUDIO_SCROLLABLE,
 	AUDIO_PLAYING,
 } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
+import { lastElement } from '~/utils/array-helpers'
 
 export default {
 	name: 'audio-scroll-gallery',
@@ -68,7 +70,13 @@ export default {
 	computed: {
 		...mapState('ganniFm', ['songs']),
 		...mapState('assets', ['intro']),
-		...mapState('audio', ['audioPlaying', 'audioProgress', 'scrollProgress']),
+		...mapState('audio', [
+			'audioPlaying',
+			'audioProgress',
+			'audioDuration',
+			'scrollProgress',
+			'subtitles',
+		]),
 		images() {
 			return this.intro.filter((i) => i.type === 'image')
 		},
@@ -82,6 +90,14 @@ export default {
 			return (
 				this.audioProgress * (100 - this.scrollerHeight / this.componentHeight)
 			)
+		},
+		currentSecond() {
+			return this.audioDuration * this.audioProgress
+		},
+		currentSubtitle() {
+			const sub = this.subtitles.filter((x) => x.time <= this.currentSecond)
+
+			return sub.length ? lastElement(sub).text : ''
 		},
 	},
 	methods: {
