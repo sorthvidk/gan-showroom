@@ -27,6 +27,7 @@
 	}
 
 	svg {
+		fill: currentColor;
 		width: 30px;
 		height: 30px;
 	}
@@ -45,5 +46,9 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		z-index: 10;
+	}
+
+	&.dark {
+		color: $color-white;
 	}
 }

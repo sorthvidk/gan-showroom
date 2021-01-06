@@ -1,6 +1,6 @@
 
 <template>
-	<div class="audio-player">
+	<div class="audio-player" :class="{ dark: dashboardDark }">
 		<button @click="toggle">
 			<svg-icon name="pause" v-if="audioPlaying" />
 			<svg-icon name="play" v-else />
@@ -30,7 +30,7 @@ export default {
 		title: { type: String, default: '' },
 	},
 	computed: {
-		...mapState('utils', ['__prod__']),
+		...mapState('utils', ['dashboardDark', '__prod__']),
 		...mapState('audio', [
 			'scrollProgress',
 			'audioIsScrollable',

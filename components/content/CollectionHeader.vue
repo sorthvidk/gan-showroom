@@ -1,7 +1,10 @@
 <template>
 	<div class="collection-header">
 		<div class="inner">
-			<img :src="image" />
+			<div class="image">
+				<img v-if="!group.cloudinaryUrl" :src="greyPx" />
+				<img v-else v-lazy="image" />
+			</div>
 			<p v-html="group.text || group.name" />
 		</div>
 	</div>
@@ -9,6 +12,7 @@
 
 <script>
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import { greyPx } from '~/utils/grey-px'
 export default {
 	name: 'collection-header',
 	props: {
@@ -19,7 +23,10 @@ export default {
 	},
 	computed: {
 		image() {
-			return getCloudinaryUrl(this.$cloudinary, this.group)
+			return {
+				src: getCloudinaryUrl(this.$cloudinary, this.group),
+				loading: greyPx,
+			}
 		},
 	},
 }

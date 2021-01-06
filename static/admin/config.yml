@@ -666,12 +666,12 @@ collections:
     editor:
       preview: false
     fields:
-      - {
-          label: 'Item #',
-          name: 'itemId',
-          widget: 'string',
-          hint: 'Unique item ID',
-        }
+      # - {
+      #     label: 'Item #',
+      #     name: 'itemId',
+      #     widget: 'string',
+      #     hint: 'Unique item ID',
+      #   }
       - {
           label: 'Cloudinary video reference',
           name: 'cloudinaryUrl',
@@ -685,6 +685,14 @@ collections:
           options: ['video', 'image'],
           hint: 'Either image or video',
           default: 'image',
+        }
+      - {
+          label: 'Aspect',
+          name: 'aspect',
+          widget: 'select',
+          options: ['landscape', 'portrait'],
+          default: 'portrait',
+          hint: 'Aspect of media',
         }
 
   # - name: 'anas'

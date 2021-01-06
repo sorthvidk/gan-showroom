@@ -3,7 +3,8 @@ import {
 	DOWNLOAD_PREPARING,
 	IS_MOBILE,
 	SHORTENED_URL,
-	FETCH_VIMEO
+	FETCH_VIMEO,
+	DASHBOARD_DARK
 } from '~/model/constants'
 
 export const state = () => ({
@@ -12,7 +13,8 @@ export const state = () => ({
 	isMobile: true,
 	shortenedReceiptUrl: '',
 	videoId: '',
-	__prod__: process.env.NODE_ENV === 'production'
+	__prod__: process.env.NODE_ENV === 'production',
+	dashboardDark: false
 })
 
 export const mutations = {
@@ -32,6 +34,9 @@ export const mutations = {
 	},
 	[SHORTENED_URL.mutation](state, data) {
 		state.shortenedReceiptUrl = data
+	},
+	[DASHBOARD_DARK.mutation](state, data) {
+		state.dashboardDark = data
 	}
 }
 
@@ -47,5 +52,8 @@ export const actions = {
 	},
 	[SHORTENED_URL.action]({ commit }, data) {
 		commit(SHORTENED_URL.mutation, data)
+	},
+	[DASHBOARD_DARK.action]({ commit }, data) {
+		commit(DASHBOARD_DARK.mutation, data)
 	}
 }

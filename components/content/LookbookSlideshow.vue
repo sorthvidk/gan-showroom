@@ -1,31 +1,35 @@
 <template>
 	<transition name="fade">
 		<div class="lookbook-slideshow">
+			<!-- <pre>{{ pages.map((x) => x.map((y) => y.aspect)) }}</pre> -->
 			<div class="lookbook-slideshow__content">
 				<transition name="fade">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
-						<img
-							v-if="activeContent.type === 'image'"
-							v-lazy="
-								getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
-							"
-							alt=""
-						/>
-						<video
-							v-if="activeContent.type === 'video'"
-							:src="
-								getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
-							"
-							preload
-							muted
-							controls
-						/>
+						<div v-for="(activeContent, i) in activePage" :key="`asgaf${i}`">
+							<img
+								v-if="activeContent.type === 'image'"
+								v-lazy="
+									getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
+								"
+								alt=""
+							/>
+							<video
+								v-if="activeContent.type === 'video'"
+								:src="
+									getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
+										.src
+								"
+								preload
+								muted
+								controls
+							/>
+						</div>
 					</div>
 					<div v-else class="lookbook-slideshow__overview">
 						<div
 							v-for="(item, i) in content"
 							:key="'jhfjsdf' + i"
-							@click="show(i)"
+							@click="show(item)"
 						>
 							<img
 								v-if="item.type === 'image'"
@@ -52,24 +56,29 @@
 				</transition>
 			</div>
 
-			<button
-				class="lookbook-slideshow__button"
-				@click="change({ next: false })"
-			>
-				<svg-icon style="transform: scaleX(-1)" name="arrow--right" />
-			</button>
+			<div class="lookbook-slideshow__ui">
+				<button
+					class="lookbook-slideshow__button"
+					@click="change({ next: false })"
+				>
+					<svg-icon name="arrow--right" style="transform: scaleX(-1)" />
+				</button>
 
-			<button
-				class="lookbook-slideshow__button"
-				@click="change({ next: true })"
-			>
-				<svg-icon name="arrow--right" />
-			</button>
+				<p class="lookbook-slideshow__current">
+					{{ idx + 1 }} / {{ pages.length }}
+				</p>
 
-			<button class="lookbook-slideshow__button" @click="toggleLayout">
-				<svg-icon v-if="!overview" name="grid" />
-				<svg-icon v-else name="gallery" />
-			</button>
+				<button
+					class="lookbook-slideshow__button"
+					@click="change({ next: true })"
+				>
+					<svg-icon name="arrow--right" />
+				</button>
+
+				<button class="lookbook-slideshow__button" @click="toggleLayout">
+					View all
+				</button>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -82,11 +91,12 @@ import WindowContent from '~/components/framework/WindowContent.vue'
 import Loading from '~/components/content/Loading.vue'
 import { nextIndex, prevIndex } from '~/utils/array-helpers'
 import { greyPx } from '~/utils/grey-px'
+import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
 	extends: WindowContent,
 	components: { Loading },
-	name: 'look-book',
+	name: 'lookbook-slideshow',
 	props: {
 		contentId: { type: String, default: 'lookBook', required: true },
 	},
@@ -95,17 +105,46 @@ export default {
 		overview: false,
 	}),
 	computed: {
-		...mapState('assets', ['intro']),
+		...mapState('assets', ['intro', 'lookBook']),
 		// weird syntax to get state dynamically based on props.contentId
 		content() {
-			return this.intro
+			return this.lookBook
 			// return this.$store.state.assets[this.contentId]
 		},
-		activeContent() {
-			return this.content[this.idx]
+		activePage() {
+			return this.pages[this.idx]
+		},
+		pages() {
+			if (!this.content.every((x) => x.aspect)) {
+				console.log(
+					`LookbookSlideshow:
+						Every item should have an "aspect" key.
+						Fallbacks to showing 1 item/slide
+					`
+				)
+
+				return this.content.map((x) => [x])
+			}
+
+			return this.content
+				.reduce((acc, cur) => {
+					if (cur.aspect === 'portrait') {
+						if (!acc[acc.length - 1] || acc[acc.length - 1].length > 1) {
+							acc.push([])
+						}
+
+						acc[acc.length - 1].push(cur)
+					} else {
+						acc.push([cur, 'empty'])
+					}
+
+					return acc
+				}, [])
+				.map((x) => x.filter((y) => y !== 'empty'))
 		},
 	},
 	methods: {
+		...mapActions('utils', [DASHBOARD_DARK.action]),
 		getMediaUrl(type, cloudinaryUrl, { thumbnail } = {}) {
 			return {
 				src: getCloudinaryUrl(
@@ -119,18 +158,28 @@ export default {
 
 		change({ next }) {
 			this.idx = next
-				? nextIndex(this.content, this.idx)
-				: prevIndex(this.content, this.idx)
+				? nextIndex(this.pages, this.idx)
+				: prevIndex(this.pages, this.idx)
 		},
 
-		show(idx) {
+		show(item) {
 			this.overview = false
-			this.idx = idx
+			this.idx = this.pages.findIndex((i) =>
+				i.find((x) => x.cloudinaryUrl === item.cloudinaryUrl)
+			)
 		},
 
 		toggleLayout() {
 			this.overview = !this.overview
 		},
+	},
+
+	mounted() {
+		this[DASHBOARD_DARK.action](true)
+	},
+
+	beforeDestroy() {
+		this[DASHBOARD_DARK.action](false)
 	},
 }
 </script>

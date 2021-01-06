@@ -75,6 +75,8 @@ export const ASSISTANT_TOGGLE = create('ASSISTANT_TOGGLE')
 
 export const DESKTOP_BACKGROUND = create('DESKTOP_BACKGROUND')
 
+export const DASHBOARD_DARK = create('DASHBOARD_DARK')
+
 export const PUZZLE_INSTANCE = create('PUZZLE_INSTANCE')
 export const SAVE_PUZZLE = create('SAVE_PUZZLE')
 

@@ -1,41 +1,73 @@
 .lookbook-slideshow {
+	@include bodytext();
+
+	position: relative;
+
 	height: 100%;
 	display: flex !important;
 	align-items: flex-start;
 
-	padding-top: rem(73);
+	padding-top: rem(70);
 	box-sizing: border-box;
 
+	color: $color-white;
+
 	&__content {
-		max-height: 100%;
-		width: 50%;
+		height: 90%;
+		width: 100%;
+		margin: 0 rem(10);
 	}
 
 	&__button {
-		width: 30px;
-		height: 30px;
-		margin: 0.25em;
+		display: inline-flex;
+		padding: rem(10);
+	}
+
+	&__ui {
+		position: absolute;
+		bottom: rem(0);
+		right: rem(0);
+
+		display: flex;
+		align-items: center;
+
+		white-space: nowrap;
+
+		svg {
+			fill: currentColor;
+			width: 1em;
+			height: 1em;
+		}
 	}
 
 	&__standard {
-		height: inherit;
+		height: 100%;
+		display: flex;
+
+		> div {
+			width: 50%;
+			flex-grow: 1;
+
+			+ div {
+				margin-left: rem(10);
+			}
+		}
 
 		img,
 		video {
 			object-fit: contain;
 			height: 100%;
-			width: 70%;
+			width: 100%;
 		}
 	}
 
 	&__overview {
 		height: inherit;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
+		width: 75%;
 
 		div {
-			display: flex;
+			display: inline-flex;
+			margin: 0 rem(10) rem(10) 0;
 		}
 
 		img,
