@@ -65,10 +65,13 @@ export default {
 			const isActive = (g) =>
 				!this.activeGroup || g.groupId === this.activeGroup.groupId
 
-			return this.authorizedGroups.filter(isActive).map((group) => ({
-				...group,
-				styles: this.currentStyles.filter((e) => e.groupId === group.groupId),
-			}))
+			return this.authorizedGroups
+				.filter((g) => g.styles.length)
+				.filter(isActive)
+				.map((group) => ({
+					...group,
+					styles: this.currentStyles.filter((e) => e.groupId === group.groupId),
+				}))
 
 			// let groups = []
 

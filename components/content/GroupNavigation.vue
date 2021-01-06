@@ -1,7 +1,6 @@
 <template>
 	<div class="group-navigation">
 		<label for="all">
-			<!-- :style="{ width: `${75 / (authorizedGroups.length + 1)}%` }" -->
 			<input
 				id="all"
 				name="group-navigation"
@@ -9,37 +8,25 @@
 				@change="(e) => e.target.checked && groupHandler('')"
 				:checked="!activeGroup"
 			/>
-			All
+			All ({{ allStyles.length }})
 		</label>
 		<label
 			:for="group.groupId"
-			v-for="(group, i) in authorizedGroups"
+			v-for="group in authorizedGroups"
 			:key="group.name"
+			:class="{ disabled: group.styles.length === 0 }"
 		>
-			<!-- :style="{
-				width: `${
-					i === authorizedGroups.length - 1
-						? 25
-						: 75 / (authorizedGroups.length + 1)
-				}%`
-			}" -->
 			<input
 				:id="group.groupId"
 				name="group-navigation"
 				type="radio"
+				:disabled="group.styles.length === 0"
 				@change="(e) => e.target.checked && groupHandler(group.groupId)"
 				:checked="activeGroup && activeGroup.groupId === group.groupId"
 			/>
 			{{ group.name }}
+			({{ group.styles.length }})
 		</label>
-
-		<!-- <button class="group-navigation__prev" @click="groupPrevHandler">
-			<span>←</span>
-		</button>
-		<p>{{ groupName }}</p>
-		<button class="group-navigation__next" @click="groupNextHandler">
-			<span>→</span>
-		</button> -->
 	</div>
 </template>
 
@@ -53,7 +40,7 @@ import {
 export default {
 	name: 'group-navigation',
 	computed: {
-		...mapState('collection', ['activeGroup', 'authorizedGroups']),
+		...mapState('collection', ['allStyles', 'activeGroup', 'authorizedGroups']),
 		groupName() {
 			if (this.activeGroup) {
 				return this.activeGroup.name

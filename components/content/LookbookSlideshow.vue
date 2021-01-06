@@ -19,6 +19,7 @@
 									getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
 										.src
 								"
+								:poster="transparentPixel"
 								preload
 								muted
 								controls
@@ -47,6 +48,7 @@
 										thumbnail: true,
 									}).src
 								"
+								:poster="transparentPixel"
 								preload
 								muted
 								autoplay
@@ -90,7 +92,7 @@ import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import Loading from '~/components/content/Loading.vue'
 import { nextIndex, prevIndex } from '~/utils/array-helpers'
-import { greyPx } from '~/utils/grey-px'
+import { transparentPixel } from '~/utils/placeholders'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
@@ -152,7 +154,7 @@ export default {
 					{ type, cloudinaryUrl },
 					{ width: thumbnail ? 100 : 500 }
 				),
-				loading: greyPx,
+				loading: transparentPixel,
 			}
 		},
 

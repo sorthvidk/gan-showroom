@@ -47,7 +47,7 @@ import VideoPlayer from '~/components/content/VideoPlayer.vue'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
-import { greyPx } from '~/utils/grey-px'
+import { greyPixel } from '~/utils/placeholders'
 
 export default {
 	name: 'collectionItem',
@@ -79,7 +79,7 @@ export default {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
 					width: Math.floor(window.innerWidth / 4),
 				}),
-				loading: greyPx,
+				loading: greyPixel,
 			}
 		},
 		imageName() {

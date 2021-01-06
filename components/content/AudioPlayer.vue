@@ -2,8 +2,7 @@
 <template>
 	<div class="audio-player" :class="{ dark: dashboardDark }">
 		<button @click="toggle">
-			<svg-icon name="pause" v-if="audioPlaying" />
-			<svg-icon name="play" v-else />
+			<svg-icon :name="audioPlaying ? 'pause' : 'play'" />
 		</button>
 		<p class="audio-player__name">
 			{{ title }}
@@ -55,7 +54,7 @@ export default {
 			}
 		},
 		audioPlaying: {
-			immediate: true,
+			// immediate: true,
 			handler() {
 				this.$nextTick(() => {
 					if (this.audioPlaying) {

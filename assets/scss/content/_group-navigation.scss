@@ -10,10 +10,29 @@
 
 	margin: 0 auto;
 
+	user-select: none;
+
 	label {
 		@include bodytext();
 		text-align: center;
 		cursor: pointer;
+
+		&.disabled {
+			opacity: 0.8;
+			cursor: default;
+			position: relative;
+
+			&:after {
+				content: 'Coming soon';
+				position: absolute;
+				left: 0;
+				color: red;
+				transform: rotate(-8deg);
+				background: white;
+				padding: 3px;
+				white-space: nowrap;
+			}
+		}
 	}
 
 	input[type='radio'] {
