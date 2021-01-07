@@ -32,30 +32,34 @@
 				/>
 			</div>
 
-			<shortcut
+			<!-- <shortcut
 				:class="'shortcut__badge'"
 				v-for="(item, i) in badgeShortcuts"
 				:key="`badge-${i}`"
 				v-bind="item"
-			/>
+			/> -->
 
 			<div class="desktop__static">
 				<vue-bar>
-					<window-static
-						v-if="dashboardContent.contentComponent"
-						:content="dashboardContent"
-						:key="dashboardContent.windowId"
-					/>
-					<div
-						v-else
-						:style="{
-							backgroundColor: '#fae199',
-							width: '100%',
-							height: '100%',
-						}"
-					></div>
+					<transition name="fade--fast" mode="out-in">
+						<window-static
+							v-if="dashboardContent.contentComponent"
+							:content="dashboardContent"
+							:key="dashboardContent.windowId"
+						/>
+						<div
+							v-else
+							:style="{
+								backgroundColor: '#fae199',
+								width: '100%',
+								height: '100%',
+							}"
+						></div>
+					</transition>
 				</vue-bar>
 			</div>
+
+			<media-library v-if="showMenu" />
 
 			<div class="desktop__windows">
 				<transition-group
@@ -126,6 +130,7 @@ import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import DownloadMessage from '~/components/content/DownloadMessage.vue'
 import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import VueBar from '~/components/content/VueBar.vue'
+import MediaLibrary from '~/components/content/MediaLibrary.vue'
 
 import ContentTypes from '~/model/content-types'
 
@@ -148,6 +153,7 @@ export default {
 		DownloadMessage,
 		CopywriteMessage,
 		VueBar,
+		MediaLibrary,
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
@@ -160,6 +166,7 @@ export default {
 			'downloadPreparing',
 			'clipBoardCopyComplete',
 			'isMobile',
+			'showMenu',
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),

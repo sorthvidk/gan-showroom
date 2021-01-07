@@ -15,8 +15,8 @@
 		margin-top: rem(-22); // height of collection-title
 		// margin-bottom: rem(45);
 
-		&:last-of-type {
-			margin-bottom: 0;
+		&:only-child {
+			margin-top: 0;
 		}
 
 		h4 {

@@ -2,7 +2,8 @@ import {
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
 	SET_GROUP_BY_INDEX,
-	ASSISTANT_MODE
+	ASSISTANT_MODE,
+	MENU_SHOW
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -74,12 +75,12 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'lookBook',
+			shortcutId: 'lookbook-slideshow',
 			label: 'PF21 LookBook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
-					contentId: 'lookBook',
+					contentId: 'lookbook-slideshow',
 					type: ContentTypes.lookbookSlideshow,
 					assistant: {
 						mode: AssistantModes.CUSTOM,
@@ -120,31 +121,61 @@ export const state = () => ({
 			]
 		},
 
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'exhibition',
+		// 	icon: '/img/shortcuts/rails.png',
+		// 	label: 'On display',
+		// 	posH: 3,
+		// 	posV: 3,
+		// 	windowContent: [
+		// 		{
+		// 			title: 'rails',
+		// 			contentId: 'rails',
+		// 			type: ContentTypes.exhibition,
+		// 			statusComponentProps: {
+		// 				text: 'PRE SPRING 21 RAILS'
+		// 			},
+		// 			assistant: {
+		// 				mode: AssistantModes.CUSTOM,
+		// 				text: {
+		// 					headline: 'PRE SPRING 21 RAILS',
+		// 					bodyText:
+		// 						'This is the new rail section. Click on an image to explore the rail'
+		// 				}
+		// 			}
+		// 		}
+		// 	]
+		// }
+
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'exhibition',
-			icon: '/img/shortcuts/rails.png',
-			label: 'On display',
-			posH: 3,
-			posV: 3,
-			windowContent: [
+			shortcutId: 'links',
+			label: 'Download',
+			actions: [
 				{
-					title: 'rails',
-					contentId: 'rails',
-					type: ContentTypes.exhibition,
-					statusComponentProps: {
-						text: 'PRE SPRING 21 RAILS'
-					},
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: {
-							headline: 'PRE SPRING 21 RAILS',
-							bodyText:
-								'This is the new rail section. Click on an image to explore the rail'
-						}
-					}
+					name: 'utils/' + MENU_SHOW.action,
+					param: { toggle: true }
 				}
 			]
+			// windowContent: [
+			// 	{
+			// 		title: 'rails',
+			// 		contentId: 'rails',
+			// 		type: ContentTypes.exhibition,
+			// 		statusComponentProps: {
+			// 			text: 'PRE SPRING 21 RAILS'
+			// 		},
+			// 		assistant: {
+			// 			mode: AssistantModes.CUSTOM,
+			// 			text: {
+			// 				headline: 'PRE SPRING 21 RAILS',
+			// 				bodyText:
+			// 					'This is the new rail section. Click on an image to explore the rail'
+			// 			}
+			// 		}
+			// 	}
+			// ]
 		}
 
 		// {

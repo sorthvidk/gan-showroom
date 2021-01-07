@@ -20,7 +20,7 @@ collections:
   - name: 'collectionItems'
     sortable_fields: ['styleId']
     label: 'Collection item'
-    folder: 'assets/test/collectionItems'
+    folder: 'assets/content/collectionItems'
     summary: '{{styleId}} — {{name}}'
     create: true
     format: 'json'
@@ -203,7 +203,7 @@ collections:
     sortable_fields: ['filterId']
     label: 'Collection filter'
     summary: '{{filterId}} — {{name}}'
-    folder: 'assets/test/collectionFilters'
+    folder: 'assets/content/collectionFilters'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -237,7 +237,7 @@ collections:
     sortable_fields: ['groupId']
     label: 'Collection group'
     summary: '{{name}}'
-    folder: 'assets/test/collectionGroups'
+    folder: 'assets/content/collectionGroups'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -298,7 +298,7 @@ collections:
     sortable_fields: ['styleId']
     summary: '{{styleId}} — {{name}} — ({{assetId}})'
     label: 'Media asset'
-    folder: 'assets/test/mediaAssets'
+    folder: 'assets/content/mediaAssets'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{assetId}}'
@@ -489,7 +489,7 @@ collections:
   #   sortable_fields: ['filmId']
   #   label: 'Films item'
   #   summary: "Film {{filmId}}: '{{filmName}}'"
-  #   folder: 'assets/test/films'
+  #   folder: 'assets/content/films'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{filmId}}'
@@ -525,7 +525,7 @@ collections:
     sortable_fields: ['songName']
     label: 'Songs'
     summary: '{{songName}}'
-    folder: 'assets/test/songs'
+    folder: 'assets/content/songs'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{songId}}'
@@ -548,7 +548,7 @@ collections:
   - name: 'assistant'
     summary: '{{itemId}}'
     label: 'Assistant texts'
-    folder: 'assets/test/assistant'
+    folder: 'assets/content/assistant'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{itemId}}'
@@ -568,7 +568,7 @@ collections:
   # - name: 'ditte'
   #   summary: 'Item {{itemId}}'
   #   label: 'Dittes folder'
-  #   folder: 'assets/test/ditte'
+  #   folder: 'assets/content/ditte'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -613,7 +613,7 @@ collections:
   # - name: 'about'
   #   summary: 'Item {{itemId}}'
   #   label: 'About'
-  #   folder: 'assets/test/about'
+  #   folder: 'assets/content/about'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -656,9 +656,9 @@ collections:
   #       }
 
   - name: 'lookBook'
-    summary: 'Item {{itemId}}'
+    summary: '{{cloudinaryUrl}}'
     label: 'Lookbook'
-    folder: 'assets/test/lookBook'
+    folder: 'assets/content/lookBook'
     sortable_fields: ['itemId']
     create: true
     format: 'json'
@@ -698,7 +698,7 @@ collections:
   # - name: 'anas'
   #   summary: 'Item {{itemId}}'
   #   label: "Ana's CPH"
-  #   folder: 'assets/test/anas'
+  #   folder: 'assets/content/anas'
   #   sortable_fields: ['itemId']
   #   create: true
   #   format: 'json'
@@ -731,7 +731,7 @@ collections:
     sortable_fields: ['passwordId']
     label: 'Passwords'
     summary: '{{passwordId}}'
-    folder: 'assets/test/passwords'
+    folder: 'assets/content/passwords'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{passwordId}}'
@@ -754,7 +754,7 @@ collections:
   # - name: 'exhibition'
   #   sortable_fields: ['exhibitionId']
   #   label: 'Rails'
-  #   folder: 'assets/test/exhibition'
+  #   folder: 'assets/content/exhibition'
   #   summary: '{{name}}'
   #   create: true
   #   format: 'json'
@@ -804,7 +804,7 @@ collections:
   #   sortable_fields: ['exhibitionId']
   #   summary: 'exhibition {{exhibitionId}}: {{name}} asset ({{assetId}})'
   #   label: 'Rails assets'
-  #   folder: 'assets/test/exhibitionAssets'
+  #   folder: 'assets/content/exhibitionAssets'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{assetId}}'
@@ -873,7 +873,7 @@ collections:
   #   summary: '{{cloudinaryUrl}}'
   #   identifier_field: label
   #   label: 'Intro slideshow'
-  #   folder: 'assets/test/intro'
+  #   folder: 'assets/content/intro'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
@@ -908,7 +908,7 @@ collections:
   #   label: 'Desktop images'
   #   identifier_field: label
   #   summary: '{{cloudinaryUrl}}'
-  #   folder: 'assets/test/desktop'
+  #   folder: 'assets/content/desktop'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{songId}}'
@@ -926,7 +926,7 @@ collections:
     label: 'Vimeo'
     identifier_field: label
     summary: '{{vimeoUrl}}'
-    folder: 'assets/test/vimeo'
+    folder: 'assets/content/vimeo'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{vimeoUrl}}'
@@ -944,7 +944,7 @@ collections:
     label: 'Subtitles'
     identifier_field: label
     summary: '{{time}} — {{text}}'
-    folder: 'assets/test/subtitles'
+    folder: 'assets/content/subtitles'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{text}}'
@@ -963,4 +963,29 @@ collections:
           name: 'text',
           widget: 'string',
           hint: 'What is being said at this moment',
+        }
+
+  - name: 'downloads'
+    label: 'Downloads'
+    identifier_field: label
+    summary: '{{name}} — {{file}}'
+    folder: 'assets/content/downloads'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{name}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Name',
+          name: 'name',
+          widget: 'string',
+          hint: 'The text on the link',
+        }
+      - {
+          label: 'File',
+          name: 'file',
+          widget: 'file',
+          required: false,
+          hint: 'The downloadable file',
         }

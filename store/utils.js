@@ -4,7 +4,8 @@ import {
 	IS_MOBILE,
 	SHORTENED_URL,
 	FETCH_VIMEO,
-	DASHBOARD_DARK
+	DASHBOARD_DARK,
+	MENU_SHOW
 } from '~/model/constants'
 
 export const state = () => ({
@@ -14,7 +15,8 @@ export const state = () => ({
 	shortenedReceiptUrl: '',
 	videoId: '',
 	__prod__: process.env.NODE_ENV === 'production',
-	dashboardDark: false
+	dashboardDark: false,
+	showMenu: false
 })
 
 export const mutations = {
@@ -37,6 +39,13 @@ export const mutations = {
 	},
 	[DASHBOARD_DARK.mutation](state, data) {
 		state.dashboardDark = data
+	},
+	[MENU_SHOW.mutation](state, data) {
+		if (data.toggle) {
+			state.showMenu = !state.showMenu
+		} else {
+			state.showMenu = data
+		}
 	}
 }
 
@@ -55,5 +64,8 @@ export const actions = {
 	},
 	[DASHBOARD_DARK.action]({ commit }, data) {
 		commit(DASHBOARD_DARK.mutation, data)
+	},
+	[MENU_SHOW.action]({ commit }, data) {
+		commit(MENU_SHOW.mutation, data)
 	}
 }

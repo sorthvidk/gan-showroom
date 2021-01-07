@@ -8,7 +8,8 @@ import {
 	FETCH_ABOUT,
 	FETCH_INTRO,
 	FETCH_DESKTOP,
-	DESKTOP_BACKGROUND
+	DESKTOP_BACKGROUND,
+	FETCH_DOWNLOADS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -180,6 +181,7 @@ export const state = () => ({
 	about: [],
 	desktop: [],
 	intro: [],
+	downloads: [],
 
 	desktopBackground: false, // int | false
 	desktopBackgroundColor: '#349c5e' // string | false
@@ -298,6 +300,10 @@ export const mutations = {
 		state.desktopBackground = data
 		state.desktopBackgroundColor =
 			data !== false ? state.desktop[data].color : state.desktopBackgroundColor
+	},
+
+	[FETCH_DOWNLOADS.mutation](state, data) {
+		state.downloads = data
 	}
 }
 

@@ -49,7 +49,11 @@
 					background-color: $color-black;
 				}
 
+				transition: transform 0.5s $easeInOutQuint;
+				transform: scaleX(0.7);
 				&.closed {
+					transform: scaleX(1);
+
 					div {
 						&:first-of-type {
 							transform: translateY(rem(-6));

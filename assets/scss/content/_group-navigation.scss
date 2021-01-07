@@ -18,6 +18,7 @@
 		cursor: pointer;
 
 		&.disabled {
+			display: none; // just kill it..
 			opacity: 0.8;
 			cursor: default;
 			position: relative;

@@ -77,6 +77,8 @@ export const DESKTOP_BACKGROUND = create('DESKTOP_BACKGROUND')
 
 export const DASHBOARD_DARK = create('DASHBOARD_DARK')
 
+export const MENU_SHOW = create('MENU_SHOW')
+
 export const PUZZLE_INSTANCE = create('PUZZLE_INSTANCE')
 export const SAVE_PUZZLE = create('SAVE_PUZZLE')
 
@@ -108,3 +110,4 @@ export const FETCH_DESKTOP = create('FETCH_DESKTOP')
 export const FETCH_INTRO = create('FETCH_INTRO')
 export const FETCH_VIMEO = create('FETCH_VIMEO')
 export const FETCH_SUBTITLES = create('FETCH_SUBTITLES')
+export const FETCH_DOWNLOADS = create('FETCH_DOWNLOADS')
