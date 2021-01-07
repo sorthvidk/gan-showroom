@@ -21,12 +21,14 @@
 								"
 								:poster="transparentPixel"
 								preload
-								muted
-								controls
+								autoplay
+								loop
 							/>
 						</div>
 					</div>
-					<div v-else class="lookbook-slideshow__overview">
+				</transition>
+				<transition name="fade">
+					<div v-if="overview" class="lookbook-slideshow__overview">
 						<div
 							v-for="(item, i) in content"
 							:key="'jhfjsdf' + i"
@@ -105,6 +107,7 @@ export default {
 	data: () => ({
 		idx: 0,
 		overview: false,
+		transparentPixel,
 	}),
 	computed: {
 		...mapState('assets', ['intro', 'lookBook']),

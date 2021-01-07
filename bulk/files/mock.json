@@ -1,5 +1,9 @@
 [{
-    "assets": 4,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604440359/PF21_21.2/packshots_collection/A3296_5643_196_atqpkn.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1606428394/PF21_21.2/packshots_collection/S1517_XXXX_252_2_hjvp3f.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/video/upload/v1604506557/PF21_21.2/ecom_lookbook_video/A3357_943_F6107_470_S1535_135_ncaidn.mp4"
+    ],
     "styleId": "K1525_196",
     "name": "K1525_196_Top",
     "program": 2513,
@@ -23,7 +27,10 @@
     "retailPriceGBP": 115
   },
   {
-    "assets": 4,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604508829/PF21_21.2/still_life/S1530_S1531_S1551_S1550_y4leuf.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604531372/PF21_21.2/rails_ondisplay/original/DSC_4676_brwykk.jpg"
+    ],
     "styleId": "K1570_572",
     "name": "K1570_572_Top",
     "program": 2515,

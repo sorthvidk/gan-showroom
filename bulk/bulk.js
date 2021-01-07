@@ -1,11 +1,10 @@
-const fileMA = require('./mediaAssets.json')
-const fileCI = require('./collectionItems.json')
-
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
+// const fileMA = require('./mediaAssets.json')
+// const fileCI = require('./collectionItems.json')
+const testFile = require('./files/mock.json')
 
 const uniqueId = () =>
-	'-' +
 	Math.random()
 		.toString(36)
 		.substr(2, 9)
@@ -13,6 +12,7 @@ const uniqueId = () =>
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
 
+// copypasted from netlify cms
 const defaultFilters = {
 	misc5: 'GANNI Software',
 	rtw1: 'Dresses',
@@ -38,23 +38,36 @@ const defaultFilters = {
 	misc4: 'Love for Leopard'
 }
 
-const outputFolder = 'test'
+const isVideo = ext =>
+	[
+		'.WEBM',
+		'.MPG',
+		'.MP2',
+		'.MPEG',
+		'.MPE',
+		'.MPV',
+		'.OGG',
+		'.MP4',
+		'.M4P',
+		'.M4V',
+		'.AVI',
+		'.WMV',
+		'.MOV',
+		'.QT',
+		'.FLV',
+		'.SWF',
+		'.AVCHD'
+	].includes(ext.toUpperCase())
 
-const defaultMediaAsset = ({ name, styleId, groupId, filters }) => ({
-	assetId: uniqueId(),
-	cloudinaryUrl: '',
-	onTop: true,
-	visible: true,
-	aspect: 'portrait',
-	type: 'image',
-	styleId,
-	name,
-	groupId,
-	filters
-})
+// no slashes
+const OUT_FOLDER = 'test'
+// json with array
+const STYLES_FILE = testFile
 
-fileCI.forEach(item => {
-	const styleFileName = `../assets/${outputFolder}/collectionItems/${dateString}-${item['groupId']}-${item['styleId']}.json`.replace(
+const assetFolder = `../assets/${OUT_FOLDER}`
+
+STYLES_FILE.forEach(item => {
+	const styleFileName = `${assetFolder}/collectionItems/${dateString}-${item['groupId']}-${item['styleId']}.json`.replace(
 		/ /g,
 		'_'
 	)
@@ -69,28 +82,30 @@ fileCI.forEach(item => {
 	/**
 	 * create media asset files
 	 */
-	Array(item.numberOfAssets || 1)
-		.fill(0)
-		.forEach((_, idx) => {
-			const mediaAssetFileName = `../assets/${outputFolder}/mediaAssets/${dateString}-${styleId.replace(
-				'/',
-				'_'
-			)}-${idx + 1}.json`.replace(/ /g, '_')
+	item.assets.forEach((asset, idx) => {
+		const mediaAssetFileName = `${assetFolder}/mediaAssets/${dateString}-${styleId.replace(
+			'/',
+			'_'
+		)}-${idx + 1}.json`.replace(/ /g, '_')
 
-			fs.writeFile(
-				mediaAssetFileName,
-				JSON.stringify(
-					defaultMediaAsset({
-						name,
-						styleId,
-						groupId,
-						filters: defaultFilters[filters[0]] || 'default'
-					})
-				),
-				err => {
-					if (err) throw err
-					console.log(`Media Asset ${mediaAssetFileName} done`)
-				}
-			)
-		})
+		fs.writeFile(
+			mediaAssetFileName,
+			JSON.stringify({
+				assetId: uniqueId(),
+				cloudinaryUrl: asset,
+				onTop: true,
+				visible: true,
+				aspect: 'portrait',
+				type: isVideo(path.extname(asset)) ? 'video' : 'image',
+				styleId,
+				name,
+				groupId,
+				filters: defaultFilters[filters[0]] || 'default'
+			}),
+			err => {
+				if (err) throw err
+				console.log(`Media Asset ${mediaAssetFileName} done`)
+			}
+		)
+	})
 })
