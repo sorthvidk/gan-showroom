@@ -6,5 +6,6 @@
 
 .expand-enter,
 .expand-leave-to {
+	transition: height 0.6s $easeInOutQuint;
 	// height: 0;
 }

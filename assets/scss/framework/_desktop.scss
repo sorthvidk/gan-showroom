@@ -22,9 +22,16 @@
 
 	pointer-events: none;
 
+	transition: background-color 0.1s $easeInOutQuint;
+	background-color: $color-imagebg;
+
 	* {
 		image-rendering: initial;
 		pointer-events: auto;
+	}
+
+	&.dark {
+		background: $color-black;
 	}
 
 	&__shortcuts {

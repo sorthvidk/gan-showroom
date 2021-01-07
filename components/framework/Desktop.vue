@@ -2,7 +2,7 @@
 	<transition name="startup-transition" mode="out-in">
 		<div
 			class="desktop"
-			:class="idle && 'screensaver-running'"
+			:class="{ 'screensaver-running': idle, dark: dashboardDark }"
 			:style="{
 				backgroundSize: webcamImage && '400px',
 			}"
@@ -167,6 +167,7 @@ export default {
 			'clipBoardCopyComplete',
 			'isMobile',
 			'showMenu',
+			'dashboardDark',
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),

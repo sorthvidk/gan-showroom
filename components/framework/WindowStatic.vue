@@ -1,5 +1,5 @@
 <template>
-	<div class="window__static" :class="{ dark: dashboardDark }">
+	<div class="window__static">
 		<div v-if="content.statusComponent" class="window__static__status">
 			<component
 				:is="content.statusComponent"
@@ -85,7 +85,6 @@ export default {
 	},
 	computed: {
 		...mapState('collection', ['currentStyles', 'wishList']),
-		...mapState('utils', ['dashboardDark']),
 
 		concatClassName() {
 			let cn = 'window'

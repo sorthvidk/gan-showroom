@@ -33,13 +33,10 @@
 	}
 
 	&__static {
-		// position: absolute;
 		width: 100%;
 		height: 100%;
-		// overflow: auto;
 		display: flex;
 		flex-direction: column;
-		background-color: $color-imagebg;
 
 		.window__content {
 			overflow: initial;
@@ -55,10 +52,6 @@
 			z-index: 1;
 			width: 100%;
 			height: auto;
-		}
-
-		&.dark {
-			background: $color-black;
 		}
 	}
 
