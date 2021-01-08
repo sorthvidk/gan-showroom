@@ -50,7 +50,9 @@
 						<div
 							v-else
 							:style="{
-								backgroundColor: '#fae199',
+								backgroundImage: `url(${various.dashboardBackground})`,
+								backgroundSize: 'cover',
+								backgroundPosition: 'center',
 								width: '100%',
 								height: '100%',
 							}"
@@ -168,6 +170,7 @@ export default {
 			'isMobile',
 			'showMenu',
 			'dashboardDark',
+			'various',
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),

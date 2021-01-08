@@ -26,13 +26,13 @@
 				<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
 					<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
 				</svg> -->
-				Enter
+				{{ showErrorMessage ? 'Wrong password' : 'Enter' }}
 			</button>
 		</form>
 
-		<div class="error-message" v-if="showErrorMessage">
+		<!-- <div class="error-message" v-if="showErrorMessage">
 			<p>Wrong password</p>
-		</div>
+		</div> -->
 	</div>
 </template>
 

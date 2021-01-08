@@ -17,7 +17,7 @@ import {
 	FETCH_ASSISTANT,
 	FETCH_DESKTOP,
 	FETCH_DITTE,
-	FETCH_VIMEO,
+	FETCH_VARIOUS,
 	FETCH_SUBTITLES,
 	FETCH_DOWNLOADS,
 	TOPMOST_WINDOW,
@@ -515,9 +515,9 @@ export const actions = {
 		)
 
 		commit(
-			'utils/' + FETCH_VIMEO.mutation,
+			'utils/' + FETCH_VARIOUS.mutation,
 			await getData(
-				require.context('~/assets/content/vimeo/', false, /\.json$/)
+				require.context('~/assets/content/various/', false, /\.json$/)
 			)
 		)
 

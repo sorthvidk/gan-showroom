@@ -922,22 +922,28 @@ collections:
   #         hint: 'Reference to media file',
   #       }
 
-  - name: 'vimeo'
-    label: 'Vimeo'
+  - name: 'various'
+    label: 'Various'
     identifier_field: label
-    summary: '{{vimeoUrl}}'
-    folder: 'assets/content/vimeo'
+    summary: 'Various'
+    folder: 'assets/content/various'
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{vimeoUrl}}'
+    slug: '{{year}}-{{month}}- Various'
     editor:
       preview: false
     fields:
       - {
-          label: 'Vimeo URL',
+          label: 'Password page background',
           name: 'vimeoUrl',
           widget: 'string',
-          hint: 'Can be either video id or url',
+          hint: 'A vimeolink used as background on password page',
+        }
+      - {
+          label: 'Dashboard background',
+          name: 'dashboardBackground',
+          widget: 'image',
+          hint: 'Used as background, before any menu tab is clicked',
         }
 
   - name: 'subtitles'

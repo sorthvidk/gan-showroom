@@ -3,7 +3,7 @@ import {
 	DOWNLOAD_PREPARING,
 	IS_MOBILE,
 	SHORTENED_URL,
-	FETCH_VIMEO,
+	FETCH_VARIOUS,
 	DASHBOARD_DARK,
 	MENU_SHOW
 } from '~/model/constants'
@@ -13,15 +13,15 @@ export const state = () => ({
 	downloadPreparing: false,
 	isMobile: true,
 	shortenedReceiptUrl: '',
-	videoId: '',
+	various: {},
 	__prod__: process.env.NODE_ENV === 'production',
 	dashboardDark: false,
 	showMenu: false
 })
 
 export const mutations = {
-	[FETCH_VIMEO.mutation](state, data) {
-		state.videoId = data.length ? data[0].vimeoUrl : ''
+	[FETCH_VARIOUS.mutation](state, data) {
+		state.various = data[0]
 	},
 	[CLIPBOARD_COPY.mutation](state, data) {
 		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')

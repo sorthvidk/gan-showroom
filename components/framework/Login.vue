@@ -5,7 +5,7 @@
 			<vimeo-player
 				class="login__video"
 				ref="player"
-				:video-id="videoId"
+				:video-id="various.vimeoUrl"
 				:autoplay="true"
 				:loop="true"
 				:controls="false"
@@ -50,7 +50,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState('utils', ['videoId']),
+		...mapState('utils', ['various']),
 		...mapState('user', ['loggedIn']),
 		content() {
 			return [

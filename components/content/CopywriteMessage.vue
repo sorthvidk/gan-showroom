@@ -10,7 +10,7 @@
 				</header>
 				<div class="window__content">
 					<span class="icon">
-						<img src="/img/smiley-bw.png" />
+						<!-- <img src="/img/smiley-bw.png" /> -->
 
 						<p>
 							Hi, we hope you will enjoy your Ganni Space Virtual Showroom

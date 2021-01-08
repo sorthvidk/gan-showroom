@@ -21,6 +21,9 @@ export default {
 			default: () => ({}),
 		},
 	},
+	data: () => ({
+		greyPixel,
+	}),
 	computed: {
 		image() {
 			return {
