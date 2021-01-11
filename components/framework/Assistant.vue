@@ -4,22 +4,17 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top" @click="toggle">
-			<!-- <svg-icon
-				name="pause"
+			<div class="icon" :class="{ closed }" />
+
+			<span
+				class="title"
 				:style="{
-					pointerEvents: 'none',
-					width: '50px',
-					height: '50px',
-					position: 'absolute',
-					transform: closed ? 'rotate(90deg)' : '',
-					transition: 'transform .5s',
+					cursor: windowList.length
+						? 'default'
+						: closed
+						? 's-resize'
+						: 'n-resize',
 				}"
-			/> -->
-			<div class="icon" :class="{ closed }">
-				<div></div>
-				<div></div>
-			</div>
-			<span class="title" :style="{ cursor: closed ? 's-resize' : 'n-resize' }"
 				>Ganni space</span
 			>
 		</div>
@@ -29,8 +24,7 @@
 		<div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
 				<span class="icon">
-					<svg-icon v-if="!expanded" name="plus" />
-					<svg-icon v-else name="minus" />
+					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
 				</span>
 				<p>{{ filterName || 'Filter' }}</p>
 			</button>
@@ -43,8 +37,7 @@
 				v-if="isMobile"
 			>
 				<span class="icon">
-					<svg-icon v-if="!expanded" name="plus" />
-					<svg-icon v-else name="minus" />
+					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
 				</span>
 				<p>{{ currentStyle.name }}</p>
 			</button>

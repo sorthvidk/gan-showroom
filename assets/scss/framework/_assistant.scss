@@ -40,7 +40,9 @@
 				display: flex;
 				align-items: center;
 
-				div {
+				&:before,
+				&:after {
+					content: '';
 					transition: transform 0.5s $easeInOutQuint;
 					pointer-events: none;
 					position: absolute;
@@ -54,13 +56,11 @@
 				&.closed {
 					transform: scaleX(1);
 
-					div {
-						&:first-of-type {
-							transform: translateY(rem(-6));
-						}
-						&:last-of-type {
-							transform: translateY(rem(6));
-						}
+					&:before {
+						transform: translateY(rem(-6));
+					}
+					&:after {
+						transform: translateY(rem(6));
 					}
 				}
 			}
@@ -247,7 +247,7 @@
 			box-sizing: border-box;
 
 			&:hover {
-				background-color: $color-lightgrey;
+				background-color: $color-buttonhover;
 			}
 
 			img {

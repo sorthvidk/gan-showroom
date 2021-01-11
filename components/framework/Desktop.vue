@@ -9,6 +9,15 @@
 		>
 			<!-- <background-image /> -->
 
+			<audio-player
+				v-if="
+					!dashboardContent ||
+					dashboardContent.contentComponent !== 'audio-gallery-controller'
+				"
+				:sources="[songs[0].src]"
+				:title="songs[0].title"
+			/>
+
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,
@@ -43,7 +52,7 @@
 				<vue-bar>
 					<transition name="fade--fast" mode="out-in">
 						<window-static
-							v-if="dashboardContent.contentComponent"
+							v-if="dashboardContent && dashboardContent.contentComponent"
 							:content="dashboardContent"
 							:key="dashboardContent.windowId"
 						/>

@@ -21,6 +21,7 @@
 	display: flex;
 
 	overflow: hidden;
+	color: $color-marigold-yellow;
 
 	&__video {
 		position: absolute;
@@ -38,8 +39,21 @@
 		}
 	}
 
+	&__mute {
+		position: absolute;
+		z-index: 1;
+		top: rem(10);
+		right: rem(10);
+		width: rem(50);
+		height: rem(50);
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
 	h1 {
-		color: $color-marigold-yellow;
 		font-size: 17.5vh;
 		line-height: 0.8;
 		word-break: break-word;
@@ -120,6 +134,7 @@
 
 		button {
 			font-family: $font-sansserif;
+			color: $color-black;
 			// position: absolute;
 			// right: 5vw;
 

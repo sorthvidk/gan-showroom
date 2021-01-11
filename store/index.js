@@ -20,6 +20,7 @@ import {
 	FETCH_VARIOUS,
 	FETCH_SUBTITLES,
 	FETCH_DOWNLOADS,
+	FETCH_SCROLL_IMAGES,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -54,7 +55,7 @@ export const state = () => ({
 	topMostWindow: null,
 	highestZIndex: 0,
 
-	dashboardContent: {}
+	dashboardContent: null
 })
 
 export const mutations = {
@@ -532,6 +533,13 @@ export const actions = {
 			'assets/' + FETCH_DOWNLOADS.mutation,
 			await getData(
 				require.context('~/assets/content/downloads/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'audio/' + FETCH_SCROLL_IMAGES.mutation,
+			await getData(
+				require.context('~/assets/content/scrollImages/', false, /\.json$/)
 			)
 		)
 

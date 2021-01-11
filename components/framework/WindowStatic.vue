@@ -43,7 +43,7 @@ import Collage from '~/components/content/Collage.vue'
 import Puzzle from '~/components/content/Puzzle.vue'
 import DownloadModal from '~/components/content/DownloadModal.vue'
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
-import AudioGallery from '~/components/content/AudioGallery.vue'
+import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
 
 import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
@@ -75,7 +75,7 @@ export default {
 		VueBar,
 		LookbookSlideshow,
 		VideoPlayer,
-		AudioGallery,
+		AudioGalleryController,
 	},
 	props: {
 		content: {

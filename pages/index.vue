@@ -1,11 +1,5 @@
 <template>
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
-		<audio-player
-			v-if="loggedIn && track.src"
-			:sources="[track.src]"
-			:title="track.title"
-		/>
-
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->
 			<transition name="slide-out">
@@ -14,19 +8,22 @@
 
 			<!-- step 2 -->
 			<transition name="slide-in-out">
-				<audio-gallery v-if="loggedIn && isIntro" />
+				<audio-gallery-controller
+					v-if="loggedIn && !audioGalleryDone"
+					@played-through="audioGalleryDone = true"
+				/>
 			</transition>
 
 			<!-- step 3 -->
 			<transition name="slide-in">
-				<desktop v-if="!isIntro" />
+				<desktop v-if="audioGalleryDone" />
 			</transition>
 		</div>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
 		<mobile-disclamer v-if="isMobile" />
-		<cookie-banner v-if="!cookiesAccepted"></cookie-banner>
+		<cookie-banner v-if="!cookiesAccepted" />
 	</div>
 </template>
 
@@ -42,7 +39,7 @@ import Screensaver from '~/components/framework/Screensaver.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
 import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
 import AudioPlayer from '~/components/content/AudioPlayer.vue'
-import AudioGallery from '~/components/content/AudioGallery.vue'
+import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -65,17 +62,21 @@ export default {
 		CookieBanner,
 		MobileDisclamer,
 		AudioPlayer,
-		AudioGallery,
+		AudioGalleryController,
 	},
+	data: () => ({
+		audioGalleryDone: false,
+	}),
 	computed: {
+		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
-		...mapState('utils', ['isMobile', '__prod__']),
+		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
 		...mapState('audio', [
 			'track',
 			'audioIsScrollable',
 			'isIntro',
-			'audioPlaying',
+			'audioIsPlaying',
 		]),
 	},
 	head() {

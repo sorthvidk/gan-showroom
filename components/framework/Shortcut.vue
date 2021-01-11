@@ -6,7 +6,8 @@
 			@click="onClick"
 			class="shortcut shortcut-bottombar"
 			:class="{
-				active: dashboardContent.contentComponent === shortcutId,
+				active:
+					dashboardContent && dashboardContent.contentComponent === shortcutId,
 			}"
 			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 		>

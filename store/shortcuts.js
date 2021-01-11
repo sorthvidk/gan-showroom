@@ -67,7 +67,7 @@ export const state = () => ({
 				{
 					contentId: 'audio-gallery',
 					type: {
-						contentComponent: 'audio-gallery'
+						contentComponent: 'audio-gallery-controller'
 					}
 				}
 			]

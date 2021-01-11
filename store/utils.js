@@ -21,7 +21,16 @@ export const state = () => ({
 
 export const mutations = {
 	[FETCH_VARIOUS.mutation](state, data) {
-		state.various = data[0]
+		state.various = {
+			...data[0],
+			scrollAudio: {
+				title: data[0].scrollAudio
+					.substring(data[0].scrollAudio.lastIndexOf('/') + 1)
+					.replace(/_/g, ' ')
+					.replace('.mp3', ''),
+				src: data[0].scrollAudio
+			}
+		}
 	},
 	[CLIPBOARD_COPY.mutation](state, data) {
 		if (window.GS_LOGS) console.warn('CLIPBOARD_COPY')

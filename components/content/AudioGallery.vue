@@ -5,6 +5,19 @@
 		@mousemove="scrollTo"
 		@mouseup="() => (scrolling = false)"
 	>
+		<div class="audio-player" :class="{ dark: dashboardDark }">
+			<button @click="togglePlayback">
+				<svg-icon :name="playing ? 'pause' : 'play'" />
+			</button>
+			<p class="audio-player__name">{{ various.scrollAudio.title }}</p>
+			<p class="audio-player__time">{{ currentTime }}</p>
+		</div>
+		<!-- <audio-player
+			v-if="various.scrollAudio"
+			:title="various.scrollAudio.title"
+			ref="audio-player"
+			:autoplay="true"
+		/> -->
 		<div
 			class="audio-gallery__scrollbar"
 			@mousedown="
@@ -44,6 +57,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import VueHowler from 'vue-howler'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import {
 	AUDIO_TRACK,
@@ -51,16 +65,22 @@ import {
 	AUDIO_DURATION,
 	SCROLL_PROGRESS,
 	AUDIO_SCROLLABLE,
-	AUDIO_PLAYING,
+	AUDIO_IS_PLAYING,
+	IS_INTRO,
 } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
+import { HHMMSS } from '~/utils/HHMMSS'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
 import { lastElement } from '~/utils/array-helpers'
+import AudioPlayer from './AudioPlayer.vue'
 
 export default {
+	mixins: [VueHowler],
+	components: { AudioPlayer },
 	name: 'audio-scroll-gallery',
 	data: () => ({
 		scroll: 0,
+		// audioProgress: 0,
 		scrolling: false,
 		scrollerHeight: 0,
 		componentHeight: 0,
@@ -69,30 +89,34 @@ export default {
 	}),
 	computed: {
 		...mapState('ganniFm', ['songs']),
-		...mapState('assets', ['intro']),
+		...mapState('utils', ['various']),
+		...mapState('utils', ['dashboardDark']),
 		...mapState('audio', [
-			'audioPlaying',
-			'audioProgress',
-			'audioDuration',
-			'scrollProgress',
+			'scrollImages',
+			// 'audioIsPlaying',
+			// 'audioProgress',
+			// 'audioDuration',
+			// 'scrollProgress',
 			'subtitles',
+			'track',
 		]),
 		images() {
-			return this.intro.filter((i) => i.type === 'image')
+			return this.scrollImages
 		},
 		accountedHeight() {
 			return this.scrollHeight - this.componentHeight
 		},
 		activeImage() {
-			return Math.round(this.audioProgress * this.images.length)
+			return Math.round(this.progress * this.images.length)
 		},
 		scrollerPos() {
-			return (
-				this.audioProgress * (100 - this.scrollerHeight / this.componentHeight)
-			)
+			return this.progress * (100 - this.scrollerHeight / this.componentHeight)
 		},
 		currentSecond() {
-			return this.audioDuration * this.audioProgress
+			return this.duration * this.progress
+		},
+		currentTime() {
+			return HHMMSS(this.duration * this.progress)
 		},
 		currentSubtitle() {
 			const sub = this.subtitles.filter((x) => x.time <= this.currentSecond)
@@ -100,12 +124,23 @@ export default {
 			return sub.length ? lastElement(sub).text : ''
 		},
 	},
+	watch: {
+		progress() {
+			if (this.progress >= 1) {
+				console.log('DONE')
+				// this[IS_INTRO.action]()
+				this.$emit('played-through')
+			}
+		},
+	},
 	methods: {
 		...mapActions('audio', [
+			// GALLERY_IS_PLAYING.action,
 			AUDIO_TRACK.action,
 			SCROLL_PROGRESS.action,
 			AUDIO_SCROLLABLE.action,
-			AUDIO_PLAYING.action,
+			AUDIO_IS_PLAYING.action,
+			IS_INTRO.action,
 		]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
@@ -116,39 +151,33 @@ export default {
 			)
 		},
 		onScroll(e) {
-			const val = this.audioProgress + e.deltaY / this.accountedHeight
-			this[SCROLL_PROGRESS.action](clamp(0, val, 1))
+			const val = this.progress + e.deltaY / this.accountedHeight
+			// this[SCROLL_PROGRESS.action](clamp(0, val, 1))
+			this.setProgress(val)
 		},
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			this[SCROLL_PROGRESS.action](
-				clamp(0, e.clientY / this.componentHeight, 1)
-			)
+			this.setProgress(clamp(0, e.clientY / this.componentHeight, 1))
+			// this[SCROLL_PROGRESS.action](
+			// 	clamp(0, e.clientY / this.componentHeight, 1)
+			// )
 		},
 		height(idx) {
 			return `${getRandomIntHash(idx) * 20 + 80}%`
 		},
 	},
 	mounted() {
-		this.audioWasPlaying = this.audioPlaying
 		window.addEventListener('wheel', this.onScroll.bind(this))
-		this[AUDIO_SCROLLABLE.action](true)
-		this[AUDIO_PLAYING.action](true)
-		this[AUDIO_TRACK.action](this.songs[0])
 		this.componentHeight = parseInt(
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
 	},
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.onScroll.bind(this))
-		this[AUDIO_SCROLLABLE.action](false)
-		this[SCROLL_PROGRESS.action](0)
-		this[AUDIO_TRACK.action](this.songs[1])
-		this[AUDIO_PLAYING.action](this.audioWasPlaying)
 	},
 	// afterDestroy() {
-	// 	this[AUDIO_PLAYING.action](this.audioWasPlaying)
+	// 	this[AUDIO_IS_PLAYING.action](this.audioWasPlaying)
 	// },
 }
 </script>

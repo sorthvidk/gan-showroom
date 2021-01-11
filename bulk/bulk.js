@@ -1,3 +1,4 @@
+import { isVideo } from './../utils/is-video'
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
@@ -37,27 +38,6 @@ const defaultFilters = {
 	misc3: 'Leather',
 	misc4: 'Love for Leopard'
 }
-
-const isVideo = ext =>
-	[
-		'.WEBM',
-		'.MPG',
-		'.MP2',
-		'.MPEG',
-		'.MPE',
-		'.MPV',
-		'.OGG',
-		'.MP4',
-		'.M4P',
-		'.M4V',
-		'.AVI',
-		'.WMV',
-		'.MOV',
-		'.QT',
-		'.FLV',
-		'.SWF',
-		'.AVCHD'
-	].includes(ext.toUpperCase())
 
 // no slashes
 const OUT_FOLDER = 'test'

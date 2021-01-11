@@ -13,8 +13,8 @@
 			/>
 		</client-only>
 
-		<button @click="toggleMute" style="position: absolute; z-index: 1">
-			{{ muted ? 'SOUND' : 'MUTE' }}
+		<button class="login__mute" @click="toggleMute">
+			<svg-icon :name="muted ? 'muted' : 'audio-playing'" />
 		</button>
 
 		<h1>

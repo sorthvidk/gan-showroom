@@ -945,6 +945,12 @@ collections:
           widget: 'image',
           hint: 'Used as background, before any menu tab is clicked',
         }
+      - {
+          label: 'Scroll audio',
+          name: 'scrollAudio',
+          widget: 'image',
+          hint: 'The soundfile that will be used in the subtitled scroll gallery',
+        }
 
   - name: 'subtitles'
     label: 'Subtitles'
@@ -969,6 +975,24 @@ collections:
           name: 'text',
           widget: 'string',
           hint: 'What is being said at this moment',
+        }
+
+  - name: 'scrollImages'
+    label: 'Scroll images'
+    identifier_field: label
+    summary: '{{cloudinaryUrl}}'
+    folder: 'assets/content/scrollImages'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Reference to media file',
         }
 
   - name: 'downloads'
