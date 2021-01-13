@@ -44,10 +44,10 @@
 			<p v-else>{{ currentStyle.name }}</p>
 
 			<button class="window-button previous" @click="previousStyleHandler">
-				<svg-icon style="transform: scaleX(-1)" name="arrow--right" />
+				<svg-icon name="arrow--left" />
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
-				<svg-icon name="arrow--right" />
+				<svg-icon style="transform: scaleX(-1)" name="arrow--left" />
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
 				<svg-icon name="cross" />

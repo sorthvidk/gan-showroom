@@ -1,0 +1,36 @@
+.audio-spectrum-bars {
+	position: fixed;
+	left: calc(25vw + 45px);
+
+	&__bar {
+		transform-origin: bottom;
+		transform: scaleY(0);
+		display: inline-block;
+		margin-right: rem(1);
+		width: 2px;
+		height: 0.75em;
+		background: currentColor;
+	}
+
+	@keyframes p {
+		from {
+			transform: scaleY(0);
+		}
+		to {
+			transform: scaleY(1);
+		}
+	}
+
+	&.animate {
+		@for $i from 1 through 4 {
+			.audio-spectrum-bars__bar {
+				&:nth-child(3n + #{$i}) {
+					$delay: $i * 0.05s;
+					$duration: $i * 0.1s + 0.2s;
+					height: calc(0.75em - #{$i} * 0.1em);
+					animation: p $duration $delay infinite alternate $easeInOutQuint;
+				}
+			}
+		}
+	}
+}

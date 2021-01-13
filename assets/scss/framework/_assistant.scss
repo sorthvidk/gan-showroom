@@ -36,7 +36,7 @@
 			.icon {
 				position: absolute;
 				margin-left: rem(13);
-				width: rem(25);
+				width: rem(20);
 				display: flex;
 				align-items: center;
 
@@ -47,7 +47,7 @@
 					pointer-events: none;
 					position: absolute;
 					width: 100%;
-					height: rem(5);
+					height: rem(2);
 					background-color: $color-black;
 				}
 
@@ -57,10 +57,10 @@
 					transform: scaleX(1);
 
 					&:before {
-						transform: translateY(rem(-6));
+						transform: translateY(rem(-4));
 					}
 					&:after {
-						transform: translateY(rem(6));
+						transform: translateY(rem(4));
 					}
 				}
 			}

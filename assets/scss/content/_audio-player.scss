@@ -1,5 +1,6 @@
 .audio-player {
 	@include bodytext();
+	user-select: none;
 	position: fixed;
 	top: 0;
 	left: 0;

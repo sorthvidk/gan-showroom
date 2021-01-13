@@ -10,16 +10,28 @@
 	.image {
 		position: relative;
 		width: 50%;
-		padding-bottom: 33%;
 		box-sizing: border-box;
 		border-right: 1px solid $color-white;
+
+		overflow: hidden;
+		height: calc(50vw * 0.66);
+		display: flex;
+	}
+
+	.effect {
+		width: max-content;
+		height: inherit;
+		display: flex;
+		align-items: flex-start;
+		flex-shrink: 0;
 	}
 
 	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// width: 100%;
+		height: 100%;
 	}
 
 	p {
@@ -28,5 +40,50 @@
 		box-sizing: border-box;
 		white-space: pre-line;
 		padding: rem(10);
+	}
+
+	@keyframes sweep {
+		to {
+			transform: translateX(-100%);
+		}
+	}
+
+	&.carousel {
+		.effect {
+			animation: sweep 30s infinite linear forwards;
+		}
+	}
+
+	--count: 4;
+	--speed: 3s;
+
+	@keyframes flash {
+		from {
+			z-index: -1;
+		}
+		to {
+			z-index: var(--count);
+		}
+	}
+
+	&.flash {
+		.effect {
+			height: inherit;
+		}
+
+		img {
+			animation: flash calc(var(--count) * var(--speed)) linear infinite
+				forwards;
+			position: absolute;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					animation-delay: calc(#{$i} * var(--speed) - var(--speed));
+				}
+			}
+		}
 	}
 }

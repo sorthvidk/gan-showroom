@@ -11,6 +11,7 @@
 			</button>
 			<p class="audio-player__name">{{ various.scrollAudio.title }}</p>
 			<p class="audio-player__time">{{ currentTime }}</p>
+			<audio-spectrum-bars :animate="playing" />
 		</div>
 		<!-- <audio-player
 			v-if="various.scrollAudio"
@@ -69,14 +70,15 @@ import {
 	IS_INTRO,
 } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
-import { HHMMSS } from '~/utils/HHMMSS'
+import { MMSS } from '~/utils/HHMMSS'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
 import { lastElement } from '~/utils/array-helpers'
 import AudioPlayer from './AudioPlayer.vue'
+import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 
 export default {
 	mixins: [VueHowler],
-	components: { AudioPlayer },
+	components: { AudioPlayer, AudioSpectrumBars },
 	name: 'audio-scroll-gallery',
 	data: () => ({
 		scroll: 0,
@@ -116,7 +118,7 @@ export default {
 			return this.duration * this.progress
 		},
 		currentTime() {
-			return HHMMSS(this.duration * this.progress)
+			return MMSS(this.duration * this.progress)
 		},
 		currentSubtitle() {
 			const sub = this.subtitles.filter((x) => x.time <= this.currentSecond)
@@ -126,8 +128,7 @@ export default {
 	},
 	watch: {
 		progress() {
-			if (this.progress >= 1) {
-				console.log('DONE')
+			if (this.progress >= 0.99) {
 				// this[IS_INTRO.action]()
 				this.$emit('played-through')
 			}
@@ -153,6 +154,10 @@ export default {
 		onScroll(e) {
 			const val = this.progress + e.deltaY / this.accountedHeight
 			// this[SCROLL_PROGRESS.action](clamp(0, val, 1))
+
+			// if (typeof this.setProgress !== 'function') return
+			console.log(this)
+
 			this.setProgress(val)
 		},
 		scrollTo(e) {

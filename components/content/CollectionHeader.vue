@@ -1,9 +1,23 @@
 <template>
-	<div class="collection-header">
+	<div class="collection-header" :class="{ [mode]: mode }">
 		<div class="inner">
 			<div class="image">
-				<img v-if="!group.cloudinaryUrl" :src="greyPixel" />
-				<img v-else v-lazy="image" />
+				<div
+					class="effect"
+					v-for="i in mode === 'carousel' ? 2 : 1"
+					:key="`lakjshdf${i}`"
+				>
+					<img
+						v-if="!group.cloudinaryUrl || !group.cloudinaryUrl.length"
+						:src="greyPixel"
+					/>
+					<img
+						v-else
+						v-for="image in group.cloudinaryUrl"
+						:key="image"
+						:src="getImage(image).src"
+					/>
+				</div>
 			</div>
 			<p v-html="group.text || group.name" />
 		</div>
@@ -16,6 +30,10 @@ import { greyPixel } from '~/utils/placeholders'
 export default {
 	name: 'collection-header',
 	props: {
+		mode: {
+			type: String,
+			default: 'carousel',
+		},
 		group: {
 			type: Object,
 			default: () => ({}),
@@ -24,10 +42,10 @@ export default {
 	data: () => ({
 		greyPixel,
 	}),
-	computed: {
-		image() {
+	methods: {
+		getImage(src) {
 			return {
-				src: getCloudinaryUrl(this.$cloudinary, this.group),
+				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
 				loading: greyPixel,
 			}
 		},

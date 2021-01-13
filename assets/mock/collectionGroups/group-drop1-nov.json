@@ -4,5 +4,9 @@
   "filters": [],
   "groupId": "drop-2",
   "name": "Drop II",
-  "passwords": []
+  "passwords": [],
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604507597/PF21_21.2/rails_ondisplay/DSC_4636_dqgyra.jpg"
+  ],
+  "text": "Hej"
 }

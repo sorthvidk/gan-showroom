@@ -6,12 +6,14 @@
 		</button>
 		<p class="audio-player__name">{{ title }}</p>
 		<p class="audio-player__time">{{ currentTime }}</p>
+		<audio-spectrum-bars :animate="playing" />
 	</div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
+import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 // import {
 // 	AUDIO_PROGRESS,
 // 	AUDIO_DURATION,
@@ -19,10 +21,13 @@ import VueHowler from 'vue-howler'
 // 	AUDIO_SCROLLABLE,
 // 	IS_INTRO,
 // } from '~/model/constants'
-import { HHMMSS } from '~/utils/HHMMSS'
+import { MMSS } from '~/utils/HHMMSS'
 
 export default {
 	mixins: [VueHowler],
+	components: {
+		AudioSpectrumBars,
+	},
 	props: {
 		title: { type: String, default: '' },
 	},
@@ -35,7 +40,7 @@ export default {
 			// 'audioActivate',
 		]),
 		currentTime() {
-			return HHMMSS(this.duration * this.progress)
+			return MMSS(this.duration * this.progress)
 		},
 	},
 	watch: {

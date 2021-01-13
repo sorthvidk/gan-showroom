@@ -18,6 +18,7 @@
 			</transition-group> -->
 
 			<collection-header :group="group" />
+			<collection-header :group="group" :mode="'flash'" />
 
 			<transition-group
 				name="staggered-fade"
