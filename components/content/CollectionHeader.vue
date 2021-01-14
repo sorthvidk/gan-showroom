@@ -1,5 +1,9 @@
 <template>
-	<div class="collection-header" :class="{ [mode]: mode }">
+	<div
+		class="collection-header"
+		:class="{ [mode]: mode }"
+		:style="{ '--count': group.cloudinaryUrl && group.cloudinaryUrl.length }"
+	>
 		<div class="inner">
 			<div class="image">
 				<div

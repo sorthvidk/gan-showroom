@@ -65,7 +65,7 @@
 					class="lookbook-slideshow__button"
 					@click="change({ next: false })"
 				>
-					<svg-icon name="arrow--right" style="transform: scaleX(-1)" />
+					<svg-icon name="arrow--left" />
 				</button>
 
 				<p class="lookbook-slideshow__current">
@@ -76,7 +76,7 @@
 					class="lookbook-slideshow__button"
 					@click="change({ next: true })"
 				>
-					<svg-icon name="arrow--right" />
+					<svg-icon name="arrow--left" style="transform: scaleX(-1)" />
 				</button>
 
 				<button class="lookbook-slideshow__button" @click="toggleLayout">

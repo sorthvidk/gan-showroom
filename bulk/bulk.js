@@ -1,9 +1,8 @@
-import { isVideo } from './../utils/is-video'
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
 // const fileCI = require('./collectionItems.json')
-const testFile = require('./files/mock.json')
+const testFile = require('./files/test.json')
 
 const uniqueId = () =>
 	Math.random()
@@ -12,6 +11,27 @@ const uniqueId = () =>
 
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+
+const isVideo = fileName =>
+	[
+		'.WEBM',
+		'.MPG',
+		'.MP2',
+		'.MPEG',
+		'.MPE',
+		'.MPV',
+		'.OGG',
+		'.MP4',
+		'.M4P',
+		'.M4V',
+		'.AVI',
+		'.WMV',
+		'.MOV',
+		'.QT',
+		'.FLV',
+		'.SWF',
+		'.AVCHD'
+	].find(ext => fileName.toUpperCase().includes(ext))
 
 // copypasted from netlify cms
 const defaultFilters = {
@@ -75,7 +95,7 @@ STYLES_FILE.forEach(item => {
 				cloudinaryUrl: asset,
 				onTop: true,
 				visible: true,
-				aspect: 'portrait',
+				aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
 				type: isVideo(path.extname(asset)) ? 'video' : 'image',
 				styleId,
 				name,

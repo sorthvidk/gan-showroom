@@ -42,6 +42,8 @@
 		padding: rem(10);
 	}
 
+	--count: 0;
+
 	@keyframes sweep {
 		to {
 			transform: translateX(-100%);
@@ -50,16 +52,15 @@
 
 	&.carousel {
 		.effect {
-			animation: sweep 30s infinite linear forwards;
+			animation: sweep calc(var(--count) * 10s) infinite linear forwards;
 		}
 	}
 
-	--count: 4;
 	--speed: 3s;
 
 	@keyframes flash {
 		from {
-			z-index: -1;
+			z-index: 0;
 		}
 		to {
 			z-index: var(--count);

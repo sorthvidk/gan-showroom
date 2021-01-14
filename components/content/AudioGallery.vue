@@ -84,6 +84,7 @@ export default {
 		scroll: 0,
 		// audioProgress: 0,
 		scrolling: false,
+		scrollable: true,
 		scrollerHeight: 0,
 		componentHeight: 0,
 		scrollHeight: 5000,
@@ -130,6 +131,7 @@ export default {
 		progress() {
 			if (this.progress >= 0.99) {
 				// this[IS_INTRO.action]()
+				this.scrollable = false
 				this.$emit('played-through')
 			}
 		},
@@ -155,10 +157,9 @@ export default {
 			const val = this.progress + e.deltaY / this.accountedHeight
 			// this[SCROLL_PROGRESS.action](clamp(0, val, 1))
 
-			// if (typeof this.setProgress !== 'function') return
-			console.log(this)
-
-			this.setProgress(val)
+			if (this.scrollable) {
+				this.setProgress(val)
+			}
 		},
 		scrollTo(e) {
 			if (!this.scrolling) return

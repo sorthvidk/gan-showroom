@@ -16,8 +16,8 @@
 	width: 50%;
 
 	&.is-active {
-		color: $color-white;
-		background-color: $color-black;
+		// color: $color-white;
+		background-color: $color-buttonactive;
 	}
 
 	&:nth-child(2n) {
@@ -50,6 +50,6 @@ button.filter-button {
 	}
 
 	&.is-active:hover {
-		background-color: $color-black;
+		background-color: $color-buttonactive;
 	}
 }
