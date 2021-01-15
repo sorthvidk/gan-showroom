@@ -10,7 +10,7 @@ const getPathToEveryJSONInDirectory = folder => cb =>
  *
  * this will log every file's abs path:
  *
- * const files = applyCBToEveryJSONInDirectory(./src)
+ * const files = getEveryJSONInDirectory(./src)
  * files(({ filePath }) => console.log(filePath))
  */
 const getEveryJSONInDirectory = folder => cb =>

@@ -59,11 +59,8 @@ const defaultFilters = {
 	misc4: 'Love for Leopard'
 }
 
-// no slashes
-const OUT_FOLDER = 'test'
-// json with array
+const OUT_FOLDER = 'test' // no slashes
 const STYLES_FILE = testFile
-
 const assetFolder = `../assets/${OUT_FOLDER}`
 
 STYLES_FILE.forEach(item => {

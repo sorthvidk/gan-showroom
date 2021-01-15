@@ -9,15 +9,6 @@
 				{{ group.name }}
 			</h4>
 
-			<!-- <transition-group name="slide-fade" tag="div">
-				<collection-item
-					v-for="(item, j) in group.styles"
-					:key="`${item.styleId}${j + 1 * 2}${i + 1 * 2}`"
-					v-bind="item"
-				/>
-			</transition-group> -->
-
-			<collection-header :group="group" />
 			<collection-header :group="group" :mode="'flash'" />
 
 			<transition-group
