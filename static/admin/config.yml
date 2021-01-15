@@ -104,13 +104,13 @@ collections:
           required: false,
           hint: "Name of material ex. '100% organic cotton'",
         }
-      - {
-          label: 'Drop',
-          name: 'drop',
-          widget: 'string',
-          required: false,
-          hint: "Label for drop ex. 'November'",
-        }
+      # - {
+      #     label: 'Drop',
+      #     name: 'drop',
+      #     widget: 'string',
+      #     required: false,
+      #     hint: "Label for drop ex. 'November'",
+      #   }
       - {
           label: 'Color names',
           name: 'colorNames',
@@ -121,7 +121,7 @@ collections:
       - {
           label: 'Color Id',
           name: 'colorId',
-          widget: 'string',
+          widget: 'number',
           required: false,
           hint: "IDs of colors ex. '568' or '699,844'",
         }
