@@ -1,5 +1,8 @@
 <template>
-	<div class="preload-images" style="opacity: 0; pointer-events: none">
+	<div
+		class="preload-images"
+		style="opacity: 0; pointer-events: none; position: fixed"
+	>
 		<img
 			v-for="(src, i) in srcs"
 			:key="'preload-image-' + i"
