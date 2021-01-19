@@ -53,12 +53,20 @@ em {
 }
 
 @mixin bodytext() {
-	font-size: rem(12);
-	font-weight: $weight-normal;
+	font-size: rem(11);
+	font-weight: 500; // $weight-normal;
 	line-height: 1.2;
 	text-transform: uppercase;
-	letter-spacing: 0;
+	letter-spacing: 0.015em;
 }
+// @mixin bodytext() {
+// 	font-size: rem(12);
+// 	font-weight: 400; // $weight-normal;
+// 	line-height: 1.2;
+// 	text-transform: uppercase;
+// 	letter-spacing: 0;
+// }
+
 @mixin headline() {
 	@include bodytext();
 	// font-size: rem(16);

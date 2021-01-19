@@ -13,12 +13,15 @@
 
 	position: relative;
 	height: 100%;
+	max-height: rem(800);
+
+	display: flex !important;
 
 	&__overview {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// bottom: 0;
 		width: rem(215);
 
 		border-right: rem(1) solid $color-black;
@@ -97,7 +100,9 @@
 			display: block;
 		}
 
-		padding-left: rem(215);
+		flex-grow: 1;
+
+		// padding-left: rem(215);
 
 		// overflow: hidden;
 		// overflow-y: auto;

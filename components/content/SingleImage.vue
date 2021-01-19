@@ -6,7 +6,7 @@
 		<loading />
 
 		<transition name="fade">
-			<img v-lazy="assetUrl" alt="img" @click="clickHandler" />
+			<img :src="assetUrl" alt="img" @click="clickHandler" />
 		</transition>
 	</div>
 </template>

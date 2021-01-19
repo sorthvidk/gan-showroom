@@ -2,7 +2,7 @@
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="!isMobile">
 			<div
-				v-for="(value, key, index) in sortedWishlist"
+				v-for="(list, groupId, index) in sortedWishlist"
 				:key="'wishListGroup' + index"
 				:style="{
 					display: 'flex',
@@ -10,25 +10,25 @@
 				}"
 			>
 				<div class="label">
-					{{ authorizedGroups.find((g) => g.groupId === key).name }}
+					{{ authorizedGroups.find((g) => g.groupId === groupId).name }}
 				</div>
 				<div
 					class="wish-list__overview__item"
-					v-for="(item, index) in value"
+					v-for="(item, index) in list"
 					:key="'wishListItem' + index"
 				>
 					<!-- :class="{ 'is-active': currentWishListIndex == index }" -->
 					<button
 						v-if="item.assets && item.assets.length > 0"
 						class="button activate"
-						@click="overviewItemActivateHandler(index)"
+						@click="overviewItemActivateHandler(groupId, index)"
 					>
-						<img :src="getImageUrl(index)" alt />
+						<img :src="getImageUrl(groupId, index)" alt />
 						<p>{{ item.name }}</p>
 					</button>
 					<button
 						class="button remove"
-						@click.stop="overviewItemRemoveHandler(index)"
+						@click.stop="overviewItemRemoveHandler(groupId, index)"
 					>
 						&times;
 					</button>
@@ -43,24 +43,20 @@
 					</div>
 					<div
 						class="inner"
-						v-if="
-							currentWishListItem &&
-							currentWishListItem.assets &&
-							currentWishListItem.assets.length > 0
-						"
-						:key="currentWishListIndex"
+						v-if="curStyle && curStyle.assets && curStyle.assets.length > 0"
+						:key="'wishlist-details-' + curStyle.styleId"
 					>
 						<single-image
-							:asset="currentWishListItem.assets[0]"
+							:asset="curStyle.assets[0]"
 							:parent-window-id="parentWindowId"
 						/>
 
-						<h3>{{ currentWishListItem.name }}</h3>
+						<h3>{{ curStyle.name }}</h3>
 						<button class="button" @click="removeItemHandler">
 							Remove from wishlist
 						</button>
 
-						<style-info :item="currentWishListItem" />
+						<style-info :item="curStyle" />
 					</div>
 				</vue-bar>
 			</div>
@@ -77,16 +73,12 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
-
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
-
 import WindowContent from '~/components/framework/WindowContent.vue'
 import VueBar from '~/components/content/VueBar.vue'
 import StyleInfo from '~/components/content/StyleInfo.vue'
@@ -105,12 +97,12 @@ export default {
 		...mapState('utils', ['isMobile']),
 		...mapState('collection', ['wishList', 'authorizedGroups']),
 
-		currentWishListItem() {
-			if (this.wishList.length > 0)
-				return this.wishList[this.currentWishListIndex]
-			else this.currentWishListIndex = -1
-			return {}
-		},
+		// curtem() {
+		// 	if (this.wishList.length > 0)
+		// 		return this.wishList[this.curndex]
+		// 	else this.curndex = -1
+		// 	return {}
+		// },
 
 		sortedWishlist() {
 			return this.wishList.reduce((acc, cur) => {
@@ -119,34 +111,40 @@ export default {
 				return acc
 			}, {})
 		},
+
+		curStyle() {
+			if (!this.cur.groupId) return false
+			return this.sortedWishlist[this.cur.groupId][[this.cur.idx]]
+		},
 	},
 	data() {
 		return {
-			currentWishListIndex: 0,
+			cur: 0,
 			accordionStates: [],
 			viewPortSize: ViewportSizes.SMALL,
 		}
 	},
 	methods: {
 		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
-		overviewItemActivateHandler(key) {
-			this.currentWishListIndex = key
+		overviewItemActivateHandler(groupId, idx) {
+			this.cur = { groupId, idx }
+			console.log(this.cur, this.curStyle)
 		},
-		overviewItemRemoveHandler(key) {
-			let styleId = this.wishList[key].styleId
-			this.currentWishListIndex = 0
+		overviewItemRemoveHandler(groupId, idx) {
+			let styleId = this.sortedWishlist[groupId][idx].styleId
+			this.cur = { groupId: '', idx: 0 }
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
 
 		removeItemHandler() {
-			let styleId = this.currentWishListItem.styleId
-			this.currentWishListIndex = 0
+			let styleId = this.cur.styleId
+			this.cur = { groupId: '', idx: 0 }
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
-		getImageUrl(index) {
+		getImageUrl(groupId, index) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
-				this.wishList[index].assets[0],
+				this.sortedWishlist[groupId][index].assets[0],
 				{ width: 30 }
 			)
 		},

@@ -139,3 +139,18 @@
 // 	stroke-miterlimit: 10;
 // 	stroke-width: 5px;
 // }
+
+@mixin clickarea($size) {
+	position: relative;
+
+	&:after {
+		content: '';
+		padding: $size;
+		position: absolute;
+		top: calc(#{$size} * -1);
+		left: calc(#{$size} * -1);
+		height: 100%;
+		width: 100%;
+		box-sizing: content-box;
+	}
+}

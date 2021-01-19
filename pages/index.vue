@@ -25,7 +25,13 @@
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
 		<mobile-disclamer v-if="isMobile" />
-		<cookie-banner v-if="!cookiesAccepted" />
+
+		<transition name="slide-up">
+			<cookie-banner
+				v-if="!cookiesAccepted"
+				:class="{ pushed: audioGalleryDone }"
+			/>
+		</transition>
 	</div>
 </template>
 
