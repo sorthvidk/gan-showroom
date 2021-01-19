@@ -1,9 +1,13 @@
 <template>
-	<button class="collection-item" @click.stop="onItemClick">
-		<img v-lazy="imageUrl" :alt="`An image of ${imageName}`" />
+	<button class="collection-item" @click.stop="onItemClick" ref="parent">
+		<img
+			v-if="!canvasHover"
+			v-lazy="imageUrl"
+			:alt="`An image of ${imageName}`"
+		/>
 		<!-- <img :src="imageUrl.src" :alt="`An image of ${imageName}`" /> -->
 
-		<div v-if="imageUrl2" class="collection-item__extra">
+		<div v-if="!canvasHover && imageUrl2" class="collection-item__extra">
 			<img
 				v-if="assets[1].type === 'image'"
 				v-lazy="imageUrl2"
@@ -48,11 +52,16 @@ import VideoPlayer from '~/components/content/VideoPlayer.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
 import { greyPixel } from '~/utils/placeholders'
+import { hoverEffect } from '~/components/transitions/hover'
+import displacementImage from '~/static/img/smiley-bw.png'
 
 export default {
 	name: 'collectionItem',
 	components: { ResponsibleIcon, VideoPlayer },
-	props: CollectionItemModel,
+	props: {
+		...CollectionItemModel,
+		canvasHover: { type: Boolean, default: false },
+	},
 	computed: {
 		...mapState({
 			wishList: (state) => state.collection.wishList,
@@ -98,6 +107,19 @@ export default {
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 		},
 	},
-	mounted() {},
+	mounted() {
+		if (this.canvasHover && this.imageUrl2) {
+			console.log('canvasHover', this.styleId)
+			new hoverEffect({
+				parent: this.$refs.parent,
+				image1: this.imageUrl.src,
+				image2: this.imageUrl2.src,
+				displacementImage,
+				intensity: 0.2,
+				// speedIn: 0.6,
+				// speedOut: 0.6,
+			})
+		}
+	},
 }
 </script>

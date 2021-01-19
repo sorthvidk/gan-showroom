@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import cloudinary from 'cloudinary-core'
 import VueDraggableResizable from 'vue-draggable-resizable'
 import VueLazyload from 'vue-lazyload'
 import VueTyper from 'vue-typer'
@@ -23,8 +24,6 @@ Vue.use(vueVimeoPlayer)
  * todo: turn of when bugfixing is done
  */
 Vue.config.devtools = process.env.NODE_ENV !== 'production'
-
-import cloudinary from 'cloudinary-core'
 
 const $cloudinary = new cloudinary.Cloudinary({
 	cloud_name: 'dd6fpxydm',

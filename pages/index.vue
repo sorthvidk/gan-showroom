@@ -1,5 +1,7 @@
 <template>
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
+		<preload-images :srcs="[various.dashboardBackground]" />
+
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->
 			<transition name="slide-out">
@@ -40,6 +42,7 @@ import CookieBanner from '~/components/framework/CookieBanner.vue'
 import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
 import AudioPlayer from '~/components/content/AudioPlayer.vue'
 import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
+import PreloadImages from '~/components/content/PreloadImages.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -63,6 +66,7 @@ export default {
 		MobileDisclamer,
 		AudioPlayer,
 		AudioGalleryController,
+		PreloadImages,
 	},
 	data: () => ({
 		audioGalleryDone: false,
@@ -71,13 +75,6 @@ export default {
 		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
-		...mapState('ganniFm', ['songs']),
-		...mapState('audio', [
-			'track',
-			'audioIsScrollable',
-			'isIntro',
-			'audioIsPlaying',
-		]),
 	},
 	head() {
 		return {

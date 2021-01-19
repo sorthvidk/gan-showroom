@@ -1,8 +1,5 @@
 const path = require('path')
-const {
-	COLLECTION_ITEMS_PATH,
-	NETLIFY_CMS_CONFIG_FILE_PATH
-} = require('./config.js')
+const { COLLECTION_ITEMS_PATH } = require('./config.js')
 const helpers = require('./helpers.js')
 
 // globals
@@ -16,14 +13,10 @@ describe('Collection Items', () => {
 		 * Array with all files in /collectionItems as json
 		 * { filePath: 'path/to/file.json', data: {} }
 		 */
-		collectionItems = await helpers.getEveryJSONInDirectory(
-			COLLECTION_ITEMS_PATH
-		)
+		collectionItems = await helpers.getAssets('collectionStyles')
 
 		// store config file as json
-		configFileAsJSON = await helpers
-			.getYMLFileAsJSON(NETLIFY_CMS_CONFIG_FILE_PATH)
-			.then(x => x)
+		configFileAsJSON = await helpers.configFile
 
 		/**
 		 * create an object that acts as a model to check values against

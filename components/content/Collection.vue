@@ -25,6 +25,7 @@
 					:key="`${item.styleId}${j}${i}`"
 					:data-index="j"
 				/>
+				<!-- :canvasHover="j === 1" -->
 			</transition-group>
 		</div>
 	</div>

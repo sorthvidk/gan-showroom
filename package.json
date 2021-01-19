@@ -44,6 +44,7 @@
 		"nuxt": "^2.11.0",
 		"nuxt-cookie-control": "^1.8.5",
 		"nuxt-polyfill": "^1.0.3",
+		"three": "^0.124.0",
 		"v-idle": "^0.2.0",
 		"vue-draggable-resizable": "^2.1.2",
 		"vue-fragment": "^1.5.1",

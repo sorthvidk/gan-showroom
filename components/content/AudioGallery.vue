@@ -60,15 +60,15 @@
 import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-import {
-	AUDIO_TRACK,
-	AUDIO_PROGRESS,
-	AUDIO_DURATION,
-	SCROLL_PROGRESS,
-	AUDIO_SCROLLABLE,
-	AUDIO_IS_PLAYING,
-	IS_INTRO,
-} from '~/model/constants'
+// import {
+// AUDIO_TRACK,
+// AUDIO_PROGRESS,
+// AUDIO_DURATION,
+// SCROLL_PROGRESS,
+// AUDIO_SCROLLABLE,
+// AUDIO_IS_PLAYING,
+// IS_INTRO,
+// } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 import { MMSS } from '~/utils/HHMMSS'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
@@ -82,7 +82,6 @@ export default {
 	name: 'audio-scroll-gallery',
 	data: () => ({
 		scroll: 0,
-		// audioProgress: 0,
 		scrolling: false,
 		scrollable: true,
 		scrollerHeight: 0,
@@ -94,15 +93,7 @@ export default {
 		...mapState('ganniFm', ['songs']),
 		...mapState('utils', ['various']),
 		...mapState('utils', ['dashboardDark']),
-		...mapState('audio', [
-			'scrollImages',
-			// 'audioIsPlaying',
-			// 'audioProgress',
-			// 'audioDuration',
-			// 'scrollProgress',
-			'subtitles',
-			'track',
-		]),
+		...mapState('audio', ['scrollImages', 'subtitles', 'track']),
 		images() {
 			return this.scrollImages
 		},
@@ -139,11 +130,11 @@ export default {
 	methods: {
 		...mapActions('audio', [
 			// GALLERY_IS_PLAYING.action,
-			AUDIO_TRACK.action,
-			SCROLL_PROGRESS.action,
-			AUDIO_SCROLLABLE.action,
-			AUDIO_IS_PLAYING.action,
-			IS_INTRO.action,
+			// AUDIO_TRACK.action,
+			// SCROLL_PROGRESS.action,
+			// AUDIO_SCROLLABLE.action,
+			// AUDIO_IS_PLAYING.action,
+			// IS_INTRO.action,
 		]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
@@ -153,18 +144,28 @@ export default {
 				2
 			)
 		},
-		onScroll(e) {
-			const val = this.progress + e.deltaY / this.accountedHeight
+		onScroll(event) {
+			// cross-browser wheel delta
+			// Chrome / IE: both are set to the same thing - WheelEvent for Chrome, MouseWheelEvent for IE
+			// Firefox: first one is undefined, second one is MouseScrollEvent
+			var e = window.event || event
+			// Chrome / IE: first one is +/-120 (positive on mouse up), second one is zero
+			// Firefox: first one is undefined, second one is -/+3 (negative on mouse up)
+			var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
+
+			const val = this.progress - e.wheelDelta / this.accountedHeight
 			// this[SCROLL_PROGRESS.action](clamp(0, val, 1))
 
 			if (this.scrollable) {
 				this.setProgress(val)
 			}
+
+			e.preventDefault()
 		},
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			this.setProgress(clamp(0, e.clientY / this.componentHeight, 1))
+			this.setProgress(clamp(0, e.clientY / this.componentHeight, 1.1))
 			// this[SCROLL_PROGRESS.action](
 			// 	clamp(0, e.clientY / this.componentHeight, 1)
 			// )
@@ -174,13 +175,15 @@ export default {
 		},
 	},
 	mounted() {
-		window.addEventListener('wheel', this.onScroll.bind(this))
+		window.addEventListener('mousewheel', this.onScroll.bind(this), false)
+		window.addEventListener('DOMMouseScroll', this.onScroll.bind(this), false) // FF
 		this.componentHeight = parseInt(
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
 	},
 	beforeDestroy() {
-		window.removeEventListener('wheel', this.onScroll.bind(this))
+		window.removeEventListener('mousewheel', this.onScroll.bind(this))
+		window.removeEventListener('DOMMouseScroll', this.onScroll.bind(this))
 	},
 	// afterDestroy() {
 	// 	this[AUDIO_IS_PLAYING.action](this.audioWasPlaying)

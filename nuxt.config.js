@@ -36,6 +36,7 @@ export default {
 	// 		})
 	// 	}
 	// },
+	serverMiddleware: ['~/api/headers.js'],
 	/*
 	 ** Customize the progress-bar color
 	 */

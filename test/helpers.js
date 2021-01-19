@@ -1,13 +1,15 @@
 const glob = require('glob')
 const fs = require('fs')
+const path = require('path')
 const yaml = require('js-yaml')
+const { NETLIFY_CMS_CONFIG_FILE_PATH, ASSET_FOLDER } = require('./config.js')
 
 /**
  * returns an array of strings
  */
 const getPathToEveryJSONInDirectory = folder =>
 	new Promise((resolve, reject) => {
-		glob(`${folder}/*.json`, (err, paths) => {
+		glob(`${folder}/*.*`, (err, paths) => {
 			if (err) {
 				console.warn(err)
 				reject(err)
@@ -35,12 +37,12 @@ const readFile = filePath =>
  *
  * this will log abs path of each json file in /src:
  *
- * const files = getEveryJSONInDirectory(./src)
+ * const files = getAssets(./src)
  * files(({ filePath }) => console.log(filePath))
  */
-const getEveryJSONInDirectory = folder =>
+const getAssets = folder =>
 	new Promise((resolve, reject) =>
-		getPathToEveryJSONInDirectory(folder).then(paths =>
+		getPathToEveryJSONInDirectory(path.join(ASSET_FOLDER, folder)).then(paths =>
 			Promise.all(paths.map(path => readFile(path))).then(files =>
 				resolve(files)
 			)
@@ -66,7 +68,10 @@ const getYMLFileAsJSON = filePath => {
 	})
 }
 
+const configFile = getYMLFileAsJSON(NETLIFY_CMS_CONFIG_FILE_PATH).then(x => x)
+
 module.exports = {
-	getEveryJSONInDirectory,
-	getYMLFileAsJSON
+	getAssets,
+	getYMLFileAsJSON,
+	configFile
 }
