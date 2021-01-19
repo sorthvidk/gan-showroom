@@ -4,6 +4,7 @@
 		ref="audio-gallery"
 		@mousemove="scrollTo"
 		@mouseup="() => (scrolling = false)"
+		@wheel="onScroll"
 	>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
 			<button @click="togglePlayback">
@@ -30,7 +31,10 @@
 		>
 			<div
 				class="audio-gallery__scroller"
-				:style="{ transform: `scaleY(${scrollerPos / 100})` }"
+				:style="{
+					transform: `scaleY(${scrollerPos / 100})`,
+					height: componentHeight + 'px',
+				}"
 			/>
 		</div>
 		<div class="audio-gallery__container">
@@ -60,15 +64,6 @@
 import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-// import {
-// AUDIO_TRACK,
-// AUDIO_PROGRESS,
-// AUDIO_DURATION,
-// SCROLL_PROGRESS,
-// AUDIO_SCROLLABLE,
-// AUDIO_IS_PLAYING,
-// IS_INTRO,
-// } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 import { MMSS } from '~/utils/HHMMSS'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
@@ -121,21 +116,13 @@ export default {
 	watch: {
 		progress() {
 			if (this.progress >= 0.99) {
-				// this[IS_INTRO.action]()
 				this.scrollable = false
+				this.stop()
 				this.$emit('played-through')
 			}
 		},
 	},
 	methods: {
-		...mapActions('audio', [
-			// GALLERY_IS_PLAYING.action,
-			// AUDIO_TRACK.action,
-			// SCROLL_PROGRESS.action,
-			// AUDIO_SCROLLABLE.action,
-			// AUDIO_IS_PLAYING.action,
-			// IS_INTRO.action,
-		]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -154,7 +141,6 @@ export default {
 			var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
 
 			const val = this.progress - e.wheelDelta / this.accountedHeight
-			// this[SCROLL_PROGRESS.action](clamp(0, val, 1))
 
 			if (this.scrollable) {
 				this.setProgress(val)
@@ -166,31 +152,15 @@ export default {
 			if (!this.scrolling) return
 
 			this.setProgress(clamp(0, e.clientY / this.componentHeight, 1.1))
-			// this[SCROLL_PROGRESS.action](
-			// 	clamp(0, e.clientY / this.componentHeight, 1)
-			// )
 		},
 		height(idx) {
 			return `${getRandomIntHash(idx) * 20 + 80}%`
 		},
 	},
 	mounted() {
-		window.addEventListener('mousewheel', this.onScroll.bind(this), {
-			passive: false,
-		})
-		window.addEventListener('DOMMouseScroll', this.onScroll.bind(this), {
-			passive: false,
-		}) // FF
 		this.componentHeight = parseInt(
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
 	},
-	beforeDestroy() {
-		window.removeEventListener('mousewheel', this.onScroll.bind(this))
-		window.removeEventListener('DOMMouseScroll', this.onScroll.bind(this))
-	},
-	// afterDestroy() {
-	// 	this[AUDIO_IS_PLAYING.action](this.audioWasPlaying)
-	// },
 }
 </script>

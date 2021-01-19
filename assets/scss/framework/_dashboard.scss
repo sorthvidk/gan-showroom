@@ -5,6 +5,10 @@
 
 		.shortcut {
 			user-select: none;
+
+			&:hover {
+				color: $color-buttonhover;
+			}
 		}
 	}
 }

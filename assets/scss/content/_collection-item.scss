@@ -25,6 +25,9 @@
 	&__extra {
 		transition: opacity 0.2s $easeInOutQuint;
 		opacity: 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 
 	.on-wishlist {
@@ -41,10 +44,9 @@
 	img,
 	video {
 		width: 100%;
+		height: 100%;
 		background-color: $color-lightgrey;
 		object-fit: cover;
-		position: absolute;
-		height: 100%;
 
 		// @include mq($from: screen-md) {
 		// 	height: rem(298);

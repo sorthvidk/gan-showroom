@@ -2,15 +2,15 @@
 	@include bodytext();
 	@include truncate();
 
+	font-size: rem(10);
+
 	max-width: 100%;
 	max-height: 1.27em;
 
 	display: inline-block;
-	text-align: center;
 
 	// background-color: $color-black;
 	// color: $color-white;
-	padding: 1em 0.25em 0em;
-	margin: rem(10);
-	border-top: 1px solid $color-grey;
+	margin: rem(15);
+	margin-bottom: rem(10);
 }

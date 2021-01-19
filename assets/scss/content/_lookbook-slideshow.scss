@@ -8,7 +8,7 @@
 	align-items: flex-start;
 
 	padding-top: rem(70);
-	padding-bottom: rem(11);
+	padding-bottom: rem(21);
 	box-sizing: border-box;
 
 	color: $color-white;
@@ -27,7 +27,7 @@
 
 	&__ui {
 		position: absolute;
-		bottom: rem(0);
+		bottom: rem(10);
 		right: rem(0);
 
 		display: flex;

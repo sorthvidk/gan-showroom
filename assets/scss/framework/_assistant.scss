@@ -52,10 +52,8 @@
 				}
 
 				transition: transform 0.5s $easeInOutQuint;
-				transform: scaleX(0.7);
-				&.closed {
-					transform: scaleX(1);
 
+				&.closed {
 					&:before {
 						transform: translateY(rem(-4));
 					}
@@ -213,7 +211,7 @@
 		&__list {
 			display: flex;
 			flex-wrap: wrap;
-			border-top: rem(1) solid rgba(0, 0, 0, 0.2);
+			border-top: rem(1) solid rgba(0, 0, 0, 1);
 		}
 	}
 
@@ -242,7 +240,7 @@
 		.button {
 			@include full-width-button();
 
-			border-top: rem(1) solid rgba(0, 0, 0, 0.2);
+			border-top: rem(1) solid rgba(0, 0, 0, 1);
 			text-align: left;
 			box-sizing: border-box;
 
@@ -277,7 +275,7 @@
 			&--half {
 				width: 50%;
 				flex: 0 0 50%;
-				border-right: rem(1) solid rgba(0, 0, 0, 0.2);
+				border-right: rem(1) solid rgba(0, 0, 0, 1);
 			}
 		}
 		.button--half + .button--half {

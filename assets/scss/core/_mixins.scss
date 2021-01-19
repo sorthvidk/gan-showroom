@@ -84,6 +84,7 @@
 		@include bodytext();
 		@include truncate();
 		max-width: rem(110);
+		font-weight: 500;
 	}
 }
 

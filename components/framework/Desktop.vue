@@ -120,7 +120,7 @@ import {
 	OPEN_CONTENT,
 	AUTHORIZE_GROUPS,
 	CONNECT_EXHIBITION_ASSETS,
-	AUDIO_TRACK,
+	// AUDIO_TRACK,
 	OPEN_CONTENT_IN_DASHBOARD,
 } from '~/model/constants'
 
@@ -236,7 +236,7 @@ export default {
 		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
-		...mapActions('audio', [AUDIO_TRACK.action]),
+		// ...mapActions('audio', [AUDIO_TRACK.action]),
 
 		startClipboardTimeout() {
 			setTimeout(() => {
