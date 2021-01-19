@@ -175,8 +175,12 @@ export default {
 		},
 	},
 	mounted() {
-		window.addEventListener('mousewheel', this.onScroll.bind(this), false)
-		window.addEventListener('DOMMouseScroll', this.onScroll.bind(this), false) // FF
+		window.addEventListener('mousewheel', this.onScroll.bind(this), {
+			passive: false,
+		})
+		window.addEventListener('DOMMouseScroll', this.onScroll.bind(this), {
+			passive: false,
+		}) // FF
 		this.componentHeight = parseInt(
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
