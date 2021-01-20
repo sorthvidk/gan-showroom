@@ -1,6 +1,8 @@
 .audio-spectrum-bars {
 	position: fixed;
 	left: calc(25vw + 45px);
+	display: flex;
+	align-items: baseline;
 
 	&__bar {
 		transform-origin: bottom;

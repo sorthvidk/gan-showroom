@@ -2,9 +2,15 @@
 	<div
 		class="audio-gallery"
 		ref="audio-gallery"
-		@mousemove="scrollTo"
+		@mousemove="
+			(e) => {
+				scrollTo(e)
+				moveCursor(e)
+			}
+		"
 		@mouseup="() => (scrolling = false)"
 		@wheel="onScroll"
+		@click="togglePlayback"
 	>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
 			<button @click="togglePlayback">
@@ -13,6 +19,13 @@
 			<p class="audio-player__name">{{ various.scrollAudio.title }}</p>
 			<p class="audio-player__time">{{ currentTime }}</p>
 			<audio-spectrum-bars :animate="playing" />
+		</div>
+		<div
+			v-if="!playing && cursorPos"
+			class="audio-gallery__cursor"
+			:style="{ transform: cursorPos }"
+		>
+			<p>Click to play</p>
 		</div>
 		<!-- <audio-player
 			v-if="various.scrollAudio"
@@ -83,6 +96,7 @@ export default {
 		componentHeight: 0,
 		scrollHeight: 5000,
 		audioWasPlaying: null,
+		cursorPos: '',
 	}),
 	computed: {
 		...mapState('ganniFm', ['songs']),
@@ -130,6 +144,9 @@ export default {
 				{ width: 500 },
 				2
 			)
+		},
+		moveCursor({ clientX, clientY }) {
+			this.cursorPos = `translate(calc(${clientX}px - 50%), calc(${clientY}px + 50%))`
 		},
 		onScroll(event) {
 			// cross-browser wheel delta

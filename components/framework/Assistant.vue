@@ -15,8 +15,10 @@
 						? 's-resize'
 						: 'n-resize',
 				}"
-				>Ganni space</span
 			>
+				<rotating-text :text="'GANNI SPACE'" />
+				<!-- <p>GANNI SPACE</p> -->
+			</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
@@ -97,6 +99,7 @@ import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
 
 import TransitionExpand from '~/components/transitions/Expand.vue'
+import RotatingText from '~/components/content/RotatingText.vue'
 
 import ContentTypes from '~/model/content-types'
 import AssistantModes from '~/model/assistant-modes'
@@ -113,6 +116,7 @@ export default {
 		AssistantModeCustom,
 		AssistantModePuzzle,
 		TransitionExpand,
+		RotatingText,
 	},
 	data() {
 		return {

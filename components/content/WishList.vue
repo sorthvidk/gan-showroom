@@ -113,7 +113,8 @@ export default {
 		},
 
 		curStyle() {
-			if (!this.cur.groupId) return false
+			const [firstStyle] = Object.values(this.sortedWishlist)[0]
+			if (!this.cur.groupId) return firstStyle
 			return this.sortedWishlist[this.cur.groupId][[this.cur.idx]]
 		},
 	},

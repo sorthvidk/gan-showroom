@@ -1,7 +1,6 @@
 <template>
 	<transition name="fade">
 		<div class="lookbook-slideshow">
-			<!-- <pre>{{ pages.map((x) => x.map((y) => y.aspect)) }}</pre> -->
 			<div class="lookbook-slideshow__content">
 				<transition name="fade">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
@@ -162,6 +161,8 @@ export default {
 		},
 
 		change({ next }) {
+			this.overview = false
+
 			this.idx = next
 				? nextIndex(this.pages, this.idx)
 				: prevIndex(this.pages, this.idx)

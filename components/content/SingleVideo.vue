@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="single-video animate"
+		class="single-video shimmer"
 		:class="{ 'is-interactive': belongsToStyle && inFocus }"
 	>
 		<transition name="fade">

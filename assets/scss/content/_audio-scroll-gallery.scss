@@ -18,6 +18,13 @@
 		align-items: center;
 	}
 
+	&__cursor {
+		@include windowtitle();
+
+		position: fixed;
+		z-index: 100000;
+	}
+
 	&__scrollbar {
 		transition: width 0.5s $easeInOutQuint;
 		width: rem(10);
