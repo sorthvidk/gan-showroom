@@ -18,6 +18,7 @@
 				v-on:enter="enter"
 				v-on:leave="leave"
 				mode="out-in"
+				class="collection__list"
 			>
 				<collection-item
 					v-bind="item"

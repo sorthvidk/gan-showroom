@@ -3,7 +3,7 @@
 		<span v-if="item.responsible" class="responsible">
 			<div v-for="_ in 4" :key="`banner-item${_}`">
 				<!-- I am a certified responsible material —&nbsp; -->
-				<svg-icon name="ganni-smiley" />&nbsp; responsible &nbsp;
+				<svg-icon name="ganni-smiley--inv" />&nbsp; responsible &nbsp;
 			</div>
 		</span>
 

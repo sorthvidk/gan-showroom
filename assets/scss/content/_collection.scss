@@ -33,14 +33,12 @@
 			top: 40px;
 			z-index: 1;
 		}
-
-		> div {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: flex-start;
-		}
 	}
-	&__group {
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 1px;
 	}
 
 	&--fun {

@@ -1,9 +1,9 @@
 .collection-item {
-	box-shadow: 0 0 0 1px $color-white;
+	// box-shadow: 0 0 0 1px $color-white;
 
 	display: flex;
 	align-items: center;
-	width: 100%;
+	// width: 100%;
 	min-height: calc(100vw / 3 * 4);
 	min-width: 0;
 	box-sizing: border-box;
@@ -12,13 +12,19 @@
 	cursor: pointer;
 	background-color: $color-imagebg;
 
+	outline: 1px solid $color-white;
+
+	&:hover {
+		outline: 1px solid $color-white;
+	}
+
 	@include mq($from: screen-xxs) {
-		width: 50%;
+		// width: 50%;
 		min-height: calc(50vw / 3 * 4);
 	}
 
 	@include mq($from: screen-md) {
-		width: 25%;
+		// width: 25%;
 		min-height: calc(28.5vw / 3 * 4);
 	}
 
