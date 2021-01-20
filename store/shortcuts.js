@@ -95,8 +95,6 @@ export const state = () => ({
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
 			label: 'PF21 Collection',
-			posH: 1,
-			posV: 1,
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_INDEX.action,
