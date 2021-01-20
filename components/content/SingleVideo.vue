@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="single-video"
+		class="single-video animate"
 		:class="{ 'is-interactive': belongsToStyle && inFocus }"
 	>
 		<transition name="fade">

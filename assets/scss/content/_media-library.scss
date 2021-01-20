@@ -4,7 +4,7 @@
 	position: fixed;
 	bottom: rem(71); // height of bottom menu bar
 	right: 0;
-	width: 25%;
+	width: calc(25% - 1px);
 	box-sizing: border-box;
 
 	background: $color-black;

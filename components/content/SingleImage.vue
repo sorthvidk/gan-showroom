@@ -1,9 +1,9 @@
 <template>
 	<div
-		class="single-image"
+		class="single-image animate"
 		:class="{ 'is-interactive': asset.styleId && inFocus }"
 	>
-		<loading />
+		<!-- <loading /> -->
 
 		<transition name="fade">
 			<img :src="assetUrl" alt="img" @click="clickHandler" />
