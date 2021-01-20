@@ -581,7 +581,9 @@ export const actions = {
 		 * When showing a group, stay in that group
 		 */
 		if (state.activeGroup) {
-			const currentIndex = state.currentStyles.indexOf(state.currentStyle)
+			const currentIndex = state.currentStyles.findIndex(
+				s => s.styleId === state.currentStyle.styleId
+			)
 			const newIndex = previous
 				? prevIndex(state.currentStyles, currentIndex)
 				: nextIndex(state.currentStyles, currentIndex)

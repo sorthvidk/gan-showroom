@@ -18,3 +18,7 @@ body {
 		font-family: $font-sansserif;
 	}
 }
+
+button {
+	@include bodytext();
+}
