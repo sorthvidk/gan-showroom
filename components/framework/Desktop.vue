@@ -16,6 +16,7 @@
 				"
 				:sources="[songs[0].src]"
 				:title="songs[0].title"
+				:autoplay="true"
 			/>
 
 			<div

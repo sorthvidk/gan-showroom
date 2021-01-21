@@ -23,7 +23,7 @@ export default {
 
 			var renderer = new THREE.WebGLRenderer({
 				alpha: true,
-				antialiasing: true,
+				antialias: true,
 			})
 
 			renderer.setPixelRatio(window.devicePixelRatio)
@@ -35,9 +35,16 @@ export default {
 			var camera = new THREE.PerspectiveCamera(
 				0.5,
 				containerW / containerH,
-				0.01,
+				10,
 				100000
 			)
+
+			// const light = new THREE.AmbientLight(0x000000) // soft white light
+			// scene.add(light)
+
+			const directionalLight = new THREE.DirectionalLight(0x666666, 1)
+			directionalLight.position.set(0, 100, 1).normalize()
+			scene.add(directionalLight)
 
 			scene.add(camera)
 			camera.position.set(0, 0, 20000)
@@ -51,7 +58,14 @@ export default {
 				height: thickness,
 			})
 
-			var material = new THREE.MeshLambertMaterial({ color: 0x000000 })
+			var material = new THREE.MeshLambertMaterial({
+				shininess: 66,
+
+				transparent: true,
+				// color: 0xffffff,
+				// specular: 0x000000,
+				// shininess: 100,
+			})
 			var text = new THREE.Mesh(geometry, material)
 
 			geometry.computeBoundingBox()
