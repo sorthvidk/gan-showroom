@@ -123,7 +123,7 @@ export default {
 				autoprefixer: {
 					// browsers: ['last 4 versions', '> 1%', 'ie 6-8'],
 					// browsers: ['defaults'],
-					grid: true
+					grid: false
 				}
 			}
 		},

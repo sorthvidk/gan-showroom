@@ -74,7 +74,7 @@
 		}
 
 		img {
-			animation: flash calc(var(--count) * var(--speed)) linear infinite
+			animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
 				forwards;
 			position: absolute;
 			object-fit: cover;
@@ -83,7 +83,7 @@
 
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}) {
-					animation-delay: calc(#{$i} * var(--speed) - var(--speed));
+					animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
 				}
 			}
 		}

@@ -157,7 +157,11 @@ export default {
 			// Firefox: first one is undefined, second one is -/+3 (negative on mouse up)
 			var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
 
-			const val = this.progress - e.wheelDelta / this.accountedHeight
+			const val = clamp(
+				0,
+				this.progress - e.wheelDelta / this.accountedHeight,
+				1.5
+			)
 
 			if (this.scrollable) {
 				this.setProgress(val)

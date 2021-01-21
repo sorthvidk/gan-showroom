@@ -13,6 +13,8 @@ export default {
 	},
 	data: () => ({
 		t: 0,
+		y: false,
+		spin: false,
 	}),
 	methods: {
 		rotateText(container, i) {
@@ -31,10 +33,10 @@ export default {
 
 			var scene = new THREE.Scene()
 			var camera = new THREE.PerspectiveCamera(
-				0.5, //vertical field of view
-				containerW / containerH, //aspect ratio
-				0.01, //near plane
-				100000 //far plane
+				0.5,
+				containerW / containerH,
+				0.01,
+				100000
 			)
 
 			scene.add(camera)
@@ -42,39 +44,49 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
+			const thickness = 80
 			var geometry = new THREE.TextGeometry(this.$props.text, {
-				//insert the text we grabbed earlier here
 				font,
-				size: 130, //your font size
-				height: 50, //your font depth
+				size: 130,
+				height: thickness,
 			})
 
-			var material = new THREE.MeshLambertMaterial({
-				color: 0x000000, //your fon t color
-			})
+			var material = new THREE.MeshLambertMaterial({ color: 0x000000 })
+			var text = new THREE.Mesh(geometry, material)
 
-			var text = new THREE.Mesh(geometry, material) //this is your 3D text object
-			//I created a pivot object to act as the center point for rotation:
 			geometry.computeBoundingBox()
 
 			var textWidth = geometry.boundingBox.max.x - geometry.boundingBox.min.x
 			var textHeight = geometry.boundingBox.max.y - geometry.boundingBox.min.y
-			text.position.set(-0.5 * textWidth, -textHeight * 0.5, 0)
+			text.position.set(-0.5 * textWidth, -textHeight * 0.5, -thickness / 2)
 
 			scene.add(text)
 
 			var pivot = new THREE.Object3D()
 			pivot.add(text)
 			scene.add(pivot)
-			//Then just render your scene and request for new frames
 
-			pivot.rotation.x += 0.6
+			renderer.render(scene, camera)
 
 			const render = () => {
-				pivot.rotation.x += (Math.sin(this.t) + 1) / 10 //how much you want your text to rotate per frame
 				requestAnimationFrame(render)
 				renderer.render(scene, camera)
-				this.t += 0.1
+
+				if (this.spin) {
+					const newVal = this.t * (Math.PI * 2)
+
+					pivot.rotation[this.y ? 'y' : 'x'] = newVal
+
+					if (newVal >= Math.PI * 2) {
+						this.spin = false
+						this.t = 0
+						this.y = !this.y
+						pivot.rotation.x = 0
+						pivot.rotation.y = 0
+					}
+
+					this.t += this.y ? 0.006 : 0.012
+				}
 			}
 
 			render()
@@ -82,6 +94,10 @@ export default {
 	},
 	mounted() {
 		this.rotateText(this.$refs['rotating-text'])
+
+		setInterval(() => {
+			this.spin = true
+		}, 20000)
 	},
 }
 </script>

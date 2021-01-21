@@ -1,6 +1,6 @@
 <template>
-	<div class="gallery-image">
-		<loading />
+	<div class="gallery-image shimmer">
+		<!-- <loading /> -->
 		<img v-lazy="imageUrl" alt="img" />
 	</div>
 </template>

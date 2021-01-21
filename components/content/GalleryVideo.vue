@@ -1,6 +1,6 @@
 <template>
-	<div class="gallery-video">
-		<loading />
+	<div class="gallery-video shimmer">
+		<!-- <loading /> -->
 		<video-player
 			:video-url="assetUrl"
 			:controls="false"
@@ -19,27 +19,27 @@ export default {
 	name: 'gallery-video',
 	components: {
 		VideoPlayer,
-		Loading
+		Loading,
 	},
 	props: {
 		asset: {
 			type: Object,
-			required: true
+			required: true,
 		},
 		focused: {
 			type: Boolean,
-			default: false
-		}
+			default: false,
+		},
 	},
 	computed: {
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset, { width: 700 }, 2)
-		}
+		},
 	},
 	mounted() {
 		if (this.focused) {
 			setTimeout(() => this.$el.scrollIntoView({ behavior: 'smooth' }), 500)
 		}
-	}
+	},
 }
 </script>
