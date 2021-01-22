@@ -69,5 +69,5 @@ $weight-normal: 400;
 $weight-medium: 500;
 $weight-bold: 600;
 
-$color-buttonhover: lighten($color-marigold-yellow, 20%);
-$color-buttonactive: darken($color-marigold-yellow, 15%);
+$color-buttonhover: darken($color-marigold-yellow, 15%);
+$color-buttonactive: lighten($color-marigold-yellow, 20%);

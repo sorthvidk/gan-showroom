@@ -22,7 +22,7 @@
 		// top: 0;
 		// left: 0;
 		// bottom: 0;
-		width: rem(215);
+		width: rem(250);
 
 		border-right: rem(1) solid $color-black;
 		box-sizing: border-box;
@@ -58,26 +58,33 @@
 			display: inline-flex;
 			align-items: center;
 		}
+
+		$removeButton: rem(30);
+
 		.remove {
-			padding: rem(8) 0;
+			width: $removeButton;
 			justify-content: center;
-			flex: 0 0 rem(30);
+
 			svg {
-				width: rem(30);
-				height: rem(30);
+				width: rem(15);
+				height: rem(15);
 			}
+
 			opacity: 0;
 			transition: opacity 0.1s ease;
 		}
 		.activate {
 			padding: rem(5) rem(15);
+			padding-right: 0;
 			box-sizing: border-box;
-			flex: 0 0 rem(185);
+			// flex: 0 0 rem(185);
 			justify-content: flex-start;
+			flex-grow: 1;
+			width: calc(100% - #{$removeButton});
 
 			img {
 				display: inline-block;
-				flex: 0 0 rem(30);
+				// flex: 0 0 rem(30);
 				max-width: rem(40);
 				margin-right: rem(10);
 			}
@@ -85,7 +92,7 @@
 				@include bodytext();
 				// font-size: rem(13);
 				overflow: hidden;
-				width: rem(185 + -12 - 30 - 10);
+				// width: rem(185 + -12 - 30 - 10);
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				text-align: left;

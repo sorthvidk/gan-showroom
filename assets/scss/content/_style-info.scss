@@ -22,6 +22,11 @@
 		span {
 			display: inline-block;
 			width: 50%;
+			box-sizing: border-box;
+
+			&:first-child {
+				padding-right: 1em;
+			}
 		}
 	}
 

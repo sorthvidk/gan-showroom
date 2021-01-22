@@ -111,7 +111,7 @@ export default {
 
 		setInterval(() => {
 			this.spin = true
-		}, 20000)
+		}, 10000)
 	},
 }
 </script>

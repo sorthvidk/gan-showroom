@@ -30,7 +30,7 @@
 						class="button remove"
 						@click.stop="overviewItemRemoveHandler(groupId, index)"
 					>
-						&times;
+						<svg-icon name="cross" />
 					</button>
 				</div>
 			</div>
@@ -96,13 +96,6 @@ export default {
 		// ...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
 		...mapState('collection', ['wishList', 'authorizedGroups']),
-
-		// curtem() {
-		// 	if (this.wishList.length > 0)
-		// 		return this.wishList[this.curndex]
-		// 	else this.curndex = -1
-		// 	return {}
-		// },
 
 		sortedWishlist() {
 			return this.wishList.reduce((acc, cur) => {
