@@ -9,16 +9,6 @@
 		>
 			<!-- <background-image /> -->
 
-			<audio-player
-				v-if="
-					!dashboardContent ||
-					dashboardContent.contentComponent !== 'audio-gallery-controller'
-				"
-				:sources="[songs[0].src]"
-				:title="songs[0].title"
-				:autoplay="true"
-			/>
-
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,

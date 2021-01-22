@@ -39,9 +39,6 @@ export default {
 				100000
 			)
 
-			// const light = new THREE.AmbientLight(0x000000) // soft white light
-			// scene.add(light)
-
 			const directionalLight = new THREE.DirectionalLight(0x666666, 1)
 			directionalLight.position.set(0, 100, 1).normalize()
 			scene.add(directionalLight)
@@ -60,11 +57,7 @@ export default {
 
 			var material = new THREE.MeshLambertMaterial({
 				shininess: 66,
-
 				transparent: true,
-				// color: 0xffffff,
-				// specular: 0x000000,
-				// shininess: 100,
 			})
 			var text = new THREE.Mesh(geometry, material)
 
@@ -89,7 +82,7 @@ export default {
 				if (this.spin) {
 					const newVal = this.t * (Math.PI * 2)
 
-					pivot.rotation[this.y ? 'y' : 'x'] = newVal
+					pivot.rotation[this.y ? 'y' : 'x'] = -newVal
 
 					if (newVal >= Math.PI * 2) {
 						this.spin = false

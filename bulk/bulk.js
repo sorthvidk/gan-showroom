@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
 // const fileCI = require('./collectionItems.json')
-const testFile = require('./files/test.json')
+const testFile = require('./files/bulkupload_test.json')
 
 const uniqueId = () =>
 	Math.random()

@@ -2,6 +2,15 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<preload-images :srcs="[various.dashboardBackground]" />
 
+		<audio-player
+			v-if="
+				!dashboardContent ||
+				dashboardContent.contentComponent !== 'audio-gallery-controller'
+			"
+			:sources="[songs[0].src]"
+			:title="songs[0].title"
+		/>
+
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->
 			<transition name="slide-out">
@@ -81,6 +90,7 @@ export default {
 		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
+		...mapState('ganniFm', ['songs']),
 	},
 	head() {
 		return {

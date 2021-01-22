@@ -49,6 +49,7 @@
 						<single-image
 							:asset="curStyle.assets[0]"
 							:parent-window-id="parentWindowId"
+							:lazy="true"
 						/>
 
 						<h3>{{ curStyle.name }}</h3>

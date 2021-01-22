@@ -6,7 +6,8 @@
 		<!-- <loading /> -->
 
 		<transition name="fade">
-			<img :src="assetUrl" alt="img" @click="clickHandler" />
+			<img v-if="!lazy" :src="assetUrl" alt="img" @click="clickHandler" />
+			<img v-else v-lazy="assetUrl" alt="img" @click="clickHandler" />
 		</transition>
 	</div>
 </template>
@@ -28,6 +29,7 @@ export default {
 			type: Object,
 			required: true,
 		},
+		lazy: { type: Boolean, default: false },
 	},
 	computed: {
 		assetUrl() {
