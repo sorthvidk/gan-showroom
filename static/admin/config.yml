@@ -104,6 +104,13 @@ collections:
           required: false,
           hint: "Name of material ex. '100% organic cotton'",
         }
+      - {
+          label: 'Features',
+          name: 'feature_text',
+          widget: 'text',
+          required: false,
+          hint: "Name of features ex. 'Pockets'",
+        }
       # - {
       #     label: 'Drop',
       #     name: 'drop',

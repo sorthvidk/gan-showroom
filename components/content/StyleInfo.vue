@@ -24,7 +24,7 @@
 			<span>{{ item.program }}</span>
 		</div>
 
-		<div class="style-info__row">
+		<div v-if="item.feature_text" class="style-info__row">
 			<span>Features</span>
 			<span>{{ item.feature_text }}</span>
 		</div>
