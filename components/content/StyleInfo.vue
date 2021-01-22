@@ -23,6 +23,12 @@
 			<span>Program #</span>
 			<span>{{ item.program }}</span>
 		</div>
+
+		<div class="style-info__row">
+			<span>Features</span>
+			<span>{{ item.feature_text }}</span>
+		</div>
+
 		<div class="style-info__row">
 			<span>Program name</span>
 			<span>{{ item.programName }}</span>
