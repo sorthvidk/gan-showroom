@@ -4,8 +4,9 @@
 
 		<audio-player
 			v-if="
-				!dashboardContent ||
-				dashboardContent.contentComponent !== 'audio-gallery-controller'
+				audioGalleryDone &&
+				(!dashboardContent ||
+					dashboardContent.contentComponent !== 'audio-gallery-controller')
 			"
 			:sources="[songs[0].src]"
 			:title="songs[0].title"

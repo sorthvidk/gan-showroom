@@ -1,5 +1,4 @@
 const path = require('path')
-const { COLLECTION_ITEMS_PATH } = require('./config.js')
 const helpers = require('./helpers.js')
 
 // globals

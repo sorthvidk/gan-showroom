@@ -7,7 +7,7 @@ let collectionItems
 let configFileAsJSON
 let mediaAssetsFields
 
-describe('Collection Items', () => {
+describe('Media Assets', () => {
 	beforeAll(async () => {
 		mediaAssets = await helpers.getAssets('mediaAssets')
 		collectionItems = await helpers.getAssets('collectionItems')

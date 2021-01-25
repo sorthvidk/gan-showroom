@@ -37,29 +37,27 @@
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="!isMobile">
-				<vue-bar>
-					<div class="inner" v-if="wishList.length < 1">
-						<p>Your wish list is empty!</p>
-					</div>
-					<div
-						class="inner"
-						v-if="curStyle && curStyle.assets && curStyle.assets.length > 0"
-						:key="'wishlist-details-' + curStyle.styleId"
-					>
-						<single-image
-							:asset="curStyle.assets[0]"
-							:parent-window-id="parentWindowId"
-							:lazy="true"
-						/>
+				<div class="inner empty" v-if="wishList.length < 1">
+					<p>Your wish list is empty!</p>
+				</div>
+				<div
+					class="inner"
+					v-if="curStyle && curStyle.assets && curStyle.assets.length > 0"
+					:key="'wishlist-details-' + curStyle.styleId"
+				>
+					<single-image
+						:asset="curStyle.assets[0]"
+						:parent-window-id="parentWindowId"
+						:lazy="true"
+					/>
 
-						<h3>{{ curStyle.name }}</h3>
-						<button class="button" @click="removeItemHandler">
-							Remove from wishlist
-						</button>
+					<h3>{{ curStyle.name }}</h3>
+					<button class="button" @click="removeItemHandler">
+						Remove from wishlist
+					</button>
 
-						<style-info :item="curStyle" />
-					</div>
-				</vue-bar>
+					<style-info :item="curStyle" />
+				</div>
 			</div>
 		</transition>
 		<div v-if="isMobile">
@@ -107,6 +105,8 @@ export default {
 		},
 
 		curStyle() {
+			if (!this.sortedWishlist.length) return
+
 			const [firstStyle] = Object.values(this.sortedWishlist)[0]
 			if (!this.cur.groupId) return firstStyle
 			return this.sortedWishlist[this.cur.groupId][[this.cur.idx]]

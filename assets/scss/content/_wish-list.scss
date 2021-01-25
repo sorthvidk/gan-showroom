@@ -12,8 +12,8 @@
 	}
 
 	position: relative;
-	height: 100%;
-	max-height: rem(800);
+	height: rem(800) !important;
+	max-height: calc(100vh - rem(150));
 
 	display: flex !important;
 
@@ -150,6 +150,10 @@
 			img {
 				height: auto;
 			}
+		}
+
+		.empty {
+			@include bodytext();
 		}
 	}
 

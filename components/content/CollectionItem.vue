@@ -26,15 +26,7 @@
 		<responsible-icon v-if="responsible" />
 
 		<span class="on-wishlist" v-if="onWishList">
-			<svg
-				class="checkmark"
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 78.4 78.4"
-			>
-				<path
-					d="M78 19L29.5 67.6a1 1 0 01-1.6 0L.3 40a1 1 0 010-1.5L7 31.8c.5-.5 1.1-.5 1.6 0l20 20 41.2-41c.4-.5 1.1-.5 1.5 0l6.7 6.7a1 1 0 010 1.5z"
-				/>
-			</svg>
+			<svg-icon name="checkmark" />
 		</span>
 	</button>
 </template>
