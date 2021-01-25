@@ -81,6 +81,7 @@ import addMediaChangeListener from '~/utils/media-change'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import VueBar from '~/components/content/VueBar.vue'
 import StyleInfo from '~/components/content/StyleInfo.vue'
+import { firstIndex } from '~/utils/array-helpers'
 
 export default {
 	extends: WindowContent,
@@ -105,11 +106,12 @@ export default {
 		},
 
 		curStyle() {
-			if (!this.sortedWishlist.length) return
+			console.log('curStyle', Object.keys(this.sortedWishlist))
+			if (!Object.keys(this.sortedWishlist).length) return
 
 			const [firstStyle] = Object.values(this.sortedWishlist)[0]
 			if (!this.cur.groupId) return firstStyle
-			return this.sortedWishlist[this.cur.groupId][[this.cur.idx]]
+			return this.sortedWishlist[this.cur.groupId][this.cur.idx]
 		},
 	},
 	data() {

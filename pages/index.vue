@@ -2,15 +2,15 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<preload-images :srcs="[various.dashboardBackground]" />
 
+		<!-- <keep-alive> -->
+		<!-- <div v-show=""> -->
 		<audio-player
-			v-if="
-				audioGalleryDone &&
-				(!dashboardContent ||
-					dashboardContent.contentComponent !== 'audio-gallery-controller')
-			"
-			:sources="[songs[0].src]"
-			:title="songs[0].title"
+			v-if="audioGalleryDone"
+			:sources="[song.src]"
+			:title="song.title"
 		/>
+		<!-- </div> -->
+		<!-- </keep-alive> -->
 
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->
@@ -88,10 +88,12 @@ export default {
 		audioGalleryDone: false,
 	}),
 	computed: {
-		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
+		song() {
+			return { title: this.songs[0].title, src: this.songs[0].src }
+		},
 	},
 	head() {
 		return {

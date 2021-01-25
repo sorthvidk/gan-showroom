@@ -6,6 +6,12 @@
 				<svg-icon name="ganni-smiley--inv" />&nbsp; responsible &nbsp;
 			</div>
 		</span>
+		<span v-if="item['re-runner']" class="re-runner">
+			<div v-for="_ in 5" :key="`banner-item-2${_}`">
+				<!-- I am a certified responsible material —&nbsp; -->
+				<svg-icon name="ganni-smiley" />&nbsp; re-runner &nbsp;
+			</div>
+		</span>
 
 		<div class="style-info__row">
 			<span>Color</span>

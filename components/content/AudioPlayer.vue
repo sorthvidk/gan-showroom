@@ -1,6 +1,10 @@
 
 <template>
-	<div class="audio-player" :class="{ dark: dashboardDark }">
+	<div
+		v-show="!isAudioGallery"
+		class="audio-player"
+		:class="{ dark: dashboardDark }"
+	>
 		<button @click="togglePlayback">
 			<svg-icon :name="playing ? 'pause' : 'play'" />
 		</button>
@@ -31,12 +35,34 @@ export default {
 	props: {
 		title: { type: String, default: '' },
 	},
+	data: () => ({
+		wasPlaying: true,
+	}),
 	computed: {
+		...mapState(['dashboardContent']),
 		...mapState('utils', ['dashboardDark', '__prod__']),
+		isAudioGallery() {
+			const hide =
+				!this.dashboardContent ||
+				this.dashboardContent.contentComponent === 'audio-gallery-controller'
+
+			if (hide && this.playing) {
+				this.pause()
+				this.wasPlaying = true
+			} else if (!hide && this.wasPlaying && this.playing) {
+				this.play()
+			}
+
+			return hide
+		},
 		currentTime() {
 			return MMSS(this.duration * this.progress)
 		},
 	},
-	watch: {},
+	watch: {
+		playing() {
+			this.wasPlaying = this.playing
+		},
+	},
 }
 </script>

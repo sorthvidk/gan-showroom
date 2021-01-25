@@ -59,7 +59,7 @@ export default {
 				100000
 			)
 
-			const directionalLight = new THREE.DirectionalLight(0xdad7d4, 1)
+			const directionalLight = new THREE.DirectionalLight(0xdad7d4, 0.5)
 			directionalLight.position.set(0, 100, 1).normalize()
 			this.scene.add(directionalLight)
 
@@ -68,24 +68,21 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
-			const thickness = 80
+			const height = 80
 			var geometry = new THREE.TextGeometry(this.$props.text, {
 				font,
 				size: 130,
-				height: thickness,
+				height,
 			})
 
-			var material = new THREE.MeshLambertMaterial({
-				shininess: 66,
-				transparent: true,
-			})
+			var material = new THREE.MeshLambertMaterial({ transparent: true })
 			var text = new THREE.Mesh(geometry, material)
 
 			geometry.computeBoundingBox()
 
 			var textWidth = geometry.boundingBox.max.x - geometry.boundingBox.min.x
 			var textHeight = geometry.boundingBox.max.y - geometry.boundingBox.min.y
-			text.position.set(-0.5 * textWidth, -textHeight * 0.5, -thickness / 2)
+			text.position.set(-0.5 * textWidth, -textHeight * 0.5, -height / 2)
 
 			this.scene.add(text)
 
@@ -119,7 +116,7 @@ export default {
 			if (this.pivot.rotation.y !== 0) requestAnimationFrame(this.revert)
 			this.renderer.render(this.scene, this.camera)
 
-			this.pivot.rotation.y -= this.pivot.rotation.y / 20
+			this.pivot.rotation.y -= this.pivot.rotation.y / 15
 
 			if (this.pivot.rotation.y <= 0.0001 && this.pivot.rotation.y >= -0.0001)
 				this.pivot.rotation.y = 0

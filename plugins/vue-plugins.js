@@ -27,7 +27,9 @@ Vue.config.devtools = process.env.NODE_ENV !== 'production'
 
 const $cloudinary = new cloudinary.Cloudinary({
 	cloud_name: 'dd6fpxydm',
-	secure: true
+	secure: true,
+	use_filename: true,
+	unique_filename: false
 })
 $cloudinary.init()
 Vue.prototype.$cloudinary = $cloudinary

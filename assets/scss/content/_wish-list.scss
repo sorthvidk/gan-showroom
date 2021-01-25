@@ -102,6 +102,7 @@
 
 	&__details {
 		display: none;
+		overflow: auto;
 
 		@include mq($from: screen-sm) {
 			display: block;

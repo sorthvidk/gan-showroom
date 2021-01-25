@@ -123,16 +123,26 @@ export default {
 				console.log(
 					`LookbookSlideshow:
 						Every item should have an "aspect" key.
-						Fallbacks to showing 1 item/slide
+						Fallbacks to showing 2 items/slide
 					`
 				)
 
-				return this.content.map((x) => [x])
+				return this.content
+					.reduce((acc, cur) => {
+						if (!acc[acc.length - 1] || acc[acc.length - 1].length > 1) {
+							acc.push([])
+						}
+
+						acc[acc.length - 1].push(cur)
+
+						return acc
+					}, [])
+					.map((x) => x.filter((y) => y !== 'empty'))
 			}
 
 			return this.content
 				.reduce((acc, cur) => {
-					if (cur.aspect === 'portrait') {
+					if (!cur.aspect || cur.aspect === 'portrait') {
 						if (!acc[acc.length - 1] || acc[acc.length - 1].length > 1) {
 							acc.push([])
 						}
