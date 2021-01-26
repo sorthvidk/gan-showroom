@@ -140,7 +140,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.rotateText(this.$refs['rotating-text'])
+		this.$nextTick(() => this.rotateText(this.$refs['rotating-text']))
 
 		setInterval(() => {
 			this.spin = true
