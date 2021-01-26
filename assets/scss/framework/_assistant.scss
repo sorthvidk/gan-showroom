@@ -33,6 +33,11 @@
 		}
 
 		.window__top {
+			.title {
+				padding: 0;
+				height: rem(50);
+			}
+
 			.icon {
 				position: absolute;
 				margin-left: rem(13);

@@ -12,12 +12,14 @@
 	.image {
 		position: relative;
 		width: calc(50% + 1px);
+		// width: 100%;
 		box-sizing: border-box;
 		border-right: 1px solid $color-white;
 		margin-bottom: 1px;
 
 		overflow: hidden;
 		height: calc(50vw * 0.66);
+		// height: calc(100vw * 0.66);
 		display: flex;
 	}
 
@@ -37,12 +39,23 @@
 		height: 100%;
 	}
 
-	p {
-		@include windowtitle();
+	.text {
+		@include bodytext();
 		width: 50%;
 		box-sizing: border-box;
 		white-space: pre-line;
-		padding: rem(10);
+		padding: rem(20);
+	}
+
+	p {
+		@include windowtitle();
+		font-size: rem(50);
+		font-weight: normal;
+		margin-top: rem(10);
+
+		b {
+			font-weight: bold;
+		}
 	}
 
 	--count: 0;

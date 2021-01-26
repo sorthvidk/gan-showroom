@@ -13,5 +13,6 @@ img[lazy='loading'] {
 }
 
 img[lazy='loaded'] {
-	animation: fade 0.4s forwards $easeInOutQuint;
+	opacity: 1;
+	// animation: fade 0.4s forwards $easeInOutQuint;
 }

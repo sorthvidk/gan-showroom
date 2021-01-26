@@ -92,16 +92,14 @@ export default {
 		scroll: 0,
 		scrolling: false,
 		scrollable: true,
-		scrollerHeight: 0,
+
 		componentHeight: 0,
 		scrollHeight: 5000,
-		audioWasPlaying: null,
 		cursorPos: '',
 	}),
 	computed: {
 		...mapState('ganniFm', ['songs']),
-		...mapState('utils', ['various']),
-		...mapState('utils', ['dashboardDark']),
+		...mapState('utils', ['dashboardDark', 'various']),
 		...mapState('audio', ['scrollImages', 'subtitles', 'track']),
 		images() {
 			return this.scrollImages
@@ -113,7 +111,7 @@ export default {
 			return Math.round(this.progress * this.images.length)
 		},
 		scrollerPos() {
-			return this.progress * (100 - this.scrollerHeight / this.componentHeight)
+			return this.progress * 100
 		},
 		currentSecond() {
 			return this.duration * this.progress
@@ -146,7 +144,7 @@ export default {
 			)
 		},
 		moveCursor({ clientX, clientY }) {
-			this.cursorPos = `translate(calc(${clientX}px - 50%), calc(${clientY}px + 50%))`
+			this.cursorPos = `translate(calc(${clientX}px - 50%), calc(${clientY}px + 25px))`
 		},
 		onScroll(event) {
 			// cross-browser wheel delta
@@ -160,7 +158,7 @@ export default {
 			const val = clamp(
 				0,
 				this.progress - e.wheelDelta / this.accountedHeight,
-				1.5
+				0.99
 			)
 
 			if (this.scrollable) {
@@ -172,7 +170,7 @@ export default {
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			this.setProgress(clamp(0, e.clientY / this.componentHeight, 1.1))
+			this.setProgress(clamp(0, e.clientY / this.componentHeight, 0.99))
 		},
 		height(idx) {
 			return `${getRandomIntHash(idx) * 20 + 80}%`

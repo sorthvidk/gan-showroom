@@ -20,10 +20,16 @@
 						v-for="image in group.cloudinaryUrl"
 						:key="image"
 						:src="getImage(image).src"
+						v-show="loaded === group.cloudinaryUrl.length"
+						@load="isLoaded"
 					/>
 				</div>
 			</div>
-			<p v-html="group.text || group.name" />
+			<div class="text">
+				<h1>{{ group.name }}</h1>
+				<p v-if="group.text" v-html="group.text" />
+				<!-- <p>{{ loaded }}</p> -->
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,6 +51,7 @@ export default {
 	},
 	data: () => ({
 		greyPixel,
+		loaded: 0,
 	}),
 	methods: {
 		getImage(src) {
@@ -52,6 +59,9 @@ export default {
 				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
 				loading: greyPixel,
 			}
+		},
+		isLoaded() {
+			return this.loaded++
 		},
 	},
 }

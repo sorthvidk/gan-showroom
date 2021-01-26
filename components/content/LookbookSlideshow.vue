@@ -1,14 +1,24 @@
 <template>
 	<transition name="fade">
 		<div class="lookbook-slideshow">
+			<preload-images
+				:srcs="[
+					...content.map((i) => getMediaUrl(i.type, i.cloudinaryUrl).src),
+					...content.map(
+						(i) => getMediaUrl(i.type, i.cloudinaryUrl, { thumbnail: true }).src
+					),
+				]"
+			/>
+
 			<div class="lookbook-slideshow__content">
 				<transition name="fade">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
 						<div v-for="(activeContent, i) in activePage" :key="`asgaf${i}`">
 							<img
 								v-if="activeContent.type === 'image'"
-								v-lazy="
+								:src="
 									getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
+										.src
 								"
 								alt=""
 							/>
@@ -95,10 +105,11 @@ import Loading from '~/components/content/Loading.vue'
 import { nextIndex, prevIndex } from '~/utils/array-helpers'
 import { transparentPixel } from '~/utils/placeholders'
 import { DASHBOARD_DARK } from '~/model/constants'
+import PreloadImages from './PreloadImages.vue'
 
 export default {
 	extends: WindowContent,
-	components: { Loading },
+	components: { Loading, PreloadImages },
 	name: 'lookbook-slideshow',
 	props: {
 		contentId: { type: String, default: 'lookBook', required: true },
@@ -127,17 +138,13 @@ export default {
 					`
 				)
 
-				return this.content
-					.reduce((acc, cur) => {
-						if (!acc[acc.length - 1] || acc[acc.length - 1].length > 1) {
-							acc.push([])
-						}
-
-						acc[acc.length - 1].push(cur)
-
-						return acc
-					}, [])
-					.map((x) => x.filter((y) => y !== 'empty'))
+				return this.content.reduce((acc, cur) => {
+					if (!acc[acc.length - 1] || acc[acc.length - 1].length > 1) {
+						acc.push([])
+					}
+					acc[acc.length - 1].push(cur)
+					return acc
+				}, [])
 			}
 
 			return this.content

@@ -6,7 +6,7 @@
 	background: $color-white;
 
 	position: relative;
-	z-index: 1;
+	z-index: 10000;
 
 	user-select: none;
 
@@ -19,7 +19,7 @@
 	}
 
 	&__cursor {
-		@include windowtitle();
+		@include bodytext();
 
 		position: fixed;
 		z-index: 100000;

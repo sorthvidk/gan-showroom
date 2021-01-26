@@ -1,7 +1,7 @@
 # used for local development:
 backend:
   name: git-gateway
-  branch: master
+  branch: feb-2021
   publish_mode: editorial_workflow
 
 # when using the default proxy server port
@@ -110,6 +110,13 @@ collections:
           widget: 'text',
           required: false,
           hint: "Name of features ex. 'Pockets'",
+        }
+      - {
+          label: 'Re-runner',
+          name: 're-runner',
+          widget: 'boolean',
+          required: false,
+          hint: 'Whether the style is a re-runnner',
         }
       # - {
       #     label: 'Drop',

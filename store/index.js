@@ -394,99 +394,109 @@ export const actions = {
 		commit(
 			'assistant/' + FETCH_ASSISTANT.mutation,
 			await getData(
-				require.context(`~/assets/test/assistant/`, false, /\.json$/)
+				require.context(`~/assets/content/assistant/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'exhibition/' + FETCH_EXHIBITION.mutation,
 			await getData(
-				require.context(`~/assets/test/exhibition/`, false, /\.json$/)
+				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
 			await getData(
-				require.context(`~/assets/test/exhibitionAssets/`, false, /\.json$/)
+				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
 			await getData(
-				require.context('~/assets/test/collectionItems/', false, /\.json$/)
+				require.context('~/assets/content/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
 			await getData(
-				require.context('~/assets/test/collectionFilters/', false, /\.json$/)
+				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
 			await getData(
-				require.context('~/assets/test/collectionGroups/', false, /\.json$/)
+				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
 			await getData(
-				require.context('~/assets/test/mediaAssets/', false, /\.json$/)
+				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + FETCH_FILMS.mutation,
-			await getData(require.context('~/assets/test/films/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/films/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'assets/' + FETCH_GANNIGIRLS.mutation,
 			await getData(
-				require.context('~/assets/test/ganniGirls/', false, /\.json$/)
+				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,
 			await getData(
-				require.context('~/assets/test/lookBook/', false, /\.json$/)
+				require.context('~/assets/content/lookBook/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + FETCH_ANAS.mutation,
-			await getData(require.context('~/assets/test/anas/', false, /\.json$/))
+			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
 		)
 
 		commit(
 			'assets/' + FETCH_DITTE.mutation,
-			await getData(require.context('~/assets/test/ditte/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/ditte/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'assets/' + FETCH_ABOUT.mutation,
-			await getData(require.context('~/assets/test/about/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/about/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'assets/' + FETCH_DESKTOP.mutation,
-			await getData(require.context('~/assets/test/desktop/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'assets/' + FETCH_INTRO.mutation,
-			await getData(require.context('~/assets/test/intro/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/intro/', false, /\.json$/)
+			)
 		)
 
 		commit('assets/' + FETCH_GENERAL.mutation, {
 			data: await getData(
-				require.context('~/assets/test/general/', false, /\.json$/)
+				require.context('~/assets/content/general/', false, /\.json$/)
 			),
 			rootState: state
 		})
@@ -494,38 +504,42 @@ export const actions = {
 		commit(
 			'user/' + FETCH_PASSWORDS.mutation,
 			await getData(
-				require.context('~/assets/test/passwords/', false, /\.json$/)
+				require.context('~/assets/content/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'ganniFm/' + FETCH_SONGS.mutation,
-			await getData(require.context('~/assets/test/songs/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'utils/' + FETCH_VARIOUS.mutation,
-			await getData(require.context('~/assets/test/various/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/various/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'audio/' + FETCH_SUBTITLES.mutation,
 			await getData(
-				require.context('~/assets/test/subtitles/', false, /\.json$/)
+				require.context('~/assets/content/subtitles/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'assets/' + FETCH_DOWNLOADS.mutation,
 			await getData(
-				require.context('~/assets/test/downloads/', false, /\.json$/)
+				require.context('~/assets/content/downloads/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'audio/' + FETCH_SCROLL_IMAGES.mutation,
 			await getData(
-				require.context('~/assets/test/scrollImages/', false, /\.json$/)
+				require.context('~/assets/content/scrollImages/', false, /\.json$/)
 			)
 		)
 

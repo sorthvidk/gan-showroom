@@ -23,6 +23,7 @@ export default {
 		spin: false,
 		pivot: null,
 		start: 0,
+		startRot: 0,
 		hovering: false,
 
 		renderer: null,
@@ -39,7 +40,7 @@ export default {
 	methods: {
 		rotateText(container, i) {
 			var containerW = container.offsetWidth
-			var containerH = container.offsetHeight || 30
+			var containerH = container.offsetHeight || 50
 
 			this.renderer = new THREE.WebGLRenderer({
 				alpha: true,
@@ -68,10 +69,10 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
-			const height = 80
+			const height = 60
 			var geometry = new THREE.TextGeometry(this.$props.text, {
 				font,
-				size: 130,
+				size: 80,
 				height,
 			})
 
@@ -90,6 +91,7 @@ export default {
 			this.pivot.add(text)
 			this.scene.add(this.pivot)
 
+			this.renderer.render(this.scene, this.camera)
 			this.$nextTick(() => this.renderer.render(this.scene, this.camera))
 		},
 		render() {
@@ -99,35 +101,36 @@ export default {
 			if (this.spin && !this.hovering) {
 				const newVal = this.t * (Math.PI * 2)
 
-				this.pivot.rotation[this.y ? 'y' : 'x'] = -newVal
+				this.pivot.rotation.x = -newVal
 
 				if (newVal >= Math.PI * 2) {
 					this.spin = false
 					this.t = 0
-					// this.y = !this.y
 					this.pivot.rotation.x = 0
-					// this.pivot.rotation.y = 0
 				}
 
-				this.t += this.y ? 0.006 : 0.012
+				this.t += 0.012
 			}
 		},
 		revert() {
-			if (this.pivot.rotation.y !== 0) requestAnimationFrame(this.revert)
+			if (!this.hovering && this.pivot.rotation.y !== 0)
+				requestAnimationFrame(this.revert)
 			this.renderer.render(this.scene, this.camera)
 
-			this.pivot.rotation.y -= this.pivot.rotation.y / 15
+			this.pivot.rotation.y -= this.pivot.rotation.y / 20
 
 			if (this.pivot.rotation.y <= 0.0001 && this.pivot.rotation.y >= -0.0001)
 				this.pivot.rotation.y = 0
 		},
 		setStart(e) {
+			this.hovering = true
 			this.start = e.offsetX / e.target.offsetWidth
+			this.startRot = this.pivot.rotation.y
 		},
 		rotate(e) {
 			this.hovering = true
 			const val = e.offsetX / e.target.offsetWidth
-			this.pivot.rotation.y = (val - this.start) * Math.PI
+			this.pivot.rotation.y = (val - this.start) * (Math.PI / 2) + this.startRot
 			this.renderer.render(this.scene, this.camera)
 		},
 		back(e) {

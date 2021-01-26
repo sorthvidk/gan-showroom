@@ -2,15 +2,11 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<preload-images :srcs="[various.dashboardBackground]" />
 
-		<!-- <keep-alive> -->
-		<!-- <div v-show=""> -->
 		<audio-player
 			v-if="audioGalleryDone"
 			:sources="[song.src]"
 			:title="song.title"
 		/>
-		<!-- </div> -->
-		<!-- </keep-alive> -->
 
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->

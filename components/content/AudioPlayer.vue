@@ -18,13 +18,6 @@
 import { mapState, mapActions } from 'vuex'
 import VueHowler from 'vue-howler'
 import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
-// import {
-// 	AUDIO_PROGRESS,
-// 	AUDIO_DURATION,
-// 	AUDIO_IS_PLAYING,
-// 	AUDIO_SCROLLABLE,
-// 	IS_INTRO,
-// } from '~/model/constants'
 import { MMSS } from '~/utils/HHMMSS'
 
 export default {
