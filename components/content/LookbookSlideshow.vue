@@ -11,9 +11,15 @@
 			/>
 
 			<div class="lookbook-slideshow__content">
-				<transition name="fade">
+				<transition name="fade--fast">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
 						<div v-for="(activeContent, i) in activePage" :key="`asgaf${i}`">
+							<!-- :style="{ position: 'relative' }" -->
+							<!-- <transition-group
+								tag="div"
+								name="fade--absolute"
+								:style="{ width: '100%', height: '100%' }"
+							> -->
 							<img
 								v-if="activeContent.type === 'image'"
 								:src="
@@ -21,6 +27,7 @@
 										.src
 								"
 								alt=""
+								:key="activeContent.cloudinaryUrl"
 							/>
 							<video
 								v-if="activeContent.type === 'video'"
@@ -33,10 +40,11 @@
 								autoplay
 								loop
 							/>
+							<!-- </transition-group> -->
 						</div>
 					</div>
 				</transition>
-				<transition name="fade">
+				<transition name="fade--fast">
 					<div v-if="overview" class="lookbook-slideshow__overview">
 						<div
 							v-for="(item, i) in content"
@@ -45,10 +53,10 @@
 						>
 							<img
 								v-if="item.type === 'image'"
-								v-lazy="
+								:src="
 									getMediaUrl(item.type, item.cloudinaryUrl, {
 										thumbnail: true,
-									})
+									}).src
 								"
 								alt=""
 							/>

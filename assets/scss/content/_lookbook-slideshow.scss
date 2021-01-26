@@ -57,11 +57,18 @@
 			}
 		}
 
+		@keyframes fade {
+			from {
+				opacity: 0;
+			}
+		}
+
 		img,
 		video {
 			object-fit: cover;
 			height: 100%;
 			width: 100%;
+			animation: fade forwards 0.4s $easeInOutQuint;
 		}
 	}
 
@@ -83,14 +90,14 @@
 			cursor: pointer;
 		}
 
-		@keyframes fade {
-			from {
-				opacity: 0;
-			}
-		}
+		// @keyframes fade {
+		// 	from {
+		// 		opacity: 0;
+		// 	}
+		// }
 
-		video {
-			animation: fade 0.4s $easeInOutQuint forwards;
-		}
+		// video {
+		// 	animation: fade 0.4s $easeInOutQuint forwards;
+		// }
 	}
 }

@@ -1,10 +1,15 @@
 .audio-spectrum-bars {
 	position: fixed;
-	left: calc(25vw + 45px);
+	left: calc(80vw + 45px);
 	display: flex;
 	align-items: baseline;
 
+	@include mq($from: screen-sm) {
+		left: calc(25vw + 45px);
+	}
+
 	&__bar {
+		transition: transform 2s;
 		transform-origin: bottom;
 		transform: scaleY(0);
 		display: inline-block;

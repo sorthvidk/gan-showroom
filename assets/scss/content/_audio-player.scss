@@ -14,12 +14,20 @@
 
 	&__time {
 		position: fixed;
-		left: 25vw;
+		left: 82vw;
+
+		@include mq($from: screen-sm) {
+			left: 25vw;
+		}
 	}
 
 	&__name {
 		@include truncate();
-		width: calc(25vw - 60px);
+		width: calc(82vw - 60px);
+
+		@include mq($from: screen-sm) {
+			width: calc(25vw - 60px);
+		}
 	}
 
 	button {

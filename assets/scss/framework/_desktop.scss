@@ -9,6 +9,7 @@
 	height: 100vh;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
+	min-width: 1024px;
 
 	overflow: hidden;
 
@@ -55,7 +56,7 @@
 	}
 	&__windows {
 		position: fixed;
-		z-index: 1001;
+		z-index: 10001;
 		top: 0;
 		left: 0;
 	}

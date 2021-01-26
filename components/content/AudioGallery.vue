@@ -8,9 +8,13 @@
 				moveCursor(e)
 			}
 		"
-		@mouseup="() => (scrolling = false)"
+		@mouseup="
+			() => {
+				if (!scrolling) togglePlayback()
+				scrolling = false
+			}
+		"
 		@wheel="onScroll"
-		@click="togglePlayback"
 	>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
 			<button @click="togglePlayback">
@@ -27,12 +31,7 @@
 		>
 			<p>Click to play</p>
 		</div>
-		<!-- <audio-player
-			v-if="various.scrollAudio"
-			:title="various.scrollAudio.title"
-			ref="audio-player"
-			:autoplay="true"
-		/> -->
+
 		<div
 			class="audio-gallery__scrollbar"
 			@mousedown="
@@ -83,6 +82,7 @@ import { getRandomIntHash } from '~/utils/get-random-int-hash'
 import { lastElement } from '~/utils/array-helpers'
 import AudioPlayer from './AudioPlayer.vue'
 import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
+import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
 	mixins: [VueHowler],
@@ -135,6 +135,7 @@ export default {
 		},
 	},
 	methods: {
+		...mapActions('utils', [DASHBOARD_DARK.action]),
 		getMediaUrl(type, cloudinaryUrl) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
@@ -170,7 +171,8 @@ export default {
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			this.setProgress(clamp(0, e.clientY / this.componentHeight, 0.99))
+			const val = clamp(0, e.clientY / this.componentHeight, 0.99)
+			this.setProgress(val)
 		},
 		height(idx) {
 			return `${getRandomIntHash(idx) * 20 + 80}%`
@@ -180,6 +182,7 @@ export default {
 		this.componentHeight = parseInt(
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
+		this[DASHBOARD_DARK.action](false)
 	},
 }
 </script>

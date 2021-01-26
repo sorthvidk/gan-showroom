@@ -1,6 +1,6 @@
 <template>
 	<div
-		:style="{ position: 'relative' }"
+		:style="{ position: 'relative', display: 'flex', justifyContent: 'center' }"
 		@mouseenter="setStart"
 		@mousemove="rotate"
 		@mouseleave="back"
@@ -19,7 +19,6 @@ export default {
 	},
 	data: () => ({
 		t: 0,
-		y: false,
 		spin: false,
 		pivot: null,
 		start: 0,
@@ -54,7 +53,7 @@ export default {
 
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(
-				0.5,
+				1,
 				containerW / containerH,
 				10,
 				100000
@@ -69,10 +68,10 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
-			const height = 60
+			const height = 100
 			var geometry = new THREE.TextGeometry(this.$props.text, {
 				font,
-				size: 80,
+				size: 160,
 				height,
 			})
 
