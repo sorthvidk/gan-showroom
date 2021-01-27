@@ -17,9 +17,9 @@
 		@wheel="onScroll"
 	>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
-			<button @click="togglePlayback">
+			<div>
 				<svg-icon :name="playing ? 'pause' : 'play'" />
-			</button>
+			</div>
 			<p class="audio-player__name">{{ various.scrollAudio.title }}</p>
 			<p class="audio-player__time">{{ currentTime }}</p>
 			<audio-spectrum-bars :animate="playing" />
@@ -155,8 +155,6 @@ export default {
 			// Chrome / IE: first one is +/-120 (positive on mouse up), second one is zero
 			// Firefox: first one is undefined, second one is -/+3 (negative on mouse up)
 			var delta = e.wheelDelta || -e.deltaY
-
-			console.log(e.wheelDelta, e.deltaY)
 
 			const val = clamp(0, this.progress - delta / this.accountedHeight, 0.999)
 

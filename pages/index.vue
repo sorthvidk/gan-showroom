@@ -68,6 +68,7 @@ import {
 	KEYPRESS,
 	MOUSEMOVE,
 	RESET_STATE,
+	USER_HAS_INTERACTED,
 } from '~/model/constants'
 
 export default {
@@ -111,7 +112,12 @@ export default {
 	},
 	methods: {
 		...mapActions([RESET_STATE.action]),
-		...mapActions('user', [KEYPRESS.action, IDLE.action, MOUSEMOVE.action]),
+		...mapActions('user', [
+			KEYPRESS.action,
+			IDLE.action,
+			MOUSEMOVE.action,
+			USER_HAS_INTERACTED.action,
+		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 
 		onidle() {
@@ -145,7 +151,11 @@ export default {
 				this[RESET_STATE.action](event)
 			}
 		})
-		document.body.addEventListener('click', this.nonidle.bind(this))
+		document.body.addEventListener('click', () => {
+			this.nonidle()
+			this[USER_HAS_INTERACTED.action]()
+		})
+
 		document.body.addEventListener('mousemove', this.nonidle.bind(this))
 
 		window.addEventListener('mousemove', (event) => {

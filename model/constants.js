@@ -14,6 +14,7 @@ export const COPYRIGHT_ACCEPT = create('COPYRIGHT_ACCEPT')
 export const SAVE_AS_BACKGROUND = create('SAVE_AS_BACKGROUND')
 export const IDLE = create('IDLE')
 export const RESET_STATE = create('RESET_STATE')
+export const USER_HAS_INTERACTED = create('USER_HAS_INTERACTED')
 
 export const CURRENT_STYLE = create('CURRENT_STYLE')
 export const SET_HIDDEN_ASSETS = create('SET_HIDDEN_ASSETS')

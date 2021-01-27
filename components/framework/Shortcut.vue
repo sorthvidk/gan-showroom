@@ -1,22 +1,22 @@
 <template>
-	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
-		<!-- @mouseenter="changeBackground"
+	<!-- <transition @before-appear="beforeAnimateIn" @appear="animateIn"> -->
+	<!-- @mouseenter="changeBackground"
 			@mouseleave="changeBackground(false)" -->
-		<button
-			@click="onClick"
-			class="shortcut shortcut-bottombar"
-			:class="{
-				active:
-					dashboardContent && dashboardContent.contentComponent === shortcutId,
-			}"
-			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
-		>
-			<span class="icon" v-if="!textLayout">
-				<img :src="icon" />
-			</span>
-			<span class="text">{{ label }}</span>
-		</button>
-	</transition>
+	<button
+		@click="onClick"
+		class="shortcut shortcut-bottombar"
+		:class="{
+			active:
+				dashboardContent && dashboardContent.contentComponent === shortcutId,
+		}"
+		:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
+	>
+		<span class="icon" v-if="!textLayout">
+			<img :src="icon" />
+		</span>
+		<span class="text">{{ label }}</span>
+	</button>
+	<!-- </transition> -->
 </template>
 
 <script>

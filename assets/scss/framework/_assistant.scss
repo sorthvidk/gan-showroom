@@ -1,8 +1,17 @@
+@keyframes delayed {
+	to {
+		opacity: 1;
+	}
+}
+
 .window {
 	&--assistant {
 		z-index: $z-index-assistant !important;
 
 		background-color: $color-marigold-yellow;
+
+		opacity: 0;
+		animation: delayed 0s 0.3s forwards;
 
 		.title {
 			@include windowtitle();
@@ -259,7 +268,7 @@
 
 	&__ctas {
 		display: flex;
-		flex-wrap: wrap;
+		// flex-wrap: wrap;
 		justify-content: space-between;
 
 		a {

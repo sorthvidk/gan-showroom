@@ -6,7 +6,7 @@
   -->
 	<audio-gallery
 		:sources="[various.scrollAudio.src]"
-		:autoplay="true"
+		:autoplay="userHasInteracted"
 		@played-through="$emit('played-through')"
 	/>
 </template>
@@ -20,6 +20,7 @@ export default {
 		AudioGallery,
 	},
 	computed: {
+		...mapState('user', ['userHasInteracted']),
 		...mapState('utils', ['various']),
 	},
 }
