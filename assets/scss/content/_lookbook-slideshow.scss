@@ -23,6 +23,10 @@
 	&__button {
 		display: inline-flex;
 		padding: rem(10);
+
+		&:last-of-type {
+			padding-right: rem(20);
+		}
 	}
 
 	&__ui {

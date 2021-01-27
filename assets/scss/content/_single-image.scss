@@ -3,8 +3,11 @@
 	width: 100%;
 	display: flex !important;
 	justify-content: center;
+	align-items: center;
 
 	position: relative;
+
+	user-select: none;
 
 	// background: url('/img/hourglass.gif') no-repeat center center;
 	// background-size: 25%;

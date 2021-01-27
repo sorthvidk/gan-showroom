@@ -1,6 +1,13 @@
 <template>
 	<div
-		:style="{ position: 'relative', display: 'flex', justifyContent: 'center' }"
+		:style="{
+			position: 'relative',
+			display: 'flex',
+			justifyContent: 'center',
+			zIndex: 10,
+			transform: 'translateY(-50%)',
+			top: '50%',
+		}"
 		@mouseenter="setStart"
 		@mousemove="rotate"
 		@mouseleave="back"
@@ -39,7 +46,7 @@ export default {
 	methods: {
 		rotateText(container, i) {
 			var containerW = container.offsetWidth
-			var containerH = container.offsetHeight || 50
+			var containerH = container.offsetHeight || 200
 
 			this.renderer = new THREE.WebGLRenderer({
 				alpha: true,
@@ -68,10 +75,11 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
-			const height = 100
+			const size = containerH / 5
+			const height = size / 1.3
 			var geometry = new THREE.TextGeometry(this.$props.text, {
 				font,
-				size: 160,
+				size,
 				height,
 			})
 
@@ -82,7 +90,7 @@ export default {
 
 			var textWidth = geometry.boundingBox.max.x - geometry.boundingBox.min.x
 			var textHeight = geometry.boundingBox.max.y - geometry.boundingBox.min.y
-			text.position.set(-0.5 * textWidth, -textHeight * 0.5, -height / 2)
+			text.position.set(-0.5 * textWidth, -0.5 * textHeight, -height / 2)
 
 			this.scene.add(text)
 

@@ -27,25 +27,7 @@
 					</p>
 					<p v-if="contentComponent === 'wish-list'">({{ wishList.length }})</p>
 				</span>
-				<button
-					:style="{
-						lineHeight: 0,
-						fontSize: '20px',
-						fontWeight: 'normal',
-						marginTop: '-0.2em',
-					}"
-					class="button close"
-					@click.stop="closeHandler"
-				>
-					<!-- <span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							<path
-								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-							/>
-						</svg>
-					</span> -->
-					&times;
-				</button>
+				<button class="button close" @click.stop="closeHandler">&times;</button>
 			</header>
 			<div
 				v-if="statusComponent"
