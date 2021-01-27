@@ -9,17 +9,19 @@
 	opacity: 0.6;
 }
 
+@mixin window-box-shadow() {
+	box-shadow: 0 0 rem(4) rem(2) rgba(0, 0, 0, 0.1);
+}
+
 .window {
 	$chrome-height: 65;
-	// $chrome-height-no-status: 30;
 	$chrome-height-no-status: 30;
 
 	$module: '.window';
 
+	@include window-box-shadow();
+
 	background-color: $color-white;
-	// border: rem(1) solid $color-black;
-	// box-shadow: rem(4) rem(4) 0 0 rgba(0, 0, 0, 0.2);
-	box-shadow: 0 0 rem(4) rem(2) rgba(0, 0, 0, 0.1);
 
 	position: absolute;
 	top: 0;

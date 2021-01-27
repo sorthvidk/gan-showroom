@@ -155,6 +155,8 @@
 
 		.empty {
 			@include bodytext();
+
+			text-align: center;
 		}
 	}
 

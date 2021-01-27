@@ -17,7 +17,8 @@
 			<!-- step 2 -->
 			<transition name="slide-in-out">
 				<audio-gallery-controller
-					v-if="loggedIn && !audioGalleryDone"
+					v-show="loggedIn && !audioGalleryDone"
+					v-if="!dashboardContent.contentId"
 					@played-through="audioGalleryDone = true"
 				/>
 			</transition>
@@ -84,6 +85,7 @@ export default {
 		audioGalleryDone: false,
 	}),
 	computed: {
+		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),

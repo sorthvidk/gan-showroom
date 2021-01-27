@@ -3,6 +3,8 @@
 
 	// transform: translateY(100%);
 
+	@include window-box-shadow();
+
 	position: fixed;
 	bottom: rem(10);
 	right: rem(10);

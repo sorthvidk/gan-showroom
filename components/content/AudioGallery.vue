@@ -127,8 +127,8 @@ export default {
 	},
 	watch: {
 		progress() {
-			if (this.progress >= 0.99) {
-				this.scrollable = false
+			if (this.progress >= 0.9999) {
+				// this.scrollable = false
 				this.stop()
 				this.$emit('played-through')
 			}
@@ -159,7 +159,7 @@ export default {
 			const val = clamp(
 				0,
 				this.progress - e.wheelDelta / this.accountedHeight,
-				0.99
+				0.9999
 			)
 
 			if (this.scrollable) {
@@ -171,7 +171,7 @@ export default {
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			const val = clamp(0, e.clientY / this.componentHeight, 0.99)
+			const val = clamp(0, e.clientY / this.componentHeight, 0.9999)
 			this.setProgress(val)
 		},
 		height(idx) {
