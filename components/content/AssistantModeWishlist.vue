@@ -19,7 +19,11 @@
 		<div class="assistant__ctas" v-if="wishList.length">
 			<a
 				class="button download-wishlist button--half"
-				:href="`${pdfDownloadLink}&url=${encodeURIComponent(wishListUrl)}`"
+				:href="
+					__prod__
+						? `${pdfDownloadLink}&url=${encodeURIComponent(wishListUrl)}`
+						: '#'
+				"
 				@click="downloadWishListClickHandler"
 			>
 				<!-- :href="pdfDownloadLink" -->
@@ -54,7 +58,7 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 import {
 	DOWNLOAD_PREPARING,
 	CLIPBOARD_COPY,
-	SHORTENED_URL
+	SHORTENED_URL,
 } from '~/model/constants'
 import getShortUrl from '~/utils/get-short-url'
 import copyToClipboard from '~/utils/copy-to-clipboard'
@@ -64,25 +68,29 @@ import selectText from '~/utils/select-text'
 export default {
 	name: 'assistant-mode-wishlist',
 	data: () => ({
-		showClipboardMessage: false
+		showClipboardMessage: false,
 	}),
 	computed: {
 		...mapState('assistant', ['pdfDownloadLink']),
-		...mapState('utils', ['clipBoardCopyComplete', 'shortenedReceiptUrl']),
+		...mapState('utils', [
+			'clipBoardCopyComplete',
+			'shortenedReceiptUrl',
+			'__prod__',
+		]),
 		...mapState('collection', ['wishList']),
 
-		...mapGetters('collection', ['wishListUrl'])
+		...mapGetters('collection', ['wishListUrl']),
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {
 			this.showClipboardMessage = newVal
-		}
+		},
 	},
 	methods: {
 		...mapActions('utils', [
 			DOWNLOAD_PREPARING.action,
 			CLIPBOARD_COPY.action,
-			SHORTENED_URL.action
+			SHORTENED_URL.action,
 		]),
 
 		downloadWishListClickHandler(url) {
@@ -93,7 +101,7 @@ export default {
 			if (window.GS_LOGS) console.log('Share wishlist', this.wishListUrl)
 
 			copyToClipboard(this.wishListUrl, this.copyToClipboardComplete.bind(this))
-			let wLS = this.wishList.map(style => style.styleId).join(',')
+			let wLS = this.wishList.map((style) => style.styleId).join(',')
 			sendTracking('Share wish list', wLS)
 
 			// getShortUrl(this.wishListUrl).then(shortenedUrl => {
@@ -115,7 +123,7 @@ export default {
 		},
 		shareUrlClickHandler(event) {
 			selectText(event)
-		}
-	}
+		},
+	},
 }
 </script>

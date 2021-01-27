@@ -127,7 +127,7 @@ export default {
 	},
 	watch: {
 		progress() {
-			if (this.progress >= 0.9999) {
+			if (this.progress >= 0.999) {
 				// this.scrollable = false
 				this.stop()
 				this.$emit('played-through')
@@ -154,13 +154,11 @@ export default {
 			var e = window.event || event
 			// Chrome / IE: first one is +/-120 (positive on mouse up), second one is zero
 			// Firefox: first one is undefined, second one is -/+3 (negative on mouse up)
-			var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
+			var delta = e.wheelDelta || -e.deltaY
 
-			const val = clamp(
-				0,
-				this.progress - e.wheelDelta / this.accountedHeight,
-				0.9999
-			)
+			console.log(e.wheelDelta, e.deltaY)
+
+			const val = clamp(0, this.progress - delta / this.accountedHeight, 0.999)
 
 			if (this.scrollable) {
 				this.setProgress(val)
@@ -171,7 +169,7 @@ export default {
 		scrollTo(e) {
 			if (!this.scrolling) return
 
-			const val = clamp(0, e.clientY / this.componentHeight, 0.9999)
+			const val = clamp(0, e.clientY / this.componentHeight, 0.999)
 			this.setProgress(val)
 		},
 		height(idx) {

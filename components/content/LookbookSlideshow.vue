@@ -35,8 +35,8 @@
 									getMediaUrl(activeContent.type, activeContent.cloudinaryUrl)
 										.src
 								"
-								:poster="transparentPixel"
 								preload
+								:poster="transparentPixel"
 								autoplay
 								loop
 							/>
@@ -67,11 +67,11 @@
 										thumbnail: true,
 									}).src
 								"
-								:poster="transparentPixel"
 								preload
 								muted
 								autoplay
 							/>
+							<!-- :poster="transparentPixel" -->
 						</div>
 					</div>
 				</transition>

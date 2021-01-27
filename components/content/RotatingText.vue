@@ -1,18 +1,25 @@
 <template>
 	<div
 		:style="{
-			position: 'relative',
-			display: 'flex',
-			justifyContent: 'center',
-			zIndex: 10,
-			transform: 'translateY(-50%)',
-			top: '50%',
+			height: '100%',
 		}"
-		@mouseenter="setStart"
-		@mousemove="rotate"
-		@mouseleave="back"
-		ref="rotating-text"
-	></div>
+		@mouseenter.self="setStart"
+		@mousemove.self="rotate"
+		@mouseleave.self="back"
+	>
+		<div
+			:style="{
+				position: 'relative',
+				display: 'flex',
+				justifyContent: 'center',
+				zIndex: 10,
+				transform: 'translateY(-50%)',
+				top: '50%',
+				pointerEvents: 'none',
+			}"
+			ref="rotating-text"
+		></div>
+	</div>
 </template>
 
 <script>
@@ -46,7 +53,7 @@ export default {
 	methods: {
 		rotateText(container, i) {
 			var containerW = container.offsetWidth
-			var containerH = container.offsetHeight || 200
+			var containerH = container.offsetHeight || 300
 
 			this.renderer = new THREE.WebGLRenderer({
 				alpha: true,
@@ -57,6 +64,8 @@ export default {
 			this.renderer.setSize(containerW, containerH)
 			this.renderer.setClearColor(0x000000, 0)
 			container.appendChild(this.renderer.domElement)
+
+			this.renderer.domElement.style.pointerEvents = 'none'
 
 			this.scene = new THREE.Scene()
 			this.camera = new THREE.PerspectiveCamera(
@@ -75,7 +84,7 @@ export default {
 
 			// This is your 3D text:
 			const font = new THREE.Font(fontJson)
-			const size = containerH / 5
+			const size = containerH / 11
 			const height = size / 1.3
 			var geometry = new THREE.TextGeometry(this.$props.text, {
 				font,
@@ -124,7 +133,7 @@ export default {
 				requestAnimationFrame(this.revert)
 			this.renderer.render(this.scene, this.camera)
 
-			this.pivot.rotation.y -= this.pivot.rotation.y / 20
+			this.pivot.rotation.y -= this.pivot.rotation.y / 15
 
 			if (this.pivot.rotation.y <= 0.0001 && this.pivot.rotation.y >= -0.0001)
 				this.pivot.rotation.y = 0
@@ -137,7 +146,7 @@ export default {
 		rotate(e) {
 			this.hovering = true
 			const val = e.offsetX / e.target.offsetWidth
-			this.pivot.rotation.y = (val - this.start) * (Math.PI / 2) + this.startRot
+			this.pivot.rotation.y = (val - this.start) * (Math.PI / 6) + this.startRot
 			this.renderer.render(this.scene, this.camera)
 		},
 		back(e) {
@@ -151,7 +160,7 @@ export default {
 
 		setInterval(() => {
 			this.spin = true
-		}, 10000)
+		}, 6000)
 	},
 }
 </script>

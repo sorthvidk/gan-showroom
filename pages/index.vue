@@ -17,8 +17,8 @@
 			<!-- step 2 -->
 			<transition name="slide-in-out">
 				<audio-gallery-controller
-					v-show="loggedIn && !audioGalleryDone"
-					v-if="!dashboardContent.contentId"
+					v-show="!audioGalleryDone"
+					v-if="loggedIn && !dashboardContent.contentId"
 					@played-through="audioGalleryDone = true"
 				/>
 			</transition>

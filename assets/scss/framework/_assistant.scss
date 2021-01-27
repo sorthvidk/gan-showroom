@@ -120,6 +120,33 @@
 	}
 }
 
+@mixin button-animation() {
+	* {
+		z-index: 1;
+	}
+
+	&:after {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		display: inline-flex;
+		width: 100%;
+		transform: scaleX(0);
+		transform-origin: left;
+		background-color: rgba($color-buttonactive, 0.7);
+		z-index: 0;
+	}
+
+	&.is-animating {
+		&:after {
+			animation: dye-background 1s linear;
+		}
+	}
+}
+
 .assistant {
 	h3 {
 		@include headline();
@@ -249,6 +276,11 @@
 				background-color: $color-buttonhover;
 			}
 
+			&.is-animating {
+				position: relative;
+				@include button-animation();
+			}
+
 			img {
 				width: 1em;
 				height: 1em;
@@ -266,8 +298,6 @@
 				}
 
 				&.is-active {
-					// background-color: lighten($color-yellow, 20%);
-					background-color: $color-black;
 				}
 			}
 
@@ -295,6 +325,7 @@
 
 		.add-to-wishlist {
 			position: relative;
+
 			.icon {
 				position: relative;
 				z-index: 1;
@@ -311,31 +342,11 @@
 				}
 			}
 
-			&:after {
-				display: block;
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				display: inline-flex;
-				width: 0.001%;
-				background-color: $color-marigold-yellow;
-				z-index: 0;
-			}
-
 			p {
 				position: relative;
 				z-index: 1;
 				padding-left: 0;
 				transition: padding-left 0.2s ease;
-			}
-
-			&.is-animating {
-				&:after {
-					animation: dye-background 2s;
-					animation-iteration-count: 1;
-				}
 			}
 
 			&.is-active {
@@ -415,18 +426,15 @@
 		}
 
 		@keyframes dye-background {
-			0% {
-				width: 0.001%;
+			to {
+				transform: scaleX(1);
 			}
-			40% {
-				width: 100%;
-			}
-			60% {
-				width: 100%;
-			}
-			100% {
-				width: 0.001%;
-			}
+			// 60% {
+			// 	width: 100%;
+			// }
+			// 100% {
+			// 	width: 0.001%;
+			// }
 		}
 
 		@keyframes checkmark-stroke {

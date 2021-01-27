@@ -96,7 +96,7 @@
 			<!-- <marquee v-show="!isMobile" /> -->
 
 			<clipboard-message v-if="showClipboardMessage" />
-			<download-message v-if="showDownloadMessage" />
+			<!-- <download-message v-if="showDownloadMessage" /> -->
 			<copywrite-message v-if="!copyrightAccepted" />
 		</div>
 	</transition>
