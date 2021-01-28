@@ -1,18 +1,18 @@
 const path = require('path')
 const helpers = require('./helpers.js')
 
-describe('Collection Items', () => {
-	// globals
-	let collectionItems
-	let configFileAsJSON
-	let collectionItemsFieldsModel
+// globals
+let collectionItems
+let configFileAsJSON
+let collectionItemsFieldsModel
 
+describe('Collection Items', () => {
 	beforeAll(async () => {
 		/**
 		 * Array with all files in /collectionItems as json
 		 * { filePath: 'path/to/file.json', data: {} }
 		 */
-		collectionItems = await helpers.getAssets('collectionStyles')
+		collectionItems = await helpers.getAssets('collectionItems')
 
 		// store config file as json
 		configFileAsJSON = await helpers.configFile
@@ -34,7 +34,7 @@ describe('Collection Items', () => {
 
 	test('Collection Item keys should be named correct', () => {
 		collectionItems.forEach(({ data }) => {
-			for (key in data) {
+			for (let key in data) {
 				expect(collectionItemsFieldsModel[key], data.styleId).toBeDefined()
 			}
 		})
@@ -42,7 +42,7 @@ describe('Collection Items', () => {
 
 	test('Collection Item values should have correct type', () => {
 		collectionItems.forEach(({ data }) => {
-			for (key in data) {
+			for (let key in data) {
 				expect(
 					typeof data[key],
 					`${data.styleId}: incorrect type of '${key}'`
@@ -64,6 +64,10 @@ describe('Collection Items', () => {
 			styleIds.push(data.styleId)
 		})
 	})
+
+	// test('false is true', () => {
+	// 	expect(false).toBe(true)
+	// })
 })
 
 /**s
@@ -85,6 +89,7 @@ function getType(field) {
 		case field.widget === 'relation':
 			return 'string'
 		case field.widget === 'string':
+		case field.widget === 'text':
 			return 'string'
 
 		default:
