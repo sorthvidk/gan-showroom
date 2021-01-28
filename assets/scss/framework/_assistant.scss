@@ -25,7 +25,7 @@
 		right: rem(10);
 		bottom: rem(10 + 30 + 70); //ios navbar + gutter + support (heights)
 
-		user-select: auto;
+		user-select: text;
 
 		@include mq($from: screen-sm) {
 			bottom: rem(20);
