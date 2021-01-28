@@ -94,7 +94,9 @@ export const getters = {
 		state.currentStyle &&
 		state.authorizedGroups.findIndex(
 			g => g.groupId === state.currentStyle.groupId
-		)
+		),
+
+	allStyles: state => state.allStyles
 }
 
 export const mutations = {

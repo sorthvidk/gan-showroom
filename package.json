@@ -58,7 +58,13 @@
 		"vuex-persistedstate": "^3.0.1"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"@vue/compiler-sfc": "^3.0.5",
+		"@vue/test-utils": "^1.1.2",
 		"autoprefixer": "^9.5.1",
+		"babel-core": "^7.0.0-bridge.0",
+		"babel-jest": "^26.6.3",
 		"eslint-config-prettier": "^4.1.0",
 		"eslint-plugin-prettier": "^3.0.1",
 		"jest": "^26.6.3",
@@ -69,6 +75,7 @@
 		"postcss-loader": "^3.0.0",
 		"postcss-units": "^1.2.1",
 		"prettier": "^1.16.4",
-		"sass-loader": "^7.1.0"
+		"sass-loader": "^7.1.0",
+		"vue-jest": "^5.0.0-alpha.8"
 	}
 }

@@ -1,13 +1,13 @@
 const path = require('path')
 const helpers = require('./helpers.js')
 
-// globals
-let mediaAssets
-let collectionItems
-let configFileAsJSON
-let mediaAssetsFields
-
 describe('Media Assets', () => {
+	// globals
+	let mediaAssets
+	let collectionItems
+	let configFileAsJSON
+	let mediaAssetsFields
+
 	beforeAll(async () => {
 		mediaAssets = await helpers.getAssets('mediaAssets')
 		collectionItems = await helpers.getAssets('collectionItems')

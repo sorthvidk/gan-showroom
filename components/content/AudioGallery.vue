@@ -17,9 +17,8 @@
 		@wheel="onScroll"
 	>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
-			<div>
-				<svg-icon :name="playing ? 'pause' : 'play'" />
-			</div>
+			<svg-icon :name="playing ? 'pause' : 'play'" />
+
 			<p class="audio-player__name">{{ various.scrollAudio.title }}</p>
 			<p class="audio-player__time">{{ currentTime }}</p>
 			<audio-spectrum-bars :animate="playing" />

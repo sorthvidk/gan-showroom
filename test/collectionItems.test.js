@@ -1,12 +1,12 @@
 const path = require('path')
 const helpers = require('./helpers.js')
 
-// globals
-let collectionItems
-let configFileAsJSON
-let collectionItemsFieldsModel
-
 describe('Collection Items', () => {
+	// globals
+	let collectionItems
+	let configFileAsJSON
+	let collectionItemsFieldsModel
+
 	beforeAll(async () => {
 		/**
 		 * Array with all files in /collectionItems as json
@@ -18,7 +18,7 @@ describe('Collection Items', () => {
 		configFileAsJSON = await helpers.configFile
 
 		/**
-		 * create an object that acts as a model to check values against
+		 * create an object that acts as a key-value model to check values against
 		 * f.e { styleId: 'string', retailPriceDKK: 'number' }
 		 */
 		collectionItemsFieldsModel = configFileAsJSON.collections
