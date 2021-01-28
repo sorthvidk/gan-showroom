@@ -1,0 +1,15 @@
+{
+  "assets": [],
+  "onWishList": false,
+  "program": -2,
+  "name": "DUPLICATE",
+  "styleId": "K1529_321",
+  "index": 0,
+  "responsible": true,
+  "weight": 1,
+  "groupId": "drop-1",
+  "filters": [
+    "rtw11",
+    "misc5"
+  ]
+}
