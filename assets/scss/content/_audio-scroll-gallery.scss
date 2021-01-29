@@ -25,6 +25,14 @@
 		z-index: 100000;
 	}
 
+	&__skip {
+		position: absolute;
+		right: 0;
+		height: rem(40);
+		width: rem(70);
+		z-index: 10;
+	}
+
 	&__scrollbar {
 		transition: width 0.5s $easeInOutQuint;
 		width: rem(10);

@@ -14,7 +14,8 @@
 
 	outline: 1px solid $color-white;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		outline: 1px solid $color-white;
 	}
 

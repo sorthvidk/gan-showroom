@@ -69,20 +69,12 @@
 			height: 1em;
 			width: 1em;
 			fill: $color-white;
+			margin-right: 0.75em;
 		}
 
 		// give margin to element after
 		+ div {
 			padding-top: rem(20);
 		}
-		+ .re-runner + div {
-			padding-top: rem(35);
-		}
-	}
-
-	.re-runner {
-		top: rem(19);
-		background-color: $color-white;
-		color: $color-black;
 	}
 }

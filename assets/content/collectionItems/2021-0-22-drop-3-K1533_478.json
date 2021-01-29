@@ -1,1 +1,23 @@
-{"styleId":"K1533_478","name":"K1533_478_Vest","program":2516,"programName":"Chunky Glitter Knit","material":"37% Polyamide, 25% Cotton, 12% Viscose, 19% Metaliic fibers, 6% Polyester","groupId":"drop-3","colorNames":"Pink Nectar","colorId":478,"filters":["rtw5"],"responsible":false,"weight":4970,"feature_text":"","wholesalePriceDKK":600,"wholesalePriceEUR":86,"wholesalePriceUSD":103,"wholesalePriceGBP":78,"retailPriceDKK":1499,"retailPriceEUR":0,"retailPriceUSD":0,"retailPriceGBP":195,"assets":["https://res.cloudinary.com/dd6fpxydm/image/upload/v1611258447/AW21_21.3/21.3_PACKSHOTS/F6212_6343_500_adszk8.jpg"]}
+{
+  "styleId": "K1533_478",
+  "name": "K1533_478_Vest",
+  "program": 2516,
+  "programName": "Chunky Glitter Knit",
+  "material": "37% Polyamide, 25% Cotton, 12% Viscose, 19% Metaliic fibers, 6% Polyester",
+  "groupId": "drop-3",
+  "colorNames": "Pink Nectar",
+  "colorId": 478,
+  "filters": ["rtw5"],
+  "responsible": false,
+  "weight": 4970,
+  "feature_text": "",
+  "wholesalePriceDKK": 600,
+  "wholesalePriceEUR": 86,
+  "wholesalePriceUSD": 103,
+  "wholesalePriceGBP": 78,
+  "retailPriceDKK": 1499,
+  "retailPriceEUR": 0,
+  "retailPriceUSD": 0,
+  "retailPriceGBP": 195,
+  "assets": ["https://res.cloudinary.com/dd6fpxydm/image/upload/v1611258447/AW21_21.3/21.3_PACKSHOTS/F6212_6343_500_adszk8.jpg"]
+}

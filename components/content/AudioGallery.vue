@@ -2,20 +2,13 @@
 	<div
 		class="audio-gallery"
 		ref="audio-gallery"
-		@mousemove="
-			(e) => {
-				scrollTo(e)
-				moveCursor(e)
-			}
-		"
-		@mouseup="
-			() => {
-				if (!scrolling) togglePlayback()
-				scrolling = false
-			}
-		"
+		@mousemove="onMousemove"
+		@mouseup="onMouseup"
 		@wheel="onScroll"
 	>
+		<button v-if="isIntro" class="audio-gallery__skip" @mouseup.stop="doSkip">
+			SKIP
+		</button>
 		<div class="audio-player" :class="{ dark: dashboardDark }">
 			<svg-icon :name="playing ? 'pause' : 'play'" />
 
@@ -31,15 +24,7 @@
 			<p>Click to play</p>
 		</div>
 
-		<div
-			class="audio-gallery__scrollbar"
-			@mousedown="
-				(e) => {
-					scrolling = true
-					scrollTo(e)
-				}
-			"
-		>
+		<div class="audio-gallery__scrollbar" @mousedown="onMousedown">
 			<div
 				class="audio-gallery__scroller"
 				:style="{
@@ -84,6 +69,7 @@ import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
+	props: { isIntro: { type: Boolean, defaults: false } },
 	mixins: [VueHowler],
 	components: { AudioPlayer, AudioSpectrumBars },
 	name: 'audio-scroll-gallery',
@@ -146,6 +132,18 @@ export default {
 		moveCursor({ clientX, clientY }) {
 			this.cursorPos = `translate(calc(${clientX}px - 50%), calc(${clientY}px + 25px))`
 		},
+		onMousedown(e) {
+			this.scrolling = true
+			this.scrollTo(e)
+		},
+		onMouseup() {
+			if (!this.scrolling) this.togglePlayback()
+			this.scrolling = false
+		},
+		onMousemove(e) {
+			this.scrollTo(e)
+			this.moveCursor(e)
+		},
 		onScroll(event) {
 			// cross-browser wheel delta
 			// Chrome / IE: both are set to the same thing - WheelEvent for Chrome, MouseWheelEvent for IE
@@ -171,6 +169,11 @@ export default {
 		},
 		height(idx) {
 			return `${getRandomIntHash(idx) * 20 + 80}%`
+		},
+		doSkip() {
+			console.log('skip this shit plz')
+			this.stop()
+			this.$emit('played-through')
 		},
 	},
 	mounted() {

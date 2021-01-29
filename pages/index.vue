@@ -19,6 +19,7 @@
 				<audio-gallery-controller
 					v-show="!audioGalleryDone"
 					v-if="loggedIn && !dashboardContent.contentId"
+					:is-intro="true"
 					@played-through="audioGalleryDone = true"
 				/>
 			</transition>

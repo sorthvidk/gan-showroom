@@ -7,6 +7,7 @@
 	<audio-gallery
 		:sources="[various.scrollAudio.src]"
 		:autoplay="userHasInteracted"
+		:is-intro="isIntro"
 		@played-through="$emit('played-through')"
 	/>
 </template>
@@ -16,6 +17,9 @@ import { mapState } from 'vuex'
 
 export default {
 	name: 'audio-gallery-controller',
+	props: {
+		isIntro: { type: Boolean, defaults: false },
+	},
 	components: {
 		AudioGallery,
 	},

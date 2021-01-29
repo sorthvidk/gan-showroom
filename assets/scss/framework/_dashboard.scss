@@ -3,6 +3,7 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 1px;
+		z-index: 10;
 
 		.shortcut {
 			user-select: none;

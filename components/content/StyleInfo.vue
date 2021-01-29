@@ -1,15 +1,11 @@
 <template>
 	<div class="style-info">
-		<span v-if="item.responsible" class="responsible">
-			<div v-for="_ in 4" :key="`banner-item${_}`">
-				<!-- I am a certified responsible material —&nbsp; -->
-				<svg-icon name="ganni-smiley--inv" />&nbsp; responsible &nbsp;
-			</div>
-		</span>
-		<span v-if="item['re-runner']" class="re-runner">
-			<div v-for="_ in 5" :key="`banner-item-2${_}`">
-				<!-- I am a certified responsible material —&nbsp; -->
-				<svg-icon name="ganni-smiley" />&nbsp; re-runner &nbsp;
+		<span v-if="item.responsible || item['re-runner']" class="responsible">
+			<div v-for="_ in 6" :key="`banner-item${_}`">
+				<svg-icon v-if="item.responsible" name="ganni-smiley--inv" />
+				{{ item.responsible ? 'responsible&nbsp;&nbsp;' : '' }}
+				<svg-icon v-if="item['re-runner']" name="ganni-smiley--inv" />
+				{{ item['re-runner'] ? 're-runner&nbsp;&nbsp;' : '' }}
 			</div>
 		</span>
 
