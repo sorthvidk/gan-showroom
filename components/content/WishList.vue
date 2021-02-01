@@ -106,7 +106,7 @@ export default {
 		},
 
 		curStyle() {
-			console.log('curStyle', Object.keys(this.sortedWishlist))
+			// console.log('curStyle', Object.keys(this.sortedWishlist))
 			if (!Object.keys(this.sortedWishlist).length) return
 
 			const [firstStyle] = Object.values(this.sortedWishlist)[0]
@@ -147,7 +147,7 @@ export default {
 		},
 	},
 	mounted() {
-		console.log(this.sortedWishlist)
+		// console.log(this.sortedWishlist)
 	},
 }
 </script>
