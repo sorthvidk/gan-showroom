@@ -64,14 +64,13 @@ import { clamp } from '~/utils/clamp'
 import { MMSS } from '~/utils/HHMMSS'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
 import { lastElement } from '~/utils/array-helpers'
-import AudioPlayer from './AudioPlayer.vue'
 import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
 	props: { isIntro: { type: Boolean, defaults: false } },
 	mixins: [VueHowler],
-	components: { AudioPlayer, AudioSpectrumBars },
+	components: { AudioSpectrumBars },
 	name: 'audio-scroll-gallery',
 	data: () => ({
 		scroll: 0,
@@ -117,6 +116,9 @@ export default {
 				this.stop()
 				this.$emit('played-through')
 			}
+		},
+		playing() {
+			console.log('playying')
 		},
 	},
 	methods: {
@@ -171,8 +173,8 @@ export default {
 			return `${getRandomIntHash(idx) * 20 + 80}%`
 		},
 		doSkip() {
-			console.log('skip this shit plz')
-			this.stop()
+			this.pause()
+			this.setVolume(0)
 			this.$emit('played-through')
 		},
 	},
@@ -181,6 +183,10 @@ export default {
 			getComputedStyle(this.$refs['audio-gallery']).height
 		)
 		this[DASHBOARD_DARK.action](false)
+	},
+
+	beforeDestroy() {
+		this.$emit('played-through')
 	},
 }
 </script>
