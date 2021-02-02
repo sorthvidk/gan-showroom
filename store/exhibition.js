@@ -2,8 +2,8 @@ import {
 	CONNECT_EXHIBITION_ASSETS,
 	OPEN_EXHIBITION_CONTENT,
 	OPEN_CONTENT,
-	EXHIBITION_FETCH,
-	EXHIBITION_ASSETS_FETCH
+	FETCH_EXHIBITION,
+	FETCH_EXHIBITION_ASSETS
 } from '~/model/constants'
 
 import getAssetType from '~/utils/asset-type'
@@ -29,11 +29,11 @@ export const mutations = {
 		state.assetsConnected = true
 	},
 
-	[EXHIBITION_FETCH.mutation](state, data) {
+	[FETCH_EXHIBITION.mutation](state, data) {
 		state.list = data
 	},
 
-	[EXHIBITION_ASSETS_FETCH.mutation](state, data) {
+	[FETCH_EXHIBITION_ASSETS.mutation](state, data) {
 		state.assets = data
 	}
 }

@@ -1,0 +1,24 @@
+{
+  "retailPriceUSD": 295,
+  "program": 6267,
+  "colorNames": "Kelly Green",
+  "material": "66% Viscose, 34% Lenzing ECOVERO Viscose",
+  "wholesalePriceGBP": 81,
+  "name": "F5942_801_Wrap Dress",
+  "styleId": "F5942_801",
+  "retailPriceGBP": 225,
+  "programName": "Ripstop Viscose",
+  "responsible": false,
+  "wholesalePriceEUR": 92,
+  "weight": 2110,
+  "wholesalePriceDKK": 643,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 801
+}

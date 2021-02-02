@@ -1,15 +1,11 @@
 <template>
 	<div class="video-player">
-		<video
-			ref="videoElement"
-			:src="videoUrl"
-			v-bind="{ ...videoAttributes }"
-		></video>
+		<video ref="videoElement" :src="videoUrl" v-bind="videoAttributes"></video>
 
 		<div class="poster" v-if="!loaded">
 			<img :src="poster" alt="poster" />
 			<em></em>
-			<span class="loader"></span>
+			<!-- <span class="loader"></span> -->
 		</div>
 	</div>
 </template>
@@ -25,48 +21,48 @@ export default {
 	props: {
 		videoUrl: {
 			type: String,
-			required: true
+			required: true,
 		},
 		poster: {
 			type: String,
 			required: false,
-			default: null
+			default: null,
 		},
 		autoPlay: {
 			type: Boolean,
 			required: false,
-			default: false
+			default: false,
 		},
 		muted: {
 			type: Boolean,
 			required: false,
-			default: false
+			default: false,
 		},
 		playsInline: {
 			type: Boolean,
 			required: false,
-			default: true
+			default: true,
 		},
 		preload: {
 			type: Boolean,
 			required: false,
-			default: true
+			default: true,
 		},
 		controls: {
 			type: Boolean,
 			required: false,
-			default: false
+			default: false,
 		},
 		loop: {
 			type: Boolean,
 			required: false,
-			default: false
-		}
+			default: false,
+		},
 	},
 	data() {
 		return {
 			videoRef: null,
-			loaded: false
+			loaded: false,
 		}
 	},
 	computed: {
@@ -80,7 +76,7 @@ export default {
 			if (this.playsInline) attr.playsinline = 'playsinline'
 			if (this.poster) attr.poster = this.poster
 			return attr
-		}
+		},
 	},
 	methods: {
 		...mapActions('ganniFm', [FORCE_STOP_MUSIC.action]),
@@ -88,7 +84,7 @@ export default {
 			if (this.videoRef.readyState >= 2) {
 				this.loaded = true
 			}
-		}
+		},
 	},
 	mounted() {
 		if (!this.muted) this[FORCE_STOP_MUSIC.action]()
@@ -100,6 +96,6 @@ export default {
 				this.videoDataHandler.bind(this)
 			)
 		}
-	}
+	},
 }
 </script>

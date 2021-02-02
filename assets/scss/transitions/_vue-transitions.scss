@@ -1,0 +1,92 @@
+//*************************************************************************
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 1s $easeInOutQuint;
+}
+
+.fade--absolute-enter-active,
+.fade--absolute-leave-active {
+	transition: opacity 0.5s $easeInOutQuint;
+}
+
+.fade--fast-enter-active,
+.fade--fast-leave-active {
+	transition: opacity 0.2s $easeInOutQuint;
+}
+
+.fade-enter,
+.fade-leave-to,
+.fade--fast-enter,
+.fade--fast-leave-to,
+.fade--absolute-enter,
+.fade--absolute-leave-to {
+	opacity: 0;
+}
+//*************************************************************************
+.fade--absolute-leave,
+.fade--absolute-leave-active {
+	position: absolute;
+}
+//*************************************************************************
+
+.slide-fade-enter-active {
+	transition: all 0.3s 0.5s $easeInOutQuint;
+}
+.slide-fade-leave-active {
+	transition: all 0.3s $easeInOutQuint;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+	transform: translateY(10px);
+	opacity: 0;
+}
+
+//*************************************************************************
+.slide-out-leave-active {
+	position: absolute;
+	transition: all 2s $easeInOutQuint;
+}
+.slide-out-leave-to {
+	transform: translateY(-100%);
+}
+//*************************************************************************
+
+.slide-in-enter-active {
+	position: absolute !important;
+	top: 0;
+	transition: all 2s $easeInOutQuint;
+}
+
+.slide-in-enter {
+	transform: translateY(100%);
+}
+//*************************************************************************
+
+.slide-in-out-enter-active,
+.slide-in-out-leave-active {
+	position: absolute !important;
+	top: 0;
+	transition: all 2s $easeInOutQuint;
+}
+.slide-in-out-enter {
+	transform: translateY(100%);
+}
+
+.slide-in-out-leave-to {
+	transform: translateY(-100%);
+}
+//*************************************************************************
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+	transition: all 0.5s $easeInOutQuint;
+}
+.slide-up-enter {
+	transform: translateY(100%);
+}
+
+.slide-up-leave-to {
+	transform: translateY(100%);
+}
+
+//*************************************************************************

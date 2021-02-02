@@ -1,14 +1,15 @@
 import {
-	FILMS_FETCH,
-	GANNIGIRLS_FETCH,
-	LOOKBOOK_FETCH,
-	GENERAL_FETCH,
-	ANAS_FETCH,
-	DITTE_FETCH,
-	ABOUT_FETCH,
-	INTRO_FETCH,
-	DESKTOP_FETCH,
-	DESKTOP_BACKGROUND
+	FETCH_FILMS,
+	FETCH_GANNIGIRLS,
+	FETCH_LOOKBOOK,
+	FETCH_GENERAL,
+	FETCH_ANAS,
+	FETCH_DITTE,
+	FETCH_ABOUT,
+	FETCH_INTRO,
+	FETCH_DESKTOP,
+	DESKTOP_BACKGROUND,
+	FETCH_DOWNLOADS
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -180,27 +181,26 @@ export const state = () => ({
 	about: [],
 	desktop: [],
 	intro: [],
+	downloads: [],
 
-	desktopBackground: {
-		color: '#d8aab7',
-		image: ''
-	}
+	desktopBackground: false, // int | false
+	desktopBackgroundColor: '#349c5e' // string | false
 })
 
 export const mutations = {
-	[FILMS_FETCH.mutation](state, data) {
+	[FETCH_FILMS.mutation](state, data) {
 		state.films = data
 	},
-	[GANNIGIRLS_FETCH.mutation](state, data) {
+	[FETCH_GANNIGIRLS.mutation](state, data) {
 		state.ganniGirls.posts = data
 	},
-	[LOOKBOOK_FETCH.mutation](state, data) {
+	[FETCH_LOOKBOOK.mutation](state, data) {
 		state.lookBook = data
 	},
-	[ANAS_FETCH.mutation](state, data) {
+	[FETCH_ANAS.mutation](state, data) {
 		state.anas = data
 	},
-	[DITTE_FETCH.mutation](state, data) {
+	[FETCH_DITTE.mutation](state, data) {
 		const windowContent = data.map((item, i) => {
 			return {
 				title: item.title || 'Default title' + i,
@@ -231,7 +231,7 @@ export const mutations = {
 		// array of windowContent
 		state.ditte = windowContent
 	},
-	[ABOUT_FETCH.mutation](state, data) {
+	[FETCH_ABOUT.mutation](state, data) {
 		const windowContent = data.map((item, i) => {
 			return {
 				title: item.title || 'Default title' + i,
@@ -242,7 +242,7 @@ export const mutations = {
 						item.type === 'video'
 							? 'videoLandscape'
 							: item.type === 'image'
-							? 'imagePortraitLarge' // todo: multiple aspects/sizes
+							? 'imagePortraitLarge' // todo: only supports one size
 							: 'textFile'
 					],
 				contentComponentProps: {
@@ -263,7 +263,7 @@ export const mutations = {
 		state.about = windowContent
 	},
 
-	[GENERAL_FETCH.mutation](state, { data, rootState }) {
+	[FETCH_GENERAL.mutation](state, { data, rootState }) {
 		/**
 		 * is this is use?
 		 */
@@ -272,7 +272,7 @@ export const mutations = {
 		state.ganniGirls.bgImageUrl = misc.ganniGirlsUrl
 	},
 
-	[DESKTOP_FETCH.mutation](state, data) {
+	[FETCH_DESKTOP.mutation](state, data) {
 		const colors = [
 			'#0f5f9a',
 			'#fae199',
@@ -288,7 +288,7 @@ export const mutations = {
 		}))
 	},
 
-	[INTRO_FETCH.mutation](state, data) {
+	[FETCH_INTRO.mutation](state, data) {
 		state.intro = data.map(({ type, column, cloudinaryUrl }) => ({
 			type,
 			column,
@@ -297,10 +297,13 @@ export const mutations = {
 	},
 
 	[DESKTOP_BACKGROUND.mutation](state, data) {
-		state.desktopBackground =
-			data !== false
-				? state.desktop[data % state.desktop.length]
-				: { color: state.desktopBackground.color, image: '' }
+		state.desktopBackground = data
+		state.desktopBackgroundColor =
+			data !== false ? state.desktop[data].color : state.desktopBackgroundColor
+	},
+
+	[FETCH_DOWNLOADS.mutation](state, data) {
+		state.downloads = data
 	}
 }
 

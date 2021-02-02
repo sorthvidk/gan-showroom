@@ -1,0 +1,100 @@
+.collection-header {
+	border-top: 1px solid $color-white;
+
+	.inner {
+		display: flex;
+		align-items: flex-end;
+		width: 100%;
+
+		border-bottom: 1px solid $color-white;
+	}
+
+	.image {
+		position: relative;
+		width: calc(50% + 2px);
+		box-sizing: border-box;
+		border-right: 1px solid $color-white;
+
+		overflow: hidden;
+		height: calc(50vw * 0.66);
+		display: flex;
+	}
+
+	.effect {
+		width: max-content;
+		height: inherit;
+		display: flex;
+		align-items: flex-start;
+		flex-shrink: 0;
+	}
+
+	img {
+		height: 100%;
+	}
+
+	.text {
+		@include bodytext();
+		font-size: rem(20);
+		width: 50%;
+		box-sizing: border-box;
+		white-space: pre-line;
+		padding: rem(20);
+	}
+
+	p {
+		@include windowtitle();
+		font-size: rem(50);
+		font-weight: normal;
+		margin-top: rem(10);
+
+		b {
+			font-weight: bold;
+		}
+	}
+
+	--count: 0;
+
+	@keyframes sweep {
+		to {
+			transform: translateX(-100%);
+		}
+	}
+
+	&.carousel {
+		.effect {
+			animation: sweep calc(var(--count) * 10s) infinite linear forwards;
+		}
+	}
+
+	--speed: 3s;
+
+	@keyframes flash {
+		from {
+			z-index: 0;
+		}
+		to {
+			z-index: var(--count);
+		}
+	}
+
+	&.flash {
+		.effect {
+			height: inherit;
+		}
+
+		img {
+			animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
+				forwards;
+			position: absolute;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
+				}
+			}
+		}
+	}
+}

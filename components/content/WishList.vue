@@ -2,136 +2,61 @@
 	<div class="wish-list">
 		<div class="wish-list__overview" v-if="!isMobile">
 			<div
-				class="wish-list__overview__item"
-				v-for="(item, index) in wishList"
-				:key="'wishListItem' + index"
-				:class="{ 'is-active': currentWishListIndex == index }"
+				v-for="(list, groupId, index) in sortedWishlist"
+				:key="'wishListGroup' + index"
+				:style="{
+					display: 'flex',
+					flexDirection: 'column',
+				}"
 			>
-				<button
-					v-if="item.assets && item.assets.length > 0"
-					class="button activate"
-					@click="overviewItemActivateHandler(index)"
+				<div class="label">
+					{{ authorizedGroups.find((g) => g.groupId === groupId).name }}
+				</div>
+				<div
+					class="wish-list__overview__item"
+					v-for="(item, index) in list"
+					:key="'wishListItem' + index"
 				>
-					<img :src="getImageUrl(index)" alt />
-					<p>{{ item.name }}</p>
-				</button>
-				<button
-					class="button remove"
-					@click.stop="overviewItemRemoveHandler(index)"
-				>
-					<span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							<path
-								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-							/>
-						</svg>
-					</span>
-				</button>
+					<!-- :class="{ 'is-active': currentWishListIndex == index }" -->
+					<button
+						v-if="item.assets && item.assets.length > 0"
+						class="button activate"
+						@click="overviewItemActivateHandler(groupId, index)"
+					>
+						<img :src="getImageUrl(groupId, index)" alt />
+						<p>{{ item.name }}</p>
+					</button>
+					<button
+						class="button remove"
+						@click.stop="overviewItemRemoveHandler(groupId, index)"
+					>
+						<svg-icon name="cross" />
+					</button>
+				</div>
 			</div>
 		</div>
 		<transition name="fade" mode="in-out">
 			<div class="wish-list__details" v-if="!isMobile">
-				<div v-bar>
-					<div class="inner" v-if="wishList.length < 1">
-						<p>Your wish list is empty!</p>
-					</div>
-					<div
-						class="inner"
-						v-if="
-							currentWishListItem &&
-								currentWishListItem.assets &&
-								currentWishListItem.assets.length > 0
-						"
-						:key="currentWishListIndex"
-					>
-						<single-image
-							:asset="currentWishListItem.assets[0]"
-							:parent-window-id="parentWindowId"
-						/>
+				<div class="inner empty" v-if="wishList.length < 1">
+					<p>Your wish list is empty!</p>
+				</div>
+				<div
+					class="inner"
+					v-if="curStyle && curStyle.assets && curStyle.assets.length > 0"
+					:key="'wishlist-details-' + curStyle.styleId"
+				>
+					<single-image
+						:asset="curStyle.assets[0]"
+						:parent-window-id="parentWindowId"
+						:lazy="true"
+					/>
 
-						<h3>{{ currentWishListItem.name }}</h3>
-						<button class="button" @click="removeItemHandler">
-							Remove from wishlist
-						</button>
+					<h3>{{ curStyle.name }}</h3>
+					<button class="button" @click="removeItemHandler">
+						Remove from wishlist
+					</button>
 
-						<table>
-							<tbody>
-								<tr>
-									<th>Name</th>
-									<td>{{ currentWishListItem.name }}</td>
-								</tr>
-								<tr>
-									<th>Color</th>
-									<td>{{ currentWishListItem.colorNames }}</td>
-								</tr>
-								<tr>
-									<th>Material</th>
-									<td>{{ currentWishListItem.material }}</td>
-								</tr>
-								<tr>
-									<th>Style #</th>
-									<td>{{ currentWishListItem.styleId }}</td>
-								</tr>
-								<tr>
-									<th>Program #</th>
-									<td>{{ currentWishListItem.program }}</td>
-								</tr>
-								<tr>
-									<th>Program name</th>
-									<td>{{ currentWishListItem.programName }}</td>
-								</tr>
-
-								<tr>
-									<th>&nbsp;</th>
-									<td>&nbsp;</td>
-								</tr>
-
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th>Wholesale price</th>
-									<td>DKK {{ currentWishListItem.wholesalePriceDKK }}</td>
-								</tr>
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th>Wholesale price</th>
-									<td>EUR {{ currentWishListItem.wholesalePriceEUR }}</td>
-								</tr>
-								<tr v-if="SHOW_WHOLESALE_PRICE">
-									<th>Wholesale price</th>
-									<td>USD {{ currentWishListItem.wholesalePriceUSD }}</td>
-								</tr>
-								<tr
-									v-if="
-										currentWishListItem.wholesalePriceGBP &&
-											SHOW_WHOLESALE_PRICE
-									"
-								>
-									<th>Wholesale price</th>
-									<td>GBP {{ currentWishListItem.wholesalePriceGBP }}</td>
-								</tr>
-
-								<tr>
-									<th>&nbsp;</th>
-									<td>&nbsp;</td>
-								</tr>
-
-								<tr>
-									<th>Suggested retail price</th>
-									<td>DKK {{ currentWishListItem.retailPriceDKK }}</td>
-								</tr>
-								<tr>
-									<th>Suggested retail price</th>
-									<td>EUR {{ currentWishListItem.retailPriceEUR }}</td>
-								</tr>
-								<tr>
-									<th>Suggested retail price</th>
-									<td>USD {{ currentWishListItem.retailPriceUSD }}</td>
-								</tr>
-								<tr v-if="currentWishListItem.retailPriceGBP">
-									<th>Suggested retail price</th>
-									<td>GBP {{ currentWishListItem.retailPriceGBP }}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+					<style-info :item="curStyle" />
 				</div>
 			</div>
 		</transition>
@@ -147,68 +72,82 @@
 
 <script>
 import { vuex, mapActions, mapState } from 'vuex'
-
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
-
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 import addMediaChangeListener from '~/utils/media-change'
-
 import WindowContent from '~/components/framework/WindowContent.vue'
+import VueBar from '~/components/content/VueBar.vue'
+import StyleInfo from '~/components/content/StyleInfo.vue'
+import { firstIndex } from '~/utils/array-helpers'
 
 export default {
 	extends: WindowContent,
 	name: 'wish-list',
 	components: {
 		WishListAccordion,
-		SingleImage
+		SingleImage,
+		VueBar,
+		StyleInfo,
 	},
 	computed: {
-		...mapState(['SHOW_WHOLESALE_PRICE']),
+		// ...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
-		...mapState('collection', ['wishList']),
+		...mapState('collection', ['wishList', 'authorizedGroups']),
 
-		currentWishListItem() {
-			if (this.wishList.length > 0)
-				return this.wishList[this.currentWishListIndex]
-			else this.currentWishListIndex = -1
-			return {}
-		}
+		sortedWishlist() {
+			return this.wishList.reduce((acc, cur) => {
+				acc[cur.groupId] = acc[cur.groupId] || []
+				acc[cur.groupId] = [...acc[cur.groupId], cur]
+				return acc
+			}, {})
+		},
+
+		curStyle() {
+			// console.log('curStyle', Object.keys(this.sortedWishlist))
+			if (!Object.keys(this.sortedWishlist).length) return
+
+			const [firstStyle] = Object.values(this.sortedWishlist)[0]
+			if (!this.cur.groupId) return firstStyle
+			return this.sortedWishlist[this.cur.groupId][this.cur.idx]
+		},
 	},
 	data() {
 		return {
-			currentWishListIndex: 0,
+			cur: 0,
 			accordionStates: [],
-			viewPortSize: ViewportSizes.SMALL
+			viewPortSize: ViewportSizes.SMALL,
 		}
 	},
 	methods: {
 		...mapActions(['collection/' + REMOVE_FROM_WISHLIST.action]),
-		overviewItemActivateHandler(key) {
-			this.currentWishListIndex = key
+		overviewItemActivateHandler(groupId, idx) {
+			this.cur = { groupId, idx }
+			console.log(this.cur, this.curStyle)
 		},
-		overviewItemRemoveHandler(key) {
-			let styleId = this.wishList[key].styleId
-			this.currentWishListIndex = 0
+		overviewItemRemoveHandler(groupId, idx) {
+			let styleId = this.sortedWishlist[groupId][idx].styleId
+			this.cur = { groupId: '', idx: 0 }
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
 
 		removeItemHandler() {
-			let styleId = this.currentWishListItem.styleId
-			this.currentWishListIndex = 0
+			let styleId = this.cur.styleId
+			this.cur = { groupId: '', idx: 0 }
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
-		getImageUrl(index) {
+		getImageUrl(groupId, index) {
 			return getCloudinaryUrl(
 				this.$cloudinary,
-				this.wishList[index].assets[0],
+				this.sortedWishlist[groupId][index].assets[0],
 				{ width: 30 }
 			)
-		}
+		},
 	},
-	mounted() {}
+	mounted() {
+		// console.log(this.sortedWishlist)
+	},
 }
 </script>

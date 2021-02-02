@@ -5,8 +5,9 @@ import {
 	CLOSE_WINDOW_GROUP,
 	KEYPRESS,
 	MOUSEMOVE,
-	PASSWORDS_FETCH,
-	IDLE
+	FETCH_PASSWORDS,
+	IDLE,
+	USER_HAS_INTERACTED
 } from '~/model/constants'
 
 export const state = () => ({
@@ -20,7 +21,8 @@ export const state = () => ({
 
 	passwords: {},
 
-	idle: false
+	idle: false,
+	userHasInteracted: false
 })
 
 export const mutations = {
@@ -44,7 +46,7 @@ export const mutations = {
 		state.mousepos = { x, y }
 	},
 
-	[PASSWORDS_FETCH.mutation](state, data) {
+	[FETCH_PASSWORDS.mutation](state, data) {
 		state.passwords = data.map(pw => {
 			pw.hash = pw.hash.toLowerCase()
 			return pw
@@ -53,6 +55,10 @@ export const mutations = {
 
 	[IDLE.mutation](state, key) {
 		state.idle = key
+	},
+
+	[USER_HAS_INTERACTED.mutation](state) {
+		state.userHasInteracted = true
 	}
 }
 
@@ -81,5 +87,8 @@ export const actions = {
 	},
 	[IDLE.action]({ commit }, hidden) {
 		commit(IDLE.mutation, hidden)
+	},
+	[USER_HAS_INTERACTED.action]({ commit }) {
+		commit(USER_HAS_INTERACTED.mutation, true)
 	}
 }

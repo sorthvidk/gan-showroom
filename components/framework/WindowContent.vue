@@ -8,26 +8,27 @@ export default {
 	props: {
 		parentWindowId: {
 			type: String,
-			required: true
-		}
+			required: true,
+		},
 	},
 	data() {
 		return {
-			inFocus: false
+			inFocus: false,
 		}
 	},
 	computed: {
 		...mapState({
-			topMostWindow: state => state.topMostWindow
-		})
+			topMostWindow: (state) => state.topMostWindow,
+		}),
 	},
 	watch: {
 		topMostWindow(newVal) {
 			this.inFocus = newVal.windowId === this.parentWindowId
-		}
+		},
 	},
 	mounted() {
-		this.inFocus = this.topMostWindow.windowId === this.parentWindowId
-	}
+		this.inFocus =
+			!this.topMostWindow || this.topMostWindow.windowId === this.parentWindowId
+	},
 }
 </script>

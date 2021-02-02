@@ -15,6 +15,12 @@ export default {
 				hid: 'description',
 				name: 'description',
 				content: process.env.npm_package_description || ''
+			},
+			{
+				hid: 'image',
+				property: 'og:image',
+				content:
+					'https://res.cloudinary.com/dd6fpxydm/image/upload/c_fill,q_60,w_1000/v1604531348/PF21_21.2/rails_ondisplay/original/DSC_4565_k0ipyx.jpg'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -30,10 +36,17 @@ export default {
 	// 		})
 	// 	}
 	// },
+	serverMiddleware: ['~/api/headers.js'],
 	/*
 	 ** Customize the progress-bar color
 	 */
 	loading: { color: '#fff' },
+	/**
+	 * Always search for static in root
+	 */
+	static: {
+		prefix: false
+	},
 	/*
 	 ** Global CSS
 	 */
@@ -64,16 +77,24 @@ export default {
 		dev: false,
 		id: 'GTM-P2ZL2V6'
 	},
+	/**
+	 * options for svg-sprite
+	 */
+	svgSprite: {
+		input: '~/static/svg',
+		output: '~/static/svg/sprite'
+	},
 	/*
 	 ** Nuxt.js modules
 	 */
 	modules: [
+		'@nuxtjs/svg-sprite',
 		'@nuxtjs/markdownit',
 		[
 			'nuxt-cookie-control',
 			{
 				css: true,
-    			controlButton: false
+				controlButton: false
 			}
 		]
 	],
@@ -89,7 +110,7 @@ export default {
 		 */
 		devtools: true,
 		analyze: false, // only for debugging
-		extend (config, ctx) {
+		extend(config, ctx) {
 			// console.log('config.entry: ', config.entry);
 		},
 		postcss: {
@@ -102,9 +123,10 @@ export default {
 				autoprefixer: {
 					// browsers: ['last 4 versions', '> 1%', 'ie 6-8'],
 					// browsers: ['defaults'],
-					grid: true
+					grid: false
 				}
 			}
-		}
+		},
+		vendor: ['vue-vimeo-player']
 	}
 }

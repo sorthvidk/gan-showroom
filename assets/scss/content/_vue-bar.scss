@@ -1,0 +1,23 @@
+.vb {
+	height: 100%;
+
+	&-dragger {
+		transition: width 0.5s $easeInOutQuint;
+		z-index: 1;
+		right: 0;
+
+		width: rem(10);
+
+		background: $color-black;
+
+		cursor: pointer;
+
+		&:hover {
+			width: rem(15);
+		}
+
+		.vb-invisible & {
+			opacity: 0;
+		}
+	}
+}

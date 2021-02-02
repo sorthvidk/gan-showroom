@@ -2,20 +2,17 @@
 	<transition name="startup-transition" mode="out-in">
 		<div
 			class="desktop"
-			:class="idle && 'screensaver-running'"
+			:class="{ 'screensaver-running': idle, dark: dashboardDark }"
 			:style="{
 				backgroundSize: webcamImage && '400px',
-				backgroundColor: desktopBackground.color
 			}"
 		>
-			<div class="desktop__background">
-				<img v-if="desktopBackground.image" :src="desktopBackground.image" />
-			</div>
+			<!-- <background-image /> -->
 
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,
-					dashboard__shortcuts: textStyledWithoutIcon
+					dashboard__shortcuts: textStyledWithoutIcon,
 				}"
 			>
 				<shortcut
@@ -35,12 +32,36 @@
 				/>
 			</div>
 
-			<shortcut
+			<!-- <shortcut
 				:class="'shortcut__badge'"
 				v-for="(item, i) in badgeShortcuts"
 				:key="`badge-${i}`"
 				v-bind="item"
-			/>
+			/> -->
+
+			<div class="desktop__static">
+				<vue-bar>
+					<transition name="fade--fast" mode="out-in">
+						<window-static
+							v-if="dashboardContent && dashboardContent.contentComponent"
+							:content="dashboardContent"
+							:key="dashboardContent.windowId"
+						/>
+						<div
+							v-else
+							:style="{
+								backgroundImage: `url(${various.dashboardBackground})`,
+								backgroundSize: 'cover',
+								backgroundPosition: 'center',
+								width: '100%',
+								height: '100%',
+							}"
+						></div>
+					</transition>
+				</vue-bar>
+			</div>
+
+			<media-library v-if="showMenu" />
 
 			<div class="desktop__windows">
 				<transition-group
@@ -72,70 +93,11 @@
 				<!-- <support /> -->
 			</div>
 
-			<marquee v-show="!isMobile" />
+			<!-- <marquee v-show="!isMobile" /> -->
 
-			<div class="clipboard-message" v-if="showClipboardMessage">
-				<p>Copied to clipboard</p>
-			</div>
-
-			<div class="download-message" v-if="showDownloadMessage">
-				<div class="window window--no-status window--tight">
-					<header class="window__top">
-						<span class="title">Please wait</span>
-					</header>
-					<div class="window__content">
-						<img src="/img/ganni_popcorn_animation.gif" alt />
-						<p>Your download is being prepared...</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="copyright-message" v-if="!copyrightAccepted">
-				<transition
-					@before-appear="copyrightBeforeAnimateIn"
-					@appear="copyrightAnimateIn"
-				>
-					<div class="window window--no-status window--tight">
-						<header class="window__top">
-							<span class="title">Important Info</span>
-						</header>
-						<div class="window__content">
-							<span class="icon">
-								<!-- <svg
-									viewBox="0 0 56 56"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M27.958 55.916c15.441 0 27.959-12.517 27.959-27.958C55.916 12.518 43.398 0 27.957 0 12.518 0 0 12.517 0 27.958 0 43.4 12.517 55.917 27.958 55.917z"
-										fill="#FF0"
-									/>
-									<path
-										d="M27.958 46.319c-10.182 0-18.444-8.262-18.444-18.444 0-.25.167-.418.417-.418.25 0 .417.168.417.418 0 9.68 7.929 17.61 17.61 17.61 9.68 0 17.61-7.93 17.61-17.694 0-.25.166-.417.417-.417.25 0 .417.167.417.417 0 10.182-8.262 18.528-18.444 18.528z"
-										fill="#000"
-									/>
-									<path
-										d="M21.115 27.625c1.336 0 2.42-2.616 2.42-5.843 0-3.226-1.084-5.842-2.42-5.842-1.337 0-2.42 2.616-2.42 5.842 0 3.227 1.083 5.843 2.42 5.843zM33.633 27.625c1.337 0 2.42-2.616 2.42-5.843 0-3.226-1.083-5.842-2.42-5.842s-2.42 2.616-2.42 5.842c0 3.227 1.084 5.843 2.42 5.843z"
-										fill="#000"
-									/>
-								</svg> -->
-								<img src="/img/smiley-bw.png" />
-
-								<p>
-									Hi, we hope you will enjoy your Ganni Space Virtual Showroom
-									experience.<br /><br />
-									Please note that all visual material and images are for
-									internal use only and not to be distributed outside this
-									platform.
-								</p>
-							</span>
-							<button class="button ok" @click="copyrightMessageClickHandler">
-								OK
-							</button>
-						</div>
-					</div>
-				</transition>
-			</div>
+			<clipboard-message v-if="showClipboardMessage" />
+			<!-- <download-message v-if="showDownloadMessage" /> -->
+			<copywrite-message v-if="!copyrightAccepted" />
 		</div>
 	</transition>
 </template>
@@ -144,15 +106,13 @@
 import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 
 import {
-	COPYRIGHT_ACCEPT,
-	RESET_STATE,
-	KEYPRESS,
-	MOUSEMOVE,
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
 	OPEN_CONTENT,
 	AUTHORIZE_GROUPS,
-	CONNECT_EXHIBITION_ASSETS
+	CONNECT_EXHIBITION_ASSETS,
+	// AUDIO_TRACK,
+	OPEN_CONTENT_IN_DASHBOARD,
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -162,9 +122,17 @@ import ShortcutTypes from '~/model/shortcut-types'
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
 import Window from '~/components/framework/Window.vue'
+import WindowStatic from '~/components/framework/WindowStatic.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
+import BackgroundImage from '~/components/content/BackgroundImage.vue'
+import AudioPlayer from '~/components/content/AudioPlayer.vue'
+import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
+import DownloadMessage from '~/components/content/DownloadMessage.vue'
+import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
+import VueBar from '~/components/content/VueBar.vue'
+import MediaLibrary from '~/components/content/MediaLibrary.vue'
 
 import ContentTypes from '~/model/content-types'
 
@@ -179,42 +147,54 @@ export default {
 		Marquee,
 		Assistant,
 		Support,
-		VueDraggableResizable
+		VueDraggableResizable,
+		BackgroundImage,
+		WindowStatic,
+		AudioPlayer,
+		ClipboardMessage,
+		DownloadMessage,
+		CopywriteMessage,
+		VueBar,
+		MediaLibrary,
 	},
 	computed: {
-		...mapState(['wallpaperIndex', 'windowList']),
-		...mapState('assets', ['desktopBackground']),
+		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
+		...mapState('assets', ['desktop']),
 		...mapState('collage', ['webcamImage']),
+		...mapState('ganniFm', ['songs']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
 		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
 		...mapState('utils', [
 			'downloadPreparing',
 			'clipBoardCopyComplete',
-			'isMobile'
+			'isMobile',
+			'showMenu',
+			'dashboardDark',
+			'various',
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),
 
 		desktopIcons() {
 			return this.authorizedShortcuts.filter(
-				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
+				(s) => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
 			)
 		},
 		marqueeLinks() {
-			return this.list.filter(s => s.type == ShortcutTypes.MARQUEE)
+			return this.list.filter((s) => s.type == ShortcutTypes.MARQUEE)
 		},
 
 		badgeShortcuts() {
-			return this.list.filter(s => s.type == ShortcutTypes.BADGE)
+			return this.list.filter((s) => s.type == ShortcutTypes.BADGE)
 		},
 
-		backgroundImageObj() {
-			return {
-				src: `/img/wallpapers/wallpaper3.jpg`
-			}
+		backgroundImage() {
+			// return {
+			// 	src: `/img/wallpapers/wallpaper3.jpg`
+			// }
 			// src: `/img/wallpapers/wallpaper${getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
-		}
+		},
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {
@@ -232,25 +212,23 @@ export default {
 			} else {
 				this.showDownloadMessage = false
 			}
-		}
+		},
 	},
 	data() {
 		return {
 			showClipboardMessage: false,
 			showDownloadMessage: false,
-			wallpaperCount: 6
+			wallpaperCount: 6,
+			backgrounds: [],
 		}
 	},
 	methods: {
-		...mapActions([RESET_STATE.action, OPEN_CONTENT.action]),
+		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
-		...mapActions('user', [
-			COPYRIGHT_ACCEPT.action,
-			KEYPRESS.action,
-			MOUSEMOVE.action
-		]),
+		// ...mapActions('audio', [AUDIO_TRACK.action]),
+
 		startClipboardTimeout() {
 			setTimeout(() => {
 				this[CLIPBOARD_COPY.action](false)
@@ -266,53 +244,17 @@ export default {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
-
-		copyrightMessageClickHandler() {
-			this[COPYRIGHT_ACCEPT.action](true)
-		},
-		copyrightBeforeAnimateIn(el) {
-			TweenLite.set(el, { scale: 0, opacity: 0 })
-		},
-		copyrightAnimateIn(el) {
-			TweenLite.to(el, 0.3, {
-				delay: 2,
-				scale: 1,
-				opacity: 1,
-				ease: 'power4.inOut'
-			})
-		}
 	},
 	mounted() {
-		window.addEventListener('keyup', event => {
-			this[KEYPRESS.action](event)
-		})
-		window.addEventListener('keydown', event => {
-			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
-				this[RESET_STATE.action](event)
-			}
-		})
-
-		let timeout = null
-		window.addEventListener('mousemove', event => {
-			const debounce = (func, wait, immediate) => {
-				var later = () => {
-					timeout = null
-					func.apply(this)
-				}
-
-				clearTimeout(timeout)
-				timeout = setTimeout(later, immediate ? 0 : wait)
-			}
-
-			debounce(() => this[MOUSEMOVE.action](event), 200)
-		})
-
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()
-
+		// this[AUDIO_TRACK.action](this.songs[1])
+		// this[OPEN_CONTENT_IN_DASHBOARD.action]({
+		// 	windowContent: this.list[0].windowContent,
+		// })
 		// this.$store.commit('collection/isOnWishList')
 	},
 
-	created() {}
+	created() {},
 }
 </script>

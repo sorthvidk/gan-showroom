@@ -1,40 +1,40 @@
 .filter-button {
+	@include bodytext();
+
 	user-select: none;
 	flex: 0 0 50%;
 	box-sizing: border-box;
 
-	background-color: $color-white;
-	border-bottom: rem(1) solid $color-black;
-	border-right: rem(1) solid $color-black;
+	background-color: inherit;
+	border-bottom: rem(1) solid rgba(0, 0, 0, 0.2);
+	border-right: rem(1) solid rgba(0, 0, 0, 0.2);
 	padding: rem(10);
 	display: inline-flex;
 	align-items: center;
-	@include bodytext();
 	transition: all 0.2s ease;
 
 	width: 50%;
 
 	&.is-active {
-		color: $color-white;
-		// background-color: $color-grey;
-		// @include bevel(true);
-		background-color: $color-black;
+		// color: $color-white;
+		background-color: $color-buttonactive;
 	}
 
 	&:nth-child(2n) {
 		border-right: 0;
 	}
+
 	&:nth-last-child(-n + 2) {
 		border-bottom: 0;
 	}
 
 	span {
+		@include truncate();
 		// max-width: 80%;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+
 		line-height: rem(1.27 * 11);
 	}
+
 	em {
 		margin-left: rem(5);
 		font-size: rem(10);
@@ -44,10 +44,12 @@
 
 button.filter-button {
 	cursor: pointer;
+
 	&:hover {
-		background-color: $color-lightgrey;
+		background-color: $color-buttonhover;
 	}
+
 	&.is-active:hover {
-		background-color: $color-black;
+		background-color: $color-buttonactive;
 	}
 }

@@ -1,22 +1,26 @@
 import {
 	RESET_STATE,
-	EXHIBITION_FETCH,
-	EXHIBITION_ASSETS_FETCH,
-	COLLECTION_ITEMS_FETCH,
-	COLLECTION_GROUPS_FETCH,
-	COLLECTION_FILTERS_FETCH,
-	COLLECTION_ASSETS_FETCH,
-	INTRO_FETCH,
-	FILMS_FETCH,
-	SONGS_FETCH,
-	GANNIGIRLS_FETCH,
-	LOOKBOOK_FETCH,
-	GENERAL_FETCH,
-	ANAS_FETCH,
-	ABOUT_FETCH,
-	ASSISTANT_FETCH,
-	DESKTOP_FETCH,
-	DITTE_FETCH,
+	FETCH_EXHIBITION,
+	FETCH_EXHIBITION_ASSETS,
+	FETCH_COLLECTION_ITEMS,
+	FETCH_COLLECTION_GROUPS,
+	FETCH_COLLECTION_FILTERS,
+	FETCH_COLLECTION_ASSETS,
+	FETCH_INTRO,
+	FETCH_FILMS,
+	FETCH_SONGS,
+	FETCH_GANNIGIRLS,
+	FETCH_LOOKBOOK,
+	FETCH_GENERAL,
+	FETCH_ANAS,
+	FETCH_ABOUT,
+	FETCH_ASSISTANT,
+	FETCH_DESKTOP,
+	FETCH_DITTE,
+	FETCH_VARIOUS,
+	FETCH_SUBTITLES,
+	FETCH_DOWNLOADS,
+	FETCH_SCROLL_IMAGES,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -25,10 +29,10 @@ import {
 	OPEN_GALLERY,
 	OPEN_WISH_LIST,
 	OPEN_STYLE_CONTENT,
-	PASSWORDS_FETCH,
-	ASSISTANT_TEXT,
-	ASSISTANT_MODE,
-	UPDATE_PROGRESS
+	FETCH_PASSWORDS,
+	UPDATE_PROGRESS,
+	OPEN_CONTENT_IN_DASHBOARD,
+	ASSISTANT_UPDATE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -40,7 +44,6 @@ import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 import { lastElement } from '~/utils/array-helpers'
-import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
 	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
@@ -50,7 +53,9 @@ export const state = () => ({
 	windowList: [],
 	windowGroupList: [],
 	topMostWindow: null,
-	highestZIndex: 0
+	highestZIndex: 0,
+
+	dashboardContent: {}
 })
 
 export const mutations = {
@@ -96,7 +101,6 @@ export const mutations = {
 			let alreadyExists =
 				state.content.list.filter(hasSame('contentId')).length > 0
 
-			console.log('FOUND IT!!', alreadyExists)
 			// don't open a window twice
 			if (alreadyExists) return
 
@@ -119,6 +123,20 @@ export const mutations = {
 
 		state.windowList = resetZOrder(state.windowList)
 		state.highestZIndex = lastElement(state.windowList).positionZ
+	},
+
+	/**
+	 * opens a window content, but in the dashboard instead of a draggable window
+	 */
+	[OPEN_CONTENT_IN_DASHBOARD.mutation](state, { dispatch, params }) {
+		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
+
+		params.windowContent.forEach(content => {
+			const newWindow = getOptimalProp(state, content, getUniqueId())
+			state.dashboardContent = newWindow
+		})
+
+		dispatch('assistant/' + ASSISTANT_UPDATE.action)
 	},
 
 	/*
@@ -153,18 +171,7 @@ export const mutations = {
 			state.topMostWindow = matchingWindow
 		}
 
-		if (matchingWindow && matchingWindow.assistant) {
-			dispatch(
-				'assistant/' + ASSISTANT_MODE.action,
-				matchingWindow.assistant.mode
-			)
-			if (matchingWindow.assistant.text) {
-				dispatch(
-					'assistant/' + ASSISTANT_TEXT.action,
-					matchingWindow.assistant.text
-				)
-			}
-		}
+		dispatch('assistant/' + ASSISTANT_UPDATE.action)
 	},
 
 	/*
@@ -264,7 +271,7 @@ export const actions = {
 		if (state.windowList.length) {
 			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 		} else {
-			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+			dispatch('assistant/' + ASSISTANT_UPDATE.action)
 		}
 	},
 
@@ -281,6 +288,12 @@ export const actions = {
 			'progressBar/' + UPDATE_PROGRESS.action,
 			content.windowContent[0].type.name
 		)
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+	},
+
+	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
+		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
@@ -288,7 +301,7 @@ export const actions = {
 		if (state.windowList.length) {
 			dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
 		} else {
-			dispatch('assistant/' + ASSISTANT_MODE.action, AssistantModes.WELCOME)
+			dispatch('assistant/' + ASSISTANT_UPDATE.action)
 		}
 	},
 
@@ -296,11 +309,11 @@ export const actions = {
 		commit(UPDATE_WINDOW.mutation, params)
 	},
 
-	[OPEN_STYLE_CONTENT.action]({ commit, state }, styleId) {
+	[OPEN_STYLE_CONTENT.action]({ commit, state, dispatch }, styleId) {
 		let listStyle = state.collection.allStyles.filter(
 			e => e.styleId === styleId
 		)[0]
-		if (!listStyle) return false
+		if (!listStyle || !listStyle.assets) return false
 
 		let content = []
 		let al = listStyle.assets.length
@@ -329,6 +342,7 @@ export const actions = {
 			windowContent: content,
 			styleWindowGroup: true
 		})
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -346,7 +360,7 @@ export const actions = {
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
 	},
 
-	[OPEN_WISH_LIST.action]({ commit }, asset) {
+	[OPEN_WISH_LIST.action]({ commit, dispatch }, asset) {
 		let wishListContent = [
 			{
 				title: 'Your wishlist',
@@ -356,6 +370,7 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: wishListContent })
+		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
 	[RESET_STATE.action]({ commit }) {
@@ -377,109 +392,109 @@ export const actions = {
 		}
 
 		commit(
-			'assistant/' + ASSISTANT_FETCH.mutation,
+			'assistant/' + FETCH_ASSISTANT.mutation,
 			await getData(
 				require.context(`~/assets/content/assistant/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'exhibition/' + EXHIBITION_FETCH.mutation,
+			'exhibition/' + FETCH_EXHIBITION.mutation,
 			await getData(
 				require.context(`~/assets/content/exhibition/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'exhibition/' + EXHIBITION_ASSETS_FETCH.mutation,
+			'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
 			await getData(
 				require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_ITEMS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
 			await getData(
 				require.context('~/assets/content/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_FILTERS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
 			await getData(
 				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_GROUPS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
 			await getData(
 				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'collection/' + COLLECTION_ASSETS_FETCH.mutation,
+			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
 			await getData(
 				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + FILMS_FETCH.mutation,
+			'assets/' + FETCH_FILMS.mutation,
 			await getData(
 				require.context('~/assets/content/films/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + GANNIGIRLS_FETCH.mutation,
+			'assets/' + FETCH_GANNIGIRLS.mutation,
 			await getData(
 				require.context('~/assets/content/ganniGirls/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + LOOKBOOK_FETCH.mutation,
+			'assets/' + FETCH_LOOKBOOK.mutation,
 			await getData(
 				require.context('~/assets/content/lookBook/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + ANAS_FETCH.mutation,
+			'assets/' + FETCH_ANAS.mutation,
 			await getData(require.context('~/assets/content/anas/', false, /\.json$/))
 		)
 
 		commit(
-			'assets/' + DITTE_FETCH.mutation,
+			'assets/' + FETCH_DITTE.mutation,
 			await getData(
 				require.context('~/assets/content/ditte/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + ABOUT_FETCH.mutation,
+			'assets/' + FETCH_ABOUT.mutation,
 			await getData(
 				require.context('~/assets/content/about/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + DESKTOP_FETCH.mutation,
+			'assets/' + FETCH_DESKTOP.mutation,
 			await getData(
 				require.context('~/assets/content/desktop/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'assets/' + INTRO_FETCH.mutation,
+			'assets/' + FETCH_INTRO.mutation,
 			await getData(
 				require.context('~/assets/content/intro/', false, /\.json$/)
 			)
 		)
 
-		commit('assets/' + GENERAL_FETCH.mutation, {
+		commit('assets/' + FETCH_GENERAL.mutation, {
 			data: await getData(
 				require.context('~/assets/content/general/', false, /\.json$/)
 			),
@@ -487,16 +502,44 @@ export const actions = {
 		})
 
 		commit(
-			'user/' + PASSWORDS_FETCH.mutation,
+			'user/' + FETCH_PASSWORDS.mutation,
 			await getData(
 				require.context('~/assets/content/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
-			'ganniFm/' + SONGS_FETCH.mutation,
+			'ganniFm/' + FETCH_SONGS.mutation,
 			await getData(
 				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'utils/' + FETCH_VARIOUS.mutation,
+			await getData(
+				require.context('~/assets/content/various/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'audio/' + FETCH_SUBTITLES.mutation,
+			await getData(
+				require.context('~/assets/content/subtitles/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'assets/' + FETCH_DOWNLOADS.mutation,
+			await getData(
+				require.context('~/assets/content/downloads/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'audio/' + FETCH_SCROLL_IMAGES.mutation,
+			await getData(
+				require.context('~/assets/content/scrollImages/', false, /\.json$/)
 			)
 		)
 

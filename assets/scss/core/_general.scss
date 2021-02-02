@@ -1,0 +1,24 @@
+body {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	*::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+#__layout {
+	svg {
+		// width: 2em;
+		// height: 2em;
+		fill: currentColor;
+	}
+
+	* {
+		font-family: $font-sansserif;
+	}
+}
+
+button {
+	@include bodytext();
+}

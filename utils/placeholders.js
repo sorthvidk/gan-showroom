@@ -1,0 +1,6 @@
+export const transparentPixel =
+	'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
+
+// 1x1px in #dad7d4
+export const greyPixel =
+	'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8df3KfwAIngOGGPuXAwAAAABJRU5ErkJggg=='
