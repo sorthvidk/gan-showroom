@@ -1,0 +1,18 @@
+img[lazy] {
+	transition: opacity 0.4s $easeInOutQuint;
+}
+
+img[lazy='loading'] {
+	opacity: 0;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+}
+
+img[lazy='loaded'] {
+	opacity: 1;
+	// animation: fade 0.4s forwards $easeInOutQuint;
+}

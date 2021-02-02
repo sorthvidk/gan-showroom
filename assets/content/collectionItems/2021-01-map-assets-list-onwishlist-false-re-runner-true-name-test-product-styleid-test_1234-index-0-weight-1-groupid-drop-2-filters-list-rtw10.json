@@ -1,0 +1,11 @@
+{
+  "assets": [],
+  "re-runner": true,
+  "name": "Test product",
+  "styleId": "TEST_1234",
+  "weight": 1,
+  "groupId": "drop-2",
+  "filters": [
+    "rtw10"
+  ]
+}

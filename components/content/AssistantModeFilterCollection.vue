@@ -3,7 +3,7 @@
 		<div
 			class="assistant__content"
 			:class="{
-				'is-collapsed': isMobile && !expanded
+				'is-collapsed': isMobile && !expanded,
 			}"
 		>
 			<div class="assistant__filters">
@@ -31,9 +31,15 @@
 
 			<a
 				class="button download-collection button--half"
+				:class="{ 'is-animating': downloadPreparing }"
 				@click="downloadCollection"
-				:href="pdfDownloadLink"
+				:href="
+					__prod__
+						? `${pdfDownloadLink}&url=${encodeURIComponent(collectionUrl)}`
+						: '#'
+				"
 			>
+				<!-- :href="pdfDownloadLink" -->
 				<p>{{ downloadCollectionButtonLabel }}</p>
 			</a>
 		</div>
@@ -46,18 +52,18 @@ import {
 	OPEN_WISH_LIST,
 	DOWNLOAD_PREPARING,
 	SET_PREVIOUS_GROUP,
-	SET_NEXT_GROUP
+	SET_NEXT_GROUP,
 } from '~/model/constants'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 export default {
 	name: 'assistant-mode-filter-collection',
 	components: {
-		FilterButton
+		FilterButton,
 	},
 	computed: {
-		...mapState('user', ['keyPressed']),
-		...mapState('utils', ['isMobile']),
+		// ...mapState('user', ['keyPressed']),
+		...mapState('utils', ['isMobile', 'downloadPreparing', '__prod__']),
 		...mapState('assistant', ['expanded', 'pdfDownloadLink', 'texts']),
 		...mapState('collection', ['groupFilters', 'activeGroup', 'activeFilter']),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
@@ -81,7 +87,7 @@ export default {
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`
-		}
+		},
 	},
 	watch: {
 		// keyPressed(event) {
@@ -98,15 +104,15 @@ export default {
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
 			SET_NEXT_GROUP.action,
-			DOWNLOAD_PREPARING.action
 		]),
+		...mapActions('utils', [DOWNLOAD_PREPARING.action]),
 		viewWishList() {
 			this[OPEN_WISH_LIST.action]()
 		},
 		downloadCollection() {
 			if (window.GS_LOGS) console.log('Download collection')
-			history.pushState({}, '', this.collectionUrl)
-			setTimeout(() => history.back(), 30000) // revert url after 30 sec
+			// history.pushState({}, '', this.collectionUrl)
+			// setTimeout(() => history.back(), 30000) // revert url after 30 sec
 			this[DOWNLOAD_PREPARING.action](true)
 		},
 		previousGroupHandler() {
@@ -114,7 +120,7 @@ export default {
 		},
 		nextGroupHandler() {
 			this[SET_NEXT_GROUP.action]()
-		}
-	}
+		},
+	},
 }
 </script>

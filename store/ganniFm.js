@@ -1,33 +1,12 @@
 import {
 	MUSIC_PLAY_PAUSE,
 	FORCE_STOP_MUSIC,
-	SONGS_FETCH
+	FETCH_SONGS
 } from '~/model/constants'
 
 export const state = () => ({
 	musicPlaying: false,
-	songs: [
-		{
-			title: 'All Saints - Never Ever.mp3',
-			src: `/audio/1-01 Never Ever.mp3`
-		},
-		{
-			title: 'Sugababes - Overload.mp3',
-			src: `/audio/1-01 Overload.mp3`
-		},
-		{
-			title: 'Nirvana - Come As You Are.mp3',
-			src: `/audio/1-03 Come As You Are.mp3`
-		},
-		{
-			title: 'Janet Jackson - Together Again.mp3',
-			src: `/audio/1-11 Together Again.mp3`
-		},
-		{
-			title: 'Madonna - Express Yourself.mp3',
-			src: `/audio/1-12 Express Yourself.mp3`
-		}
-	]
+	songs: []
 })
 
 export const mutations = {
@@ -41,7 +20,7 @@ export const mutations = {
 		state.musicPlaying = false
 	},
 
-	[SONGS_FETCH.mutation](state, data) {
+	[FETCH_SONGS.mutation](state, data) {
 		const parsed = data =>
 			data.reduce(
 				(acc, cur) => [

@@ -1,35 +1,32 @@
 .cookie-banner {
-	animation: cookie-animation 0.5s;
-	// animation-delay: 3s;
-	animation-fill-mode: forwards;
-	animation-iteration-count: 1;
+	// animation: cookie-animation 0.5s forwards $easeInOutQuint;
 
-	transform: translateY(100%);
+	// transform: translateY(100%);
+
+	@include window-box-shadow();
 
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	bottom: rem(10);
+	right: rem(10);
 	z-index: $z-index-cookies;
 
+	max-width: rem(250);
+
 	background-color: $color-white;
-	border-top: 1px solid;
+	border: 1px solid;
 	color: $color-black;
-	padding: rem(15) rem(20);
+	padding: rem(10);
 
-	@include mq($from: screen-sm) {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-	}
+	transition: transform 0.5s $easeInOutQuint;
 
-	@include mq($from: screen-md) {
-		padding: rem(17) rem(21) rem(18);
+	&.pushed {
+		transform: translateY(rem(-70));
+		animation: none;
 	}
 
 	h3 {
 		@include bodytext();
-		margin-bottom: rem(10);
+		font-weight: 600;
 	}
 	p {
 		@include bodytext();
@@ -47,22 +44,20 @@
 
 	button {
 		@include bodytext();
+		@include clickarea(1em);
 
-		position: absolute;
-		right: 1rem;
+		// position: absolute;
+		// right: 1rem;
 
 		display: block;
 
 		font-family: $font-sansserif;
 
-		padding: 0.5em 2em;
+		// padding: 0.5em 2em;
 		line-height: 1.5;
 		text-decoration: underline;
 
-		margin-top: rem(20);
-		@include mq($from: screen-sm) {
-			margin-top: 0;
-		}
+		margin-top: rem(50);
 	}
 }
 

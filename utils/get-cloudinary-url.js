@@ -1,4 +1,4 @@
-export default function(cl, asset, tf = {}, pixelDensity = 1) {
+export default function(cl, asset, tf = {}, pixelDensity = 2) {
 	let transform = tf
 	let resultUrl
 	let parseUrl
@@ -31,6 +31,8 @@ export default function(cl, asset, tf = {}, pixelDensity = 1) {
 
 			transform.width ? (transform.width *= pixelDensity) : null
 			transform.height ? (transform.height *= pixelDensity) : null
+
+			transform.quality = tf.quality || 60
 
 			resultUrl = cl.url(parseUrl, transform)
 		}

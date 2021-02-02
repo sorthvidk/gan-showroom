@@ -1,5 +1,6 @@
 <template>
-	<div class="gallery-video">
+	<div class="gallery-video shimmer">
+		<!-- <loading /> -->
 		<video-player
 			:video-url="assetUrl"
 			:controls="false"
@@ -12,31 +13,33 @@
 <script>
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import Loading from '~/components/content/Loading.vue'
 
 export default {
 	name: 'gallery-video',
 	components: {
-		VideoPlayer
+		VideoPlayer,
+		Loading,
 	},
 	props: {
 		asset: {
 			type: Object,
-			required: true
+			required: true,
 		},
 		focused: {
 			type: Boolean,
-			default: false
-		}
+			default: false,
+		},
 	},
 	computed: {
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset, { width: 700 }, 2)
-		}
+		},
 	},
 	mounted() {
 		if (this.focused) {
 			setTimeout(() => this.$el.scrollIntoView({ behavior: 'smooth' }), 500)
 		}
-	}
+	},
 }
 </script>

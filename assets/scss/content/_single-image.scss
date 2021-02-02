@@ -3,14 +3,20 @@
 	width: 100%;
 	display: flex !important;
 	justify-content: center;
+	align-items: center;
 
-	background: url('/img/hourglass.gif') no-repeat center center;
-	background-size: 25%;
+	position: relative;
+
+	user-select: none;
+
+	// background: url('/img/hourglass.gif') no-repeat center center;
+	// background-size: 25%;
 
 	img {
 		// object-fit: contain;
 		object-fit: cover;
 		height: 100%;
+		width: 100%;
 	}
 
 	&.is-interactive {

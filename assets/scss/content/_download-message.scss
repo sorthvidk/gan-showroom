@@ -1,6 +1,6 @@
 .download-message {
 	animation: message-blink 3.6s;
-	animation-fill-mode: forwards;  
+	animation-fill-mode: forwards;
 	animation-iteration-count: 1;
 
 	position: fixed;
@@ -8,7 +8,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 	z-index: $z-index-message;
 
 	.window {
@@ -21,7 +21,7 @@
 		@include mq($from: screen-xxxs) {
 			top: rem(20);
 			left: rem(20);
-			right: rem(20);			
+			right: rem(20);
 		}
 
 		@include mq($from: screen-md) {
@@ -37,13 +37,17 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+
 			img {
 				display: block;
 				width: 100%;
 				height: auto;
 				margin-bottom: rem(20);
 			}
+
+			p {
+				@include bodytext();
+			}
 		}
-	}	
-		
+	}
 }

@@ -17,7 +17,7 @@
 			:x="computedPositionX"
 			:y="computedPositionY"
 			:w="computedSizeW"
-			:h="computedSizeH"
+			:h="'auto'"
 		>
 			<header class="window__top">
 				<span class="title" @touchstart="titleClick" @mouseDown="titleClick"
@@ -27,25 +27,7 @@
 					</p>
 					<p v-if="contentComponent === 'wish-list'">({{ wishList.length }})</p>
 				</span>
-				<button
-					:style="{
-						lineHeight: 0,
-						fontSize: '20px',
-						fontWeight: 'normal',
-						marginTop: '-0.2em'
-					}"
-					class="button close"
-					@click.stop="closeHandler"
-				>
-					<!-- <span class="icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-							<path
-								d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-							/>
-						</svg>
-					</span> -->
-					&times;
-				</button>
+				<button class="button close" @click.stop="closeHandler">&times;</button>
 			</header>
 			<div
 				v-if="statusComponent"
@@ -116,41 +98,41 @@ export default {
 		LookBook,
 		Collage,
 		Puzzle,
-		DownloadModal
+		DownloadModal,
 	},
 	props: {
 		modifierClass: {
 			type: String,
-			default: ''
+			default: '',
 		},
 		wrapperClass: {
 			type: String,
-			default: ''
+			default: '',
 		},
 		contentType: {
 			type: Object,
-			required: true
+			required: true,
 		},
 		contentName: {
 			type: String,
-			required: true
+			required: true,
 		},
 		canResize: {
 			type: Boolean,
-			default: true
+			default: true,
 		},
 		canReorder: {
 			type: Boolean,
-			default: true
+			default: true,
 		},
 
 		contentComponent: {
 			type: String,
-			default: null
+			default: null,
 		},
 		contentComponentProps: {
 			type: Object,
-			default: null
+			default: null,
 		},
 
 		// noStatus: {
@@ -160,47 +142,47 @@ export default {
 		statusComponent: {
 			type: String,
 			default: null,
-			required: false
+			required: false,
 		},
 		statusComponentProps: {
 			type: Object,
-			default: null
+			default: null,
 		},
 
 		customAssistantText: {
-			type: Object
+			type: Object,
 		},
 
 		title: {
-			type: String
+			type: String,
 		},
 		positionX: {
-			type: Number
+			type: Number,
 		},
 		positionY: {
-			type: Number
+			type: Number,
 		},
 		positionZ: {
-			type: Number
+			type: Number,
 		},
 		sizeW: {
-			type: Number
+			type: Number,
 		},
 		sizeH: {
-			type: Number
+			type: Number,
 		},
 		contentId: {
-			type: String
+			type: String,
 		},
 		windowId: {
-			type: String
+			type: String,
 		},
 		groupId: {
-			type: String
+			type: String,
 		},
 		nthChild: {
-			type: Number
-		}
+			type: Number,
+		},
 	},
 	computed: {
 		...mapState('puzzle', ['puzzle']),
@@ -233,9 +215,9 @@ export default {
 			if (!this.statusComponent) cn += ' window--no-status'
 
 			return cn
-		}
+		},
 	},
-	data: function() {
+	data: function () {
 		return {
 			resetPositionDistance: 40,
 			maximizeOffset: 0,
@@ -255,20 +237,20 @@ export default {
 				x: 0,
 				y: 0,
 				w: 0,
-				h: 0
-			}
+				h: 0,
+			},
 		}
 	},
 	methods: {
 		...mapActions([
 			TOPMOST_WINDOW.action,
 			CLOSE_WINDOW.action,
-			UPDATE_WINDOW.action
+			UPDATE_WINDOW.action,
 		]),
 		closeHandler(e) {
 			this[CLOSE_WINDOW.action]({
 				windowId: this.windowId,
-				contentId: this.contentId
+				contentId: this.contentId,
 			})
 		},
 		contentActivateHandler(e) {
@@ -305,7 +287,7 @@ export default {
 					x: this.positionX,
 					y: this.positionY,
 					w: this.sizeW,
-					h: this.sizeH
+					h: this.sizeH,
 				}
 				this.onResize(
 					this.maximizeOffset,
@@ -366,13 +348,13 @@ export default {
 					positionX: this.x,
 					positionY: this.y,
 					sizeW: this.w,
-					sizeH: this.h
-				}
+					sizeH: this.h,
+				},
 			})
 			if (this.canReorder) {
 				this[TOPMOST_WINDOW.action](this.windowId)
 			}
-		}
+		},
 		// onMouseDown() {
 		// 	this[TOPMOST_WINDOW.action](this.windowId);
 		// },
@@ -381,6 +363,6 @@ export default {
 		this.onResize(this.positionX, this.positionY, this.sizeW, this.sizeH)
 
 		// this.windowRef = this.$el.querySelector('.window') // use this.$refs.draggableResizable if needed
-	}
+	},
 }
 </script>

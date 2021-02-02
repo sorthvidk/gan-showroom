@@ -1,0 +1,32 @@
+.media-library {
+	@include bodytext();
+
+	position: fixed;
+	bottom: rem(71); // height of bottom menu bar
+	right: 0;
+	width: calc(25% - 1px);
+	box-sizing: border-box;
+
+	background: $color-black;
+	box-shadow: 0 0 0 1px $color-white;
+	color: $color-white;
+
+	z-index: 10001;
+
+	&__item {
+		border-top: 1px solid $color-white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: rem(70);
+		color: inherit;
+
+		&:first-of-type {
+			border-top: none;
+		}
+
+		&:hover {
+			color: $color-marigold-yellow;
+		}
+	}
+}

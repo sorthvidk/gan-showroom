@@ -1,21 +1,54 @@
 .group-navigation {
+	padding-top: rem(30);
+
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 100%;
+
+	width: 50%;
+	height: rem(40);
+
 	margin: 0 auto;
 
+	user-select: none;
+
 	label {
-		@include windowtitle();
+		@include bodytext();
 		text-align: center;
+		cursor: pointer;
+
+		&.disabled {
+			display: none; // just kill it..
+			opacity: 0.8;
+			cursor: default;
+			position: relative;
+
+			&:after {
+				content: 'Coming soon';
+				position: absolute;
+				left: 0;
+				color: red;
+				transform: rotate(-8deg);
+				background: white;
+				padding: 3px;
+				white-space: nowrap;
+			}
+		}
 	}
 
 	input[type='radio'] {
+		font-size: 1.2rem;
 		appearance: none;
-		width: 0.9em;
-		height: 0.9em;
+		width: 1em;
+		height: 1em;
 		border: 1px solid;
 		border-radius: 2em;
+
+		margin: 0;
+		margin-bottom: -0.3em;
+		margin-right: 0.1em;
+
+		cursor: pointer;
 
 		&:checked {
 			background-color: $color-black;

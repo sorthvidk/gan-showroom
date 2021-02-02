@@ -1,0 +1,217 @@
+[{
+    "styleId": "K1525_196",
+    "name": "K1525_196_Top",
+    "program": 2513,
+    "programName": "Rib Knit",
+    "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
+    "groupId": "drop-1",
+    "colorNames": "Brazilian Sand",
+    "colorId": 196,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": true,
+    "weight": 5000,
+    "wholesalePriceDKK": 360,
+    "wholesalePriceEUR": 50,
+    "wholesalePriceUSD": 65,
+    "wholesalePriceGPB": 46,
+    "retailPriceDKK": 899,
+    "retailPriceEUR": 125,
+    "retailPriceUSD": 155,
+    "retailPriceGBP": 115,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610619981/development-test/favicon-landscape.png",
+      "https://res.cloudinary.com/dd6fpxydm/video/upload/v1610620567/development-test/sound-test_landscape.mp4"
+    ]
+  },
+  {
+    "styleId": "K1570_572",
+    "name": "K1570_572_Top",
+    "program": 2515,
+    "programName": "Melange Knit",
+    "material": "55% Rayon, 29% Polyamide, 16% Elastane",
+    "groupId": "drop-1",
+    "colorNames": "Daphne",
+    "colorId": 572,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": false,
+    "weight": 4990,
+    "wholesalePriceDKK": 320,
+    "wholesalePriceEUR": 46,
+    "wholesalePriceUSD": 57,
+    "wholesalePriceGPB": 42,
+    "retailPriceDKK": 799,
+    "retailPriceEUR": 115,
+    "retailPriceUSD": 135,
+    "retailPriceGBP": 105,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620525/development-test/ditte3_gyuqih.jpg"
+    ]
+  },
+  {
+    "styleId": "K1571_572",
+    "name": "K1571_572_Blouse",
+    "program": 2515,
+    "programName": "Melange Knit",
+    "material": "55% Rayon, 29% Polyamide, 16% Elastane",
+    "groupId": "drop-1",
+    "colorNames": "Daphne",
+    "colorId": 572,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": false,
+    "weight": 4980,
+    "wholesalePriceDKK": 400,
+    "wholesalePriceEUR": 58,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGPB": 50,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620243/development-test/350x150_landscape.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620116/development-test/hits.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620525/development-test/ditte3_gyuqih.jpg"
+    ]
+  },
+  {
+    "styleId": "K1540_572",
+    "name": "K1540_572_Vest",
+    "program": 2513,
+    "programName": "Rib Knit",
+    "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
+    "groupId": "drop-2",
+    "colorNames": "Daphne",
+    "colorId": 572,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": true,
+    "weight": 3180,
+    "wholesalePriceDKK": 480,
+    "wholesalePriceEUR": 70,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGPB": 62,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620243/development-test/350x150_landscape.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620243/development-test/350x150_landscape.png"
+    ]
+  },
+  {
+    "styleId": "K1522_99",
+    "name": "K1522_99_Cropped Cardigan",
+    "program": 2515,
+    "programName": "Melange Knit",
+    "material": "55% Rayon, 29% Polyamide, 16% Elastane",
+    "groupId": "drop-2",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": false,
+    "weight": 3170,
+    "wholesalePriceDKK": 440,
+    "wholesalePriceEUR": 62,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGPB": 58,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "assets": []
+  },
+  {
+    "styleId": "K1454_135",
+    "name": "K1454_135_Cardigan",
+    "program": 2500,
+    "programName": "Soft Wool Knit",
+    "material": "32% Alpaca, 32% Merino, 30% Polyamide, 6% Elastane",
+    "groupId": "drop-3",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": false,
+    "weight": 2650,
+    "wholesalePriceDKK": 760,
+    "wholesalePriceEUR": 106,
+    "wholesalePriceUSD": 136,
+    "wholesalePriceGPB": 98,
+    "retailPriceDKK": 1899,
+    "retailPriceEUR": 265,
+    "retailPriceUSD": 325,
+    "retailPriceGBP": 245,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/video/upload/v1610620567/development-test/sound-test_landscape.mp4",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620243/development-test/350x150_landscape.png"
+    ]
+  },
+  {
+    "styleId": "K1524_135",
+    "name": "K1524_135_Cardigan",
+    "program": 2513,
+    "programName": "Rib Knit",
+    "material": "60% Recycled Wool, 10% Wool,18% Polyamide, 7% Recycled Polyamide, 5% Other fibers.",
+    "groupId": "drop-3",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": true,
+    "weight": 2640,
+    "wholesalePriceDKK": 760,
+    "wholesalePriceEUR": 106,
+    "wholesalePriceUSD": 136,
+    "wholesalePriceGPB": 98,
+    "retailPriceDKK": 1899,
+    "retailPriceEUR": 265,
+    "retailPriceUSD": 325,
+    "retailPriceGBP": 245,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620116/development-test/hits.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620525/development-test/ditte3_gyuqih.jpg"
+    ]
+  },
+  {
+    "styleId": "K1529_321",
+    "name": "K1529_321_Short Sleeve Cardigan",
+    "program": 2517,
+    "programName": "Slub Cotton Knit",
+    "material": "56% Organic Cotton, 32% Viscose, 9% Polyamide, 3% Polyester",
+    "groupId": "drop-3",
+    "colorNames": "Pale Banana",
+    "colorId": 321,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": true,
+    "weight": 2630,
+    "wholesalePriceDKK": 640,
+    "wholesalePriceEUR": 90,
+    "wholesalePriceUSD": 111,
+    "wholesalePriceGPB": 82,
+    "retailPriceDKK": 1599,
+    "retailPriceEUR": 225,
+    "retailPriceUSD": 265,
+    "retailPriceGBP": 205,
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620116/development-test/hits.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610619981/development-test/favicon-landscape.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620243/development-test/350x150_landscape.png",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1610620525/development-test/ditte3_gyuqih.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/video/upload/v1610620567/development-test/sound-test_landscape.mp4"
+    ]
+  }
+]

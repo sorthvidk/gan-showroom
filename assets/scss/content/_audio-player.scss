@@ -1,0 +1,63 @@
+.audio-player {
+	@include bodytext();
+	user-select: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+
+	display: flex;
+	align-items: center;
+
+	height: rem(40);
+	padding: 0 rem(10);
+
+	&__time {
+		position: fixed;
+		left: 82vw;
+
+		@include mq($from: screen-sm) {
+			left: 25vw;
+		}
+	}
+
+	&__name {
+		@include truncate();
+		width: calc(82vw - 60px);
+
+		@include mq($from: screen-sm) {
+			width: calc(25vw - 60px);
+		}
+	}
+
+	button {
+		display: flex;
+		margin-right: rem(10);
+	}
+
+	svg {
+		fill: currentColor;
+		width: 30px;
+		height: 30px;
+	}
+
+	&__modal {
+		@include bodytext();
+
+		cursor: pointer;
+		display: inline-flex;
+		padding: 100px 150px;
+		background: black;
+		text-decoration: underline;
+		color: white;
+		position: fixed;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+	}
+
+	&.dark {
+		color: $color-white;
+	}
+}

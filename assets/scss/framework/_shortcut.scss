@@ -1,4 +1,21 @@
 .shortcut {
+	&-bottombar {
+		@include headline();
+		flex-grow: 1;
+		height: rem(70);
+		// border-left: 1px solid $color-white;
+		// border-top: 1px solid $color-white;
+		box-shadow: 0 0 0 1px $color-white;
+		z-index: 1;
+
+		background: $color-black;
+		color: $color-white;
+
+		&.active {
+			color: $color-marigold-yellow;
+		}
+	}
+
 	&__icon {
 		position: relative;
 		box-sizing: border-box;
@@ -96,11 +113,6 @@
 		display: block;
 		text-align: left;
 		overflow: hidden; // make correct hoverarea
-
-		// quick way of fixing '#InstantGood' on PF21
-		&:nth-of-type(7) {
-			text-transform: none;
-		}
 	}
 
 	&__badge {

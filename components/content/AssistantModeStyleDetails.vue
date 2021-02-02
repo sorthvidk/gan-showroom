@@ -3,90 +3,58 @@
 		<div
 			class="assistant__content"
 			:class="{
-				'is-collapsed': isMobile && !expanded
+				'is-collapsed': isMobile && !expanded,
 			}"
 		>
 			<div class="assistant__product-details">
-				<span v-if="currentStyle.responsible" class="responsible">
+				<style-info :item="currentStyle" />
+				<!-- <span v-if="currentStyle.responsible" class="responsible">
 					<div>I am a certified responsible material —&nbsp;</div>
 					<div>I am a certified responsible material —&nbsp;</div>
 					<div>I am a certified responsible material —&nbsp;</div>
 				</span>
 
-				<table>
-					<tbody>
-						<tr>
-							<th>Color</th>
-							<td>{{ currentStyle.colorNames }}</td>
-						</tr>
+				<div class="assistant__row">
+					<span>Color</span>
+					<span>{{ currentStyle.colorNames }}</span>
+				</div>
+				<div class="assistant__row">
+					<span>Material</span>
+					<span>{{ currentStyle.material }}</span>
+				</div>
+				<div class="assistant__row">
+					<span>Style #</span>
+					<span>{{ currentStyle.styleId }}</span>
+				</div>
+				<div class="assistant__row">
+					<span>Program #</span>
+					<span>{{ currentStyle.program }}</span>
+				</div>
+				<div class="assistant__row">
+					<span>Program name</span>
+					<span>{{ currentStyle.programName }}</span>
+				</div>
+				<div class="assistant__row" v-if="SHOW_WHOLESALE_PRICE">
+					<span>Wholesale price</span>
+					<span
+						>DKK {{ currentStyle.wholesalePriceDKK }}<br />
+						EUR {{ currentStyle.wholesalePriceEUR }}<br />
+						USD {{ currentStyle.wholesalePriceUSD }}<br />
+						GBP {{ currentStyle.wholesalePriceGBP }}</span
+					>
+				</div>
 
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr>
-							<th>Material</th>
-							<td>{{ currentStyle.material }}</td>
-						</tr>
-						<tr>
-							<th>Style #</th>
-							<td>{{ currentStyle.styleId }}</td>
-						</tr>
-						<tr>
-							<th>Program #</th>
-							<td>{{ currentStyle.program }}</td>
-						</tr>
-						<tr>
-							<th>Program name</th>
-							<td>{{ currentStyle.programName }}</td>
-						</tr>
-
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
-							<td>DKK {{ currentStyle.wholesalePriceDKK }}</td>
-						</tr>
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
-							<td>EUR {{ currentStyle.wholesalePriceEUR }}</td>
-						</tr>
-						<tr v-if="SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
-							<td>USD {{ currentStyle.wholesalePriceUSD }}</td>
-						</tr>
-						<tr v-if="currentStyle.wholesalePriceGBP && SHOW_WHOLESALE_PRICE">
-							<th>Wholesale price</th>
-							<td>GBP {{ currentStyle.wholesalePriceGBP }}</td>
-						</tr>
-
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-						</tr>
-
-						<tr>
-							<th>Suggested retail price</th>
-							<td>DKK {{ currentStyle.retailPriceDKK }}</td>
-						</tr>
-						<tr>
-							<th>Suggested retail price</th>
-							<td>EUR {{ currentStyle.retailPriceEUR }}</td>
-						</tr>
-						<tr>
-							<th>Suggested retail price</th>
-							<td>USD {{ currentStyle.retailPriceUSD }}</td>
-						</tr>
-						<tr v-if="currentStyle.retailPriceGBP">
-							<th>Suggested retail price</th>
-							<td>GBP {{ currentStyle.retailPriceGBP }}</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="assistant__row">
+					<span>Suggested retail price</span>
+					<span
+						>DKK {{ currentStyle.retailPriceDKK }}<br />
+						EUR {{ currentStyle.retailPriceEUR }}<br />
+						USD {{ currentStyle.retailPriceUSD }}<br />
+						<div v-if="currentStyle.retailPriceGBP">
+							GBP {{ currentStyle.retailPriceGBP }}
+						</div></span
+					>
+				</div> -->
 			</div>
 		</div>
 
@@ -105,7 +73,7 @@
 				class="button add-to-wishlist button--half"
 				:class="{
 					'is-active': styleOnWishList,
-					'is-animating': styleHasBeenAdded
+					'is-animating': styleHasBeenAdded,
 				}"
 				@click="addToWishListClickHandler"
 			>
@@ -139,67 +107,79 @@ import {
 	ADD_TO_WISHLIST,
 	OPEN_CONTENT,
 	OPEN_WISH_LIST,
-	SHOW_PREVIOUS_STYLE,
-	SHOW_NEXT_STYLE,
-	SET_HIDDEN_ASSETS
+	SHOW_NEW_STYLE,
+	// SHOW_NEXT_STYLE,
+	SET_HIDDEN_ASSETS,
 } from '~/model/constants'
 import sendTracking from '~/utils/send-tracking'
+import StyleInfo from '~/components/content/StyleInfo.vue'
 
 export default {
 	name: 'assistant-mode-style-details',
+	components: {
+		StyleInfo,
+	},
 	data: () => ({ styleHasBeenAdded: false }),
 	computed: {
-		...mapState(['SHOW_WHOLESALE_PRICE']),
+		// ...mapState(['SHOW_WHOLESALE_PRICE']),
 		...mapState('utils', ['isMobile']),
 		...mapState('user', ['keyPressed']),
 		...mapState('assistant', ['assistantMode', 'expanded']),
 		...mapState('collection', [
 			'currentStyle',
 			'wishList',
-			'hiddenAssetContent'
+			'hiddenAssetContent',
 		]),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
 		hasHiddenAssets() {
 			return this.hiddenAssetContent.length > 0
 		},
 		styleOnWishList() {
-			return this.wishList.find(s => s.styleId === this.currentStyle.styleId)
+			return this.wishList.find((s) => s.styleId === this.currentStyle.styleId)
 		},
 		addToWishListButtonLabel() {
 			if (this.styleOnWishList) return 'Added to wishlist'
 			return 'Add to wishlist'
-		}
+		},
 	},
 	watch: {
 		keyPressed(event) {
 			if (event.key === 'ArrowLeft') {
-				this.previousStyleHandler()
+				// this.previousStyleHandler()
+				this[SHOW_NEW_STYLE.action]({
+					styleId: this.currentStyle.styleId,
+					previous: true,
+				})
 			}
 
 			if (event.key === 'ArrowRight') {
-				this.nextStyleHandler()
+				// this.nextStyleHandler()
+				this[SHOW_NEW_STYLE.action]({
+					styleId: this.currentStyle.styleId,
+					next: true,
+				})
 			}
 
 			if (event.code === 'Space') {
 				this.addToWishListClickHandler()
 			}
-		}
+		},
 	},
 	methods: {
 		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			OPEN_CONTENT.action,
 			ALL_ASSETS_VISIBLE.action,
-			SHOW_PREVIOUS_STYLE.action,
-			SHOW_NEXT_STYLE.action,
+			SHOW_NEW_STYLE.action,
+			// SHOW_NEXT_STYLE.action,
 			ADD_TO_WISHLIST.action,
-			SET_HIDDEN_ASSETS.action
+			SET_HIDDEN_ASSETS.action,
 		]),
 		showAllVariantsClickHandler() {
 			this[ALL_ASSETS_VISIBLE.action](this.currentStyle)
 			this[OPEN_CONTENT.action]({
 				windowContent: this.hiddenAssetContent,
-				addToGroupId: this.topMostWindow.groupId
+				addToGroupId: this.topMostWindow.groupId,
 			})
 			this[SET_HIDDEN_ASSETS.action](false)
 		},
@@ -215,15 +195,11 @@ export default {
 				sendTracking('Add to wish list', this.currentStyle.styleId)
 			}
 		},
-		previousStyleHandler() {
-			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
-		},
-		nextStyleHandler() {
-			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
-		},
+		previousStyleHandler() {},
+		nextStyleHandler() {},
 		viewWishListClickHandler() {
 			this[OPEN_WISH_LIST.action]()
-		}
-	}
+		},
+	},
 }
 </script>

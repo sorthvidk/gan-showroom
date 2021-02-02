@@ -3,118 +3,77 @@
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
 	>
-		<div class="window__top">
-			<span class="title">Ganni space assistant</span>
+		<div class="window__top" @click="toggle">
+			<div class="icon" :class="{ closed }" />
+
+			<span
+				class="title"
+				:style="{
+					cursor: windowList.length
+						? 'default'
+						: closed
+						? 's-resize'
+						: 'n-resize',
+				}"
+			>
+				<rotating-text :text="'GANNI SPACE'" />
+				<!-- <p>GANNI SPACE</p> -->
+			</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
 
 		<div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
-						/>
-					</svg>
+				<span class="icon">
+					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
 				</span>
-				<span v-if="expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path d="M0 7h15v1H0V7z" />
-					</svg>
-				</span>
-				<p>{{ filterStatusText }}</p>
+				<p>{{ filterName || 'Filter' }}</p>
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && isMobile">
-			<button class="button expand" @click="toggleContentHandler">
-				<span v-if="!expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path
-							fill-rule="evenodd"
-							clip-rule="evenodd"
-							d="M7 8v7h1V8h7V7H8V0H7v7H0v1h7z"
-						/>
-					</svg>
-				</span>
-				<span v-if="expanded" class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
-						<path d="M0 7h15v1H0V7z" />
-					</svg>
+		<div class="window__status" v-if="assistantMode == 2">
+			<button
+				class="button expand"
+				@click="toggleContentHandler"
+				v-if="isMobile"
+			>
+				<span class="icon">
+					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
 				</span>
 				<p>{{ currentStyle.name }}</p>
 			</button>
+			<p v-else>{{ currentStyle.name }}</p>
+
 			<button class="window-button previous" @click="previousStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
-					</svg>
-				</span>
+				<svg-icon name="arrow--left" />
 			</button>
 			<button class="window-button next" @click="nextStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
-					</svg>
-				</span>
+				<svg-icon style="transform: scaleX(-1)" name="arrow--left" />
 			</button>
 			<button class="window-button close" @click="closeStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path
-							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-						/>
-					</svg>
-				</span>
+				<svg-icon name="cross" />
 			</button>
 		</div>
 
-		<div class="window__status" v-if="assistantMode == 2 && !isMobile">
-			<p>{{ currentStyle.name }}</p>
-			<button class="window-button previous" @click="previousStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M17 21.8L10.1 15 17 8.1l.7.8-6.2 6.1 6.2 6.1z" />
-					</svg>
-				</span>
-			</button>
-			<button class="window-button next" @click="nextStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
-					</svg>
-				</span>
-			</button>
-			<button class="window-button close" @click="closeStyleHandler">
-				<span class="icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-						<path
-							d="M15.7 15l7.8-7.8-.7-.7-7.8 7.8-7.8-7.8-.7.7 7.8 7.8-7.8 7.8.7.7 7.8-7.8 7.8 7.8.7-.7-7.8-7.8z"
-						/>
-					</svg>
-				</span>
-			</button>
-		</div>
-
-		<hr v-if="assistantMode == 2 && (!isMobile || (isMobile && expanded))" />
+		<!-- <hr v-if="assistantMode == 2 && (!isMobile || (isMobile && expanded))" /> -->
 
 		<!-- ####################### CONTENT ####################### -->
 
-		<div class="window__content">
-			<div class="assistant">
-				<assistant-mode-welcome v-if="assistantMode === 0" />
-				<assistant-mode-filter-collection v-if="assistantMode === 1" />
-				<assistant-mode-style-details v-if="assistantMode === 2" />
-				<assistant-mode-wishlist v-if="assistantMode === 3" />
-				<assistant-mode-collection-seen v-if="assistantMode === 4" />
-				<assistant-mode-collage v-if="assistantMode === 5" />
-				<assistant-mode-custom v-if="assistantMode === 6" />
-				<assistant-mode-puzzle v-if="assistantMode === 7" />
+		<transition-expand>
+			<div v-show="!closed || windowList.length" class="window__content">
+				<div class="assistant">
+					<assistant-mode-welcome v-if="assistantMode === 0" />
+					<assistant-mode-filter-collection v-if="assistantMode === 1" />
+					<assistant-mode-style-details v-if="assistantMode === 2" />
+					<assistant-mode-wishlist v-if="assistantMode === 3" />
+					<assistant-mode-collection-seen v-if="assistantMode === 4" />
+					<assistant-mode-collage v-if="assistantMode === 5" />
+					<assistant-mode-custom v-if="assistantMode === 6" />
+					<assistant-mode-puzzle v-if="assistantMode === 7" />
+				</div>
 			</div>
-		</div>
+		</transition-expand>
 	</section>
 </template>
 
@@ -122,12 +81,12 @@
 import { vuex, mapActions, mapState } from 'vuex'
 import {
 	CLOSE_WINDOW_GROUP,
-	SHOW_NEXT_STYLE,
-	SHOW_PREVIOUS_STYLE,
+	SHOW_NEW_STYLE,
 	ASSISTANT_MODE,
 	ASSISTANT_EXPANDED,
 	CURRENT_STYLE,
-	SET_HIDDEN_ASSETS
+	SET_HIDDEN_ASSETS,
+	ASSISTANT_TOGGLE,
 } from '~/model/constants'
 
 import AssistantModeWelcome from '~/components/content/AssistantModeWelcome.vue'
@@ -138,6 +97,9 @@ import AssistantModeWishlist from '~/components/content/AssistantModeWishlist.vu
 import AssistantModeCollectionSeen from '~/components/content/AssistantModeCollectionSeen.vue'
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
+
+import TransitionExpand from '~/components/transitions/Expand.vue'
+import RotatingText from '~/components/content/RotatingText.vue'
 
 import ContentTypes from '~/model/content-types'
 import AssistantModes from '~/model/assistant-modes'
@@ -152,28 +114,26 @@ export default {
 		AssistantModeWishlist,
 		AssistantModeCollectionSeen,
 		AssistantModeCustom,
-		AssistantModePuzzle
+		AssistantModePuzzle,
+		TransitionExpand,
+		RotatingText,
 	},
 	data() {
 		return {
-			filterName: null
+			filterName: null,
 		}
 	},
 	computed: {
-		...mapState(['topMostWindow']),
+		...mapState(['topMostWindow', 'dashboardContent', 'windowList']),
 		...mapState('collection', [
 			'wishList',
 			'allStyles',
 			'currentStyle',
 			'currentStyles',
-			'activeFilter'
+			'activeFilter',
 		]),
-		...mapState('assistant', ['assistantMode', 'expanded']),
+		...mapState('assistant', ['assistantMode', 'expanded', 'closed']),
 		...mapState('utils', ['isMobile']),
-
-		filterStatusText() {
-			return this.filterName || 'Filter'
-		}
 	},
 	watch: {
 		activeFilter(newVal) {
@@ -184,8 +144,6 @@ export default {
 		},
 		topMostWindow() {
 			let noRelevantAssistantContent = false
-			// this.shareUrl = null
-			// this.styleHasBeenAdded = false
 
 			if (!this.topMostWindow.contentComponent) {
 				noRelevantAssistantContent = true
@@ -204,11 +162,10 @@ export default {
 							contentComponentProps.asset.styleId
 						) {
 							const currentStyle = this.allStyles.filter(
-								e => e.styleId === contentComponentProps.asset.styleId
+								(e) => e.styleId === contentComponentProps.asset.styleId
 							)[0]
 							this[CURRENT_STYLE.action](currentStyle)
 							this[SET_HIDDEN_ASSETS.action]()
-							this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
 						} else {
 							noRelevantAssistantContent = true
 						}
@@ -236,27 +193,33 @@ export default {
 			) {
 				this[ASSISTANT_MODE.action](AssistantModes.WELCOME)
 			}
-		}
+		},
 	},
 	methods: {
 		...mapActions([CLOSE_WINDOW_GROUP.action]),
 		...mapActions('collection', [
-			SHOW_PREVIOUS_STYLE.action,
-			SHOW_NEXT_STYLE.action,
+			SHOW_NEW_STYLE.action,
 			CURRENT_STYLE.action,
-			SET_HIDDEN_ASSETS.action
+			SET_HIDDEN_ASSETS.action,
 		]),
 		...mapActions('assistant', [
 			ASSISTANT_MODE.action,
-			ASSISTANT_EXPANDED.action
+			ASSISTANT_EXPANDED.action,
+			ASSISTANT_TOGGLE.action,
 		]),
 
 		previousStyleHandler() {
-			this[SHOW_PREVIOUS_STYLE.action](this.currentStyle.styleId)
+			this[SHOW_NEW_STYLE.action]({
+				styleId: this.currentStyle.styleId,
+				previous: true,
+			})
 		},
 
 		nextStyleHandler() {
-			this[SHOW_NEXT_STYLE.action](this.currentStyle.styleId)
+			this[SHOW_NEW_STYLE.action]({
+				styleId: this.currentStyle.styleId,
+				next: true,
+			})
 		},
 
 		closeStyleHandler() {
@@ -265,12 +228,18 @@ export default {
 
 		toggleContentHandler() {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
-		}
+		},
+
+		toggle() {
+			if (!this.windowList.length) {
+				this[ASSISTANT_TOGGLE.action](!this.closed)
+			}
+		},
 	},
 	mounted() {
 		if (this.isMobile) {
 			this[ASSISTANT_EXPANDED.action](false)
 		}
-	}
+	},
 }
 </script>

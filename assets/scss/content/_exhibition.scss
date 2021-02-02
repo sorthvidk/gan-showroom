@@ -12,8 +12,8 @@
 		width: 100%;
 		position: relative;
 
-		background: url('/img/hourglass.gif') no-repeat center center;
-		background-size: 25%;
+		// background: url('/img/hourglass.gif') no-repeat center center;
+		// background-size: 25%;
 
 		img,
 		video {
@@ -33,9 +33,10 @@
 
 			p {
 				@include bodytext();
-				font-size: rem(13);
-				font-weight: $weight-medium;
-				color: $color-white;
+				background-color: $color-marigold-yellow;
+				padding: 0.25em 0.5em;
+				display: inline-block;
+				// color: $color-white;
 			}
 		}
 	}

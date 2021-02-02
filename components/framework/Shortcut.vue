@@ -1,19 +1,22 @@
 <template>
-	<transition @before-appear="beforeAnimateIn" @appear="animateIn">
-		<button
-			@click="onClick"
-			@mouseenter="changeBackground"
-			@mouseleave="changeBackground(false)"
-			class="shortcut"
-			:class="{ shortcut__text: textLayout, shortcut__icon: !textLayout }"
-			:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
-		>
-			<span class="icon" v-if="!textLayout">
-				<img :src="icon" />
-			</span>
-			<span class="text">{{ label }}</span>
-		</button>
-	</transition>
+	<!-- <transition @before-appear="beforeAnimateIn" @appear="animateIn"> -->
+	<!-- @mouseenter="changeBackground"
+			@mouseleave="changeBackground(false)" -->
+	<button
+		@click="onClick"
+		class="shortcut shortcut-bottombar"
+		:class="{
+			active:
+				dashboardContent && dashboardContent.contentComponent === shortcutId,
+		}"
+		:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
+	>
+		<span class="icon" v-if="!textLayout">
+			<img :src="icon" />
+		</span>
+		<span class="text">{{ label }}</span>
+	</button>
+	<!-- </transition> -->
 </template>
 
 <script>
@@ -21,8 +24,9 @@ import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 import { TweenLite } from 'gsap'
 import {
 	OPEN_CONTENT,
+	OPEN_CONTENT_IN_DASHBOARD,
 	SET_GROUP_BY_IDENTIFIER,
-	DESKTOP_BACKGROUND
+	DESKTOP_BACKGROUND,
 } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
@@ -32,26 +36,30 @@ export default {
 		textLayout: { type: Boolean, default: false, required: false },
 		positionH: { type: Number, default: 0, required: false },
 		positionV: { type: Number, default: 0, required: false },
-		icon: { type: String, default: null, required: true },
+		icon: { type: String | null, default: null, required: true },
 		label: { type: String, default: null, required: true },
 		shortcutId: { type: String, default: null, required: true },
 		type: { type: Number, default: -1, required: true },
 		windowContent: { type: [Array, String], default: () => [], required: true },
 		actions: { type: Array, default: null, required: false },
 		href: { type: String, default: null, required: false },
-		nthChild: { type: Number }
+		nthChild: { type: Number },
 	},
+	data: () => ({
+		cssClass: '',
+	}),
 	computed: {
+		...mapState(['dashboardContent']),
 		...mapGetters('collection', ['authorizedGroupsIds']),
 		styleGridRow() {
 			return this.positionV + '/' + (this.positionV + 1)
 		},
 		styleGridColumn() {
 			return this.positionH + '/' + (this.positionH + 1)
-		}
+		},
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action]),
+		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		...mapActions('assets', [DESKTOP_BACKGROUND.action]),
 		onClick() {
 			const { windowContent } = this
@@ -59,20 +67,23 @@ export default {
 			if (this.type == ShortcutTypes.URL && this.href) {
 				window.open(this.href, '_blank')
 			} else {
+				const openContentInDashboard = () => {
+					this.$nextTick(() =>
+						this[OPEN_CONTENT_IN_DASHBOARD.action]({ windowContent })
+					)
+				}
 				if (this.actions) {
-					const openContent = () =>
-						this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
+					// const openContent = () =>
+					// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
-					this.actions.forEach(action => {
+					this.actions.forEach((action) => {
 						if (typeof action.param !== 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
 					})
-
-					openContent()
-				} else {
-					this[OPEN_CONTENT.action]({ windowContent })
 				}
+
+				openContentInDashboard()
 			}
 		},
 		beforeAnimateIn(el) {
@@ -83,14 +94,17 @@ export default {
 				delay: Math.floor(this.nthChild) / 20 + 0.5,
 				scale: 1,
 				opacity: 1,
-				ease: 'power4.inOut'
+				ease: 'power4.inOut',
 			})
 		},
 		changeBackground(color) {
 			if (!this.textLayout) return
 
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
-		}
-	}
+		},
+	},
+	mounted() {
+		// console.log(this.shortcutId)
+	},
 }
 </script>

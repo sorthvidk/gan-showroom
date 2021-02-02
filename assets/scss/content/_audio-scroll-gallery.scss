@@ -1,0 +1,103 @@
+.audio-gallery {
+	width: 100%;
+	height: 100vh;
+	max-height: 100%;
+	overflow: auto;
+	background: $color-white;
+
+	position: relative;
+	z-index: 10000;
+
+	user-select: none;
+
+	&__container {
+		height: inherit;
+		max-height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__cursor {
+		@include bodytext();
+
+		position: fixed;
+		z-index: 100000;
+	}
+
+	&__skip {
+		position: absolute;
+		right: 0;
+		height: rem(40);
+		width: rem(70);
+		z-index: 10;
+	}
+
+	&__scrollbar {
+		transition: width 0.5s $easeInOutQuint;
+		width: rem(10);
+		height: 100%;
+		position: fixed;
+		right: 0;
+		top: 0;
+
+		cursor: pointer;
+
+		&:hover {
+			width: rem(15);
+		}
+	}
+
+	&__scroller {
+		transform-origin: top;
+		background: black;
+		height: 100%;
+	}
+
+	&__wrapper {
+		position: fixed;
+		// height: 100vh;
+		width: 100%;
+
+		pointer-events: none;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&__images {
+		position: relative;
+		width: 50%;
+		height: 70vh;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__image {
+		position: absolute;
+		height: 100%;
+
+		img {
+			height: 100%;
+			max-width: 75vh;
+			object-fit: contain;
+		}
+
+		&:nth-child(2n) {
+			align-self: flex-end;
+		}
+		&:nth-child(3n) {
+			align-self: flex-start;
+		}
+	}
+
+	&__text {
+		@include bodytext();
+		margin-top: 1.63em;
+	}
+}

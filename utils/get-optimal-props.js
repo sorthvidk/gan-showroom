@@ -58,13 +58,17 @@ export default function(state, currentWindow, groupId) {
 	const {
 		contentComponent,
 		statusComponent,
-		defaultWindowProps
+		defaultWindowProps = {}
 	} = currentWindow.type
 
 	const viewportSize = getViewportSize()
 
-	const sizeW = windowProps.width || defaultWindowProps.sizes[viewportSize].w
-	const sizeH = windowProps.height || defaultWindowProps.sizes[viewportSize].h
+	const sizeW = defaultWindowProps.sizes
+		? windowProps.width || defaultWindowProps.sizes[viewportSize].w
+		: null
+	const sizeH = defaultWindowProps.sizes
+		? windowProps.height || defaultWindowProps.sizes[viewportSize].h
+		: null
 
 	const conditionalAssignment = (obj, attr) => {
 		if (typeof windowProps[attr] !== 'undefined') obj[attr] = windowProps[attr]

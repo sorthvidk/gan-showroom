@@ -12,20 +12,28 @@
 	}
 
 	position: relative;
-	height: 100%;
+	height: rem(800) !important;
+	max-height: calc(100vh - rem(150));
+
+	display: flex !important;
 
 	&__overview {
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		width: rem(215);
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// bottom: 0;
+		width: rem(250);
 
 		border-right: rem(1) solid $color-black;
 		box-sizing: border-box;
 
 		overflow: hidden;
 		overflow-y: auto;
+
+		> * {
+			border-bottom: rem(1) solid rgba(0, 0, 0, 0.2);
+			padding-bottom: rem(10);
+		}
 
 		&__item {
 			display: flex;
@@ -50,34 +58,41 @@
 			display: inline-flex;
 			align-items: center;
 		}
+
+		$removeButton: rem(30);
+
 		.remove {
-			padding: rem(8) 0;
+			width: $removeButton;
 			justify-content: center;
-			flex: 0 0 rem(30);
+
 			svg {
-				width: rem(30);
-				height: rem(30);
+				width: rem(15);
+				height: rem(15);
 			}
+
 			opacity: 0;
 			transition: opacity 0.1s ease;
 		}
 		.activate {
-			padding: rem(8) 0 rem(8) rem(12);
+			padding: rem(5) rem(15);
+			padding-right: 0;
 			box-sizing: border-box;
-			flex: 0 0 rem(185);
+			// flex: 0 0 rem(185);
 			justify-content: flex-start;
+			flex-grow: 1;
+			width: calc(100% - #{$removeButton});
 
 			img {
 				display: inline-block;
-				flex: 0 0 rem(30);
-				max-width: rem(30);
+				// flex: 0 0 rem(30);
+				max-width: rem(40);
 				margin-right: rem(10);
 			}
 			p {
 				@include bodytext();
 				// font-size: rem(13);
 				overflow: hidden;
-				width: rem(185 + -12 - 30 - 10);
+				// width: rem(185 + -12 - 30 - 10);
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				text-align: left;
@@ -87,12 +102,15 @@
 
 	&__details {
 		display: none;
+		overflow: auto;
 
 		@include mq($from: screen-sm) {
 			display: block;
 		}
 
-		padding-left: rem(215);
+		flex-grow: 1;
+
+		// padding-left: rem(215);
 
 		// overflow: hidden;
 		// overflow-y: auto;
@@ -104,6 +122,10 @@
 			max-width: rem(300);
 			margin: 0 auto;
 
+			.style-info {
+				padding-top: rem(10);
+			}
+
 			h3 {
 				@include windowtitle();
 			}
@@ -114,10 +136,11 @@
 		}
 
 		.button {
+			@include bodytext();
 			@include link();
 			font-size: rem(12);
 			display: inline-flex;
-			margin-bottom: rem(20);
+			margin: rem(10) 0;
 		}
 
 		.single-image {
@@ -128,6 +151,12 @@
 			img {
 				height: auto;
 			}
+		}
+
+		.empty {
+			@include bodytext();
+
+			text-align: center;
 		}
 	}
 

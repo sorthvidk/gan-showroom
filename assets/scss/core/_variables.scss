@@ -30,6 +30,7 @@ $color-white: #ffffff;
 $color-darkgrey: #4a4a49;
 $color-grey: #c6c6c6;
 $color-lightgrey: #ededed;
+$color-imagebg: #dad7d4;
 $color-salmon: #fbd5c5;
 $color-orange: #ff8266;
 $color-yellow: #ffff00;
@@ -55,6 +56,9 @@ $color-pf21-lilac: #d8aab7;
 $color-pf21-lightblue: #93b7d5;
 $color-pf21-purple: #de5b8c;
 
+/* --- COLORS: FEBRUARY 2021 --- */
+$color-marigold-yellow: #fdef75;
+
 $z-index-assistant: 4000;
 $z-index-support: 5000;
 $z-index-gallery: 6000;
@@ -64,3 +68,6 @@ $z-index-cookies: 9500;
 $weight-normal: 400;
 $weight-medium: 500;
 $weight-bold: 600;
+
+$color-buttonhover: darken($color-marigold-yellow, 15%);
+$color-buttonactive: lighten($color-marigold-yellow, 20%);

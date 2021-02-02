@@ -9,17 +9,19 @@
 	opacity: 0.6;
 }
 
+@mixin window-box-shadow() {
+	box-shadow: 0 0 rem(4) rem(2) rgba(0, 0, 0, 0.1);
+}
+
 .window {
 	$chrome-height: 65;
-	// $chrome-height-no-status: 30;
 	$chrome-height-no-status: 30;
 
 	$module: '.window';
 
+	@include window-box-shadow();
+
 	background-color: $color-white;
-	// border: rem(1) solid $color-black;
-	// box-shadow: rem(4) rem(4) 0 0 rgba(0, 0, 0, 0.2);
-	box-shadow: 0 0 rem(4) 0 rgba(0, 0, 0, 0.1);
 
 	position: absolute;
 	top: 0;
@@ -30,6 +32,33 @@
 
 	@include mq($from: screen-md) {
 		max-width: none;
+	}
+
+	&.draggable {
+		user-select: none;
+	}
+
+	&__static {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+
+		.window__content {
+			overflow: initial;
+		}
+
+		> * {
+			height: 100%;
+		}
+
+		&__status {
+			position: fixed;
+			top: 0;
+			z-index: 1000;
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&.is-active {
@@ -61,11 +90,11 @@
 		justify-content: space-between;
 		align-items: center;
 
-		border-bottom: rem(1) solid $color-black;
+		background-color: $color-marigold-yellow;
 
 		.title {
-			padding: rem(5);
-			padding-right: rem(20);
+			padding: rem(10);
+			// padding-right: rem(20);
 			margin: 0 auto;
 			overflow: hidden;
 
@@ -74,14 +103,12 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 
-			@include windowtitle();
+			@include bodytext();
 
 			cursor: grab;
 
 			text-align: center;
 			width: 100%;
-
-			line-height: 1.2;
 
 			box-sizing: border-box;
 
@@ -99,6 +126,11 @@
 			align-items: center;
 			justify-content: center;
 
+			line-height: 0;
+			font-size: 20px;
+			font-weight: normal;
+			margin-top: -0.2em;
+
 			// &:hover {
 			// 	background-color: $color-white;
 			// }
@@ -109,9 +141,11 @@
 		height: rem(35);
 		box-sizing: border-box;
 		position: relative;
-		background-color: $color-white;
+		background-color: $color-marigold-yellow;
 		display: flex;
 		justify-content: space-between;
+
+		border-top: rem(1) solid $color-black;
 
 		> p {
 			@include bodytext();
@@ -134,8 +168,12 @@
 			border-bottom: 0;
 
 			&:hover {
-				background-color: $color-lightgrey;
+				background-color: $color-buttonhover;
 			}
+		}
+
+		+ .window__content {
+			border-top: rem(1) solid $color-black;
 		}
 	}
 	&__content {
@@ -145,13 +183,18 @@
 		height: calc(100% - #{rem($chrome-height)});
 
 		// @include smiley-scrollbar();
+		flex-grow: 1;
 	}
 
-	&:hover {
-		.handle {
-			display: block !important;
-		}
+	.handle {
+		display: none !important;
 	}
+
+	// &:hover {
+	// 	.handle {
+	// 		display: block !important;
+	// 	}
+	// }
 
 	&--tight {
 		#{$module}__content {
@@ -187,7 +230,7 @@
 
 	&--no-status {
 		#{$module}__content {
-			height: calc(100% - #{rem($chrome-height-no-status)});
+			height: 100%;
 		}
 	}
 
