@@ -54,7 +54,7 @@
 .slide-in-enter-active {
 	position: absolute !important;
 	top: 0;
-	transition: all 2s $easeInOutQuint;
+	transition: transform 2s $easeInOutQuint;
 }
 
 .slide-in-enter {
@@ -82,6 +82,7 @@
 	transition: all 0.5s $easeInOutQuint;
 }
 .slide-up-enter {
+	opacity: 0;
 	transform: translateY(100%);
 }
 

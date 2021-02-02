@@ -154,7 +154,7 @@ export default {
 		})
 		document.body.addEventListener('click', () => {
 			this.nonidle()
-			this[USER_HAS_INTERACTED.action]()
+			setTimeout(this[USER_HAS_INTERACTED.action], 2000)
 		})
 
 		document.body.addEventListener('mousemove', this.nonidle.bind(this))

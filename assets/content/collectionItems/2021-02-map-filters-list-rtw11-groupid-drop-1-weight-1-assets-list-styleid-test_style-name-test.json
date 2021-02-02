@@ -1,10 +1,9 @@
 {
+  "styleId": "TEST",
   "filters": [
     "rtw11"
   ],
   "groupId": "drop-1",
-  "weight": 1,
-  "assets": [],
-  "styleId": "TEST_STYLE",
-  "name": "Test changed"
+  "name": "test",
+  "weight": 1
 }
