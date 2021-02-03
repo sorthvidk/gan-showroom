@@ -9,7 +9,11 @@
 				{{ group.name }}
 			</h4>
 
-			<collection-header :group="group" :mode="'flash'" />
+			<collection-header
+				v-if="group.styles.length"
+				:group="group"
+				:mode="'flash'"
+			/>
 
 			<transition-group
 				name="staggered-fade"
