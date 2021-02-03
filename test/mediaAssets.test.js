@@ -23,10 +23,10 @@ describe('Media Assets', () => {
 		)
 	})
 
-	test('The amount of files should be correct', () => {
-		const styleAssets = collectionItems.map(({ data }) => data.assets).flat()
-		expect(mediaAssets).toHaveLength(styleAssets.length)
-	})
+	// test('The amount of files should be correct', () => {
+	// 	const styleAssets = collectionItems.map(({ data }) => data.assets).flat()
+	// 	expect(mediaAssets).toHaveLength(styleAssets.length)
+	// })
 
 	test('Media assets file should have correct keys', () => {
 		const target = mediaAssetsFields.map(({ name }) => name).sort()
