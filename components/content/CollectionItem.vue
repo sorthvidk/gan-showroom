@@ -23,7 +23,7 @@
 		</div>
 		<p>{{ imageName }}</p>
 
-		<responsible-icon v-if="responsible" />
+		<responsible-icon v-if="responsible === true || responsible === 'SAND'" />
 
 		<span class="on-wishlist" v-if="onWishList">
 			<svg-icon name="checkmark" />

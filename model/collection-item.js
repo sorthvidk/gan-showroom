@@ -80,7 +80,7 @@ export default {
 		default: 0
 	},
 	responsible: {
-		type: Boolean,
+		type: [Boolean, String],
 		default: false
 	}
 }
