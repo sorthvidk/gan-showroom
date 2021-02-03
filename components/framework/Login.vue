@@ -5,6 +5,7 @@
 			<vimeo-player
 				class="login__video"
 				ref="player"
+				v-if="various.vimeoUrl"
 				:video-id="various.vimeoUrl"
 				:autoplay="true"
 				:loop="true"

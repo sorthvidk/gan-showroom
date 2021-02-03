@@ -1,11 +1,11 @@
 <template>
 	<div class="style-info">
-		<span v-if="item.responsible || item['re-runner']" class="responsible">
+		<span v-if="responsible || reRunner" class="responsible">
 			<div v-for="_ in 6" :key="`banner-item${_}`">
-				<svg-icon v-if="item.responsible" name="ganni-smiley--inv" />
-				{{ item.responsible ? 'responsible&nbsp;&nbsp;' : '' }}
-				<svg-icon v-if="item['re-runner']" name="ganni-smiley--inv" />
-				{{ item['re-runner'] ? 're-runner&nbsp;&nbsp;' : '' }}
+				<svg-icon v-if="responsible" name="ganni-smiley--inv" />
+				{{ responsible ? 'responsible&nbsp;&nbsp;' : '' }}
+				<svg-icon v-if="reRunner" name="ganni-smiley--inv" />
+				{{ reRunner ? 're-runner&nbsp;&nbsp;' : '' }}
 			</div>
 		</span>
 
@@ -70,6 +70,14 @@ export default {
 	},
 	computed: {
 		...mapState(['SHOW_WHOLESALE_PRICE']),
+		responsible() {
+			return this.item.responsible === true || this.item.responsible === 'SAND'
+		},
+		reRunner() {
+			return (
+				this.item['re-runner'] === true || this.item['re-runner'] === 'SAND'
+			)
+		},
 	},
 }
 </script>

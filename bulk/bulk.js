@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
-// const fileCI = require('./collectionItems.json')
+const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload01.json')
 const testFile = require('./files/bulkupload_test.json')
 
 const uniqueId = () =>
@@ -59,8 +59,8 @@ const defaultFilters = {
 	misc4: 'Love for Leopard'
 }
 
-const OUT_FOLDER = 'test' // no slashes
-const STYLES_FILE = testFile
+const OUT_FOLDER = 'content' // no slashes
+const STYLES_FILE = fileCI
 const assetFolder = `../assets/${OUT_FOLDER}`
 
 STYLES_FILE.forEach(item => {

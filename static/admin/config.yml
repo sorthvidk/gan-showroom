@@ -954,6 +954,7 @@ collections:
           label: 'Password page background',
           name: 'vimeoUrl',
           widget: 'string',
+          required: false,
           hint: 'A vimeolink used as background on password page',
         }
       - {

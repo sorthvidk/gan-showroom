@@ -1,9 +1,0 @@
-{
-  "styleId": "TEST",
-  "filters": [
-    "rtw11"
-  ],
-  "groupId": "drop-1",
-  "name": "test",
-  "weight": 1
-}
