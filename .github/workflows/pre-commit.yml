@@ -2,9 +2,9 @@ name: Test CMS files
 
 on:
   push:
-    branches: [feb-2021]
+    branches: [releases/2021-feb]
   pull_request:
-    branches: [feb-2021]
+    branches: [releases/2021-feb]
 
 jobs:
   test:
