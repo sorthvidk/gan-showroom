@@ -154,13 +154,22 @@ export default {
 		})
 		document.body.addEventListener('click', () => {
 			this.nonidle()
-			setTimeout(this[USER_HAS_INTERACTED.action], 2000)
 		})
+		document.body.addEventListener(
+			'click',
+			() => {
+				setTimeout(this[USER_HAS_INTERACTED.action], 2000)
+			},
+			{ once: true }
+		)
 
-		document.body.addEventListener('mousemove', this.nonidle.bind(this))
+		// document.body.addEventListener('mousemove', this.nonidle.bind(this))
 
 		window.addEventListener('mousemove', (event) => {
-			debounce(() => this[MOUSEMOVE.action](event), 200)
+			debounce(() => {
+				this.nonidle()
+				this[MOUSEMOVE.action](event)
+			}, 200)
 		})
 	},
 }

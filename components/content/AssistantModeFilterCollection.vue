@@ -11,13 +11,13 @@
 				<p>{{ texts.collection.bodyText }}</p>
 				<div class="assistant__filters__list">
 					<filter-button
-						v-for="(item, key) in groupFilters"
+						v-for="(item, key) in groupFiltersNonNull"
 						:key="key"
 						:name="item.name"
 						:count="item.styleIds.length"
 						:filter-id="item.filterId"
 					/>
-					<span class="filter-button" v-if="groupFilters.length % 2 > 0"
+					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0"
 						>&nbsp;</span
 					>
 				</div>
@@ -87,6 +87,23 @@ export default {
 			}
 			// /export with no params shows all styles
 			return `${window.location}export`
+		},
+		groupFiltersNonNull() {
+			const others = {
+				filterId: 'others',
+				name: 'Others',
+				order: 9999,
+				styleIds: this.groupFilters
+					.filter((f) => !f.filterId)
+					.map((f) => f.styleIds)
+					.flat(),
+			}
+			console.warn(
+				`Found no matching filters for:\n\n${others.styleIds.join(
+					'\n'
+				)}\n\nThese items will only be shown when no filter is active`
+			)
+			return this.groupFilters.filter((f) => f.filterId)
 		},
 	},
 	watch: {

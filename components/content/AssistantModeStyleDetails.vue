@@ -8,53 +8,6 @@
 		>
 			<div class="assistant__product-details">
 				<style-info :item="currentStyle" />
-				<!-- <span v-if="currentStyle.responsible" class="responsible">
-					<div>I am a certified responsible material —&nbsp;</div>
-					<div>I am a certified responsible material —&nbsp;</div>
-					<div>I am a certified responsible material —&nbsp;</div>
-				</span>
-
-				<div class="assistant__row">
-					<span>Color</span>
-					<span>{{ currentStyle.colorNames }}</span>
-				</div>
-				<div class="assistant__row">
-					<span>Material</span>
-					<span>{{ currentStyle.material }}</span>
-				</div>
-				<div class="assistant__row">
-					<span>Style #</span>
-					<span>{{ currentStyle.styleId }}</span>
-				</div>
-				<div class="assistant__row">
-					<span>Program #</span>
-					<span>{{ currentStyle.program }}</span>
-				</div>
-				<div class="assistant__row">
-					<span>Program name</span>
-					<span>{{ currentStyle.programName }}</span>
-				</div>
-				<div class="assistant__row" v-if="SHOW_WHOLESALE_PRICE">
-					<span>Wholesale price</span>
-					<span
-						>DKK {{ currentStyle.wholesalePriceDKK }}<br />
-						EUR {{ currentStyle.wholesalePriceEUR }}<br />
-						USD {{ currentStyle.wholesalePriceUSD }}<br />
-						GBP {{ currentStyle.wholesalePriceGBP }}</span
-					>
-				</div>
-
-				<div class="assistant__row">
-					<span>Suggested retail price</span>
-					<span
-						>DKK {{ currentStyle.retailPriceDKK }}<br />
-						EUR {{ currentStyle.retailPriceEUR }}<br />
-						USD {{ currentStyle.retailPriceUSD }}<br />
-						<div v-if="currentStyle.retailPriceGBP">
-							GBP {{ currentStyle.retailPriceGBP }}
-						</div></span
-					>
-				</div> -->
 			</div>
 		</div>
 
