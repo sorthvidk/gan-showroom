@@ -136,7 +136,7 @@ export const mutations = {
 		// run through assets, add to styles
 		for (var i = 0; i < al; i++) {
 			let asset = state.allMediaAssets[i]
-			let style = state.allStyles.filter(e => e.styleId === asset.styleId)[0]
+			let style = state.allStyles.find(e => e.styleId === asset.styleId)
 			// if (style && !style.assets) {
 			// 	style.assets = []
 			// }

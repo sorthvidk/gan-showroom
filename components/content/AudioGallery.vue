@@ -117,9 +117,6 @@ export default {
 				this.$emit('played-through')
 			}
 		},
-		playing() {
-			console.log('playying')
-		},
 	},
 	methods: {
 		...mapActions('utils', [DASHBOARD_DARK.action]),
