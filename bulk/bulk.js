@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
-const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload01.json')
+const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
 const testFile = require('./files/bulkupload_test.json')
 
 const uniqueId = () =>
@@ -82,14 +82,24 @@ STYLES_FILE.forEach(item => {
 
 	const { name, styleId, groupId, filters } = item
 
-	const itemsFormatted = clean({
+	/**
+	 * format the incoming object before parsing it to a json file
+	 */
+	const itemFormatted = clean({
 		...item,
+		/**
+		 * Any string value representing a boolean, should become a boolean
+		 */
 		responsible: parseFalse(item.responsible) ? false : true,
 		['re-runner']: parseFalse(item['re-runner']) ? false : true,
-		assets: item.assets.filter(a => a !== '')
+		/**
+		 * rm the cloudinary url's on assets
+		 * (this will be filled with mediaAsset-objects on runtime)
+		 */
+		assets: []
 	})
 
-	fs.writeFile(styleFileName, JSON.stringify(itemsFormatted), err => {
+	fs.writeFile(styleFileName, JSON.stringify(itemFormatted), err => {
 		if (err) throw err
 		console.log(`Collection item ${styleFileName} done`)
 	})
@@ -97,30 +107,32 @@ STYLES_FILE.forEach(item => {
 	/**
 	 * create media asset files
 	 */
-	itemsFormatted.assets.forEach((asset, idx) => {
-		const mediaAssetFileName = `${assetFolder}/mediaAssets/${dateString}-${styleId.replace(
-			'/',
-			'_'
-		)}-${idx + 1}.json`.replace(/ /g, '_')
+	item.assets
+		.filter(a => a !== '')
+		.forEach((asset, idx) => {
+			const mediaAssetFileName = `${assetFolder}/mediaAssets/${dateString}-${styleId.replace(
+				'/',
+				'_'
+			)}-${idx + 1}.json`.replace(/ /g, '_')
 
-		fs.writeFile(
-			mediaAssetFileName,
-			JSON.stringify({
-				assetId: uniqueId(),
-				cloudinaryUrl: asset,
-				onTop: true,
-				visible: true,
-				aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
-				type: isVideo(path.extname(asset)) ? 'video' : 'image',
-				styleId,
-				name,
-				groupId,
-				filters: defaultFilters[filters[0]] || 'default'
-			}),
-			err => {
-				if (err) throw err
-				console.log(`Media Asset ${mediaAssetFileName} done`)
-			}
-		)
-	})
+			fs.writeFile(
+				mediaAssetFileName,
+				JSON.stringify({
+					assetId: uniqueId(),
+					cloudinaryUrl: asset,
+					onTop: true,
+					visible: true,
+					aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
+					type: isVideo(path.extname(asset)) ? 'video' : 'image',
+					styleId,
+					name,
+					groupId,
+					filters: defaultFilters[filters[0]] || 'default'
+				}),
+				err => {
+					if (err) throw err
+					console.log(`Media Asset ${mediaAssetFileName} done`)
+				}
+			)
+		})
 })

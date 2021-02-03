@@ -54,6 +54,9 @@ export default {
 		...CollectionItemModel,
 		canvasHover: { type: Boolean, default: false },
 	},
+	data: () => ({
+		greyPixel,
+	}),
 	computed: {
 		...mapState({
 			wishList: (state) => state.collection.wishList,
@@ -67,8 +70,7 @@ export default {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
 					width: Math.floor(window.innerWidth / 4),
 				}),
-				loading:
-					'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8df3KfwAIngOGGPuXAwAAAABJRU5ErkJggg==',
+				loading: this.greyPixel,
 			}
 		},
 		imageUrl2() {
@@ -80,7 +82,7 @@ export default {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
 					width: Math.floor(window.innerWidth / 4),
 				}),
-				loading: greyPixel,
+				loading: this.greyPixel,
 			}
 		},
 		imageName() {
@@ -97,6 +99,8 @@ export default {
 			sendTracking('Product click', this.styleId)
 
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
+
+			console.log(this.assets)
 		},
 	},
 	mounted() {

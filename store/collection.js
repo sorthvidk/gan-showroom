@@ -175,10 +175,10 @@ export const mutations = {
 					defaultImageUrl: '/img/styles/dummy.jpg'
 				})
 			}
-			let sortedAssets = style.assets.sort((a, b) =>
-				a.onTop && !b.onTop ? -1 : 1
-			)
-			style.assets = sortedAssets
+			// let sortedAssets = style.assets.sort((a, b) =>
+			// 	a.onTop && !b.onTop ? -1 : 1
+			// )
+			// style.assets = sortedAssets
 			// style.onWishList = false
 		}
 
