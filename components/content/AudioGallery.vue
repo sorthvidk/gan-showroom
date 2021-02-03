@@ -112,7 +112,7 @@ export default {
 	watch: {
 		progress() {
 			if (this.progress >= 0.999) {
-				// this.scrollable = false
+				this.scrollable = false
 				this.stop()
 				this.$emit('played-through')
 			}
@@ -138,6 +138,7 @@ export default {
 		onMouseup() {
 			if (!this.scrolling) this.togglePlayback()
 			this.scrolling = false
+			this.scrollable = true
 		},
 		onMousemove(e) {
 			this.scrollTo(e)

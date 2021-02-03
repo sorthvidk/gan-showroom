@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
-const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
+const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload01.json')
 const testFile = require('./files/bulkupload_test.json')
 
 const uniqueId = () =>
@@ -11,6 +11,17 @@ const uniqueId = () =>
 
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+
+const parseFalse = x => x === 'FALSK' || x === false
+
+function clean(obj) {
+	for (var propName in obj) {
+		if (obj[propName] === null || obj[propName] === undefined) {
+			delete obj[propName]
+		}
+	}
+	return obj
+}
 
 const isVideo = fileName =>
 	[
@@ -71,7 +82,14 @@ STYLES_FILE.forEach(item => {
 
 	const { name, styleId, groupId, filters } = item
 
-	fs.writeFile(styleFileName, JSON.stringify(item), err => {
+	const itemsFormatted = clean({
+		...item,
+		responsible: parseFalse(item.responsible) ? false : true,
+		['re-runner']: parseFalse(item['re-runner']) ? false : true,
+		assets: item.assets.filter(a => a !== '')
+	})
+
+	fs.writeFile(styleFileName, JSON.stringify(itemsFormatted), err => {
 		if (err) throw err
 		console.log(`Collection item ${styleFileName} done`)
 	})
@@ -79,7 +97,7 @@ STYLES_FILE.forEach(item => {
 	/**
 	 * create media asset files
 	 */
-	item.assets.forEach((asset, idx) => {
+	itemsFormatted.assets.forEach((asset, idx) => {
 		const mediaAssetFileName = `${assetFolder}/mediaAssets/${dateString}-${styleId.replace(
 			'/',
 			'_'

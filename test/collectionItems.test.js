@@ -3,6 +3,7 @@ const helpers = require('./helpers.js')
 
 // globals
 let collectionItems
+let collectionGroups
 let configFileAsJSON
 let collectionItemsFieldsModel
 
@@ -13,6 +14,9 @@ describe('Collection Items', () => {
 		 * { filePath: 'path/to/file.json', data: {} }
 		 */
 		collectionItems = await helpers.getAssets('collectionItems')
+		const groupFiles = await helpers.getAssets('collectionGroups')
+
+		collectionGroups = groupFiles.map(({ data }) => data.groupId)
 
 		// store config file as json
 		configFileAsJSON = await helpers.configFile
@@ -54,6 +58,12 @@ describe('Collection Items', () => {
 	test('groupId should not include spaces', () => {
 		collectionItems.forEach(({ data }) =>
 			expect(data.groupId, data.styleId).not.toMatch(/ /)
+		)
+	})
+
+	test('styles groupId should exist', () => {
+		collectionItems.forEach(({ data }) =>
+			expect(collectionGroups, data.styleId).toContain(data.groupId)
 		)
 	})
 

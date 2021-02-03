@@ -98,11 +98,13 @@ export default {
 					.map((f) => f.styleIds)
 					.flat(),
 			}
-			console.warn(
-				`Found no matching filters for:\n\n${others.styleIds.join(
-					'\n'
-				)}\n\nThese items will only be shown when no filter is active`
-			)
+			if (others.styleIds.length) {
+				console.warn(
+					`Found no matching filters for:\n\n${others.styleIds.join(
+						'\n'
+					)}\n\nThese items will only be shown when no filter is active`
+				)
+			}
 			return this.groupFilters.filter((f) => f.filterId)
 		},
 	},

@@ -149,6 +149,9 @@ export const mutations = {
 		for (var j = 0; j < cl; j++) {
 			let style = state.allStyles[j]
 
+			// quick fix - format groupId
+			state.allStyles[j].groupId = state.allStyles[j].groupId.toLowerCase()
+
 			if (!style.assets) {
 				style.assets = []
 			}
