@@ -27,7 +27,7 @@ collections:
     create: true
     format: 'json'
     extention: 'json'
-    slug: '{{year}}-{{month}}-{{slug}}'
+    slug: '{{year}}-{{month}}-{{styleId}}'
     view_filters:
       - label: 'Drop I'
         field: groupId
