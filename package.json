@@ -21,7 +21,7 @@
 		"generate": "nuxt generate",
 		"cmsdev": "npx netlify-cms-proxy-server",
 		"bulk": "cd bulk && node bulk.js && cd ..",
-		"test": "jest"
+		"test": "jest --reporters='default' --reporters='./github-actions-reporter'"
 	},
 	"repository": {
 		"type": "git",
