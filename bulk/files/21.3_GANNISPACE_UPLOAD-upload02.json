@@ -1,0 +1,2081 @@
+[
+  {
+    "styleId": "T2917_1",
+    "name": "T2917_1_O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "White",
+    "colorId": 1,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 600,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2917_3531_1.jpg"
+    ]
+  },
+  {
+    "styleId": "T2918_1",
+    "name": "T2918_1_V-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "White",
+    "colorId": 1,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 595,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2918_3531_1.jpg"
+    ]
+  },
+  {
+    "styleId": "T2982_1",
+    "name": "T2982_1_Sleeveless O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "White",
+    "colorId": 1,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 590,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2982_3531_1.jpg"
+    ]
+  },
+  {
+    "styleId": "T2983_1",
+    "name": "T2983_1_O-neck Long Sleeve T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "White",
+    "colorId": 1,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 585,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2983_3531_1.jpg"
+    ]
+  },
+  {
+    "styleId": "T2917_465",
+    "name": "T2917_465_O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 580,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2917_3531_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2918_465",
+    "name": "T2918_465_V-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 575,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2918_3531_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2982_465",
+    "name": "T2982_465_Sleeveless O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 570,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2982_3531_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2983_465",
+    "name": "T2983_465_O-neck Long Sleeve T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 565,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2983_3531_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2921_465",
+    "name": "T2921_465_Puff Sleeve Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 560,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2921_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2922_465",
+    "name": "T2922_465_Oversized Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 555,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2922_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2923_465",
+    "name": "T2923_465_Oversized Hoodie",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 550,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2923_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2925_465",
+    "name": "T2925_465_Elasticated Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 545,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2925_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2926_465",
+    "name": "T2926_465_Straight Leg Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 540,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2926_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "T2965_465",
+    "name": "T2965_465_Puff Shoulder Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 535,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2965_3532_465.jpg"
+    ]
+  },
+  {
+    "styleId": "A3430_465",
+    "name": "A3430_465_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Sweet Lilac",
+    "colorId": 465,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 530,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3430_5682_465.jpg"
+    ]
+  },
+  {
+    "styleId": "A3430_252",
+    "name": "A3430_252_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Phantom",
+    "colorId": 252,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 525,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3430_5682_252.jpg"
+    ]
+  },
+  {
+    "styleId": "T2917_921",
+    "name": "T2917_921_O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 520,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2917_3531_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2918_921",
+    "name": "T2918_921_V-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 515,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2918_3531_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2982_921",
+    "name": "T2982_921_Sleeveless O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 510,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2982_3531_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2983_921",
+    "name": "T2983_921_O-neck Long Sleeve T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 505,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2983_3531_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2921_921",
+    "name": "T2921_921_Puff Sleeve Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 500,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2921_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2922_921",
+    "name": "T2922_921_Oversized Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 495,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2922_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2923_921",
+    "name": "T2923_921_Oversized Hoodie",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 490,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2923_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2925_921",
+    "name": "T2925_921_Elasticated Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 485,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2925_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2926_921",
+    "name": "T2926_921_Straight Leg Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 480,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2926_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2965_921",
+    "name": "T2965_921_Puff Shoulder Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Paloma Melange",
+    "colorId": 921,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 475,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2965_3532_921.jpg"
+    ]
+  },
+  {
+    "styleId": "T2955_897",
+    "name": "T2955_897_Oversized Hoodie, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 470,
+    "feature_text": null,
+    "wholesalePriceEUR": 67,
+    "wholesalePriceUSD": 90,
+    "wholesalePriceGBP": 59,
+    "retailPriceDKK": 1299,
+    "retailPriceEUR": 185,
+    "retailPriceUSD": 215,
+    "retailPriceGBP": 165,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2955_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2956_897",
+    "name": "T2956_897_Elasticated Pants, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 465,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2956_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2957_897",
+    "name": "T2957_897_Straight Leg Pants, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 460,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2957_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2958_897",
+    "name": "T2958_897_Oversized Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 455,
+    "feature_text": null,
+    "wholesalePriceEUR": 67,
+    "wholesalePriceUSD": 90,
+    "wholesalePriceGBP": 59,
+    "retailPriceDKK": 1299,
+    "retailPriceEUR": 185,
+    "retailPriceUSD": 215,
+    "retailPriceGBP": 165,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2958_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2959_897",
+    "name": "T2959_897_Puff Sleeve Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 450,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2959_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2963_897",
+    "name": "T2963_897_Puff Shoulder Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 445,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2963_3540_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2960_897",
+    "name": "T2960_897_O-neck T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 440,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2960_3541_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2961_897",
+    "name": "T2961_897_V-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 435,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2961_3541_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2962_897",
+    "name": "T2962_897_O-neck Long Sleeve T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 430,
+    "feature_text": null,
+    "wholesalePriceEUR": 34,
+    "wholesalePriceUSD": 48,
+    "wholesalePriceGBP": 34,
+    "retailPriceDKK": 699,
+    "retailPriceEUR": 95,
+    "retailPriceUSD": 115,
+    "retailPriceGBP": 95,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2962_3541_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2964_897",
+    "name": "T2964_897_Sleeveless O-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 425,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2964_3541_897.jpg"
+    ]
+  },
+  {
+    "styleId": "A3733_897",
+    "name": "A3733_897_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Mole",
+    "colorId": 897,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 420,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3733_5682_897.jpg"
+    ]
+  },
+  {
+    "styleId": "T2955_712",
+    "name": "T2955_712_Oversized Hoodie, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 415,
+    "feature_text": null,
+    "wholesalePriceEUR": 67,
+    "wholesalePriceUSD": 90,
+    "wholesalePriceGBP": 59,
+    "retailPriceDKK": 1299,
+    "retailPriceEUR": 185,
+    "retailPriceUSD": 215,
+    "retailPriceGBP": 165,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2955_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "T2956_712",
+    "name": "T2956_712_Elasticated Pants, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 410,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2956_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "T2957_712",
+    "name": "T2957_712_Straight Leg Pants, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 405,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2957_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "T2958_712",
+    "name": "T2958_712_Oversized Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 400,
+    "feature_text": null,
+    "wholesalePriceEUR": 67,
+    "wholesalePriceUSD": 90,
+    "wholesalePriceGBP": 59,
+    "retailPriceDKK": 1299,
+    "retailPriceEUR": 185,
+    "retailPriceUSD": 215,
+    "retailPriceGBP": 165,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2958_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "T2959_712",
+    "name": "T2959_712_Puff Sleeve Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 395,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2959_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "T2963_712",
+    "name": "T2963_712_Puff Shoulder Sweatshirt, Wave",
+    "program": 3540,
+    "programName": "Software Wave Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 390,
+    "feature_text": null,
+    "wholesalePriceEUR": 63,
+    "wholesalePriceUSD": 86,
+    "wholesalePriceGBP": 56,
+    "retailPriceDKK": 1199,
+    "retailPriceEUR": 175,
+    "retailPriceUSD": 195,
+    "retailPriceGBP": 155,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2963_3540_712.jpg"
+    ]
+  },
+  {
+    "styleId": "A3430_861",
+    "name": "A3430_861_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Kalamata",
+    "colorId": 861,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 385,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3430_5682_861.jpg"
+    ]
+  },
+  {
+    "styleId": "T2960_472",
+    "name": "T2960_472_O-neck T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "High Risk Red",
+    "colorId": 472,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 380,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2960_3541_472.jpg"
+    ]
+  },
+  {
+    "styleId": "T2961_472",
+    "name": "T2961_472_V-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "High Risk Red",
+    "colorId": 472,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 375,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2961_3541_472.jpg"
+    ]
+  },
+  {
+    "styleId": "T2962_472",
+    "name": "T2962_472_O-neck Long Sleeve T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "High Risk Red",
+    "colorId": 472,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 370,
+    "feature_text": null,
+    "wholesalePriceEUR": 34,
+    "wholesalePriceUSD": 48,
+    "wholesalePriceGBP": 34,
+    "retailPriceDKK": 699,
+    "retailPriceEUR": 95,
+    "retailPriceUSD": 115,
+    "retailPriceGBP": 95,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2962_3541_472.jpg"
+    ]
+  },
+  {
+    "styleId": "T2964_472",
+    "name": "T2964_472_Sleeveless O-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "High Risk Red",
+    "colorId": 472,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 365,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2964_3541_472.jpg"
+    ]
+  },
+  {
+    "styleId": "A3733_472",
+    "name": "A3733_472_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "High Risk Red",
+    "colorId": 472,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 360,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3733_5682_472.jpg"
+    ]
+  },
+  {
+    "styleId": "T2988_783",
+    "name": "T2988_783_Puff Sleeve Sweatshirt",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 355,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2988_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2989_783",
+    "name": "T2989_783_Oversized Sweatshirt",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 350,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2989_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2990_783",
+    "name": "T2990_783_Oversized Hoodie",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 345,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2990_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2991_783",
+    "name": "T2991_783_Elasticated Pants",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 340,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2991_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2992_783",
+    "name": "T2992_783_Straight Leg Pants",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 335,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2992_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2994_783",
+    "name": "T2994_783_Puff Shoulder Sweatshirt",
+    "program": 3529,
+    "programName": "Software Isoli",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 330,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2994_3529_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2960_783",
+    "name": "T2960_783_O-neck T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 325,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2960_3541_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2961_783",
+    "name": "T2961_783_V-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 320,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2961_3541_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2962_783",
+    "name": "T2962_783_O-neck Long Sleeve T-shirt, Thin Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 315,
+    "feature_text": null,
+    "wholesalePriceEUR": 34,
+    "wholesalePriceUSD": 48,
+    "wholesalePriceGBP": 34,
+    "retailPriceDKK": 699,
+    "retailPriceEUR": 95,
+    "retailPriceUSD": 115,
+    "retailPriceGBP": 95,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2962_3541_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2964_783",
+    "name": "T2964_783_Sleeveless O-neck T-shirt, Stripe",
+    "program": 3541,
+    "programName": "Thin Software Striped Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 310,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2964_3541_783.jpg"
+    ]
+  },
+  {
+    "styleId": "A3733_783",
+    "name": "A3733_783_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Flash Green",
+    "colorId": 783,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 305,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3733_5682_783.jpg"
+    ]
+  },
+  {
+    "styleId": "T2921_135",
+    "name": "T2921_135_Puff Sleeve Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 300,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2921_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2922_135",
+    "name": "T2922_135_Oversized Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 295,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2922_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2923_135",
+    "name": "T2923_135_Oversized Hoodie",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 290,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2923_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2925_135",
+    "name": "T2925_135_Elasticated Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 285,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2925_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2926_135",
+    "name": "T2926_135_Straight Leg Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 280,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2926_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2965_135",
+    "name": "T2965_135_Puff Shoulder Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 275,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2965_3532_135.jpg"
+    ]
+  },
+  {
+    "styleId": "A3733_135",
+    "name": "A3733_135_Cap",
+    "program": 5682,
+    "programName": "Software Heavy Cotton",
+    "material": "100% Organic Cotton",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Egret",
+    "colorId": 135,
+    "filters": [
+      "acc5"
+    ],
+    "responsible": "SAND",
+    "weight": 270,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/A3733_5682_135.jpg"
+    ]
+  },
+  {
+    "styleId": "T2917_99",
+    "name": "T2917_99_O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 265,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2917_3531_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2918_99",
+    "name": "T2918_99_V-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 260,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2918_3531_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2982_99",
+    "name": "T2982_99_Sleeveless O-neck T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 255,
+    "feature_text": null,
+    "wholesalePriceEUR": 27,
+    "wholesalePriceUSD": 36,
+    "wholesalePriceGBP": 24,
+    "retailPriceDKK": 499,
+    "retailPriceEUR": 75,
+    "retailPriceUSD": 85,
+    "retailPriceGBP": 65,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2982_3531_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2983_99",
+    "name": "T2983_99_O-neck Long Sleeve T-shirt",
+    "program": 3531,
+    "programName": "Thin Software Jersey",
+    "material": "50% Recycled Cot, 50% Recycled Poly",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 250,
+    "feature_text": null,
+    "wholesalePriceEUR": 31,
+    "wholesalePriceUSD": 44,
+    "wholesalePriceGBP": 27,
+    "retailPriceDKK": 599,
+    "retailPriceEUR": 85,
+    "retailPriceUSD": 95,
+    "retailPriceGBP": 75,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2983_3531_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2921_99",
+    "name": "T2921_99_Puff Sleeve Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 245,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2921_3532_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2922_99",
+    "name": "T2922_99_Oversized Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 240,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2922_3532_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2923_99",
+    "name": "T2923_99_Oversized Hoodie",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "SAND",
+    "weight": 235,
+    "feature_text": null,
+    "wholesalePriceEUR": 56,
+    "wholesalePriceUSD": 78,
+    "wholesalePriceGBP": 52,
+    "retailPriceDKK": 1099,
+    "retailPriceEUR": 155,
+    "retailPriceUSD": 185,
+    "retailPriceGBP": 145,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2923_3532_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2925_99",
+    "name": "T2925_99_Elasticated Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 230,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2925_3532_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2926_99",
+    "name": "T2926_99_Straight Leg Pants",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw9"
+    ],
+    "responsible": "SAND",
+    "weight": 225,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "SAND",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2926_3532_99.jpg"
+    ]
+  },
+  {
+    "styleId": "T2965_99",
+    "name": "T2965_99_Puff Shoulder Sweatshirt",
+    "program": 3532,
+    "programName": "Software Isoli",
+    "material": "70% Organic Cotton, 30% Recycled Polyester",
+    "groupId": "SOFTWEAR",
+    "colorNames": "Black",
+    "colorId": 99,
+    "filters": [
+      "rtw8"
+    ],
+    "responsible": "FALSK",
+    "weight": 220,
+    "feature_text": null,
+    "wholesalePriceEUR": 52,
+    "wholesalePriceUSD": 69,
+    "wholesalePriceGBP": 45,
+    "retailPriceDKK": 999,
+    "retailPriceEUR": 145,
+    "retailPriceUSD": 165,
+    "retailPriceGBP": 125,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/SOFTWARE_PACKSHOTS/T2965_3532_99.jpg"
+    ]
+  }
+]

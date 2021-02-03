@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 // const fileMA = require('./mediaAssets.json')
-const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload01.json')
+const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
 const testFile = require('./files/bulkupload_test.json')
 
 const uniqueId = () =>
