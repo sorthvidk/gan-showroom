@@ -3,8 +3,13 @@ export default function(cl, asset, tf = {}, pixelDensity = 2) {
 	let resultUrl
 	let parseUrl
 
-	if (asset.cloudinaryUrl) {
-		parseUrl = asset.cloudinaryUrl.split('upload/')[1]
+	// if passed url is wrapped in an array, get the string value
+	const url = Array.isArray(asset.cloudinaryUrl)
+		? asset.cloudinaryUrl[0]
+		: asset.cloudinaryUrl
+
+	if (url) {
+		parseUrl = url.split('upload/')[1]
 
 		if (asset.type === 'video') {
 			transform.crop = 'scale'

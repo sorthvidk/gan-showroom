@@ -51,7 +51,7 @@
 						<div
 							v-else
 							:style="{
-								backgroundImage: `url(${various.dashboardBackground})`,
+								backgroundImage: `url(${various.dashboardBackground[0]})`,
 								backgroundSize: 'cover',
 								backgroundPosition: 'center',
 								width: '100%',

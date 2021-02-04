@@ -1,6 +1,6 @@
 <template>
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
-		<preload-images :srcs="[various.dashboardBackground]" />
+		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
 		<audio-player
 			v-if="audioGalleryDone"
@@ -171,6 +171,8 @@ export default {
 				this[MOUSEMOVE.action](event)
 			}, 200)
 		})
+
+		console.log(this.various)
 	},
 }
 </script>

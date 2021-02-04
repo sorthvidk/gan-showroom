@@ -21,16 +21,17 @@ export const state = () => ({
 
 export const mutations = {
 	[FETCH_VARIOUS.mutation](state, data) {
-		console.log(data)
+		// console.log(data)
 		state.various = {
+			...data[0],
 			scrollAudio: {
 				title:
 					data[0].scrollAudio.length &&
 					data[0].scrollAudio[0]
-						.substring(data[0].scrollAudio.lastIndexOf('/') + 1)
+						.substring(data[0].scrollAudio[0].lastIndexOf('/') + 1)
 						.replace(/_/g, ' ')
 						.replace('.mp3', ''),
-				src: data[0].scrollAudio
+				src: data[0].scrollAudio[0]
 			}
 		}
 	},
