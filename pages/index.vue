@@ -60,7 +60,7 @@ import PreloadImages from '~/components/content/PreloadImages.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
-
+// index
 import {
 	INDEX_COLLECTION_DATA,
 	INIT_PROGRESS,
