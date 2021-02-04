@@ -43,6 +43,7 @@
 				<vue-bar>
 					<transition name="fade--fast" mode="out-in">
 						<window-static
+							ref="vuebar"
 							v-if="dashboardContent && dashboardContent.contentComponent"
 							:content="dashboardContent"
 							:key="dashboardContent.windowId"

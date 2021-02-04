@@ -1,5 +1,9 @@
 <template>
-	<div class="collection" :class="{ 'collection--fun': collectionLayout == 1 }">
+	<div
+		class="collection"
+		:class="{ 'collection--fun': collectionLayout == 1 }"
+		:style="{ height: shifting ? 0 : '', overflow: shifting ? 'hidden' : '' }"
+	>
 		<div
 			class="collection__group"
 			v-for="(group, i) in groupsRenderList"
@@ -50,6 +54,9 @@ export default {
 		CollectionItem,
 		CollectionHeader,
 	},
+	data: () => ({
+		shifting: false,
+	}),
 	computed: {
 		...mapState('collection', [
 			'collectionLayout',
@@ -87,11 +94,14 @@ export default {
 			// return groups
 		},
 	},
-	// watch: {
-	// 	collectionLayout(newVal) {
-	// 		console.log('collectionLayout', newVal)
-	// 	}
-	// }
+
+	watch: {
+		groupsRenderList() {
+			this.shifting = true
+			this.$nextTick(() => (this.shifting = false))
+		},
+	},
+
 	methods: {
 		beforeEnter(el) {
 			// el.style.transition = 'opacity .3s'
