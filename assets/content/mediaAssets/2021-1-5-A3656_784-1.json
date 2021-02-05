@@ -1,1 +1,14 @@
-{"assetId":"sxg08avr5","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3656_5731_784.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3656_784","name":"A3656_784_Buckle Belt","groupId":"drop-1","filters":"Accessories"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612560863/AW21_21.3/21.3_PACKSHOTS/A3656_5731_784.jpg.jpg"
+  ],
+  "assetId": "sxg08avr5",
+  "name": "A3656_784_Buckle Belt",
+  "styleId": "A3656_784",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Accessories"
+}
