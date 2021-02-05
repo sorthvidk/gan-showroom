@@ -39,7 +39,7 @@ import ContentTypes from '~/model/content-types'
 import _ from 'lodash'
 
 import { getNested } from '~/utils/get-nested'
-import getUniqueId from '~/utils/get-unique-id'
+import getUniqueId from '~/utils/get-unique-id.js'
 import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'

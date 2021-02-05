@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import getUniqueId from './../utils/get-unique-id.mjs'
-import { isVideo } from './../utils/is-video.mjs'
+import getUniqueId from '../utils/get-unique-id.js'
+import { isVideo } from '../utils/is-video.js'
 
 // import fileCI from './files/21.3_GANNISPACE_UPLOAD-upload02.json'
 const data = fs.readFileSync('./files/21.3_GANNISPACE_UPLOAD-upload02.json')

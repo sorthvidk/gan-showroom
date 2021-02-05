@@ -1,6 +1,6 @@
 import isMobile from '~/utils/is-mobile'
 import getViewportSize from '~/utils/get-viewport-size'
-import getUniqueId from '~/utils/get-unique-id'
+import getUniqueId from '~/utils/get-unique-id.js'
 import ViewportSizes from '~/model/viewport-sizes'
 
 const LARGE_WINDOW = 320 // arbitary, kinda the size of a 'fullscreen' window of mobile

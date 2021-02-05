@@ -25,7 +25,7 @@ import {
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
-import getUniqueId from '~/utils/get-unique-id.mjs'
+import getUniqueId from '~/utils/get-unique-id.js'
 import {
 	prevIndex,
 	nextIndex,

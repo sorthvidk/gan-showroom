@@ -27,7 +27,9 @@ export const mutations = {
 					...acc,
 					{
 						title: cur.songName,
-						src: cur.cloudinaryUrl
+						src: Array.isArray(cur.cloudinaryUrl)
+							? cur.cloudinaryUrl[0]
+							: cur.cloudinaryUrl
 					}
 				],
 				[]

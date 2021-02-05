@@ -38,7 +38,7 @@
 				<div class="audio-gallery__images">
 					<div
 						v-for="(image, idx) in images"
-						:key="image.cloudinaryUrl"
+						:key="idx + image.cloudinaryUrl"
 						class="audio-gallery__image"
 						:style="{
 							opacity: activeImage >= idx ? 1 : 0,

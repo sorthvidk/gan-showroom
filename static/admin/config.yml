@@ -676,10 +676,10 @@ collections:
     summary: '{{cloudinaryUrl}}'
     label: 'Lookbook'
     folder: 'assets/content/lookBook'
-    sortable_fields: ['itemId']
+    sortable_fields: ['cloudinaryUrl']
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{itemId}}'
+    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
     editor:
       preview: false
     fields:
