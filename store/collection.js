@@ -348,7 +348,7 @@ export const mutations = {
 		//sort styles by program desc and weight asc
 		state.allStyles = sortArrayMultipleProps(
 			state.allStyles,
-			'program',
+			// 'program',
 			'weight'
 		)
 
@@ -380,7 +380,7 @@ export const mutations = {
 
 			state.currentStyles = sortArrayMultipleProps(
 				state.activeGroup.styles,
-				'program',
+				// 'program',
 				'weight'
 			)
 			state.groupFilters = state.activeGroup.filters
