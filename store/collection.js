@@ -346,11 +346,14 @@ export const mutations = {
 		state.groupFilters = state.referencedFilters
 
 		//sort styles by program desc and weight asc
-		state.allStyles = sortArrayMultipleProps(
-			state.allStyles,
-			// 'program',
-			'weight'
+		state.allStyles = state.allStyles.sort((a, b) =>
+			a.weight > b.weight ? -1 : 1
 		)
+		// state.allStyles = sortArrayMultipleProps(
+		// 	state.allStyles,
+		// 	// 'program',
+		// 	'weight'
+		// )
 
 		//set current subset of total collection to total collection
 
@@ -378,10 +381,13 @@ export const mutations = {
 			state.activeGroup = state.allGroups.filter(e => e.groupId === groupId)[0]
 			state.activeGroupIndex = state.allGroups.indexOf(state.activeGroup)
 
-			state.currentStyles = sortArrayMultipleProps(
-				state.activeGroup.styles,
-				// 'program',
-				'weight'
+			// state.currentStyles = sortArrayMultipleProps(
+			// 	state.activeGroup.styles,
+			// 	// 'program',
+			// 	'weight'
+			// )
+			state.currentStyles = state.activeGroup.styles.sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
 			)
 			state.groupFilters = state.activeGroup.filters
 		}
