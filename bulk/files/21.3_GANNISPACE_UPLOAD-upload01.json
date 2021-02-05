@@ -1,117 +1,5 @@
 [
   {
-    "styleId": "F6416_861",
-    "name": "F6416_861_Cape",
-    "program": 6261,
-    "programName": "Coated Ripstop",
-    "material": "100% Recycled Polyester",
-    "groupId": "drop-1",
-    "colorNames": "Kalamata",
-    "colorId": 861,
-    "filters": [
-      "rtw3"
-    ],
-    "responsible": "SAND",
-    "weight": 5000,
-    "feature_text": null,
-    "wholesalePriceDKK": 560,
-    "wholesalePriceEUR": 82,
-    "wholesalePriceUSD": 98,
-    "wholesalePriceGBP": 70,
-    "retailPriceDKK": 1399,
-    "retailPriceEUR": 195,
-    "retailPriceUSD": 235,
-    "retailPriceGBP": 175,
-    "re-runner": "FALSK",
-    "assets": [
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6416_6261_861.jpg"
-    ]
-  },
-  {
-    "styleId": "F6415_861",
-    "name": "F6415_861_Trench Coat",
-    "program": 6261,
-    "programName": "Coated Ripstop",
-    "material": "100% Recycled Polyester",
-    "groupId": "drop-1",
-    "colorNames": "Kalamata",
-    "colorId": 861,
-    "filters": [
-      "rtw3"
-    ],
-    "responsible": "SAND",
-    "weight": 4990,
-    "feature_text": "With pockets",
-    "wholesalePriceDKK": 720,
-    "wholesalePriceEUR": 102,
-    "wholesalePriceUSD": 123,
-    "wholesalePriceGBP": 90,
-    "retailPriceDKK": 1799,
-    "retailPriceEUR": 255,
-    "retailPriceUSD": 295,
-    "retailPriceGBP": 225,
-    "re-runner": "FALSK",
-    "assets": [
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6415_6261_861.jpg"
-    ]
-  },
-  {
-    "styleId": "F5950_694",
-    "name": "F5950_694_Cape",
-    "program": 6261,
-    "programName": "Coated Ripstop",
-    "material": "100% Recycled Polyester",
-    "groupId": "drop-1",
-    "colorNames": "Heather",
-    "colorId": 694,
-    "filters": [
-      "rtw3"
-    ],
-    "responsible": "SAND",
-    "weight": 4980,
-    "feature_text": "With pockets",
-    "wholesalePriceDKK": 560,
-    "wholesalePriceEUR": 82,
-    "wholesalePriceUSD": 98,
-    "wholesalePriceGBP": 70,
-    "retailPriceDKK": 1399,
-    "retailPriceEUR": 195,
-    "retailPriceUSD": 235,
-    "retailPriceGBP": 175,
-    "re-runner": "FALSK",
-    "assets": [
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F5950_6261_694.jpg"
-    ]
-  },
-  {
-    "styleId": "F5949_694",
-    "name": "F5949_694_Trench Coat",
-    "program": 6261,
-    "programName": "Coated Ripstop",
-    "material": "100% Recycled Polyester",
-    "groupId": "drop-1",
-    "colorNames": "Heather",
-    "colorId": 694,
-    "filters": [
-      "rtw3"
-    ],
-    "responsible": "SAND",
-    "weight": 4970,
-    "feature_text": "With pockets",
-    "wholesalePriceDKK": 720,
-    "wholesalePriceEUR": 102,
-    "wholesalePriceUSD": 123,
-    "wholesalePriceGBP": 90,
-    "retailPriceDKK": 1799,
-    "retailPriceEUR": 255,
-    "retailPriceUSD": 295,
-    "retailPriceGBP": 225,
-    "re-runner": "FALSK",
-    "assets": [
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F5949_6261_694.jpg"
-    ]
-  },
-  {
     "styleId": "F6408_115",
     "name": "F6408_115_Blouse",
     "program": 6297,
@@ -124,7 +12,7 @@
       "rtw8"
     ],
     "responsible": "SAND",
-    "weight": 4960,
+    "weight": 5000,
     "feature_text": null,
     "wholesalePriceDKK": 393,
     "wholesalePriceEUR": 56,
@@ -154,7 +42,7 @@
       "rtw8"
     ],
     "responsible": "SAND",
-    "weight": 4950,
+    "weight": 4990,
     "feature_text": null,
     "wholesalePriceDKK": 357,
     "wholesalePriceEUR": 52,
@@ -182,7 +70,7 @@
       "rtw8"
     ],
     "responsible": "SAND",
-    "weight": 4940,
+    "weight": 4980,
     "feature_text": null,
     "wholesalePriceDKK": 464,
     "wholesalePriceEUR": 67,
@@ -213,7 +101,7 @@
       "rtw8"
     ],
     "responsible": "SAND",
-    "weight": 4930,
+    "weight": 4970,
     "feature_text": null,
     "wholesalePriceDKK": 321,
     "wholesalePriceEUR": 45,
@@ -229,6 +117,118 @@
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6246_6297_F6293_6315.mp4",
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6246_6297_F6293_6315_K1546_118.jpg",
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6246_6297_F6293_6315_K1546_118_01.jpg"
+    ]
+  },
+  {
+    "styleId": "F6416_861",
+    "name": "F6416_861_Cape",
+    "program": 6261,
+    "programName": "Coated Ripstop",
+    "material": "100% Recycled Polyester",
+    "groupId": "drop-1",
+    "colorNames": "Kalamata",
+    "colorId": 861,
+    "filters": [
+      "rtw3"
+    ],
+    "responsible": "SAND",
+    "weight": 4960,
+    "feature_text": null,
+    "wholesalePriceDKK": 560,
+    "wholesalePriceEUR": 82,
+    "wholesalePriceUSD": 98,
+    "wholesalePriceGBP": 70,
+    "retailPriceDKK": 1399,
+    "retailPriceEUR": 195,
+    "retailPriceUSD": 235,
+    "retailPriceGBP": 175,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6416_6261_861.jpg"
+    ]
+  },
+  {
+    "styleId": "F6415_861",
+    "name": "F6415_861_Trench Coat",
+    "program": 6261,
+    "programName": "Coated Ripstop",
+    "material": "100% Recycled Polyester",
+    "groupId": "drop-1",
+    "colorNames": "Kalamata",
+    "colorId": 861,
+    "filters": [
+      "rtw3"
+    ],
+    "responsible": "SAND",
+    "weight": 4950,
+    "feature_text": "With pockets",
+    "wholesalePriceDKK": 720,
+    "wholesalePriceEUR": 102,
+    "wholesalePriceUSD": 123,
+    "wholesalePriceGBP": 90,
+    "retailPriceDKK": 1799,
+    "retailPriceEUR": 255,
+    "retailPriceUSD": 295,
+    "retailPriceGBP": 225,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6415_6261_861.jpg"
+    ]
+  },
+  {
+    "styleId": "F5950_694",
+    "name": "F5950_694_Cape",
+    "program": 6261,
+    "programName": "Coated Ripstop",
+    "material": "100% Recycled Polyester",
+    "groupId": "drop-1",
+    "colorNames": "Heather",
+    "colorId": 694,
+    "filters": [
+      "rtw3"
+    ],
+    "responsible": "SAND",
+    "weight": 4940,
+    "feature_text": "With pockets",
+    "wholesalePriceDKK": 560,
+    "wholesalePriceEUR": 82,
+    "wholesalePriceUSD": 98,
+    "wholesalePriceGBP": 70,
+    "retailPriceDKK": 1399,
+    "retailPriceEUR": 195,
+    "retailPriceUSD": 235,
+    "retailPriceGBP": 175,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F5950_6261_694.jpg"
+    ]
+  },
+  {
+    "styleId": "F5949_694",
+    "name": "F5949_694_Trench Coat",
+    "program": 6261,
+    "programName": "Coated Ripstop",
+    "material": "100% Recycled Polyester",
+    "groupId": "drop-1",
+    "colorNames": "Heather",
+    "colorId": 694,
+    "filters": [
+      "rtw3"
+    ],
+    "responsible": "SAND",
+    "weight": 4930,
+    "feature_text": "With pockets",
+    "wholesalePriceDKK": 720,
+    "wholesalePriceEUR": 102,
+    "wholesalePriceUSD": 123,
+    "wholesalePriceGBP": 90,
+    "retailPriceDKK": 1799,
+    "retailPriceEUR": 255,
+    "retailPriceUSD": 295,
+    "retailPriceGBP": 225,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F5949_6261_694.jpg"
     ]
   },
   {
@@ -946,7 +946,8 @@
     "colorNames": "Mole",
     "colorId": 897,
     "filters": [
-      "acc3"
+      "acc3",
+      "rtw4"
     ],
     "responsible": "FALSK",
     "weight": 4680,
@@ -977,7 +978,8 @@
     "colorNames": "Mole",
     "colorId": 897,
     "filters": [
-      "&\";\"&\"rtw4\""
+      "rtw6",
+      "rtw4"
     ],
     "responsible": "FALSK",
     "weight": 4670,
@@ -1007,7 +1009,8 @@
     "colorNames": "Mole",
     "colorId": 897,
     "filters": [
-      "&\";\"&\"rtw4\""
+      "rtw1",
+      "rtw4"
     ],
     "responsible": "FALSK",
     "weight": 4660,
@@ -2246,8 +2249,7 @@
     "colorId": 99,
     "filters": [
       "rtw1",
-      "rtw7",
-      "rtw4"
+      "rtw7"
     ],
     "responsible": "FALSK",
     "weight": 4250,
@@ -2452,7 +2454,8 @@
     "colorNames": "Paloma Melange",
     "colorId": 921,
     "filters": [
-      "rtw5"
+      "rtw5",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 4180,
@@ -2480,7 +2483,8 @@
     "colorNames": "Egret",
     "colorId": 135,
     "filters": [
-      "rtw5"
+      "rtw5",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 4170,
@@ -2508,7 +2512,8 @@
     "colorNames": "Sky Captain",
     "colorId": 683,
     "filters": [
-      "rtw5"
+      "rtw5",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 4160,
@@ -3377,7 +3382,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 3870,
@@ -3495,7 +3501,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3830,
@@ -3526,7 +3533,8 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3820,
@@ -3557,7 +3565,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3810,
@@ -3585,7 +3594,8 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3800,
@@ -3703,7 +3713,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 3760,
@@ -4156,11 +4167,12 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc2"
+      "acc2",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3600,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4184,11 +4196,12 @@
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
-      "acc2"
+      "acc2",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3590,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4212,11 +4225,12 @@
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
-      "acc2"
+      "acc2",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3580,
-    "feature_text": null,
+    "feature_text": "L390 H220",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4240,11 +4254,11 @@
     "colorNames": "Mole",
     "colorId": 897,
     "filters": [
-      "acc1"
+      "acc2"
     ],
     "responsible": "SAND",
     "weight": 3570,
-    "feature_text": null,
+    "feature_text": "B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4268,11 +4282,11 @@
     "colorNames": "Flash Green",
     "colorId": 783,
     "filters": [
-      "acc1"
+      "acc2"
     ],
     "responsible": "SAND",
     "weight": 3560,
-    "feature_text": null,
+    "feature_text": "B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4296,11 +4310,12 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc1"
+      "acc1",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3550,
-    "feature_text": null,
+    "feature_text": "B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4384,7 +4399,7 @@
     ],
     "responsible": "SAND",
     "weight": 3520,
-    "feature_text": null,
+    "feature_text": "L390 H220",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4412,7 +4427,7 @@
     ],
     "responsible": "SAND",
     "weight": 3510,
-    "feature_text": null,
+    "feature_text": "L390 H220",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4428,7 +4443,7 @@
   },
   {
     "styleId": "A3688_99",
-    "name": "A3688_99_Purse",
+    "name": "A3688_99_Recycled Tech_Purse",
     "program": 5716,
     "programName": "Seasonal Recycled Tech",
     "material": "100% Recycled Polyester",
@@ -4468,7 +4483,7 @@
     ],
     "responsible": "SAND",
     "weight": 3490,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 360,
     "wholesalePriceEUR": 50,
     "wholesalePriceUSD": 65,
@@ -4484,7 +4499,7 @@
   },
   {
     "styleId": "A3572_999",
-    "name": "A3572_999_Purse",
+    "name": "A3572_999_Recycled Tech_Purse",
     "program": 5716,
     "programName": "Seasonal Recycled Tech",
     "material": "100% Recycled Polyester",
@@ -4524,7 +4539,7 @@
     ],
     "responsible": "SAND",
     "weight": 3470,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 360,
     "wholesalePriceEUR": 50,
     "wholesalePriceUSD": 65,
@@ -4552,7 +4567,7 @@
     ],
     "responsible": "SAND",
     "weight": 3460,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4580,7 +4595,7 @@
     ],
     "responsible": "SAND",
     "weight": 3450,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -4608,7 +4623,7 @@
     ],
     "responsible": "SAND",
     "weight": 3440,
-    "feature_text": "Size: 230x320x80",
+    "feature_text": "L230 H320 B80",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -4624,7 +4639,7 @@
   },
   {
     "styleId": "A3691_694",
-    "name": "A3691_694_Small Crossbody Printed",
+    "name": "A3691_694_Banner_Small Crossbody Printed",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4636,7 +4651,7 @@
     ],
     "responsible": "SAND",
     "weight": 3430,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4652,7 +4667,7 @@
   },
   {
     "styleId": "A3690_190",
-    "name": "A3690_190_Small Crossbody Printed",
+    "name": "A3690_190_Banner_Small Crossbody Printed",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4664,7 +4679,7 @@
     ],
     "responsible": "SAND",
     "weight": 3420,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4680,7 +4695,7 @@
   },
   {
     "styleId": "A3596_99",
-    "name": "A3596_99_Saddle Bag",
+    "name": "A3596_99_Banner_Saddle Bag",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4692,7 +4707,7 @@
     ],
     "responsible": "SAND",
     "weight": 3410,
-    "feature_text": null,
+    "feature_text": "L180 H240 B110",
     "wholesalePriceDKK": 760,
     "wholesalePriceEUR": 106,
     "wholesalePriceUSD": 136,
@@ -4708,7 +4723,7 @@
   },
   {
     "styleId": "A3593_783",
-    "name": "A3593_783_Small Crossbody",
+    "name": "A3593_783_Banner_Small Crossbody",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4720,7 +4735,7 @@
     ],
     "responsible": "SAND",
     "weight": 3400,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4736,7 +4751,7 @@
   },
   {
     "styleId": "A3592_472",
-    "name": "A3592_472_Small Crossbody",
+    "name": "A3592_472_Banner_Small Crossbody",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4748,7 +4763,7 @@
     ],
     "responsible": "SAND",
     "weight": 3390,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4764,7 +4779,7 @@
   },
   {
     "styleId": "A3591_99",
-    "name": "A3591_99_Small Crossbody",
+    "name": "A3591_99_Banner_Small Crossbody",
     "program": 5718,
     "programName": "Banner",
     "material": "100% Recycled Leather",
@@ -4776,7 +4791,7 @@
     ],
     "responsible": "SAND",
     "weight": 3380,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -4804,7 +4819,7 @@
     ],
     "responsible": "SAND",
     "weight": 3370,
-    "feature_text": "Size: 230x320x80",
+    "feature_text": "L230 H320 B80",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -4835,7 +4850,7 @@
     ],
     "responsible": "SAND",
     "weight": 3360,
-    "feature_text": "Size: 230x320x80",
+    "feature_text": "L230 H320 B80",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -4863,7 +4878,7 @@
     ],
     "responsible": "SAND",
     "weight": 3350,
-    "feature_text": "Size: 400x460x100",
+    "feature_text": "L400 H460 B110",
     "wholesalePriceDKK": 880,
     "wholesalePriceEUR": 122,
     "wholesalePriceUSD": 157,
@@ -4891,7 +4906,7 @@
     ],
     "responsible": "SAND",
     "weight": 3340,
-    "feature_text": "Size: 400x460x100",
+    "feature_text": "L400 H460 B110",
     "wholesalePriceDKK": 880,
     "wholesalePriceEUR": 122,
     "wholesalePriceUSD": 157,
@@ -5286,7 +5301,8 @@
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw9"
     ],
     "responsible": "FALSK",
     "weight": 3200,
@@ -5314,7 +5330,8 @@
     "colorNames": "Dark Green",
     "colorId": 784,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw1"
     ],
     "responsible": "FALSK",
     "weight": 3190,
@@ -5342,7 +5359,8 @@
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "FALSK",
     "weight": 3180,
@@ -5370,7 +5388,8 @@
     "colorNames": "Dark Green",
     "colorId": 784,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "FALSK",
     "weight": 3170,
@@ -5394,13 +5413,17 @@
     "styleId": "A3692_943",
     "name": "A3692_943_Short Leggings",
     "program": 5688,
-    "programName": "Rayon Underwear",
+    "programName": [
+      "rtw12",
+      "rtw1"
+    ],
     "material": "90% Rayon 10% Elastane",
     "groupId": "drop-1",
     "colorNames": "Leopard",
     "colorId": 943,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw9"
     ],
     "responsible": "FALSK",
     "weight": 3160,
@@ -5428,7 +5451,8 @@
     "colorNames": "Dark Green",
     "colorId": 784,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw9"
     ],
     "responsible": "FALSK",
     "weight": 3150,
@@ -5456,7 +5480,8 @@
     "colorNames": "Misty Lilac",
     "colorId": 712,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw1"
     ],
     "responsible": "FALSK",
     "weight": 3140,
@@ -5486,7 +5511,8 @@
     "colorNames": "Misty Lilac",
     "colorId": 712,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "FALSK",
     "weight": 3130,
@@ -5514,7 +5540,8 @@
     "colorNames": "Dark Green",
     "colorId": 784,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw9"
     ],
     "responsible": "FALSK",
     "weight": 3120,
@@ -5544,7 +5571,8 @@
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3110,
@@ -5572,7 +5600,8 @@
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3100,
@@ -5600,7 +5629,8 @@
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3090,
@@ -5628,7 +5658,8 @@
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3080,
@@ -5656,7 +5687,8 @@
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3070,
@@ -5684,7 +5716,8 @@
     "colorNames": "Bright White",
     "colorId": 151,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw8"
     ],
     "responsible": "SAND",
     "weight": 3060,
@@ -5712,7 +5745,8 @@
     "colorNames": "Phantom",
     "colorId": 252,
     "filters": [
-      "rtw12"
+      "rtw12",
+      "rtw9"
     ],
     "responsible": "SAND",
     "weight": 3050,
@@ -5845,6 +5879,90 @@
     ]
   },
   {
+    "styleId": "A3847_473",
+    "name": "A3847_473_Face Mask Pack",
+    "program": 6445,
+    "programName": "Printed Cotton Poplin",
+    "material": "100% Organic Cotton",
+    "groupId": "drop-1",
+    "colorNames": "Merlot",
+    "colorId": 473,
+    "filters": [
+      "acc1"
+    ],
+    "responsible": "SAND",
+    "weight": 3009,
+    "feature_text": null,
+    "wholesalePriceDKK": 71,
+    "wholesalePriceEUR": 11,
+    "wholesalePriceUSD": 15,
+    "wholesalePriceGBP": 9,
+    "retailPriceDKK": 199,
+    "retailPriceEUR": 30,
+    "retailPriceUSD": 35,
+    "retailPriceGBP": 25,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3847_6445_473.jpg"
+    ]
+  },
+  {
+    "styleId": "A3849_712",
+    "name": "A3849_712_Face Mask Pack",
+    "program": 6445,
+    "programName": "Printed Cotton Poplin",
+    "material": "100% Organic Cotton",
+    "groupId": "drop-1",
+    "colorNames": "Misty Lilac",
+    "colorId": 712,
+    "filters": [
+      "acc1"
+    ],
+    "responsible": "SAND",
+    "weight": 3008,
+    "feature_text": null,
+    "wholesalePriceDKK": 71,
+    "wholesalePriceEUR": 11,
+    "wholesalePriceUSD": 15,
+    "wholesalePriceGBP": 9,
+    "retailPriceDKK": 199,
+    "retailPriceEUR": 30,
+    "retailPriceUSD": 35,
+    "retailPriceGBP": 25,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3849_6445_712.jpg"
+    ]
+  },
+  {
+    "styleId": "A3848_694",
+    "name": "A3848_694_Face Mask Pack",
+    "program": 6445,
+    "programName": "Printed Cotton Poplin",
+    "material": "100% Organic Cotton",
+    "groupId": "drop-1",
+    "colorNames": "Heather",
+    "colorId": 694,
+    "filters": [
+      "acc1"
+    ],
+    "responsible": "SAND",
+    "weight": 3007,
+    "feature_text": null,
+    "wholesalePriceDKK": 71,
+    "wholesalePriceEUR": 11,
+    "wholesalePriceUSD": 15,
+    "wholesalePriceGBP": 9,
+    "retailPriceDKK": 199,
+    "retailPriceEUR": 30,
+    "retailPriceUSD": 35,
+    "retailPriceGBP": 25,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3848_6445_694.jpg"
+    ]
+  },
+  {
     "styleId": "F4715_151",
     "name": "F4715_151_Sleeveless Shirt",
     "program": 6027,
@@ -5855,7 +5973,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 3000,
@@ -5884,7 +6003,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 2990,
@@ -5913,7 +6033,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 2980,
@@ -5942,7 +6063,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 2970,
@@ -5971,7 +6093,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 2960,
@@ -6000,7 +6123,8 @@
     "colorId": 151,
     "filters": [
       "rtw8",
-      "rtw13"
+      "rtw13",
+      "misc4"
     ],
     "responsible": "SAND",
     "weight": 2950,
@@ -7618,36 +7742,6 @@
     ]
   },
   {
-    "styleId": "K1550_999",
-    "name": "K1550_999_Pullover - Multi",
-    "program": 2521,
-    "programName": "Soft Wool Knit",
-    "material": "32% Alpaca 32% Merino 30% Polyamide 6% Elastane",
-    "groupId": "drop-2",
-    "colorNames": "Multicolour",
-    "colorId": 999,
-    "filters": [
-      "rtw5"
-    ],
-    "responsible": "FALSK",
-    "weight": 2400,
-    "feature_text": "With pockets",
-    "wholesalePriceDKK": 720,
-    "wholesalePriceEUR": 102,
-    "wholesalePriceUSD": 123,
-    "wholesalePriceGBP": 90,
-    "retailPriceDKK": 1799,
-    "retailPriceEUR": 255,
-    "retailPriceUSD": 295,
-    "retailPriceGBP": 225,
-    "re-runner": "FALSK",
-    "assets": [
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/K1550_2521_999.jpg",
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6193_6334_K1550_2521.jpg",
-      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6193_6334_K1550_2521_01.jpg"
-    ]
-  },
-  {
     "styleId": "F6437_190",
     "name": "F6437_190_Top",
     "program": 6354,
@@ -7676,6 +7770,36 @@
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6420_6312_F6417_6340_F6437_6354.jpg",
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6420_6312_F6417_6340_F6437_6354.mp4",
       "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6420_6312_F6417_6340_F6437_6354_01.jpg"
+    ]
+  },
+  {
+    "styleId": "K1550_999",
+    "name": "K1550_999_Pullover - Multi",
+    "program": 2521,
+    "programName": "Soft Wool Knit",
+    "material": "32% Alpaca 32% Merino 30% Polyamide 6% Elastane",
+    "groupId": "drop-2",
+    "colorNames": "Multicolour",
+    "colorId": 999,
+    "filters": [
+      "rtw5"
+    ],
+    "responsible": "FALSK",
+    "weight": 2400,
+    "feature_text": "With pockets",
+    "wholesalePriceDKK": 720,
+    "wholesalePriceEUR": 102,
+    "wholesalePriceUSD": 123,
+    "wholesalePriceGBP": 90,
+    "retailPriceDKK": 1799,
+    "retailPriceEUR": 255,
+    "retailPriceUSD": 295,
+    "retailPriceGBP": 225,
+    "re-runner": "FALSK",
+    "assets": [
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/K1550_2521_999.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6193_6334_K1550_2521.jpg",
+      "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6193_6334_K1550_2521_01.jpg"
     ]
   },
   {
@@ -8391,7 +8515,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2150,
@@ -8419,7 +8544,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2140,
@@ -8447,7 +8573,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2130,
@@ -8475,7 +8602,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2120,
@@ -8504,7 +8632,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2110,
@@ -8534,7 +8663,8 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2100,
@@ -8563,7 +8693,8 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2090,
@@ -8591,7 +8722,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc3"
+      "acc3",
+      "misc4"
     ],
     "responsible": "FALSK",
     "weight": 2080,
@@ -9084,7 +9216,7 @@
     ],
     "responsible": "SAND",
     "weight": 1910,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 280,
     "wholesalePriceEUR": 38,
     "wholesalePriceUSD": 48,
@@ -9112,7 +9244,7 @@
     ],
     "responsible": "SAND",
     "weight": 1900,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 360,
     "wholesalePriceEUR": 50,
     "wholesalePriceUSD": 65,
@@ -9140,7 +9272,7 @@
     ],
     "responsible": "SAND",
     "weight": 1890,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 360,
     "wholesalePriceEUR": 50,
     "wholesalePriceUSD": 65,
@@ -9156,7 +9288,7 @@
   },
   {
     "styleId": "A3571_313",
-    "name": "A3571_313_Purse",
+    "name": "A3571_313_Recycled Tech_Purse",
     "program": 5716,
     "programName": "Seasonal Recycled Tech",
     "material": "100% Recycled Polyester",
@@ -9196,7 +9328,7 @@
     ],
     "responsible": "SAND",
     "weight": 1870,
-    "feature_text": null,
+    "feature_text": "L390 H220",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -9220,11 +9352,12 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "&\";\"&\"rtw4\""
+      "acc2",
+      "rtw4"
     ],
     "responsible": "SAND",
     "weight": 1860,
-    "feature_text": "With pockets",
+    "feature_text": "L230 H320 B80",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -9251,11 +9384,12 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "&\";\"&\"rtw4\""
+      "acc2",
+      "rtw4"
     ],
     "responsible": "SAND",
     "weight": 1850,
-    "feature_text": null,
+    "feature_text": "L140 H190 B40",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -9279,11 +9413,12 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "&\";\"&\"rtw4\""
+      "acc2",
+      "rtw4"
     ],
     "responsible": "SAND",
     "weight": 1840,
-    "feature_text": null,
+    "feature_text": "Size: 180x240x110",
     "wholesalePriceDKK": 760,
     "wholesalePriceEUR": 106,
     "wholesalePriceUSD": 136,
@@ -9311,7 +9446,7 @@
     ],
     "responsible": "SAND",
     "weight": 1830,
-    "feature_text": "Size: 400x460x100",
+    "feature_text": "L180 H240 B110",
     "wholesalePriceDKK": 880,
     "wholesalePriceEUR": 122,
     "wholesalePriceUSD": 157,
@@ -9342,7 +9477,7 @@
     ],
     "responsible": "SAND",
     "weight": 1820,
-    "feature_text": "Size: 330x195x90",
+    "feature_text": "H195 L330 B90",
     "wholesalePriceDKK": 680,
     "wholesalePriceEUR": 98,
     "wholesalePriceUSD": 119,
@@ -9370,7 +9505,7 @@
     ],
     "responsible": "SAND",
     "weight": 1810,
-    "feature_text": "Size: 330x195x90",
+    "feature_text": "H195 L330 B90",
     "wholesalePriceDKK": 680,
     "wholesalePriceEUR": 98,
     "wholesalePriceUSD": 119,
@@ -9398,7 +9533,7 @@
     ],
     "responsible": "SAND",
     "weight": 1800,
-    "feature_text": "Size: 200x270x180",
+    "feature_text": "H270 L200 B180",
     "wholesalePriceDKK": 720,
     "wholesalePriceEUR": 102,
     "wholesalePriceUSD": 123,
@@ -9426,7 +9561,7 @@
     ],
     "responsible": "SAND",
     "weight": 1790,
-    "feature_text": "Size: 200x270x180",
+    "feature_text": "H270 L200 B180",
     "wholesalePriceDKK": 720,
     "wholesalePriceEUR": 102,
     "wholesalePriceUSD": 123,
@@ -9442,7 +9577,7 @@
   },
   {
     "styleId": "A3602_99",
-    "name": "A3602_99_Purse",
+    "name": "A3602_99_knot_Purse",
     "program": 5719,
     "programName": "Knot",
     "material": "100% Recycled Polyester",
@@ -9450,7 +9585,8 @@
     "colorNames": "Black",
     "colorId": 99,
     "filters": [
-      "acc1"
+      "acc1",
+      "acc2"
     ],
     "responsible": "SAND",
     "weight": 1780,
@@ -9470,7 +9606,7 @@
   },
   {
     "styleId": "A3603_861",
-    "name": "A3603_861_Purse",
+    "name": "A3603_861_knot_Purse",
     "program": 5719,
     "programName": "Knot",
     "material": "100% Recycled Polyester",
@@ -9478,7 +9614,8 @@
     "colorNames": "Kalamata",
     "colorId": 861,
     "filters": [
-      "acc1"
+      "acc1",
+      "acc2"
     ],
     "responsible": "SAND",
     "weight": 1770,
@@ -9510,7 +9647,7 @@
     ],
     "responsible": "SAND",
     "weight": 1760,
-    "feature_text": "Size: 300x360x100",
+    "feature_text": "H360 L360 B100",
     "wholesalePriceDKK": 800,
     "wholesalePriceEUR": 110,
     "wholesalePriceUSD": 144,
@@ -9538,7 +9675,7 @@
     ],
     "responsible": "SAND",
     "weight": 1750,
-    "feature_text": "Size: 300x360x100",
+    "feature_text": "H360 L360 B100",
     "wholesalePriceDKK": 800,
     "wholesalePriceEUR": 110,
     "wholesalePriceUSD": 144,
@@ -11437,7 +11574,8 @@
     "colorNames": "Mole",
     "colorId": 897,
     "filters": [
-      "rtw3"
+      "rtw3",
+      "rtw7"
     ],
     "responsible": "SAND",
     "weight": 1090,
@@ -12657,7 +12795,7 @@
     ],
     "responsible": "SAND",
     "weight": 680,
-    "feature_text": "Size: 340x480x200",
+    "feature_text": "H480 L340 B200",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -12685,7 +12823,7 @@
     ],
     "responsible": "SAND",
     "weight": 670,
-    "feature_text": "Size: 340x480x200",
+    "feature_text": "H480 L340 B200",
     "wholesalePriceDKK": 640,
     "wholesalePriceEUR": 90,
     "wholesalePriceUSD": 111,
@@ -12713,7 +12851,7 @@
     ],
     "responsible": "SAND",
     "weight": 660,
-    "feature_text": "Size: 350x350x40",
+    "feature_text": "H350 L350",
     "wholesalePriceDKK": 560,
     "wholesalePriceEUR": 82,
     "wholesalePriceUSD": 98,
@@ -12741,7 +12879,7 @@
     ],
     "responsible": "SAND",
     "weight": 650,
-    "feature_text": "Size: 350x350x40",
+    "feature_text": "H350 L350",
     "wholesalePriceDKK": 560,
     "wholesalePriceEUR": 82,
     "wholesalePriceUSD": 98,
@@ -12769,7 +12907,7 @@
     ],
     "responsible": "SAND",
     "weight": 640,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 440,
     "wholesalePriceEUR": 62,
     "wholesalePriceUSD": 78,
@@ -12797,7 +12935,7 @@
     ],
     "responsible": "SAND",
     "weight": 630,
-    "feature_text": "Size: 160x220x160cm",
+    "feature_text": "H220 L160 B160",
     "wholesalePriceDKK": 440,
     "wholesalePriceEUR": 62,
     "wholesalePriceUSD": 78,
@@ -12825,7 +12963,7 @@
     ],
     "responsible": "SAND",
     "weight": 620,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,
@@ -12853,7 +12991,7 @@
     ],
     "responsible": "SAND",
     "weight": 610,
-    "feature_text": "Size: 230x160x60",
+    "feature_text": "L230 H160 B60",
     "wholesalePriceDKK": 400,
     "wholesalePriceEUR": 58,
     "wholesalePriceUSD": 69,

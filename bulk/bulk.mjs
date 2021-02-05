@@ -1,14 +1,14 @@
 import fs from 'fs'
 import path from 'path'
-import getUniqueId from '../utils/get-unique-id.js'
-import { isVideo } from '../utils/is-video.js'
+// import getUniqueId from '../utils/get-unique-id.js'
+// import { isVideo } from '../utils/is-video.js'
 
 // import fileCI from './files/21.3_GANNISPACE_UPLOAD-upload02.json'
 const data = fs.readFileSync('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
 const json = JSON.parse(data)
 
 // settings
-const OUT_FOLDER = 'test' // no slashes
+const OUT_FOLDER = 'content' // no slashes
 const STYLES_FILE = json
 const assetFolder = `../assets/${OUT_FOLDER}`
 
@@ -24,6 +24,31 @@ function clean(obj) {
 	}
 	return obj
 }
+const getUniqueId = () =>
+	Math.random()
+		.toString(36)
+		.substr(2, 9)
+
+const isVideo = fileName =>
+	[
+		'.WEBM',
+		'.MPG',
+		'.MP2',
+		'.MPEG',
+		'.MPE',
+		'.MPV',
+		'.OGG',
+		'.MP4',
+		'.M4P',
+		'.M4V',
+		'.AVI',
+		'.WMV',
+		'.MOV',
+		'.QT',
+		'.FLV',
+		'.SWF',
+		'.AVCHD'
+	].find(ext => fileName.toUpperCase().includes(ext))
 
 // copypasted from netlify cms
 const defaultFilters = {
