@@ -100,12 +100,12 @@ export default {
 
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 
-			console.log(this.assets)
+			// console.log(this.assets)
 		},
 	},
 	mounted() {
 		if (this.canvasHover && this.imageUrl2) {
-			console.log('canvasHover', this.styleId)
+			// console.log('canvasHover', this.styleId)
 			new hoverEffect({
 				parent: this.$refs.parent,
 				image1: this.imageUrl.src,

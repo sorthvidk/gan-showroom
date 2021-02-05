@@ -25,7 +25,7 @@ import {
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
-import getUniqueId from '~/utils/get-unique-id'
+import getUniqueId from '~/utils/get-unique-id.mjs'
 import {
 	prevIndex,
 	nextIndex,
@@ -175,10 +175,14 @@ export const mutations = {
 					defaultImageUrl: '/img/styles/dummy.jpg'
 				})
 			}
-			// let sortedAssets = style.assets.sort((a, b) =>
-			// 	a.onTop && !b.onTop ? -1 : 1
-			// )
-			// style.assets = sortedAssets
+
+			// is the style has an 'onTop', place it on top
+			if (style.assets.find(a => a.onTop)) {
+				style.assets = style.assets.sort((a, b) =>
+					a.onTop && !b.onTop ? -1 : 1
+				)
+			}
+
 			// style.onWishList = false
 		}
 

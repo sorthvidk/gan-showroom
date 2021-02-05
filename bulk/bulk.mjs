@@ -1,19 +1,21 @@
-const fs = require('fs')
-const path = require('path')
-// const fileMA = require('./mediaAssets.json')
-const fileCI = require('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
-const testFile = require('./files/bulkupload_test.json')
+import fs from 'fs'
+import path from 'path'
+import getUniqueId from './../utils/get-unique-id.mjs'
+import { isVideo } from './../utils/is-video.mjs'
 
-const uniqueId = () =>
-	Math.random()
-		.toString(36)
-		.substr(2, 9)
+// import fileCI from './files/21.3_GANNISPACE_UPLOAD-upload02.json'
+const data = fs.readFileSync('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
+const json = JSON.parse(data)
 
+// settings
+const OUT_FOLDER = 'test' // no slashes
+const STYLES_FILE = json
+const assetFolder = `../assets/${OUT_FOLDER}`
+
+// helpers
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
-
 const parseFalse = x => x === 'FALSK' || x === false
-
 function clean(obj) {
 	for (var propName in obj) {
 		if (obj[propName] === null || obj[propName] === undefined) {
@@ -22,27 +24,6 @@ function clean(obj) {
 	}
 	return obj
 }
-
-const isVideo = fileName =>
-	[
-		'.WEBM',
-		'.MPG',
-		'.MP2',
-		'.MPEG',
-		'.MPE',
-		'.MPV',
-		'.OGG',
-		'.MP4',
-		'.M4P',
-		'.M4V',
-		'.AVI',
-		'.WMV',
-		'.MOV',
-		'.QT',
-		'.FLV',
-		'.SWF',
-		'.AVCHD'
-	].find(ext => fileName.toUpperCase().includes(ext))
 
 // copypasted from netlify cms
 const defaultFilters = {
@@ -69,10 +50,6 @@ const defaultFilters = {
 	misc3: 'Leather',
 	misc4: 'Love for Leopard'
 }
-
-const OUT_FOLDER = 'content' // no slashes
-const STYLES_FILE = fileCI
-const assetFolder = `../assets/${OUT_FOLDER}`
 
 STYLES_FILE.forEach(item => {
 	const styleFileName = `${assetFolder}/collectionItems/${dateString}-${item['groupId']}-${item['styleId']}.json`.replace(
@@ -118,9 +95,9 @@ STYLES_FILE.forEach(item => {
 			fs.writeFile(
 				mediaAssetFileName,
 				JSON.stringify({
-					assetId: uniqueId(),
+					assetId: getUniqueId(),
 					cloudinaryUrl: asset,
-					onTop: true,
+					onTop: false,
 					visible: true,
 					aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
 					type: isVideo(path.extname(asset)) ? 'video' : 'image',

@@ -20,7 +20,7 @@
 		"start": "nuxt start",
 		"generate": "nuxt generate",
 		"cmsdev": "npx netlify-cms-proxy-server",
-		"bulk": "cd bulk && node bulk.js && cd ..",
+		"bulk": "cd bulk && node bulk.mjs && cd ..",
 		"test": "jest"
 	},
 	"repository": {

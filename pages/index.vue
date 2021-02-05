@@ -171,8 +171,6 @@ export default {
 				this[MOUSEMOVE.action](event)
 			}, 200)
 		})
-
-		console.log(this.various)
 	},
 }
 </script>
