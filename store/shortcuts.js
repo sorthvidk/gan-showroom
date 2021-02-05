@@ -46,7 +46,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'audio-gallery',
-			label: 'Film',
+			label: 'Ditte speak',
 			windowContent: [
 				// {
 				// 	contentId: 'video-player',
