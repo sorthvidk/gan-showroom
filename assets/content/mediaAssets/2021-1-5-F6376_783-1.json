@@ -1,1 +1,12 @@
-{"assetId":"6clvugdlc","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6376_6325_783.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6376_783","name":"F6376_783_Mini Dress","groupId":"drop-2","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6376_6325_783.jpg",
+  "assetId": "6clvugdlc",
+  "name": "F6376_783_Mini Dress",
+  "styleId": "F6376_783",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Dresses"
+}
