@@ -6,7 +6,7 @@
   "name": "A3624_694_Beret",
   "styleId": "A3624_694",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-2",
