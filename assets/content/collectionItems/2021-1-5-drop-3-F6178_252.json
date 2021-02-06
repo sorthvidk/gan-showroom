@@ -1,1 +1,27 @@
-{"styleId":"F6178_252","name":"F6178_252_Elasticated Pants","program":6302,"programName":"Stretch Stripe","material":"62% Recycled Polyester 32% Viscose 6% Elastane","groupId":"drop-3","colorNames":"Phantom","colorId":252,"filters":["rtw9"],"responsible":true,"weight":1290,"feature_text":"With pockets","wholesalePriceDKK":535,"wholesalePriceEUR":77,"wholesalePriceUSD":103,"wholesalePriceGBP":70,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"retailPriceGBP":195,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "program": 6302,
+  "colorNames": "Phantom",
+  "material": "62% Recycled Polyester 32% Viscose 6% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 70,
+  "name": "F6178_252_Elasticated Pants",
+  "styleId": "F6178_252",
+  "retailPriceGBP": 195,
+  "programName": "Stretch Stripe",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 77,
+  "weight": 1290,
+  "wholesalePriceDKK": 535,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw9",
+    "rtw7"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 252
+}
