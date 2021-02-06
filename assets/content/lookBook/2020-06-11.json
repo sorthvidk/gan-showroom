@@ -1,5 +1,7 @@
 {
-  "type": "image",
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604516197/PF21_21.2/elevated_lookbook/F5967_099__T2885_256__K1523_099_rbba3t.jpg",
+  "type": "video",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/video/upload/v1612614680/AW21_21.3/21.3_lookbook/BTS_film_red/4_5_4_2.mp4"
+  ],
   "aspect": "portrait"
 }
