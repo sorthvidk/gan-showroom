@@ -1,1 +1,12 @@
-{"assetId":"3t7ywsp1l","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1629_4682_791.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1629_791","name":"S1629_791_Low Chelsea Boot","groupId":"drop-2","filters":"Shoes"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1629_4682_791.jpg",
+  "assetId": "3t7ywsp1l",
+  "name": "S1629_791_Low Chelsea Boot",
+  "styleId": "S1629_791",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Shoes"
+}
