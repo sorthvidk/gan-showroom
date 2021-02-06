@@ -1,1 +1,26 @@
-{"styleId":"F6174_252","name":"F6174_252_Cropped Pants","program":6302,"programName":"Stretch Stripe","material":"62% Recycled Polyester 32% Viscose 6% Elastane","groupId":"drop-3","colorNames":"Phantom","colorId":252,"filters":["rtw9"],"responsible":true,"weight":1330,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"wholesalePriceGBP":63,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6302,
+  "colorNames": "Phantom",
+  "material": "62% Recycled Polyester 32% Viscose 6% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 63,
+  "name": "F6174_252_Cropped Pants",
+  "styleId": "F6174_252",
+  "retailPriceGBP": 175,
+  "programName": "Stretch Stripe",
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 1330,
+  "wholesalePriceDKK": 500,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 252
+}
