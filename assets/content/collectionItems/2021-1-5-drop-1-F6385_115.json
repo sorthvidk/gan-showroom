@@ -1,1 +1,27 @@
-{"styleId":"F6385_115","name":"F6385_115_Stary","program":6335,"programName":"Cutline Ecru","material":"100% Organic cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw9","rtw2"],"responsible":true,"weight":4390,"wholesalePriceDKK":481,"wholesalePriceEUR":69,"wholesalePriceUSD":90,"wholesalePriceGBP":62,"retailPriceDKK":1299,"retailPriceEUR":185,"retailPriceUSD":215,"retailPriceGBP":165,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 215,
+  "assets": [],
+  "program": 6335,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 62,
+  "name": "F6385_115_Stary",
+  "styleId": "F6385_115",
+  "retailPriceGBP": 165,
+  "programName": "Cutline Ecru",
+  "responsible": true,
+  "wholesalePriceEUR": 69,
+  "weight": 4390,
+  "wholesalePriceDKK": 481,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 90,
+  "filters": [
+    "rtw9",
+    "rtw2",
+    "misc2"
+  ],
+  "retailPriceEUR": 185,
+  "retailPriceDKK": 1299,
+  "colorId": 115
+}
