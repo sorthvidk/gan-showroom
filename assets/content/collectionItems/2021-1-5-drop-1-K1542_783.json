@@ -1,1 +1,26 @@
-{"styleId":"K1542_783","name":"K1542_783_Vest","program":2522,"programName":"Glitter Knit","material":"80% Viscose 20% Polyester","groupId":"drop-1","colorNames":"Flash Green","colorId":783,"filters":["rtw5"],"responsible":true,"weight":4110,"wholesalePriceDKK":680,"wholesalePriceEUR":98,"wholesalePriceUSD":119,"wholesalePriceGBP":86,"retailPriceDKK":1699,"retailPriceEUR":245,"retailPriceUSD":285,"retailPriceGBP":215,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 285,
+  "assets": [],
+  "program": 2522,
+  "colorNames": "Flash Green",
+  "material": "80% Viscose 20% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 86,
+  "name": "K1542_783_Vest",
+  "styleId": "K1542_783",
+  "retailPriceGBP": 215,
+  "programName": "Glitter Knit",
+  "responsible": true,
+  "wholesalePriceEUR": 98,
+  "weight": 4110,
+  "wholesalePriceDKK": 680,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 119,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 245,
+  "retailPriceDKK": 1699,
+  "colorId": 783
+}
