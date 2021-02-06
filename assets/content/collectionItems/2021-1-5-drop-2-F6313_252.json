@@ -1,1 +1,26 @@
-{"styleId":"F6313_252","name":"F6313_252_Pants","program":6313,"programName":"Lightweight Stripe","material":"75% Rayon 25% Polyamide","groupId":"drop-2","colorNames":"Phantom","colorId":252,"filters":["rtw9"],"responsible":true,"weight":2850,"wholesalePriceDKK":535,"wholesalePriceEUR":77,"wholesalePriceUSD":103,"wholesalePriceGBP":70,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"retailPriceGBP":195,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "program": 6313,
+  "colorNames": "Phantom",
+  "material": "75% Rayon 25% Polyamide",
+  "re-runner": false,
+  "wholesalePriceGBP": 70,
+  "name": "F6313_252_Pants",
+  "styleId": "F6313_252",
+  "retailPriceGBP": 195,
+  "programName": "Lightweight Stripe",
+  "responsible": true,
+  "wholesalePriceEUR": 77,
+  "weight": 2850,
+  "wholesalePriceDKK": 535,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 252
+}
