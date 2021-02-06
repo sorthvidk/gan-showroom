@@ -1,1 +1,26 @@
-{"styleId":"S1630_189","name":"S1630_189_Retro Sneaker","program":4851,"programName":"Sporty Mix","material":"60% Polyester 40% Calf Leather","groupId":"drop-1","colorNames":"Fossil","colorId":189,"filters":["acc3"],"responsible":true,"weight":3650,"wholesalePriceDKK":800,"wholesalePriceEUR":110,"wholesalePriceUSD":144,"wholesalePriceGBP":102,"retailPriceDKK":1999,"retailPriceEUR":275,"retailPriceUSD":345,"retailPriceGBP":255,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 345,
+  "assets": [],
+  "program": 4851,
+  "colorNames": "Fossil",
+  "material": "60% Polyester 40% Calf Leather",
+  "re-runner": false,
+  "wholesalePriceGBP": 102,
+  "name": "S1630_189_Retro Sneaker",
+  "styleId": "S1630_189",
+  "retailPriceGBP": 255,
+  "programName": "Sporty Mix",
+  "responsible": true,
+  "wholesalePriceEUR": 110,
+  "weight": 3650,
+  "wholesalePriceDKK": 800,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 144,
+  "filters": [
+    "acc3",
+    "misc2"
+  ],
+  "retailPriceEUR": 275,
+  "retailPriceDKK": 1999,
+  "colorId": 189
+}
