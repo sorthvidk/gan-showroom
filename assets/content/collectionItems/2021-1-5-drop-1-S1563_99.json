@@ -1,1 +1,26 @@
-{"styleId":"S1563_99","name":"S1563_99_Knee High Western Boot","program":4819,"programName":"Brush Off","material":"100% Calf Leather","groupId":"drop-1","colorNames":"Black","colorId":99,"filters":["acc3"],"responsible":false,"weight":3710,"wholesalePriceDKK":1480,"wholesalePriceEUR":210,"wholesalePriceUSD":261,"wholesalePriceGBP":190,"retailPriceDKK":3699,"retailPriceEUR":525,"retailPriceUSD":625,"retailPriceGBP":475,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 625,
+  "assets": [],
+  "program": 4819,
+  "colorNames": "Black",
+  "material": "100% Calf Leather",
+  "re-runner": false,
+  "wholesalePriceGBP": 190,
+  "name": "S1563_99_Knee High Western Boot",
+  "styleId": "S1563_99",
+  "retailPriceGBP": 475,
+  "programName": "Brush Off",
+  "responsible": false,
+  "wholesalePriceEUR": 210,
+  "weight": 3710,
+  "wholesalePriceDKK": 1480,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 261,
+  "filters": [
+    "acc3",
+    "misc2"
+  ],
+  "retailPriceEUR": 525,
+  "retailPriceDKK": 3699,
+  "colorId": 99
+}
