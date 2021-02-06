@@ -1,1 +1,26 @@
-{"styleId":"T2883_252","name":"T2883_252_Sweatshirt","program":3514,"programName":"Isoli","material":"70% Organic Cotton 30% Recycled Polyester","groupId":"drop-1","colorNames":"Phantom","colorId":252,"filters":["rtw8"],"responsible":true,"weight":3940,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"wholesalePriceGBP":56,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 3514,
+  "colorNames": "Phantom",
+  "material": "70% Organic Cotton 30% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 56,
+  "name": "T2883_252_Sweatshirt",
+  "styleId": "T2883_252",
+  "retailPriceGBP": 155,
+  "programName": "Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 3940,
+  "wholesalePriceDKK": 428,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 252
+}
