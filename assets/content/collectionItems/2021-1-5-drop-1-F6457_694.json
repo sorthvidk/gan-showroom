@@ -1,1 +1,26 @@
-{"styleId":"F6457_694","name":"F6457_694_Smock Dress","program":6342,"programName":"Organza","material":"80% Recycled Polyester 20% Polyester","groupId":"drop-1","colorNames":"Heather","colorId":694,"filters":["rtw1"],"responsible":true,"weight":4350,"wholesalePriceDKK":750,"wholesalePriceEUR":102,"wholesalePriceUSD":144,"wholesalePriceGBP":95,"retailPriceDKK":2099,"retailPriceEUR":285,"retailPriceUSD":345,"retailPriceGBP":265,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 345,
+  "assets": [],
+  "program": 6342,
+  "colorNames": "Heather",
+  "material": "80% Recycled Polyester 20% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 95,
+  "name": "F6457_694_Smock Dress",
+  "styleId": "F6457_694",
+  "retailPriceGBP": 265,
+  "programName": "Organza",
+  "responsible": true,
+  "wholesalePriceEUR": 102,
+  "weight": 4350,
+  "wholesalePriceDKK": 750,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 144,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 285,
+  "retailPriceDKK": 2099,
+  "colorId": 694
+}
