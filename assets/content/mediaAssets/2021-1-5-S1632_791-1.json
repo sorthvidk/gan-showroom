@@ -1,1 +1,12 @@
-{"assetId":"h9vi89m42","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1632_4853_791.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1632_791","name":"S1632_791_Retro Sneaker","groupId":"drop-1","filters":"Shoes"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1632_4853_791.jpg",
+  "assetId": "h9vi89m42",
+  "name": "S1632_791_Retro Sneaker",
+  "styleId": "S1632_791",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
