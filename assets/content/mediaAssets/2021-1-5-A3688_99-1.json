@@ -1,1 +1,12 @@
-{"assetId":"svovkejuz","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3688_5716_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3688_99","name":"A3688_99_Recycled Tech_Purse","groupId":"drop-1","filters":"Accessories"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3688_5716_99.jpg",
+  "assetId": "svovkejuz",
+  "name": "A3688_99_Recycled Tech_Purse",
+  "styleId": "A3688_99",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Accessories"
+}
