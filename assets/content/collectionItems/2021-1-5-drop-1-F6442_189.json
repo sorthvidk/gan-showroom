@@ -1,1 +1,26 @@
-{"styleId":"F6442_189","name":"F6442_189_Mini Dress","program":6314,"programName":"Cotton Crepe","material":"52% Organic Cotton 45% Polyamide 3% Elastane","groupId":"drop-1","colorNames":"Fossil","colorId":189,"filters":["rtw1"],"responsible":true,"weight":4690,"wholesalePriceDKK":643,"wholesalePriceEUR":92,"wholesalePriceUSD":123,"wholesalePriceGBP":81,"retailPriceDKK":1799,"retailPriceEUR":255,"retailPriceUSD":295,"retailPriceGBP":225,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "program": 6314,
+  "colorNames": "Fossil",
+  "material": "52% Organic Cotton 45% Polyamide 3% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 81,
+  "name": "F6442_189_Mini Dress",
+  "styleId": "F6442_189",
+  "retailPriceGBP": 225,
+  "programName": "Cotton Crepe",
+  "responsible": true,
+  "wholesalePriceEUR": 92,
+  "weight": 4690,
+  "wholesalePriceDKK": 643,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 189
+}
