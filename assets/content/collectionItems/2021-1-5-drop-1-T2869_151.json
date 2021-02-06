@@ -1,1 +1,27 @@
-{"styleId":"T2869_151","name":"T2869_151_T-shirt, Love","program":3520,"programName":"Basic Cotton Jersey","material":"100% Organic Cotton","groupId":"drop-1","colorNames":"Bright White","colorId":151,"filters":["rtw8","rtw10"],"responsible":true,"weight":3880,"wholesalePriceDKK":214,"wholesalePriceEUR":31,"wholesalePriceUSD":44,"wholesalePriceGBP":27,"retailPriceDKK":599,"retailPriceEUR":85,"retailPriceUSD":95,"retailPriceGBP":75,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 95,
+  "assets": [],
+  "program": 3520,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 27,
+  "name": "T2869_151_T-shirt, Love",
+  "styleId": "T2869_151",
+  "retailPriceGBP": 75,
+  "programName": "Basic Cotton Jersey",
+  "responsible": true,
+  "wholesalePriceEUR": 31,
+  "weight": 3880,
+  "wholesalePriceDKK": 214,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 44,
+  "filters": [
+    "rtw8",
+    "rtw10",
+    "misc2"
+  ],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 151
+}
