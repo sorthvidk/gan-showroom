@@ -1,1 +1,26 @@
-{"styleId":"T2880_99","name":"T2880_99_Pants","program":3515,"programName":"Velvet Jersey","material":"90% Recycled Polyester 10% Elastane","groupId":"drop-3","colorNames":"Black","colorId":99,"filters":["rtw9"],"responsible":true,"weight":720,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"wholesalePriceGBP":63,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 3515,
+  "colorNames": "Black",
+  "material": "90% Recycled Polyester 10% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 63,
+  "name": "T2880_99_Pants",
+  "styleId": "T2880_99",
+  "retailPriceGBP": 175,
+  "programName": "Velvet Jersey",
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 720,
+  "wholesalePriceDKK": 500,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 99
+}
