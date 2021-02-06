@@ -1,1 +1,26 @@
-{"styleId":"F6152_115","name":"F6152_115_Shirt","program":6335,"programName":"Cutline Ecru","material":"100% Organic cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw8"],"responsible":true,"weight":4380,"wholesalePriceDKK":666,"wholesalePriceEUR":95,"wholesalePriceUSD":123,"wholesalePriceGBP":84,"retailPriceDKK":1799,"retailPriceEUR":255,"retailPriceUSD":295,"retailPriceGBP":225,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "program": 6335,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 84,
+  "name": "F6152_115_Shirt",
+  "styleId": "F6152_115",
+  "retailPriceGBP": 225,
+  "programName": "Cutline Ecru",
+  "responsible": true,
+  "wholesalePriceEUR": 95,
+  "weight": 4380,
+  "wholesalePriceDKK": 666,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 115
+}
