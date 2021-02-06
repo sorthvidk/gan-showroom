@@ -1,1 +1,12 @@
-{"assetId":"bg1jbt9ml","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3575_5717_784.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3575_784","name":"A3575_784_Quilted Recycled Tech_Duffle Bag","groupId":"drop-3","filters":"Bags"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3575_5717_784.jpg",
+  "assetId": "bg1jbt9ml",
+  "name": "A3575_784_Quilted Recycled Tech_Duffle Bag",
+  "styleId": "A3575_784",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Bags"
+}
