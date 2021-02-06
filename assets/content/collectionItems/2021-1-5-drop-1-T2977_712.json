@@ -1,1 +1,26 @@
-{"styleId":"T2977_712","name":"T2977_712_Sweatshirt","program":3514,"programName":"Isoli","material":"70% Organic Cotton 30% Recycled Polyester","groupId":"drop-1","colorNames":"Misty Lilac","colorId":712,"filters":["rtw8"],"responsible":true,"weight":3970,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"wholesalePriceGBP":56,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 3514,
+  "colorNames": "Misty Lilac",
+  "material": "70% Organic Cotton 30% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 56,
+  "name": "T2977_712_Sweatshirt",
+  "styleId": "T2977_712",
+  "retailPriceGBP": 155,
+  "programName": "Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 3970,
+  "wholesalePriceDKK": 428,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 712
+}
