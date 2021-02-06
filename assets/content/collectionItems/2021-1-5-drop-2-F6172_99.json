@@ -1,1 +1,27 @@
-{"styleId":"F6172_99","name":"F6172_99_Shirt","program":6320,"programName":"Shiny Poplin","material":"100% Organic Cotton","groupId":"drop-2","colorNames":"Black","colorId":99,"filters":["rtw8"],"responsible":true,"weight":2670,"feature_text":"With pockets","wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"wholesalePriceGBP":63,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6320,
+  "colorNames": "Black",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 63,
+  "name": "F6172_99_Shirt",
+  "styleId": "F6172_99",
+  "retailPriceGBP": 175,
+  "programName": "Shiny Poplin",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 2670,
+  "wholesalePriceDKK": 500,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 99
+}
