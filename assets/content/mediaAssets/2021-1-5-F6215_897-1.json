@@ -1,1 +1,12 @@
-{"assetId":"mlhfkr71e","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6215_6305_897.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6215_897","name":"F6215_897_Shirt","groupId":"drop-3","filters":"Tops"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6215_6305_897.jpg",
+  "assetId": "mlhfkr71e",
+  "name": "F6215_897_Shirt",
+  "styleId": "F6215_897",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Tops"
+}
