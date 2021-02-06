@@ -1,1 +1,26 @@
-{"styleId":"K1596_313","name":"K1596_313_Zipper Blouse","program":2525,"programName":"Cable Knit","material":"25% WO 24% PC 20% CO 15% PA 10% WP 4%VI 2% EA","groupId":"drop-2","colorNames":"Spectra Yellow","colorId":313,"filters":["rtw5"],"responsible":false,"weight":2340,"wholesalePriceDKK":880,"wholesalePriceEUR":122,"wholesalePriceUSD":157,"wholesalePriceGBP":110,"retailPriceDKK":2199,"retailPriceEUR":295,"retailPriceUSD":375,"retailPriceGBP":275,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 2525,
+  "colorNames": "Spectra Yellow",
+  "material": "25% WO 24% PC 20% CO 15% PA 10% WP 4%VI 2% EA",
+  "re-runner": false,
+  "wholesalePriceGBP": 110,
+  "name": "K1596_313_Zipper Blouse",
+  "styleId": "K1596_313",
+  "retailPriceGBP": 275,
+  "programName": "Cable Knit",
+  "responsible": false,
+  "wholesalePriceEUR": 122,
+  "weight": 2340,
+  "wholesalePriceDKK": 880,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 313
+}
