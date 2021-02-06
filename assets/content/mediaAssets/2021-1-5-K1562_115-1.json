@@ -1,1 +1,12 @@
-{"assetId":"c3xhk0nxy","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/K1562_2524_115.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1562_115","name":"K1562_115_Shirt","groupId":"drop-1","filters":"Knitwear"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/K1562_2524_115.jpg",
+  "assetId": "c3xhk0nxy",
+  "name": "K1562_115_Shirt",
+  "styleId": "K1562_115",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Knitwear"
+}
