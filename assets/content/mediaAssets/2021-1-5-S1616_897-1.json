@@ -1,1 +1,12 @@
-{"assetId":"ayui9gx2c","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1616_4846_897.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1616_897","name":"S1616_897_Zipper Boot","groupId":"drop-2","filters":"Shoes"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/S1616_4846_897.jpg",
+  "assetId": "ayui9gx2c",
+  "name": "S1616_897_Zipper Boot",
+  "styleId": "S1616_897",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Shoes"
+}
