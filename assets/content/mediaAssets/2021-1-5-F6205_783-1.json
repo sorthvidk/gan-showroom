@@ -1,1 +1,12 @@
-{"assetId":"debzu1mo7","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6205_6314_783.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6205_783","name":"F6205_783_Pants","groupId":"drop-2","filters":"Trousers"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6205_6314_783.jpg",
+  "assetId": "debzu1mo7",
+  "name": "F6205_783_Pants",
+  "styleId": "F6205_783",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Trousers"
+}
