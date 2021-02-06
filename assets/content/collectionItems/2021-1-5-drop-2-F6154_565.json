@@ -1,1 +1,27 @@
-{"styleId":"F6154_565","name":"F6154_565_Blouse","program":6345,"programName":"Core Light","material":"64% Organic Cotton 36% REFIBRA™","groupId":"drop-2","colorNames":"Light Blue Vintage","colorId":565,"filters":["rtw8"],"responsible":true,"weight":2410,"feature_text":"With pockets","wholesalePriceDKK":592,"wholesalePriceEUR":84,"wholesalePriceUSD":111,"wholesalePriceGBP":76,"retailPriceDKK":1599,"retailPriceEUR":225,"retailPriceUSD":265,"retailPriceGBP":205,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 265,
+  "assets": [],
+  "program": 6345,
+  "colorNames": "Light Blue Vintage",
+  "material": "64% Organic Cotton 36% REFIBRA™",
+  "re-runner": false,
+  "wholesalePriceGBP": 76,
+  "name": "F6154_565_Blouse",
+  "styleId": "F6154_565",
+  "retailPriceGBP": 205,
+  "programName": "Core Light",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 84,
+  "weight": 2410,
+  "wholesalePriceDKK": 592,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 111,
+  "filters": [
+    "rtw8",
+    "rtw2"
+  ],
+  "retailPriceEUR": 225,
+  "retailPriceDKK": 1599,
+  "colorId": 565
+}
