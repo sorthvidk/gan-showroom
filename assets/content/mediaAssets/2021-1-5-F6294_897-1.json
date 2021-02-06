@@ -1,1 +1,12 @@
-{"assetId":"s5fj1y660","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6294_6315_897.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6294_897","name":"F6294_897_Dress","groupId":"drop-1","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6294_6315_897.jpg",
+  "assetId": "s5fj1y660",
+  "name": "F6294_897_Dress",
+  "styleId": "F6294_897",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Dresses"
+}
