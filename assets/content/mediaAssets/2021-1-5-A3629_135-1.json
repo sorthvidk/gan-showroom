@@ -1,1 +1,12 @@
-{"assetId":"ih1crhxmt","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3629_5725_135.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3629_135","name":"A3629_135_Scarf","groupId":"drop-1","filters":"Accessories"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3629_5725_135.jpg",
+  "assetId": "ih1crhxmt",
+  "name": "A3629_135_Scarf",
+  "styleId": "A3629_135",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Accessories"
+}
