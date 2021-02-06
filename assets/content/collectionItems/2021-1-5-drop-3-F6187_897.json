@@ -1,1 +1,27 @@
-{"styleId":"F6187_897","name":"F6187_897_Pants","program":6328,"programName":"Twill Suiting","material":"54% Recycled Polyester 44% Wool 2% Elastane","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw9","rtw7"],"responsible":true,"weight":1100,"wholesalePriceDKK":1000,"wholesalePriceEUR":138,"wholesalePriceUSD":178,"wholesalePriceGBP":130,"retailPriceDKK":2499,"retailPriceEUR":345,"retailPriceUSD":425,"retailPriceGBP":325,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "program": 6328,
+  "colorNames": "Mole",
+  "material": "54% Recycled Polyester 44% Wool 2% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 130,
+  "name": "F6187_897_Pants",
+  "styleId": "F6187_897",
+  "retailPriceGBP": 325,
+  "programName": "Twill Suiting",
+  "responsible": true,
+  "wholesalePriceEUR": 138,
+  "weight": 1100,
+  "wholesalePriceDKK": 1000,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw9",
+    "rtw7",
+    "misc2"
+  ],
+  "retailPriceEUR": 345,
+  "retailPriceDKK": 2499,
+  "colorId": 897
+}
