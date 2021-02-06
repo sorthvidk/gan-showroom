@@ -1,1 +1,26 @@
-{"styleId":"F6204_783","name":"F6204_783_Shirt","program":6314,"programName":"Cotton Crepe","material":"52% Organic Cotton 45% Polyamide 3% Elastane","groupId":"drop-2","colorNames":"Flash Green","colorId":783,"filters":["rtw8"],"responsible":true,"weight":2820,"wholesalePriceDKK":535,"wholesalePriceEUR":77,"wholesalePriceUSD":103,"wholesalePriceGBP":70,"retailPriceDKK":1499,"retailPriceEUR":215,"retailPriceUSD":245,"retailPriceGBP":195,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 245,
+  "assets": [],
+  "program": 6314,
+  "colorNames": "Flash Green",
+  "material": "52% Organic Cotton 45% Polyamide 3% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 70,
+  "name": "F6204_783_Shirt",
+  "styleId": "F6204_783",
+  "retailPriceGBP": 195,
+  "programName": "Cotton Crepe",
+  "responsible": true,
+  "wholesalePriceEUR": 77,
+  "weight": 2820,
+  "wholesalePriceDKK": 535,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 103,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 215,
+  "retailPriceDKK": 1499,
+  "colorId": 783
+}
