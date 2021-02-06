@@ -1,1 +1,26 @@
-{"styleId":"K1556_999","name":"K1556_999_Vest","program":2526,"programName":"Wool Mix Knit","material":"50% Recycled Wool 30% Wool 20% Polyamide","groupId":"drop-1","colorNames":"Multicolour","colorId":999,"filters":["rtw5"],"responsible":true,"weight":4020,"wholesalePriceDKK":480,"wholesalePriceEUR":70,"wholesalePriceUSD":86,"wholesalePriceGBP":62,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 2526,
+  "colorNames": "Multicolour",
+  "material": "50% Recycled Wool 30% Wool 20% Polyamide",
+  "re-runner": false,
+  "wholesalePriceGBP": 62,
+  "name": "K1556_999_Vest",
+  "styleId": "K1556_999",
+  "retailPriceGBP": 155,
+  "programName": "Wool Mix Knit",
+  "responsible": true,
+  "wholesalePriceEUR": 70,
+  "weight": 4020,
+  "wholesalePriceDKK": 480,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 999
+}
