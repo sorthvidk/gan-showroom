@@ -1,1 +1,26 @@
-{"styleId":"F6314_252","name":"F6314_252_Oversized Shirt","program":6313,"programName":"Lightweight Stripe","material":"75% Rayon 25% Polyamide","groupId":"drop-2","colorNames":"Phantom","colorId":252,"filters":["rtw8"],"responsible":true,"weight":2840,"wholesalePriceDKK":643,"wholesalePriceEUR":92,"wholesalePriceUSD":123,"wholesalePriceGBP":81,"retailPriceDKK":1799,"retailPriceEUR":255,"retailPriceUSD":295,"retailPriceGBP":225,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "program": 6313,
+  "colorNames": "Phantom",
+  "material": "75% Rayon 25% Polyamide",
+  "re-runner": false,
+  "wholesalePriceGBP": 81,
+  "name": "F6314_252_Oversized Shirt",
+  "styleId": "F6314_252",
+  "retailPriceGBP": 225,
+  "programName": "Lightweight Stripe",
+  "responsible": true,
+  "wholesalePriceEUR": 92,
+  "weight": 2840,
+  "wholesalePriceDKK": 643,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 252
+}
