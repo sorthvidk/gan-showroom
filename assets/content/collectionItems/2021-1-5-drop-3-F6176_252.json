@@ -1,1 +1,27 @@
-{"styleId":"F6176_252","name":"F6176_252_Mini Dress","program":6302,"programName":"Stretch Stripe","material":"62% Recycled Polyester 32% Viscose 6% Elastane","groupId":"drop-3","colorNames":"Phantom","colorId":252,"filters":["rtw1"],"responsible":true,"weight":1310,"feature_text":"With pockets","wholesalePriceDKK":785,"wholesalePriceEUR":109,"wholesalePriceUSD":157,"wholesalePriceGBP":99,"retailPriceDKK":2199,"retailPriceEUR":295,"retailPriceUSD":375,"retailPriceGBP":275,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 6302,
+  "colorNames": "Phantom",
+  "material": "62% Recycled Polyester 32% Viscose 6% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 99,
+  "name": "F6176_252_Mini Dress",
+  "styleId": "F6176_252",
+  "retailPriceGBP": 275,
+  "programName": "Stretch Stripe",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 109,
+  "weight": 1310,
+  "wholesalePriceDKK": 785,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "rtw1",
+    "rtw7"
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 252
+}
