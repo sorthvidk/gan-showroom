@@ -1,1 +1,12 @@
-{"assetId":"xpc8oo0nz","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3586_5718_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3586_99","name":"A3586_99_Banner_Medium Tote","groupId":"drop-1","filters":"Bags"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3586_5718_99.jpg",
+  "assetId": "xpc8oo0nz",
+  "name": "A3586_99_Banner_Medium Tote",
+  "styleId": "A3586_99",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Bags"
+}
