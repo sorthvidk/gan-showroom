@@ -1,1 +1,26 @@
-{"styleId":"K1562_115","name":"K1562_115_Shirt","program":2524,"programName":"Melange Knit","material":"55% Rayon 29% Polyamide 16% Elastane","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw5"],"responsible":false,"weight":4060,"wholesalePriceDKK":800,"wholesalePriceEUR":110,"wholesalePriceUSD":144,"wholesalePriceGBP":102,"retailPriceDKK":1999,"retailPriceEUR":275,"retailPriceUSD":345,"retailPriceGBP":255,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 345,
+  "assets": [],
+  "program": 2524,
+  "colorNames": "Vanilla Ice",
+  "material": "55% Rayon 29% Polyamide 16% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 102,
+  "name": "K1562_115_Shirt",
+  "styleId": "K1562_115",
+  "retailPriceGBP": 255,
+  "programName": "Melange Knit",
+  "responsible": false,
+  "wholesalePriceEUR": 110,
+  "weight": 4060,
+  "wholesalePriceDKK": 800,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 144,
+  "filters": [
+    "rtw5",
+    "misc2"
+  ],
+  "retailPriceEUR": 275,
+  "retailPriceDKK": 1999,
+  "colorId": 115
+}
