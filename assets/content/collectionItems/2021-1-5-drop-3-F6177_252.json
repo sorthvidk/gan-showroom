@@ -1,1 +1,27 @@
-{"styleId":"F6177_252","name":"F6177_252_Blazer","program":6302,"programName":"Stretch Stripe","material":"62% Recycled Polyester 32% Viscose 6% Elastane","groupId":"drop-3","colorNames":"Phantom","colorId":252,"filters":["rtw3"],"responsible":true,"weight":1300,"feature_text":"With pockets","wholesalePriceDKK":893,"wholesalePriceEUR":124,"wholesalePriceUSD":178,"wholesalePriceGBP":117,"retailPriceDKK":2499,"retailPriceEUR":345,"retailPriceUSD":425,"retailPriceGBP":325,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 425,
+  "assets": [],
+  "program": 6302,
+  "colorNames": "Phantom",
+  "material": "62% Recycled Polyester 32% Viscose 6% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 117,
+  "name": "F6177_252_Blazer",
+  "styleId": "F6177_252",
+  "retailPriceGBP": 325,
+  "programName": "Stretch Stripe",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 124,
+  "weight": 1300,
+  "wholesalePriceDKK": 893,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 178,
+  "filters": [
+    "rtw3",
+    "rtw7"
+  ],
+  "retailPriceEUR": 345,
+  "retailPriceDKK": 2499,
+  "colorId": 252
+}
