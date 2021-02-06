@@ -1,1 +1,26 @@
-{"styleId":"F6359_99","name":"F6359_99_Top","program":6354,"programName":"Beads","material":"100% Polyester","groupId":"drop-1","colorNames":"Black","colorId":99,"filters":["rtw8"],"responsible":false,"weight":4210,"wholesalePriceDKK":1200,"wholesalePriceEUR":170,"wholesalePriceUSD":207,"wholesalePriceGBP":150,"retailPriceDKK":2999,"retailPriceEUR":425,"retailPriceUSD":495,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 495,
+  "assets": [],
+  "program": 6354,
+  "colorNames": "Black",
+  "material": "100% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "F6359_99_Top",
+  "styleId": "F6359_99",
+  "retailPriceGBP": 375,
+  "programName": "Beads",
+  "responsible": false,
+  "wholesalePriceEUR": 170,
+  "weight": 4210,
+  "wholesalePriceDKK": 1200,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 207,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 425,
+  "retailPriceDKK": 2999,
+  "colorId": 99
+}
