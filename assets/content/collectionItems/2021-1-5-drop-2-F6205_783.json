@@ -1,1 +1,26 @@
-{"styleId":"F6205_783","name":"F6205_783_Pants","program":6314,"programName":"Cotton Crepe","material":"52% Organic Cotton 45% Polyamide 3% Elastane","groupId":"drop-2","colorNames":"Flash Green","colorId":783,"filters":["rtw9"],"responsible":true,"weight":2810,"wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"wholesalePriceGBP":52,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"retailPriceGBP":145,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "program": 6314,
+  "colorNames": "Flash Green",
+  "material": "52% Organic Cotton 45% Polyamide 3% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 52,
+  "name": "F6205_783_Pants",
+  "styleId": "F6205_783",
+  "retailPriceGBP": 145,
+  "programName": "Cotton Crepe",
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 2810,
+  "wholesalePriceDKK": 393,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 783
+}
