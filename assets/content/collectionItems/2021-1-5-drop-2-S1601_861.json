@@ -1,1 +1,27 @@
-{"styleId":"S1601_861","name":"S1601_861_High Chelsea Boot","program":4682,"programName":"Calf Leather","material":"100% Calf Leather","groupId":"drop-2","colorNames":"Kalamata","colorId":861,"filters":["acc3","misc4"],"responsible":false,"weight":2090,"wholesalePriceDKK":1320,"wholesalePriceEUR":178,"wholesalePriceUSD":228,"wholesalePriceGBP":170,"retailPriceDKK":3299,"retailPriceEUR":445,"retailPriceUSD":545,"retailPriceGBP":425,"re-runner":true,"assets":[]}
+{
+  "retailPriceUSD": 545,
+  "assets": [],
+  "program": 4682,
+  "colorNames": "Kalamata",
+  "material": "100% Calf Leather",
+  "re-runner": true,
+  "wholesalePriceGBP": 170,
+  "name": "S1601_861_High Chelsea Boot",
+  "styleId": "S1601_861",
+  "retailPriceGBP": 425,
+  "programName": "Calf Leather",
+  "responsible": false,
+  "wholesalePriceEUR": 178,
+  "weight": 2090,
+  "wholesalePriceDKK": 1320,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 228,
+  "filters": [
+    "acc3",
+    "misc4",
+    "misc2"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3299,
+  "colorId": 861
+}
