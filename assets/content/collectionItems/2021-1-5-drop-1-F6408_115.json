@@ -1,1 +1,26 @@
-{"styleId":"F6408_115","name":"F6408_115_Blouse","program":6297,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw8"],"responsible":true,"weight":5000,"wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"wholesalePriceGBP":52,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"retailPriceGBP":145,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "program": 6297,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 52,
+  "name": "F6408_115_Blouse",
+  "styleId": "F6408_115",
+  "retailPriceGBP": 145,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 5000,
+  "wholesalePriceDKK": 393,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 115
+}
