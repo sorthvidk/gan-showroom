@@ -1,5 +1,7 @@
 {
   "type": "image",
-  "aspect": "landscape",
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604443071/PF21_21.2/ana_kras_old/scan59_zoqn8x.jpg"
+  "aspect": "portrait",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612614801/AW21_21.3/21.3_lookbook/elevated_pink/LOOK_8.jpg"
+  ]
 }
