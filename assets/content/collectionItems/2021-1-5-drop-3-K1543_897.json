@@ -1,1 +1,26 @@
-{"styleId":"K1543_897","name":"K1543_897_Dress","program":2522,"programName":"Glitter Knit","material":"80% Viscose 20% Polyester","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw1"],"responsible":true,"weight":870,"wholesalePriceDKK":1160,"wholesalePriceEUR":158,"wholesalePriceUSD":198,"wholesalePriceGBP":150,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 2522,
+  "colorNames": "Mole",
+  "material": "80% Viscose 20% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "K1543_897_Dress",
+  "styleId": "K1543_897",
+  "retailPriceGBP": 375,
+  "programName": "Glitter Knit",
+  "responsible": true,
+  "wholesalePriceEUR": 158,
+  "weight": 870,
+  "wholesalePriceDKK": 1160,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 897
+}
