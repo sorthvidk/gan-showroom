@@ -1,1 +1,26 @@
-{"styleId":"A3467_712","name":"A3467_712_Slip Dress","program":5688,"programName":"Rayon Underwear","material":"90% Rayon 10% Elastane","groupId":"drop-1","colorNames":"Misty Lilac","colorId":712,"filters":["rtw12","rtw1"],"responsible":false,"weight":3140,"wholesalePriceDKK":400,"wholesalePriceEUR":58,"wholesalePriceUSD":69,"wholesalePriceGBP":50,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 5688,
+  "colorNames": "Misty Lilac",
+  "material": "90% Rayon 10% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 50,
+  "name": "A3467_712_Slip Dress",
+  "styleId": "A3467_712",
+  "retailPriceGBP": 125,
+  "programName": "Rayon Underwear",
+  "responsible": false,
+  "wholesalePriceEUR": 58,
+  "weight": 3120,
+  "wholesalePriceDKK": 400,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw12",
+    "rtw1"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 712
+}
