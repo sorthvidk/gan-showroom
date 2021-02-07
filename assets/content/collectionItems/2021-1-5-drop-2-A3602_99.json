@@ -1,1 +1,26 @@
-{"styleId":"A3602_99","name":"A3602_99_knot_Purse","program":5719,"programName":"Knot","material":"100% Recycled Polyester","groupId":"drop-2","colorNames":"Black","colorId":99,"filters":["acc1","acc2"],"responsible":true,"weight":1780,"wholesalePriceDKK":480,"wholesalePriceEUR":70,"wholesalePriceUSD":86,"wholesalePriceGBP":62,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 5719,
+  "colorNames": "Black",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 62,
+  "name": "A3602_99_knot_Purse",
+  "styleId": "A3602_99",
+  "retailPriceGBP": 155,
+  "programName": "Knot",
+  "responsible": true,
+  "wholesalePriceEUR": 70,
+  "weight": 1750,
+  "wholesalePriceDKK": 480,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "acc1",
+    "acc2"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 99
+}
