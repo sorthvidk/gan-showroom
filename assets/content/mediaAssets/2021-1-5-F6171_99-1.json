@@ -1,1 +1,12 @@
-{"assetId":"fbgm49kb9","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6171_6320_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6171_99","name":"F6171_99_Oversized Mini Dress","groupId":"drop-2","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6171_6320_99.jpg",
+  "assetId": "fbgm49kb9",
+  "name": "F6171_99_Oversized Mini Dress",
+  "styleId": "F6171_99",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Dresses"
+}
