@@ -1,1 +1,26 @@
-{"styleId":"F6168_683","name":"F6168_683_Oversized Jacket","program":6316,"programName":"Wool","material":"50% Recycled Wool 50% Other","groupId":"drop-1","colorNames":"Sky Captain","colorId":683,"filters":["rtw3"],"responsible":true,"weight":4600,"feature_text":"With pockets","wholesalePriceDKK":1160,"wholesalePriceEUR":158,"wholesalePriceUSD":198,"wholesalePriceGBP":150,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6316,
+  "colorNames": "Sky Captain",
+  "material": "50% Recycled Wool 50% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "F6168_683_Oversized Jacket",
+  "styleId": "F6168_683",
+  "retailPriceGBP": 375,
+  "programName": "Wool",
+  "feature_text": "With pockets",
+  "responsible": true,
+  "wholesalePriceEUR": 158,
+  "weight": 4600,
+  "wholesalePriceDKK": 1160,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 683
+}
