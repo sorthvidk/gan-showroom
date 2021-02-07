@@ -1,1 +1,25 @@
-{"styleId":"F6280_861","name":"F6280_861_Vest","program":6318,"programName":"Outerwear Nylon","material":"100% Recycled Nylon","groupId":"drop-1","colorNames":"Kalamata","colorId":861,"filters":["rtw3"],"responsible":true,"weight":4570,"wholesalePriceDKK":571,"wholesalePriceEUR":81,"wholesalePriceUSD":111,"wholesalePriceGBP":74,"retailPriceDKK":1599,"retailPriceEUR":225,"retailPriceUSD":265,"retailPriceGBP":205,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 265,
+  "assets": [],
+  "program": 6318,
+  "colorNames": "Kalamata",
+  "material": "100% Recycled Nylon",
+  "re-runner": false,
+  "wholesalePriceGBP": 74,
+  "name": "F6280_861_Vest",
+  "styleId": "F6280_861",
+  "retailPriceGBP": 205,
+  "programName": "Outerwear Nylon",
+  "responsible": true,
+  "wholesalePriceEUR": 81,
+  "weight": 4570,
+  "wholesalePriceDKK": 571,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 111,
+  "filters": [
+    "rtw1"
+  ],
+  "retailPriceEUR": 225,
+  "retailPriceDKK": 1599,
+  "colorId": 861
+}
