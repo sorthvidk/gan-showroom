@@ -8,7 +8,7 @@
   "visible": true,
   "onTop": false,
   "aspect": "portrait",
-  "type": "video",
+  "type": "image",
   "groupId": "drop-1",
   "filters": "Dresses"
 }
