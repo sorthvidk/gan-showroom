@@ -17,7 +17,8 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 111,
   "filters": [
-    "rtw8"
+    "rtw8",
+    "misc2"
   ],
   "retailPriceEUR": 225,
   "retailPriceDKK": 1599,
