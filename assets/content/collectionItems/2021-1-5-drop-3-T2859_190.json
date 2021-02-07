@@ -1,1 +1,25 @@
-{"styleId":"T2859_190","name":"T2859_190_Rollneck","program":3513,"programName":"Printed Mesh","material":"94% Recycled Nylon 6% Spandex","groupId":"drop-3","colorNames":"French Roast","colorId":190,"filters":["rtw8"],"responsible":true,"weight":790,"wholesalePriceDKK":285,"wholesalePriceEUR":42,"wholesalePriceUSD":57,"wholesalePriceGBP":38,"retailPriceDKK":799,"retailPriceEUR":115,"retailPriceUSD":135,"retailPriceGBP":105,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 135,
+  "assets": [],
+  "program": 3513,
+  "colorNames": "French Roast",
+  "material": "94% Recycled Nylon 6% Spandex",
+  "re-runner": false,
+  "wholesalePriceGBP": 38,
+  "name": "T2859_190_Rollneck",
+  "styleId": "T2859_190",
+  "retailPriceGBP": 105,
+  "programName": "Printed Mesh",
+  "responsible": true,
+  "wholesalePriceEUR": 42,
+  "weight": 740,
+  "wholesalePriceDKK": 285,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 57,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 115,
+  "retailPriceDKK": 799,
+  "colorId": 190
+}
