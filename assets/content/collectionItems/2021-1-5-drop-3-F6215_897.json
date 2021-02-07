@@ -1,1 +1,26 @@
-{"styleId":"F6215_897","name":"F6215_897_Shirt","program":6305,"programName":"Viscose Jacquard","material":"54% Acetate 46% Viscose","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw8"],"responsible":true,"weight":1280,"wholesalePriceDKK":785,"wholesalePriceEUR":109,"wholesalePriceUSD":157,"wholesalePriceGBP":99,"retailPriceDKK":2199,"retailPriceEUR":295,"retailPriceUSD":375,"retailPriceGBP":275,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 6305,
+  "colorNames": "Mole",
+  "material": "54% Acetate 46% Viscose",
+  "re-runner": false,
+  "wholesalePriceGBP": 99,
+  "name": "F6215_897_Shirt",
+  "styleId": "F6215_897",
+  "retailPriceGBP": 275,
+  "programName": "Viscose Jacquard",
+  "responsible": true,
+  "wholesalePriceEUR": 109,
+  "weight": 1280,
+  "wholesalePriceDKK": 785,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 897
+}
