@@ -1,1 +1,26 @@
-{"styleId":"F6455_897","name":"F6455_897_Pants","program":6305,"programName":"Viscose Jacquard","material":"54% Acetate 46% Viscose","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw9"],"responsible":true,"weight":1250,"wholesalePriceDKK":607,"wholesalePriceEUR":88,"wholesalePriceUSD":119,"wholesalePriceGBP":77,"retailPriceDKK":1699,"retailPriceEUR":245,"retailPriceUSD":285,"retailPriceGBP":215,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 285,
+  "assets": [],
+  "program": 6305,
+  "colorNames": "Mole",
+  "material": "54% Acetate 46% Viscose",
+  "re-runner": false,
+  "wholesalePriceGBP": 77,
+  "name": "F6455_897_Pants",
+  "styleId": "F6455_897",
+  "retailPriceGBP": 215,
+  "programName": "Viscose Jacquard",
+  "responsible": true,
+  "wholesalePriceEUR": 88,
+  "weight": 1250,
+  "wholesalePriceDKK": 607,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 119,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 245,
+  "retailPriceDKK": 1699,
+  "colorId": 897
+}
