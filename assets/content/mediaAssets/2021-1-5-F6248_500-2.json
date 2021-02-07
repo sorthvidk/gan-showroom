@@ -1,1 +1,14 @@
-{"assetId":"mcjn0m0f3","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6444_6314_T2975_3514_F6248_6297.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6248_500","name":"F6248_500_Patch Shirt","groupId":"drop-1","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612725682/AW21_21.3/21.3_ECOMLOOKBOOK/F6248_6297_F6385_6335_03.jpg"
+  ],
+  "assetId": "mcjn0m0f3",
+  "name": "F6248_500_Patch Shirt",
+  "styleId": "F6248_500",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Tops"
+}
