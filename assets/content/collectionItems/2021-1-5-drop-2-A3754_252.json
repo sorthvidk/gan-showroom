@@ -1,1 +1,25 @@
-{"styleId":"A3754_252","name":"A3754_252_Beret","program":5713,"programName":"Rib Knit Acc","material":"60% REC Wool 10% Wool 18% Polya, 7% REC PA, 5% Oth","groupId":"drop-2","colorNames":"Phantom","colorId":252,"filters":["acc5"],"responsible":true,"weight":1520,"wholesalePriceDKK":160,"wholesalePriceEUR":22,"wholesalePriceUSD":28,"wholesalePriceGBP":20,"retailPriceDKK":399,"retailPriceEUR":55,"retailPriceUSD":65,"retailPriceGBP":50,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 65,
+  "assets": [],
+  "program": 5713,
+  "colorNames": "Phantom",
+  "material": "60% REC Wool 10% Wool 18% Polya, 7% REC PA, 5% Oth",
+  "re-runner": false,
+  "wholesalePriceGBP": 20,
+  "name": "A3754_252_Beret",
+  "styleId": "A3754_252",
+  "retailPriceGBP": 50,
+  "programName": "Rib Knit Acc",
+  "responsible": true,
+  "wholesalePriceEUR": 22,
+  "weight": 1623,
+  "wholesalePriceDKK": 160,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 28,
+  "filters": [
+    "acc5"
+  ],
+  "retailPriceEUR": 55,
+  "retailPriceDKK": 399,
+  "colorId": 252
+}
