@@ -1,1 +1,26 @@
-{"styleId":"F6222_712","name":"F6222_712_Pants","program":6301,"programName":"Stripe Cotton","material":"100% Organic Cotton","groupId":"drop-1","colorNames":"Misty Lilac","colorId":712,"filters":["rtw9"],"responsible":true,"weight":4890,"wholesalePriceDKK":464,"wholesalePriceEUR":67,"wholesalePriceUSD":90,"wholesalePriceGBP":59,"retailPriceDKK":1299,"retailPriceEUR":185,"retailPriceUSD":215,"retailPriceGBP":165,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 215,
+  "assets": [],
+  "program": 6301,
+  "colorNames": "Misty Lilac",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 59,
+  "name": "F6222_712_Pants",
+  "styleId": "F6222_712",
+  "retailPriceGBP": 165,
+  "programName": "Stripe Cotton",
+  "responsible": true,
+  "wholesalePriceEUR": 67,
+  "weight": 4890,
+  "wholesalePriceDKK": 464,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 90,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 185,
+  "retailPriceDKK": 1299,
+  "colorId": 712
+}
