@@ -1,1 +1,25 @@
-{"styleId":"F6431_190","name":"F6431_190_Coat","program":6316,"programName":"Wool","material":"50% Recycled Wool 50% Other","groupId":"drop-1","colorNames":"French Roast","colorId":190,"filters":["rtw3"],"responsible":true,"weight":4630,"wholesalePriceDKK":1400,"wholesalePriceEUR":190,"wholesalePriceUSD":240,"wholesalePriceGBP":178,"retailPriceDKK":3499,"retailPriceEUR":475,"retailPriceUSD":575,"retailPriceGBP":445,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 575,
+  "assets": [],
+  "program": 6316,
+  "colorNames": "French Roast",
+  "material": "50% Recycled Wool 50% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 178,
+  "name": "F6431_190_Coat",
+  "styleId": "F6431_190",
+  "retailPriceGBP": 445,
+  "programName": "Wool",
+  "responsible": true,
+  "wholesalePriceEUR": 190,
+  "weight": 4630,
+  "wholesalePriceDKK": 1400,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 240,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 475,
+  "retailPriceDKK": 3499,
+  "colorId": 190
+}
