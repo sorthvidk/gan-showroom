@@ -1,1 +1,26 @@
-{"styleId":"F5278_151","name":"F5278_151_Wrap Blouse","program":6027,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-2","colorNames":"Bright White","colorId":151,"filters":["rtw8","rtw13","misc4"],"responsible":true,"weight":2990,"wholesalePriceDKK":285,"wholesalePriceEUR":42,"wholesalePriceUSD":57,"wholesalePriceGBP":38,"retailPriceDKK":799,"retailPriceEUR":115,"retailPriceUSD":135,"retailPriceGBP":105,"re-runner":true,"assets":[]}
+{
+  "retailPriceUSD": 135,
+  "assets": [],
+  "program": 6027,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "re-runner": true,
+  "wholesalePriceGBP": 38,
+  "name": "F5278_151_Wrap Blouse",
+  "styleId": "F5278_151",
+  "retailPriceGBP": 105,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 42,
+  "weight": 2990,
+  "wholesalePriceDKK": 285,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 57,
+  "filters": [
+    "rtw8",
+    "misc4"
+  ],
+  "retailPriceEUR": 115,
+  "retailPriceDKK": 799,
+  "colorId": 151
+}
