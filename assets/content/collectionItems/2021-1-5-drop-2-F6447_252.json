@@ -1,1 +1,25 @@
-{"styleId":"F6447_252","name":"F6447_252_Oversized Puffer Coat","program":6344,"programName":"Tech Puffer","material":"100% Recycled Polyester","groupId":"drop-2","colorNames":"Phantom","colorId":252,"filters":["rtw3"],"responsible":true,"weight":2480,"wholesalePriceDKK":1280,"wholesalePriceEUR":178,"wholesalePriceUSD":219,"wholesalePriceGBP":170,"retailPriceDKK":3199,"retailPriceEUR":445,"retailPriceUSD":525,"retailPriceGBP":425,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 525,
+  "assets": [],
+  "program": 6344,
+  "colorNames": "Phantom",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 170,
+  "name": "F6447_252_Oversized Puffer Coat",
+  "styleId": "F6447_252",
+  "retailPriceGBP": 425,
+  "programName": "Tech Puffer",
+  "responsible": true,
+  "wholesalePriceEUR": 178,
+  "weight": 2470,
+  "wholesalePriceDKK": 1280,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 219,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3199,
+  "colorId": 252
+}
