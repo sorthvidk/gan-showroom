@@ -1,1 +1,12 @@
-{"assetId":"l7falxcpy","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6244_6297_115.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6244_115","name":"F6244_115_Shoulder Gathers Shirt","groupId":"drop-3","filters":"Tops"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6244_6297_115.jpg",
+  "assetId": "l7falxcpy",
+  "name": "F6244_115_Shoulder Gathers Shirt",
+  "styleId": "F6244_115",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Tops"
+}
