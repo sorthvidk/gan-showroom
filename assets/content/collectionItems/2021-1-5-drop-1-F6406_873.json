@@ -1,1 +1,26 @@
-{"styleId":"F6406_873","name":"F6406_873_V-Neck Shirt","program":6326,"programName":"Seersucker Check","material":"57% Organic Cotton 38% REC Polyester 5% Polyamide","groupId":"drop-1","colorNames":"Oyster Gray","colorId":873,"filters":["rtw8"],"responsible":true,"weight":4480,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"wholesalePriceGBP":63,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6326,
+  "colorNames": "Oyster Gray",
+  "material": "57% Organic Cotton 38% REC Polyester 5% Polyamide",
+  "re-runner": false,
+  "wholesalePriceGBP": 63,
+  "name": "F6406_873_V-Neck Shirt",
+  "styleId": "F6406_873",
+  "retailPriceGBP": 175,
+  "programName": "Seersucker Check",
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 4480,
+  "wholesalePriceDKK": 500,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 873
+}
