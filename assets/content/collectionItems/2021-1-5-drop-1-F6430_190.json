@@ -1,1 +1,25 @@
-{"styleId":"F6430_190","name":"F6430_190_Oversized Jacket","program":6316,"programName":"Wool","material":"50% Recycled Wool 50% Other","groupId":"drop-1","colorNames":"French Roast","colorId":190,"filters":["rtw3"],"responsible":true,"weight":4620,"wholesalePriceDKK":1160,"wholesalePriceEUR":158,"wholesalePriceUSD":198,"wholesalePriceGBP":150,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6316,
+  "colorNames": "French Roast",
+  "material": "50% Recycled Wool 50% Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "F6430_190_Oversized Jacket",
+  "styleId": "F6430_190",
+  "retailPriceGBP": 375,
+  "programName": "Wool",
+  "responsible": true,
+  "wholesalePriceEUR": 158,
+  "weight": 4620,
+  "wholesalePriceDKK": 1160,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 190
+}
