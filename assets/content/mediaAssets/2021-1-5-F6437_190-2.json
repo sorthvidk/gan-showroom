@@ -1,1 +1,14 @@
-{"assetId":"4s004rifc","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6420_6312_F6417_6340_F6437_6354.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6437_190","name":"F6437_190_Top","groupId":"drop-2","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612727527/AW21_21.3/21.3_ECOMLOOKBOOK/F6420_6312_F6417_6340_F6437_6354_03.jpg"
+  ],
+  "assetId": "4s004rifc",
+  "name": "F6437_190_Top",
+  "styleId": "F6437_190",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Tops"
+}
