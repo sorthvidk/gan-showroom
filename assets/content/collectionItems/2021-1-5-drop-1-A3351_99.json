@@ -1,1 +1,27 @@
-{"styleId":"A3351_99","name":"A3351_99_Top handle Purse","program":5664,"programName":"Satin Knots","material":"51% Recycled Polyester 49% Polyester","groupId":"drop-1","colorNames":"Black","colorId":99,"filters":["acc1","misc4"],"responsible":true,"weight":3550,"feature_text":"B60","wholesalePriceDKK":280,"wholesalePriceEUR":38,"wholesalePriceUSD":48,"wholesalePriceGBP":38,"retailPriceDKK":699,"retailPriceEUR":95,"retailPriceUSD":115,"retailPriceGBP":95,"re-runner":true,"assets":[]}
+{
+  "retailPriceUSD": 115,
+  "assets": [],
+  "program": 5664,
+  "colorNames": "Black",
+  "material": "51% Recycled Polyester 49% Polyester",
+  "re-runner": true,
+  "wholesalePriceGBP": 38,
+  "name": "A3351_99_Top handle Purse",
+  "styleId": "A3351_99",
+  "retailPriceGBP": 95,
+  "programName": "Satin Knots",
+  "feature_text": "B60",
+  "responsible": true,
+  "wholesalePriceEUR": 38,
+  "weight": 3550,
+  "wholesalePriceDKK": 280,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 48,
+  "filters": [
+    "misc4",
+    "acc2"
+  ],
+  "retailPriceEUR": 95,
+  "retailPriceDKK": 699,
+  "colorId": 99
+}
