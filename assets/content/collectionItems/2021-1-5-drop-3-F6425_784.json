@@ -1,1 +1,26 @@
-{"styleId":"F6425_784","name":"F6425_784_V-Neck Shirt","program":6301,"programName":"Stripe Cotton","material":"100% Organic Cotton","groupId":"drop-3","colorNames":"Dark Green","colorId":784,"filters":["rtw8"],"responsible":true,"weight":1370,"wholesalePriceDKK":500,"wholesalePriceEUR":74,"wholesalePriceUSD":98,"wholesalePriceGBP":63,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6301,
+  "colorNames": "Dark Green",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 63,
+  "name": "F6425_784_V-Neck Shirt",
+  "styleId": "F6425_784",
+  "retailPriceGBP": 175,
+  "programName": "Stripe Cotton",
+  "responsible": true,
+  "wholesalePriceEUR": 74,
+  "weight": 1370,
+  "wholesalePriceDKK": 500,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 784
+}
