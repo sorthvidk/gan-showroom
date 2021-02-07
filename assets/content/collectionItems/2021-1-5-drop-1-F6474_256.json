@@ -1,1 +1,26 @@
-{"styleId":"F6474_256","name":"F6474_256_Shirt","program":6345,"programName":"Core Light","material":"64% Organic Cotton 36% REFIBRA™","groupId":"drop-1","colorNames":"Sharkskin","colorId":256,"filters":["rtw8"],"responsible":true,"weight":4260,"wholesalePriceDKK":666,"wholesalePriceEUR":95,"wholesalePriceUSD":123,"wholesalePriceGBP":84,"retailPriceDKK":1799,"retailPriceEUR":255,"retailPriceUSD":295,"retailPriceGBP":225,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 295,
+  "assets": [],
+  "program": 6345,
+  "colorNames": "Sharkskin",
+  "material": "64% Organic Cotton 36% REFIBRA™",
+  "re-runner": false,
+  "wholesalePriceGBP": 84,
+  "name": "F6474_256_Shirt",
+  "styleId": "F6474_256",
+  "retailPriceGBP": 225,
+  "programName": "Core Light",
+  "responsible": true,
+  "wholesalePriceEUR": 95,
+  "weight": 4260,
+  "wholesalePriceDKK": 666,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 123,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 255,
+  "retailPriceDKK": 1799,
+  "colorId": 256
+}
