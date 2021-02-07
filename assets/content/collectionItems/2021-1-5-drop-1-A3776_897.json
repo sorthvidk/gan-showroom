@@ -1,1 +1,26 @@
-{"styleId":"A3776_897","name":"A3776_897_Stockings","program":5749,"programName":"Lace","material":"70% PA 25% Nylon Ecocare %% EA","groupId":"drop-1","colorNames":"Mole","colorId":897,"filters":["acc1"],"responsible":false,"weight":3240,"wholesalePriceDKK":140,"wholesalePriceEUR":20,"wholesalePriceUSD":28,"wholesalePriceGBP":18,"retailPriceDKK":349,"retailPriceEUR":50,"retailPriceUSD":65,"retailPriceGBP":45,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 65,
+  "assets": [],
+  "program": 5749,
+  "colorNames": "Mole",
+  "material": "70% PA 25% Nylon Ecocare %% EA",
+  "re-runner": false,
+  "wholesalePriceGBP": 18,
+  "name": "A3776_897_Stockings",
+  "styleId": "A3776_897",
+  "retailPriceGBP": 45,
+  "programName": "Lace",
+  "responsible": false,
+  "wholesalePriceEUR": 20,
+  "weight": 3240,
+  "wholesalePriceDKK": 140,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 28,
+  "filters": [
+    "acc1",
+    "misc2"
+  ],
+  "retailPriceEUR": 50,
+  "retailPriceDKK": 349,
+  "colorId": 897
+}
