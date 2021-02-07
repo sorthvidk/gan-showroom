@@ -1,1 +1,14 @@
-{"assetId":"6elm6z9rq","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6411_6342.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6411_190","name":"F6411_190_Smock Dress","groupId":"drop-2","filters":"Dresses"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612727484/AW21_21.3/21.3_ECOMLOOKBOOK/F6411_6342_03.jpg"
+  ],
+  "assetId": "6elm6z9rq",
+  "name": "F6411_190_Smock Dress",
+  "styleId": "F6411_190",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Dresses"
+}
