@@ -1,1 +1,26 @@
-{"styleId":"A3723_999","name":"A3723_999_Recycled Tech_Packable Tote","program":5716,"programName":"Seasonal Recycled Tech","material":"100% Recycled Polyester","groupId":"drop-1","colorNames":"Multicolour","colorId":999,"filters":["acc2"],"responsible":true,"weight":3520,"feature_text":"L390 H220","wholesalePriceDKK":400,"wholesalePriceEUR":58,"wholesalePriceUSD":69,"wholesalePriceGBP":50,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 5716,
+  "colorNames": "Multicolour",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 50,
+  "name": "A3723_999_Recycled Tech_Packable Tote",
+  "styleId": "A3723_999",
+  "retailPriceGBP": 125,
+  "programName": "Seasonal Recycled Tech",
+  "feature_text": "L390 H220",
+  "responsible": true,
+  "wholesalePriceEUR": 58,
+  "weight": 3460,
+  "wholesalePriceDKK": 400,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "acc2"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 999
+}
