@@ -19,7 +19,8 @@
   "wholesalePriceUSD": 111,
   "filters": [
     "rtw1",
-    "misc2"
+    "misc2",
+    "rtw10"
   ],
   "retailPriceEUR": 225,
   "retailPriceDKK": 1599,
