@@ -1,1 +1,25 @@
-{"styleId":"T2972_683","name":"T2972_683_Leggings","program":3513,"programName":"Printed Mesh","material":"94% Recycled Nylon 6% Spandex","groupId":"drop-3","colorNames":"Sky Captain","colorId":683,"filters":["rtw9"],"responsible":true,"weight":740,"wholesalePriceDKK":285,"wholesalePriceEUR":42,"wholesalePriceUSD":57,"wholesalePriceGBP":38,"retailPriceDKK":799,"retailPriceEUR":115,"retailPriceUSD":135,"retailPriceGBP":105,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 135,
+  "assets": [],
+  "program": 3513,
+  "colorNames": "Sky Captain",
+  "material": "94% Recycled Nylon 6% Spandex",
+  "re-runner": false,
+  "wholesalePriceGBP": 38,
+  "name": "T2972_683_Leggings",
+  "styleId": "T2972_683",
+  "retailPriceGBP": 105,
+  "programName": "Printed Mesh",
+  "responsible": true,
+  "wholesalePriceEUR": 42,
+  "weight": 790,
+  "wholesalePriceDKK": 285,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 57,
+  "filters": [
+    "rtw9"
+  ],
+  "retailPriceEUR": 115,
+  "retailPriceDKK": 799,
+  "colorId": 683
+}
