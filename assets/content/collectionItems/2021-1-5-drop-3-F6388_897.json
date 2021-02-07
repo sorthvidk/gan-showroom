@@ -1,1 +1,26 @@
-{"styleId":"F6388_897","name":"F6388_897_Maxi Dress","program":6305,"programName":"Viscose Jacquard","material":"54% Acetate 46% Viscose","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw1"],"responsible":true,"weight":1260,"wholesalePriceDKK":1035,"wholesalePriceEUR":142,"wholesalePriceUSD":198,"wholesalePriceGBP":134,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6305,
+  "colorNames": "Mole",
+  "material": "54% Acetate 46% Viscose",
+  "re-runner": false,
+  "wholesalePriceGBP": 134,
+  "name": "F6388_897_Maxi Dress",
+  "styleId": "F6388_897",
+  "retailPriceGBP": 375,
+  "programName": "Viscose Jacquard",
+  "responsible": true,
+  "wholesalePriceEUR": 142,
+  "weight": 1260,
+  "wholesalePriceDKK": 1035,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw1",
+    "misc2"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 897
+}
