@@ -1,1 +1,26 @@
-{"styleId":"F6396_115","name":"F6396_115_Asymmetrical Shirt","program":6297,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw8"],"responsible":true,"weight":4990,"wholesalePriceDKK":357,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"wholesalePriceGBP":45,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 6297,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 45,
+  "name": "F6396_115_Asymmetrical Shirt",
+  "styleId": "F6396_115",
+  "retailPriceGBP": 125,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 4990,
+  "wholesalePriceDKK": 357,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 115
+}
