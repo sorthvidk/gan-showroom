@@ -18,7 +18,8 @@
   "groupId": "drop-1",
   "wholesalePriceUSD": 157,
   "filters": [
-    "acc2"
+    "acc2",
+    "misc2"
   ],
   "retailPriceEUR": 295,
   "retailPriceDKK": 2199,
