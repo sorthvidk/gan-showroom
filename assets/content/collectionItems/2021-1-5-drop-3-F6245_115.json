@@ -1,1 +1,26 @@
-{"styleId":"F6245_115","name":"F6245_115_Oversized Shirt","program":6297,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-3","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw8"],"responsible":true,"weight":1420,"wholesalePriceDKK":428,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"wholesalePriceGBP":56,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 6297,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 56,
+  "name": "F6245_115_Oversized Shirt",
+  "styleId": "F6245_115",
+  "retailPriceGBP": 155,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 1420,
+  "wholesalePriceDKK": 428,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 115
+}
