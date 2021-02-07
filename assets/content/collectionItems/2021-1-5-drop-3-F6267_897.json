@@ -1,1 +1,26 @@
-{"styleId":"F6267_897","name":"F6267_897_Oversized Coat","program":6308,"programName":"Soft Tech","material":"100% Recycled Polyester","groupId":"drop-3","colorNames":"Mole","colorId":897,"filters":["rtw3"],"responsible":true,"weight":1160,"wholesalePriceDKK":1280,"wholesalePriceEUR":178,"wholesalePriceUSD":219,"wholesalePriceGBP":170,"retailPriceDKK":3199,"retailPriceEUR":445,"retailPriceUSD":525,"retailPriceGBP":425,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 525,
+  "assets": [],
+  "program": 6308,
+  "colorNames": "Mole",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 170,
+  "name": "F6267_897_Oversized Coat",
+  "styleId": "F6267_897",
+  "retailPriceGBP": 425,
+  "programName": "Soft Tech",
+  "responsible": true,
+  "wholesalePriceEUR": 178,
+  "weight": 1160,
+  "wholesalePriceDKK": 1280,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 219,
+  "filters": [
+    "rtw3",
+    "misc2"
+  ],
+  "retailPriceEUR": 445,
+  "retailPriceDKK": 3199,
+  "colorId": 897
+}
