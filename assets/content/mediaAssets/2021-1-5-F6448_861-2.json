@@ -1,1 +1,14 @@
-{"assetId":"7qq21apqf","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6448_6344_F6195_6334.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6448_861","name":"F6448_861_Oversized Puffer Coat","groupId":"drop-2","filters":"Coats / Jackets"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612727725/AW21_21.3/21.3_ECOMLOOKBOOK/F6448_6344_F6195_6334_03.jpg"
+  ],
+  "assetId": "7qq21apqf",
+  "name": "F6448_861_Oversized Puffer Coat",
+  "styleId": "F6448_861",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Coats / Jackets"
+}
