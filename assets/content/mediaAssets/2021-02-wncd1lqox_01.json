@@ -6,7 +6,7 @@
   "name": "A3589_861_Medium Tote",
   "styleId": "A3589_861",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-2",
