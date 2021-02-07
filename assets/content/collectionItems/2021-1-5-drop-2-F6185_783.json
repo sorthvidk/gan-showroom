@@ -1,1 +1,26 @@
-{"styleId":"F6185_783","name":"F6185_783_Fitted Blazer","program":6325,"programName":"Pure Wool","material":"100% Recycled Wool","groupId":"drop-2","colorNames":"Flash Green","colorId":783,"filters":["rtw3"],"responsible":true,"weight":2620,"wholesalePriceDKK":1480,"wholesalePriceEUR":210,"wholesalePriceUSD":261,"wholesalePriceGBP":190,"retailPriceDKK":3699,"retailPriceEUR":525,"retailPriceUSD":625,"retailPriceGBP":475,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 625,
+  "assets": [],
+  "program": 6325,
+  "colorNames": "Flash Green",
+  "material": "100% Recycled Wool",
+  "re-runner": false,
+  "wholesalePriceGBP": 190,
+  "name": "F6185_783_Fitted Blazer",
+  "styleId": "F6185_783",
+  "retailPriceGBP": 475,
+  "programName": "Pure Wool",
+  "responsible": true,
+  "wholesalePriceEUR": 210,
+  "weight": 2620,
+  "wholesalePriceDKK": 1480,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 261,
+  "filters": [
+    "rtw3",
+    "misc2"
+  ],
+  "retailPriceEUR": 525,
+  "retailPriceDKK": 3699,
+  "colorId": 783
+}
