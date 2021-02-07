@@ -1,1 +1,26 @@
-{"styleId":"F6246_500","name":"F6246_500_Cropped Blouse","program":6297,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-1","colorNames":"Pale Lilac","colorId":500,"filters":["rtw8"],"responsible":true,"weight":4970,"wholesalePriceDKK":321,"wholesalePriceEUR":45,"wholesalePriceUSD":65,"wholesalePriceGBP":42,"retailPriceDKK":899,"retailPriceEUR":125,"retailPriceUSD":155,"retailPriceGBP":115,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 155,
+  "assets": [],
+  "program": 6297,
+  "colorNames": "Pale Lilac",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 42,
+  "name": "F6246_500_Cropped Blouse",
+  "styleId": "F6246_500",
+  "retailPriceGBP": 115,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 45,
+  "weight": 4970,
+  "wholesalePriceDKK": 321,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 65,
+  "filters": [
+    "rtw8",
+    "misc2"
+  ],
+  "retailPriceEUR": 125,
+  "retailPriceDKK": 899,
+  "colorId": 500
+}
