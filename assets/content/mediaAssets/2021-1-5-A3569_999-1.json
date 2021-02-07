@@ -1,1 +1,12 @@
-{"assetId":"idkvgs1ee","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3569_5716_999.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3569_999","name":"A3569_999_Recycled Tech_Bucket Bag","groupId":"drop-1","filters":"Bags"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3569_5716_999.jpg",
+  "assetId": "idkvgs1ee",
+  "name": "A3569_999_Recycled Tech_Bucket Bag",
+  "styleId": "A3569_999",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Bags"
+}
