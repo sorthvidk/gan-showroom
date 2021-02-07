@@ -1,1 +1,14 @@
-{"assetId":"ti8dvexiu","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/K1592_2523_A3474_5689.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3474_252","name":"A3474_252_Leggings","groupId":"drop-1","filters":"default"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612727973/AW21_21.3/21.3_ECOMLOOKBOOK/K1592_2523_A3474_5689_03.jpg"
+  ],
+  "assetId": "ti8dvexiu",
+  "name": "A3474_252_Leggings",
+  "styleId": "A3474_252",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "default"
+}
