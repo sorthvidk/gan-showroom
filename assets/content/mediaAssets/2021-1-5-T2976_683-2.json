@@ -1,1 +1,14 @@
-{"assetId":"4017o6lgs","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6384_6333_T2976_3514.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"T2976_683","name":"T2976_683_Sweatshirt","groupId":"drop-1","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612726809/AW21_21.3/21.3_ECOMLOOKBOOK/F6384_6333_T2976_3514_03.jpg"
+  ],
+  "assetId": "4017o6lgs",
+  "name": "T2976_683_Sweatshirt",
+  "styleId": "T2976_683",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Tops"
+}
