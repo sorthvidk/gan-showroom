@@ -1,1 +1,26 @@
-{"styleId":"F6293_897","name":"F6293_897_Pants","program":6315,"programName":"Lamb Leather","material":"100% Lamb Leather","groupId":"drop-1","colorNames":"Mole","colorId":897,"filters":["rtw9","rtw4"],"responsible":false,"weight":4650,"wholesalePriceDKK":1440,"wholesalePriceEUR":198,"wholesalePriceUSD":248,"wholesalePriceGBP":190,"retailPriceDKK":3599,"retailPriceEUR":495,"retailPriceUSD":595,"retailPriceGBP":475,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 595,
+  "assets": [],
+  "program": 6315,
+  "colorNames": "Mole",
+  "material": "100% Lamb Leather",
+  "re-runner": false,
+  "wholesalePriceGBP": 190,
+  "name": "F6293_897_Pants",
+  "styleId": "F6293_897",
+  "retailPriceGBP": 475,
+  "programName": "Lamb Leather",
+  "responsible": false,
+  "wholesalePriceEUR": 198,
+  "weight": 4650,
+  "wholesalePriceDKK": 1440,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 248,
+  "filters": [
+    "rtw9",
+    "misc2"
+  ],
+  "retailPriceEUR": 495,
+  "retailPriceDKK": 3599,
+  "colorId": 897
+}
