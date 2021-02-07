@@ -1,1 +1,26 @@
-{"styleId":"A3690_190","name":"A3690_190_Banner_Small Crossbody Printed","program":5718,"programName":"Banner","material":"100% Recycled Leather","groupId":"drop-1","colorNames":"French Roast","colorId":190,"filters":["acc2"],"responsible":true,"weight":3420,"feature_text":"L140 H190 B40","wholesalePriceDKK":400,"wholesalePriceEUR":58,"wholesalePriceUSD":69,"wholesalePriceGBP":50,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 5718,
+  "colorNames": "French Roast",
+  "material": "100% Recycled Leather",
+  "re-runner": false,
+  "wholesalePriceGBP": 50,
+  "name": "A3690_190_Banner_Small Crossbody Printed",
+  "styleId": "A3690_190",
+  "retailPriceGBP": 125,
+  "programName": "Banner",
+  "feature_text": "L140 H190 B40",
+  "responsible": true,
+  "wholesalePriceEUR": 58,
+  "weight": 3430,
+  "wholesalePriceDKK": 400,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "acc2"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 190
+}
