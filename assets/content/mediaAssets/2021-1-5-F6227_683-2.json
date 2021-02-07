@@ -1,1 +1,14 @@
-{"assetId":"mpheab9xo","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6227_6330.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6227_683","name":"F6227_683_Dress","groupId":"drop-3","filters":"Dresses"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612725042/AW21_21.3/21.3_ECOMLOOKBOOK/F6227_6330_03.jpg"
+  ],
+  "assetId": "mpheab9xo",
+  "name": "F6227_683_Dress",
+  "styleId": "F6227_683",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Dresses"
+}
