@@ -1,1 +1,26 @@
-{"styleId":"F6409_473","name":"F6409_473_Patch Shirt","program":6319,"programName":"Printed Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-2","colorNames":"Merlot","colorId":473,"filters":["rtw8"],"responsible":true,"weight":2710,"wholesalePriceDKK":571,"wholesalePriceEUR":81,"wholesalePriceUSD":111,"wholesalePriceGBP":74,"retailPriceDKK":1599,"retailPriceEUR":225,"retailPriceUSD":265,"retailPriceGBP":205,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 265,
+  "assets": [],
+  "program": 6319,
+  "colorNames": "Merlot",
+  "material": "100% Organic Cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 74,
+  "name": "F6409_473_Patch Shirt",
+  "styleId": "F6409_473",
+  "retailPriceGBP": 205,
+  "programName": "Printed Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 81,
+  "weight": 2710,
+  "wholesalePriceDKK": 571,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 111,
+  "filters": [
+    "rtw8",
+    "rtw13"
+  ],
+  "retailPriceEUR": 225,
+  "retailPriceDKK": 1599,
+  "colorId": 473
+}
