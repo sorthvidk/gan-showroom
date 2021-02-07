@@ -1,1 +1,27 @@
-{"styleId":"F6033_151","name":"F6033_151_Wavy Shirt","program":6246,"programName":"Cotton Poplin","material":"100% Organic Cotton","groupId":"drop-2","colorNames":"Bright White","colorId":151,"filters":["rtw8","rtw13","misc4"],"responsible":true,"weight":2950,"wholesalePriceDKK":393,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"wholesalePriceGBP":52,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"retailPriceGBP":145,"re-runner":true,"assets":[]}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "program": 6246,
+  "colorNames": "Bright White",
+  "material": "100% Organic Cotton",
+  "re-runner": true,
+  "wholesalePriceGBP": 52,
+  "name": "F6033_151_Wavy Shirt",
+  "styleId": "F6033_151",
+  "retailPriceGBP": 145,
+  "programName": "Cotton Poplin",
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 2950,
+  "wholesalePriceDKK": 393,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw8",
+    "misc4",
+    "rtw13"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 151
+}
