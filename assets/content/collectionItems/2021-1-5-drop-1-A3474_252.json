@@ -1,1 +1,26 @@
-{"styleId":"A3474_252","name":"A3474_252_Leggings","program":5689,"programName":"Rib Underwear","material":"92% TENCEL™ Lyocell 8% Elastane","groupId":"drop-1","colorNames":"Phantom","colorId":252,"filters":["rtw12","rtw9"],"responsible":true,"weight":3050,"wholesalePriceDKK":280,"wholesalePriceEUR":38,"wholesalePriceUSD":48,"wholesalePriceGBP":38,"retailPriceDKK":699,"retailPriceEUR":95,"retailPriceUSD":115,"retailPriceGBP":95,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 115,
+  "assets": [],
+  "program": 5689,
+  "colorNames": "Phantom",
+  "material": "92% TENCEL™ Lyocell 8% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 38,
+  "name": "A3474_252_Leggings",
+  "styleId": "A3474_252",
+  "retailPriceGBP": 95,
+  "programName": "Rib Underwear",
+  "responsible": true,
+  "wholesalePriceEUR": 38,
+  "weight": 3080,
+  "wholesalePriceDKK": 280,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 48,
+  "filters": [
+    "rtw12",
+    "rtw9"
+  ],
+  "retailPriceEUR": 95,
+  "retailPriceDKK": 699,
+  "colorId": 252
+}
