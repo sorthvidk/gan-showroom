@@ -1,1 +1,25 @@
-{"styleId":"F6265_189","name":"F6265_189_Oversized Puffer Midi Jacket","program":6344,"programName":"Tech Puffer","material":"100% Recycled Polyester","groupId":"drop-2","colorNames":"Fossil","colorId":189,"filters":["rtw3"],"responsible":true,"weight":2470,"wholesalePriceDKK":1160,"wholesalePriceEUR":158,"wholesalePriceUSD":198,"wholesalePriceGBP":150,"retailPriceDKK":2899,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6344,
+  "colorNames": "Fossil",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "F6265_189_Oversized Puffer Midi Jacket",
+  "styleId": "F6265_189",
+  "retailPriceGBP": 375,
+  "programName": "Tech Puffer",
+  "responsible": true,
+  "wholesalePriceEUR": 158,
+  "weight": 2480,
+  "wholesalePriceDKK": 1160,
+  "groupId": "drop-2",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2899,
+  "colorId": 189
+}
