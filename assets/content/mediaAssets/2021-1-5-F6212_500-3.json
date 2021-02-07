@@ -1,1 +1,14 @@
-{"assetId":"ooqj5erv1","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612104536/AW21_21.3/21.3_ECOMLOOKBOOK/F6212_6343.mp4","onTop":false,"visible":true,"aspect":"portrait","type":"video","styleId":"F6212_500","name":"F6212_500_Wrap Dress","groupId":"drop-1","filters":"Dresses"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612724962/AW21_21.3/21.3_ECOMLOOKBOOK/F6212_6343_03.jpg"
+  ],
+  "assetId": "ooqj5erv1",
+  "name": "F6212_500_Wrap Dress",
+  "styleId": "F6212_500",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "video",
+  "groupId": "drop-1",
+  "filters": "Dresses"
+}
