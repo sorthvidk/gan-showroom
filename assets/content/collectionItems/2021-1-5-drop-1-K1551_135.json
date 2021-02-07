@@ -1,1 +1,25 @@
-{"styleId":"K1551_135","name":"K1551_135_Pullover - Pattern","program":2521,"programName":"Soft Wool Knit","material":"32% Alpaca 32% Merino 30% Polyamide 6% Elastane","groupId":"drop-1","colorNames":"Egret","colorId":135,"filters":["rtw5"],"responsible":false,"weight":4140,"wholesalePriceDKK":960,"wholesalePriceEUR":130,"wholesalePriceUSD":165,"wholesalePriceGBP":122,"retailPriceDKK":2399,"retailPriceEUR":325,"retailPriceUSD":395,"retailPriceGBP":305,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 395,
+  "assets": [],
+  "program": 2521,
+  "colorNames": "Egret",
+  "material": "32% Alpaca 32% Merino 30% Polyamide 6% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 122,
+  "name": "K1551_135_Pullover - Pattern",
+  "styleId": "K1551_135",
+  "retailPriceGBP": 305,
+  "programName": "Soft Wool Knit",
+  "responsible": false,
+  "wholesalePriceEUR": 130,
+  "weight": 4130,
+  "wholesalePriceDKK": 960,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 165,
+  "filters": [
+    "rtw5"
+  ],
+  "retailPriceEUR": 325,
+  "retailPriceDKK": 2399,
+  "colorId": 135
+}
