@@ -14,12 +14,6 @@
 				<transition name="fade--fast">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
 						<div v-for="(activeContent, i) in activePage" :key="`asgaf${i}`">
-							<!-- :style="{ position: 'relative' }" -->
-							<!-- <transition-group
-								tag="div"
-								name="fade--absolute"
-								:style="{ width: '100%', height: '100%' }"
-							> -->
 							<img
 								v-if="activeContent.type === 'image'"
 								:src="
@@ -27,7 +21,7 @@
 										.src
 								"
 								alt=""
-								:key="activeContent.cloudinaryUrl"
+								:key="activeContent.cloudinaryUrl[0]"
 							/>
 							<video
 								v-if="activeContent.type === 'video'"
@@ -40,7 +34,6 @@
 								autoplay
 								loop
 							/>
-							<!-- </transition-group> -->
 						</div>
 					</div>
 				</transition>
@@ -129,11 +122,10 @@ export default {
 		transparentPixel,
 	}),
 	computed: {
-		...mapState('assets', ['intro', 'lookBook']),
-		// weird syntax to get state dynamically based on props.contentId
+		...mapState('assets', ['lookBook']),
+		...mapState('user', ['keyPressed']),
 		content() {
 			return this.lookBook
-			// return this.$store.state.assets[this.contentId]
 		},
 		activePage() {
 			return this.pages[this.idx]
@@ -171,6 +163,17 @@ export default {
 					return acc
 				}, [])
 				.map((x) => x.filter((y) => y !== 'empty'))
+		},
+	},
+	watch: {
+		keyPressed({ key }) {
+			if (key === 'ArrowRight') {
+				this.change({ next: true })
+			}
+
+			if (key === 'ArrowLeft') {
+				this.change({ next: false })
+			}
 		},
 	},
 	methods: {
