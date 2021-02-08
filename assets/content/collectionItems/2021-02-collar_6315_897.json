@@ -10,7 +10,8 @@
   "weight": 4639,
   "groupId": "drop-1",
   "filters": [
-    "acc6"
+    "acc6",
+    "misc3"
   ],
   "colorId": 894
 }
