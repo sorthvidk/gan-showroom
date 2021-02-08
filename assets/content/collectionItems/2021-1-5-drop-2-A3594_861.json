@@ -7,7 +7,7 @@
     "groupId": "drop-2",
     "colorNames": "Kalamata",
     "colorId": 861,
-    "filters": ["acc2", "misc3"],
+    "filters": ["acc2"],
     "responsible": true,
     "weight": 1850,
     "feature_text": "L140 H190 B40",
