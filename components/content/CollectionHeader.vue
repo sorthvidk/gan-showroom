@@ -20,9 +20,9 @@
 						v-for="image in group.cloudinaryUrl"
 						:key="image"
 						:src="getImage(image).src"
-						v-show="loaded === group.cloudinaryUrl.length"
-						@load="isLoaded"
 					/>
+					<!-- v-show="loaded === group.cloudinaryUrl.length" -->
+					<!-- @load="isLoaded" -->
 				</div>
 			</div>
 			<div class="text">
