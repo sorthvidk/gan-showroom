@@ -1,0 +1,26 @@
+{
+  "retailPriceUSD": 95,
+  "assets": [],
+  "program": 5688,
+  "colorNames": "Dark Green",
+  "material": "90% Rayon 10% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 30,
+  "name": "A3465_784_Short Leggings",
+  "styleId": "A3465_784",
+  "retailPriceGBP": 75,
+  "programName": "Rayon Underwear",
+  "responsible": false,
+  "wholesalePriceEUR": 34,
+  "weight": 3140,
+  "wholesalePriceDKK": 240,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 44,
+  "filters": [
+    "rtw12",
+    "rtw9"
+  ],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 784
+}

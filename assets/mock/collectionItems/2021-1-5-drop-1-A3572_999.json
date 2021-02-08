@@ -1,0 +1,26 @@
+{
+  "retailPriceUSD": 85,
+  "assets": [],
+  "program": 5716,
+  "colorNames": "Multicolour",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 26,
+  "name": "A3572_999_Recycled Tech_Purse",
+  "styleId": "A3572_999",
+  "retailPriceGBP": 65,
+  "programName": "Seasonal Recycled Tech",
+  "responsible": true,
+  "wholesalePriceEUR": 30,
+  "weight": 3480,
+  "wholesalePriceDKK": 200,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 36,
+  "filters": [
+    "acc1",
+    "acc2"
+  ],
+  "retailPriceEUR": 75,
+  "retailPriceDKK": 499,
+  "colorId": 999
+}

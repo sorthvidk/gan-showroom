@@ -1,0 +1,27 @@
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 5718,
+  "colorNames": "Black",
+  "material": "100% Recycled Leather",
+  "re-runner": false,
+  "wholesalePriceGBP": 110,
+  "name": "A3582_99_Banner_Large Tote",
+  "styleId": "A3582_99",
+  "retailPriceGBP": 275,
+  "programName": "Banner",
+  "feature_text": "L400 H460 B110",
+  "responsible": true,
+  "wholesalePriceEUR": 122,
+  "weight": 3350,
+  "wholesalePriceDKK": 880,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "acc2",
+    "misc2"
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 99
+}

@@ -76,7 +76,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'lookbook-slideshow',
-			label: 'PF21 LookBook',
+			label: 'FW21 LookBook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
@@ -94,7 +94,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'PF21 Collection',
+			label: 'FW21 Collection',
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_INDEX.action,
@@ -108,7 +108,7 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'PF21 collection',
+					title: 'FW21 collection',
 					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,
@@ -191,7 +191,7 @@ export const state = () => ({
 		// 	],
 		// 	windowContent: [
 		// 		{
-		// 			title: 'PF21 collection',
+		// 			title: 'FW21 collection',
 		// 			contentId: 'collection',
 		// 			type: ContentTypes.collection,
 		// 			canOverride: true,
@@ -285,7 +285,7 @@ export const state = () => ({
 		// 	],
 		// 	windowContent: [
 		// 		{
-		// 			title: 'PF21 collection',
+		// 			title: 'FW21 collection',
 		// 			contentId: 'collection',
 		// 			type: ContentTypes.collection,
 		// 			canOverride: true,

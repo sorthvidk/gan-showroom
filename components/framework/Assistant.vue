@@ -16,8 +16,8 @@
 						: 'n-resize',
 				}"
 			>
-				<rotating-text :text="'GANNI SPACE'" />
-				<!-- <p>GANNI SPACE</p> -->
+				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
+				<p>GANNI SPACE</p>
 			</span>
 		</div>
 

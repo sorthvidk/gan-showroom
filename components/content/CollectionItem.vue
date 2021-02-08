@@ -14,9 +14,9 @@
 				:alt="imageName"
 			/>
 			<video
-				autoplay="true"
-				muted="true"
-				loop="true"
+				autoplay
+				muted
+				loop
 				v-if="assets[1].type === 'video'"
 				:src="imageUrl2.src"
 			></video>

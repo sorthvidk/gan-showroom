@@ -1,0 +1,27 @@
+{
+  "retailPriceUSD": 115,
+  "assets": [],
+  "program": 5689,
+  "colorNames": "Bright White",
+  "material": "92% TENCEL™ Lyocell 8% Elastane",
+  "re-runner": false,
+  "wholesalePriceGBP": 38,
+  "name": "A3475_151_Rollneck",
+  "styleId": "A3475_151",
+  "retailPriceGBP": 95,
+  "programName": "Rib Underwear",
+  "feature_text": "The black label will be white.",
+  "responsible": true,
+  "wholesalePriceEUR": 38,
+  "weight": 3060,
+  "wholesalePriceDKK": 280,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 48,
+  "filters": [
+    "rtw12",
+    "rtw8"
+  ],
+  "retailPriceEUR": 95,
+  "retailPriceDKK": 699,
+  "colorId": 151
+}

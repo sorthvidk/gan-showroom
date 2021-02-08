@@ -4,6 +4,7 @@
 			v-for="item in downloads"
 			:key="item.name"
 			:href="item.file"
+			target="_blank"
 			download
 			class="media-library__item"
 			>{{ item.name }}</a

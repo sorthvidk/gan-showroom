@@ -47,6 +47,10 @@
 			.title {
 				padding: 0;
 				height: rem(50);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
 			.icon {

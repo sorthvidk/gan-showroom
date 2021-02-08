@@ -70,6 +70,7 @@
 								preload
 								muted
 								autoplay
+								loop
 							/>
 							<!-- :poster="transparentPixel" -->
 						</div>
