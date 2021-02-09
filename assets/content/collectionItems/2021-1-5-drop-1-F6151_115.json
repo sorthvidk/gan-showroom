@@ -1,1 +1,26 @@
-{"styleId":"F6151_115","name":"F6151_115_Wrap Dress","program":6335,"programName":"Cutline Ecru","material":"100% Organic cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw1"],"responsible":true,"weight":4370,"wholesalePriceDKK":703,"wholesalePriceEUR":99,"wholesalePriceUSD":136,"wholesalePriceGBP":91,"retailPriceDKK":1899,"retailPriceEUR":265,"retailPriceUSD":325,"retailPriceGBP":245,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 325,
+  "assets": [],
+  "program": 6335,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 91,
+  "name": "F6151_115_Wrap Dress",
+  "styleId": "F6151_115",
+  "retailPriceGBP": 245,
+  "programName": "Cutline Ecru",
+  "responsible": true,
+  "wholesalePriceEUR": 99,
+  "weight": 4370,
+  "wholesalePriceDKK": 703,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 136,
+  "filters": [
+    "rtw1",
+    "rtw2"
+  ],
+  "retailPriceEUR": 265,
+  "retailPriceDKK": 1899,
+  "colorId": 115
+}
