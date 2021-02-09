@@ -7,8 +7,8 @@
 			:sources="[song.src]"
 			:title="song.title"
 			@played-through="nextSong"
-			:autoplay="true"
 		/>
+		<!-- :autoplay="true" -->
 		<!-- :key="songs[currentAudioIdx].src" -->
 
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">

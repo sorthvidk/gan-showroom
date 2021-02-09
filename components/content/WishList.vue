@@ -99,13 +99,15 @@ export default {
 		sortedWishlist() {
 			const groupWeightsDesc = (a, b) => {
 				const getOrder = (x) =>
-					this.allGroups.find(a.groupId) || { order: null }
+					this.allGroups.find((y) => x.groupId === y.groupId) || { order: null }
 				const aOrder = getOrder(a).order
 				const bOrder = getOrder(b).order
-				return aOrder < bOrder ? 1 : -1
+				return aOrder > bOrder ? 1 : -1
 			}
 
-			return this.wishList.sort(groupWeightsDesc).reduce((acc, cur) => {
+			const sorted = [...this.wishList].sort(groupWeightsDesc)
+
+			return sorted.reduce((acc, cur) => {
 				acc[cur.groupId] = acc[cur.groupId] || []
 				acc[cur.groupId] = [...acc[cur.groupId], cur]
 				return acc
