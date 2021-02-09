@@ -1,1 +1,26 @@
-{"styleId":"F6150_115","name":"F6150_115_Midi Skirt","program":6335,"programName":"Cutline Ecru","material":"100% Organic cotton","groupId":"drop-1","colorNames":"Vanilla Ice","colorId":115,"filters":["rtw6"],"responsible":true,"weight":4360,"wholesalePriceDKK":518,"wholesalePriceEUR":76,"wholesalePriceUSD":98,"wholesalePriceGBP":65,"retailPriceDKK":1399,"retailPriceEUR":195,"retailPriceUSD":235,"retailPriceGBP":175,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 235,
+  "assets": [],
+  "program": 6335,
+  "colorNames": "Vanilla Ice",
+  "material": "100% Organic cotton",
+  "re-runner": false,
+  "wholesalePriceGBP": 65,
+  "name": "F6150_115_Midi Skirt",
+  "styleId": "F6150_115",
+  "retailPriceGBP": 175,
+  "programName": "Cutline Ecru",
+  "responsible": true,
+  "wholesalePriceEUR": 76,
+  "weight": 4360,
+  "wholesalePriceDKK": 518,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 98,
+  "filters": [
+    "rtw6",
+    "rtw2"
+  ],
+  "retailPriceEUR": 195,
+  "retailPriceDKK": 1399,
+  "colorId": 115
+}
