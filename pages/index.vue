@@ -6,7 +6,10 @@
 			v-if="audioGalleryDone"
 			:sources="[song.src]"
 			:title="song.title"
+			@played-through="nextSong"
+			:autoplay="true"
 		/>
+		<!-- :key="songs[currentAudioIdx].src" -->
 
 		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
 			<!-- step 1 -->
@@ -71,6 +74,7 @@ import {
 	RESET_STATE,
 	USER_HAS_INTERACTED,
 } from '~/model/constants'
+import { nextIndex } from '~/utils/array-helpers'
 
 export default {
 	components: {
@@ -85,6 +89,7 @@ export default {
 	},
 	data: () => ({
 		audioGalleryDone: false,
+		currentAudioIdx: 0,
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
@@ -92,7 +97,10 @@ export default {
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
 		song() {
-			return { title: this.songs[0].title, src: this.songs[0].src }
+			return {
+				src: this.songs[this.currentAudioIdx].src,
+				title: this.songs[this.currentAudioIdx].title,
+			}
 		},
 	},
 	head() {
@@ -133,6 +141,12 @@ export default {
 		onMediaChange(isMobile) {
 			this[IS_MOBILE.action](isMobile)
 		},
+
+		nextSong() {
+			console.log(this.currentAudioIdx)
+			this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
+			console.log(this.currentAudioIdx)
+		},
 	},
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
@@ -171,6 +185,8 @@ export default {
 				this[MOUSEMOVE.action](event)
 			}, 200)
 		})
+
+		this.audioPlayer = this.$children[1].$children[0].progress
 	},
 }
 </script>

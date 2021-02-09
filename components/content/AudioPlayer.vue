@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import VueHowler from 'vue-howler'
 import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 import { MMSS } from '~/utils/HHMMSS'
@@ -27,6 +27,7 @@ export default {
 	},
 	props: {
 		title: { type: String, default: '' },
+		// titles: { type: Array, default: () => [] },
 	},
 	data: () => ({
 		wasPlaying: true,
@@ -54,7 +55,23 @@ export default {
 	},
 	watch: {
 		playing() {
+			// console.log('playing', this.playing)
 			this.wasPlaying = this.playing
+		},
+		title() {
+			// console.log('new title', this.title)
+			setTimeout(() => {
+				this.play()
+				// console.log('replay')
+			}, 100)
+		},
+		progress() {
+			// console.log('progress', this.progress)
+
+			if (this.progress >= 0.99) {
+				// if (this.progress >= 0.02) {
+				setTimeout(() => this.$emit('played-through'), 100)
+			}
 		},
 	},
 }
