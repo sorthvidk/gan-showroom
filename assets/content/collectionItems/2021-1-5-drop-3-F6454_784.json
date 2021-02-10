@@ -1,1 +1,25 @@
-{"styleId":"F6454_784","name":"F6454_784_Jacket","program":6307,"programName":"Recycled Ripstop Quilt","material":"100% Recycled Polyester","groupId":"drop-3","colorNames":"Dark Green","colorId":784,"filters":["rtw3"],"responsible":true,"weight":1180,"wholesalePriceDKK":880,"wholesalePriceEUR":122,"wholesalePriceUSD":157,"wholesalePriceGBP":110,"retailPriceDKK":2199,"retailPriceEUR":295,"retailPriceUSD":375,"retailPriceGBP":275,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 375,
+  "assets": [],
+  "program": 6307,
+  "colorNames": "Dark Green",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 110,
+  "name": "F6454_784_Jacket",
+  "styleId": "F6454_784",
+  "retailPriceGBP": 275,
+  "programName": "Recycled Ripstop Quilt",
+  "responsible": true,
+  "wholesalePriceEUR": 122,
+  "weight": 4755,
+  "wholesalePriceDKK": 880,
+  "groupId": "drop-3",
+  "wholesalePriceUSD": 157,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 295,
+  "retailPriceDKK": 2199,
+  "colorId": 784
+}
