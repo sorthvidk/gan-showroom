@@ -1,1 +1,25 @@
-{"styleId":"F6202_784","name":"F6202_784_Cape","program":6307,"programName":"Recycled Ripstop Quilt","material":"100% Recycled Polyester","groupId":"drop-3","colorNames":"Dark Green","colorId":784,"filters":["rtw3"],"responsible":true,"weight":1190,"wholesalePriceDKK":1120,"wholesalePriceEUR":158,"wholesalePriceUSD":198,"wholesalePriceGBP":150,"retailPriceDKK":2799,"retailPriceEUR":395,"retailPriceUSD":475,"retailPriceGBP":375,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 475,
+  "assets": [],
+  "program": 6307,
+  "colorNames": "Dark Green",
+  "material": "100% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 150,
+  "name": "F6202_784_Cape",
+  "styleId": "F6202_784",
+  "retailPriceGBP": 375,
+  "programName": "Recycled Ripstop Quilt",
+  "responsible": true,
+  "wholesalePriceEUR": 158,
+  "weight": 4758,
+  "wholesalePriceDKK": 1120,
+  "groupId": "drop-1",
+  "wholesalePriceUSD": 198,
+  "filters": [
+    "rtw3"
+  ],
+  "retailPriceEUR": 395,
+  "retailPriceDKK": 2799,
+  "colorId": 784
+}
