@@ -1,1 +1,14 @@
-{"assetId":"4bmpaogqv","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3602_5719_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3602_99","name":"A3602_99_knot_Purse","groupId":"drop-2","filters":"Accessories"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1613042275/AW21_21.3/21.3_PACKSHOTS/A3602_5719_099.jpg"
+  ],
+  "assetId": "4bmpaogqv",
+  "name": "A3602_99_knot_Purse",
+  "styleId": "A3602_99",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Accessories"
+}
