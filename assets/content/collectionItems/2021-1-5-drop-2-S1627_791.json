@@ -1,25 +1,25 @@
 {
-  "retailPriceUSD": 545,
+  "retailPriceUSD": 445,
   "assets": [],
   "program": 4682,
   "colorNames": "Black/Green",
   "material": "100% Calf Leather",
   "re-runner": false,
-  "wholesalePriceGBP": 170,
+  "wholesalePriceGBP": 138,
   "name": "S1627_791_Mid Chelsea Boot",
   "styleId": "S1627_791",
-  "retailPriceGBP": 425,
+  "retailPriceGBP": 345,
   "programName": "Calf Leather",
   "responsible": false,
-  "wholesalePriceEUR": 178,
+  "wholesalePriceEUR": 150,
   "weight": 2210,
-  "wholesalePriceDKK": 1320,
+  "wholesalePriceDKK": 1080,
   "groupId": "drop-2",
-  "wholesalePriceUSD": 228,
+  "wholesalePriceUSD": 181,
   "filters": [
     "acc3"
   ],
-  "retailPriceEUR": 445,
-  "retailPriceDKK": 3299,
+  "retailPriceEUR": 375,
+  "retailPriceDKK": 2699,
   "colorId": 791
 }
