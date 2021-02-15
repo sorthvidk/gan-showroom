@@ -54,7 +54,10 @@ export const state = () => ({
 	changeCollage: {},
 
 	loggedIn: false,
-	password: '16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+	password: [
+		'16c1443a039ecd26eadb57f6a0ae297e3d5894560bed02de3434af15cc79c009', // = hampsterdance
+		'381634da11c4dfeab891f242e3a979d22fa3c9b7bc45d9830db04d53eca8109d' // jury2021
+	],
 
 	screensaverActive: false,
 
@@ -159,7 +162,6 @@ export const mutations = {
 	[VISIBILITY.mutation](state, key) {
 		state.screensaverActive = key
 	},
-
 
 	[COOKIES_ACCEPT.mutation](state) {
 		state.cookiesAccepted = true

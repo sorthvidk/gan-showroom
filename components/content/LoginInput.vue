@@ -2,7 +2,7 @@
 	<div class="login-input" v-lazy:background-image="backgroundImageObj">
 		<form ref="form" @submit.prevent="loginInput" class="form">
 			<input
-				:class="{'is-invalid': showErrorMessage}"
+				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
 				@focus="isFocus = true"
 				@input="loginInput"
@@ -16,7 +16,7 @@
 				ref="passwordInput"
 			/>
 			<button
-				:class="{'is-active': pwd.length > 0, 'is-invalid': showErrorMessage}"
+				:class="{ 'is-active': pwd.length > 0, 'is-invalid': showErrorMessage }"
 				class="submit"
 				@click.prevent="submitClickHandler"
 			>
@@ -47,25 +47,23 @@ export default {
 			showErrorMessage: false,
 			backgroundImageObj: {
 				src: '/img/login-bg.jpg',
-				loading: '/img/login-bg_lo.jpg'
-			}
+				loading: '/img/login-bg_lo.jpg',
+			},
 		}
 	},
 	computed: {
 		...mapState({
-			loggedIn: state => state.loggedIn,
-			password: state => state.password
-		})
+			loggedIn: (state) => state.loggedIn,
+			password: (state) => state.password,
+		}),
 	},
 	methods: {
 		...mapActions([LOGIN.action]),
 
 		updateValidState() {
-			const valid =
-				hash
-					.sha256()
-					.update(this.pwd)
-					.digest('hex') === this.password
+			const valid = this.password.includes(
+				hash.sha256().update(this.pwd).digest('hex')
+			)
 
 			this[LOGIN.action](valid)
 			this.valid = valid
@@ -100,7 +98,7 @@ export default {
 				audio.volume = 0.4
 				audio.play()
 			})
-		}
-	}
-};
+		},
+	},
+}
 </script>
