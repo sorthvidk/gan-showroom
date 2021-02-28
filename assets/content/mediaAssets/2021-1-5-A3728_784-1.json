@@ -1,1 +1,14 @@
-{"assetId":"rjbu5j9k4","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/A3728_6306_784.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3728_784","name":"A3728_784_Scrunchie","groupId":"drop-3","filters":"Accessories"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614510698/AW21_21.3/21.3_PACKSHOTS/A3728_6306_784.jpg"
+  ],
+  "assetId": "rjbu5j9k4",
+  "name": "A3728_784_Scrunchie",
+  "styleId": "A3728_784",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Accessories"
+}
