@@ -1,1 +1,14 @@
-{"assetId":"9spkjulbq","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612095338/AW21_21.3/21.3_PACKSHOTS/F6405_6349_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6405_99","name":"F6405_99_Frill Dress","groupId":"drop-3","filters":"Dresses"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614510708/AW21_21.3/21.3_PACKSHOTS/F6405_6349_99.jpg"
+  ],
+  "assetId": "9spkjulbq",
+  "name": "F6405_99_Frill Dress",
+  "styleId": "F6405_99",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-3",
+  "filters": "Dresses"
+}
