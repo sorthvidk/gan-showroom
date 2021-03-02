@@ -43,7 +43,7 @@ import { lastElement } from '~/utils/array-helpers'
 import AssistantModes from '~/model/assistant-modes'
 
 export const state = () => ({
-	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
+	SHOW_WHOLESALE_PRICE: false, // for when the site is for PR purposes only (a.k.a. "is old")
 
 	rehydrated: false,
 
