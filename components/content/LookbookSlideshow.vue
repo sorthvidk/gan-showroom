@@ -183,7 +183,7 @@ export default {
 				src: getCloudinaryUrl(
 					this.$cloudinary,
 					{ type, cloudinaryUrl },
-					{ width: thumbnail ? 100 : parseInt(window.innerWidth / 3) }
+					{ width: thumbnail ? 100 : (window.innerWidth < 600 ? 300 : 900) }
 				),
 				loading: transparentPixel,
 			}

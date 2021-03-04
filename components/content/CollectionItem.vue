@@ -68,7 +68,7 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
-					width: Math.floor(window.innerWidth / 4),
+					width: window.innerWidth < 600 ? 320 : 720,
 				}),
 				loading: this.greyPixel,
 			}
@@ -80,7 +80,7 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
-					width: Math.floor(window.innerWidth / 4),
+					width: window.innerWidth < 600 ? 320 : 720,
 				}),
 				loading: this.greyPixel,
 			}
