@@ -1,1 +1,25 @@
-{"styleId":"T2994_783","name":"T2994_783_Puff Shoulder Sweatshirt","program":3529,"programName":"Software Isoli","material":"50% Recycled Cot, 50% Recycled Poly","groupId":"software","colorNames":"Flash Green","colorId":783,"filters":["rtw8"],"responsible":false,"weight":330,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"wholesalePriceGBP":45,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 3529,
+  "colorNames": "Flash Green",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "re-runner": false,
+  "wholesalePriceGBP": 45,
+  "name": "T2994_783_Puff Shoulder Sweatshirt",
+  "styleId": "T2994_783",
+  "retailPriceGBP": 125,
+  "programName": "Software Isoli",
+  "responsible": false,
+  "wholesalePriceEUR": 52,
+  "weight": 330,
+  "wholesalePriceDKK": 357,
+  "groupId": "software",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 783
+}
