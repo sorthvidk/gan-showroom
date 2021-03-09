@@ -1,1 +1,14 @@
-{"assetId":"7sru1bu2w","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/software_PACKSHOTS/T2921_3532_99.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"T2921_99","name":"T2921_99_Puff Sleeve Sweatshirt","groupId":"software","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598013724/SS21/Packshots/Software/T2770_3490_638_t3qddb.jpg"
+  ],
+  "assetId": "7sru1bu2w",
+  "name": "T2921_99_Puff Sleeve Sweatshirt",
+  "styleId": "T2921_99",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "software",
+  "filters": "Tops"
+}
