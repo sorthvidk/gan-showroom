@@ -1,1 +1,14 @@
-{"assetId":"vyhcexnwi","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1612312168/AW21_21.3/software_PACKSHOTS/T2983_3531_1.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"T2983_1","name":"T2983_1_O-neck Long Sleeve T-shirt","groupId":"software","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1598013727/SS21/Packshots/Software/T2785_3491_001_k8axjr.jpg"
+  ],
+  "assetId": "vyhcexnwi",
+  "name": "T2983_1_O-neck Long Sleeve T-shirt",
+  "styleId": "T2983_1",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "software",
+  "filters": "Tops"
+}
