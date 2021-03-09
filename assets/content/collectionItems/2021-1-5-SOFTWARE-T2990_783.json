@@ -1,1 +1,25 @@
-{"styleId":"T2990_783","name":"T2990_783_Oversized Hoodie","program":3529,"programName":"Software Isoli","material":"50% Recycled Cot, 50% Recycled Poly","groupId":"software","colorNames":"Flash Green","colorId":783,"filters":["rtw8"],"responsible":true,"weight":345,"wholesalePriceEUR":56,"wholesalePriceUSD":78,"wholesalePriceGBP":52,"retailPriceDKK":1099,"retailPriceEUR":155,"retailPriceUSD":185,"retailPriceGBP":145,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 185,
+  "assets": [],
+  "program": 3529,
+  "colorNames": "Flash Green",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "re-runner": false,
+  "wholesalePriceGBP": 52,
+  "name": "T2990_783_Oversized Hoodie",
+  "styleId": "T2990_783",
+  "retailPriceGBP": 145,
+  "programName": "Software Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 56,
+  "weight": 345,
+  "wholesalePriceDKK": 393,
+  "groupId": "software",
+  "wholesalePriceUSD": 78,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 155,
+  "retailPriceDKK": 1099,
+  "colorId": 783
+}
