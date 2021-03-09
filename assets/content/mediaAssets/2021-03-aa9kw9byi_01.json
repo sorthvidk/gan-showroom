@@ -6,7 +6,7 @@
   "name": "T2925_99_Elasticated Pants",
   "styleId": "T2925_99",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
