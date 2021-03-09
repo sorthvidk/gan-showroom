@@ -1,1 +1,25 @@
-{"styleId":"T2983_465","name":"T2983_465_O-neck Long Sleeve T-shirt","program":3531,"programName":"Thin Software Jersey","material":"50% Recycled Cot, 50% Recycled Poly","groupId":"software","colorNames":"Sweet Lilac","colorId":465,"filters":["rtw8"],"responsible":true,"weight":565,"wholesalePriceEUR":31,"wholesalePriceUSD":44,"wholesalePriceGBP":27,"retailPriceDKK":599,"retailPriceEUR":85,"retailPriceUSD":95,"retailPriceGBP":75,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 95,
+  "assets": [],
+  "program": 3531,
+  "colorNames": "Sweet Lilac",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "re-runner": false,
+  "wholesalePriceGBP": 27,
+  "name": "T2983_465_O-neck Long Sleeve T-shirt",
+  "styleId": "T2983_465",
+  "retailPriceGBP": 75,
+  "programName": "Thin Software Jersey",
+  "responsible": true,
+  "wholesalePriceEUR": 31,
+  "weight": 565,
+  "wholesalePriceDKK": 214,
+  "groupId": "software",
+  "wholesalePriceUSD": 44,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 85,
+  "retailPriceDKK": 599,
+  "colorId": 465
+}
