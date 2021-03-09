@@ -1,1 +1,25 @@
-{"styleId":"T2959_712","name":"T2959_712_Puff Sleeve Sweatshirt, Wave","program":3540,"programName":"Software Wave Isoli","material":"70% Organic Cotton, 30% Recycled Polyester","groupId":"software","colorNames":"Misty Lilac","colorId":712,"filters":["rtw8"],"responsible":true,"weight":395,"wholesalePriceEUR":63,"wholesalePriceUSD":86,"wholesalePriceGBP":56,"retailPriceDKK":1199,"retailPriceEUR":175,"retailPriceUSD":195,"retailPriceGBP":155,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 195,
+  "assets": [],
+  "program": 3540,
+  "colorNames": "Misty Lilac",
+  "material": "70% Organic Cotton, 30% Recycled Polyester",
+  "re-runner": false,
+  "wholesalePriceGBP": 56,
+  "name": "T2959_712_Puff Sleeve Sweatshirt, Wave",
+  "styleId": "T2959_712",
+  "retailPriceGBP": 155,
+  "programName": "Software Wave Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 63,
+  "weight": 395,
+  "wholesalePriceDKK": 428,
+  "groupId": "software",
+  "wholesalePriceUSD": 86,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 175,
+  "retailPriceDKK": 1199,
+  "colorId": 712
+}
