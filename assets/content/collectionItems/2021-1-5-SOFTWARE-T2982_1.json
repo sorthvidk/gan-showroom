@@ -1,1 +1,25 @@
-{"styleId":"T2982_1","name":"T2982_1_Sleeveless O-neck T-shirt","program":3531,"programName":"Thin Software Jersey","material":"50% Recycled Cot, 50% Recycled Poly","groupId":"software","colorNames":"White","colorId":1,"filters":["rtw8"],"responsible":true,"weight":590,"wholesalePriceEUR":27,"wholesalePriceUSD":36,"wholesalePriceGBP":24,"retailPriceDKK":499,"retailPriceEUR":75,"retailPriceUSD":85,"retailPriceGBP":65,"re-runner":false,"assets":[]}
+{
+  "retailPriceUSD": 85,
+  "assets": [],
+  "program": 3531,
+  "colorNames": "White",
+  "material": "50% Recycled Cot, 50% Recycled Poly",
+  "re-runner": false,
+  "wholesalePriceGBP": 24,
+  "name": "T2982_1_Sleeveless O-neck T-shirt",
+  "styleId": "T2982_1",
+  "retailPriceGBP": 65,
+  "programName": "Thin Software Jersey",
+  "responsible": true,
+  "wholesalePriceEUR": 27,
+  "weight": 590,
+  "wholesalePriceDKK": 178,
+  "groupId": "software",
+  "wholesalePriceUSD": 36,
+  "filters": [
+    "rtw8"
+  ],
+  "retailPriceEUR": 75,
+  "retailPriceDKK": 499,
+  "colorId": 1
+}
