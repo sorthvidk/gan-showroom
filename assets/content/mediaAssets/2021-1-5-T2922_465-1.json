@@ -6,7 +6,7 @@
   "name": "T2922_465_Oversized Sweatshirt",
   "styleId": "T2922_465",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
