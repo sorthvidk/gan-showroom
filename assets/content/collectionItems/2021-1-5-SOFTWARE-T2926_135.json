@@ -1,1 +1,25 @@
-{"styleId":"T2926_135","name":"T2926_135_Straight Leg Pants","program":3532,"programName":"Software Isoli","material":"70% Organic Cotton, 30% Recycled Polyester","groupId":"software","colorNames":"Egret","colorId":135,"filters":["rtw9"],"responsible":true,"weight":280,"wholesalePriceEUR":52,"wholesalePriceUSD":69,"wholesalePriceGBP":45,"retailPriceDKK":999,"retailPriceEUR":145,"retailPriceUSD":165,"retailPriceGBP":125,"re-runner":true,"assets":[]}
+{
+  "retailPriceUSD": 165,
+  "assets": [],
+  "program": 3532,
+  "colorNames": "Egret",
+  "material": "70% Organic Cotton, 30% Recycled Polyester",
+  "re-runner": true,
+  "wholesalePriceGBP": 45,
+  "name": "T2926_135_Straight Leg Pants",
+  "styleId": "T2926_135",
+  "retailPriceGBP": 125,
+  "programName": "Software Isoli",
+  "responsible": true,
+  "wholesalePriceEUR": 52,
+  "weight": 280,
+  "wholesalePriceDKK": 357,
+  "groupId": "software",
+  "wholesalePriceUSD": 69,
+  "filters": [
+    "rtw9"
+  ],
+  "retailPriceEUR": 145,
+  "retailPriceDKK": 999,
+  "colorId": 135
+}
