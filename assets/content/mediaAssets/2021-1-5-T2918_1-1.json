@@ -1,12 +1,12 @@
 {
   "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604839896/PF21_21.2/packshots_collection/T2918_3491_001_gp5sa7.jpg"
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1615838687/AW21_21.3/SOFTWARE_PACKSHOTS/T2918_3531_1.jpg"
   ],
   "assetId": "2sa61wkek",
   "name": "T2918_1_V-neck T-shirt",
   "styleId": "T2918_1",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
