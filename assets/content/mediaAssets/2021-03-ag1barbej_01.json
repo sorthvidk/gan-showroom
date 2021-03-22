@@ -6,7 +6,7 @@
   "name": "T2959_712_Puff Sleeve Sweatshirt, Wave",
   "styleId": "T2959_712",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
