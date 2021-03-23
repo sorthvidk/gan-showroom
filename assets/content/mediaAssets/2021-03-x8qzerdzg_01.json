@@ -6,7 +6,7 @@
   "name": "T2917_921_O-neck T-shirt",
   "styleId": "T2917_921",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
