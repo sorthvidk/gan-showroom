@@ -6,7 +6,7 @@
   "name": "T2926_99_Straight Leg Pants",
   "styleId": "T2926_99",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "software",
