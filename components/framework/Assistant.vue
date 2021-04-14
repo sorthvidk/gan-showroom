@@ -2,8 +2,10 @@
 	<section
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
+		@mouseleave="toggle(true)"
+		@mouseenter="toggle(false)"
 	>
-		<div class="window__top" @click="toggle">
+		<div class="window__top">
 			<div class="icon" :class="{ closed }" />
 
 			<span
@@ -17,7 +19,7 @@
 				}"
 			>
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
-				<p>GANNI SPACE</p>
+				<clip-text :text="'GANNI 24.1'" :background="'img/login-slide-2.jpg'" />
 			</span>
 		</div>
 
@@ -98,6 +100,8 @@ import AssistantModeCollectionSeen from '~/components/content/AssistantModeColle
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
 
+import ClipText from '~/components/elements/ClipText.vue'
+
 import TransitionExpand from '~/components/transitions/Expand.vue'
 import RotatingText from '~/components/content/RotatingText.vue'
 
@@ -117,6 +121,7 @@ export default {
 		AssistantModePuzzle,
 		TransitionExpand,
 		RotatingText,
+		ClipText,
 	},
 	data() {
 		return {
@@ -230,9 +235,9 @@ export default {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
 		},
 
-		toggle() {
+		toggle(close) {
 			if (!this.windowList.length) {
-				this[ASSISTANT_TOGGLE.action](!this.closed)
+				this[ASSISTANT_TOGGLE.action](close ?? !this.closed)
 			}
 		},
 	},

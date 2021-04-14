@@ -85,16 +85,14 @@
 
 	&__top {
 		user-select: none;
-		// background-color: $color-lightgrey;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 
-		background-color: var(--primary-color);
+		background-color: var(--color-primary);
 
 		.title {
 			padding: rem(10);
-			// padding-right: rem(20);
 			margin: 0 auto;
 			overflow: hidden;
 
@@ -141,7 +139,7 @@
 		height: rem(35);
 		box-sizing: border-box;
 		position: relative;
-		background-color: var(--primary-color);
+		background-color: var(--color-primary);
 		display: flex;
 		justify-content: space-between;
 

@@ -8,11 +8,12 @@
 		box-shadow: 0 0 0 1px $color-white;
 		z-index: 1;
 
-		background: $color-black;
-		color: $color-white;
+		background-color: $color-black;
+		color: var(--color-primary);
 
 		&.active {
-			color: var(--primary-color);
+			background-color: var(--color-primary);
+			color: $color-black;
 		}
 	}
 
