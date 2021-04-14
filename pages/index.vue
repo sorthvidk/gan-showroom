@@ -11,27 +11,25 @@
 		<!-- :autoplay="true" -->
 		<!-- :key="songs[currentAudioIdx].src" -->
 
-		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
-			<!-- step 1 -->
-			<transition name="slide-out">
-				<login v-if="!loggedIn" />
-			</transition>
+		<!-- step 1 -->
+		<transition name="slide-out">
+			<login v-if="!loggedIn" />
+		</transition>
 
-			<!-- step 2 -->
-			<transition name="slide-in-out">
-				<audio-gallery-controller
-					v-show="!audioGalleryDone"
-					v-if="loggedIn && !dashboardContent.contentId"
-					:is-intro="true"
-					@played-through="audioGalleryDone = true"
-				/>
-			</transition>
+		<!-- step 2 -->
+		<transition name="slide-in-out">
+			<audio-gallery-controller
+				v-show="!audioGalleryDone"
+				v-if="loggedIn && !dashboardContent.contentId"
+				:is-intro="true"
+				@played-through="audioGalleryDone = true"
+			/>
+		</transition>
 
-			<!-- step 3 -->
-			<transition name="slide-in">
-				<desktop v-if="audioGalleryDone" />
-			</transition>
-		</div>
+		<!-- step 3 -->
+		<transition name="slide-in">
+			<desktop v-if="audioGalleryDone" />
+		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />

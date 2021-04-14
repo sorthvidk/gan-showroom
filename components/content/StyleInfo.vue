@@ -35,6 +35,12 @@
 			<span>Program name</span>
 			<span>{{ item.programName }}</span>
 		</div>
+
+		<div class="style-info__row" v-if="item.sizes">
+			<span>Sizes</span>
+			<span>{{ item.sizes }}</span>
+		</div>
+
 		<div class="style-info__row" v-if="SHOW_WHOLESALE_PRICE">
 			<span>Wholesale price</span>
 			<span

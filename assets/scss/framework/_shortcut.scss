@@ -1,12 +1,11 @@
+:root {
+	--bottombar-height: rem(70);
+}
+
 .shortcut {
 	&-bottombar {
 		@include headline();
-		flex-grow: 1;
-		height: rem(70);
-		// border-left: 1px solid $color-white;
-		// border-top: 1px solid $color-white;
-		box-shadow: 0 0 0 1px $color-white;
-		z-index: 1;
+		height: var(--bottombar-height);
 
 		background-color: $color-black;
 		color: var(--color-primary);

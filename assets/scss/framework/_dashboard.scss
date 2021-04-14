@@ -3,7 +3,12 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 1px;
-		z-index: 10;
+		z-index: get-z('bottombar');
+		border-top: var(--color-border);
+
+		position: fixed;
+		bottom: 0;
+		width: 100%;
 
 		.shortcut {
 			user-select: none;

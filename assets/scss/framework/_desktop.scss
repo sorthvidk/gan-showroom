@@ -1,17 +1,17 @@
 .desktop {
 	// background-color: $color-marigold;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100vw;
-	height: 100vh;
-	min-height: 100vh;
-	min-height: -webkit-fill-available;
-	min-width: 1024px;
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// right: 0;
+	// bottom: 0;
+	// width: 100vw;
+	// height: 100vh;
+	// min-height: 100vh;
+	// min-height: -webkit-fill-available;
+	// min-width: 1024px;
 
-	overflow: hidden;
+	// overflow: hidden;
 	user-select: none;
 
 	// background-size: cover;
@@ -64,8 +64,10 @@
 
 	&__static {
 		position: relative;
-		height: 1%;
-		flex-grow: 1;
+		min-height: 100vh;
+		// height: 1%;
+		// flex-grow: 1;
+		padding-bottom: var(--bottombar-height);
 	}
 
 	.logo {

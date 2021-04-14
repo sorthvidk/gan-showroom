@@ -133,6 +133,13 @@ collections:
           hint: "Names of colors available ex. 'Brunnera Blue, Sunflower Yellow'",
         }
       - {
+          label: 'Sizes',
+          name: 'sizes',
+          widget: 'string',
+          required: false,
+          hint: 'All the sizes as a string value',
+        }
+      - {
           label: 'Color Id',
           name: 'colorId',
           widget: 'number',

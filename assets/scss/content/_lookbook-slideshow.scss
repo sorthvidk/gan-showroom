@@ -4,7 +4,7 @@
 	position: relative;
 
 	height: 100%;
-	display: flex !important;
+	display: flex;
 	align-items: flex-start;
 
 	padding-top: rem(70);
@@ -47,8 +47,8 @@
 	}
 
 	&__standard {
-		position: absolute;
-		height: 100%;
+		// position: absolute;
+		// height: 100%;
 		width: calc(75vw - rem(20));
 		display: flex;
 

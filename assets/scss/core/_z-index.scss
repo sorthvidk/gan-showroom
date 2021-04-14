@@ -1,0 +1,8 @@
+$z-indexes: ('audio-gallery' 'bottombar');
+
+/**
+ * returns the array-index of the passed string-name
+ */
+@function get-z($of) {
+	@return index($z-indexes, $of);
+}

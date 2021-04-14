@@ -40,26 +40,26 @@
 			/> -->
 
 			<div class="desktop__static">
-				<vue-bar>
-					<transition name="fade--fast" mode="out-in">
-						<window-static
-							ref="vuebar"
-							v-if="dashboardContent && dashboardContent.contentComponent"
-							:content="dashboardContent"
-							:key="dashboardContent.windowId"
-						/>
-						<div
-							v-else
-							:style="{
-								backgroundImage: `url(${various.dashboardBackground[0]})`,
-								backgroundSize: 'cover',
-								backgroundPosition: 'center',
-								width: '100%',
-								height: '100%',
-							}"
-						></div>
-					</transition>
-				</vue-bar>
+				<!-- <vue-bar> -->
+				<transition name="fade--fast" mode="out-in">
+					<!-- ref="vuebar" -->
+					<window-static
+						v-if="dashboardContent && dashboardContent.contentComponent"
+						:content="dashboardContent"
+						:key="dashboardContent.windowId"
+					/>
+					<div
+						v-else
+						:style="{
+							backgroundImage: `url(${various.dashboardBackground[0]})`,
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							width: '100%',
+							height: '100%',
+						}"
+					></div>
+				</transition>
+				<!-- </vue-bar> -->
 			</div>
 
 			<media-library v-if="showMenu" />

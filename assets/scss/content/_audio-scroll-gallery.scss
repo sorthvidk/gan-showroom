@@ -6,7 +6,7 @@
 	background: $color-white;
 
 	position: relative;
-	z-index: 10000;
+	z-index: get-z('audio-gallery');
 
 	user-select: none;
 
