@@ -1,9 +1,6 @@
 .responsible-icon {
 	@include bodytext();
 
-	// color: $color-medium-violet;
-	// background: $color-marigold-yellow;
-
 	position: absolute;
 	top: rem(0);
 	left: rem(0);
@@ -12,7 +9,6 @@
 	align-items: center;
 	justify-content: center;
 
-	// padding: 0.25em 0.5em;
 	margin: rem(10);
 
 	pointer-events: none;

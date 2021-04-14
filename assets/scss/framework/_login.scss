@@ -21,7 +21,7 @@
 	display: flex;
 
 	overflow: hidden;
-	color: $color-marigold-yellow;
+	color: var(--primary-color);
 
 	&__video {
 		position: absolute;
@@ -113,7 +113,7 @@
 			// max-width: 10.3em;
 
 			margin-bottom: 0.5em;
-			color: $color-marigold-yellow;
+			color: var(--primary-color);
 
 			outline: none;
 			padding-bottom: rem(10);
@@ -148,7 +148,7 @@
 			// color: $color-lime;
 
 			@include windowtitle();
-			background-color: $color-marigold-yellow;
+			background-color: var(--primary-color);
 			padding: rem(10);
 
 			svg {
