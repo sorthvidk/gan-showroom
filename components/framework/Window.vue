@@ -77,6 +77,8 @@ import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
 import StatusWishList from '~/components/content/StatusWishList.vue'
 
+import Afterparty from '~/components/content/Afterparty.vue'
+
 export default {
 	name: 'window',
 	components: {
@@ -99,6 +101,7 @@ export default {
 		Collage,
 		Puzzle,
 		DownloadModal,
+		Afterparty,
 	},
 	props: {
 		modifierClass: {

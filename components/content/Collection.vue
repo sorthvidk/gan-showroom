@@ -4,12 +4,13 @@
 		:class="{ 'collection--fun': collectionLayout == 1 }"
 		:style="{ height: shifting ? 0 : '', overflow: shifting ? 'hidden' : '' }"
 	>
+		<group-navigation />
 		<div
 			class="collection__group"
 			v-for="(group, i) in groupsRenderList"
 			:key="'group' + i"
 		>
-			<h4 v-if="groupsRenderList.length > 2 && group.styles.length">
+			<h4 v-if="groupsRenderList.length > 1 && group.styles.length">
 				{{ group.name }}
 			</h4>
 
@@ -45,6 +46,7 @@ import { vuex, mapActions, mapState } from 'vuex'
 import CollectionItem from '~/components/content/CollectionItem.vue'
 import CollectionHeader from '~/components/content/CollectionHeader.vue'
 import WindowContent from '~/components/framework/WindowContent.vue'
+import GroupNavigation from '~/components/content/GroupNavigation.vue'
 import { TweenLite } from 'gsap'
 
 export default {
@@ -53,6 +55,7 @@ export default {
 	components: {
 		CollectionItem,
 		CollectionHeader,
+		GroupNavigation,
 	},
 	data: () => ({
 		shifting: false,

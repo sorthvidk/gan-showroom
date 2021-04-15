@@ -1,26 +1,26 @@
 <template>
-	<div class="window__static">
-		<div v-if="content.statusComponent" class="window__static__status">
+	<!-- <div class="window__static"> -->
+	<!-- <div v-if="content.statusComponent" class="window__static__status">
 			<component
 				:is="content.statusComponent"
 				v-bind="content.statusComponentProps"
 			/>
-		</div>
+		</div> -->
 
-		<!-- <div v-bar class="window__content" ref="scroller"> -->
-		<div class="window__content">
-			<component
-				:is="content.contentComponent"
-				:parent-window-id="content.windowId"
-				v-bind="{
-					...content.contentComponentProps,
-					contentId: content.contentId,
-				}"
-				ref="contentComponent"
-			/>
-			<!-- </div> -->
-		</div>
+	<!-- <div v-bar class="window__content" ref="scroller"> -->
+	<div class="window__content">
+		<component
+			:is="content.contentComponent"
+			:parent-window-id="content.windowId"
+			v-bind="{
+				...content.contentComponentProps,
+				contentId: content.contentId,
+			}"
+			ref="contentComponent"
+		/>
+		<!-- </div> -->
 	</div>
+	<!-- </div> -->
 </template>
 
 <script>
@@ -49,6 +49,8 @@ import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
 import StatusWishList from '~/components/content/StatusWishList.vue'
 
+import Afterparty from '~/components/content/Afterparty.vue'
+
 import VueBar from '~/components/content/VueBar.vue'
 
 export default {
@@ -76,6 +78,7 @@ export default {
 		LookbookSlideshow,
 		VideoPlayer,
 		AudioGalleryController,
+		Afterparty,
 	},
 	props: {
 		content: {

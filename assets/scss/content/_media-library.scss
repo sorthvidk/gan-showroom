@@ -7,14 +7,14 @@
 	width: calc(25% - 1px);
 	box-sizing: border-box;
 
-	background: $color-black;
-	box-shadow: 0 0 0 1px $color-white;
-	color: $color-white;
+	background: var(--color-secondary);
+	box-shadow: 0 0 0 1px var(--color-primary);
+	color: var(--color-primary);
 
 	z-index: 10001;
 
 	&__item {
-		border-top: 1px solid $color-white;
+		border-top: 1px solid var(--color-primary);
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -5,14 +5,12 @@
 .shortcut {
 	&-bottombar {
 		@include headline();
-		height: var(--bottombar-height);
-
-		background-color: $color-black;
+		background-color: var(--color-secondary);
 		color: var(--color-primary);
 
 		&.active {
 			background-color: var(--color-primary);
-			color: $color-black;
+			color: var(--color-secondary);
 		}
 	}
 

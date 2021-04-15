@@ -4,6 +4,7 @@
 	position: relative;
 
 	height: 100%;
+	min-height: inherit;
 	display: flex;
 	align-items: flex-start;
 
@@ -17,21 +18,21 @@
 		position: relative;
 		height: 100%;
 		width: 100%;
-		margin: 0 rem(20);
+		margin: 0 var(--page-outer-margin);
 	}
 
 	&__button {
 		display: inline-flex;
-		padding: rem(10);
+		padding: calc(var(--page-outer-margin) / 2);
 
 		&:last-of-type {
-			padding-right: rem(20);
+			padding-right: var(--page-outer-margin);
 		}
 	}
 
 	&__ui {
-		position: absolute;
-		bottom: rem(10);
+		position: fixed;
+		bottom: calc(var(--bottombar-height) + rem(10));
 		right: rem(0);
 
 		display: flex;
@@ -46,20 +47,15 @@
 		}
 	}
 
+	&__standard,
+	&__overview {
+		width: calc(100% - var(--assistant-width) - var(--page-outer-margin));
+	}
+
 	&__standard {
-		// position: absolute;
-		// height: 100%;
-		width: calc(75vw - rem(20));
-		display: flex;
-
-		> div {
-			width: 50%;
-			flex-grow: 1;
-
-			+ div {
-				margin-left: rem(20);
-			}
-		}
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: var(--page-outer-margin);
 
 		@keyframes fade {
 			from {
@@ -77,21 +73,19 @@
 	}
 
 	&__overview {
-		position: absolute;
-		height: inherit;
-		width: 75%;
-		overflow: auto;
+		display: grid;
+		grid-gap: calc(var(--page-outer-margin) / 2);
+		grid-template-columns: repeat(auto-fill, 75px);
 
 		div {
 			display: inline-flex;
-			margin: 0 rem(10) rem(10) 0;
+			width: 75px;
 		}
 
 		img,
 		video {
 			object-fit: contain;
-			height: 100px;
-			width: auto;
+			width: 100%;
 			cursor: pointer;
 		}
 

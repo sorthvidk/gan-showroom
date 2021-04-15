@@ -2,8 +2,8 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
+		<!-- v-if="audioGalleryDone" -->
 		<audio-player
-			v-if="audioGalleryDone"
 			:sources="[song.src]"
 			:title="song.title"
 			@played-through="nextSong"
@@ -17,23 +17,24 @@
 		</transition>
 
 		<!-- step 2 -->
-		<transition name="slide-in-out">
+		<!-- <transition name="slide-in-out">
 			<audio-gallery-controller
 				v-show="!audioGalleryDone"
 				v-if="loggedIn && !dashboardContent.contentId"
 				:is-intro="true"
 				@played-through="audioGalleryDone = true"
 			/>
-		</transition>
+		</transition> -->
 
 		<!-- step 3 -->
 		<transition name="slide-in">
-			<desktop v-if="audioGalleryDone" />
+			<!-- <desktop v-if="audioGalleryDone" /> -->
+			<desktop v-if="loggedIn" />
 		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
-		<mobile-disclamer v-if="isMobile" />
+		<!-- <mobile-disclamer v-if="isMobile" /> -->
 
 		<transition name="slide-up">
 			<cookie-banner

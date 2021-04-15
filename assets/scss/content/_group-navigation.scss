@@ -1,16 +1,19 @@
 .group-navigation {
-	padding-top: rem(30);
-
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
 
-	width: 50%;
+	width: 100%;
 	height: rem(40);
 
 	margin: 0 auto;
+	padding: rem(30) var(--page-outer-margin) 0;
 
 	user-select: none;
+
+	@include mq(screen-md) {
+		width: 50%;
+	}
 
 	label {
 		@include bodytext();

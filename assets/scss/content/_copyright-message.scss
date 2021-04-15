@@ -19,12 +19,13 @@
 		}
 
 		&__content {
-			// background-color: $color-grey;
-			padding: rem(20) rem(30);
+			padding: var(--page-outer-margin);
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			background-color: var(--color-secondary);
+			color: var(--color-primary);
 
 			.icon {
 				display: flex;
@@ -43,19 +44,15 @@
 			}
 
 			p {
-				// margin-left: rem(30);
 				@include bodytext();
 			}
 
 			.button {
 				@include window-button();
 				border: 1px solid;
-				// @include bevel();
-				// color: $color-blue;
 				text-decoration: underline;
-				margin-top: rem(20);
+				margin-top: var(--page-outer-margin);
 				padding: rem(8) rem(50) rem(10);
-				// background-color: $color-grey;
 			}
 		}
 	}

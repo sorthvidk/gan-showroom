@@ -1,4 +1,10 @@
-$z-indexes: ('audio-gallery' 'bottombar');
+$z-indexes: (
+	'audio-gallery',
+	'bottombar',
+	'collection-menu',
+	'collection-drop-name',
+	'audio-player'
+);
 
 /**
  * returns the array-index of the passed string-name

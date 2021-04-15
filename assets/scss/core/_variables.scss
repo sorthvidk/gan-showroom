@@ -27,7 +27,7 @@ $font-typewriter: Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
 /* --- COLORS --- */
 $color-black: #000000;
 $color-white: #ffffff;
-$color-darkgrey: #4a4a49;
+$color-darkgrey: #222222;
 $color-grey: #c6c6c6;
 $color-lightgrey: #ededed;
 $color-imagebg: #dad7d4;
@@ -61,6 +61,7 @@ $color-marigold-yellow: #fdef75;
 
 /* --- COLORS: MAY 2021 --- */
 $color-cinnamon-satin: #d25c83;
+$color-goblin: #3b8245;
 
 /**
 * Color helpers
@@ -71,6 +72,8 @@ $color-buttonactive: lighten($color-primary, 20%);
 
 :root {
 	--color-primary: #{$color-primary};
+	--color-secondary: #{$color-darkgrey};
+	--color-background: #{$color-imagebg};
 }
 
 $z-index-assistant: 4000;

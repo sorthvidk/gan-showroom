@@ -6,7 +6,7 @@
 		@mouseenter="toggle(false)"
 	>
 		<div class="window__top">
-			<!-- <div class="icon" :class="{ closed }" /> -->
+			<div class="icon" :class="{ closed }" />
 
 			<span class="title">
 				<!-- :style="{
@@ -17,7 +17,10 @@
 						: 'n-resize',
 				}" -->
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
-				<clip-text :text="'GANNI 24.1'" :background="'img/login-slide-2.jpg'" />
+				<clip-text
+					:text="'GANNI SPACE'"
+					:background="'img/login-slide-2.jpg'"
+				/>
 			</span>
 		</div>
 

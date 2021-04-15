@@ -1,0 +1,5 @@
+.countdown {
+	@include windowtitle();
+	color: var(--color-primary);
+	padding: calc(var(--page-outer-margin) / 2);
+}

@@ -1,32 +1,19 @@
 .collection-item {
-	// box-shadow: 0 0 0 1px $color-white;
-
 	display: flex;
 	align-items: center;
-	// width: 100%;
-	min-height: calc(100vw / 3 * 4);
+	min-height: calc((100vw / var(--collection-col-count)) / 3 * 4);
 	min-width: 0;
 	box-sizing: border-box;
 
 	position: relative;
 	cursor: pointer;
-	background-color: $color-imagebg;
+	background-color: var(--color-background);
 
 	outline: 1px solid $color-white;
 
 	&:hover,
 	&:focus {
 		outline: 1px solid $color-white;
-	}
-
-	@include mq($from: screen-xxs) {
-		// width: 50%;
-		min-height: calc(50vw / 3 * 4);
-	}
-
-	@include mq($from: screen-md) {
-		// width: 25%;
-		min-height: calc(28.5vw / 3 * 4);
 	}
 
 	&__extra {
@@ -66,7 +53,7 @@
 		// transition: opacity 0.2s $easeInOutQuint;
 		transition: opacity 0.2s $easeInOutQuint;
 		opacity: 0;
-		max-width: 100%;
+		max-width: 75%;
 		max-height: 1.27em;
 
 		// margin-top: rem(10);

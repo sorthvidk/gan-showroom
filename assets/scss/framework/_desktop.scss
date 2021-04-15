@@ -1,23 +1,12 @@
-.desktop {
-	// background-color: $color-marigold;
-	// position: fixed;
-	// top: 0;
-	// left: 0;
-	// right: 0;
-	// bottom: 0;
-	// width: 100vw;
-	// height: 100vh;
-	// min-height: 100vh;
-	// min-height: -webkit-fill-available;
-	// min-width: 1024px;
+:root {
+	--page-outer-margin: rem(20);
+}
 
-	// overflow: hidden;
+.desktop {
 	user-select: none;
 
-	// background-size: cover;
 	background-position: center 45%;
 	background-repeat: no-repeat;
-	// image-rendering: pixelated;
 
 	display: flex;
 	flex-direction: column-reverse;
@@ -25,7 +14,7 @@
 	pointer-events: none;
 
 	transition: background-color 0.1s $easeInOutQuint;
-	background-color: $color-imagebg;
+	background-color: var(--color-background);
 
 	* {
 		image-rendering: initial;
@@ -33,7 +22,7 @@
 	}
 
 	&.dark {
-		background: $color-black;
+		background: var(--color-secondary);
 	}
 
 	&__shortcuts {
@@ -47,7 +36,6 @@
 
 		@include mq($from: screen-md) {
 			height: 100%;
-			// height: calc(100vh - #{rem(40 + 60)});
 			padding: 0 rem(30);
 			display: grid;
 
@@ -64,9 +52,7 @@
 
 	&__static {
 		position: relative;
-		min-height: 100vh;
-		// height: 1%;
-		// flex-grow: 1;
+		min-height: calc(100vh - var(--bottombar-height));
 		padding-bottom: var(--bottombar-height);
 	}
 
