@@ -1,9 +1,8 @@
 body {
+	color: var(--color-secondary);
+
 	&::-webkit-scrollbar {
-		display: none;
-	}
-	*::-webkit-scrollbar {
-		display: none;
+		// display: none;
 	}
 }
 

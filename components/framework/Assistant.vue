@@ -8,18 +8,19 @@
 		<div class="window__top">
 			<div class="icon" :class="{ closed }" />
 
-			<span
-				class="title"
-				:style="{
+			<span class="title">
+				<!-- :style="{
 					cursor: windowList.length
 						? 'default'
 						: closed
 						? 's-resize'
 						: 'n-resize',
-				}"
-			>
+				}" -->
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
-				<clip-text :text="'GANNI 24.1'" :background="'img/login-slide-2.jpg'" />
+				<clip-text
+					:text="'GANNI SPACE'"
+					:background="'img/login-slide-2.jpg'"
+				/>
 			</span>
 		</div>
 
@@ -237,7 +238,9 @@ export default {
 
 		toggle(close) {
 			if (!this.windowList.length) {
-				this[ASSISTANT_TOGGLE.action](close ?? !this.closed)
+				this[ASSISTANT_TOGGLE.action](
+					close !== undefined ? close : !this.closed
+				)
 			}
 		},
 	},

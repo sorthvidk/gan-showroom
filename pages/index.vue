@@ -2,8 +2,8 @@
 	<div :oncontextmenu="__prod__ ? `return false;` : ''">
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
+		<!-- v-if="audioGalleryDone" -->
 		<audio-player
-			v-if="audioGalleryDone"
 			:sources="[song.src]"
 			:title="song.title"
 			@played-through="nextSong"
@@ -11,31 +11,30 @@
 		<!-- :autoplay="true" -->
 		<!-- :key="songs[currentAudioIdx].src" -->
 
-		<div :style="{ overflow: 'hidden', height: '100vh', position: 'relative' }">
-			<!-- step 1 -->
-			<transition name="slide-out">
-				<login v-if="!loggedIn" />
-			</transition>
+		<!-- step 1 -->
+		<transition name="slide-out">
+			<login v-if="!loggedIn" />
+		</transition>
 
-			<!-- step 2 -->
-			<transition name="slide-in-out">
-				<audio-gallery-controller
-					v-show="!audioGalleryDone"
-					v-if="loggedIn && !dashboardContent.contentId"
-					:is-intro="true"
-					@played-through="audioGalleryDone = true"
-				/>
-			</transition>
+		<!-- step 2 -->
+		<!-- <transition name="slide-in-out">
+			<audio-gallery-controller
+				v-show="!audioGalleryDone"
+				v-if="loggedIn && !dashboardContent.contentId"
+				:is-intro="true"
+				@played-through="audioGalleryDone = true"
+			/>
+		</transition> -->
 
-			<!-- step 3 -->
-			<transition name="slide-in">
-				<desktop v-if="audioGalleryDone" />
-			</transition>
-		</div>
+		<!-- step 3 -->
+		<transition name="slide-in">
+			<!-- <desktop v-if="audioGalleryDone" /> -->
+			<desktop v-if="loggedIn" />
+		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
 		<screensaver v-if="idle" />
-		<mobile-disclamer v-if="isMobile" />
+		<!-- <mobile-disclamer v-if="isMobile" /> -->
 
 		<transition name="slide-up">
 			<cookie-banner

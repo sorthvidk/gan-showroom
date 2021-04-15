@@ -1,43 +1,47 @@
+:root {
+	--collection-col-count: 2;
+
+	@include mq(screen-sm) {
+		--collection-col-count: 3;
+	}
+
+	@include mq(screen-md) {
+		--collection-col-count: 4;
+	}
+}
+
 .collection {
 	user-select: none;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
-	background-color: $color-imagebg;
-
-	margin-top: rem(75);
+	background-color: var(--color-background);
+	padding-bottom: var(--bottombar-height);
 
 	> * {
 		width: 100%;
 	}
 
 	&__group {
-		margin-top: rem(-23); // height of collection-title
-		// margin-bottom: rem(45);
-
-		&:only-child {
-			margin-top: 0;
-		}
-
 		h4 {
 			@include bodytext();
 
 			padding: rem(5);
-			margin-left: rem(20);
+			margin-left: var(--page-outer-margin);
 			margin-top: 0;
 			display: inline-block;
 
 			background-color: var(--color-primary);
 
 			position: sticky;
-			top: 40px;
-			z-index: 10;
+			top: rem(75);
+			z-index: get-z('collection-drop-name');
 		}
 	}
 
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(var(--collection-col-count), 1fr);
 		grid-gap: 1px;
 	}
 

@@ -32,35 +32,34 @@
 				/>
 			</div>
 
-			<!-- <shortcut
-				:class="'shortcut__badge'"
-				v-for="(item, i) in badgeShortcuts"
-				:key="`badge-${i}`"
-				v-bind="item"
-			/> -->
-
-			<div class="desktop__static">
-				<vue-bar>
-					<transition name="fade--fast" mode="out-in">
-						<window-static
-							ref="vuebar"
-							v-if="dashboardContent && dashboardContent.contentComponent"
-							:content="dashboardContent"
-							:key="dashboardContent.windowId"
-						/>
-						<div
-							v-else
-							:style="{
-								backgroundImage: `url(${various.dashboardBackground[0]})`,
-								backgroundSize: 'cover',
-								backgroundPosition: 'center',
-								width: '100%',
-								height: '100%',
-							}"
-						></div>
-					</transition>
-				</vue-bar>
-			</div>
+			<!-- <div class="desktop__static"> -->
+			<!-- <vue-bar> -->
+			<transition name="fade--fast" mode="out-in">
+				<!-- ref="vuebar" -->
+				<window-static
+					v-if="dashboardContent && dashboardContent.contentComponent"
+					:content="dashboardContent"
+					:key="dashboardContent.windowId"
+				/>
+				<div
+					v-else
+					:style="{
+						backgroundImage: `url(${various.dashboardBackground[0]})`,
+						backgroundSize: 'cover',
+						backgroundPosition: 'center',
+						width: '100%',
+						height: '100vh',
+						display: 'flex',
+						alignItems: 'flex-end',
+						paddingBottom: '70px',
+						boxSizing: 'border-box',
+					}"
+				>
+					<countdown :text="'hejsan på dejsan'" />
+				</div>
+			</transition>
+			<!-- </vue-bar> -->
+			<!-- </div> -->
 
 			<media-library v-if="showMenu" />
 
@@ -135,6 +134,8 @@ import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import VueBar from '~/components/content/VueBar.vue'
 import MediaLibrary from '~/components/content/MediaLibrary.vue'
 
+import Countdown from '~/components/elements/Countdown.vue'
+
 import ContentTypes from '~/model/content-types'
 
 import { getRandomInt } from '~/utils/get-random-int'
@@ -157,6 +158,7 @@ export default {
 		CopywriteMessage,
 		VueBar,
 		MediaLibrary,
+		Countdown,
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),

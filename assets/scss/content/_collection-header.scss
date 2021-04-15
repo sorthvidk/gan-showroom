@@ -1,22 +1,28 @@
 .collection-header {
+	--collection-header-cols: 1;
+
 	border-top: 1px solid $color-white;
 
+	@include mq(screen-md) {
+		--collection-header-cols: 1;
+	}
+
 	.inner {
-		display: flex;
-		align-items: flex-end;
+		display: grid;
+		grid-template-columns: repeat(var(--collection-header-cols), 1fr);
+		grid-gap: 1px;
 		width: 100%;
+		background-color: $color-white;
 
 		border-bottom: 1px solid $color-white;
 	}
 
 	.image {
 		position: relative;
-		width: calc(50% + 2px);
 		box-sizing: border-box;
-		border-right: 1px solid $color-white;
 
 		overflow: hidden;
-		height: calc(50vw * 0.66);
+		height: calc(calc(100vw / var(--collection-header-cols)) * 0.66);
 		display: flex;
 	}
 
@@ -34,16 +40,18 @@
 
 	.text {
 		@include bodytext();
-		font-size: rem(20);
-		width: 50%;
+		font-size: rem(200);
+		font-weight: 300;
+
 		box-sizing: border-box;
 		white-space: pre-line;
-		padding: rem(20);
+		padding: var(--page-outer-margin);
+		background-color: var(--color-background);
 	}
 
 	p {
 		@include windowtitle();
-		font-size: rem(50);
+		font-size: rem(100);
 		font-weight: normal;
 		margin-top: rem(10);
 
@@ -83,18 +91,18 @@
 		}
 
 		img {
-			animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
-				forwards;
+			// animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
+			// 	forwards;
 			position: absolute;
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
 
-			@for $i from 1 through 10 {
-				&:nth-child(#{$i}) {
-					animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
-				}
-			}
+			// @for $i from 1 through 10 {
+			// 	&:nth-child(#{$i}) {
+			// 		animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
+			// 	}
+			// }
 		}
 	}
 }

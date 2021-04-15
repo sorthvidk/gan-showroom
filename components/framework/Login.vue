@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
 		<!-- <background-image /> -->
-		<client-only>
+		<!-- <client-only>
 			<vimeo-player
 				class="login__video"
 				ref="player"
@@ -12,17 +12,17 @@
 				:controls="false"
 				:options="{ muted }"
 			/>
-		</client-only>
+		</client-only> -->
 
-		<button class="login__mute" @click="toggleMute">
+		<!-- <button class="login__mute" @click="toggleMute">
 			<svg-icon :name="muted ? 'muted' : 'audio-playing'" />
-		</button>
+		</button> -->
 
-		<h1>
+		<!-- <h1>
 			Ganni<br />love<br />
 			for&shy;ever<br />
 			fall<br />winter<br />2021
-		</h1>
+		</h1> -->
 
 		<div class="login__form">
 			<login-input />

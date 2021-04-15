@@ -4,7 +4,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10000;
+	z-index: get-z('audio-player');
 
 	display: flex;
 	align-items: center;
@@ -47,9 +47,9 @@
 		cursor: pointer;
 		display: inline-flex;
 		padding: 100px 150px;
-		background: black;
+		background: var(--color-secondary);
 		text-decoration: underline;
-		color: white;
+		color: var(--color-primary);
 		position: fixed;
 		top: 40%;
 		left: 50%;
@@ -58,6 +58,6 @@
 	}
 
 	&.dark {
-		color: $color-white;
+		color: var(--color-primary);
 	}
 }

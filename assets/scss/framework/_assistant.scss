@@ -1,3 +1,11 @@
+:root {
+	--assistant-width: 100%;
+
+	@include mq(screen-sm) {
+		--assistant-width: rem(300);
+	}
+}
+
 @keyframes delayed {
 	to {
 		opacity: 1;
@@ -24,18 +32,18 @@
 		left: rem(10);
 		right: rem(10);
 		bottom: rem(10 + 30 + 70); //ios navbar + gutter + support (heights)
+		width: var(--assistant-width);
 
 		user-select: text;
 
 		@include mq($from: screen-sm) {
-			bottom: rem(20);
-			left: rem(20);
-			width: rem(300);
+			bottom: calc(var(--bottombar-height) + var(--page-outer-margin));
+			left: var(--page-outer-margin);
 		}
 		@include mq($from: screen-md) {
-			top: rem(10);
+			top: var(--page-outer-margin);
 			left: auto;
-			right: rem(20);
+			right: var(--page-outer-margin);
 			bottom: auto;
 		}
 
@@ -55,30 +63,35 @@
 
 			.icon {
 				position: absolute;
-				margin-left: rem(13);
 				width: rem(20);
 				display: flex;
 				align-items: center;
+				left: -2rem;
 
 				&:before,
 				&:after {
 					content: '';
-					transition: transform 0.5s $easeInOutQuint;
+					transition: transform 0.25s $easeInOutQuint;
 					pointer-events: none;
 					position: absolute;
 					width: 100%;
-					height: rem(2);
-					background-color: $color-black;
+					height: rem(5);
+					background-color: var(--color-primary);
 				}
 
 				transition: transform 0.5s $easeInOutQuint;
 
+				&:before {
+					transform: rotate(90deg) scaleX(0);
+				}
+
 				&.closed {
 					&:before {
-						transform: translateY(rem(-4));
+						transform: rotate(90deg);
+						// transform: translateY(rem(-4));
 					}
 					&:after {
-						transform: translateY(rem(4));
+						// transform: translateY(rem(4));
 					}
 				}
 			}

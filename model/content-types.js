@@ -473,5 +473,10 @@ export default {
 			canResize: false,
 			modifierClass: 'window--tight'
 		}
+	},
+
+	afterparty: {
+		name: 'afterparty',
+		contentComponent: 'afterparty'
 	}
 }
