@@ -50,12 +50,24 @@
 						width: '100%',
 						height: '100vh',
 						display: 'flex',
-						alignItems: 'flex-end',
+						flexDirection: 'column',
+						justifyContent: 'flex-end',
 						paddingBottom: '70px',
 						boxSizing: 'border-box',
+						padding:
+							'calc(var(--page-outer-margin) + var(--bottombar-height)) var(--page-outer-margin)',
 					}"
 				>
-					<countdown :text="'hejsan på dejsan'" />
+					<countdown
+						:preText="'trädgården opens in '"
+						:deadline="[2021, 6, 21, 19, 0, 0]"
+						:postText="' in stockholm'"
+					/>
+					<countdown
+						:preText="'gewölbe opens in '"
+						:deadline="[2021, 3, 31, 21, 0, 0]"
+						:postText="' in cologne'"
+					/>
 				</div>
 			</transition>
 			<!-- </vue-bar> -->

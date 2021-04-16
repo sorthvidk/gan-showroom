@@ -9,6 +9,7 @@ import Vidle from 'v-idle'
 import Konva from 'konva'
 import Vuebar from 'vuebar'
 import vueVimeoPlayer from 'vue-vimeo-player'
+import * as dateFns from 'date-fns'
 // import viscosity from 'scroll-viscosity'
 
 Vue.use(VueLazyload)
@@ -20,6 +21,7 @@ Vue.use(WebCam)
 Vue.use(Vidle)
 Vue.use(Vuebar)
 Vue.use(vueVimeoPlayer)
+Vue.use(dateFns)
 // Vue.use(viscosity)
 
 /**

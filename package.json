@@ -33,6 +33,7 @@
 		"@nuxtjs/markdownit": "^1.2.6",
 		"@nuxtjs/svg-sprite": "^0.5.2",
 		"cloudinary-core": "^2.8.2",
+		"date-fns": "^2.21.1",
 		"gsap": "^2.1.2",
 		"hash.js": "^1.1.7",
 		"intersection-observer": "^0.5.1",
