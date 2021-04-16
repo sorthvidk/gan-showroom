@@ -17,6 +17,8 @@
 	align-items: flex-start;
 	background-color: var(--color-background);
 	padding-bottom: var(--bottombar-height);
+	min-height: 100vh;
+	box-sizing: border-box;
 
 	> * {
 		width: 100%;

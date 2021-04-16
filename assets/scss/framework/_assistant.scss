@@ -283,6 +283,35 @@
 		}
 	}
 
+	&__search {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		input {
+			@include bodytext();
+			background: none;
+			width: 100%;
+			color: var(--color-secondary);
+			border: 0;
+			border-top: 1px solid;
+			padding: 10px;
+			text-transform: uppercase;
+			outline: 0;
+
+			&::placeholder {
+				color: inherit;
+			}
+		}
+
+		svg {
+			width: 1em;
+			position: absolute;
+			right: 10px;
+			pointer-events: none;
+		}
+	}
+
 	&__ctas {
 		display: flex;
 		// flex-wrap: wrap;

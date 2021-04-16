@@ -17,6 +17,11 @@
 						:value="searchstring"
 						@input="onSearchInput"
 					/>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+						<path
+							d="M447 428L337 318a192 192 0 10-19 19l110 110c3 3 6 4 10 4s6-1 9-4c5-5 5-14 0-19zM27 192a165 165 0 11331 1 165 165 0 01-331-1z"
+						/>
+					</svg>
 				</div>
 
 				<div class="assistant__filters__list">
