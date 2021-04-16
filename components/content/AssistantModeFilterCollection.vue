@@ -9,6 +9,16 @@
 			<div class="assistant__filters">
 				<h3>{{ texts.collection.headline }}</h3>
 				<p>{{ texts.collection.bodyText }}</p>
+
+				<div class="assistant__search">
+					<input
+						type="text"
+						placeholder="search"
+						:value="searchstring"
+						@input="onSearchInput"
+					/>
+				</div>
+
 				<div class="assistant__filters__list">
 					<filter-button
 						v-for="(item, key) in groupFiltersNonNull"
@@ -53,6 +63,7 @@ import {
 	DOWNLOAD_PREPARING,
 	SET_PREVIOUS_GROUP,
 	SET_NEXT_GROUP,
+	SET_SEARCHSTRING,
 } from '~/model/constants'
 import FilterButton from '~/components/content/FilterButton.vue'
 
@@ -65,7 +76,12 @@ export default {
 		// ...mapState('user', ['keyPressed']),
 		...mapState('utils', ['isMobile', 'downloadPreparing', '__prod__']),
 		...mapState('assistant', ['expanded', 'pdfDownloadLink', 'texts']),
-		...mapState('collection', ['groupFilters', 'activeGroup', 'activeFilter']),
+		...mapState('collection', [
+			'groupFilters',
+			'activeGroup',
+			'activeFilter',
+			'searchstring',
+		]),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
 		downloadCollectionButtonLabel() {
 			if (this.activeFilter.filterId) {
@@ -123,6 +139,7 @@ export default {
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
 			SET_NEXT_GROUP.action,
+			SET_SEARCHSTRING.action,
 		]),
 		...mapActions('utils', [DOWNLOAD_PREPARING.action]),
 		viewWishList() {
@@ -140,6 +157,12 @@ export default {
 		nextGroupHandler() {
 			this[SET_NEXT_GROUP.action]()
 		},
+		onSearchInput(event) {
+			this[SET_SEARCHSTRING.action](event.target.value)
+		},
+	},
+	beforeDestroy() {
+		this[SET_SEARCHSTRING.action]('')
 	},
 }
 </script>
