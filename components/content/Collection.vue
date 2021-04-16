@@ -67,6 +67,7 @@ export default {
 			// 'allGroups',
 			'authorizedGroups',
 			'activeGroup',
+			'searchstring',
 		]),
 
 		groupsRenderList() {
@@ -78,7 +79,21 @@ export default {
 				.filter(isActive)
 				.map((group) => ({
 					...group,
-					styles: this.currentStyles.filter((e) => e.groupId === group.groupId),
+					styles: this.currentStyles.filter((e) => {
+						const sameGroup = e.groupId === group.groupId
+						const searchableKeys = [
+							'styleId',
+							'programName',
+							'material',
+							'name',
+						]
+						const searchedFor = searchableKeys.find((key) => {
+							return e[key]
+								.toLowerCase()
+								.includes(this.searchstring.toLowerCase())
+						})
+						return sameGroup && searchedFor
+					}),
 				}))
 
 			// let groups = []

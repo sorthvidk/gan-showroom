@@ -21,7 +21,8 @@ import {
 	COLLECTION_LAYOUT_CHANGE,
 	AUTHORIZE_GROUPS,
 	CURRENT_STYLE,
-	SET_HIDDEN_ASSETS
+	SET_HIDDEN_ASSETS,
+	SET_SEARCHSTRING
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
@@ -76,7 +77,9 @@ export const state = () => ({
 	wishList: [],
 
 	currentStyle: null,
-	hiddenAssetContent: []
+	hiddenAssetContent: [],
+
+	searchstring: ''
 })
 
 export const getters = {
@@ -513,6 +516,10 @@ export const mutations = {
 				contentComponentProps: { asset },
 				statusComponentProps: getAssetType(asset).defaultStatusComponentProps
 			}))
+	},
+
+	[SET_SEARCHSTRING.mutation](state, data) {
+		state.searchstring = data
 	}
 }
 
@@ -703,5 +710,9 @@ export const actions = {
 
 	[SET_HIDDEN_ASSETS.action]({ commit }, fill) {
 		commit(SET_HIDDEN_ASSETS.mutation, fill)
+	},
+
+	[SET_SEARCHSTRING.action]({ commit }, data) {
+		commit(SET_SEARCHSTRING.mutation, data)
 	}
 }

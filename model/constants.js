@@ -43,6 +43,7 @@ export const REMOVE_FROM_WISHLIST = create('REMOVE_FROM_WISHLIST')
 export const ALL_ASSETS_VISIBLE = create('ALL_ASSETS_VISIBLE')
 // export const SHOW_NEXT_STYLE = create('SHOW_NEXT_STYLE')
 export const SHOW_NEW_STYLE = create('SHOW_NEW_STYLE')
+export const SET_SEARCHSTRING = create('SET_SEARCHSTRING')
 
 export const SET_CURRENT_FILTER = create('SET_CURRENT_FILTER')
 export const SET_GROUP_BY_IDENTIFIER = create('SET_GROUP_BY_IDENTIFIER')
