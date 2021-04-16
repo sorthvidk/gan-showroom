@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import viscosity from 'scroll-viscosity'
+// import viscosity from 'scroll-viscosity'
 
 export default {
 	name: 'afterparty',
 	mounted() {
-		let instance = viscosity({
-			element: this.$refs.visc,
-			easing: 0.1,
-		})
+		// let instance = viscosity({
+		// 	element: this.$refs.visc,
+		// 	easing: 0.1,
+		// })
 	},
 }
 </script>

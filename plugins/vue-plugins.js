@@ -9,6 +9,7 @@ import Vidle from 'v-idle'
 import Konva from 'konva'
 import Vuebar from 'vuebar'
 import vueVimeoPlayer from 'vue-vimeo-player'
+// import viscosity from 'scroll-viscosity'
 
 Vue.use(VueLazyload)
 Vue.use(VueDraggableResizable)
@@ -19,6 +20,7 @@ Vue.use(WebCam)
 Vue.use(Vidle)
 Vue.use(Vuebar)
 Vue.use(vueVimeoPlayer)
+// Vue.use(viscosity)
 
 /**
  * todo: turn of when bugfixing is done
