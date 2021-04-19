@@ -32,7 +32,8 @@ import {
 	FETCH_PASSWORDS,
 	UPDATE_PROGRESS,
 	OPEN_CONTENT_IN_DASHBOARD,
-	ASSISTANT_UPDATE
+	ASSISTANT_UPDATE,
+	FETCH_GREEN_ROOM
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -508,12 +509,12 @@ export const actions = {
 			await getData(require.context('~/assets/mock/various/', false, /\.json$/))
 		)
 
-		commit(
-			'audio/' + FETCH_SUBTITLES.mutation,
-			await getData(
-				require.context('~/assets/mock/subtitles/', false, /\.json$/)
-			)
-		)
+		// commit(
+		// 	'audio/' + FETCH_SUBTITLES.mutation,
+		// 	await getData(
+		// 		require.context('~/assets/mock/subtitles/', false, /\.json$/)
+		// 	)
+		// )
 
 		commit(
 			'assets/' + FETCH_DOWNLOADS.mutation,
@@ -522,10 +523,17 @@ export const actions = {
 			)
 		)
 
+		// commit(
+		// 	'audio/' + FETCH_SCROLL_IMAGES.mutation,
+		// 	await getData(
+		// 		require.context('~/assets/mock/scrollImages/', false, /\.json$/)
+		// 	)
+		// )
+
 		commit(
-			'audio/' + FETCH_SCROLL_IMAGES.mutation,
+			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
 			await getData(
-				require.context('~/assets/mock/scrollImages/', false, /\.json$/)
+				require.context('~/assets/mock/greenRoom/', false, /\.json$/)
 			)
 		)
 

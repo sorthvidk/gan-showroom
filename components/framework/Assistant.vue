@@ -17,10 +17,7 @@
 						: 'n-resize',
 				}" -->
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
-				<clip-text
-					:text="'GANNI SPACE'"
-					:background="'img/login-slide-2.jpg'"
-				/>
+				<img src="img/ganni-space.png" />
 			</span>
 		</div>
 

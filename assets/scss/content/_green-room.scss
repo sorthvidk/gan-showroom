@@ -1,7 +1,6 @@
 .green-room {
-	color: var(--color-primary);
+	color: var(--color-secondary);
 
-	font-size: 10vw;
 	height: 100vh;
 	width: 300vw;
 
@@ -9,11 +8,34 @@
 	background-color: $color-goblin;
 
 	h1 {
+		@include windowtitle();
 		position: absolute;
-		top: 10vh;
-		left: 10vw;
-		font-weight: bold;
-		padding: 0.5em;
-		border: 0.1em solid;
+		display: flex;
+		top: 20%;
+		// transform: translateY(-50%);
+		left: 40vw;
+		height: auto;
+		max-width: 15em;
+		padding: 0.25em;
+		border: 0.2em solid;
+	}
+
+	&__item {
+		@include bodytext();
+		max-width: 400px;
+		position: relative;
+
+		margin: 12.5vh 15vw; // temp
+
+		p {
+			position: absolute;
+			background-color: $color-white;
+			color: var(--color-secondary);
+			padding: 1em;
+			top: 60%;
+			left: 40%;
+			width: 400px;
+			border: 2px solid;
+		}
 	}
 }

@@ -16,7 +16,7 @@
 	&--assistant {
 		z-index: $z-index-assistant !important;
 
-		background-color: var(--color-primary);
+		background-color: transparent;
 
 		opacity: 0;
 		animation: delayed 0s 0.3s forwards;
@@ -25,6 +25,12 @@
 			@include windowtitle();
 			cursor: default;
 			overflow: visible;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 
 		position: fixed;
@@ -49,9 +55,12 @@
 
 		.window__content {
 			overflow: hidden;
+			background: var(--color-primary);
 		}
 
 		.window__top {
+			background: transparent;
+
 			.title {
 				padding: 0;
 				height: rem(50);

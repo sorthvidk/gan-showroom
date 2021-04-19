@@ -8445,9 +8445,9 @@ schema-utils@^2.0.0, schema-utils@^2.5.0, schema-utils@^2.6.1, schema-utils@^2.6
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-scroll-viscosity@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/scroll-viscosity/-/scroll-viscosity-1.0.11.tgz#1741862eecf706d947fb6e20f877b402582736f4"
+scroll-viscosity@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/scroll-viscosity/-/scroll-viscosity-1.0.12.tgz#a0699fb5dbef5e02c14dd114208e43cd080b3152"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
