@@ -49,6 +49,7 @@ import StatusStatic from '~/components/content/StatusStatic.vue'
 import StatusCollection from '~/components/content/StatusCollection.vue'
 import StatusWishList from '~/components/content/StatusWishList.vue'
 
+import GreenRoom from '~/components/content/GreenRoom.vue'
 import Afterparty from '~/components/content/Afterparty.vue'
 
 import VueBar from '~/components/content/VueBar.vue'
@@ -78,6 +79,7 @@ export default {
 		LookbookSlideshow,
 		VideoPlayer,
 		AudioGalleryController,
+		GreenRoom,
 		Afterparty,
 	},
 	props: {

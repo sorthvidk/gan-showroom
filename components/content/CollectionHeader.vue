@@ -8,6 +8,10 @@
 			<div class="text">
 				<h1>{{ group.name }}</h1>
 				<p v-if="group.text" v-html="group.text" />
+				<countdown
+					:preText="'That is in '"
+					:deadline="[2021, 8, 15, 0, 0, 0]"
+				/>
 				<!-- <p>{{ loaded }}</p> -->
 			</div>
 			<div class="image">
@@ -33,10 +37,14 @@
 </template>
 
 <script>
+import Countdown from '~/components/elements/Countdown.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
 export default {
 	name: 'collection-header',
+	components: {
+		Countdown,
+	},
 	props: {
 		mode: {
 			type: String,

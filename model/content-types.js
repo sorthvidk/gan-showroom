@@ -478,5 +478,10 @@ export default {
 	afterparty: {
 		name: 'afterparty',
 		contentComponent: 'afterparty'
+	},
+
+	greenRoom: {
+		name: 'green-room',
+		contentComponent: 'green-room'
 	}
 }

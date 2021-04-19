@@ -44,6 +44,7 @@ export default {
 		},
 	},
 	mounted() {
+		this.updateDuration()
 		this.loop()
 	},
 }

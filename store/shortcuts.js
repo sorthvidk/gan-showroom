@@ -88,6 +88,19 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'green-room',
+			label: 'Green room',
+			windowContent: [
+				{
+					title: 'Green room',
+					contentId: 'green-room',
+					type: ContentTypes.greenRoom
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'links',
 			label: 'Download',
 			actions: [

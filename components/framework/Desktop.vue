@@ -43,30 +43,13 @@
 				/>
 				<div
 					v-else
-					:style="{
-						backgroundImage: `url(${various.dashboardBackground[0]})`,
-						backgroundSize: 'cover',
-						backgroundPosition: 'center',
-						width: '100%',
-						height: '100vh',
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'flex-end',
-						paddingBottom: '70px',
-						boxSizing: 'border-box',
-						padding:
-							'calc(var(--page-outer-margin) + var(--bottombar-height)) var(--page-outer-margin)',
-					}"
+					class="desktop__background"
+					:style="{ backgroundImage: `url(${various.dashboardBackground[0]})` }"
 				>
 					<countdown
-						:preText="'trädgården opens in '"
-						:deadline="[2021, 6, 21, 19, 0, 0]"
-						:postText="' in stockholm'"
-					/>
-					<countdown
-						:preText="'gewölbe opens in '"
-						:deadline="[2021, 3, 31, 21, 0, 0]"
-						:postText="' in cologne'"
+						v-for="club in activeClubs"
+						:key="club.pretext"
+						v-bind="club"
 					/>
 				</div>
 			</transition>
@@ -235,6 +218,21 @@ export default {
 			showDownloadMessage: false,
 			wallpaperCount: 6,
 			backgrounds: [],
+
+			activeClubs: [],
+			active: 0,
+			clubs: [
+				{
+					preText: 'trädgården opens in ',
+					deadline: [2021, 6, 21, 19, 0, 0],
+					postText: ' in stockholm',
+				},
+				{
+					preText: 'gewölbe opens in ',
+					deadline: [2021, 3, 31, 21, 0, 0],
+					postText: ' in cologne',
+				},
+			],
 		}
 	},
 	methods: {
@@ -259,6 +257,15 @@ export default {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
+		activateClubs() {
+			setTimeout(() => {
+				this.activeClubs = this.clubs.filter((_, idx) => idx < this.active)
+				this.active++
+				if (this.active <= this.clubs.length) {
+					this.activateClubs()
+				}
+			}, 5000)
+		},
 	},
 	mounted() {
 		this[AUTHORIZE_GROUPS.action]()
@@ -268,6 +275,7 @@ export default {
 		// 	windowContent: this.list[0].windowContent,
 		// })
 		// this.$store.commit('collection/isOnWishList')
+		this.activateClubs()
 	},
 
 	created() {},

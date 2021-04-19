@@ -72,6 +72,8 @@ import {
 	MOUSEMOVE,
 	RESET_STATE,
 	USER_HAS_INTERACTED,
+	CURRENT_SCROLL,
+	SCREEN_SIZE,
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -125,6 +127,8 @@ export default {
 			IDLE.action,
 			MOUSEMOVE.action,
 			USER_HAS_INTERACTED.action,
+			CURRENT_SCROLL.action,
+			SCREEN_SIZE.action,
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 
@@ -142,9 +146,7 @@ export default {
 		},
 
 		nextSong() {
-			console.log(this.currentAudioIdx)
 			this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
-			console.log(this.currentAudioIdx)
 		},
 	},
 	mounted() {
@@ -184,6 +186,20 @@ export default {
 				this[MOUSEMOVE.action](event)
 			}, 200)
 		})
+
+		// TODO : add some throttle/debounce
+		this[CURRENT_SCROLL.action](window.pageYOffset)
+		window.addEventListener('scroll', () => {
+			this[CURRENT_SCROLL.action](window.pageYOffset)
+		})
+		const setScreenSize = () => {
+			this[SCREEN_SIZE.action]({
+				width: window.innerWidth,
+				height: window.innerHeight,
+			})
+		}
+		setScreenSize()
+		window.addEventListener('resize', setScreenSize)
 
 		this.audioPlayer = this.$children[1].$children[0].progress
 	},

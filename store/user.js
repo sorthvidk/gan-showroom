@@ -7,7 +7,9 @@ import {
 	MOUSEMOVE,
 	FETCH_PASSWORDS,
 	IDLE,
-	USER_HAS_INTERACTED
+	USER_HAS_INTERACTED,
+	CURRENT_SCROLL,
+	SCREEN_SIZE
 } from '~/model/constants'
 
 export const state = () => ({
@@ -22,7 +24,10 @@ export const state = () => ({
 	passwords: {},
 
 	idle: false,
-	userHasInteracted: false
+	userHasInteracted: false,
+
+	currentScroll: 0,
+	screenSize: { width: 0, height: 0 }
 })
 
 export const mutations = {
@@ -59,6 +64,14 @@ export const mutations = {
 
 	[USER_HAS_INTERACTED.mutation](state) {
 		state.userHasInteracted = true
+	},
+
+	[CURRENT_SCROLL.mutation](state, data) {
+		state.currentScroll = data
+	},
+
+	[SCREEN_SIZE.mutation](state, data) {
+		state.screenSize = data
 	}
 }
 
@@ -90,5 +103,13 @@ export const actions = {
 	},
 	[USER_HAS_INTERACTED.action]({ commit }) {
 		commit(USER_HAS_INTERACTED.mutation, true)
+	},
+
+	[CURRENT_SCROLL.action]({ commit }, data) {
+		commit(CURRENT_SCROLL.mutation, data)
+	},
+
+	[SCREEN_SIZE.action]({ commit }, data) {
+		commit(SCREEN_SIZE.mutation, data)
 	}
 }

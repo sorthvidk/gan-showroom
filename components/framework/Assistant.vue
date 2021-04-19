@@ -64,10 +64,7 @@
 		<!-- ####################### CONTENT ####################### -->
 
 		<transition-expand>
-			<div
-				v-show="true || !closed || windowList.length"
-				class="window__content"
-			>
+			<div v-show="!closed || windowList.length" class="window__content">
 				<div class="assistant">
 					<assistant-mode-welcome v-if="assistantMode === 0" />
 					<assistant-mode-filter-collection v-if="assistantMode === 1" />

@@ -106,3 +106,6 @@ export const FETCH_VARIOUS = create('FETCH_VARIOUS')
 export const FETCH_SUBTITLES = create('FETCH_SUBTITLES')
 export const FETCH_DOWNLOADS = create('FETCH_DOWNLOADS')
 export const FETCH_SCROLL_IMAGES = create('FETCH_SCROLL_IMAGES')
+
+export const CURRENT_SCROLL = create('CURRENT_SCROLL')
+export const SCREEN_SIZE = create('SCREEN_SIZE')
