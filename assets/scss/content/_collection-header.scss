@@ -10,29 +10,43 @@
 	.inner {
 		display: grid;
 		grid-template-columns: repeat(var(--collection-header-cols), 1fr);
+		grid-template-rows: 1fr 1fr;
 		grid-gap: 1px;
 		width: 100%;
-		background-color: $color-white;
+		background-color: var(--color-background);
 
 		border-bottom: 1px solid $color-white;
+
+		max-height: 50vh;
+		overflow: auto;
 	}
 
 	.image {
 		position: relative;
 		box-sizing: border-box;
 
-		overflow: hidden;
-		height: calc(calc(100vw / var(--collection-header-cols)) * 0.66);
+		object-fit: contain;
 		display: flex;
+		height: 50vh;
+		margin: 0 auto;
 	}
 
-	.effect {
-		width: max-content;
-		height: inherit;
-		display: flex;
-		align-items: flex-start;
-		flex-shrink: 0;
+	.timeline {
+		height: 5px;
+
+		border-radius: 5px;
+		background: var(--color-primary);
+		position: absolute;
+		bottom: 5px;
 	}
+
+	// .effect {
+	// 	width: max-content;
+	// 	height: inherit;
+	// 	display: flex;
+	// 	align-items: flex-start;
+	// 	flex-shrink: 0;
+	// }
 
 	img {
 		height: 100%;
@@ -41,17 +55,23 @@
 	.text {
 		@include bodytext();
 		font-size: 10vw;
-		font-weight: 300;
+		font-weight: 400;
+		line-height: 0.8;
 
+		height: 50vh;
 		box-sizing: border-box;
 		white-space: pre-line;
 		padding: var(--page-outer-margin);
 		background-color: var(--color-background);
 	}
 
+	h1 {
+		margin-bottom: var(--page-outer-margin);
+	}
+
 	p {
 		@include windowtitle();
-		font-size: 5vw;
+		// font-size: 5vw;
 		font-weight: normal;
 		margin-top: rem(10);
 
@@ -60,49 +80,49 @@
 		}
 	}
 
-	--count: 0;
+	// --count: 0;
 
-	@keyframes sweep {
-		to {
-			transform: translateX(-100%);
-		}
-	}
+	// @keyframes sweep {
+	// 	to {
+	// 		transform: translateX(-100%);
+	// 	}
+	// }
 
-	&.carousel {
-		.effect {
-			animation: sweep calc(var(--count) * 10s) infinite linear forwards;
-		}
-	}
+	// &.carousel {
+	// 	.effect {
+	// 		animation: sweep calc(var(--count) * 10s) infinite linear forwards;
+	// 	}
+	// }
 
-	--speed: 3s;
+	// --speed: 3s;
 
-	@keyframes flash {
-		from {
-			z-index: 0;
-		}
-		to {
-			z-index: var(--count);
-		}
-	}
+	// @keyframes flash {
+	// 	from {
+	// 		z-index: 0;
+	// 	}
+	// 	to {
+	// 		z-index: var(--count);
+	// 	}
+	// }
 
-	&.flash {
-		.effect {
-			height: inherit;
-		}
+	// &.flash {
+	// 	.effect {
+	// 		height: inherit;
+	// 	}
 
-		img {
-			// animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
-			// 	forwards;
-			position: absolute;
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
+	// 	img {
+	// 		// animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
+	// 		// 	forwards;
+	// 		position: absolute;
+	// 		object-fit: cover;
+	// 		width: 100%;
+	// 		height: 100%;
 
-			// @for $i from 1 through 10 {
-			// 	&:nth-child(#{$i}) {
-			// 		animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
-			// 	}
-			// }
-		}
-	}
+	// 		// @for $i from 1 through 10 {
+	// 		// 	&:nth-child(#{$i}) {
+	// 		// 		animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
+	// 		// 	}
+	// 		// }
+	// 	}
+	// }
 }
