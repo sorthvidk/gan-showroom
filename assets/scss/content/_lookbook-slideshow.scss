@@ -3,13 +3,12 @@
 
 	position: relative;
 
-	height: 100%;
-	min-height: inherit;
+	min-height: 100vh;
 	display: flex;
 	align-items: flex-start;
 
 	padding-top: rem(70);
-	padding-bottom: rem(21);
+	padding-bottom: var(--bottombar-height);
 	box-sizing: border-box;
 
 	color: $color-white;
@@ -17,6 +16,7 @@
 	&__content {
 		position: relative;
 		height: 100%;
+		min-height: 100%;
 		width: 100%;
 		margin: 0 var(--page-outer-margin);
 	}

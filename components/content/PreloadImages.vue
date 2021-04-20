@@ -1,7 +1,13 @@
 <template>
 	<div
 		class="preload-images"
-		style="opacity: 0; pointer-events: none; position: fixed; top: -100000px, left: -100000px"
+		style="
+			opacity: 0;
+			pointer-events: none;
+			position: fixed;
+			top: -100000px;
+			left: -100000px;
+		"
 	>
 		<img
 			v-for="(src, i) in images"

@@ -1,9 +1,9 @@
 <template>
 	<div
 		class="collection-header"
-		:class="{ [mode]: mode }"
 		:style="{ '--count': group.cloudinaryUrl && group.cloudinaryUrl.length }"
 	>
+		<!-- :class="{ [mode]: mode }" -->
 		<div class="inner">
 			<div class="text">
 				<h1>{{ group.name }}</h1>
@@ -12,25 +12,30 @@
 					:preText="'That is in '"
 					:deadline="[2021, 8, 15, 0, 0, 0]"
 				/>
-				<!-- <p>{{ loaded }}</p> -->
 			</div>
 			<div class="image">
-				<!-- v-for="i in mode === 'carousel' ? 2 : 1"
-					:key="`lakjshdf${i}`" -->
-				<!-- <div class="effect"> -->
-				<img
+				<!-- <img
 					v-if="!group.cloudinaryUrl || !group.cloudinaryUrl.length"
 					:src="greyPixel"
-				/>
+				/> -->
 				<img
-					v-else
-					v-for="image in group.cloudinaryUrl"
+					v-for="(image, idx) in group.cloudinaryUrl"
 					:key="image"
 					:src="getImage(image).src"
+					@click="showNextImage"
+					v-show="idx === activeIndex"
 				/>
-				<!-- v-show="loaded === group.cloudinaryUrl.length" -->
-				<!-- @load="isLoaded" -->
-				<!-- </div> -->
+				<!-- <img
+					:key="activeIndex"
+					:src="getImage(group.cloudinaryUrl[activeIndex]).src"
+				/> -->
+				<div
+					class="timeline"
+					:style="{
+						width: `${100 / group.cloudinaryUrl.length}%`,
+						left: `${(100 / group.cloudinaryUrl.length) * activeIndex}%`,
+					}"
+				></div>
 			</div>
 		</div>
 	</div>
@@ -40,6 +45,8 @@
 import Countdown from '~/components/elements/Countdown.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
+import { nextIndex } from '~/utils/array-helpers'
+
 export default {
 	name: 'collection-header',
 	components: {
@@ -58,6 +65,7 @@ export default {
 	data: () => ({
 		greyPixel,
 		loaded: 0,
+		activeIndex: 0,
 	}),
 	methods: {
 		getImage(src) {
@@ -69,6 +77,12 @@ export default {
 		isLoaded() {
 			return this.loaded++
 		},
+		showNextImage() {
+			this.activeIndex = nextIndex(this.group.cloudinaryUrl, this.activeIndex)
+		},
+	},
+	mounted() {
+		console.log(this.group)
 	},
 }
 </script>

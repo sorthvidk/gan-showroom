@@ -47,7 +47,7 @@ export default {
 		},
 	},
 	mounted() {
-		let instance = viscosity({
+		viscosity({
 			element: this.$refs.visc,
 			easing: 0.2,
 		})
