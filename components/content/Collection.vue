@@ -11,7 +11,7 @@
 			:key="'group' + i"
 		>
 			<h4 v-if="groupsRenderList.length > 1 && group.styles.length">
-				{{ group.name }}
+				{{ group.groupId.replace('-', ' ') }}
 			</h4>
 
 			<collection-header

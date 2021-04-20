@@ -1,17 +1,16 @@
 <template>
-	<div
-		class="collection-header"
-		:style="{ '--count': group.cloudinaryUrl && group.cloudinaryUrl.length }"
-	>
+	<div class="collection-header">
+		<!-- :style="{ '--count': group.cloudinaryUrl && group.cloudinaryUrl.length }" -->
 		<!-- :class="{ [mode]: mode }" -->
 		<div class="inner">
 			<div class="text">
-				<h1>{{ group.name }}</h1>
-				<p v-if="group.text" v-html="group.text" />
+				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
+					v-if="group.deadline"
 					:preText="'That is in '"
-					:deadline="[2021, 8, 15, 0, 0, 0]"
+					:deadline="group.deadline.split(',')"
 				/>
+				<p v-if="group.text" v-html="group.text" />
 			</div>
 			<div class="image">
 				<!-- <img

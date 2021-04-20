@@ -17,7 +17,10 @@
 						: 'n-resize',
 				}" -->
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
+
+				<span></span>
 				<img src="img/ganni-space.png" />
+				<span></span>
 			</span>
 		</div>
 

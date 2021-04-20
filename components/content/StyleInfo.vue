@@ -41,6 +41,16 @@
 			<span>{{ item.sizes }}</span>
 		</div>
 
+		<div class="style-info__row" v-if="item.measurements">
+			<span>Measurements</span>
+			<span>{{ item.measurements }}</span>
+		</div>
+
+		<div class="style-info__row" v-if="item.message">
+			<span>message</span>
+			<span>{{ item.message }}</span>
+		</div>
+
 		<div class="style-info__row" v-if="SHOW_WHOLESALE_PRICE">
 			<span>Wholesale price</span>
 			<span

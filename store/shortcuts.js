@@ -13,15 +13,29 @@ import AssistantModes from '~/model/assistant-modes'
 export const state = () => ({
 	textStyledWithoutIcon: true,
 	list: [
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'audio-gallery',
+		// 	label: 'Ditte speak',
+		// 	windowContent: [
+		// 		{
+		// 			contentId: 'audio-gallery',
+		// 			type: {
+		// 				contentComponent: 'audio-gallery-controller'
+		// 			}
+		// 		}
+		// 	]
+		// },
+
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'audio-gallery',
-			label: 'Ditte speak',
+			shortcutId: 'party-animal',
+			label: 'Party animal quiz',
 			windowContent: [
 				{
-					contentId: 'audio-gallery',
+					contentId: 'party-animal',
 					type: {
-						contentComponent: 'audio-gallery-controller'
+						contentComponent: 'party-animal'
 					}
 				}
 			]

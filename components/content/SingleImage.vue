@@ -9,6 +9,13 @@
 			<img v-if="!lazy" :src="assetUrl" alt="img" @click="clickHandler" />
 			<img v-else v-lazy="assetUrl" alt="img" @click="clickHandler" />
 		</transition>
+
+		<p
+			class="single-image__message"
+			v-if="asset.styleId && currentStyle && currentStyle.message"
+		>
+			{{ currentStyle.message }}
+		</p>
 	</div>
 </template>
 
@@ -32,6 +39,7 @@ export default {
 		lazy: { type: Boolean, default: false },
 	},
 	computed: {
+		...mapState('collection', ['currentStyle']),
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset, {
 				width: this.asset.aspect === 'landscape' ? 592 : 370,

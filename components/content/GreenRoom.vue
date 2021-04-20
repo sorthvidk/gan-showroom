@@ -1,22 +1,24 @@
 <template>
-	<div class="green-room">
+	<div class="green-room" :style="{ width: `${items.length * 20}vw` }">
 		<h1 ref="visc">
 			"A carbon tax, which our politicians never had the guts to introduce, will
 			be hugely beneficial for the transition towards a sustainable fashion
-			industry"
+			industry"<br />
+			— Nicolaj Reffstrup
 		</h1>
 		<div
 			class="green-room__item"
 			v-for="(item, idx) in items"
 			:key="item.text"
 			ref="items"
+			:style="{ left: `${idx * 19 + 5}%`, top: `${(idx % 2) * 45 + 5}%` }"
 		>
 			<button @click="toggle(idx)">
 				<!-- real image -->
 				<!-- <img :src="item.cloudinaryUrl" /> -->
 
 				<!-- test image -->
-				<img :src="'img/collage/bg2.jpg'" />
+				<img :src="'img/hamster2.gif'" />
 			</button>
 			<p v-if="currentlyOpen.includes(idx)">{{ item.text }}</p>
 		</div>
@@ -51,8 +53,8 @@ export default {
 			element: this.$refs.visc,
 			easing: 0.2,
 		})
-		this.$refs.items.forEach((item) => {
-			viscosity({ element: item, easing: Math.random() * 0.05 + 0.1 })
+		this.$refs.items.forEach((item, idx) => {
+			viscosity({ element: item, easing: 0.01 * idx + 0.05 })
 		})
 		window.addEventListener('wheel', this.scrollHorizontally)
 	},

@@ -289,10 +289,23 @@ collections:
           hint: 'An image that is displayed in the top of the collection page',
         }
       - {
+          label: 'Headline',
+          name: 'headline',
+          widget: 'text',
+          hint: "01 Essentials\nDrops August 15th",
+        }
+      - {
           label: 'Cover text',
           name: 'text',
           widget: 'text',
           hint: 'A text that is displayed in the top of the collection page',
+        }
+      - {
+          label: 'Countdown deadline',
+          name: 'text',
+          widget: 'string',
+          required: false,
+          hint: 'If there should be a countdown. Format: "YYYY, M, DD, HH, MM, SS", Ex: "2021, 8, 15, 0, 0, 0"',
         }
       - {
           label: 'Display name',

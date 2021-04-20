@@ -166,8 +166,8 @@ export default {
 			this[SET_SEARCHSTRING.action](event.target.value)
 		},
 	},
-	beforeDestroy() {
-		this[SET_SEARCHSTRING.action]('')
-	},
+	// beforeDestroy() {
+	// 	this[SET_SEARCHSTRING.action]('')
+	// },
 }
 </script>

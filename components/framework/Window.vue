@@ -79,6 +79,7 @@ import StatusWishList from '~/components/content/StatusWishList.vue'
 
 import GreenRoom from '~/components/content/GreenRoom.vue'
 import Afterparty from '~/components/content/Afterparty.vue'
+import PartyAnimal from '~/components/content/PartyAnimal.vue'
 
 export default {
 	name: 'window',
@@ -104,6 +105,7 @@ export default {
 		DownloadModal,
 		GreenRoom,
 		Afterparty,
+		PartyAnimal,
 	},
 	props: {
 		modifierClass: {

@@ -1,14 +1,6 @@
 <template>
 	<transition name="startup-transition" mode="out-in">
-		<div
-			class="desktop"
-			:class="{ 'screensaver-running': idle, dark: dashboardDark }"
-			:style="{
-				backgroundSize: webcamImage && '400px',
-			}"
-		>
-			<!-- <background-image /> -->
-
+		<div>
 			<div
 				:class="{
 					desktop__shortcuts: !textStyledWithoutIcon,
@@ -32,67 +24,79 @@
 				/>
 			</div>
 
-			<!-- <div class="desktop__static"> -->
-			<!-- <vue-bar> -->
-			<transition name="fade--fast" mode="out-in">
-				<!-- ref="vuebar" -->
-				<window-static
-					v-if="dashboardContent && dashboardContent.contentComponent"
-					:content="dashboardContent"
-					:key="dashboardContent.windowId"
-				/>
-				<div
-					v-else
-					class="desktop__background"
-					:style="{ backgroundImage: `url(${various.dashboardBackground[0]})` }"
-				>
-					<countdown
-						v-for="club in activeClubs"
-						:key="club.pretext"
-						v-bind="club"
+			<div
+				class="desktop"
+				:class="{ 'screensaver-running': idle, dark: dashboardDark }"
+				:style="{
+					backgroundSize: webcamImage && '400px',
+				}"
+			>
+				<!-- <background-image /> -->
+
+				<!-- <div class="desktop__static"> -->
+				<!-- <vue-bar> -->
+				<transition name="fade--fast" mode="out-in">
+					<!-- ref="vuebar" -->
+					<window-static
+						v-if="dashboardContent && dashboardContent.contentComponent"
+						:content="dashboardContent"
+						:key="dashboardContent.windowId"
 					/>
+					<div
+						v-else
+						class="desktop__background"
+						:style="{
+							backgroundImage: `url(${various.dashboardBackground[0]})`,
+						}"
+					>
+						<countdown
+							v-for="club in activeClubs"
+							:key="club.pretext"
+							v-bind="club"
+						/>
+					</div>
+				</transition>
+				<!-- </vue-bar> -->
+				<!-- </div> -->
+
+				<media-library v-if="showMenu" />
+
+				<div class="desktop__windows">
+					<transition-group
+						tag="div"
+						name="window-animation"
+						@before-enter="setTransformOrigin"
+					>
+						<window
+							v-for="(item, index) in windowList"
+							:key="item.windowId"
+							v-bind="item.windowProps"
+							:position-z="item.positionZ"
+							:window-id="item.windowId"
+							:content-type="item.contentType"
+							:content-name="item.contentName"
+							:content-component="item.contentComponent"
+							:status-component="item.statusComponent"
+							:content-component-props="item.contentComponentProps"
+							:group-id="item.groupId"
+							:status-component-props="item.statusComponentProps"
+							:window-info="item.customAssistantText"
+							:title="item.title"
+							:content-id="item.contentId"
+							:data-index="index"
+						/>
+					</transition-group>
+
+					<assistant />
+					<!-- <support /> -->
 				</div>
-			</transition>
-			<!-- </vue-bar> -->
-			<!-- </div> -->
 
-			<media-library v-if="showMenu" />
+				<!-- <marquee v-show="!isMobile" /> -->
 
-			<div class="desktop__windows">
-				<transition-group
-					tag="div"
-					name="window-animation"
-					@before-enter="setTransformOrigin"
-				>
-					<window
-						v-for="(item, index) in windowList"
-						:key="item.windowId"
-						v-bind="item.windowProps"
-						:position-z="item.positionZ"
-						:window-id="item.windowId"
-						:content-type="item.contentType"
-						:content-name="item.contentName"
-						:content-component="item.contentComponent"
-						:status-component="item.statusComponent"
-						:content-component-props="item.contentComponentProps"
-						:group-id="item.groupId"
-						:status-component-props="item.statusComponentProps"
-						:window-info="item.customAssistantText"
-						:title="item.title"
-						:content-id="item.contentId"
-						:data-index="index"
-					/>
-				</transition-group>
-
-				<assistant />
-				<!-- <support /> -->
+				<clipboard-message v-if="showClipboardMessage" />
+				<!-- <download-message v-if="showDownloadMessage" /> -->
+				<copywrite-message v-if="!copyrightAccepted" />
 			</div>
-
-			<!-- <marquee v-show="!isMobile" /> -->
-
-			<clipboard-message v-if="showClipboardMessage" />
-			<!-- <download-message v-if="showDownloadMessage" /> -->
-			<copywrite-message v-if="!copyrightAccepted" />
 		</div>
 	</transition>
 </template>

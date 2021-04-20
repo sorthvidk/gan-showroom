@@ -40,25 +40,11 @@
 		bottom: 5px;
 	}
 
-	// .effect {
-	// 	width: max-content;
-	// 	height: inherit;
-	// 	display: flex;
-	// 	align-items: flex-start;
-	// 	flex-shrink: 0;
-	// }
-
 	img {
 		height: 100%;
 	}
 
 	.text {
-		@include bodytext();
-		font-size: 10vw;
-		font-weight: 400;
-		line-height: 0.8;
-
-		height: 50vh;
 		box-sizing: border-box;
 		white-space: pre-line;
 		padding: var(--page-outer-margin);
@@ -66,63 +52,22 @@
 	}
 
 	h1 {
-		margin-bottom: var(--page-outer-margin);
+		margin-bottom: calc(var(--page-outer-margin) * 2);
+		font-size: 10vw;
+		font-weight: 400;
+		line-height: 0.9;
 	}
 
 	p {
-		@include windowtitle();
-		// font-size: 5vw;
+		text-transform: initial;
 		font-weight: normal;
-		margin-top: rem(10);
+		margin-bottom: rem(20);
+		font-size: rem(32);
+		letter-spacing: 0;
+		line-height: 1;
 
 		b {
 			font-weight: bold;
 		}
 	}
-
-	// --count: 0;
-
-	// @keyframes sweep {
-	// 	to {
-	// 		transform: translateX(-100%);
-	// 	}
-	// }
-
-	// &.carousel {
-	// 	.effect {
-	// 		animation: sweep calc(var(--count) * 10s) infinite linear forwards;
-	// 	}
-	// }
-
-	// --speed: 3s;
-
-	// @keyframes flash {
-	// 	from {
-	// 		z-index: 0;
-	// 	}
-	// 	to {
-	// 		z-index: var(--count);
-	// 	}
-	// }
-
-	// &.flash {
-	// 	.effect {
-	// 		height: inherit;
-	// 	}
-
-	// 	img {
-	// 		// animation: flash calc(var(--count) * var(--speed)) 1s linear infinite
-	// 		// 	forwards;
-	// 		position: absolute;
-	// 		object-fit: cover;
-	// 		width: 100%;
-	// 		height: 100%;
-
-	// 		// @for $i from 1 through 10 {
-	// 		// 	&:nth-child(#{$i}) {
-	// 		// 		animation-delay: calc(#{$i} * var(--speed) - var(--speed) + 1s);
-	// 		// 	}
-	// 		// }
-	// 	}
-	// }
 }

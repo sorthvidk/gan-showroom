@@ -7,7 +7,9 @@
 		<div
 			class="horizontal-banner__content"
 			ref="content"
-			:style="{ transform: `translateX(${-percentScrolled + 100}%)` }"
+			:style="{
+				transform: `translateX(${-percentScrolled * 2 + 100}%)`,
+			}"
 		>
 			<slot></slot>
 		</div>
@@ -22,7 +24,7 @@ export default {
 	props: {
 		speed: {
 			type: Number,
-			default: 2,
+			default: 4,
 		},
 	},
 	data: () => ({

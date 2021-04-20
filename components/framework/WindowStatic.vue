@@ -51,6 +51,7 @@ import StatusWishList from '~/components/content/StatusWishList.vue'
 
 import GreenRoom from '~/components/content/GreenRoom.vue'
 import Afterparty from '~/components/content/Afterparty.vue'
+import PartyAnimal from '~/components/content/PartyAnimal.vue'
 
 import VueBar from '~/components/content/VueBar.vue'
 
@@ -81,6 +82,7 @@ export default {
 		AudioGalleryController,
 		GreenRoom,
 		Afterparty,
+		PartyAnimal,
 	},
 	props: {
 		content: {
