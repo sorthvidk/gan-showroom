@@ -1,9 +1,15 @@
 .horizontal-banner {
 	// background: linear-gradient(140deg, cornflowerblue, blue);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
 
 	&__content {
 		position: sticky;
 		top: 0;
+		width: 100%;
 		// background: linear-gradient(140deg, yellowgreen, lightgreen);
+		overflow: hidden;
 	}
 }

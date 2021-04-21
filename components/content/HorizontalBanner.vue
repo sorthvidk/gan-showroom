@@ -1,17 +1,16 @@
 <template>
-	<div
-		class="horizontal-banner"
-		:style="{ height: `${screenSize.height * speed}px` }"
-		ref="component"
-	>
-		<div
-			class="horizontal-banner__content"
-			ref="content"
-			:style="{
-				transform: `translateX(${-percentScrolled * 2 + 100}%)`,
-			}"
-		>
-			<slot></slot>
+	<div class="horizontal-banner" ref="component">
+		<!-- :style="{ height: `${screenSize.height * speed}px` }" -->
+		<div class="horizontal-banner__content">
+			<div
+				class="horizontal-banner__moving"
+				ref="content"
+				:style="{
+					transform: `translateX(${-percentScrolled * 2 + 100}%)`,
+				}"
+			>
+				<slot></slot>
+			</div>
 		</div>
 	</div>
 </template>
@@ -46,9 +45,21 @@ export default {
 		},
 	},
 	mounted() {
-		this.componentHeight = this.$refs.component.offsetHeight
-		this.contentHeight = this.$refs.content.offsetHeight
-		this.componentTop = this.$refs.component.offsetTop
+		const intersectionCallback = (entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					this.componentHeight = this.$refs.component.offsetHeight
+					this.contentHeight = this.$refs.content.offsetHeight
+					this.componentTop = this.$refs.component.offsetTop
+				}
+			})
+		}
+
+		let observer = new IntersectionObserver(intersectionCallback, {
+			threshold: 0,
+		})
+
+		observer.observe(this.$refs.component)
 	},
 }
 </script>
