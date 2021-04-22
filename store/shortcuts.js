@@ -115,6 +115,19 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'about-ganni',
+			label: 'About Ganni',
+			windowContent: [
+				{
+					title: 'About Ganni',
+					contentId: 'about-ganni',
+					type: ContentTypes.aboutGanni
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'links',
 			label: 'Download',
 			actions: [

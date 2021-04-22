@@ -33,7 +33,8 @@ import {
 	UPDATE_PROGRESS,
 	OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_UPDATE,
-	FETCH_GREEN_ROOM
+	FETCH_GREEN_ROOM,
+	FETCH_ABOUT_GANNI
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -534,6 +535,13 @@ export const actions = {
 			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
 			await getData(
 				require.context('~/assets/mock/greenRoom/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'aboutGanni/' + FETCH_ABOUT_GANNI.mutation,
+			await getData(
+				require.context('~/assets/mock/aboutGanni/', false, /\.json$/)
 			)
 		)
 
