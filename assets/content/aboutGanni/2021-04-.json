@@ -2,5 +2,6 @@
   "type": "image",
   "cloudinaryUrl": [
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1589289548/samples/imagecon-group.jpg"
-  ]
+  ],
+  "order": 5
 }
