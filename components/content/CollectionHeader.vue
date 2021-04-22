@@ -80,8 +80,5 @@ export default {
 			this.activeIndex = nextIndex(this.group.cloudinaryUrl, this.activeIndex)
 		},
 	},
-	mounted() {
-		console.log(this.group)
-	},
 }
 </script>

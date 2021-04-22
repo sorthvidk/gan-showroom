@@ -1,60 +1,43 @@
 <template>
 	<div class="afterparty">
-		<div class="afterparty__gallery">
+		<div
+			:class="[`afterparty__${item.sideBySide ? 'multiple' : 'gallery'}`]"
+			v-for="item in items"
+			:key="item.slug"
+		>
+			<div class="afterparty__multiple__item" v-if="item.sideBySide">
+				<img
+					v-for="i in 7 * 4"
+					:key="'jhdfdfdffjsdf' + i"
+					:src="getMediaUrl('image', sideBySide.cloudinaryUrl).src"
+					alt=""
+				/>
+			</div>
 			<div
-				v-for="(item, i) in lookBook.filter((_, i) => i < 20)"
+				class="afterparty__gallery__item"
+				v-else
+				v-for="(image, i) in item.cloudinaryUrl"
 				:key="'jhfjsdf' + i"
 			>
-				<img
-					v-if="item.type === 'image'"
-					:src="getMediaUrl(item.type, item.cloudinaryUrl).src"
-					alt=""
-				/>
-				<video
-					v-if="item.type === 'video'"
-					:src="getMediaUrl(item.type, item.cloudinaryUrl).src"
-					preload
-					muted
-					autoplay
-					loop
-				/>
+				<img :src="getMediaUrl('image', image).src" alt="" />
 			</div>
+			<horizontal-banner v-if="item.quote">
+				<div class="afterparty__quote">
+					<figure>
+						<blockquote>
+							<p>
+								<span>
+									{{ item.quote }}
+								</span>
+							</p>
+						</blockquote>
+						<figcaption>
+							<cite><span>- Ditte Reffstrup</span></cite>
+						</figcaption>
+					</figure>
+				</div>
+			</horizontal-banner>
 		</div>
-		<div class="afterparty__multiple">
-			<div v-for="i in 7 * 4" :key="'jhdfdfdffjsdf' + i">
-				<img
-					v-if="sideBySide.type === 'image'"
-					:src="getMediaUrl(sideBySide.type, sideBySide.cloudinaryUrl).src"
-					alt=""
-				/>
-				<video
-					v-if="sideBySide.type === 'video'"
-					:src="getMediaUrl(sideBySide.type, sideBySide.cloudinaryUrl).src"
-					preload
-					muted
-					autoplay
-					loop
-				/>
-			</div>
-		</div>
-		<horizontal-banner>
-			<div class="afterparty__quote">
-				<figure>
-					<blockquote>
-						<p>
-							<span>
-								The dancefloor is where the root of my ideas spring from. I
-								can't count how many times I have been inspired by beautiful
-								people having a great time.
-							</span>
-						</p>
-					</blockquote>
-					<figcaption>
-						<cite><span>- Ditte Reffstrup</span></cite>
-					</figcaption>
-				</figure>
-			</div>
-		</horizontal-banner>
 	</div>
 </template>
     
@@ -70,6 +53,7 @@ export default {
 	},
 	computed: {
 		...mapState('assets', ['lookBook']),
+		...mapState('afterparty', ['items']),
 		sideBySide() {
 			return this.lookBook[20]
 		},
@@ -84,6 +68,9 @@ export default {
 				),
 			}
 		},
+	},
+	mounted() {
+		console.log('afterparty-items', this.items)
 	},
 }
 </script>

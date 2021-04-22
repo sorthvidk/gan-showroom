@@ -50,7 +50,8 @@ export default {
 				if (entry.isIntersecting) {
 					this.componentHeight = this.$refs.component.offsetHeight
 					this.contentHeight = this.$refs.content.offsetHeight
-					this.componentTop = this.$refs.component.offsetTop
+					this.componentTop = this.currentScroll
+					console.log(this)
 				}
 			})
 		}

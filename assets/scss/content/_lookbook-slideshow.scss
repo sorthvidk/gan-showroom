@@ -3,12 +3,11 @@
 
 	position: relative;
 
-	min-height: 100vh;
+	min-height: calc(100vh - var(--bottombar-height) * 2);
 	display: flex;
 	align-items: flex-start;
 
-	padding-top: rem(70);
-	padding-bottom: var(--bottombar-height);
+	padding: var(--bottombar-height) 0;
 	box-sizing: border-box;
 
 	color: $color-white;
@@ -16,7 +15,7 @@
 	&__content {
 		position: relative;
 		height: 100%;
-		min-height: 100%;
+		min-height: inherit;
 		width: 100%;
 		margin: 0 var(--page-outer-margin);
 	}
@@ -49,13 +48,25 @@
 
 	&__standard,
 	&__overview {
-		width: calc(100% - var(--assistant-width) - var(--page-outer-margin));
+		width: 100%;
+
+		@include mq(screen-md) {
+			width: calc(100% - var(--assistant-width) - var(--page-outer-margin));
+		}
 	}
 
 	&__standard {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+
 		grid-gap: var(--page-outer-margin);
+
+		@include mq(screen-md) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr;
+			height: calc(100vh - var(--bottombar-height) * 2);
+		}
 
 		@keyframes fade {
 			from {
@@ -63,9 +74,18 @@
 			}
 		}
 
+		div {
+			height: inherit;
+			box-sizing: border-box;
+
+			@include mq(screen-md) {
+				padding-bottom: var(--page-outer-margin);
+			}
+		}
+
 		img,
 		video {
-			object-fit: contain;
+			object-fit: cover;
 			height: 100%;
 			width: 100%;
 			animation: fade forwards 0.4s $easeInOutQuint;
