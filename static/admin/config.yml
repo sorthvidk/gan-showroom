@@ -746,7 +746,7 @@ collections:
   - name: 'aboutGanni'
     summary: 'Item {{itemId}}'
     label: 'About Ganni'
-    folder: 'assets/content/about-ganni'
+    folder: 'assets/content/aboutGanni'
     sortable_fields: ['itemId']
     create: true
     format: 'json'
