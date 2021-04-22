@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import { DASHBOARD_DARK } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 
 export default {
@@ -47,16 +48,25 @@ export default {
 	computed: {
 		...mapState('quiz', ['questions', 'answers']),
 		score() {
-			return clamp(0, this.points, this.questions.length)
+			return clamp(0, this.points, this.answers.length - 1)
 		},
 	},
 	methods: {
+		...mapActions('utils', [DASHBOARD_DARK.action]),
 		next(choice) {
 			this.current++
 			this.points += choice
 
 			this.done = this.current === this.questions.length
 		},
+	},
+
+	mounted() {
+		this[DASHBOARD_DARK.action](true)
+	},
+
+	beforeDestroy() {
+		this[DASHBOARD_DARK.action](false)
 	},
 }
 </script>

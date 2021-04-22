@@ -1,5 +1,9 @@
 :root {
-	--page-outer-margin: rem(20);
+	--page-outer-margin: rem(10);
+
+	@include mq(screen-md) {
+		--page-outer-margin: rem(20);
+	}
 }
 
 .desktop {
@@ -61,7 +65,7 @@
 	}
 	&__windows {
 		position: fixed;
-		z-index: 10001;
+		z-index: get-z('windows');
 		top: 0;
 		left: 0;
 	}

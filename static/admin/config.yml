@@ -302,7 +302,7 @@ collections:
         }
       - {
           label: 'Countdown deadline',
-          name: 'text',
+          name: 'countdown',
           widget: 'string',
           required: false,
           hint: 'If there should be a countdown. Format: "YYYY, M, DD, HH, MM, SS", Ex: "2021, 8, 15, 0, 0, 0"',
@@ -577,7 +577,7 @@ collections:
     summary: '{{cloudinaryUrl}}'
     label: 'Lookbook'
     folder: 'assets/content/lookBook'
-    sortable_fields: ['cloudinaryUrl', 'month']
+    sortable_fields: ['cloudinaryUrl']
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
@@ -605,6 +605,38 @@ collections:
           options: ['landscape', 'portrait'],
           default: 'portrait',
           hint: 'Aspect of media',
+        }
+
+  - name: 'afterparty'
+    summary: '{{cloudinaryUrl}}'
+    label: 'Afterparty'
+    folder: 'assets/content/afterparty'
+    sortable_fields: ['cloudinaryUrl']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Cloudinary video reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          multiple: true,
+        }
+      - {
+          label: 'Side by Side',
+          name: 'sideBySide',
+          widget: 'boolean',
+          default: false,
+          hint: 'If true, one image will be shown over and over',
+        }
+      - {
+          label: 'Quote',
+          name: 'quote',
+          widget: 'text',
+          required: false,
+          hint: 'An optional text that slides over the images on scroll',
         }
 
   - name: 'passwords'

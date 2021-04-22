@@ -14,7 +14,7 @@
 
 .window {
 	&--assistant {
-		z-index: $z-index-assistant !important;
+		z-index: get-z('assistant');
 
 		background-color: transparent;
 
@@ -64,6 +64,10 @@
 					width: auto;
 					height: 100%;
 					object-fit: contain;
+
+					@include mq($until: screen-md) {
+						max-height: rem(30);
+					}
 				}
 
 				// used to fill the space outside the png
@@ -211,7 +215,7 @@
 		}
 
 		&.scroll {
-			@include custom-scrollbar();
+			// @include custom-scrollbar();
 			overflow: hidden;
 			overflow-y: auto;
 			max-height: rem(180);
@@ -258,7 +262,7 @@
 	}
 
 	&__filters {
-		@include custom-scrollbar();
+		// @include custom-scrollbar();
 		overflow: hidden;
 		overflow-y: auto;
 		max-height: rem(180);

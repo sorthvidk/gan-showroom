@@ -25,7 +25,6 @@
 		position: relative;
 		box-sizing: border-box;
 
-		object-fit: contain;
 		display: flex;
 		height: 50vh;
 		margin: 0 auto;
@@ -42,6 +41,7 @@
 
 	img {
 		height: 100%;
+		object-fit: cover;
 	}
 
 	.text {
