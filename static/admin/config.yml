@@ -755,6 +755,15 @@ collections:
       preview: false
     fields:
       - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          min: 0,
+          max: 100,
+          default: 0,
+          hint: 'Optional ordering position',
+        }
+      - {
           label: '(if image) Cloudinary media reference',
           name: 'cloudinaryUrl',
           widget: 'image',

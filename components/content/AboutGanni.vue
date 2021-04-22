@@ -5,6 +5,7 @@
 			v-for="(item, idx) in items"
 			:key="idx"
 			ref="items"
+			:style="`order: ${item.order};`"
 		>
 			<img
 				v-if="item.type === 'image'"
