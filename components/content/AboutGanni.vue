@@ -3,7 +3,7 @@
 		<div
 			:class="itemClass(item)"
 			v-for="(item, idx) in items"
-			:key="item.itemId"
+			:key="idx"
 			ref="items"
 		>
 			<img
