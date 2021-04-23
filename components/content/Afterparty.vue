@@ -74,14 +74,16 @@ export default {
 	computed: {
 		...mapState('afterparty', ['items']),
 		content() {
-			return this.items.map((item) => {
-				return {
-					...item,
-					cloudinaryUrl: item.cloudinaryUrl.map((url) => {
-						return { url, video: isVideo(url) }
-					}),
-				}
-			})
+			return this.items
+				.map((item) => {
+					return {
+						...item,
+						cloudinaryUrl: item.cloudinaryUrl.map((url) => {
+							return { url, video: isVideo(url) }
+						}),
+					}
+				})
+				.sort((item) => (!item.sideBySide < item.sideBySide ? 1 : -1))
 		},
 	},
 	methods: {
@@ -94,6 +96,9 @@ export default {
 				),
 			}
 		},
+	},
+	mounted() {
+		console.log(this.content)
 	},
 }
 </script>
