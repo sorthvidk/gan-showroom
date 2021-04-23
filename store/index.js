@@ -34,6 +34,7 @@ import {
 	OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_UPDATE,
 	FETCH_GREEN_ROOM,
+	FETCH_ABOUT_GANNI,
 	FETCH_AFTERPARTY
 } from '~/model/constants'
 
@@ -542,6 +543,13 @@ export const actions = {
 			'afterparty/' + FETCH_AFTERPARTY.mutation,
 			await getData(
 				require.context('~/assets/mock/afterparty/', false, /\.json$/)
+			)
+		)
+
+		commit(
+			'aboutGanni/' + FETCH_ABOUT_GANNI.mutation,
+			await getData(
+				require.context('~/assets/mock/aboutGanni/', false, /\.json$/)
 			)
 		)
 

@@ -483,5 +483,10 @@ export default {
 	greenRoom: {
 		name: 'green-room',
 		contentComponent: 'green-room'
+	},
+
+	aboutGanni: {
+		name: 'about-ganni',
+		contentComponent: 'about-ganni'
 	}
 }

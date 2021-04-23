@@ -107,6 +107,7 @@ export const FETCH_SUBTITLES = create('FETCH_SUBTITLES')
 export const FETCH_DOWNLOADS = create('FETCH_DOWNLOADS')
 export const FETCH_SCROLL_IMAGES = create('FETCH_SCROLL_IMAGES')
 export const FETCH_GREEN_ROOM = create('FETCH_GREEN_ROOM')
+export const FETCH_ABOUT_GANNI = create('FETCH_ABOUT_GANNI')
 export const FETCH_AFTERPARTY = create('FETCH_AFTERPARTY')
 
 export const CURRENT_SCROLL = create('CURRENT_SCROLL')

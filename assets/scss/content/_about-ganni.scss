@@ -1,0 +1,48 @@
+:root {
+	--about-ganni-col-count: 1;
+
+	@include mq(screen-sm) {
+		--about-ganni-col-count: 2;
+	}
+
+	@include mq(screen-md) {
+		--about-ganni-col-count: 3;
+	}
+	@include mq(screen-xxl) {
+		--about-ganni-col-count: 4;
+	}
+}
+
+.about-ganni {
+	display: grid;
+	grid-template-columns: repeat(var(--about-ganni-col-count), 1fr);
+	grid-gap: 1px;
+	padding-bottom: var(--bottombar-height);
+
+	--collection-col-count: 2;
+
+	@include mq(screen-sm) {
+		--collection-col-count: 3;
+	}
+
+	@include mq(screen-md) {
+		--collection-col-count: 4;
+	}
+
+	&__item {
+		&-text {
+			@include bodytext();
+			background-color: var(--color-secondary);
+			color: var(--color-primary);
+			padding: rem(40) var(--page-outer-margin);
+		}
+
+		&-media {
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

@@ -742,3 +742,36 @@ collections:
           required: false,
           hint: 'The downloadable file',
         }
+
+  - name: 'aboutGanni'
+    summary: 'Item {{itemId}}'
+    label: 'About Ganni'
+    folder: 'assets/content/about-ganni'
+    sortable_fields: ['itemId']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: '(if image) Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: '(if text) The text',
+          name: 'text',
+          widget: 'text',
+          required: false,
+        }
+      - {
+          label: 'Item type',
+          name: 'type',
+          widget: 'select',
+          multiple: false,
+          options: ['image', 'text'],
+          hint: 'Either image or text',
+          default: 'image',
+        }
