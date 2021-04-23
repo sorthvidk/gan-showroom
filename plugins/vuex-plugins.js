@@ -9,8 +9,8 @@ export default ({ store }) => {
 				'user.loggedIn',
 				'user.cookiesAccepted',
 				'user.copyrightAccepted',
-				'progressBar.progressItems',
-				'progressBar.progressPct',
+				// 'progressBar.progressItems',
+				// 'progressBar.progressPct',
 				'collection.wishList'
 			],
 			rehydrated: store => {
