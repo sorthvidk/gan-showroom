@@ -1,6 +1,11 @@
 <template>
 	<div class="login-input">
-		<form ref="form" @submit.prevent="loginInput" class="form">
+		<form
+			ref="form"
+			@submit.prevent="loginInput"
+			class="form"
+			:style="{ opacity: !showMessage && !pwd ? '1' : '0' }"
+		>
 			<input
 				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
@@ -11,11 +16,10 @@
 				id="password"
 				name="password"
 				type="password"
-				placeholder="type your password"
 				v-model="pwd"
 				ref="passwordInput"
 			/>
-			<button
+			<!-- <button
 				:class="{
 					'is-active': pwd.length > 0,
 					'is-invalid': showErrorMessage,
@@ -23,12 +27,41 @@
 				class="submit"
 				@click.prevent="submitClickHandler"
 			>
-				<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M12.7 21.9l-.7-.8 6.1-6.1L12 8.9l.7-.7 6.8 6.8z" />
-				</svg> -->
 				{{ showErrorMessage ? 'Wrong password' : 'Enter' }}
-			</button>
+			</button> -->
 		</form>
+
+		<div
+			class="login-input__message"
+			v-show="showMessage && !pwd"
+			:style="{
+				position: 'absolute',
+				top: '50%',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				width: '100%',
+			}"
+		>
+			<p>Please type password</p>
+		</div>
+
+		<div
+			class="login-input__canvas"
+			:style="{
+				position: 'absolute',
+				top: '50%',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				width: '100%',
+				zIndex: '-1',
+			}"
+		>
+			<login-asterixes
+				:key="pwd.length"
+				:amount="pwd.length"
+				:start="valid ? true : false"
+			/>
+		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
 			<p>Wrong password</p>
@@ -41,11 +74,13 @@ import { mapActions, mapState } from 'vuex'
 import { LOGIN } from '~/model/constants'
 import hash from 'hash.js'
 import FullpageSlideShow from '~/components/content/FullpageSlideShow.vue'
+import LoginAsterixes from '~/components/content/LoginAsterixes.vue'
 
 export default {
 	name: 'login',
 	components: {
 		FullpageSlideShow,
+		LoginAsterixes,
 	},
 	data() {
 		return {
@@ -53,6 +88,7 @@ export default {
 			valid: true,
 			isFocus: false,
 			showErrorMessage: false,
+			showMessage: false,
 		}
 	},
 	computed: {
@@ -68,7 +104,10 @@ export default {
 				(pw) => pw.hash.toLowerCase() === passwordUsed.toLowerCase()
 			)
 
-			this[LOGIN.action](authorized)
+			setTimeout(() => {
+				this[LOGIN.action](authorized)
+			}, 5000)
+
 			this.valid = authorized
 		},
 
@@ -98,6 +137,21 @@ export default {
 				audio.play()
 			})
 		},
+
+		initMessage() {
+			setTimeout(() => {
+				this.showMessage = !this.showMessage
+				this.initMessage()
+			}, 4000)
+		},
+	},
+	mounted() {
+		this.$refs.passwordInput.focus()
+
+		this.initMessage()
+		document.body.addEventListener('click', () =>
+			this.$refs.passwordInput.focus()
+		)
 	},
 }
 </script>

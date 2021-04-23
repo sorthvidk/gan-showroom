@@ -18,5 +18,7 @@ export const isVideo = fileName =>
 		'.SWF',
 		'.AVCHD'
 	].find(ext => fileName.toUpperCase().includes(ext))
+		? true
+		: false
 
 export const isNotVideo = fileName => !isVideo(fileName)

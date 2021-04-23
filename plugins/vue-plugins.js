@@ -11,6 +11,7 @@ import Vuebar from 'vuebar'
 import vueVimeoPlayer from 'vue-vimeo-player'
 import * as dateFns from 'date-fns'
 import viscosity from 'scroll-viscosity'
+import Matter from 'matter-js'
 
 Vue.use(VueLazyload)
 Vue.use(VueDraggableResizable)
@@ -23,6 +24,7 @@ Vue.use(Vuebar)
 Vue.use(vueVimeoPlayer)
 Vue.use(dateFns)
 Vue.use(viscosity)
+Vue.use(Matter)
 
 /**
  * todo: turn of when bugfixing is done

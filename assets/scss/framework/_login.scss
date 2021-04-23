@@ -77,11 +77,15 @@
 	align-items: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
+	text-align: center;
 
 	background-size: cover;
 
+	font-size: 7vw;
+	letter-spacing: 0;
+
 	.form {
-		@include windowtitle();
+		// @include windowtitle();
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -108,7 +112,7 @@
 			border: none;
 			background: none;
 
-			font-size: 1em;
+			font-size: 2em;
 			width: 100%;
 
 			margin-bottom: 0.5em;
@@ -116,6 +120,7 @@
 
 			outline: none;
 			padding-bottom: rem(10);
+			text-align: center;
 			// border-bottom: rem(5) solid currentColor;
 
 			&.is-invalid {

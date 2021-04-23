@@ -42,6 +42,7 @@
 		"konva": "^6.0.0",
 		"lazysizes": "^5.2.0",
 		"lodash": "4.17.4",
+		"matter-js": "^0.17.1",
 		"nuxt": "^2.11.0",
 		"nuxt-cookie-control": "^1.8.5",
 		"nuxt-polyfill": "^1.0.3",

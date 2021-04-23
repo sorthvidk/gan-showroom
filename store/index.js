@@ -71,10 +71,10 @@ export const mutations = {
 
 	[RESET_STATE.mutation](state) {
 		state.collection.wishList = []
-		state.progressBar.progressPct = 0
-		Object.keys(ContentTypes).forEach(type => {
-			state.progressBar.progressItems[type].complete = false
-		})
+		// state.progressBar.progressPct = 0
+		// Object.keys(ContentTypes).forEach(type => {
+		// 	state.progressBar.progressItems[type].complete = false
+		// })
 		state.user.loggedIn = false
 		state.user.cookiesAccepted = false
 		state.user.copyrightAccepted = false
