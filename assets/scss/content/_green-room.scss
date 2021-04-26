@@ -7,21 +7,28 @@
 	background-color: $color-goblin;
 
 	h1 {
-		@include windowtitle();
+		// @include windowtitle();
+		font-size: 3.5vw;
+		font-weight: bold;
+		text-transform: uppercase;
+		line-height: 0.85;
+		letter-spacing: -0.01em;
+
 		position: absolute;
-		display: flex;
-		top: 20%;
-		left: 40vw;
-		height: auto;
-		max-width: 15em;
+		top: 45%;
+		transform: translate(-50%, -50%);
+		left: 50vw;
+
+		width: 15em;
 		padding: 0.25em;
 		outline: 0.2em solid;
 	}
 
 	&__item {
 		@include bodytext();
-		width: 33vh;
-		height: 33vh;
+		font-weight: bold;
+		width: 40vmin;
+		height: 40vmin;
 		position: absolute;
 
 		display: grid;
@@ -40,21 +47,33 @@
 			image-rendering: pixelated;
 		}
 
-		p {
-			position: absolute;
-			background-color: $color-white;
-			color: var(--color-secondary);
-			padding: 1em;
-			top: 60%;
-			left: 40%;
-			width: 400px;
-			border: 2px solid;
-		}
-
 		&:hover {
 			img {
 				transform: scale(1.02) rotate(3deg);
 			}
+		}
+	}
+
+	&__text {
+		position: absolute;
+		background-color: $color-white;
+		color: var(--color-secondary);
+		padding: 1.5em;
+		top: 60%;
+		left: 40%;
+		width: 400px;
+		border: 2px solid;
+		z-index: 1;
+
+		button {
+			font-size: 1.5em;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 2em;
+		}
+
+		p {
 		}
 	}
 

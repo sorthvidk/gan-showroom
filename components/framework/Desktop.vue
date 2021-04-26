@@ -262,13 +262,14 @@ export default {
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
 		activateClubs() {
-			setTimeout(() => {
-				this.activeClubs = this.clubs.filter((_, idx) => idx < this.active)
-				this.active++
-				if (this.active <= this.clubs.length) {
+			this.active++
+			this.activeClubs = this.clubs.filter((_, idx) => idx < this.active)
+
+			if (this.active <= this.clubs.length) {
+				setTimeout(() => {
 					this.activateClubs()
-				}
-			}, 5000)
+				}, 5000)
+			}
 		},
 	},
 	mounted() {

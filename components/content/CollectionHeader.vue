@@ -1,7 +1,5 @@
 <template>
 	<div class="collection-header">
-		<!-- :style="{ '--count': group.cloudinaryUrl && group.cloudinaryUrl.length }" -->
-		<!-- :class="{ [mode]: mode }" -->
 		<div class="inner">
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
@@ -13,30 +11,30 @@
 				<p v-if="group.text" v-html="group.text" />
 			</div>
 			<div class="image">
-				<!-- <img
-					v-if="!group.cloudinaryUrl || !group.cloudinaryUrl.length"
-					:src="greyPixel"
-				/> -->
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
 					:key="image"
 					:src="getImage(image).src"
-					@click="showNextImage"
+					@click="showNextImage(true)"
 					v-show="idx === activeIndex"
 				/>
-				<!-- <img
-					:key="activeIndex"
-					:src="getImage(group.cloudinaryUrl[activeIndex]).src"
-				/> -->
+
 				<div
-					v-for="x in group.cloudinaryUrl"
-					:key="'jfdkdjfkdjfk' + x"
 					class="timeline"
 					:style="{
-						width: `${100 / group.cloudinaryUrl.length}%`,
-						// left: `${(100 / group.cloudinaryUrl.length) * activeIndex}%`,
+						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`,
 					}"
-				></div>
+				>
+					<div
+						v-for="(x, idx) in group.cloudinaryUrl"
+						:key="'jfdkdjfkdjfk' + x"
+						class="line"
+						:style="{
+							'--progress':
+								idx < activeIndex ? 1 : idx === activeIndex ? progress : 0,
+						}"
+					></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -64,9 +62,11 @@ export default {
 		},
 	},
 	data: () => ({
+		speed: 300,
 		greyPixel,
 		loaded: 0,
 		activeIndex: 0,
+		progress: 0,
 	}),
 	methods: {
 		getImage(src) {
@@ -80,7 +80,18 @@ export default {
 		},
 		showNextImage() {
 			this.activeIndex = nextIndex(this.group.cloudinaryUrl, this.activeIndex)
+			this.progress = 0
 		},
+		tick() {
+			requestAnimationFrame(this.tick)
+			this.progress += 1 / this.speed
+			if (this.progress > 1) {
+				this.showNextImage()
+			}
+		},
+	},
+	mounted() {
+		this.tick()
 	},
 }
 </script>

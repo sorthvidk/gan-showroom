@@ -32,9 +32,10 @@ export default {
 
 			this.dur = dateFns.formatDuration(time)
 
-			this.duration = time.seconds
-				? this.dur.replace('minutes', 'minutes and')
-				: this.dur
+			// this.duration = time.seconds
+			// 	? this.dur.replace('minutes', 'minutes and')
+			// 	: this.dur
+			this.duration = this.dur
 		},
 		loop() {
 			setTimeout(() => {

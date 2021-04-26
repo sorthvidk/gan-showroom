@@ -715,7 +715,15 @@ collections:
           label: 'Popup window text',
           name: 'text',
           widget: 'text',
+          required: false,
           hint: 'Popup window text',
+        }
+      - {
+          label: 'Link url',
+          name: 'link',
+          widget: 'string',
+          required: false,
+          hint: 'If the image should be a link to another page (has no popup-text)',
         }
 
   - name: 'downloads'

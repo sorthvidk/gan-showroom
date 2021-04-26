@@ -18,6 +18,7 @@
 						preload
 						muted
 						controls
+						loop
 					/>
 				</div>
 			</div>
@@ -38,6 +39,7 @@
 					preload
 					muted
 					autoplay
+					loop
 				/>
 			</div>
 			<horizontal-banner v-if="item.quote">
@@ -87,18 +89,18 @@ export default {
 		},
 	},
 	methods: {
-		getMediaUrl(type, cloudinaryUrl, { thumbnail } = {}) {
+		getMediaUrl(type, cloudinaryUrl) {
 			return {
 				src: getCloudinaryUrl(
 					this.$cloudinary,
 					{ type, cloudinaryUrl },
-					{ width: thumbnail ? 100 : window.innerWidth < 600 ? 300 : 900 }
+					{ width: window.innerWidth < 600 ? 200 : 600 }
 				),
 			}
 		},
 	},
 	mounted() {
-		console.log(this.content)
+		// console.log(this.content)
 	},
 }
 </script>
