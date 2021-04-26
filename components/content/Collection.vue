@@ -10,9 +10,9 @@
 			v-for="(group, i) in groupsRenderList"
 			:key="'group' + i"
 		>
-			<h4 v-if="groupsRenderList.length > 1 && group.styles.length">
+			<!-- <h4 v-if="groupsRenderList.length > 1 && group.styles.length">
 				{{ group.groupId.replace('-', ' ') }}
-			</h4>
+			</h4> -->
 
 			<collection-header
 				v-if="group.styles.length"
