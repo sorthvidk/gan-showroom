@@ -29,10 +29,12 @@
 					:src="getImage(group.cloudinaryUrl[activeIndex]).src"
 				/> -->
 				<div
+					v-for="x in group.cloudinaryUrl"
+					:key="'jfdkdjfkdjfk' + x"
 					class="timeline"
 					:style="{
 						width: `${100 / group.cloudinaryUrl.length}%`,
-						left: `${(100 / group.cloudinaryUrl.length) * activeIndex}%`,
+						// left: `${(100 / group.cloudinaryUrl.length) * activeIndex}%`,
 					}"
 				></div>
 			</div>
