@@ -1,6 +1,5 @@
 <template>
 	<div class="horizontal-banner" ref="component">
-		<!-- :style="{ height: `${screenSize.height * speed}px` }" -->
 		<div class="horizontal-banner__content">
 			<div
 				class="horizontal-banner__moving"
@@ -20,12 +19,6 @@ import { mapState } from 'vuex'
 import { clamp } from '~/utils/clamp'
 export default {
 	name: 'horizontal-banner',
-	props: {
-		speed: {
-			type: Number,
-			default: 4,
-		},
-	},
 	data: () => ({
 		componentHeight: 0,
 		componentTop: 0,
@@ -37,8 +30,7 @@ export default {
 			return (
 				clamp(
 					0,
-					(this.currentScroll - this.componentTop) /
-						(this.componentHeight - this.contentHeight),
+					(this.currentScroll - this.componentTop) / this.componentHeight,
 					1
 				) * 100
 			)
@@ -50,8 +42,9 @@ export default {
 				if (entry.isIntersecting) {
 					this.componentHeight = this.$refs.component.offsetHeight
 					this.contentHeight = this.$refs.content.offsetHeight
-					this.componentTop = this.currentScroll
-					console.log(this)
+					this.componentTop =
+						this.$refs.component.getBoundingClientRect().top +
+						this.currentScroll
 				}
 			})
 		}

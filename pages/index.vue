@@ -1,8 +1,11 @@
 <template>
-	<div :oncontextmenu="__prod__ ? `return false;` : ''">
+	<div
+		:oncontextmenu="__prod__ ? `return false;` : ''"
+		style="min-height: 100vh"
+	>
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
-		<!-- v-if="audioGalleryDone" -->
+		<!-- v-if="quizDone" -->
 		<audio-player
 			:sources="[song.src]"
 			:title="song.title"
@@ -17,19 +20,18 @@
 		</transition>
 
 		<!-- step 2 -->
-		<!-- <transition name="slide-in-out">
-			<audio-gallery-controller
-				v-show="!audioGalleryDone"
+		<transition name="slide-in-out">
+			<quiz
+				v-show="!quizDone"
 				v-if="loggedIn && !dashboardContent.contentId"
-				:is-intro="true"
-				@played-through="audioGalleryDone = true"
+				@done="() => (quizDone = true)"
+				:with-skip-link="true"
 			/>
-		</transition> -->
+		</transition>
 
 		<!-- step 3 -->
 		<transition name="slide-in">
-			<!-- <desktop v-if="audioGalleryDone" /> -->
-			<desktop v-if="loggedIn" />
+			<desktop v-if="quizDone" />
 		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
@@ -37,10 +39,7 @@
 		<!-- <mobile-disclamer v-if="isMobile" /> -->
 
 		<transition name="slide-up">
-			<cookie-banner
-				v-if="!cookiesAccepted"
-				:class="{ pushed: audioGalleryDone }"
-			/>
+			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: quizDone }" />
 		</transition>
 	</div>
 </template>
@@ -59,6 +58,7 @@ import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
 import AudioPlayer from '~/components/content/AudioPlayer.vue'
 import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
 import PreloadImages from '~/components/content/PreloadImages.vue'
+import Quiz from '~/components/content/Quiz.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -87,9 +87,10 @@ export default {
 		AudioPlayer,
 		AudioGalleryController,
 		PreloadImages,
+		Quiz,
 	},
 	data: () => ({
-		audioGalleryDone: false,
+		quizDone: false,
 		currentAudioIdx: 0,
 	}),
 	computed: {
