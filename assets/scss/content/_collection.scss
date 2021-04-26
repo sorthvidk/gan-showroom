@@ -30,13 +30,13 @@
 
 			padding: rem(5);
 			margin-left: var(--page-outer-margin);
-			margin-top: 0;
+			margin-top: -23px;
 			display: inline-block;
 
 			background-color: var(--color-primary);
 
 			position: sticky;
-			top: rem(75);
+			top: var(--group-navigation-height);
 			z-index: get-z('collection-drop-name');
 		}
 	}
@@ -45,6 +45,10 @@
 		display: grid;
 		grid-template-columns: repeat(var(--collection-col-count), 1fr);
 		grid-gap: 1px;
+		position: relative;
+		z-index: get-z('collection-list');
+		background: var(--color-background);
+		border-top: 1px solid $color-white;
 	}
 
 	&--fun {

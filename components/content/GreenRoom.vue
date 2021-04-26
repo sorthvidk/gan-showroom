@@ -1,5 +1,5 @@
 <template>
-	<div class="green-room" :style="{ width: `${items.length * 20}vw` }">
+	<div class="green-room" :style="{ width: `${items.length * 25}vw` }">
 		<h1 ref="visc">
 			"A carbon tax, which our politicians never had the guts to introduce, will
 			be hugely beneficial for the transition towards a sustainable fashion
@@ -9,18 +9,24 @@
 		<div
 			class="green-room__item"
 			v-for="(item, idx) in items"
-			:key="item.text"
+			:key="item.text + idx"
 			ref="items"
-			:style="{ left: `${idx * 19 + 5}%`, top: `${(idx % 2) * 45 + 5}%` }"
+			:style="{
+				left: `${idx * 19 + 5}%`,
+				top: `${(idx % 2) * 45 + 5}%`,
+				zIndex: items.length - idx,
+			}"
 		>
-			<button @click="toggle(idx)">
-				<!-- real image -->
-				<!-- <img :src="item.cloudinaryUrl" /> -->
-
-				<!-- test image -->
-				<img :src="'img/hamster2.gif'" />
+			<button v-if="!item.link" @click="toggle(idx)">
+				<img :src="item.cloudinaryUrl" />
 			</button>
-			<p v-if="currentlyOpen.includes(idx)">{{ item.text }}</p>
+			<a v-else :href="item.link" target="_blank" @click="toggle(idx)">
+				<img :src="item.cloudinaryUrl" />
+			</a>
+			<div class="green-room__text" v-if="currentlyOpen === idx">
+				<button @click="currentlyOpen = null">&times;</button>
+				<p>{{ item.text }}</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -32,7 +38,7 @@ import { mapState } from 'vuex'
 export default {
 	name: 'green-room',
 	data: () => ({
-		currentlyOpen: [],
+		currentlyOpen: null,
 	}),
 	computed: {
 		...mapState('greenRoom', ['items']),
@@ -43,16 +49,12 @@ export default {
 			window.scrollTo(window.pageXOffset + delta, 0)
 		},
 		toggle(idx) {
-			this.currentlyOpen = this.currentlyOpen.includes(idx)
-				? this.currentlyOpen.filter((i) => i !== idx)
-				: [...this.currentlyOpen, idx]
+			if (this.items[idx].link) return
+
+			this.currentlyOpen = idx === this.currentlyOpen ? null : idx
 		},
 	},
 	mounted() {
-		viscosity({
-			element: this.$refs.visc,
-			easing: 0.2,
-		})
 		this.$refs.items.forEach((item, idx) => {
 			viscosity({ element: item, easing: 0.01 * idx + 0.05 })
 		})

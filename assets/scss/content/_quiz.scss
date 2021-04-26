@@ -32,7 +32,7 @@
 	&__choises,
 	button,
 	&__description {
-		font-size: calc(16px + 3.5vw);
+		font-size: calc(16px + 3vw);
 	}
 
 	&__choises {
@@ -60,7 +60,9 @@
 	&__question {
 		display: grid;
 		align-items: center;
+		margin: 0 auto;
 		margin-bottom: var(--page-outer-margin);
+		width: 90%;
 	}
 
 	&__count {

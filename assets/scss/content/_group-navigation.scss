@@ -1,18 +1,28 @@
+:root {
+	--group-navigation-height: 70px;
+}
+
 .group-navigation {
 	display: inline-flex;
 	align-items: center;
 	justify-content: space-between;
 
+	position: sticky;
+	top: 0;
 	width: 100%;
-	height: rem(40);
+	height: var(--group-navigation-height);
 
 	margin: 0 auto;
 	padding: rem(30) var(--page-outer-margin) 0;
 
 	user-select: none;
+	box-sizing: border-box;
+
+	z-index: get-z('group-navigation');
 
 	@include mq(screen-md) {
 		width: 50%;
+		padding: rem(30) 0 0;
 	}
 
 	label {
