@@ -1,56 +1,124 @@
 <template>
-	<div @click="addAsterix"></div>
+	<canvas ref="canvas"></canvas>
 </template>
 
 <script>
 import Matter from 'matter-js'
+import { mapState } from 'vuex'
+import asterixTexture from '~/static/img/asterix.png'
+
+const loadImage = (url) => {
+	return new Promise((resolve) => {
+		const img = new Image()
+		img.onload = () => resolve(img.src)
+		img.src = url
+	})
+}
 
 export default {
 	name: 'login-asterixes',
 	props: {
-		amount: {
-			type: Number,
-		},
+		amount: { type: Number },
 		start: { type: Boolean },
 	},
 	data: () => ({
 		Bodies: null,
 		Composite: null,
+		Runner: null,
 		engine: null,
 		render: null,
+		runner: null,
+		textureUrl: null,
+		asterixs: [],
 	}),
+	computed: {
+		...mapState('user', ['screenSize']),
+	},
+	watch: {
+		amount() {
+			/**
+			 * POPULATE CANVAS
+			 */
+			this.asterixs.forEach((asterix) =>
+				Matter.Composite.remove(this.engine.world, asterix)
+			)
+			;[...Array(this.amount)].forEach((_, idx) => {
+				this.addAsterix(idx)
+			})
+		},
+		start() {
+			if (this.start) {
+				this.Runner.run(this.runner, this.engine)
+			}
+		},
+	},
 	methods: {
 		addAsterix(idx) {
+			const middle = this.screenSize.width * 0.5
+			const middleY = this.screenSize.height * 0.5
+			const width = this.screenSize.width / 12
+
+			const widthOfAllChars = (this.amount - 1) * width * 1.2
+			const currentCharPosition = middle + idx * width * 1.2
+
 			const asterix = this.Bodies.circle(
-				idx * 90,
-				this.$el.offsetHeight / 2,
-				40,
+				currentCharPosition - widthOfAllChars / 2,
+				middleY,
+				width / 2,
 				{
-					force: { x: 0, y: -Math.random() * 0.02 },
+					force: { x: -Math.random() * 0.005, y: -Math.random() * 0.02 },
+					render: {
+						fillStyle: 'transparent',
+						sprite: {
+							texture: this.textureUrl,
+							xScale: width / 187,
+							yScale: width / 187,
+						},
+					},
 				}
 			)
 
 			this.Composite.add(this.engine.world, [asterix])
+			this.asterixs.push(asterix)
 		},
 	},
-	mounted() {
-		// module aliases
+	async mounted() {
 		const Engine = Matter.Engine,
-			Render = Matter.Render,
-			Runner = Matter.Runner
+			Render = Matter.Render
+		this.Runner = Matter.Runner
 		this.Bodies = Matter.Bodies
 		this.Composite = Matter.Composite
+
+		this.$refs.canvas.width = this.screenSize.width
+		this.$refs.canvas.height = this.screenSize.height
 
 		// create an engine
 		this.engine = Engine.create()
 
-		// create a renderer
-		this.render = Render.create({ element: this.$el, engine: this.engine })
+		this.textureUrl = await loadImage(asterixTexture)
 
-		// create two boxes and a ground
-		// const boxA = this.Bodies.rectangle(400, 200, 80, 80)
-		// const boxB = this.Bodies.rectangle(450, 50, 80, 80)
-		const ground = this.Bodies.rectangle(400, 610, 810, 60, { isStatic: true })
+		// create a renderer
+		this.render = Render.create({
+			canvas: this.$refs.canvas,
+			engine: this.engine,
+			options: {
+				pixelRatio: 'auto',
+				width: this.screenSize.width,
+				height: this.screenSize.height,
+				background: 'transparent',
+				wireframes: false,
+			},
+		})
+
+		const ground = this.Bodies.rectangle(
+			this.screenSize.width / 2,
+			this.screenSize.height + 31,
+			this.screenSize.width,
+			60,
+			{
+				isStatic: true,
+			}
+		)
 
 		// add all of the bodies to the world
 		this.Composite.add(this.engine.world, [ground])
@@ -59,28 +127,12 @@ export default {
 		Render.run(this.render)
 
 		// create runner
-		const runner = Runner.create()
-
-		// run the engine
-		if (this.start) {
-			Runner.run(runner, this.engine)
-		}
-
-		/**
-		 * POPULATE CANVAS
-		 */
-		;[...Array(this.amount)].forEach((_, idx) => {
-			this.addAsterix(idx)
-		})
+		this.runner = this.Runner.create()
 	},
 	beforeDestroy() {
-		// Matter.Render.stop() // this only stop renderer but not destroy canvas
-		// Matter.World.clear(this.engine.world)
-		// Matter.Engine.clear(this.engine)
-		// this.render.canvas.remove()
-		// this.render.canvas = null
-		// this.render.context = null
-		// this.render.textures = {}
+		Matter.Render.stop(this.render) // this only stop renderer but not destroy canvas
+		Matter.World.clear(this.engine.world)
+		Matter.Engine.clear(this.engine)
 	},
 }
 </script>

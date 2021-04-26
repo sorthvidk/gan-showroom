@@ -56,11 +56,7 @@
 				zIndex: '-1',
 			}"
 		>
-			<login-asterixes
-				:key="pwd.length"
-				:amount="pwd.length"
-				:start="valid ? true : false"
-			/>
+			<login-asterixes :amount="pwd.length" :start="valid ? true : false" />
 		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
@@ -106,7 +102,7 @@ export default {
 
 			setTimeout(() => {
 				this[LOGIN.action](authorized)
-			}, 5000)
+			}, 3000)
 
 			this.valid = authorized
 		},
