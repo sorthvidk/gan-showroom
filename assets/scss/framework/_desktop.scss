@@ -31,6 +31,7 @@
 
 	&__background {
 		@include windowtitle();
+		font-size: 2.1vw;
 		color: var(--color-primary);
 		background-size: cover;
 		background-position: center;
@@ -41,8 +42,8 @@
 		justify-content: flex-end;
 		padding-bottom: 70px;
 		box-sizing: border-box;
-		padding: calc(var(--page-outer-margin) + var(--bottombar-height))
-			var(--page-outer-margin);
+		padding: calc(var(--page-outer-margin) / 2 + var(--bottombar-height))
+			calc(var(--page-outer-margin) / 2);
 	}
 
 	&__shortcuts {

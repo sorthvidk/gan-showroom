@@ -1,10 +1,19 @@
 .quiz {
 	text-align: center;
 	height: 100%;
-	padding: var(--page-outer-margin);
-	// background: linear-gradient(140deg, aquamarine, aqua);
+	min-height: inherit;
+
+	color: var(--color-primary);
 	background-color: var(--color-secondary);
-	box-sizing: border-box;
+
+	&__skip-link {
+		@include bodytext;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 40px;
+		padding: 0 var(--page-outer-margin);
+	}
 
 	&__content {
 		position: relative;
@@ -14,6 +23,10 @@
 		display: grid;
 		grid-gap: calc(var(--page-outer-margin) * 2);
 		grid-template-rows: 1fr 1fr 1fr;
+
+		padding: var(--page-outer-margin);
+		padding-top: 50px;
+		box-sizing: border-box;
 	}
 
 	* {
@@ -30,7 +43,7 @@
 
 	&__question,
 	&__choises,
-	button,
+	&__choises button,
 	&__description {
 		font-size: calc(16px + 3vw);
 	}

@@ -1,6 +1,17 @@
 <template>
-	<div class="quiz">
+	<div
+		class="quiz"
+		@click="emitIfDone"
+		:style="{ cursor: emit ? 'pointer' : 'default' }"
+	>
 		<div class="quiz__content">
+			<button
+				v-if="withSkipLink"
+				class="quiz__skip-link"
+				@click="$emit('done')"
+			>
+				Skip
+			</button>
 			<h1 class="quiz__title">
 				Who is visiting the club?<br />Please choose to proceed
 			</h1>
@@ -24,11 +35,6 @@
 			<p v-if="!done" class="quiz__count">
 				{{ current + 1 }}/{{ questions.length }}
 			</p>
-
-			<!-- for debug: -->
-			<p v-if="done" class="quiz__count">
-				{{ points }}
-			</p>
 		</div>
 	</div>
 </template>
@@ -40,10 +46,14 @@ import { clamp } from '~/utils/clamp'
 
 export default {
 	name: 'quiz',
+	props: {
+		withSkipLink: { type: Boolean },
+	},
 	data: () => ({
 		current: 0,
 		points: 0,
 		done: false,
+		emit: false,
 	}),
 	computed: {
 		...mapState('quiz', ['questions', 'answers']),
@@ -58,6 +68,15 @@ export default {
 			this.points += choice
 
 			this.done = this.current === this.questions.length
+		},
+		emitIfDone() {
+			if (!this.done) return
+
+			if (this.emit) {
+				this.$emit('done')
+			}
+
+			this.emit = true
 		},
 	},
 
