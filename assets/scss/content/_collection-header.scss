@@ -23,7 +23,7 @@
 	}
 
 	.image {
-		cursor: pointer;
+		cursor: w-resize;
 		position: relative;
 		box-sizing: border-box;
 
@@ -31,6 +31,15 @@
 		justify-content: center;
 		height: 50vh;
 		margin: 0 auto;
+
+		&:after {
+			content: '';
+			cursor: e-resize;
+			position: absolute;
+			height: 100%;
+			width: 50%;
+			right: 0;
+		}
 	}
 
 	.timeline {

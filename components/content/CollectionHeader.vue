@@ -10,12 +10,11 @@
 				/>
 				<p v-if="group.text" v-html="group.text" />
 			</div>
-			<div class="image">
+			<div class="image" @click="showNextImage">
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
 					:key="image"
 					:src="getImage(image).src"
-					@click="showNextImage(true)"
 					v-show="idx === activeIndex"
 				/>
 
@@ -41,10 +40,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Countdown from '~/components/elements/Countdown.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
-import { nextIndex } from '~/utils/array-helpers'
+import { nextIndex, prevIndex } from '~/utils/array-helpers'
 
 export default {
 	name: 'collection-header',
@@ -68,6 +68,7 @@ export default {
 		activeIndex: 0,
 		progress: 0,
 	}),
+	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
 		getImage(src) {
 			return {
@@ -78,8 +79,11 @@ export default {
 		isLoaded() {
 			return this.loaded++
 		},
-		showNextImage() {
-			this.activeIndex = nextIndex(this.group.cloudinaryUrl, this.activeIndex)
+		showNextImage(click) {
+			this.activeIndex =
+				click && this.mousepos.x < this.screenSize.width / 2
+					? prevIndex(this.group.cloudinaryUrl, this.activeIndex)
+					: nextIndex(this.group.cloudinaryUrl, this.activeIndex)
 			this.progress = 0
 		},
 		tick() {
