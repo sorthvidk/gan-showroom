@@ -725,6 +725,13 @@ collections:
           required: false,
           hint: 'If the image should be a link to another page (has no popup-text)',
         }
+      - {
+          label: 'Fixed',
+          name: 'fixed',
+          widget: 'Boolean',
+          required: false,
+          hint: 'If the image should be in the "bottom layer" and not float when user scrolls',
+        }
 
   - name: 'fabrics'
     label: 'Fabrics'

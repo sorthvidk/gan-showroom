@@ -10,6 +10,7 @@
 			class="green-room__item"
 			v-for="(item, idx) in items"
 			:key="item.text + idx"
+			:class="{ fixed: item.fixed }"
 			ref="items"
 			:style="{
 				left: `${idx * 19 + 5}%`,
@@ -56,6 +57,8 @@ export default {
 	},
 	mounted() {
 		this.$refs.items.forEach((item, idx) => {
+			if (item.classList.contains('fixed')) return
+
 			viscosity({ element: item, easing: 0.01 * idx + 0.05 })
 		})
 		window.addEventListener('wheel', this.scrollHorizontally)

@@ -45,9 +45,11 @@
 			image-rendering: pixelated;
 		}
 
-		&:hover {
-			img {
-				transform: scale(1.02) rotate(3deg);
+		&:not(.fixed) {
+			&:hover {
+				img {
+					transform: scale(1.02) rotate(3deg);
+				}
 			}
 		}
 	}

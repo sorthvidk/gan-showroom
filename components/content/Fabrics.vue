@@ -11,7 +11,9 @@
 				:src="getUrl(item.cloudinaryUrl)"
 				:alt="'One of GANNIs many really nice fabrics'"
 				:style="{
-					transformOrigin: `${mousepos.x}px ${mousepos.y - topPos(idx)}px`,
+					transformOrigin: `
+                    ${mousepos.x - ownPos(idx).left}px
+                    ${mousepos.y - ownPos(idx).top}px`,
 				}"
 				@click="zoom"
 			/>
@@ -52,12 +54,12 @@ export default {
 				return getComputedStyle(item).height
 			})
 		},
-		topPos(idx) {
-			return (
-				(this.$refs.items &&
-					this.$refs.items[idx].getBoundingClientRect().top) ||
-				0
-			)
+		ownPos(idx) {
+			if (!this.$refs.items) return 0
+
+			const pos = this.$refs.items[idx].getBoundingClientRect()
+
+			return { top: pos.top, left: pos.left }
 		},
 	},
 }

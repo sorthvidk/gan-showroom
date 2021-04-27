@@ -1,7 +1,7 @@
 <template>
 	<div
 		:oncontextmenu="__prod__ ? `return false;` : ''"
-		style="min-height: 100vh"
+		style="min-height: 100vh; background-color: var(--color-secondary)"
 	>
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 

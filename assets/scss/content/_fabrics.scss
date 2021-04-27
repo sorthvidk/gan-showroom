@@ -1,7 +1,24 @@
 .fabrics {
+	--columns: 1;
+
 	padding-bottom: var(--bottombar-height);
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
+
+	display: grid;
+	grid-template-columns: repeat(var(--columns), 1fr);
+
+	@include mq(screen-sm) {
+		--columns: 2;
+	}
+
+	@include mq(screen-md) {
+		--columns: 3;
+	}
+
+	@include mq(screen-lg) {
+		--columns: 4;
+	}
 
 	&__item {
 		display: flex;
@@ -9,9 +26,13 @@
 		position: relative;
 		overflow: hidden;
 
+		height: calc(100vw / var(--columns) * 4 / 3);
+
 		img {
 			transition: transform 1.2s $easeInOutQuint;
 			cursor: none;
+			height: 100%;
+			object-fit: cover;
 
 			&.zoomed {
 				transform: scale(5);
@@ -20,6 +41,7 @@
 	}
 
 	&__text {
+		pointer-events: none;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
@@ -45,6 +67,7 @@
 
 		p {
 			@include bodytext;
+			pointer-events: none;
 			padding: 200px var(--page-outer-margin) var(--page-outer-margin);
 			max-width: 30em;
 		}
