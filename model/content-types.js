@@ -488,5 +488,10 @@ export default {
 	aboutGanni: {
 		name: 'about-ganni',
 		contentComponent: 'about-ganni'
+	},
+
+	fabrics: {
+		name: 'fabrics',
+		contentComponent: 'fabrics'
 	}
 }

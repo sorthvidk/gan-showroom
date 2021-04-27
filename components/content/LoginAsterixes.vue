@@ -6,14 +6,7 @@
 import Matter from 'matter-js'
 import { mapState } from 'vuex'
 import asterixTexture from '~/static/img/asterix.png'
-
-const loadImage = (url) => {
-	return new Promise((resolve) => {
-		const img = new Image()
-		img.onload = () => resolve(img.src)
-		img.src = url
-	})
-}
+import { loadImage } from '~/utils/loadImage'
 
 export default {
 	name: 'login-asterixes',
@@ -95,7 +88,8 @@ export default {
 		// create an engine
 		this.engine = Engine.create()
 
-		this.textureUrl = await loadImage(asterixTexture)
+		const res = await loadImage(asterixTexture)
+		this.textureUrl = res.src
 
 		// create a renderer
 		this.render = Render.create({

@@ -31,12 +31,7 @@
 					backgroundSize: webcamImage && '400px',
 				}"
 			>
-				<!-- <background-image /> -->
-
-				<!-- <div class="desktop__static"> -->
-				<!-- <vue-bar> -->
 				<transition name="fade--fast" mode="out-in">
-					<!-- ref="vuebar" -->
 					<window-static
 						v-if="dashboardContent && dashboardContent.contentComponent"
 						:content="dashboardContent"
@@ -56,8 +51,6 @@
 						/>
 					</div>
 				</transition>
-				<!-- </vue-bar> -->
-				<!-- </div> -->
 
 				<media-library v-if="showMenu" />
 

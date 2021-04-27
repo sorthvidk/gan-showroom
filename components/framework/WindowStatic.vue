@@ -14,7 +14,7 @@
 			:parent-window-id="content.windowId"
 			v-bind="{
 				...content.contentComponentProps,
-				contentId: content.contentId
+				contentId: content.contentId,
 			}"
 			ref="contentComponent"
 		/>
@@ -53,6 +53,7 @@ import GreenRoom from '~/components/content/GreenRoom.vue'
 import Afterparty from '~/components/content/Afterparty.vue'
 import PartyAnimal from '~/components/content/PartyAnimal.vue'
 import AboutGanni from '~/components/content/AboutGanni.vue'
+import Fabrics from '~/components/content/Fabrics.vue'
 
 import VueBar from '~/components/content/VueBar.vue'
 
@@ -84,13 +85,14 @@ export default {
 		GreenRoom,
 		Afterparty,
 		PartyAnimal,
-		AboutGanni
+		AboutGanni,
+		Fabrics,
 	},
 	props: {
 		content: {
 			type: Object,
-			default: () => ({})
-		}
+			default: () => ({}),
+		},
 	},
 	computed: {
 		...mapState('collection', ['currentStyles', 'wishList']),
@@ -101,16 +103,16 @@ export default {
 			if (!this.statusComponent) cn += ' window--no-status'
 
 			return cn
-		}
+		},
 	},
 
 	data: () => ({}),
 
 	methods: {
-		...mapActions([])
+		...mapActions([]),
 	},
 	mounted() {
 		// console.log(this.content)
-	}
+	},
 }
 </script>

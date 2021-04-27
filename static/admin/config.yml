@@ -726,6 +726,31 @@ collections:
           hint: 'If the image should be a link to another page (has no popup-text)',
         }
 
+  - name: 'fabrics'
+    label: 'Fabrics'
+    identifier_field: label
+    summary: '{{cloudinaryUrl}}'
+    folder: 'assets/content/fabrics'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          hint: 'Reference to media file',
+        }
+      - {
+          label: 'Info text',
+          name: 'text',
+          widget: 'text',
+          required: false,
+          hint: 'Text that will show at the image',
+        }
+
   - name: 'downloads'
     label: 'Downloads'
     identifier_field: label

@@ -9,6 +9,7 @@ export default ({ store }) => {
 				'user.loggedIn',
 				'user.cookiesAccepted',
 				'user.copyrightAccepted',
+				'user.hasDoneQuiz',
 				// 'progressBar.progressItems',
 				// 'progressBar.progressPct',
 				'collection.wishList'

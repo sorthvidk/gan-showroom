@@ -31,7 +31,7 @@
 
 	&__background {
 		@include windowtitle();
-		font-size: 2.1vw;
+		font-size: 1.9vw;
 		color: var(--color-primary);
 		background-size: cover;
 		background-position: center;
@@ -44,6 +44,10 @@
 		box-sizing: border-box;
 		padding: calc(var(--page-outer-margin) / 2 + var(--bottombar-height))
 			calc(var(--page-outer-margin) / 2);
+
+		@include mq(screen-md) {
+			font-size: 1.9vw;
+		}
 	}
 
 	&__shortcuts {

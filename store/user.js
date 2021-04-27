@@ -9,7 +9,8 @@ import {
 	IDLE,
 	USER_HAS_INTERACTED,
 	CURRENT_SCROLL,
-	SCREEN_SIZE
+	SCREEN_SIZE,
+	HAS_DONE_QUIZ
 } from '~/model/constants'
 
 export const state = () => ({
@@ -27,7 +28,9 @@ export const state = () => ({
 	userHasInteracted: false,
 
 	currentScroll: 0,
-	screenSize: { width: 0, height: 0 }
+	screenSize: { width: 0, height: 0 },
+
+	hasDoneQuiz: false
 })
 
 export const mutations = {
@@ -72,6 +75,10 @@ export const mutations = {
 
 	[SCREEN_SIZE.mutation](state, data) {
 		state.screenSize = data
+	},
+
+	[HAS_DONE_QUIZ.mutation](state, data) {
+		state.hasDoneQuiz = data
 	}
 }
 
@@ -111,5 +118,9 @@ export const actions = {
 
 	[SCREEN_SIZE.action]({ commit }, data) {
 		commit(SCREEN_SIZE.mutation, data)
+	},
+
+	[HAS_DONE_QUIZ.action]({ commit }, data) {
+		commit(HAS_DONE_QUIZ.mutation, data)
 	}
 }

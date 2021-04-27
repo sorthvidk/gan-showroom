@@ -1,0 +1,52 @@
+.fabrics {
+	padding-bottom: var(--bottombar-height);
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			transition: transform 1.2s $easeInOutQuint;
+			cursor: none;
+
+			&.zoomed {
+				transform: scale(5);
+			}
+		}
+	}
+
+	&__text {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		background: linear-gradient(
+			to bottom,
+			hsla(0, 0%, 0%, 0) 0%,
+			hsla(0, 0%, 0%, 0.01) 8.1%,
+			hsla(0, 0%, 0%, 0.039) 15.5%,
+			hsla(0, 0%, 0%, 0.083) 22.5%,
+			hsla(0, 0%, 0%, 0.14) 29%,
+			hsla(0, 0%, 0%, 0.207) 35.3%,
+			hsla(0, 0%, 0%, 0.282) 41.2%,
+			hsla(0, 0%, 0%, 0.36) 47.1%,
+			hsla(0, 0%, 0%, 0.44) 52.9%,
+			hsla(0, 0%, 0%, 0.518) 58.8%,
+			hsla(0, 0%, 0%, 0.593) 64.7%,
+			hsla(0, 0%, 0%, 0.66) 71%,
+			hsla(0, 0%, 0%, 0.717) 77.5%,
+			hsla(0, 0%, 0%, 0.761) 84.5%,
+			hsla(0, 0%, 0%, 0.79) 91.9%,
+			hsla(0, 0%, 0%, 0.8) 100%
+		);
+
+		p {
+			@include bodytext;
+			padding: 200px var(--page-outer-margin) var(--page-outer-margin);
+			max-width: 30em;
+		}
+	}
+}

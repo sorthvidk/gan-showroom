@@ -101,8 +101,6 @@ import AssistantModeCollectionSeen from '~/components/content/AssistantModeColle
 import AssistantModeCustom from '~/components/content/AssistantModeCustom.vue'
 import AssistantModePuzzle from '~/components/content/AssistantModePuzzle.vue'
 
-import ClipText from '~/components/elements/ClipText.vue'
-
 import TransitionExpand from '~/components/transitions/Expand.vue'
 import RotatingText from '~/components/content/RotatingText.vue'
 
@@ -122,7 +120,6 @@ export default {
 		AssistantModePuzzle,
 		TransitionExpand,
 		RotatingText,
-		ClipText,
 	},
 	data() {
 		return {

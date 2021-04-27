@@ -109,6 +109,8 @@ export const FETCH_SCROLL_IMAGES = create('FETCH_SCROLL_IMAGES')
 export const FETCH_GREEN_ROOM = create('FETCH_GREEN_ROOM')
 export const FETCH_ABOUT_GANNI = create('FETCH_ABOUT_GANNI')
 export const FETCH_AFTERPARTY = create('FETCH_AFTERPARTY')
+export const FETCH_FABRICS = create('FETCH_FABRICS')
 
 export const CURRENT_SCROLL = create('CURRENT_SCROLL')
 export const SCREEN_SIZE = create('SCREEN_SIZE')
+export const HAS_DONE_QUIZ = create('HAS_DONE_QUIZ')

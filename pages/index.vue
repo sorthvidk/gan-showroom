@@ -5,7 +5,6 @@
 	>
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
-		<!-- v-if="quizDone" -->
 		<audio-player
 			:sources="[song.src]"
 			:title="song.title"
@@ -22,16 +21,16 @@
 		<!-- step 2 -->
 		<transition name="slide-in-out">
 			<quiz
-				v-show="!quizDone"
+				v-show="!hasDoneQuiz"
 				v-if="loggedIn && !dashboardContent.contentId"
-				@done="() => (quizDone = true)"
+				@done="onQuizDone"
 				:with-skip-link="true"
 			/>
 		</transition>
 
 		<!-- step 3 -->
 		<transition name="slide-in">
-			<desktop v-if="quizDone" />
+			<desktop v-if="loggedIn && hasDoneQuiz" />
 		</transition>
 
 		<v-idle v-show="false" :duration="15000" @idle="onidle" />
@@ -39,7 +38,7 @@
 		<!-- <mobile-disclamer v-if="isMobile" /> -->
 
 		<transition name="slide-up">
-			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: quizDone }" />
+			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: hasDoneQuiz }" />
 		</transition>
 	</div>
 </template>
@@ -74,6 +73,7 @@ import {
 	USER_HAS_INTERACTED,
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
+	HAS_DONE_QUIZ,
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -90,12 +90,11 @@ export default {
 		Quiz,
 	},
 	data: () => ({
-		quizDone: false,
 		currentAudioIdx: 0,
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
-		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle']),
+		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle', 'hasDoneQuiz']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
 		song() {
@@ -130,6 +129,7 @@ export default {
 			USER_HAS_INTERACTED.action,
 			CURRENT_SCROLL.action,
 			SCREEN_SIZE.action,
+			HAS_DONE_QUIZ.action,
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 
@@ -148,6 +148,10 @@ export default {
 
 		nextSong() {
 			this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
+		},
+
+		onQuizDone() {
+			this[HAS_DONE_QUIZ.action](true)
 		},
 	},
 	mounted() {
@@ -182,10 +186,10 @@ export default {
 		// document.body.addEventListener('mousemove', this.nonidle.bind(this))
 
 		window.addEventListener('mousemove', (event) => {
-			debounce(() => {
-				this.nonidle()
-				this[MOUSEMOVE.action](event)
-			}, 200)
+			// debounce(() => {
+			this.nonidle()
+			this[MOUSEMOVE.action](event)
+			// }, 200)
 		})
 
 		// TODO : add some throttle/debounce
