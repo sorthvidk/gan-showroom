@@ -29,7 +29,8 @@
 		height: calc(100vw / var(--columns) * 4 / 3);
 
 		img {
-			transition: transform 1.2s $easeInOutQuint;
+			transition: transform 1.2s $easeInOutQuint,
+				transform-origin 0.6s $easeOutQuint;
 			cursor: none;
 			height: 100%;
 			object-fit: cover;
@@ -37,6 +38,21 @@
 			&.zoomed {
 				transform: scale(5);
 			}
+		}
+	}
+
+	&__fullscreen {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1em;
+		width: 2em;
+		height: 2em;
+
+		svg {
+			width: inherit;
+			height: inherit;
+			pointer-events: none;
 		}
 	}
 
