@@ -1,19 +1,20 @@
 <template>
 	<div class="about-ganni">
-		<div
-			:class="itemClass(item)"
-			v-for="(item, idx) in items"
-			:key="idx"
-			ref="items"
-			:style="`order: ${item.order};`"
-		>
-			<img
-				v-if="item.type === 'image'"
-				:src="getMediaUrl(item.type, item.cloudinaryUrl).src"
-				alt=""
-			/>
-
-			<div v-if="item.type === 'text'" v-html="item.text"></div>
+		<div v-for="(item, index) in items" :key="index" class="about-ganni__item">
+			<div
+				v-if="item.title"
+				class="about-ganni__headline"
+				v-html="item.title"
+			></div>
+			<div v-if="item.text" v-html="item.text"></div>
+			<div class="about-ganni__images">
+				<img
+					v-for="(image, index) in item.cloudinaryUrl"
+					:key="index"
+					:src="getMediaUrl(image.type, image.cloudinaryUrl).src"
+					alt=""
+				/>
+			</div>
 		</div>
 	</div>
 </template>

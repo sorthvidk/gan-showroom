@@ -14,36 +14,55 @@
 }
 
 .about-ganni {
-	min-height: 100vh;
-	display: grid;
-	grid-template-columns: repeat(var(--about-ganni-col-count), 1fr);
-	grid-gap: 1px;
-	padding-bottom: var(--bottombar-height);
-
-	--collection-col-count: 2;
-
-	@include mq(screen-sm) {
-		--collection-col-count: 3;
-	}
+	padding: rem(40) var(--page-outer-margin);
+	padding-bottom: calc(var(--bottombar-height) + 100px);
+	color: var(--color-secondary);
+	background-color: var(--color-primary);
+	font-size: 18px;
+	font-weight: 500;
+	display: flex;
+	flex-direction: column;
 
 	@include mq(screen-md) {
-		--collection-col-count: 4;
+		font-size: 32px;
+	}
+
+	&__headline {
+		font-weight: 400;
+		font-size: 30px;
+		text-transform: uppercase;
+
+		@include mq(screen-md) {
+			font-size: 100px;
+		}
 	}
 
 	&__item {
-		&-text {
-			@include bodytext();
-			background-color: var(--color-secondary);
-			color: var(--color-primary);
-			padding: rem(40) var(--page-outer-margin);
+		margin-top: 30px;
+
+		&:first-child .about-ganni__headline {
+			font-size: 60px;
+			text-transform: none;
+
+			@include mq(screen-md) {
+				font-size: 212px;
+			}
+		}
+	}
+	&__images {
+		margin-top: 30px;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(50%, max-content));
+		grid-gap: 10px;
+
+		@include mq(screen-md) {
+			grid-gap: 20px;
 		}
 
-		&-media {
-			img {
-				object-fit: cover;
-				width: 100%;
-				height: 100%;
-			}
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

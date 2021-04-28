@@ -784,43 +784,28 @@ collections:
         }
 
   - name: 'aboutGanni'
-    summary: 'Item {{itemId}}'
+    summary: '{{id}}'
     label: 'About Ganni'
     folder: 'assets/content/aboutGanni'
-    sortable_fields: ['itemId']
+    sortable_fields: ['id']
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{itemId}}'
     editor:
       preview: false
     fields:
+      - { label: 'ID', name: 'id', widget: 'string', required: true }
       - {
-          label: 'Order',
-          name: 'order',
-          widget: 'number',
-          min: 0,
-          max: 100,
-          default: 0,
-          hint: 'Optional ordering position',
+          label: 'Headline',
+          name: 'headline',
+          widget: 'string',
+          required: false,
         }
+      - { label: 'Text', name: 'bodyText', widget: 'text' }
       - {
           label: '(if image) Cloudinary media reference',
           name: 'cloudinaryUrl',
           widget: 'image',
           required: false,
-        }
-      - {
-          label: '(if text) The text',
-          name: 'text',
-          widget: 'text',
-          required: false,
-        }
-      - {
-          label: 'Item type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['image', 'text'],
-          hint: 'Either image or text',
-          default: 'image',
+          multiple: true,
         }

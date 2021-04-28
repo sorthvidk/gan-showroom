@@ -1,6 +1,6 @@
 {
-  "type": "image",
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1604503502/PF21_21.2/about_ganni/DSC_3432_w2uifw.jpg",
-  "title": "GANNI HQ",
-  "itemId": "about02"
+  "text": "A danish brand with a global outlook with offices in copenhagen, london and new york. Ganni is represented in more than 600 iconic retailers worldwide, as well as through 28 stores across europe, and the united states",
+  "title": "Ganni is a global fashion brand of the future.",
+  "itemId": "text3",
+  "order": 3
 }
