@@ -52,6 +52,31 @@
 				}
 			}
 		}
+
+		--enter-duration: 2s;
+		--move-amount: 50px;
+
+		@keyframes enter-to-right {
+			from {
+				transform: translateX(calc(var(--move-amount) * -1));
+			}
+		}
+
+		@keyframes enter-to-left {
+			from {
+				transform: translateX(var(--move-amount));
+			}
+		}
+
+		img {
+			animation: enter-to-left var(--enter-duration) forwards $easeInOutQuint;
+		}
+
+		&.left {
+			img {
+				animation: enter-to-right var(--enter-duration) forwards $easeInOutQuint;
+			}
+		}
 	}
 
 	&__text {

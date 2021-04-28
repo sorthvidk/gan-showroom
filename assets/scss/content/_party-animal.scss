@@ -1,6 +1,6 @@
 .party-animal {
-	height: 100vh;
-	padding: var(--bottombar-height) 0;
+	height: calc(100vh - var(--bottombar-height) * 2);
+	margin: var(--bottombar-height) 0;
 	box-sizing: border-box;
 
 	background-color: var(--color-secondary);

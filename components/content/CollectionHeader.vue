@@ -1,16 +1,21 @@
 <template>
 	<div class="collection-header">
-		<div class="inner">
+		<div class="inner" @click="toggleImages">
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
 					v-if="group.deadline"
 					:preText="'That is in '"
 					:deadline="group.deadline.split(',')"
+					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />
 			</div>
-			<div class="image" @click="showNextImage">
+			<div
+				class="image"
+				@click="showNextImage"
+				:class="{ 'in-view': showImages }"
+			>
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
 					:key="image"
@@ -20,6 +25,7 @@
 
 				<div
 					class="timeline"
+					v-if="group.cloudinaryUrl.length > 1"
 					:style="{
 						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`,
 					}"
@@ -67,6 +73,7 @@ export default {
 		loaded: 0,
 		activeIndex: 0,
 		progress: 0,
+		showImages: false,
 	}),
 	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
@@ -87,15 +94,25 @@ export default {
 			this.progress = 0
 		},
 		tick() {
-			requestAnimationFrame(this.tick)
+			if (this.showImages) {
+				requestAnimationFrame(this.tick)
+			}
+
 			this.progress += 1 / this.speed
+
 			if (this.progress > 1) {
 				this.showNextImage()
 			}
 		},
+		toggleImages(e) {
+			console.log(e)
+			this.showImages = e.deltaY ? false : true
+
+			if (this.showImages && this.group.cloudinaryUrl.length > 1) {
+				this.tick()
+			}
+		},
 	},
-	mounted() {
-		this.tick()
-	},
+	mounted() {},
 }
 </script>

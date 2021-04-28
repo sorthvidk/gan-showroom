@@ -43,6 +43,19 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
+			shortcutId: 'afterparty',
+			label: 'Afterparty',
+			windowContent: [
+				{
+					title: 'Afterparty',
+					contentId: 'afterparty',
+					type: ContentTypes.afterparty
+				}
+			]
+		},
+
+		{
+			type: ShortcutTypes.WINDOW,
 			shortcutId: 'lookbook-slideshow',
 			label: 'FW21 LookBook',
 			windowContent: [
@@ -83,19 +96,6 @@ export const state = () => ({
 					assistant: {
 						mode: AssistantModes.FILTER_COLLECTION
 					}
-				}
-			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'afterparty',
-			label: 'Afterparty',
-			windowContent: [
-				{
-					title: 'Afterparty',
-					contentId: 'afterparty',
-					type: ContentTypes.afterparty
 				}
 			]
 		},

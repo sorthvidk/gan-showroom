@@ -76,6 +76,7 @@ export const mutations = {
 		// Object.keys(ContentTypes).forEach(type => {
 		// 	state.progressBar.progressItems[type].complete = false
 		// })
+		state.user.hasDoneQuiz = false
 		state.user.loggedIn = false
 		state.user.cookiesAccepted = false
 		state.user.copyrightAccepted = false
@@ -556,9 +557,7 @@ export const actions = {
 
 		commit(
 			'fabrics/' + FETCH_FABRICS.mutation,
-			await getData(
-				require.context('~/assets/content/fabrics/', false, /\.json$/)
-			)
+			await getData(require.context('~/assets/mock/fabrics/', false, /\.json$/))
 		)
 
 		console.log('NUXT SERVER INIT DONE')

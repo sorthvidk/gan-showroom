@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import {
 	CLOSE_WINDOW_GROUP,
 	SHOW_NEW_STYLE,

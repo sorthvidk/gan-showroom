@@ -96,6 +96,7 @@
 		display: grid;
 		grid-gap: calc(var(--page-outer-margin) / 2);
 		grid-template-columns: repeat(auto-fill, 75px);
+		padding-bottom: var(--page-outer-margin);
 
 		div {
 			display: inline-flex;

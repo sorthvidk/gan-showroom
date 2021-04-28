@@ -16,6 +16,12 @@
 		margin-bottom: -0.5rem;
 	}
 
+	h2 {
+		@include bodytext;
+		padding: 1rem;
+		border-top: 1px solid;
+	}
+
 	* {
 		border-collapse: collapse;
 	}
@@ -26,8 +32,8 @@
 		border-bottom: 1px solid;
 		text-align: left;
 
-		&:first-of-type {
-			border-top: 1px solid;
+		&:last-of-type {
+			border-bottom: 0;
 		}
 
 		&__content {
