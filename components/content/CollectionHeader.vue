@@ -1,6 +1,6 @@
 <template>
 	<div class="collection-header">
-		<div class="inner">
+		<div class="inner" @click="toggleImages">
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
@@ -11,7 +11,11 @@
 				/>
 				<p v-if="group.text" v-html="group.text" />
 			</div>
-			<div class="image" @click="showNextImage">
+			<div
+				class="image"
+				@click="showNextImage"
+				:class="{ 'in-view': showImages }"
+			>
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
 					:key="image"
@@ -69,6 +73,7 @@ export default {
 		loaded: 0,
 		activeIndex: 0,
 		progress: 0,
+		showImages: false,
 	}),
 	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
@@ -89,7 +94,9 @@ export default {
 			this.progress = 0
 		},
 		tick() {
-			requestAnimationFrame(this.tick)
+			if (this.showImages) {
+				requestAnimationFrame(this.tick)
+			}
 
 			this.progress += 1 / this.speed
 
@@ -97,11 +104,15 @@ export default {
 				this.showNextImage()
 			}
 		},
+		toggleImages(e) {
+			console.log(e)
+			this.showImages = e.deltaY ? false : true
+
+			if (this.showImages && this.group.cloudinaryUrl.length > 1) {
+				this.tick()
+			}
+		},
 	},
-	mounted() {
-		if (this.group.cloudinaryUrl.length > 1) {
-			this.tick()
-		}
-	},
+	mounted() {},
 }
 </script>
