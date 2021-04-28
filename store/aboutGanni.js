@@ -7,8 +7,8 @@ export const state = () => ({
 
 export const mutations = {
 	[FETCH_ABOUT_GANNI.mutation](state, data) {
-		// state.items = data.sort((itemA, itemB) => itemA.order - itemB.order)
-		state.items = data
+		state.items = data.sort((a, b) => a.id.localeCompare(b.id))
+		// state.items = data
 	}
 }
 

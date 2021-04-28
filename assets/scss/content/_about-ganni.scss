@@ -15,7 +15,7 @@
 
 .about-ganni {
 	padding: rem(40) var(--page-outer-margin);
-	padding-bottom: calc(var(--bottombar-height) + 100px);
+	padding-bottom: calc(var(--bottombar-height) + 60px);
 	color: var(--color-secondary);
 	background-color: var(--color-primary);
 	font-size: 18px;
@@ -52,8 +52,9 @@
 	&__images {
 		margin-top: 30px;
 		display: grid;
-		grid-template-columns: repeat(2, minmax(50%, max-content));
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		grid-gap: 10px;
+		position: relative;
 
 		@include mq(screen-md) {
 			grid-gap: 20px;
@@ -63,6 +64,44 @@
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
+		}
+
+		&--with-smiley {
+			margin-top: 15vw;
+			@include mq(screen-md) {
+				margin-top: 30px;
+				grid-template-columns: [one] 1fr [two] 1fr [three] 1fr;
+				img {
+					&:nth-child(2) {
+						grid-area: two;
+					}
+					&:nth-child(3) {
+						grid-area: three;
+					}
+				}
+			}
+		}
+
+		&-fill {
+			display: none;
+			@include mq(screen-md) {
+				display: block;
+			}
+		}
+	}
+
+	img.about-ganni__smiley {
+		position: absolute;
+		max-width: 38vw;
+		object-fit: contain;
+
+		@include mq($until: screen-md) {
+			top: 0;
+			transform: translate3d(-50%, -50%, 0);
+			width: 50%;
+			height: auto;
+			left: 50%;
+			max-width: 25vw;
 		}
 	}
 }
