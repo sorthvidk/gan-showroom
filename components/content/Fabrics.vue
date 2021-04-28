@@ -3,7 +3,7 @@
 		<div
 			class="fabrics__item"
 			v-for="(item, idx) in items"
-			:key="item.text"
+			:key="item.text + idx"
 			ref="items"
 		>
 			<text-cursor :text="'+zoom'" />

@@ -10,12 +10,13 @@
 			class="green-room__item"
 			v-for="(item, idx) in items"
 			:key="item.text + idx"
-			:class="{ fixed: item.fixed }"
+			:class="{ fixed: item.fixed, left: idx < items.length / 2 }"
 			ref="items"
 			:style="{
 				left: `${idx * 19 + 5}%`,
 				top: `${(idx % 2) * 45 + 5}%`,
 				zIndex: items.length - idx,
+				'--enter-duration': Math.random() * 1 + 2 + 's',
 			}"
 		>
 			<button v-if="!item.link" @click="toggle(idx)">
