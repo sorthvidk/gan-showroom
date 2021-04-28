@@ -5,7 +5,8 @@ import {
 	SHORTENED_URL,
 	FETCH_VARIOUS,
 	DASHBOARD_DARK,
-	MENU_SHOW
+	MENU_SHOW,
+	AUDIOPLAYER_DARK
 } from '~/model/constants'
 
 export const state = () => ({
@@ -15,7 +16,8 @@ export const state = () => ({
 	shortenedReceiptUrl: '',
 	various: {},
 	__prod__: process.env.NODE_ENV === 'production',
-	dashboardDark: true,
+	dashboardDark: false,
+	audioPlayerDark: false,
 	showMenu: false
 })
 
@@ -58,6 +60,9 @@ export const mutations = {
 		} else {
 			state.showMenu = data
 		}
+	},
+	[AUDIOPLAYER_DARK.mutation](state, data) {
+		state.audioPlayerDark = data
 	}
 }
 
@@ -79,5 +84,8 @@ export const actions = {
 	},
 	[MENU_SHOW.action]({ commit }, data) {
 		commit(MENU_SHOW.mutation, data)
+	},
+	[AUDIOPLAYER_DARK.action]({ commit }, data) {
+		commit(AUDIOPLAYER_DARK.mutation, data)
 	}
 }
