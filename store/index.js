@@ -551,7 +551,7 @@ export const actions = {
 		commit(
 			'aboutGanni/' + FETCH_ABOUT_GANNI.mutation,
 			await getData(
-				require.context('~/assets/mock/aboutGanni/', false, /\.json$/)
+				require.context('~/assets/content/aboutGanni/', false, /\.json$/)
 			)
 		)
 
