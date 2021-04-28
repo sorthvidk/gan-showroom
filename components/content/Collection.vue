@@ -42,12 +42,13 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import CollectionItem from '~/components/content/CollectionItem.vue'
 import CollectionHeader from '~/components/content/CollectionHeader.vue'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import GroupNavigation from '~/components/content/GroupNavigation.vue'
 import { TweenLite } from 'gsap'
+import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
 	extends: WindowContent,
@@ -121,6 +122,7 @@ export default {
 	},
 
 	methods: {
+		...mapActions('utils', [DASHBOARD_DARK.action]),
 		beforeEnter(el) {
 			// el.style.transition = 'opacity .3s'
 			el.style.opacity = 0
@@ -139,6 +141,10 @@ export default {
 				done()
 			}, 0)
 		},
+	},
+
+	mounted() {
+		this[DASHBOARD_DARK.action](false)
 	},
 }
 </script>

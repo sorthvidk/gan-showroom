@@ -183,7 +183,7 @@ export default {
 				src: getCloudinaryUrl(
 					this.$cloudinary,
 					{ type, cloudinaryUrl },
-					{ width: thumbnail ? 100 : (window.innerWidth < 600 ? 300 : 900) }
+					{ width: thumbnail ? 100 : window.innerWidth < 600 ? 300 : 900 }
 				),
 				loading: transparentPixel,
 			}
@@ -213,8 +213,8 @@ export default {
 		this[DASHBOARD_DARK.action](true)
 	},
 
-	beforeDestroy() {
-		this[DASHBOARD_DARK.action](false)
-	},
+	// beforeDestroy() {
+	// 	this[DASHBOARD_DARK.action](false)
+	// },
 }
 </script>

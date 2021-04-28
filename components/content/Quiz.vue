@@ -15,33 +15,48 @@
 			<h1 class="quiz__title">
 				Who is visiting the club?<br />Please choose to proceed
 			</h1>
-			<div v-if="!done" class="quiz__box">
-				<p class="quiz__question">
-					{{ questions[current].question }}
-				</p>
-				<div
-					class="quiz__choises"
-					:style="{ flexDirection: Math.random() <= 0.5 ? 'row-reverse' : '' }"
-				>
-					<button @click="next(0)">{{ questions[current].choices[0] }}</button>
-					<p>or</p>
-					<button @click="next(1)">{{ questions[current].choices[1] }}</button>
+
+			<transition name="fade--fast" mode="out-in">
+				<div v-if="!done" class="quiz__box" :key="current">
+					<p class="quiz__question">
+						{{ questions[current].question }}
+					</p>
+					<div
+						class="quiz__choises"
+						:style="{
+							flexDirection: Math.random() <= 0.5 ? 'row-reverse' : '',
+						}"
+					>
+						<button @click="next(0)">
+							{{ questions[current].choices[0] }}
+						</button>
+						<p>or</p>
+						<button @click="next(1)">
+							{{ questions[current].choices[1] }}
+						</button>
+					</div>
 				</div>
-			</div>
-			<p v-if="done" class="quiz__description">
-				{{ answers[score].description }}
-			</p>
-			<p v-if="done" class="quiz__answer">{{ answers[score].text }}</p>
-			<p v-if="!done" class="quiz__count">
-				{{ current + 1 }}/{{ questions.length }}
-			</p>
+				<p v-if="done" class="quiz__description">
+					{{ answers[score].description }}
+				</p>
+			</transition>
+
+			<transition name="fade--fast" mode="out-in">
+				<p v-if="done" class="quiz__answer">{{ answers[score].text }}</p>
+			</transition>
+
+			<transition name="fade--fast" mode="out-in">
+				<p v-if="!done" class="quiz__count">
+					{{ current + 1 }}/{{ questions.length }}
+				</p>
+			</transition>
 		</div>
 	</div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { DASHBOARD_DARK } from '~/model/constants'
+import { DASHBOARD_DARK, ASSISTANT_TOGGLE } from '~/model/constants'
 import { clamp } from '~/utils/clamp'
 
 export default {
@@ -62,6 +77,7 @@ export default {
 		},
 	},
 	methods: {
+		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
 		...mapActions('utils', [DASHBOARD_DARK.action]),
 		next(choice) {
 			this.current++
@@ -82,10 +98,11 @@ export default {
 
 	mounted() {
 		this[DASHBOARD_DARK.action](true)
+		this[ASSISTANT_TOGGLE.action](true)
 	},
 
-	beforeDestroy() {
-		this[DASHBOARD_DARK.action](false)
-	},
+	// beforeDestroy() {
+	// 	this[DASHBOARD_DARK.action](false)
+	// },
 }
 </script>

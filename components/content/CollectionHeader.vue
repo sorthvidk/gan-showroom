@@ -7,6 +7,7 @@
 					v-if="group.deadline"
 					:preText="'That is in '"
 					:deadline="group.deadline.split(',')"
+					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />
 			</div>
@@ -20,6 +21,7 @@
 
 				<div
 					class="timeline"
+					v-if="group.cloudinaryUrl.length > 1"
 					:style="{
 						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`,
 					}"
@@ -88,14 +90,18 @@ export default {
 		},
 		tick() {
 			requestAnimationFrame(this.tick)
+
 			this.progress += 1 / this.speed
+
 			if (this.progress > 1) {
 				this.showNextImage()
 			}
 		},
 	},
 	mounted() {
-		this.tick()
+		if (this.group.cloudinaryUrl.length > 1) {
+			this.tick()
+		}
 	},
 }
 </script>

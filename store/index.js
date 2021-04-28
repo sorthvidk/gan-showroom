@@ -76,6 +76,7 @@ export const mutations = {
 		// Object.keys(ContentTypes).forEach(type => {
 		// 	state.progressBar.progressItems[type].complete = false
 		// })
+		state.user.hasDoneQuiz = false
 		state.user.loggedIn = false
 		state.user.cookiesAccepted = false
 		state.user.copyrightAccepted = false

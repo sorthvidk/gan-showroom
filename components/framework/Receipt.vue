@@ -1,11 +1,14 @@
 <template>
 	<div class="receipt">
-		<h1 class="receipt__title" style="font-weight: 500;">ganni export</h1>
-		<receipt-item
-			v-for="(item, key) in receiptStyles"
-			:key="'receiptItem' + key"
-			:receipt-item="item"
-		/>
+		<h1 class="receipt__title" style="font-weight: 500">ganni export</h1>
+		<div v-for="(value, name) in receiptStyles" :key="'group' + name">
+			<h2>{{ name.replace('-', ' ') }}</h2>
+			<receipt-item
+				v-for="(item, idx) in value"
+				:key="'receiptItem' + idx"
+				:receipt-item="item"
+			/>
+		</div>
 		<receipt-watermark />
 	</div>
 </template>
@@ -19,7 +22,7 @@ export default {
 	name: 'Receipt',
 	components: {
 		ReceiptItem,
-		ReceiptWatermark
+		ReceiptWatermark,
 	},
 	data() {
 		return {
@@ -29,15 +32,27 @@ export default {
 			urlParams: [],
 			filterGroup: [],
 			filterFilter: [],
-			filterStyles: []
+			filterStyles: [],
 		}
 	},
 	computed: {
-		...mapState('assistant', ['pdfDownloadLink']),
-		...mapState('collection', ['allStyles']),
+		...mapState('collection', ['allStyles', 'authorizedGroups']),
 		receiptStyles() {
-			return this.filterStyles
-		}
+			const sortedOnWeight = [...this.filterStyles].sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
+
+			const splitIntoGroups = sortedOnWeight.reduce((acc, cur) => {
+				acc[cur.groupId] = acc[cur.groupId] || []
+
+				return {
+					...acc,
+					[cur.groupId]: [...acc[cur.groupId], cur],
+				}
+			}, {})
+
+			return splitIntoGroups
+		},
 	},
 	methods: {
 		parseUrl() {
@@ -47,20 +62,16 @@ export default {
 			this.group = url.searchParams.get('group')
 			this.styles = styles && styles.split(',')
 
-			this.usableStyles = this.allStyles.filter(
-				s => !s.styleId.includes('TEST')
-			) // [fix this] - weird check..?
-
 			this.filterGroup = this.group
-				? this.usableStyles.filter(s => s.groupId === this.group)
-				: this.usableStyles
+				? this.allStyles.filter((s) => s.groupId === this.group)
+				: this.allStyles
 
 			this.filterFilter = this.filter
-				? this.filterGroup.filter(s => s.filters.includes(this.filter))
+				? this.filterGroup.filter((s) => s.filters.includes(this.filter))
 				: this.filterGroup
 
 			this.filterStyles = this.styles
-				? this.filterFilter.filter(s => this.styles.includes(s.styleId))
+				? this.filterFilter.filter((s) => this.styles.includes(s.styleId))
 				: this.filterFilter
 
 			// example urls to show all styles with filter in a group:
@@ -68,10 +79,10 @@ export default {
 
 			// example to show a list of styles:
 			// http://localhost:3000/export/?styles=T2685,T2692
-		}
+		},
 	},
 	mounted() {
 		this.parseUrl()
-	}
+	},
 }
 </script>

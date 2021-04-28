@@ -31,7 +31,7 @@
 
 	&__background {
 		@include windowtitle();
-		font-size: 1.9vw;
+		font-size: 5vw;
 		color: var(--color-primary);
 		background-size: cover;
 		background-position: center;
@@ -46,7 +46,7 @@
 			calc(var(--page-outer-margin) / 2);
 
 		@include mq(screen-md) {
-			font-size: 1.9vw;
+			font-size: 2.25vw;
 		}
 	}
 

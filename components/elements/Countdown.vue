@@ -22,20 +22,21 @@ export default {
 			type: Array,
 			default: () => [],
 		},
+		slim: { type: Boolean },
 	},
 	methods: {
 		updateDuration() {
-			const time = dateFns.intervalToDuration({
+			const durationRaw = dateFns.intervalToDuration({
 				start: new Date(),
 				end: new Date(...this.deadline),
 			})
 
-			this.dur = dateFns.formatDuration(time)
-
-			// this.duration = time.seconds
-			// 	? this.dur.replace('minutes', 'minutes and')
-			// 	: this.dur
-			this.duration = this.dur
+			this.duration = dateFns.formatDuration(durationRaw, {
+				format: this.slim
+					? ['months', 'days', 'hours']
+					: ['days', 'hours', 'minutes', 'seconds'],
+				zero: true,
+			})
 		},
 		loop() {
 			setTimeout(() => {
