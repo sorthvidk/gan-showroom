@@ -60,4 +60,8 @@
 	color: var(--color-primary);
 	// &.dark {
 	// }
+
+	&.invert {
+		color: $color-black;
+	}
 }

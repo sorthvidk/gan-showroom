@@ -31,7 +31,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import { AUDIOPLAYER_DARK } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
 
@@ -41,7 +42,16 @@ export default {
 	computed: {
 		...mapState('aboutGanni', ['items'])
 	},
+	mounted() {
+		console.log('bum')
+		this[AUDIOPLAYER_DARK.action](true)
+	},
+	beforeDestroy() {
+		console.log('unmounted')
+		this[AUDIOPLAYER_DARK.action](false)
+	},
 	methods: {
+		...mapActions('utils', [AUDIOPLAYER_DARK.action]),
 		getImage(src) {
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),

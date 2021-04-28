@@ -1,9 +1,8 @@
-
 <template>
 	<div
 		v-show="!isAudioGallery"
 		class="audio-player"
-		:class="{ dark: dashboardDark }"
+		:class="{ dark: dashboardDark, invert: audioPlayerDark }"
 	>
 		<button @click="togglePlayback">
 			<svg-icon :name="playing ? 'pause' : 'play'" />
@@ -23,18 +22,19 @@ import { MMSS } from '~/utils/HHMMSS'
 export default {
 	mixins: [VueHowler],
 	components: {
-		AudioSpectrumBars,
+		AudioSpectrumBars
 	},
 	props: {
-		title: { type: String, default: '' },
+		title: { type: String, default: '' }
 		// titles: { type: Array, default: () => [] },
 	},
 	data: () => ({
-		wasPlaying: true,
+		wasPlaying: true
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
 		...mapState('utils', ['dashboardDark', '__prod__']),
+		...mapState('utils', ['audioPlayerDark', '__prod__']),
 		isAudioGallery() {
 			const hide =
 				!this.dashboardContent ||
@@ -51,7 +51,7 @@ export default {
 		},
 		currentTime() {
 			return MMSS(this.duration * this.progress)
-		},
+		}
 	},
 	watch: {
 		playing() {
@@ -72,7 +72,7 @@ export default {
 				// if (this.progress >= 0.02) {
 				setTimeout(() => this.$emit('played-through'), 100)
 			}
-		},
-	},
+		}
+	}
 }
 </script>
