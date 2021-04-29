@@ -807,5 +807,5 @@ collections:
           name: 'cloudinaryUrl',
           widget: 'image',
           required: false,
-          multiple: true,
+          multiple: false,
         }
