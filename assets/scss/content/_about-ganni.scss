@@ -14,8 +14,7 @@
 }
 
 .about-ganni {
-	padding: rem(40) var(--page-outer-margin);
-	padding-bottom: calc(var(--bottombar-height) + 60px);
+	padding-bottom: calc(var(--bottombar-height));
 	color: var(--color-secondary);
 	background-color: var(--color-primary);
 	font-size: 18px;
@@ -27,25 +26,66 @@
 		font-size: 32px;
 	}
 
+	&__headline,
+	&__bodyText {
+		position: relative;
+		z-index: 1;
+		color: $color-white;
+	}
+
 	&__headline {
-		font-weight: 400;
+		font-weight: 700;
 		font-size: 30px;
 		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 80px;
+		line-height: 1em;
 
-		@include mq(screen-md) {
-			font-size: 100px;
+		@include mq(screen-sm) {
+			font-size: clamp(30px, 6vw, 85px);
 		}
 	}
 
+	&__bodyText {
+		width: 290px;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+
 	&__item {
-		margin-top: 30px;
+		padding: rem(30);
+		min-height: 100vh;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		position: relative;
 
-		&:first-child .about-ganni__headline {
-			font-size: 60px;
-			text-transform: none;
+		&:last-child {
+			@include mq($until: screen-md) {
+				padding-bottom: 100px;
+			}
+		}
 
-			@include mq(screen-md) {
-				font-size: 212px;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				0deg,
+				#424242 0%,
+				rgba(196, 196, 196, 0) 100%
+			);
+			mix-blend-mode: multiply;
+
+			@include mq(screen-xl) {
+				height: 80%;
 			}
 		}
 	}
