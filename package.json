@@ -32,6 +32,7 @@
 		"@nuxtjs/gtm": "^2.2.3",
 		"@nuxtjs/markdownit": "^1.2.6",
 		"@nuxtjs/svg-sprite": "^0.5.2",
+		"bezier-easing": "^2.1.0",
 		"cloudinary-core": "^2.8.2",
 		"date-fns": "^2.21.1",
 		"gsap": "^3",
