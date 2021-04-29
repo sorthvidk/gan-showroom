@@ -1,9 +1,6 @@
 {
-  "headline": "About Ganni",
-  "bodyText": "From copenhagen, Ganni is a global fashion brand of the future.\nOwned and run by husband-and-wife, creative director ditte reffstrup and founder nicolaj reffstrup since 2009, ganni is the next iteration of scandinavian style – scandi 2.0 – a sense of style full of personality and unexpected contrasts.",
-  "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1611571648/development-test/LOOK_2.jpg",
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1611571401/development-test/login-bg_tecisi.jpg"
-  ],
+  "headline": "ganni — the next interation of scandinavian style — scandi 2.0 — a sense of style full of personality and unexpected contrasts.",
+  "bodyText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1611571401/development-test/login-bg_tecisi.jpg",
   "id": "about1"
 }

@@ -1,31 +1,21 @@
 <template>
 	<div class="about-ganni">
-		<div v-for="(item, index) in items" :key="index" class="about-ganni__item">
+		<div
+			v-for="(item, index) in items"
+			:key="index"
+			class="about-ganni__item"
+			:style="`background-image: url(${getImage(item.cloudinaryUrl).src});`"
+		>
 			<div
 				v-if="item.headline"
 				class="about-ganni__headline"
 				v-html="item.headline"
 			></div>
-			<div v-if="item.bodyText" v-html="item.bodyText"></div>
 			<div
-				:class="
-					`about-ganni__images ${
-						index === 1 ? 'about-ganni__images--with-smiley' : ''
-					}`
-				"
-			>
-				<img
-					class="about-ganni__smiley"
-					src="/img/smiley.png"
-					v-if="index === 1"
-				/>
-				<img
-					v-for="(image, i) in item.cloudinaryUrl"
-					:key="i"
-					:src="getImage(image).src"
-					alt=""
-				/>
-			</div>
+				class="about-ganni__bodyText"
+				v-if="item.bodyText"
+				v-html="item.bodyText"
+			></div>
 		</div>
 	</div>
 </template>
