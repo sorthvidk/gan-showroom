@@ -1,11 +1,6 @@
 <template>
 	<div class="about-ganni">
-		<div
-			v-for="(item, index) in items"
-			:key="index"
-			class="about-ganni__item"
-			:style="`background-image: url(${getImage(item.cloudinaryUrl).src});`"
-		>
+		<div v-for="(item, index) in items" :key="index" class="about-ganni__item">
 			<div
 				v-if="item.headline"
 				class="about-ganni__headline"
@@ -16,6 +11,7 @@
 				v-if="item.bodyText"
 				v-html="item.bodyText"
 			></div>
+			<img class="about-ganni__image" :src="getImage(item.cloudinaryUrl).src" />
 		</div>
 	</div>
 </template>
@@ -25,6 +21,8 @@ import { mapState, mapActions } from 'vuex'
 import { AUDIOPLAYER_DARK } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 export default {
 	name: 'about-ganni',
@@ -33,11 +31,23 @@ export default {
 		...mapState('aboutGanni', ['items'])
 	},
 	mounted() {
-		console.log('bum')
+		gsap.registerPlugin(ScrollTrigger)
 		this[AUDIOPLAYER_DARK.action](true)
+
+		const scrollTriggers = [...document.querySelectorAll('.about-ganni__item')]
+		scrollTriggers.forEach(scrollElement => {
+			const image = scrollElement.querySelector('.about-ganni__image')
+			ScrollTrigger.create({
+				trigger: scrollElement,
+				start: 'top bottom',
+				end: 'bottom top',
+				// markers: true, //debug
+				scrub: 0.4,
+				animation: gsap.fromTo(image, { duration: 0.2, y: '-15%' }, { y: '0%' })
+			})
+		})
 	},
 	beforeDestroy() {
-		console.log('unmounted')
 		this[AUDIOPLAYER_DARK.action](false)
 	},
 	methods: {
