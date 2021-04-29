@@ -42,8 +42,8 @@
 					loop
 				/>
 			</div>
-			<horizontal-banner v-if="item.quote">
-				<div class="afterparty__quote">
+			<horizontal-banner v-if="item.quote" :text="item.quote" />
+			<!-- <div class="afterparty__quote">
 					<figure>
 						<blockquote>
 							<p>
@@ -56,8 +56,7 @@
 							<cite><span>- Ditte Reffstrup</span></cite>
 						</figcaption>
 					</figure>
-				</div>
-			</horizontal-banner>
+				</div> -->
 		</div>
 	</div>
 </template>
