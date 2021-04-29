@@ -1,6 +1,6 @@
 <template>
 	<div class="collection-header">
-		<div class="inner" @click="toggleImages">
+		<div class="inner" @wheel="toggleImages">
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
@@ -94,9 +94,7 @@ export default {
 			this.progress = 0
 		},
 		tick() {
-			if (this.showImages) {
-				requestAnimationFrame(this.tick)
-			}
+			requestAnimationFrame(this.tick)
 
 			this.progress += 1 / this.speed
 
@@ -105,14 +103,11 @@ export default {
 			}
 		},
 		toggleImages(e) {
-			console.log(e)
-			this.showImages = e.deltaY ? false : true
-
-			if (this.showImages && this.group.cloudinaryUrl.length > 1) {
-				this.tick()
-			}
+			this.showImages = e.deltaY < 0 ? false : true
 		},
 	},
-	mounted() {},
+	mounted() {
+		this.tick()
+	},
 }
 </script>
