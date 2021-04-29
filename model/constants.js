@@ -78,6 +78,7 @@ export const ASSISTANT_TOGGLE = create('ASSISTANT_TOGGLE')
 export const DESKTOP_BACKGROUND = create('DESKTOP_BACKGROUND')
 
 export const DASHBOARD_DARK = create('DASHBOARD_DARK')
+export const AUDIOPLAYER_DARK = create('AUDIOPLAYER_DARK')
 
 export const MENU_SHOW = create('MENU_SHOW')
 

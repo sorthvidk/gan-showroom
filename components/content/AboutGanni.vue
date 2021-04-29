@@ -1,26 +1,30 @@
 <template>
 	<div class="about-ganni">
 		<div
-			:class="itemClass(item)"
-			v-for="(item, idx) in items"
-			:key="idx"
-			ref="items"
-			:style="`order: ${item.order};`"
+			v-for="(item, index) in items"
+			:key="index"
+			class="about-ganni__item"
+			:style="`background-image: url(${getImage(item.cloudinaryUrl).src});`"
 		>
-			<img
-				v-if="item.type === 'image'"
-				:src="getMediaUrl(item.type, item.cloudinaryUrl).src"
-				alt=""
-			/>
-
-			<div v-if="item.type === 'text'" v-html="item.text"></div>
+			<div
+				v-if="item.headline"
+				class="about-ganni__headline"
+				v-html="item.headline"
+			></div>
+			<div
+				class="about-ganni__bodyText"
+				v-if="item.bodyText"
+				v-html="item.bodyText"
+			></div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import { AUDIOPLAYER_DARK } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
+import { greyPixel } from '~/utils/placeholders'
 
 export default {
 	name: 'about-ganni',
@@ -28,14 +32,20 @@ export default {
 	computed: {
 		...mapState('aboutGanni', ['items'])
 	},
+	mounted() {
+		console.log('bum')
+		this[AUDIOPLAYER_DARK.action](true)
+	},
+	beforeDestroy() {
+		console.log('unmounted')
+		this[AUDIOPLAYER_DARK.action](false)
+	},
 	methods: {
-		getMediaUrl(type, cloudinaryUrl, { thumbnail } = {}) {
+		...mapActions('utils', [AUDIOPLAYER_DARK.action]),
+		getImage(src) {
 			return {
-				src: getCloudinaryUrl(
-					this.$cloudinary,
-					{ type, cloudinaryUrl },
-					{ width: thumbnail ? 100 : window.innerWidth < 600 ? 300 : 900 }
-				)
+				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
+				loading: greyPixel
 			}
 		},
 

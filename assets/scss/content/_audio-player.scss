@@ -60,4 +60,10 @@
 	color: var(--color-primary);
 	// &.dark {
 	// }
+
+	&.invert {
+		// color: $color-black;
+		filter: invert(1) contrast(1);
+		mix-blend-mode: difference;
+	}
 }
