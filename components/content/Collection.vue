@@ -47,7 +47,6 @@ import CollectionItem from '~/components/content/CollectionItem.vue'
 import CollectionHeader from '~/components/content/CollectionHeader.vue'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import GroupNavigation from '~/components/content/GroupNavigation.vue'
-import { TweenLite } from 'gsap'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
@@ -56,10 +55,10 @@ export default {
 	components: {
 		CollectionItem,
 		CollectionHeader,
-		GroupNavigation,
+		GroupNavigation
 	},
 	data: () => ({
-		shifting: false,
+		shifting: false
 	}),
 	computed: {
 		...mapState('collection', [
@@ -68,33 +67,33 @@ export default {
 			// 'allGroups',
 			'authorizedGroups',
 			'activeGroup',
-			'searchstring',
+			'searchstring'
 		]),
 
 		groupsRenderList() {
-			const isActive = (g) =>
+			const isActive = g =>
 				!this.activeGroup || g.groupId === this.activeGroup.groupId
 
 			return this.authorizedGroups
-				.filter((g) => g.styles.length)
+				.filter(g => g.styles.length)
 				.filter(isActive)
-				.map((group) => ({
+				.map(group => ({
 					...group,
-					styles: this.currentStyles.filter((e) => {
+					styles: this.currentStyles.filter(e => {
 						const sameGroup = e.groupId === group.groupId
 						const searchableKeys = [
 							'styleId',
 							'programName',
 							'material',
-							'name',
+							'name'
 						]
-						const searchedFor = searchableKeys.find((key) => {
+						const searchedFor = searchableKeys.find(key => {
 							return e[key]
 								.toLowerCase()
 								.includes(this.searchstring.toLowerCase())
 						})
 						return sameGroup && searchedFor
-					}),
+					})
 				}))
 
 			// let groups = []
@@ -111,14 +110,14 @@ export default {
 			// 	})
 			// }
 			// return groups
-		},
+		}
 	},
 
 	watch: {
 		groupsRenderList() {
 			this.shifting = true
 			this.$nextTick(() => (this.shifting = false))
-		},
+		}
 	},
 
 	methods: {
@@ -140,11 +139,11 @@ export default {
 				el.style.opacity = 1
 				done()
 			}, 0)
-		},
+		}
 	},
 
 	mounted() {
 		this[DASHBOARD_DARK.action](false)
-	},
+	}
 }
 </script>
