@@ -13,7 +13,7 @@
 				<div class="assistant__search">
 					<input
 						type="text"
-						placeholder="search"
+						placeholder="filter"
 						:value="searchstring"
 						@input="onSearchInput"
 					/>
@@ -31,10 +31,11 @@
 						:name="item.name"
 						:count="item.styleIds.length"
 						:filter-id="item.filterId"
+						:is-big="['accessories', 'shoes'].includes(item.name.toLowerCase())"
 					/>
-					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0"
-						>&nbsp;</span
-					>
+					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0">
+						&nbsp;
+					</span>
 				</div>
 			</div>
 		</div>

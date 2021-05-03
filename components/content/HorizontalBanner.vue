@@ -7,7 +7,7 @@
 					:key="line"
 					ref="lines"
 					:style="{
-						transform: `translateX(${translateValue * ((idx + 10) / 10)}vw)`,
+						transform: `translateX(${translateValue * ((idx + 20) / 20)}vw)`,
 					}"
 					>{{ line }}</span
 				>

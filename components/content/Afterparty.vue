@@ -1,9 +1,13 @@
 <template>
 	<div class="afterparty">
 		<div
-			:class="[`afterparty__${item.sideBySide ? 'multiple' : 'gallery'}`]"
-			v-for="item in content"
+			v-for="(item, idx) in content"
 			:key="item.slug"
+			:class="[
+				`afterparty__${
+					item.sideBySide ? 'multiple' : idx === 0 ? 'gallery' : 'gallery-2'
+				}`,
+			]"
 		>
 			<div class="afterparty__multiple__item" v-if="item.sideBySide">
 				<div v-for="i in 7 * 4" :key="'jhdfdfdffjsdf' + i">
@@ -43,24 +47,10 @@
 				/>
 			</div>
 			<horizontal-banner v-if="item.quote" :text="item.quote" />
-			<!-- <div class="afterparty__quote">
-					<figure>
-						<blockquote>
-							<p>
-								<span>
-									{{ item.quote }}
-								</span>
-							</p>
-						</blockquote>
-						<figcaption>
-							<cite><span>- Ditte Reffstrup</span></cite>
-						</figcaption>
-					</figure>
-				</div> -->
 		</div>
 	</div>
 </template>
-    
+
 <script>
 import { mapState } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
@@ -84,7 +74,7 @@ export default {
 						}),
 					}
 				})
-				.sort((item) => (!item.sideBySide < item.sideBySide ? 1 : -1))
+				.sort((a, b) => (a.order > b.order ? 1 : -1))
 		},
 	},
 	methods: {
