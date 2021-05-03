@@ -637,7 +637,14 @@ collections:
           widget: 'text',
           required: false,
           hint: 'An optional text that slides over the images on scroll',
-        }
+        },
+      - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          required: true,
+          hint: 'Determines the order in which the content appears, higher nr: higher on the page'
+      }
 
   - name: 'passwords'
     sortable_fields: ['passwordId']

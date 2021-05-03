@@ -1,10 +1,13 @@
 <template>
 	<button
 		class="filter-button"
-		:class="{ 'is-active': activeFilter.filterId === filterId }"
+		:class="{
+			'is-active': activeFilter.filterId === filterId,
+			'is-big': isBig,
+		}"
 		@click="clickHandler"
 	>
-		<span>{{ name }}</span
+		<span>{{ name.replace('Accessories', 'ACC').replace('Shoes', 'FTW') }}</span
 		><em>({{ count }})</em>
 	</button>
 </template>
@@ -21,22 +24,25 @@ export default {
 		name: {
 			type: String,
 			default: '',
-			required: true
+			required: true,
 		},
 		count: {
 			type: Number,
-			required: true
+			required: true,
 		},
 		filterId: {
 			type: String,
 			default: '',
-			required: true
-		}
+			required: true,
+		},
+		isBig: {
+			type: Boolean,
+		},
 	},
 	computed: {
 		...mapState({
-			activeFilter: state => state.collection.activeFilter
-		})
+			activeFilter: (state) => state.collection.activeFilter,
+		}),
 	},
 	methods: {
 		...mapActions(['collection/' + SET_CURRENT_FILTER.action]),
@@ -48,7 +54,7 @@ export default {
 
 				sendTracking('Filter added', this.name)
 			}
-		}
-	}
+		},
+	},
 }
 </script>
