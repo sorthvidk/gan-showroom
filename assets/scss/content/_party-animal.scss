@@ -1,8 +1,12 @@
 .party-animal {
 	height: calc(100vh - var(--bottombar-height) * 2);
-	margin: var(--bottombar-height) 0;
 	box-sizing: border-box;
 
+	margin: 0 0 var(--bottombar-height);
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
+
+	@include mq(screen-md) {
+		margin: var(--bottombar-height) 0;
+	}
 }

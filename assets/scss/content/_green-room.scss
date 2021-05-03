@@ -25,8 +25,8 @@
 	&__item {
 		@include bodytext();
 		font-weight: bold;
-		width: 40vmin;
-		height: 40vmin;
+		width: 33vmin;
+		height: 33vmin;
 		position: absolute;
 
 		display: grid;
@@ -43,6 +43,11 @@
 			height: inherit;
 			object-fit: contain;
 			image-rendering: pixelated;
+		}
+
+		&.fixed {
+			width: 75vmin;
+			height: 75vmin;
 		}
 
 		&:not(.fixed) {
@@ -72,10 +77,35 @@
 			animation: enter-to-left var(--enter-duration) forwards $easeInOutQuint;
 		}
 
-		&.left {
+		&.enter-left {
 			img {
 				animation: enter-to-right var(--enter-duration) forwards $easeInOutQuint;
 			}
+		}
+
+		&[data-order='0'] {
+			top: 10vh;
+			left: 0;
+		}
+
+		&[data-order='1'] {
+			bottom: 10vh;
+			left: 10vw;
+		}
+
+		&[data-order='2'] {
+			top: 0;
+			left: 55vw;
+		}
+
+		&[data-order='3'] {
+			bottom: 10vh;
+			left: 65vw;
+		}
+
+		&[data-order='4'] {
+			top: 10vh;
+			left: 90vw;
 		}
 	}
 
@@ -84,7 +114,7 @@
 		background-color: $color-white;
 		color: var(--color-secondary);
 		padding: 1.5em;
-		top: 60%;
+		top: 20%;
 		left: 40%;
 		width: 400px;
 		border: 2px solid;

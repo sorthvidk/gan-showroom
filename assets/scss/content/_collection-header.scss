@@ -11,10 +11,6 @@
 	}
 
 	.inner {
-		// display: grid;
-		// grid-template-columns: repeat(var(--collection-header-cols), 1fr);
-		// grid-template-rows: 1fr 1fr;
-		// grid-gap: 1px;
 		width: 100%;
 		background-color: var(--color-background);
 
@@ -61,7 +57,6 @@
 		grid-auto-columns: 20%;
 
 		.line {
-			// border-radius: 5px;
 			overflow: hidden;
 			width: 100%;
 			height: 4px;
@@ -105,9 +100,13 @@
 		text-transform: initial;
 		font-weight: normal;
 		margin-bottom: rem(20);
-		font-size: rem(32);
+		font-size: rem(16);
 		letter-spacing: 0;
 		line-height: 1;
+
+		@include mq(screen-md) {
+			font-size: rem(32);
+		}
 
 		b {
 			font-weight: bold;

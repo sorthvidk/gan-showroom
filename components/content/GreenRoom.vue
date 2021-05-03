@@ -1,5 +1,5 @@
 <template>
-	<div class="green-room" :style="{ width: `${items.length * 25}vw` }">
+	<div class="green-room" :style="{ width: `${items.length * 30}vmax` }">
 		<h1 ref="visc">
 			"A carbon tax, which our politicians never had the guts to introduce, will
 			be hugely beneficial for the transition towards a sustainable fashion
@@ -10,11 +10,10 @@
 			class="green-room__item"
 			v-for="(item, idx) in items"
 			:key="item.text + idx"
-			:class="{ fixed: item.fixed, left: idx < items.length / 2 }"
+			:class="{ fixed: item.fixed, 'enter-left': idx < items.length / 2 }"
+			:data-order="idx"
 			ref="items"
 			:style="{
-				left: `${idx * 19 + 5}%`,
-				top: `${(idx % 2) * 45 + 5}%`,
 				zIndex: items.length - idx,
 				'--enter-duration': Math.random() * 1 + 2 + 's',
 			}"

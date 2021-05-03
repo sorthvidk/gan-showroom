@@ -739,6 +739,13 @@ collections:
           required: false,
           hint: 'If the image should be in the "bottom layer" and not float when user scrolls',
         }
+      - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          required: true,
+          hint: 'Determines the order in which the content is placed on the page, higher nr: more to the left',
+        }
 
   - name: 'fabrics'
     label: 'Fabrics'
