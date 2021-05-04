@@ -1,0 +1,14 @@
+.audio-visualizer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: flex-end;
+
+	pre {
+		background-clip: text;
+		color: transparent;
+
+		font-size: 11.4vw; // fill the screen horizontally
+		line-height: 0.8;
+	}
+}

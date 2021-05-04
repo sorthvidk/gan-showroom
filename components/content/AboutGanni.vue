@@ -6,11 +6,11 @@
 				class="about-ganni__headline"
 				v-html="item.headline"
 			></div>
-			<div
+			<!-- <div
 				class="about-ganni__bodyText"
 				v-if="item.bodyText"
 				v-html="item.bodyText"
-			></div>
+			></div> -->
 			<img class="about-ganni__image" :src="getImage(item.cloudinaryUrl).src" />
 		</div>
 	</div>
@@ -28,14 +28,14 @@ export default {
 	name: 'about-ganni',
 	components: {},
 	computed: {
-		...mapState('aboutGanni', ['items'])
+		...mapState('aboutGanni', ['items']),
 	},
 	mounted() {
 		gsap.registerPlugin(ScrollTrigger)
 		this[AUDIOPLAYER_DARK.action](true)
 
 		const scrollTriggers = [...document.querySelectorAll('.about-ganni__item')]
-		scrollTriggers.forEach(scrollElement => {
+		scrollTriggers.forEach((scrollElement) => {
 			const image = scrollElement.querySelector('.about-ganni__image')
 			ScrollTrigger.create({
 				trigger: scrollElement,
@@ -43,7 +43,11 @@ export default {
 				end: 'bottom top',
 				// markers: true, //debug
 				scrub: 0.4,
-				animation: gsap.fromTo(image, { duration: 0.2, y: '-15%' }, { y: '0%' })
+				animation: gsap.fromTo(
+					image,
+					{ duration: 0.2, y: '-15%' },
+					{ y: '0%' }
+				),
 			})
 		})
 	},
@@ -55,7 +59,7 @@ export default {
 		getImage(src) {
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
-				loading: greyPixel
+				loading: greyPixel,
 			}
 		},
 
@@ -63,9 +67,9 @@ export default {
 			return {
 				'about-ganni__item': true,
 				'about-ganni__item-media': item.type === 'image',
-				'about-ganni__item-text': item.type === 'text'
+				'about-ganni__item-text': item.type === 'text',
 			}
-		}
-	}
+		},
+	},
 }
 </script>

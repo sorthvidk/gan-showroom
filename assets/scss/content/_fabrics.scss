@@ -1,23 +1,32 @@
 .fabrics {
-	--columns: 1;
-
-	padding-bottom: var(--bottombar-height);
+	padding: calc(var(--bottombar-height) + var(--page-outer-margin))
+		var(--page-outer-margin);
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
 
-	display: grid;
-	grid-template-columns: repeat(var(--columns), 1fr);
+	&__content {
+		--columns: 1;
+		--width: 100vw;
 
-	@include mq(screen-sm) {
-		--columns: 2;
-	}
+		display: grid;
+		grid-template-columns: repeat(var(--columns), 1fr);
+		grid-gap: var(--page-outer-margin);
+		width: var(--width);
 
-	@include mq(screen-md) {
-		--columns: 3;
-	}
+		@include mq(screen-sm) {
+			--columns: 3;
+		}
 
-	@include mq(screen-lg) {
-		--columns: 4;
+		@include mq(screen-md) {
+			--columns: 4;
+		}
+
+		@include mq(screen-lg) {
+			--columns: 5;
+			--width: calc(
+				100vw - var(--assistant-width) - var(--page-outer-margin) * 3
+			);
+		}
 	}
 
 	&__item {
@@ -26,10 +35,10 @@
 		position: relative;
 		overflow: hidden;
 
-		height: calc(100vw / var(--columns) * 4 / 3);
+		height: calc(var(--width) / var(--columns) * 3 / 4);
 
 		img {
-			transition: transform 1.2s $easeInOutQuint,
+			transition: transform 0.6s $easeInOutQuint,
 				transform-origin 0.6s $easeOutQuint;
 			cursor: none;
 			height: 100%;
@@ -75,16 +84,18 @@
 			hsla(0, 0%, 0%, 0.518) 58.8%,
 			hsla(0, 0%, 0%, 0.593) 64.7%,
 			hsla(0, 0%, 0%, 0.66) 71%,
-			hsla(0, 0%, 0%, 0.717) 77.5%,
-			hsla(0, 0%, 0%, 0.761) 84.5%,
-			hsla(0, 0%, 0%, 0.79) 91.9%,
-			hsla(0, 0%, 0%, 0.8) 100%
+			hsla(0, 0%, 0%, 0.66) 77.5%,
+			hsla(0, 0%, 0%, 0.66) 84.5%,
+			hsla(0, 0%, 0%, 0.66) 91.9%,
+			hsla(0, 0%, 0%, 0.66) 100%
 		);
 
 		p {
 			@include bodytext;
 			pointer-events: none;
-			padding: 200px var(--page-outer-margin) var(--page-outer-margin);
+			padding: calc(var(--page-outer-margin) / 2);
+			padding-top: calc(var(--page-outer-margin) * 2);
+
 			max-width: 30em;
 		}
 	}

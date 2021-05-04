@@ -1,10 +1,15 @@
 :root {
-	--bottombar-height: rem(70);
+	--bottombar-height: rem(45);
+
+	@include mq(screen-md) {
+		--bottombar-height: rem(70);
+	}
 }
 
 .shortcut {
 	&-bottombar {
 		@include headline();
+
 		background-color: var(--color-secondary);
 		color: var(--color-primary);
 

@@ -58,7 +58,8 @@ em {
 
 @mixin bodytext() {
 	font-size: rem(11);
-	font-weight: 500; // $weight-normal;
+	// font-weight: 500; // $weight-normal;
+	font-weight: bold;
 	line-height: 1.2;
 	text-transform: uppercase;
 	letter-spacing: 0.015em;
@@ -73,6 +74,7 @@ em {
 
 @mixin headline() {
 	@include bodytext();
+	font-weight: bold;
 	// font-size: rem(16);
 	// font-weight: $weight-medium;
 	// line-height: 1.2;

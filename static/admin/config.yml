@@ -765,11 +765,18 @@ collections:
           hint: 'Reference to media file',
         }
       - {
+          label: 'Info title',
+          name: 'title',
+          widget: 'string',
+          required: false,
+          hint: 'Text that will show in grid-view',
+        }
+      - {
           label: 'Info text',
           name: 'text',
           widget: 'text',
           required: false,
-          hint: 'Text that will show at the image',
+          hint: 'Text that will show in fullscreen',
         }
 
   - name: 'downloads'
@@ -815,7 +822,7 @@ collections:
           widget: 'string',
           required: false,
         }
-      - { label: 'Text', name: 'bodyText', widget: 'text' }
+      # - { label: 'Text', name: 'bodyText', widget: 'text' }
       - {
           label: '(if image) Cloudinary media reference',
           name: 'cloudinaryUrl',

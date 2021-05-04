@@ -1,5 +1,9 @@
 :root {
-	--group-navigation-height: 70px;
+	--group-navigation-height: 40px;
+
+	@include mq(screen-md) {
+		--group-navigation-height: 70px;
+	}
 }
 
 .group-navigation {
@@ -13,12 +17,15 @@
 	height: var(--group-navigation-height);
 
 	margin: 0 auto;
-	padding: rem(30) var(--page-outer-margin) 0;
+	padding: 0 var(--page-outer-margin) 0;
 
 	user-select: none;
 	box-sizing: border-box;
 
 	z-index: get-z('group-navigation');
+
+	white-space: nowrap;
+	overflow: auto;
 
 	@include mq(screen-md) {
 		width: 50%;
@@ -29,6 +36,10 @@
 		@include bodytext();
 		text-align: center;
 		cursor: pointer;
+
+		@include mq($until: screen-md) {
+			padding-right: 2em;
+		}
 
 		&.disabled {
 			display: none; // just kill it..

@@ -1,7 +1,13 @@
+:root {
+	--menu-button-width: 60px;
+}
+
 .dashboard {
 	&__shortcuts {
+		--columns: 2;
+
 		display: grid;
-		grid-template-columns: repeat(8, 1fr);
+		grid-template-columns: repeat(var(--columns), 1fr);
 		// grid-auto-flow: column;
 		grid-gap: 1px;
 		z-index: get-z('bottombar');
@@ -10,14 +16,48 @@
 		position: fixed;
 		bottom: 0;
 		width: 100vw;
-		height: var(--bottombar-height);
+
+		@include mq(screen-md) {
+			--columns: 8;
+			// height: var(--bottombar-height);
+		}
 
 		.shortcut {
 			user-select: none;
+			height: var(--bottombar-height);
 
 			&:hover {
 				color: $color-buttonhover;
 			}
+		}
+
+		// &.hidden {
+		// 	display: none;
+		// }
+	}
+
+	&__menu-button {
+		@include headline();
+
+		transition: transform 0.3s var(--ease-in-out-quint);
+
+		position: fixed;
+		bottom: 0;
+		right: 0;
+
+		background: var(--color-secondary);
+		color: var(--color-primary);
+
+		width: var(--menu-button-width);
+		height: var(--bottombar-height);
+
+		user-select: none;
+		z-index: get-z('bottombar');
+
+		&.moved-up {
+			transform: translateY(
+				calc(var(--bottombar-height) * -4 - 4px)
+			); // height of menu on mobile
 		}
 	}
 }

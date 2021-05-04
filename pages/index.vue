@@ -6,6 +6,7 @@
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
 		<audio-player
+			v-if="!isMobile"
 			:sources="[song.src]"
 			:title="song.title"
 			@played-through="nextSong"
@@ -206,7 +207,9 @@ export default {
 		setScreenSize()
 		window.addEventListener('resize', setScreenSize)
 
-		this.audioPlayer = this.$children[1].$children[0].progress
+		if (this.audioPlayer) {
+			this.audioPlayer = this.$children[1].$children[0].progress
+		}
 	},
 }
 </script>

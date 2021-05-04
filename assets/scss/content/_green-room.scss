@@ -53,33 +53,38 @@
 		&:not(.fixed) {
 			&:hover {
 				img {
-					transform: scale(1.02) rotate(3deg);
+					transform: scale(1.02) rotate(3deg) !important;
 				}
 			}
 		}
 
 		--enter-duration: 2s;
+		--enter-delay: 0s;
 		--move-amount: 50px;
 
 		@keyframes enter-to-right {
-			from {
-				transform: translateX(calc(var(--move-amount) * -1));
+			to {
+				transform: translateX(0);
 			}
 		}
 
 		@keyframes enter-to-left {
-			from {
-				transform: translateX(var(--move-amount));
+			to {
+				transform: translateX(0);
 			}
 		}
 
 		img {
-			animation: enter-to-left var(--enter-duration) forwards $easeInOutQuint;
+			transform: translateX(var(--move-amount));
+			animation: enter-to-left var(--enter-duration) var(--enter-delay) forwards
+				ease-in-out;
 		}
 
 		&.enter-left {
 			img {
-				animation: enter-to-right var(--enter-duration) forwards $easeInOutQuint;
+				transform: translateX(calc(var(--move-amount) * -1));
+				animation: enter-to-right var(--enter-duration) var(--enter-delay)
+					forwards ease-in-out;
 			}
 		}
 

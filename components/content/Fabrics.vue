@@ -1,24 +1,28 @@
 <template>
 	<div class="fabrics">
-		<div
-			class="fabrics__item"
-			v-for="(item, idx) in items"
-			:key="item.text + idx"
-			ref="items"
-		>
-			<text-cursor :text="'+zoom'" />
-			<img
-				:src="getUrl(item.cloudinaryUrl)"
-				:alt="'One of GANNIs many really nice fabrics'"
-				:style="{ transformOrigin: transformString(idx) }"
-				@click="zoom"
-			/>
-			<div class="fabrics__text" v-if="item.text">
-				<p>{{ item.text }}</p>
+		<div class="fabrics__content">
+			<div
+				class="fabrics__item"
+				v-for="(item, idx) in items"
+				:key="item.text + idx"
+				ref="items"
+			>
+				<text-cursor :text="isFullScreen ? 'zoom out' : '+zoom'" />
+				<img
+					:src="getUrl(item.cloudinaryUrl)"
+					:alt="'One of GANNIs many really nice fabrics'"
+					:style="{ transformOrigin: transformString(idx) }"
+					@click="
+						(e) => {
+							zoom(e)
+							fullscreen(e)
+						}
+					"
+				/>
+				<div class="fabrics__text">
+					<p>{{ isFullScreen ? item.text || '' : item.title || '' }}</p>
+				</div>
 			</div>
-			<button class="fabrics__fullscreen" @click="fullscreen">
-				<svg-icon :name="isFullScreen ? 'fullscreen--off' : 'fullscreen--on'" />
-			</button>
 		</div>
 	</div>
 </template>
