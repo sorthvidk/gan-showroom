@@ -7,10 +7,14 @@
 	display: flex;
 	align-items: flex-start;
 
-	padding: var(--bottombar-height) 0;
+	padding: var(--page-outer-margin) 0 var(--bottombar-height);
 	box-sizing: border-box;
 
 	color: $color-white;
+
+	@include mq(screen-md) {
+		padding: var(--bottombar-height) 0;
+	}
 
 	&__content {
 		position: relative;
@@ -62,10 +66,13 @@
 
 		grid-gap: var(--page-outer-margin);
 
+		padding-bottom: var(--page-outer-margin);
+
 		@include mq(screen-md) {
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: 1fr;
 			height: calc(100vh - var(--bottombar-height) * 2);
+			padding-bottom: 0;
 		}
 
 		@keyframes fade {
@@ -94,21 +101,35 @@
 
 	&__overview {
 		display: grid;
-		grid-gap: calc(var(--page-outer-margin) / 2);
-		grid-template-columns: repeat(auto-fill, 75px);
+		grid-gap: var(--page-outer-margin);
+		grid-template-columns: repeat(4, 1fr);
 		padding-bottom: var(--page-outer-margin);
+
+		@include mq(screen-md) {
+			grid-gap: calc(var(--page-outer-margin) / 2);
+			grid-template-columns: repeat(auto-fill, 75px);
+		}
 
 		div {
 			display: inline-flex;
-			width: 75px;
-			height: calc(75px * 1.25);
+			width: 100%;
+			height: calc(90px * 1.25);
+
+			@include mq(screen-md) {
+				width: 75px;
+				height: calc(75px * 1.25);
+			}
 		}
 
 		img,
 		video {
-			object-fit: contain;
+			object-fit: cover;
 			width: 100%;
 			cursor: pointer;
+
+			@include mq(screen-md) {
+				object-fit: contain;
+			}
 		}
 
 		// @keyframes fade {

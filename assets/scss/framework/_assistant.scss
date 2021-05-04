@@ -23,10 +23,10 @@
 
 		position: fixed;
 		top: auto;
-		left: rem(10);
-		right: rem(10);
-		bottom: rem(10 + 30 + 70); //ios navbar + gutter + support (heights)
-		width: var(--assistant-width);
+		left: 45px;
+		right: var(--menu-button-width);
+		// bottom: rem(10 + 30 + 70); //ios navbar + gutter + support (heights)
+		bottom: rem(0);
 
 		user-select: text;
 
@@ -39,6 +39,7 @@
 			left: auto;
 			right: var(--page-outer-margin);
 			bottom: auto;
+			width: var(--assistant-width);
 		}
 
 		.window__content {
@@ -66,7 +67,8 @@
 					object-fit: contain;
 
 					@include mq($until: screen-md) {
-						max-height: rem(30);
+						// max-height: rem(30);
+						height: var(--bottombar-height);
 					}
 				}
 

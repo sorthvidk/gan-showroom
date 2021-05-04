@@ -1,3 +1,10 @@
+@keyframes copyright-message-appear {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 .copyright-message {
 	position: fixed;
 	top: 0;
@@ -11,6 +18,10 @@
 	align-items: center;
 
 	.window {
+		animation: copyright-message-appear 0.3s 2s forwards $easeInOutQuint;
+		opacity: 0;
+		transform: scale(0);
+
 		max-width: rem(355);
 		position: static;
 

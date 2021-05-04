@@ -1,28 +1,39 @@
 <template>
 	<transition name="startup-transition" mode="out-in">
 		<div>
-			<div
-				:class="{
-					desktop__shortcuts: !textStyledWithoutIcon,
-					dashboard__shortcuts: textStyledWithoutIcon,
-				}"
+			<button
+				v-if="isMobile"
+				:class="['dashboard__menu-button', !menuClosed ? 'moved-up' : '']"
+				@click="toggleMenu"
 			>
-				<shortcut
-					v-for="(item, nthChild) in desktopIcons"
-					:textLayout="textStyledWithoutIcon"
-					:key="item.shortcutId"
-					:type="item.type"
-					:position-h="item.posH"
-					:position-v="item.posV"
-					:icon="item.icon"
-					:label="item.label"
-					:shortcut-id="item.shortcutId"
-					:actions="item.actions"
-					:window-content="item.windowContent"
-					:href="item.href"
-					:nth-child="nthChild"
-				/>
-			</div>
+				{{ !menuClosed ? 'CLOSE' : 'MENU' }}
+			</button>
+
+			<transition-expand>
+				<div
+					v-show="!isMobile || !menuClosed"
+					:class="[
+						`${textStyledWithoutIcon ? 'dashboard' : 'desktop'}__shortcuts`,
+						// `${isMobile && menuClosed ? 'hidden' : ''}`,
+					]"
+				>
+					<shortcut
+						v-for="(item, nthChild) in desktopIcons"
+						:textLayout="textStyledWithoutIcon"
+						:key="item.shortcutId"
+						:type="item.type"
+						:position-h="item.posH"
+						:position-v="item.posV"
+						:icon="item.icon"
+						:label="item.label"
+						:shortcut-id="item.shortcutId"
+						:actions="item.actions"
+						:window-content="item.windowContent"
+						:href="item.href"
+						:nth-child="nthChild"
+					/>
+				</div>
+			</transition-expand>
 
 			<div
 				class="desktop"
@@ -105,6 +116,7 @@ import {
 	CONNECT_EXHIBITION_ASSETS,
 	// AUDIO_TRACK,
 	OPEN_CONTENT_IN_DASHBOARD,
+	ASSISTANT_TOGGLE,
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -127,6 +139,8 @@ import VueBar from '~/components/content/VueBar.vue'
 import MediaLibrary from '~/components/content/MediaLibrary.vue'
 
 import Countdown from '~/components/elements/Countdown.vue'
+
+import TransitionExpand from '~/components/transitions/Expand.vue'
 
 import ContentTypes from '~/model/content-types'
 
@@ -151,6 +165,7 @@ export default {
 		VueBar,
 		MediaLibrary,
 		Countdown,
+		TransitionExpand,
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
@@ -230,6 +245,7 @@ export default {
 					postText: ' in cologne',
 				},
 			],
+			menuClosed: !this.isMobile,
 		}
 	},
 	methods: {
@@ -237,6 +253,8 @@ export default {
 		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
+		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
+
 		// ...mapActions('audio', [AUDIO_TRACK.action]),
 
 		startClipboardTimeout() {
@@ -264,10 +282,14 @@ export default {
 				}, 5000)
 			}
 		},
+		toggleMenu() {
+			this.menuClosed = !this.menuClosed
+		},
 	},
 	mounted() {
 		this[AUTHORIZE_GROUPS.action]()
 		this[CONNECT_EXHIBITION_ASSETS.action]()
+		this[ASSISTANT_TOGGLE.action](false)
 		// this[AUDIO_TRACK.action](this.songs[1])
 		// this[OPEN_CONTENT_IN_DASHBOARD.action]({
 		// 	windowContent: this.list[0].windowContent,

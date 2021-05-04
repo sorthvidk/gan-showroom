@@ -2,22 +2,23 @@
 
 @mixin custom-scrollbar() {
 	scrollbar-width: auto;
-	scrollbar-color: $color-white $color-grey;
+	scrollbar-color: var(--color-primary) $color-grey;
 
 	&::-webkit-scrollbar {
 		width: rem(30);
 	}
 	&::-webkit-scrollbar-track {
-		background: $color-lightgrey;
-		border-left: rem(1) solid $color-black;
+		background: var(--color-primary);
+		border-left: rem(1) solid var(--color-secondary);
 	}
 	&::-webkit-scrollbar-thumb {
-		background-color: $color-white;
+		background-color: $color-buttonhover;
 		padding: rem(10);
 		border-radius: 0;
 		border: 0;
-		border-left: rem(1) solid $color-black;
-		box-shadow: rem(1) rem(1) 0 0 $color-black, 0 rem(-1) 0 0 $color-black;
+		border-left: rem(1) solid var(--color-secondary);
+		box-shadow: rem(1) rem(1) 0 0 var(--color-secondary),
+			0 rem(-1) 0 0 var(--color-secondary);
 
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQoU2NkIBIwEqmOAaTwPzGKSTKRGAPBVhMFSFI4QJ4BAMO9Agl0aloWAAAAAElFTkSuQmCC);
 		background-repeat: no-repeat;

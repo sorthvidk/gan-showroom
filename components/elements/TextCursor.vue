@@ -2,7 +2,9 @@
 	<div
 		class="text-cursor"
 		:style="{
-			transform: `translate(calc(${mousepos.x}px - 50%), calc(${mousepos.y}px - 50%))`,
+			transform:
+				lerpedPos.x &&
+				`translate(calc(${lerpedPos.x}px - 50%), calc(${lerpedPos.y}px - 50%))`,
 		}"
 	>
 		<p>{{ text }}</p>
@@ -12,13 +14,36 @@
 <script>
 import { mapState } from 'vuex'
 
+function lerp(start, end, amt) {
+	return (1 - amt) * start + amt * end
+}
+
 export default {
 	name: 'text-cursor',
 	props: {
 		text: { type: String },
 	},
+	data: () => ({
+		lerpedPos: {
+			x: null,
+			y: null,
+		},
+	}),
+
 	computed: {
 		...mapState('user', ['mousepos']),
+	},
+	methods: {
+		tick() {
+			requestAnimationFrame(this.tick)
+			this.lerpedPos = {
+				x: lerp(this.lerpedPos.x, this.mousepos.x, 0.2),
+				y: lerp(this.lerpedPos.y, this.mousepos.y, 0.2),
+			}
+		},
+	},
+	mounted() {
+		this.tick()
 	},
 }
 </script>

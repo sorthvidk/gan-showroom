@@ -60,6 +60,8 @@ export default {
 				width / 2,
 				{
 					force: { x: -Math.random() * 0.005, y: -Math.random() * 0.02 },
+					isStatic: true,
+					restitution: 0.8,
 					render: {
 						fillStyle: 'transparent',
 						sprite: {
@@ -69,6 +71,11 @@ export default {
 						},
 					},
 				}
+			)
+
+			setTimeout(
+				() => Matter.Body.setStatic(asterix, false),
+				Math.random() * 350
 			)
 
 			this.Composite.add(this.engine.world, [asterix])

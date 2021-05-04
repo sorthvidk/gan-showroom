@@ -15,7 +15,8 @@
 			ref="items"
 			:style="{
 				zIndex: items.length - idx,
-				'--enter-duration': Math.random() * 1 + 2 + 's',
+				'--enter-duration': 2 + 's',
+				'--enter-delay': idx / 10 + 's',
 			}"
 		>
 			<button v-if="!item.link" @click="toggle(idx)">
@@ -59,7 +60,7 @@ export default {
 		this.$refs.items.forEach((item, idx) => {
 			if (item.classList.contains('fixed')) return
 
-			viscosity({ element: item, easing: 0.01 * idx + 0.05 })
+			viscosity({ element: item, easing: 0.02 * idx + 0.02 })
 		})
 		window.addEventListener('wheel', this.scrollHorizontally)
 	},

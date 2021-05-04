@@ -1,5 +1,5 @@
 <template>
-	<div class="login" @click="() => (clicked = true)">
+	<div class="login">
 		<!-- <background-image /> -->
 		<!-- <client-only>
 			<vimeo-player
@@ -24,11 +24,8 @@
 			fall<br />winter<br />2021
 		</h1> -->
 
-		<div v-if="!clicked">
-			<text-cursor
-				:text="'Ganni would like to invite you to the digital preview of our PS 2022 collection. The club is open. Click to type your password'"
-			/>
-			<audio-visualizer />
+		<div v-if="!showInputField">
+			<audio-visualizer @done="() => (showInputField = true)" />
 		</div>
 
 		<div v-else class="login__form">
@@ -43,20 +40,18 @@ import LoginSlide from '~/components/content/LoginSlide.vue'
 import LoginInput from '~/components/content/LoginInput.vue'
 import AudioVisualizer from '~/components/content/AudioVisualizer.vue'
 import BackgroundImage from '../content/BackgroundImage.vue'
-import TextCursor from '~/components/elements/TextCursor.vue'
 
 export default {
 	name: 'login',
 	components: {
 		LoginInput,
 		BackgroundImage,
-		TextCursor,
 		AudioVisualizer,
 	},
 	data() {
 		return {
 			muted: true,
-			clicked: false,
+			showInputField: false,
 			// current: 0,
 			// timeout: null,
 			// slideDuration: 100000000000,

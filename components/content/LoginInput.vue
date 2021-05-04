@@ -145,8 +145,9 @@ export default {
 		this.$refs.passwordInput.focus()
 
 		this.initMessage()
-		document.body.addEventListener('click', () =>
-			this.$refs.passwordInput.focus()
+		document.body.addEventListener(
+			'click',
+			() => this.$refs.passwordInput && this.$refs.passwordInput.focus()
 		)
 	},
 }

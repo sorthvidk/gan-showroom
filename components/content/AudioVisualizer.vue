@@ -1,56 +1,94 @@
 <template>
-	<div class="audio-visualizer">
-		<canvas ref="canvas"></canvas>
+	<div class="audio-visualizer" @click="onClick">
+		<pre
+			ref="text-measurement"
+			style="position: absolute; visibility: hidden"
+			>{{ string }}</pre
+		>
+		<text-cursor
+			:text="
+				!audioIsSetup
+					? 'Click to play'
+					: 'Ganni would like to invite you to the digital preview of our PS 2022 collection. The club is open. Click to type your password'
+			"
+		/>
+		<pre :style="{ backgroundImage: `url(${imageUrl})` }">{{ output }}</pre>
 	</div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { loadImage } from '~/utils/loadImage'
-import image from '~/static/img/login-slide.jpg'
+import imageUrl from '~/static/img/login-slide.jpg'
+// import audioUrl from '~/static/audio/1-03-Come-As-You-Are.mp3'
+import TextCursor from '~/components/elements/TextCursor.vue'
 
 export default {
 	name: 'audio-visualizer',
+	components: { TextCursor },
+	props: {
+		audioArray: {
+			type: Float32Array,
+		},
+	},
 	data: () => ({
-		dpi: 1,
-		image: null,
+		imageUrl,
+		audioUrl: '/audio/1-03-Come-As-You-Are.mp3',
+		string: 'GANNI NIGHT OUT',
+		maxLinesAmount: null,
+		Audio: new Audio(),
+		AudioContext: null,
+		audioIsSetup: false,
+		analyser: null,
 	}),
 	computed: {
 		...mapState('user', ['screenSize']),
+		output() {
+			return Array(this.maxLinesAmount).fill(this.string).join('\n')
+		},
 	},
 	watch: {
 		screenSize() {
-			this.setSize()
+			this.calculateLines()
 		},
 	},
 	methods: {
-		setSize() {
-			this.$refs.canvas.width = this.screenSize.width * this.dpi
-			this.$refs.canvas.height = this.screenSize.height * this.dpi
-			this.$refs.canvas.style.width = this.screenSize.width + 'px'
-			this.$refs.canvas.style.height = this.screenSize.height + 'px'
+		calculateLines() {
+			this.maxLinesAmount = Math.ceil(
+				this.screenSize.height /
+					parseInt(getComputedStyle(this.$refs['text-measurement']).height)
+			)
 		},
-		draw() {
-			this.ctx.fillStyle = this.ctx.createPattern(this.image, 'no-repeat')
+		tick() {
+			requestAnimationFrame(this.tick)
+			console.log(this.audioArray)
+		},
+		setupAudio() {
+			this.Audio.src = this.audioUrl
+			this.AudioContext = new AudioContext()
+			this.analyser = this.AudioContext.createAnalyser()
 
-			const chars = 'GANNI NIGHT OUT'
-
-			const charSize = this.screenSize.width / chars.length
-			this.ctx.font = `bold ${charSize}px sans-serif`
-
-			chars.split('').forEach((char, idx) => {
-				this.ctx.fillText(char, idx * charSize, 200)
-			})
+			this.analyser.connect(this.AudioContext.destination)
+			this.analyser.fftSize = 256
+			this.analyser.smoothingTimeConstant = 0.95
+			const dataArray = new Uint8Array(this.analyser.frequencyBinCount)
+			this.Audio.play()
+		},
+		playAudio() {},
+		onClick() {
+			if (!this.audioIsSetup) {
+				this.setupAudio()
+				this.audioIsSetup = true
+			} else {
+				this.$emit('done')
+			}
 		},
 	},
-	async mounted() {
-		this.setSize()
-		this.dpi = Math.min(window.devicePixelRatio, 2)
-		this.ctx = this.$refs.canvas.getContext('2d')
-		const res = await loadImage(image)
-		console.log(res)
-		this.image = res.img
-		this.draw()
+	mounted() {
+		this.calculateLines()
+	},
+	beforeDestroy() {
+		this.Audio.pause()
+		this.Audio.remove()
 	},
 }
 </script>

@@ -68,7 +68,7 @@ $color-goblin: #3b8245;
 */
 $color-primary: $color-cinnamon-satin;
 $color-buttonhover: darken($color-primary, 15%);
-$color-buttonactive: lighten($color-primary, 20%);
+$color-buttonactive: $color-black;
 
 :root {
 	--color-primary: #{$color-primary};
