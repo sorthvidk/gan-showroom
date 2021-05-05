@@ -399,99 +399,101 @@ export const actions = {
 		commit(
 			'assistant/' + FETCH_ASSISTANT.mutation,
 			await getData(
-				require.context(`~/assets/mock/assistant/`, false, /\.json$/)
+				require.context(`~/assets/content/assistant/`, false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'exhibition/' + FETCH_EXHIBITION.mutation,
 		// 	await getData(
-		// 		require.context(`~/assets/mock/exhibition/`, false, /\.json$/)
+		// 		require.context(`~/assets/content/exhibition/`, false, /\.json$/)
 		// 	)
 		// )
 
 		// commit(
 		// 	'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
 		// 	await getData(
-		// 		require.context(`~/assets/mock/exhibitionAssets/`, false, /\.json$/)
+		// 		require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionItems/', false, /\.json$/)
+				require.context('~/assets/content/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionFilters/', false, /\.json$/)
+				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
 			await getData(
-				require.context('~/assets/mock/collectionGroups/', false, /\.json$/)
+				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
 			await getData(
-				require.context('~/assets/mock/mediaAssets/', false, /\.json$/)
+				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'assets/' + FETCH_FILMS.mutation,
-		// 	await getData(require.context('~/assets/mock/films/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/content/films/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_GANNIGIRLS.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/mock/ganniGirls/', false, /\.json$/)
+		// 		require.context('~/assets/content/ganniGirls/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,
 			await getData(
-				require.context('~/assets/mock/lookBook/', false, /\.json$/)
+				require.context('~/assets/content/lookBook/', false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'assets/' + FETCH_ANAS.mutation,
-		// 	await getData(require.context('~/assets/mock/anas/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/content/anas/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_DITTE.mutation,
-		// 	await getData(require.context('~/assets/mock/ditte/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/content/ditte/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_ABOUT.mutation,
-		// 	await getData(require.context('~/assets/mock/about/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/content/about/', false, /\.json$/))
 		// )
 
 		commit(
 			'assets/' + FETCH_DESKTOP.mutation,
-			await getData(require.context('~/assets/mock/desktop/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
 		)
 
 		// commit(
 		// 	'assets/' + FETCH_INTRO.mutation,
-		// 	await getData(require.context('~/assets/mock/intro/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/content/intro/', false, /\.json$/))
 		// )
 
 		commit('assets/' + FETCH_GENERAL.mutation, {
 			data: await getData(
-				require.context('~/assets/mock/general/', false, /\.json$/)
+				require.context('~/assets/content/general/', false, /\.json$/)
 			),
 			rootState: state
 		})
@@ -499,52 +501,56 @@ export const actions = {
 		commit(
 			'user/' + FETCH_PASSWORDS.mutation,
 			await getData(
-				require.context('~/assets/mock/passwords/', false, /\.json$/)
+				require.context('~/assets/content/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'ganniFm/' + FETCH_SONGS.mutation,
-			await getData(require.context('~/assets/mock/songs/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'utils/' + FETCH_VARIOUS.mutation,
-			await getData(require.context('~/assets/mock/various/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/various/', false, /\.json$/)
+			)
 		)
 
 		// commit(
 		// 	'audio/' + FETCH_SUBTITLES.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/mock/subtitles/', false, /\.json$/)
+		// 		require.context('~/assets/content/subtitles/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'assets/' + FETCH_DOWNLOADS.mutation,
 			await getData(
-				require.context('~/assets/mock/downloads/', false, /\.json$/)
+				require.context('~/assets/content/downloads/', false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'audio/' + FETCH_SCROLL_IMAGES.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/mock/scrollImages/', false, /\.json$/)
+		// 		require.context('~/assets/content/scrollImages/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
 			await getData(
-				require.context('~/assets/mock/greenRoom/', false, /\.json$/)
+				require.context('~/assets/content/greenRoom/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'afterparty/' + FETCH_AFTERPARTY.mutation,
 			await getData(
-				require.context('~/assets/mock/afterparty/', false, /\.json$/)
+				require.context('~/assets/content/afterparty/', false, /\.json$/)
 			)
 		)
 
@@ -557,7 +563,9 @@ export const actions = {
 
 		commit(
 			'fabrics/' + FETCH_FABRICS.mutation,
-			await getData(require.context('~/assets/mock/fabrics/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/fabrics/', false, /\.json$/)
+			)
 		)
 
 		console.log('NUXT SERVER INIT DONE')

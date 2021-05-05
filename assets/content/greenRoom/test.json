@@ -3,5 +3,6 @@
   "cloudinaryUrl": [
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1619438428/development-test/THE-PACE-OF-ACTION.png"
   ],
-  "link": "https://www.google.com"
+  "link": "https://google.com",
+  "order": 2
 }
