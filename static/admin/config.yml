@@ -644,7 +644,7 @@ collections:
           widget: 'number',
           required: true,
           hint: 'Determines the order in which the content appears, higher nr: higher on the page'
-      }
+        }
 
   - name: 'passwords'
     sortable_fields: ['passwordId']
