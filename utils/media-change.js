@@ -1,7 +1,7 @@
 export default function(
 	callbackSmallViewport,
 	callbackLargeViewport,
-	maxWidth = 1023
+	maxWidth = 768
 ) {
 	let mql = window.matchMedia(`(max-width: ${maxWidth}px)`)
 

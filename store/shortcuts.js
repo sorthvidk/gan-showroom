@@ -57,7 +57,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'lookbook-slideshow',
-			label: 'FW21 LookBook',
+			label: 'PS22 LookBook',
 			windowContent: [
 				{
 					title: 'GANNI LookBook',
@@ -75,7 +75,7 @@ export const state = () => ({
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'collection',
 			icon: '/img/shortcuts/ps21.png',
-			label: 'FW21 Collection',
+			label: 'PS22 Collection',
 			actions: [
 				{
 					name: 'collection/' + SET_GROUP_BY_INDEX.action,
@@ -89,7 +89,7 @@ export const state = () => ({
 			],
 			windowContent: [
 				{
-					title: 'FW21 collection',
+					title: 'PS22 collection',
 					contentId: 'collection',
 					type: ContentTypes.collection,
 					canOverride: true,

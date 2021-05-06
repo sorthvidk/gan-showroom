@@ -7,7 +7,6 @@
 				:key="item.text + idx"
 				ref="items"
 			>
-				<text-cursor :text="isFullScreen ? 'zoom out' : '+zoom'" />
 				<img
 					:src="getUrl(item.cloudinaryUrl)"
 					:alt="'One of GANNIs many really nice fabrics'"
@@ -18,6 +17,8 @@
 							fullscreen(e)
 						}
 					"
+					@mouseenter="changeCursor('+ Zoom')"
+					@mouseleave="changeCursor('')"
 				/>
 				<div class="fabrics__text">
 					<p>{{ isFullScreen ? item.text || '' : item.title || '' }}</p>
@@ -28,16 +29,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
-import TextCursor from '~/components/elements/TextCursor.vue'
 import { clamp } from '~/utils/clamp'
+import { TEXT_CURSOR } from '~/model/constants'
 
 export default {
 	name: 'fabrics',
-	components: {
-		TextCursor,
-	},
 	data: () => ({
 		clamp,
 		isFullScreen: false,
@@ -47,6 +45,7 @@ export default {
 		...mapState('user', ['mousepos', 'currentScroll']),
 	},
 	methods: {
+		...mapActions('utils', [TEXT_CURSOR.action]),
 		getUrl(cloudinaryUrl) {
 			return getCloudinaryUrl(this.$cloudinary, {
 				cloudinaryUrl,
@@ -78,12 +77,16 @@ export default {
 			if (!document.fullscreenElement) {
 				e.target.parentElement.requestFullscreen()
 				this.isFullScreen = true
+				this.changeCursor('Zoom out')
 			} else {
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
 					this.isFullScreen = false
 				}
 			}
+		},
+		changeCursor(str) {
+			this[TEXT_CURSOR.action](str)
 		},
 	},
 }

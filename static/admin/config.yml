@@ -637,13 +637,13 @@ collections:
           widget: 'text',
           required: false,
           hint: 'An optional text that slides over the images on scroll',
-        },
+        }
       - {
           label: 'Order',
           name: 'order',
           widget: 'number',
           required: true,
-          hint: 'Determines the order in which the content appears, higher nr: higher on the page'
+          hint: 'Determines the order in which the content appears, higher nr: higher on the page',
         }
 
   - name: 'passwords'
@@ -699,6 +699,12 @@ collections:
           name: 'scrollAudio',
           widget: 'image',
           hint: 'The soundfile that will be used in the subtitled scroll gallery',
+        }
+      - {
+          label: 'Audio visualizer background',
+          name: 'audioVisualizerBackground',
+          widget: 'image',
+          hint: 'Used as pattern for the "GANNI EQ intro text", can be mutliple images',
         }
 
   - name: 'greenRoom'

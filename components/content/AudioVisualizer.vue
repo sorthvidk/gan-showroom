@@ -1,49 +1,59 @@
 <template>
-	<div class="audio-visualizer" @click="onClick">
+	<div
+		class="audio-visualizer"
+		@mouseover="
+			changeCursor(
+				'Ganni would like to invite you to the digital preview of our PS 2022 collection. The club is open. Click to type your password'
+			)
+		"
+		@mouseleave="changeCursor('')"
+	>
 		<pre
 			ref="text-measurement"
 			style="position: absolute; visibility: hidden"
 			>{{ string }}</pre
 		>
-		<text-cursor
-			:text="
-				!audioIsSetup
-					? 'Click to play'
-					: 'Ganni would like to invite you to the digital preview of our PS 2022 collection. The club is open. Click to type your password'
-			"
-		/>
-		<pre :style="{ backgroundImage: `url(${imageUrl})` }">{{ output }}</pre>
+
+		<div class="text" :style="{ backgroundImage: `url(${imageUrl})` }">
+			<div class="column" v-for="(char, idx) in string" :key="char + idx">
+				<span v-for="(line, idx) in normalizedArray[idx]" :key="idx">{{
+					char.replace(' ', '&nbsp;') || '&nbsp;'
+				}}</span>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import { TEXT_CURSOR } from '~/model/constants'
 import imageUrl from '~/static/img/login-slide.jpg'
-// import audioUrl from '~/static/audio/1-03-Come-As-You-Are.mp3'
-import TextCursor from '~/components/elements/TextCursor.vue'
+import { nextIndex } from '~/utils/array-helpers'
 
 export default {
 	name: 'audio-visualizer',
-	components: { TextCursor },
 	props: {
-		audioArray: {
-			type: Float32Array,
+		// takes an array with length of 13, value range 0-1
+		audioData: {
+			type: Array,
+			default: () => ['hehe'],
 		},
 	},
 	data: () => ({
-		imageUrl,
-		audioUrl: '/audio/1-03-Come-As-You-Are.mp3',
 		string: 'GANNI NIGHT OUT',
 		maxLinesAmount: null,
-		Audio: new Audio(),
-		AudioContext: null,
-		audioIsSetup: false,
-		analyser: null,
+		currentImageIndex: 0,
 	}),
 	computed: {
 		...mapState('user', ['screenSize']),
-		output() {
-			return Array(this.maxLinesAmount).fill(this.string).join('\n')
+		...mapState('utils', ['various']),
+		normalizedArray() {
+			return this.audioData.map((v) =>
+				Math.max(1, Math.floor(v * this.maxLinesAmount))
+			)
+		},
+		imageUrl() {
+			return this.various.audioVisualizerBackground[this.currentImageIndex]
 		},
 	},
 	watch: {
@@ -52,43 +62,28 @@ export default {
 		},
 	},
 	methods: {
+		...mapActions('utils', [TEXT_CURSOR.action]),
 		calculateLines() {
 			this.maxLinesAmount = Math.ceil(
 				this.screenSize.height /
 					parseInt(getComputedStyle(this.$refs['text-measurement']).height)
 			)
 		},
-		tick() {
-			requestAnimationFrame(this.tick)
-			console.log(this.audioArray)
-		},
-		setupAudio() {
-			this.Audio.src = this.audioUrl
-			this.AudioContext = new AudioContext()
-			this.analyser = this.AudioContext.createAnalyser()
-
-			this.analyser.connect(this.AudioContext.destination)
-			this.analyser.fftSize = 256
-			this.analyser.smoothingTimeConstant = 0.95
-			const dataArray = new Uint8Array(this.analyser.frequencyBinCount)
-			this.Audio.play()
-		},
-		playAudio() {},
-		onClick() {
-			if (!this.audioIsSetup) {
-				this.setupAudio()
-				this.audioIsSetup = true
-			} else {
-				this.$emit('done')
-			}
+		changeCursor(str) {
+			this[TEXT_CURSOR.action](str)
 		},
 	},
 	mounted() {
 		this.calculateLines()
+		setInterval(() => {
+			this.currentImageIndex = nextIndex(
+				this.various.audioVisualizerBackground,
+				this.currentImageIndex
+			)
+		}, 4000)
 	},
 	beforeDestroy() {
-		this.Audio.pause()
-		this.Audio.remove()
+		this.changeCursor('')
 	},
 }
 </script>

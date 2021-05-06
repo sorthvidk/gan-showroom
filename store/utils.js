@@ -6,7 +6,8 @@ import {
 	FETCH_VARIOUS,
 	DASHBOARD_DARK,
 	MENU_SHOW,
-	AUDIOPLAYER_DARK
+	AUDIOPLAYER_DARK,
+	TEXT_CURSOR
 } from '~/model/constants'
 
 export const state = () => ({
@@ -18,7 +19,8 @@ export const state = () => ({
 	__prod__: process.env.NODE_ENV === 'production',
 	dashboardDark: false,
 	audioPlayerDark: false,
-	showMenu: false
+	showMenu: false,
+	textCursorText: ''
 })
 
 export const mutations = {
@@ -63,6 +65,9 @@ export const mutations = {
 	},
 	[AUDIOPLAYER_DARK.mutation](state, data) {
 		state.audioPlayerDark = data
+	},
+	[TEXT_CURSOR.mutation](state, data) {
+		state.textCursorText = data
 	}
 }
 
@@ -87,5 +92,8 @@ export const actions = {
 	},
 	[AUDIOPLAYER_DARK.action]({ commit }, data) {
 		commit(AUDIOPLAYER_DARK.mutation, data)
+	},
+	[TEXT_CURSOR.action]({ commit }, data) {
+		commit(TEXT_CURSOR.mutation, data)
 	}
 }

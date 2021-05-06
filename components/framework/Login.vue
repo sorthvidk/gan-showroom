@@ -24,11 +24,11 @@
 			fall<br />winter<br />2021
 		</h1> -->
 
-		<div v-if="!showInputField">
+		<!-- <div v-if="!showInputField">
 			<audio-visualizer @done="() => (showInputField = true)" />
-		</div>
+		</div> -->
 
-		<div v-else class="login__form">
+		<div class="login__form">
 			<login-input />
 		</div>
 	</div>
