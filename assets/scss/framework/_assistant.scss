@@ -81,7 +81,7 @@
 				}
 			}
 
-			.icon {
+			.plus-icon {
 				position: absolute;
 				width: rem(20);
 				display: flex;
@@ -114,6 +114,12 @@
 						// transform: translateY(rem(4));
 					}
 				}
+			}
+
+			.icon {
+				color: var(--color-primary);
+				width: var(--assistant-width);
+				height: calc(var(--assistant-width) * 0.1695); // lol..
 			}
 		}
 

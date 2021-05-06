@@ -10,7 +10,7 @@
 	padding: var(--page-outer-margin) 0 var(--bottombar-height);
 	box-sizing: border-box;
 
-	color: $color-white;
+	color: var(--color-primary);
 
 	@include mq(screen-md) {
 		padding: var(--bottombar-height) 0;

@@ -1,13 +1,14 @@
 <template>
 	<div
 		class="text-cursor"
+		:class="{ hideDefaultCursor }"
 		:style="{
 			transform:
 				lerpedPos.x &&
 				`translate(calc(${lerpedPos.x}px - 50%), calc(${lerpedPos.y}px - 50%))`,
 		}"
 	>
-		<p>{{ text }}</p>
+		<p>{{ textCursorText }}</p>
 	</div>
 </template>
 
@@ -20,9 +21,6 @@ function lerp(start, end, amt) {
 
 export default {
 	name: 'text-cursor',
-	props: {
-		text: { type: String },
-	},
 	data: () => ({
 		lerpedPos: {
 			x: null,
@@ -32,6 +30,12 @@ export default {
 
 	computed: {
 		...mapState('user', ['mousepos']),
+		...mapState('utils', ['textCursorText']),
+		hideDefaultCursor() {
+			document.body.classList.toggle('no-cursor', this.textCursorText)
+
+			return this.textCursorText ? true : false
+		},
 	},
 	methods: {
 		tick() {

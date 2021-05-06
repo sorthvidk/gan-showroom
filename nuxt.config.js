@@ -115,8 +115,8 @@ export default {
 		},
 		postcss: {
 			plugins: {
-				'postcss-units': { fallback: false, precision: 3 },
-				'postcss-inline-svg': { path: 'static/svg/', removeFill: true }
+				'postcss-units': { fallback: false, precision: 3 }
+				// 'postcss-inline-svg': { path: 'static/svg/', removeFill: true }
 			},
 			preset: {
 				// Change the postcss-preset-env settings

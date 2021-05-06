@@ -4,6 +4,12 @@ body {
 	&::-webkit-scrollbar {
 		// display: none;
 	}
+
+	&.no-cursor {
+		* {
+			cursor: none !important;
+		}
+	}
 }
 
 #__layout {

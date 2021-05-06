@@ -1,54 +1,57 @@
 <template>
-	<main class="window__content">
+	<main
+		class="music-player"
+		:class="{ dark: dashboardDark, invert: audioPlayerDark }"
+	>
 		<div class="music-player__top">
-			<p>Playing:</p>
-			<div :key="songs[current].title">
-				<!-- print 5 times so it can be css-animated -->
-				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
-				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
-				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
-				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
-				<p class="title-marquee">{{ songs[current].title }} —&nbsp;</p>
-			</div>
+			<button
+				class="button"
+				@click="toggle"
+				@mouseenter="() => !hasStarted && changeCursor('Click to play')"
+				@mouseleave="changeCursor('')"
+				:class="{ 'large-hit-area': !hasStarted }"
+			>
+				<svg-icon :name="musicPlaying ? 'pause' : 'play'" />
+			</button>
+			<p>{{ songs[current].title }}</p>
 		</div>
-		<div class="music-player__controls">
-			<button class="button prev" @click="playlist(-1)">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M15.1 9L9 15.1l6.1 6.1v-5.1l5.1 5.1V9l-5.1 5.1V9z" />
-				</svg>
-			</button>
-			<button class="button" @click="toggle">
-				<svg
-					v-if="musicPlaying"
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 30 30"
-				>
-					<path d="M11 9h3v12h-3zM16 9h3v12h-3z" />
-				</svg>
-				<svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M21.2 15.1l-10.1 6.1V9l10.1 6.1z" />
-				</svg>
-			</button>
-			<button class="button next" @click="playlist(1)">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-					<path d="M15.1 21.2l6.1-6.1L15.1 9v5.1L10 9v12.2l5.1-5.1v5.1z" />
-				</svg>
-			</button>
-		</div>
+
+		<p class="music-player__time">{{ currentTime }}</p>
+
 		<div class="music-player__canvas-container" ref="canvasContainer">
 			<canvas ref="canvas" id="canvas"></canvas>
 		</div>
+
+		<audio-visualizer v-if="showAudioVisualizer" :audioData="audioData" />
 	</main>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import { MUSIC_PLAY_PAUSE } from '~/model/constants'
-import WindowContent from '~/components/framework/WindowContent.vue'
+import { MUSIC_PLAY_PAUSE, TEXT_CURSOR } from '~/model/constants'
+import { MMSS } from '~/utils/HHMMSS'
+import AudioVisualizer from '~/components/content/AudioVisualizer.vue'
+
+const filterData = (audioBuffer, samples) => {
+	const rawData = audioBuffer
+	const blockSize = Math.floor(rawData.length / samples)
+
+	const getSummedValuesInSingleBlock = (idx) =>
+		[...Array(blockSize)].reduce(
+			(acc, _, idx2) => (acc += Math.abs(rawData[blockSize * idx + idx2])),
+			0
+		)
+
+	return [...Array(samples)].map(
+		(_, idx) => getSummedValuesInSingleBlock(idx) / blockSize
+	)
+}
 
 export default {
-	extends: WindowContent,
+	// extends: WindowContent,
 	name: 'music-player',
+	components: { AudioVisualizer },
+	props: { showAudioVisualizer: { type: Boolean, default: true } },
 	data() {
 		return {
 			// related to canvas and animation
@@ -64,26 +67,27 @@ export default {
 
 			audio: null,
 			loaded: false,
-			current: 0
+			current: 0,
+
+			// playback values
+			duration: null,
+			progress: null,
+			audioData: [],
+			frame: 0,
+			hasStarted: false,
 		}
 	},
 	watch: {
 		keyPressed(event) {
-			// only respond to keys when is focus
-			if (this.$parent.$parent.windowId !== this.topMostWindow.windowId) return
-
-			if (event.key === 'ArrowLeft') {
-				this.playlist(-1)
-			} else if (event.key === 'ArrowRight') {
-				this.playlist(1)
-			} else if (event.code === 'Space') {
+			if (event.code === 'Space') {
 				this[MUSIC_PLAY_PAUSE.action](!this.musicPlaying)
 			}
 		},
 		musicPlaying(playing) {
 			if (this.musicPlaying) {
-				this.audio.play().catch(err => console.warn(err))
-				this.animate()
+				this.audio.play().catch((err) => console.warn(err))
+				this.hasStarted = true
+				this.updateData()
 			} else {
 				this.audio.pause()
 			}
@@ -94,15 +98,20 @@ export default {
 			} else {
 				this.fadeIn()
 			}
-		}
+		},
 	},
 	computed: {
 		...mapState(['appTabUnfocused', 'topMostWindow']),
 		...mapState('ganniFm', ['songs', 'musicPlaying']),
-		...mapState('user', ['keyPressed'])
+		...mapState('user', ['keyPressed']),
+		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
+		currentTime() {
+			return MMSS(this.progress)
+		},
 	},
 	methods: {
 		...mapActions('ganniFm', [MUSIC_PLAY_PAUSE.action]),
+		...mapActions('utils', [TEXT_CURSOR.action]),
 		playlist(n) {
 			const newCurrent = this.current + n
 			this.current =
@@ -122,7 +131,7 @@ export default {
 			this.audio.currentTime = 0
 			setTimeout(() => {
 				if (this.musicPlaying) {
-					this.audio.play().catch(err => console.warn(err))
+					this.audio.play().catch((err) => console.warn(err))
 					this.fadeIn()
 				}
 			}, 100)
@@ -151,6 +160,7 @@ export default {
 			src.connect(this.analyser)
 			this.analyser.connect(this.audioContext.destination)
 			this.analyser.fftSize = 256
+			this.analyser.smoothingTimeConstant = 0.9
 			const bufferLength = this.analyser.frequencyBinCount
 			this.dataArray = new Uint8Array(bufferLength)
 
@@ -167,62 +177,55 @@ export default {
 			if (audioCtx.state !== 'suspended') return
 			const b = document.body
 			const events = ['touchstart', 'touchend', 'mousedown', 'keydown']
-			events.forEach(e => b.addEventListener(e, unlock, false))
+			events.forEach((e) => b.addEventListener(e, unlock, false))
 			function unlock() {
 				audioCtx.resume().then(clean)
+				// this.toggle()
 			}
 			function clean() {
-				events.forEach(e => b.removeEventListener(e, unlock))
+				events.forEach((e) => b.removeEventListener(e, unlock))
 			}
 		},
 		setLoadedState() {
 			this.loaded = true
 			const AudioContext = window.AudioContext || window.webkitAudioContext
 			this.audioContext = new AudioContext()
-			this.toggle()
+
 			this.unlockAudioContext(this.audioContext) // fixes no-sound in safari
 
 			// run first time audio gets played
 			this.audio.addEventListener('play', this.setupCanvas.bind(this), {
-				once: true
+				once: true,
 			})
-		},
-		animate() {
-			const renderFrame = () => {
-				// stop animation when no music and all the frequencies are at 0,
-				// creates smooth ending of animation
-				if (!this.musicPlaying && this.dataArray.every(v => v === 0)) return
 
+			this.duration = this.audio.duration
+		},
+		updateData() {
+			const renderFrame = () => {
+				if (!this.musicPlaying && this.dataArray.every((v) => v === 0)) return
 				requestAnimationFrame(renderFrame)
+
+				this.progress = this.audio.currentTime
+
+				if (!this.showAudioVisualizer) return
 
 				// be sure everything is hooked up and referencable
 				if (!this.analyser || !this.ctx || !this.dataArray) return
 
+				/**
+				 * MAGIC:
+				 */
 				this.analyser.getByteFrequencyData(this.dataArray)
 
-				// clear canvas
-				this.ctx.fillStyle = this.BG_COLOR
-				this.ctx.fillRect(0, 0, this.WIDTH, this.HEIGHT)
+				if (this.frame % 5 === 0) {
+					this.audioData = filterData(this.dataArray, 37)
+						.map((x) => x / 128)
+						.filter((_, i) => i > 1 && i % 2 === 0)
+				}
 
-				const grd = this.ctx.createLinearGradient(0, 0, 0, this.HEIGHT)
-				grd.addColorStop(0, '#000')
-				grd.addColorStop(0.5, '#000')
-				grd.addColorStop(1, '#000')
-
-				// print bars in corrent height
-				this.dataArray.forEach((freq, i) => {
-					const barHeight = (freq * this.HEIGHT) / 270
-					const x = (this.barWidth + 1) * i
-
-					this.ctx.fillStyle = grd
-					this.ctx.fillRect(
-						x,
-						this.HEIGHT - barHeight,
-						this.barWidth,
-						barHeight
-					)
-				})
+				this.frame++
 			}
+
 			renderFrame()
 		},
 		fadeIn() {
@@ -235,10 +238,13 @@ export default {
 				}
 			}
 			loop()
-		}
+		},
+		changeCursor(str) {
+			this[TEXT_CURSOR.action](str)
+		},
 	},
 	mounted() {
-		this.audio = new Audio(this.songs[0].src)
+		this.audio = new Audio(this.songs[this.current].src)
 		this.audio.crossOrigin = 'anonymous'
 		this.audio.volume = 0.5
 		this.audio.addEventListener(
@@ -251,6 +257,6 @@ export default {
 	beforeDestroy() {
 		this.audio.pause()
 		this[MUSIC_PLAY_PAUSE.action](false)
-	}
+	},
 }
 </script>

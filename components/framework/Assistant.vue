@@ -6,7 +6,7 @@
 		@mouseenter="toggle(false)"
 	>
 		<div class="window__top">
-			<div class="icon" :class="{ closed }" />
+			<div class="plus-icon" :class="{ closed }" />
 
 			<span class="title">
 				<!-- :style="{
@@ -19,7 +19,8 @@
 				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
 
 				<span></span>
-				<img src="img/ganni-space.png" />
+				<!-- <img src="img/ganni-space.png" /> -->
+				<svg-icon name="ganni--knockout" />
 				<span></span>
 			</span>
 		</div>

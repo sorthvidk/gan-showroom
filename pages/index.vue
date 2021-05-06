@@ -5,14 +5,19 @@
 	>
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
-		<audio-player
+		<text-cursor />
+
+		<!-- <audio-player
 			v-if="!isMobile"
-			:sources="[song.src]"
+			:src="song.src"
 			:title="song.title"
 			@played-through="nextSong"
+		/> -->
+
+		<music-player
+			v-if="!isMobile"
+			:showAudioVisualizer="!loggedIn && pageClicked < 2"
 		/>
-		<!-- :autoplay="true" -->
-		<!-- :key="songs[currentAudioIdx].src" -->
 
 		<!-- step 1 -->
 		<transition name="slide-out">
@@ -59,6 +64,8 @@ import AudioPlayer from '~/components/content/AudioPlayer.vue'
 import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
 import PreloadImages from '~/components/content/PreloadImages.vue'
 import Quiz from '~/components/content/Quiz.vue'
+import MusicPlayer from '~/components/content/MusicPlayer.vue'
+import TextCursor from '~/components/elements/TextCursor.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -89,21 +96,18 @@ export default {
 		AudioGalleryController,
 		PreloadImages,
 		Quiz,
+		MusicPlayer,
+		TextCursor,
 	},
 	data: () => ({
 		currentAudioIdx: 0,
+		pageClicked: 0,
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
 		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle', 'hasDoneQuiz']),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
-		song() {
-			return {
-				src: this.songs[this.currentAudioIdx].src,
-				title: this.songs[this.currentAudioIdx].title,
-			}
-		},
 	},
 	head() {
 		return {
@@ -161,7 +165,7 @@ export default {
 		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 		this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
 
-		this.onMediaChange(window.innerWidth <= 1024) // todo: ugly way of init
+		this.onMediaChange(window.innerWidth <= 768) // todo: ugly way of init
 		addMediaChangeListener(
 			this.onMediaChange.bind(null, true),
 			this.onMediaChange.bind(null, false)
@@ -175,6 +179,7 @@ export default {
 		})
 		document.body.addEventListener('click', () => {
 			this.nonidle()
+			this.pageClicked++
 		})
 		document.body.addEventListener(
 			'click',

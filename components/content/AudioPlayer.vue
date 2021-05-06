@@ -1,6 +1,5 @@
 <template>
 	<div
-		v-show="!isAudioGallery"
 		class="audio-player"
 		:class="{ dark: dashboardDark, invert: audioPlayerDark }"
 	>
@@ -15,64 +14,51 @@
 
 <script>
 import { mapState } from 'vuex'
-import VueHowler from 'vue-howler'
+// import VueHowler from 'vue-howler'
 import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 import { MMSS } from '~/utils/HHMMSS'
 
 export default {
-	mixins: [VueHowler],
+	// mixins: [VueHowler],
 	components: {
-		AudioSpectrumBars
+		AudioSpectrumBars,
 	},
 	props: {
-		title: { type: String, default: '' }
+		title: { type: String, default: '' },
+		src: { type: String },
 		// titles: { type: Array, default: () => [] },
 	},
 	data: () => ({
-		wasPlaying: true
+		wasPlaying: true,
+		playing: true,
+		duration: 234,
+		progress: 0.5,
 	}),
 	computed: {
-		...mapState(['dashboardContent']),
-		...mapState('utils', ['dashboardDark', '__prod__']),
-		...mapState('utils', ['audioPlayerDark', '__prod__']),
-		isAudioGallery() {
-			const hide =
-				!this.dashboardContent ||
-				this.dashboardContent.contentComponent === 'audio-gallery-controller'
-
-			if (hide && this.playing) {
-				this.pause()
-				this.wasPlaying = true
-			} else if (!hide && this.wasPlaying && this.playing) {
-				this.play()
-			}
-
-			return hide
-		},
+		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
 		currentTime() {
 			return MMSS(this.duration * this.progress)
-		}
+		},
 	},
 	watch: {
 		playing() {
-			// console.log('playing', this.playing)
 			this.wasPlaying = this.playing
 		},
 		title() {
-			// console.log('new title', this.title)
 			setTimeout(() => {
 				this.play()
-				// console.log('replay')
 			}, 100)
 		},
 		progress() {
-			// console.log('progress', this.progress)
-
 			if (this.progress >= 0.99) {
-				// if (this.progress >= 0.02) {
 				setTimeout(() => this.$emit('played-through'), 100)
 			}
-		}
-	}
+		},
+	},
+	methods: {
+		togglePlayback() {
+			console.log('toggle')
+		},
+	},
 }
 </script>
