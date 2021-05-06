@@ -13,16 +13,19 @@
 			height: 2.5em;
 		}
 
-		&.large-hit-area {
-			// make hit area bigger
-			&:after {
-				content: '';
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 500px;
-				height: 200px;
-			}
+		// make hit area bigger
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 25vw;
+			height: 4em;
+		}
+
+		&.large-hit-area:after {
+			width: 500px;
+			height: 200px;
 		}
 	}
 

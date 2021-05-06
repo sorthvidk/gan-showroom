@@ -58,6 +58,12 @@
 			}
 		}
 
+		&:hover {
+			.green-room__text {
+				display: block;
+			}
+		}
+
 		--enter-duration: 2s;
 		--enter-delay: 0s;
 		--move-amount: 50px;
@@ -115,6 +121,7 @@
 	}
 
 	&__text {
+		display: none;
 		position: absolute;
 		background-color: $color-white;
 		color: var(--color-secondary);

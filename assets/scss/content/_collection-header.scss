@@ -14,7 +14,7 @@
 		width: 100%;
 		background-color: var(--color-background);
 
-		min-height: 50vh;
+		min-height: 60vh;
 		overflow: hidden;
 
 		position: relative;
@@ -92,20 +92,22 @@
 	h1 {
 		margin-bottom: calc(var(--page-outer-margin) * 2);
 		font-size: calc(32px + 7vw);
-		font-weight: 400;
+		font-weight: 500;
 		line-height: 0.9;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
 	}
 
 	p {
-		text-transform: initial;
-		font-weight: normal;
+		text-transform: uppercase;
+		font-weight: 500;
 		margin-bottom: rem(20);
 		font-size: rem(32);
-		letter-spacing: 0;
-		line-height: 1;
+		letter-spacing: -0.03em;
+		line-height: 0.9;
 
 		@include mq(screen-md) {
-			font-size: 4vw;
+			font-size: 3.7vw;
 		}
 
 		b {

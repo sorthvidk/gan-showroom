@@ -23,7 +23,7 @@
 
 		display: grid;
 		grid-gap: calc(var(--page-outer-margin) * 2);
-		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-rows: auto auto auto;
 
 		padding: var(--page-outer-margin);
 		padding-top: 50px;
@@ -100,7 +100,8 @@
 		}
 	}
 
-	&__box {
+	&__box,
+	&__description {
 		display: flex;
 		justify-content: center;
 		flex-direction: column;

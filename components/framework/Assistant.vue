@@ -2,8 +2,7 @@
 	<section
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
-		@mouseleave="toggle(true)"
-		@mouseenter="toggle(false)"
+		@click="toggle"
 	>
 		<div class="window__top">
 			<div class="plus-icon" :class="{ closed }" />

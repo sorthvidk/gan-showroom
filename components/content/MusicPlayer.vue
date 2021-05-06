@@ -7,7 +7,7 @@
 			<button
 				class="button"
 				@click="toggle"
-				@mouseenter="() => !hasStarted && changeCursor('Click to play')"
+				@mouseenter="() => !hasStarted && changeCursor('Click to unmute')"
 				@mouseleave="changeCursor('')"
 				:class="{ 'large-hit-area': !hasStarted }"
 			>

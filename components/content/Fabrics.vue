@@ -32,7 +32,7 @@
 import { mapState, mapActions } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { clamp } from '~/utils/clamp'
-import { TEXT_CURSOR } from '~/model/constants'
+import { TEXT_CURSOR, ASSISTANT_TOGGLE } from '~/model/constants'
 
 export default {
 	name: 'fabrics',
@@ -45,6 +45,7 @@ export default {
 		...mapState('user', ['mousepos', 'currentScroll']),
 	},
 	methods: {
+		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
 		...mapActions('utils', [TEXT_CURSOR.action]),
 		getUrl(cloudinaryUrl) {
 			return getCloudinaryUrl(this.$cloudinary, {
@@ -88,6 +89,9 @@ export default {
 		changeCursor(str) {
 			this[TEXT_CURSOR.action](str)
 		},
+	},
+	mounted() {
+		this[ASSISTANT_TOGGLE.action](true)
 	},
 }
 </script>

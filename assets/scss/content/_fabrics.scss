@@ -1,7 +1,5 @@
 .fabrics {
 	padding: 1px 1px calc(var(--bottombar-height) + 1px);
-	// padding: calc(var(--bottombar-height) + var(--page-outer-margin))
-	// 	var(--page-outer-margin);
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
 
@@ -24,9 +22,6 @@
 
 		@include mq(screen-lg) {
 			--columns: 2;
-			// --width: calc(
-			// 	100vw - var(--assistant-width) - var(--page-outer-margin) * 3
-			// );
 			--width: calc(100vw - 2px);
 		}
 	}
@@ -69,18 +64,30 @@
 	&__text {
 		pointer-events: none;
 		position: absolute;
-		bottom: 0;
-		width: 100%;
+		bottom: 1em;
+		left: 50%;
+		text-align: center;
+		transform: translateX(-50%);
 
 		p {
-			@include bodytext;
-			pointer-events: none;
-			margin: calc(var(--page-outer-margin) / 2);
-			padding: 0 2px 2px;
+			@include bodytext();
+
+			transition: opacity 0.2s $easeInOutQuint;
 			display: inline-block;
 
 			max-width: 30em;
 			background-color: var(--color-secondary);
+			padding: 0.25em 0.5em;
+		}
+
+		*:fullscreen & {
+			left: 1em;
+			text-align: left;
+			transform: translateX(0);
+
+			p {
+				font-size: 1em;
+			}
 		}
 	}
 }

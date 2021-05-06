@@ -18,7 +18,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { AUDIOPLAYER_DARK } from '~/model/constants'
+import { AUDIOPLAYER_DARK, ASSISTANT_TOGGLE } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
 import { gsap } from 'gsap/dist/gsap'
@@ -55,6 +55,7 @@ export default {
 		this[AUDIOPLAYER_DARK.action](false)
 	},
 	methods: {
+		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
 		...mapActions('utils', [AUDIOPLAYER_DARK.action]),
 		getImage(src) {
 			return {
@@ -70,6 +71,9 @@ export default {
 				'about-ganni__item-text': item.type === 'text',
 			}
 		},
+	},
+	mounted() {
+		this[ASSISTANT_TOGGLE.action](true)
 	},
 }
 </script>

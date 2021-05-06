@@ -8,7 +8,8 @@
 				`translate(calc(${lerpedPos.x}px - 50%), calc(${lerpedPos.y}px - 50%))`,
 		}"
 	>
-		<p>{{ textCursorText }}</p>
+		<svg-icon v-if="isSvg" :name="textCursorText.replace('svg:', '')" />
+		<p v-else>{{ textCursorText }}</p>
 	</div>
 </template>
 
@@ -36,10 +37,16 @@ export default {
 
 			return this.textCursorText ? true : false
 		},
+		isSvg() {
+			return this.textCursorText.includes('svg:')
+		},
 	},
 	methods: {
 		tick() {
 			requestAnimationFrame(this.tick)
+
+			if (!this.textCursorText) return
+
 			this.lerpedPos = {
 				x: lerp(this.lerpedPos.x, this.mousepos.x, 0.2),
 				y: lerp(this.lerpedPos.y, this.mousepos.y, 0.2),

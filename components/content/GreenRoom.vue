@@ -18,15 +18,18 @@
 				'--enter-duration': 2 + 's',
 				'--enter-delay': idx / 10 + 's',
 			}"
+			@mouseenter="() => item.link && changeCursor('svg:arrow--right')"
+			@mouseleave="changeCursor('')"
 		>
-			<button v-if="!item.link" @click="toggle(idx)">
+			<button v-if="!item.link">
 				<img :src="item.cloudinaryUrl" />
 			</button>
-			<a v-else :href="item.link" target="_blank" @click="toggle(idx)">
+			<a v-else :href="item.link" target="_blank">
 				<img :src="item.cloudinaryUrl" />
 			</a>
-			<div class="green-room__text" v-if="currentlyOpen === idx">
-				<button @click="currentlyOpen = null">&times;</button>
+			<div class="green-room__text">
+				<!-- v-if="currentlyOpen === idx" -->
+				<!-- <button @click="currentlyOpen = null">&times;</button> -->
 				<p>{{ item.text }}</p>
 			</div>
 		</div>
@@ -35,7 +38,8 @@
 
 <script>
 import viscosity from 'scroll-viscosity'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import { TEXT_CURSOR } from '~/model/constants'
 
 export default {
 	name: 'green-room',
@@ -46,6 +50,7 @@ export default {
 		...mapState('greenRoom', ['items']),
 	},
 	methods: {
+		...mapActions('utils', [TEXT_CURSOR.action]),
 		scrollHorizontally(event) {
 			const delta = event.deltaY
 			window.scrollTo(window.pageXOffset + delta, 0)
@@ -54,6 +59,9 @@ export default {
 			if (this.items[idx].link) return
 
 			this.currentlyOpen = idx === this.currentlyOpen ? null : idx
+		},
+		changeCursor(str) {
+			this[TEXT_CURSOR.action](str)
 		},
 	},
 	mounted() {
