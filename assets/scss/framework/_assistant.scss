@@ -92,7 +92,7 @@
 				&:after {
 					content: '';
 					transition: transform 0.25s $easeInOutQuint;
-					pointer-events: none;
+
 					position: absolute;
 					width: 100%;
 					height: rem(5);
@@ -290,13 +290,19 @@
 		}
 
 		&__list {
-			// display: flex;
-			// flex-wrap: wrap;
 			display: grid;
 			grid-gap: 1px;
 			background-color: rgba(0, 0, 0, 0.2);
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(6, 1fr);
 			border-top: rem(1) solid rgba(0, 0, 0, 1);
+
+			.filter-button {
+				grid-column: span 3;
+
+				&.is-big {
+					grid-column: span 2;
+				}
+			}
 		}
 	}
 

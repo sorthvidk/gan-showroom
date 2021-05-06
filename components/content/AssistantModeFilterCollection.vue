@@ -26,6 +26,13 @@
 
 				<div class="assistant__filters__list">
 					<filter-button
+						:name="'RTW'"
+						:is-big="true"
+						:count="readyToWear.length"
+						:filter-id="'RTW'"
+					/>
+
+					<filter-button
 						v-for="(item, key) in groupFiltersNonNull"
 						:key="key"
 						:name="item.name"
@@ -33,7 +40,10 @@
 						:filter-id="item.filterId"
 						:is-big="['accessories', 'shoes'].includes(item.name.toLowerCase())"
 					/>
-					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0">
+					<span
+						class="filter-button"
+						v-if="groupFiltersNonNull.length % 2 === 0"
+					>
 						&nbsp;
 					</span>
 				</div>
@@ -87,8 +97,11 @@ export default {
 			'activeGroup',
 			'activeFilter',
 			'searchstring',
+			'authorizedGroups',
 		]),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
+		...mapGetters('collection', ['readyToWear']),
+
 		downloadCollectionButtonLabel() {
 			if (this.activeFilter.filterId) {
 				return 'Download ' + this.activeFilter.name
@@ -129,6 +142,25 @@ export default {
 			}
 			return this.groupFilters.filter((f) => f.filterId)
 		},
+		// readyToWearCount() {
+		// 	const accessoriesFilterId = 'acc1'
+		// 	const shoesFilterId = 'acc3'
+		// 	const nonClothes = [accessoriesFilterId, shoesFilterId]
+
+		// 	if (this.activeGroup) {
+		// 		return this.activeGroup.styles.filter(
+		// 			(s) => !s.filters.find((f) => nonClothes.includes(f.filterId))
+		// 		).length
+		// 	} else {
+		// 		return this.authorizedGroups
+		// 			.map((g) =>
+		// 				g.styles.filter(
+		// 					(s) => !s.filters.find((f) => nonClothes.includes(f.filterId))
+		// 				)
+		// 			)
+		// 			.flat().length
+		// 	}
+		// },
 	},
 	watch: {
 		// keyPressed(event) {

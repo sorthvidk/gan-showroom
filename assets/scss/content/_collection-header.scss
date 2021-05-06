@@ -1,5 +1,6 @@
 .collection-header {
 	--collection-header-cols: 1;
+	--collection-header-height: 60vh;
 
 	border-top: 1px solid $color-white;
 
@@ -14,25 +15,61 @@
 		width: 100%;
 		background-color: var(--color-background);
 
-		min-height: 60vh;
-		overflow: hidden;
+		overflow: auto;
 
+		height: var(--collection-header-height);
 		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.text {
+		min-height: var(--collection-header-height);
+		box-sizing: border-box;
+		white-space: pre-line;
+		padding: var(--page-outer-margin);
+		background-color: var(--color-background);
+
+		h1 {
+			margin-bottom: calc(var(--page-outer-margin) * 2);
+			font-size: calc(32px + 7vw);
+			font-weight: 500;
+			line-height: 0.9;
+			letter-spacing: -0.02em;
+			text-transform: uppercase;
+		}
+
+		p {
+			text-transform: uppercase;
+			font-weight: 500;
+			margin-bottom: rem(20);
+			font-size: rem(32);
+			letter-spacing: -0.03em;
+			line-height: 0.9;
+
+			@include mq(screen-md) {
+				font-size: 3.7vw;
+			}
+
+			b {
+				font-weight: bold;
+			}
+		}
 	}
 
 	.image {
 		transition: transform 1.2s $easeInOutQuint;
-		position: absolute;
-		top: 0;
-		transform: translateY(100%);
+		position: relative;
+		// top: 0;
+		// transform: translateY(100%);
 		width: 100%;
+		height: var(--collection-header-height);
 		background: var(--color-background);
 		cursor: w-resize;
 		box-sizing: border-box;
 
 		display: flex;
 		justify-content: center;
-		height: 100%;
 
 		&:after {
 			content: '';
@@ -80,38 +117,5 @@
 	img {
 		height: 100%;
 		object-fit: cover;
-	}
-
-	.text {
-		box-sizing: border-box;
-		white-space: pre-line;
-		padding: var(--page-outer-margin);
-		background-color: var(--color-background);
-	}
-
-	h1 {
-		margin-bottom: calc(var(--page-outer-margin) * 2);
-		font-size: calc(32px + 7vw);
-		font-weight: 500;
-		line-height: 0.9;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-	}
-
-	p {
-		text-transform: uppercase;
-		font-weight: 500;
-		margin-bottom: rem(20);
-		font-size: rem(32);
-		letter-spacing: -0.03em;
-		line-height: 0.9;
-
-		@include mq(screen-md) {
-			font-size: 3.7vw;
-		}
-
-		b {
-			font-weight: bold;
-		}
 	}
 }
