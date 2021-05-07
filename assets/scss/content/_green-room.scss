@@ -13,13 +13,28 @@
 		letter-spacing: -0.01em;
 
 		position: absolute;
-		top: 45%;
-		transform: translate(-50%, -50%);
-		left: 50vw;
 
 		width: 15em;
 		padding: 0.25em;
 		outline: 0.2em solid;
+
+		&:nth-of-type(1) {
+			top: 45%;
+			transform: translate(-50%, -50%);
+			left: 50vw;
+		}
+
+		&:nth-of-type(2) {
+			top: 45%;
+			transform: translate(-50%, -50%);
+			left: 175vw;
+		}
+
+		&:nth-of-type(3) {
+			top: 45%;
+			transform: translate(-50%, -50%);
+			left: 300vw;
+		}
 	}
 
 	&__item {
@@ -117,6 +132,56 @@
 		&[data-order='4'] {
 			top: 10vh;
 			left: 90vw;
+		}
+
+		&[data-order='5'] {
+			top: 10vh;
+			left: 140vw;
+		}
+
+		&[data-order='6'] {
+			top: 60vh;
+			left: 160vw;
+		}
+
+		&[data-order='7'] {
+			top: 0vh;
+			left: 170vw;
+		}
+
+		&[data-order='8'] {
+			top: 5vh;
+			left: 190vw;
+		}
+
+		&[data-order='9'] {
+			top: 14vh;
+			left: 210vw;
+		}
+
+		&[data-order='10'] {
+			bottom: 15vh;
+			left: 260vw;
+		}
+
+		&[data-order='11'] {
+			bottom: 40vh;
+			left: 290vw;
+		}
+
+		&[data-order='12'] {
+			top: 5vh;
+			left: 310vw;
+		}
+
+		&[data-order='13'] {
+			top: 25vh;
+			left: 340vw;
+		}
+
+		&[data-order='14'] {
+			top: 20vh;
+			left: 380vw;
 		}
 	}
 

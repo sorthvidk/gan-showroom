@@ -1,6 +1,18 @@
 <template>
 	<div class="green-room" :style="{ width: `${items.length * 30}vmax` }">
-		<h1 ref="visc">
+		<h1>
+			"A carbon tax, which our politicians never had the guts to introduce, will
+			be hugely beneficial for the transition towards a sustainable fashion
+			industry"<br />
+			— Nicolaj Reffstrup
+		</h1>
+		<h1>
+			"A carbon tax, which our politicians never had the guts to introduce, will
+			be hugely beneficial for the transition towards a sustainable fashion
+			industry"<br />
+			— Nicolaj Reffstrup
+		</h1>
+		<h1>
 			"A carbon tax, which our politicians never had the guts to introduce, will
 			be hugely beneficial for the transition towards a sustainable fashion
 			industry"<br />
@@ -63,10 +75,12 @@ export default {
 		},
 	},
 	mounted() {
-		this.$refs.items.forEach((item, idx) => {
-			if (item.classList.contains('fixed')) return
+		this.$nextTick(() => {
+			this.$refs.items.forEach((item, idx) => {
+				if (item.classList.contains('fixed')) return
 
-			viscosity({ element: item, easing: 0.02 * idx + 0.02 })
+				viscosity({ element: item, easing: 0.02 * idx + 0.02 })
+			})
 		})
 		window.addEventListener('wheel', this.scrollHorizontally)
 	},
