@@ -40,10 +40,7 @@
 						:filter-id="item.filterId"
 						:is-big="['accessories', 'shoes'].includes(item.name.toLowerCase())"
 					/>
-					<span
-						class="filter-button"
-						v-if="groupFiltersNonNull.length % 2 === 0"
-					>
+					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0">
 						&nbsp;
 					</span>
 				</div>

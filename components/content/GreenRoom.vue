@@ -18,7 +18,7 @@
 				'--enter-duration': 2 + 's',
 				'--enter-delay': idx / 10 + 's',
 			}"
-			@mouseenter="() => item.link && changeCursor('svg:arrow--right')"
+			@mouseenter="() => item.link && changeCursor('svg:external')"
 			@mouseleave="changeCursor('')"
 		>
 			<button v-if="!item.link">
@@ -27,9 +27,7 @@
 			<a v-else :href="item.link" target="_blank">
 				<img :src="item.cloudinaryUrl" />
 			</a>
-			<div class="green-room__text">
-				<!-- v-if="currentlyOpen === idx" -->
-				<!-- <button @click="currentlyOpen = null">&times;</button> -->
+			<div class="green-room__text" v-if="item.text">
 				<p>{{ item.text }}</p>
 			</div>
 		</div>

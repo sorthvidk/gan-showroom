@@ -86,6 +86,7 @@ export default {
 		musicPlaying(playing) {
 			if (this.musicPlaying) {
 				this.audio.play().catch((err) => console.warn(err))
+				this.fadeIn()
 				this.hasStarted = true
 				this.updateData()
 			} else {
