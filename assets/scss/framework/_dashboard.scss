@@ -12,6 +12,7 @@
 		grid-gap: 1px;
 		z-index: get-z('bottombar');
 		border-top: var(--color-border);
+		background-color: $color-grey;
 
 		position: fixed;
 		bottom: 0;

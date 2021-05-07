@@ -99,7 +99,21 @@ export const getters = {
 			g => g.groupId === state.currentStyle.groupId
 		),
 
-	allStyles: state => state.allStyles
+	allStyles: state => state.allStyles,
+
+	readyToWear: state => {
+		const accessoriesFilterId = 'acc1'
+		const shoesFilterId = 'acc3'
+		const nonClothes = [accessoriesFilterId, shoesFilterId]
+		const isAccOrShoes = filterId => nonClothes.includes(filterId)
+		const hasNoAccOrShoesFilter = style => !style.filters.find(isAccOrShoes)
+
+		return state.activeGroup
+			? state.activeGroup.styles.filter(hasNoAccOrShoesFilter)
+			: state.authorizedGroups
+					.map(g => g.styles.filter(hasNoAccOrShoesFilter))
+					.flat()
+	}
 }
 
 export const mutations = {
@@ -420,13 +434,29 @@ export const mutations = {
 		}
 	},
 
-	[SET_CURRENT_FILTER.mutation](state, filterId) {
+	[SET_CURRENT_FILTER.mutation](state, { filterId, getters }) {
+		if (filterId === 'RTW') {
+			console.log('getters: ', getters)
+
+			state.currentStyles = [...getters.readyToWear].sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
+			state.activeFilter = {
+				filterId,
+				name: 'Ready to wear',
+				styleIds: state.currentStyles
+			}
+
+			return
+		}
+
 		if (!state.activeGroup) {
 			state.currentStyles = state.allStyles
 		} else {
 			state.currentStyles = state.activeGroup.styles
 		}
-		if (!filterId || filterId == '') {
+
+		if (!filterId) {
 			state.activeFilter = {
 				filterId: null,
 				name: '',
@@ -434,24 +464,22 @@ export const mutations = {
 			}
 		} else {
 			// set current collection to filtered by params
-			state.activeFilter = state.groupFilters.filter(
-				e => e.filterId === filterId
-			)[0]
+			state.activeFilter = state.groupFilters.find(e => e.filterId === filterId)
 
 			if (!state.activeFilter) {
 				return
 			}
 
-			let styleIds = state.activeFilter.styleIds
+			const { styleIds } = state.activeFilter
+
 			let newCurrentStyles = findArrayMatches(
 				styleIds,
 				state.currentStyles,
 				'styleId'
 			)
 
-			newCurrentStyles = newCurrentStyles.sort((a, b) =>
-				a.weight > b.weight ? -1 : 1
-			)
+			newCurrentStyles.sort((a, b) => (a.weight > b.weight ? -1 : 1))
+
 			state.currentStyles = newCurrentStyles
 		}
 	},
@@ -533,9 +561,9 @@ export const actions = {
 	[REMOVE_FROM_WISHLIST.action]({ commit }, style) {
 		commit(REMOVE_FROM_WISHLIST.mutation, style)
 	},
-	[SET_CURRENT_FILTER.action]({ commit }, filterId) {
+	[SET_CURRENT_FILTER.action]({ commit, getters }, filterId) {
 		// ex 'c2'
-		commit(SET_CURRENT_FILTER.mutation, filterId)
+		commit(SET_CURRENT_FILTER.mutation, { filterId, getters })
 	},
 	[SET_GROUP_BY_IDENTIFIER.action]({ commit, dispatch }, groupId) {
 		// ex 'drop1-nov'

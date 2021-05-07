@@ -2,9 +2,8 @@
 	<section
 		class="window window--tight window--assistant"
 		:class="'assistant-mode--' + assistantMode"
-		@click="toggle"
 	>
-		<div class="window__top">
+		<div class="window__top" @click="toggle()">
 			<div class="plus-icon" :class="{ closed }" />
 
 			<span class="title">
@@ -235,6 +234,7 @@ export default {
 
 		toggle(close) {
 			if (!this.windowList.length) {
+				console.log(this.closed)
 				this[ASSISTANT_TOGGLE.action](
 					close !== undefined ? close : !this.closed
 				)

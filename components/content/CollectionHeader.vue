@@ -1,6 +1,6 @@
 <template>
 	<div class="collection-header">
-		<div class="inner" @wheel="toggleImages">
+		<div class="inner">
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown

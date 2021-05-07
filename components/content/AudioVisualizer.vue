@@ -49,7 +49,7 @@ export default {
 		...mapState('utils', ['various']),
 		normalizedArray() {
 			return this.audioData.map((v) =>
-				Math.max(1, Math.floor(v * this.maxLinesAmount))
+				Math.max(1, Math.floor(v * 0.75 * this.maxLinesAmount))
 			)
 		},
 		imageUrl() {

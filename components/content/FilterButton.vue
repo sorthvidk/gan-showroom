@@ -7,13 +7,15 @@
 		}"
 		@click="clickHandler"
 	>
-		<span>{{ name.replace('Accessories', 'ACC').replace('Shoes', 'FTW') }}</span
-		><em>({{ count }})</em>
+		<span>{{
+			name.replace('Accessories', 'ACC').replace('Shoes', 'FTW')
+		}}</span>
+		<em>({{ count }})</em>
 	</button>
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { SET_CURRENT_FILTER } from '~/model/constants'
 
 import sendTracking from '~/utils/send-tracking'
@@ -40,9 +42,7 @@ export default {
 		},
 	},
 	computed: {
-		...mapState({
-			activeFilter: (state) => state.collection.activeFilter,
-		}),
+		...mapState('collection', ['activeFilter']),
 	},
 	methods: {
 		...mapActions(['collection/' + SET_CURRENT_FILTER.action]),
