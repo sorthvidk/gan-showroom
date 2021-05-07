@@ -39,9 +39,21 @@
 				transform-origin 0.6s $easeOutQuint;
 			height: 100%;
 			object-fit: cover;
+		}
 
-			&.zoomed {
+		&:fullscreen {
+			img {
 				transform: scale(5);
+			}
+
+			.fabrics__text {
+				left: 1em;
+				text-align: left;
+				transform: translateX(0);
+
+				p {
+					font-size: 1em;
+				}
 			}
 		}
 	}
@@ -78,16 +90,6 @@
 			max-width: 30em;
 			background-color: var(--color-secondary);
 			padding: 0.25em 0.5em;
-		}
-
-		*:fullscreen & {
-			left: 1em;
-			text-align: left;
-			transform: translateX(0);
-
-			p {
-				font-size: 1em;
-			}
 		}
 	}
 }

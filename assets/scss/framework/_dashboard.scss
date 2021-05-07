@@ -8,11 +8,11 @@
 
 		display: grid;
 		grid-template-columns: repeat(var(--columns), 1fr);
-		// grid-auto-flow: column;
 		grid-gap: 1px;
 		z-index: get-z('bottombar');
 		border-top: var(--color-border);
 		background-color: $color-grey;
+		border-top: 1px solid $color-grey;
 
 		position: fixed;
 		bottom: 0;
@@ -20,7 +20,6 @@
 
 		@include mq(screen-md) {
 			--columns: 8;
-			// height: var(--bottombar-height);
 		}
 
 		.shortcut {

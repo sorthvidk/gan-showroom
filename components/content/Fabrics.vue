@@ -7,16 +7,12 @@
 				:key="item.text + idx"
 				ref="items"
 			>
+				<text-cursor />
 				<img
 					:src="getUrl(item.cloudinaryUrl)"
 					:alt="'One of GANNIs many really nice fabrics'"
 					:style="{ transformOrigin: transformString(idx) }"
-					@click="
-						(e) => {
-							zoom(e)
-							fullscreen(e)
-						}
-					"
+					@click="fullscreen"
 					@mouseenter="changeCursor('+ Zoom')"
 					@mouseleave="changeCursor('')"
 				/>
@@ -33,9 +29,13 @@ import { mapState, mapActions } from 'vuex'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { clamp } from '~/utils/clamp'
 import { TEXT_CURSOR, ASSISTANT_TOGGLE } from '~/model/constants'
+import TextCursor from '../elements/TextCursor.vue'
 
 export default {
 	name: 'fabrics',
+	components: {
+		TextCursor,
+	},
 	data: () => ({
 		clamp,
 		isFullScreen: false,
