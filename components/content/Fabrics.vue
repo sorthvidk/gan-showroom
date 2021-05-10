@@ -11,7 +11,9 @@
 				<img
 					:src="getUrl(item.cloudinaryUrl)"
 					:alt="'One of GANNIs many really nice fabrics'"
-					:style="{ transformOrigin: transformString(idx) }"
+					:style="{
+						transformOrigin: !isFullScreen ? 'center' : transformString(idx),
+					}"
 					@click="fullscreen"
 					@mouseenter="changeCursor('+ Zoom')"
 					@mouseleave="changeCursor('')"
@@ -66,6 +68,8 @@ export default {
 			return { top, left, width, height }
 		},
 		transformString(idx) {
+			// if (!this.isFullscreen) return 'center'
+
 			const { left, width, top, height } = this.ownPos(idx)
 
 			return `${clamp(0, this.mousepos.x - left, width)}px ${clamp(
@@ -75,16 +79,19 @@ export default {
 			)}px`
 		},
 		fullscreen(e) {
-			if (!document.fullscreenElement) {
-				e.target.parentElement.requestFullscreen()
+			if (!this.isFullScreen) {
+				if (typeof document.body.requestFullscreen === 'function') {
+					e.target.parentElement.requestFullscreen()
+				}
+
 				this.isFullScreen = true
 				this.changeCursor('Zoom out')
 			} else {
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
-					this.isFullScreen = false
-					this.changeCursor('+ Zoom')
 				}
+				this.isFullScreen = false
+				this.changeCursor('+ Zoom')
 			}
 		},
 		changeCursor(str) {
@@ -93,6 +100,9 @@ export default {
 	},
 	mounted() {
 		this[ASSISTANT_TOGGLE.action](true)
+	},
+	beforeDestroy() {
+		this.changeCursor('')
 	},
 }
 </script>

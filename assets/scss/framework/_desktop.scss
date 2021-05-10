@@ -39,13 +39,14 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
 		padding-bottom: 70px;
 		box-sizing: border-box;
-		padding: calc(var(--page-outer-margin) / 2 + var(--bottombar-height))
-			calc(var(--page-outer-margin) / 2);
+		padding: var(--page-outer-margin) calc(var(--page-outer-margin) / 2);
 
 		@include mq(screen-md) {
+			padding: calc(var(--page-outer-margin) / 2 + var(--bottombar-height))
+				calc(var(--page-outer-margin) / 2);
+			justify-content: flex-end;
 			font-size: 2.25vw;
 		}
 	}

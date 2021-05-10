@@ -16,6 +16,7 @@
 						`${textStyledWithoutIcon ? 'dashboard' : 'desktop'}__shortcuts`,
 						// `${isMobile && menuClosed ? 'hidden' : ''}`,
 					]"
+					@click="closeMenu"
 				>
 					<shortcut
 						v-for="(item, nthChild) in desktopIcons"
@@ -284,6 +285,9 @@ export default {
 		},
 		toggleMenu() {
 			this.menuClosed = !this.menuClosed
+		},
+		closeMenu() {
+			this.menuClosed = true
 		},
 	},
 	mounted() {

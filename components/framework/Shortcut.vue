@@ -7,7 +7,7 @@
 		class="shortcut shortcut-bottombar"
 		:class="{
 			active:
-				dashboardContent && dashboardContent.contentComponent === shortcutId
+				dashboardContent && dashboardContent.contentComponent === shortcutId,
 		}"
 		:style="{ gridColumn: styleGridColumn, gridRow: styleGridRow }"
 	>
@@ -26,7 +26,7 @@ import {
 	OPEN_CONTENT,
 	OPEN_CONTENT_IN_DASHBOARD,
 	SET_GROUP_BY_IDENTIFIER,
-	DESKTOP_BACKGROUND
+	DESKTOP_BACKGROUND,
 } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
@@ -43,10 +43,10 @@ export default {
 		windowContent: { type: [Array, String], default: () => [], required: true },
 		actions: { type: Array, default: null, required: false },
 		href: { type: String, default: null, required: false },
-		nthChild: { type: Number }
+		nthChild: { type: Number },
 	},
 	data: () => ({
-		cssClass: ''
+		cssClass: '',
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
@@ -56,7 +56,7 @@ export default {
 		},
 		styleGridColumn() {
 			return this.positionH + '/' + (this.positionH + 1)
-		}
+		},
 	},
 	methods: {
 		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
@@ -76,7 +76,7 @@ export default {
 					// const openContent = () =>
 					// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
-					this.actions.forEach(action => {
+					this.actions.forEach((action) => {
 						if (typeof action.param !== 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
@@ -94,17 +94,17 @@ export default {
 				delay: Math.floor(this.nthChild) / 20 + 0.5,
 				scale: 1,
 				opacity: 1,
-				ease: 'power4.inOut'
+				ease: 'power4.inOut',
 			})
 		},
 		changeBackground(color) {
 			if (!this.textLayout) return
 
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
-		}
+		},
 	},
 	mounted() {
 		// console.log(this.shortcutId)
-	}
+	},
 }
 </script>

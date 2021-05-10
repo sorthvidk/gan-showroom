@@ -56,7 +56,11 @@
 				zIndex: '-1',
 			}"
 		>
-			<login-asterixes :amount="pwd.length" :start="valid ? true : false" />
+			<login-asterixes
+				:shake="showErrorMessage"
+				:amount="pwd.length"
+				:start="valid ? true : false"
+			/>
 		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
@@ -109,7 +113,12 @@ export default {
 
 		loginInput(e) {
 			this.updateValidState()
-			this.showErrorMessage = false
+			// this.showErrorMessage = false
+			if (!this.valid) this.showErrorMessage = true
+
+			setTimeout(() => {
+				this.showErrorMessage = false
+			})
 		},
 
 		submitClickHandler() {
