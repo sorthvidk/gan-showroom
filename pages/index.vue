@@ -16,7 +16,8 @@
 
 		<music-player
 			v-if="!isMobile"
-			:showAudioVisualizer="!loggedIn && pageClicked < 2"
+			:showAudioVisualizer="!loggedIn && pageClicked < 1"
+			@clicked="() => pageClicked++"
 		/>
 
 		<!-- step 1 -->
@@ -179,7 +180,6 @@ export default {
 		})
 		document.body.addEventListener('click', () => {
 			this.nonidle()
-			this.pageClicked++
 		})
 		document.body.addEventListener(
 			'click',

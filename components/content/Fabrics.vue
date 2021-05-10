@@ -83,6 +83,7 @@ export default {
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
 					this.isFullScreen = false
+					this.changeCursor('+ Zoom')
 				}
 			}
 		},

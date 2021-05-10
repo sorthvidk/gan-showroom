@@ -136,8 +136,14 @@ export default {
 		]),
 		...mapState('assistant', ['assistantMode', 'expanded', 'closed']),
 		...mapState('utils', ['isMobile']),
+		...mapState('user', ['currentScroll']),
 	},
 	watch: {
+		currentScroll() {
+			if (!this.closed && !this.windowList.length) {
+				this[ASSISTANT_TOGGLE.action](true)
+			}
+		},
 		activeFilter(newVal) {
 			if (newVal && newVal.name != '') {
 				this.filterName = newVal.name

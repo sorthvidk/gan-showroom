@@ -7,6 +7,7 @@
 			)
 		"
 		@mouseleave="changeCursor('')"
+		@click="$emit('clicked')"
 	>
 		<pre
 			ref="text-measurement"
@@ -27,7 +28,6 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import { TEXT_CURSOR } from '~/model/constants'
-import imageUrl from '~/static/img/login-slide.jpg'
 import { nextIndex } from '~/utils/array-helpers'
 
 export default {
@@ -36,7 +36,7 @@ export default {
 		// takes an array with length of 13, value range 0-1
 		audioData: {
 			type: Array,
-			default: () => ['hehe'],
+			default: () => [],
 		},
 	},
 	data: () => ({

@@ -41,6 +41,10 @@
 			object-fit: cover;
 		}
 
+		.text-cursor {
+			display: none;
+		}
+
 		&:fullscreen {
 			img {
 				transform: scale(5);
@@ -54,6 +58,10 @@
 				p {
 					font-size: 1em;
 				}
+			}
+
+			.text-cursor {
+				display: block;
 			}
 		}
 	}

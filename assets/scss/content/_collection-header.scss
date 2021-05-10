@@ -2,7 +2,8 @@
 	--collection-header-cols: 1;
 	--collection-header-height: 60vh;
 
-	border-top: 1px solid $color-white;
+	border-top: 1px solid var(--collection-border-color);
+	border-bottom: 1px solid var(--collection-border-color);
 
 	position: sticky;
 	top: var(--group-navigation-height);

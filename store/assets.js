@@ -40,6 +40,11 @@ export const mutations = {
 	},
 	[FETCH_LOOKBOOK.mutation](state, data) {
 		state.lookBook = data
+
+		state.lookBook.sort(
+			({ order: aOrder = 100000 }, { order: bOrder = 100000 }) =>
+				aOrder < bOrder ? -1 : 1
+		)
 	},
 	[FETCH_ANAS.mutation](state, data) {
 		state.anas = data

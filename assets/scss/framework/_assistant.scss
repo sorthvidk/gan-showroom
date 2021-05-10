@@ -1,5 +1,5 @@
 :root {
-	--assistant-width: 100%;
+	--assistant-width: calc(100vw - 45px - var(--menu-button-width));
 
 	@include mq(screen-sm) {
 		--assistant-width: rem(340);
@@ -27,6 +27,7 @@
 		right: var(--menu-button-width);
 		// bottom: rem(10 + 30 + 70); //ios navbar + gutter + support (heights)
 		bottom: rem(0);
+		width: var(--assistant-width);
 
 		user-select: text;
 
@@ -39,7 +40,6 @@
 			left: auto;
 			right: var(--page-outer-margin);
 			bottom: auto;
-			width: var(--assistant-width);
 		}
 
 		.window__content {
@@ -349,16 +349,13 @@
 	}
 
 	&__ctas {
-		// display: flex;
-		// flex-wrap: wrap;
-		// justify-content: space-between;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(6, 1fr); // align with filter buttons
 		grid-gap: 1px;
 		background-color: $color-black;
 
 		a {
-			color: $color-black;
+			color: var(--color-secondary);
 		}
 
 		.button {
@@ -397,10 +394,10 @@
 				}
 			}
 
-			grid-column: span 2;
+			grid-column: span 6;
 
 			&--half {
-				grid-column: span 1;
+				grid-column: span 3;
 			}
 		}
 		.button--half + .button--half {
