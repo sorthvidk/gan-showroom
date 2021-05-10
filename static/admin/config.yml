@@ -298,6 +298,7 @@ collections:
           label: 'Cover text',
           name: 'text',
           widget: 'text',
+          required: false,
           hint: 'A text that is displayed in the top of the collection page',
         }
       - {
