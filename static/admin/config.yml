@@ -622,7 +622,7 @@ collections:
     sortable_fields: ['cloudinaryUrl']
     create: true
     format: 'json'
-    slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
+    slug: '{{year}}-{{month}}-{{quote}}'
     editor:
       preview: false
     fields:
