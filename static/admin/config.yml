@@ -606,6 +606,13 @@ collections:
           default: 'portrait',
           hint: 'Aspect of media',
         }
+      - {
+          label: 'Order',
+          name: 'order',
+          widget: 'number',
+          required: false,
+          hint: "Lower number, the higher up on the page. If not set it's placed last, in same order as in the cms",
+        }
 
   - name: 'afterparty'
     summary: '{{cloudinaryUrl}}'

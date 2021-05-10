@@ -32,7 +32,8 @@ export default {
 		componentHeight: 0,
 		componentTop: 0,
 		contentHeight: 0,
-		ease: BezierEasing(0, 0.8, 1, 0.2),
+		// ease: BezierEasing(0, 0.8, 1, 0.2),
+		ease: BezierEasing(0.25, 1, 0.75, 0),
 	}),
 	computed: {
 		...mapState('user', ['currentScroll', 'screenSize']),

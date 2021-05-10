@@ -1,5 +1,8 @@
 <template>
-	<div class="green-room" :style="{ width: `${items.length * 30}vmax` }">
+	<div
+		class="green-room"
+		:style="{ width: `${items.length * 30}vmax`, height: '100vh' }"
+	>
 		<h1>
 			"A carbon tax, which our politicians never had the guts to introduce, will
 			be hugely beneficial for the transition towards a sustainable fashion
@@ -21,18 +24,19 @@
 		<div
 			class="green-room__item"
 			v-for="(item, idx) in items"
-			:key="item.text + idx"
+			:key="item.text + '' + idx"
 			:class="{ fixed: item.fixed, 'enter-left': idx < items.length / 2 }"
 			:data-order="idx"
 			ref="items"
 			:style="{
-				zIndex: items.length - idx,
+				zIndex: item.fixed ? 0 : 1,
 				'--enter-duration': 2 + 's',
 				'--enter-delay': idx / 10 + 's',
 			}"
 			@mouseenter="() => item.link && changeCursor('svg:external')"
 			@mouseleave="changeCursor('')"
 		>
+			<!-- zIndex: items.length - idx, -->
 			<button v-if="!item.link">
 				<img :src="item.cloudinaryUrl" />
 			</button>
@@ -76,6 +80,10 @@ export default {
 	},
 	mounted() {
 		this.$nextTick(() => {
+			if (!this.$refs.items || !this.$refs.items.length) {
+				return
+			}
+
 			this.$refs.items.forEach((item, idx) => {
 				if (item.classList.contains('fixed')) return
 

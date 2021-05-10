@@ -22,7 +22,11 @@
 			<canvas ref="canvas" id="canvas"></canvas>
 		</div>
 
-		<audio-visualizer v-if="showAudioVisualizer" :audioData="audioData" />
+		<audio-visualizer
+			v-if="showAudioVisualizer"
+			:audioData="audioData"
+			@clicked="$emit('clicked')"
+		/>
 	</main>
 </template>
 
@@ -72,7 +76,7 @@ export default {
 			// playback values
 			duration: null,
 			progress: null,
-			audioData: [],
+			audioData: Array(20).fill(2),
 			frame: 0,
 			hasStarted: false,
 		}

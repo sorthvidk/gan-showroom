@@ -1,5 +1,6 @@
 :root {
 	--collection-col-count: 2;
+	--collection-border-color: var(--color-secondary);
 
 	@include mq(screen-sm) {
 		--collection-col-count: 3;
@@ -48,7 +49,7 @@
 		position: relative;
 		z-index: get-z('collection-list');
 		background: var(--color-background);
-		border-top: 1px solid $color-white;
+		// border-top: 1px solid var(--collection-border-color);
 	}
 
 	&--fun {
