@@ -1,7 +1,7 @@
 {
-  "sideBySide": false,
+  "sideBySide": true,
   "cloudinaryUrl": [
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620634074/21.4/after_party/afterparty5.jpg"
   ],
-  "order": 2
+  "order": 4
 }
