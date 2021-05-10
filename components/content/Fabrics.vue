@@ -6,6 +6,7 @@
 				v-for="(item, idx) in items"
 				:key="item.text + idx"
 				ref="items"
+				:class="isFullScreen ? 'zoomed' : ''"
 			>
 				<text-cursor />
 				<img
@@ -15,11 +16,11 @@
 						transformOrigin: !isFullScreen ? 'center' : transformString(idx),
 					}"
 					@click="fullscreen"
-					@mouseenter="changeCursor('+ Zoom')"
+					@mouseenter="changeCursor('Zoom', 'plus--bold')"
 					@mouseleave="changeCursor('')"
 				/>
 				<div class="fabrics__text">
-					<p>{{ isFullScreen ? item.text || '' : item.title || '' }}</p>
+					<p v-html="isFullScreen ? item.text || '' : item.title || ''"></p>
 				</div>
 			</div>
 		</div>
@@ -55,9 +56,9 @@ export default {
 				type: 'image',
 			})
 		},
-		zoom(e) {
-			e.target.classList.toggle('zoomed')
-		},
+		// zoom(e) {
+		// 	e.target.classList.toggle('zoomed')
+		// },
 		ownPos(idx) {
 			if (!this.$refs.items) return 0
 
@@ -94,8 +95,8 @@ export default {
 				this.changeCursor('+ Zoom')
 			}
 		},
-		changeCursor(str) {
-			this[TEXT_CURSOR.action](str)
+		changeCursor(str, icon) {
+			this[TEXT_CURSOR.action]({ str, icon })
 		},
 	},
 	mounted() {

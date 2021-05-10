@@ -70,6 +70,10 @@
 			height: 75vmin;
 		}
 
+		&.is-link {
+			transform: rotate(-3deg) !important;
+		}
+
 		&:not(.fixed) {
 			&:hover {
 				img {

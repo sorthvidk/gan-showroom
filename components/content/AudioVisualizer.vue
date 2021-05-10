@@ -70,7 +70,7 @@ export default {
 			)
 		},
 		changeCursor(str) {
-			this[TEXT_CURSOR.action](str)
+			this[TEXT_CURSOR.action]({ str })
 		},
 	},
 	mounted() {

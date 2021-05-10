@@ -25,7 +25,11 @@
 			class="green-room__item"
 			v-for="(item, idx) in items"
 			:key="item.text + '' + idx"
-			:class="{ fixed: item.fixed, 'enter-left': idx < items.length / 2 }"
+			:class="{
+				fixed: item.fixed,
+				'enter-left': idx < items.length / 2,
+				'is-link': item.link,
+			}"
 			:data-order="idx"
 			ref="items"
 			:style="{
@@ -33,7 +37,7 @@
 				'--enter-duration': 2 + 's',
 				'--enter-delay': idx / 10 + 's',
 			}"
-			@mouseenter="() => item.link && changeCursor('svg:external')"
+			@mouseenter="() => item.link && changeCursor('Read more', 'external')"
 			@mouseleave="changeCursor('')"
 		>
 			<!-- zIndex: items.length - idx, -->
@@ -74,8 +78,8 @@ export default {
 
 			this.currentlyOpen = idx === this.currentlyOpen ? null : idx
 		},
-		changeCursor(str) {
-			this[TEXT_CURSOR.action](str)
+		changeCursor(str, icon) {
+			this[TEXT_CURSOR.action]({ str, icon })
 		},
 	},
 	mounted() {
@@ -94,6 +98,7 @@ export default {
 	},
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.scrollHorizontally)
+		this.changeCursor('')
 	},
 }
 </script>
