@@ -22,6 +22,7 @@
 	&.is-big {
 		font-weight: bold;
 		order: 1;
+		outline: 1px solid var(--color-secondary);
 	}
 
 	span {
@@ -41,10 +42,12 @@ button.filter-button {
 	cursor: pointer;
 
 	&:hover {
-		background-color: $color-buttonhover;
+		color: $color-black;
+		// background-color: $color-buttonhover;
 	}
 
 	&.is-active:hover {
-		background-color: $color-buttonactive;
+		color: $color-white;
+		// background-color: $color-buttonactive;
 	}
 }

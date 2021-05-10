@@ -236,11 +236,11 @@ export default {
 
 		toggleContentHandler() {
 			this[ASSISTANT_EXPANDED.action](!this.expanded)
+			this.toggle(!this.expanded)
 		},
 
 		toggle(close) {
 			if (!this.windowList.length) {
-				console.log(this.closed)
 				this[ASSISTANT_TOGGLE.action](
 					close !== undefined ? close : !this.closed
 				)
