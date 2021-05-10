@@ -53,9 +53,11 @@
 	&__standard,
 	&__overview {
 		width: 100%;
+		padding-bottom: calc(var(--page-outer-margin) * 4);
 
 		@include mq(screen-md) {
 			width: calc(100% - var(--assistant-width) - var(--page-outer-margin));
+			padding-bottom: var(--page-outer-margin);
 		}
 	}
 
@@ -65,8 +67,6 @@
 		grid-template-rows: 1fr 1fr;
 
 		grid-gap: var(--page-outer-margin);
-
-		padding-bottom: var(--page-outer-margin);
 
 		@include mq(screen-md) {
 			grid-template-columns: 1fr 1fr;
@@ -103,7 +103,6 @@
 		display: grid;
 		grid-gap: var(--page-outer-margin);
 		grid-template-columns: repeat(4, 1fr);
-		padding-bottom: var(--page-outer-margin);
 
 		@include mq(screen-md) {
 			grid-gap: calc(var(--page-outer-margin) / 2);

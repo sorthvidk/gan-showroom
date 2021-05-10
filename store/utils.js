@@ -20,7 +20,7 @@ export const state = () => ({
 	dashboardDark: false,
 	audioPlayerDark: false,
 	showMenu: false,
-	textCursorText: ''
+	textCursor: ''
 })
 
 export const mutations = {
@@ -67,7 +67,7 @@ export const mutations = {
 		state.audioPlayerDark = data
 	},
 	[TEXT_CURSOR.mutation](state, data) {
-		state.textCursorText = data
+		state.textCursor = data
 	}
 }
 

@@ -7,7 +7,9 @@
 			<button
 				class="button"
 				@click="toggle"
-				@mouseenter="() => !hasStarted && changeCursor('Click to unmute')"
+				@mouseenter="
+					() => !hasStarted && !loggedIn && changeCursor('Click to unmute')
+				"
 				@mouseleave="changeCursor('')"
 				:class="{ 'large-hit-area': !hasStarted }"
 			>
@@ -108,7 +110,7 @@ export default {
 	computed: {
 		...mapState(['appTabUnfocused', 'topMostWindow']),
 		...mapState('ganniFm', ['songs', 'musicPlaying']),
-		...mapState('user', ['keyPressed']),
+		...mapState('user', ['keyPressed', 'loggedIn']),
 		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
 		currentTime() {
 			return MMSS(this.progress)
@@ -182,14 +184,14 @@ export default {
 			if (audioCtx.state !== 'suspended') return
 			const b = document.body
 			const events = ['touchstart', 'touchend', 'mousedown', 'keydown']
-			events.forEach((e) => b.addEventListener(e, unlock, false))
-			function unlock() {
+			const unlock = () => {
 				audioCtx.resume().then(clean)
-				// this.toggle()
+				console.log(this)
 			}
-			function clean() {
+			const clean = () => {
 				events.forEach((e) => b.removeEventListener(e, unlock))
 			}
+			events.forEach((e) => b.addEventListener(e, unlock, false))
 		},
 		setLoadedState() {
 			this.loaded = true
@@ -245,7 +247,7 @@ export default {
 			loop()
 		},
 		changeCursor(str) {
-			this[TEXT_CURSOR.action](str)
+			this[TEXT_CURSOR.action]({ str })
 		},
 	},
 	mounted() {

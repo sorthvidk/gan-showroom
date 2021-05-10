@@ -8,8 +8,8 @@
 				`translate(calc(${lerpedPos.x}px - 50%), calc(${lerpedPos.y}px - 50%))`,
 		}"
 	>
-		<svg-icon v-if="isSvg" :name="textCursorText.replace('svg:', '')" />
-		<p v-else>{{ textCursorText }}</p>
+		<svg-icon v-if="textCursor && textCursor.icon" :name="textCursor.icon" />
+		<p v-if="textCursor && textCursor.str">{{ textCursor.str }}</p>
 	</div>
 </template>
 
@@ -31,21 +31,29 @@ export default {
 
 	computed: {
 		...mapState('user', ['mousepos']),
-		...mapState('utils', ['textCursorText']),
+		...mapState('utils', ['textCursor']),
 		hideDefaultCursor() {
-			document.body.classList.toggle('no-cursor', this.textCursorText)
-
-			return this.textCursorText ? true : false
+			return this.textCursor ? true : false
 		},
-		isSvg() {
-			return this.textCursorText.includes('svg:')
+	},
+	watch: {
+		textCursor: {
+			deep: true,
+			handler() {
+				setTimeout(() => {
+					document.body.classList.toggle(
+						'no-cursor',
+						this.textCursor.str || this.textCursor.icon
+					)
+				})
+			},
 		},
 	},
 	methods: {
 		tick() {
 			requestAnimationFrame(this.tick)
 
-			if (!this.textCursorText) return
+			if (!this.textCursor) return
 
 			this.lerpedPos = {
 				x: lerp(this.lerpedPos.x, this.mousepos.x, 0.2),

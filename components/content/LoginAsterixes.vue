@@ -1,5 +1,5 @@
 <template>
-	<canvas ref="canvas"></canvas>
+	<canvas :class="{ shake }" ref="canvas"></canvas>
 </template>
 
 <script>
@@ -13,6 +13,7 @@ export default {
 	props: {
 		amount: { type: Number },
 		start: { type: Boolean },
+		shake: { type: Boolean },
 	},
 	data: () => ({
 		Bodies: null,

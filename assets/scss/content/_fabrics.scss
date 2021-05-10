@@ -3,6 +3,8 @@
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
 
+	overflow: hidden;
+
 	&__content {
 		--columns: 1;
 		--width: 100vw;
@@ -49,6 +51,7 @@
 			display: none;
 		}
 
+		&.zoomed,
 		&:fullscreen {
 			img {
 				transform: scale(5);

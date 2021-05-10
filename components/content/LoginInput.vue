@@ -2,7 +2,7 @@
 	<div class="login-input">
 		<form
 			ref="form"
-			@submit.prevent="loginInput"
+			@submit.prevent="loginInput(true)"
 			class="form"
 			:style="{ opacity: !showMessage && !pwd ? '1' : '0' }"
 		>
@@ -10,7 +10,7 @@
 				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
 				@focus="isFocus = true"
-				@input="loginInput"
+				@input="loginInput(false)"
 				autocomplete="new-password"
 				class="form__input"
 				id="password"
@@ -85,7 +85,7 @@ export default {
 	data() {
 		return {
 			pwd: '',
-			valid: true,
+			valid: false,
 			isFocus: false,
 			showErrorMessage: false,
 			showMessage: false,
@@ -111,14 +111,16 @@ export default {
 			this.valid = authorized
 		},
 
-		loginInput(e) {
+		loginInput(wasSubmitted) {
 			this.updateValidState()
 			// this.showErrorMessage = false
-			if (!this.valid) this.showErrorMessage = true
+			this.$nextTick(() => {
+				if (!this.valid && wasSubmitted) this.showErrorMessage = true
+			})
 
 			setTimeout(() => {
 				this.showErrorMessage = false
-			})
+			}, 1000)
 		},
 
 		submitClickHandler() {
@@ -128,7 +130,7 @@ export default {
 
 		isBlur(e) {
 			if (this.loggedIn) return
-			this.valid = true
+			// this.valid = true
 
 			if (!this.pwd) {
 				this.isFocus = false
