@@ -39,11 +39,11 @@ export default {
 	watch: {
 		textCursor: {
 			deep: true,
-			handler() {
+			handler(newValue) {
 				setTimeout(() => {
 					document.body.classList.toggle(
 						'no-cursor',
-						this.textCursor.str || this.textCursor.icon
+						newValue.str !== '' || newValue.icon
 					)
 				})
 			},

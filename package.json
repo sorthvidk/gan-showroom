@@ -48,6 +48,7 @@
 		"nuxt-cookie-control": "^1.8.5",
 		"nuxt-polyfill": "^1.0.3",
 		"scroll-viscosity": "^1.0.12",
+		"simplex-noise": "^2.4.0",
 		"three": "^0.124.0",
 		"v-idle": "^0.2.0",
 		"vue-draggable-resizable": "^2.1.2",

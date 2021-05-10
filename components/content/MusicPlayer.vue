@@ -27,6 +27,7 @@
 		<audio-visualizer
 			v-if="showAudioVisualizer"
 			:audioData="audioData"
+			:has-started="hasStarted"
 			@clicked="$emit('clicked')"
 		/>
 	</main>
@@ -37,6 +38,7 @@ import { mapActions, mapState } from 'vuex'
 import { MUSIC_PLAY_PAUSE, TEXT_CURSOR } from '~/model/constants'
 import { MMSS } from '~/utils/HHMMSS'
 import AudioVisualizer from '~/components/content/AudioVisualizer.vue'
+import SimplexNoise from 'simplex-noise'
 
 const filterData = (audioBuffer, samples) => {
 	const rawData = audioBuffer
@@ -81,6 +83,7 @@ export default {
 			audioData: Array(20).fill(2),
 			frame: 0,
 			hasStarted: false,
+			simplex: null,
 		}
 	},
 	watch: {
@@ -186,7 +189,6 @@ export default {
 			const events = ['touchstart', 'touchend', 'mousedown', 'keydown']
 			const unlock = () => {
 				audioCtx.resume().then(clean)
-				console.log(this)
 			}
 			const clean = () => {
 				events.forEach((e) => b.removeEventListener(e, unlock))
@@ -235,6 +237,32 @@ export default {
 
 			renderFrame()
 		},
+		idleAnimation() {
+			const tick = () => {
+				if (this.hasStarted) return
+
+				requestAnimationFrame(tick)
+
+				if (this.frame % 5 === 0) {
+					this.audioData = filterData(
+						[...Array(37)].map((_, idx) =>
+							this.simplex
+								? this.simplex.noise2D(idx / 100, this.frame / 100) *
+								  (250 - idx * 5)
+								: 0
+						),
+						// [...Array(37)].map(() => 0),
+						37
+					)
+						.map((x) => x / 128)
+						.filter((_, i) => i > 1 && i % 2 === 0)
+				}
+
+				this.frame++
+			}
+
+			tick()
+		},
 		fadeIn() {
 			let volume = 0
 			const loop = () => {
@@ -260,6 +288,9 @@ export default {
 			{ once: true }
 		)
 		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
+		this.simplex = new SimplexNoise(Math.random)
+		console.log(this.simplex.noise3D)
+		this.idleAnimation()
 	},
 	beforeDestroy() {
 		this.audio.pause()

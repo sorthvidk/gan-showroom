@@ -37,14 +37,18 @@
 				'--enter-duration': 2 + 's',
 				'--enter-delay': idx / 10 + 's',
 			}"
-			@mouseenter="() => item.link && changeCursor('Read more', 'external')"
-			@mouseleave="changeCursor('')"
 		>
 			<!-- zIndex: items.length - idx, -->
 			<button v-if="!item.link">
 				<img :src="item.cloudinaryUrl" />
 			</button>
-			<a v-else :href="item.link" target="_blank">
+			<a
+				v-else
+				:href="item.link"
+				target="_blank"
+				@mouseenter="changeCursor('Read more', 'external')"
+				@mouseleave="changeCursor('')"
+			>
 				<img :src="item.cloudinaryUrl" />
 			</a>
 			<div class="green-room__text" v-if="item.text">
