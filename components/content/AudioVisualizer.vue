@@ -38,6 +38,7 @@ export default {
 			type: Array,
 			default: () => [],
 		},
+		isStarted: { type: Boolean },
 	},
 	data: () => ({
 		string: 'GANNI NIGHT OUT',
