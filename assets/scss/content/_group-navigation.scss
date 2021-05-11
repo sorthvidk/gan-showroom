@@ -7,29 +7,37 @@
 }
 
 .group-navigation {
-	display: inline-flex;
-	align-items: center;
-	justify-content: space-between;
-
+	border-bottom: 1px solid var(--collection-border-color);
 	position: sticky;
 	top: 0;
-	width: 100%;
-	height: var(--group-navigation-height);
-
-	margin: 0 auto;
-	padding: 0 var(--page-outer-margin) 0;
-
-	user-select: none;
-	box-sizing: border-box;
-
 	z-index: get-z('group-navigation');
+	display: flex;
 
-	white-space: nowrap;
-	overflow: auto;
+	&__content {
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
 
-	@include mq(screen-md) {
-		width: 50%;
-		padding: rem(30) 0 0;
+		width: 100%;
+		height: var(--group-navigation-height);
+
+		padding: 0 var(--page-outer-margin) 0;
+
+		user-select: none;
+		box-sizing: border-box;
+
+		white-space: nowrap;
+		overflow: auto;
+
+		@include mq(screen-md) {
+			width: 50%;
+			padding: rem(30) var(--page-outer-margin) 0;
+		}
+
+		@include mq(screen-xxl) {
+			margin: 0 auto;
+			padding: rem(30) 0 0;
+		}
 	}
 
 	label {

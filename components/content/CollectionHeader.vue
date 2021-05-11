@@ -1,6 +1,10 @@
 <template>
 	<div class="collection-header">
-		<div class="inner">
+		<div
+			class="inner"
+			@wheel="toggleImages"
+			:class="{ 'show-images': showImages }"
+		>
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
@@ -15,6 +19,7 @@
 				class="image"
 				@click="showNextImage"
 				:class="{ 'in-view': showImages }"
+				ref="images"
 			>
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
@@ -103,6 +108,7 @@ export default {
 			}
 		},
 		toggleImages(e) {
+			// this.$refs['images'].scrollIntoView()
 			this.showImages = e.deltaY < 0 ? false : true
 		},
 	},

@@ -38,7 +38,7 @@ export default {
 			type: Array,
 			default: () => [],
 		},
-		isStarted: { type: Boolean },
+		hasStarted: { type: Boolean },
 	},
 	data: () => ({
 		string: 'GANNI NIGHT OUT',

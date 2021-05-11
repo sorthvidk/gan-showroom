@@ -151,15 +151,18 @@ export default {
 				this.initMessage()
 			}, 4000)
 		},
+		giveFocus() {
+			this.$refs.passwordInput && this.$refs.passwordInput.focus()
+		},
 	},
 	mounted() {
 		this.$refs.passwordInput.focus()
 
 		this.initMessage()
-		document.body.addEventListener(
-			'click',
-			() => this.$refs.passwordInput && this.$refs.passwordInput.focus()
-		)
+		document.body.addEventListener('click', this.giveFocus.bind(this))
+	},
+	beforeDestroy() {
+		document.body.removeEventListener('click', this.giveFocus.bind(this))
 	},
 }
 </script>

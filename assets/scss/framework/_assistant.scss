@@ -1,7 +1,7 @@
 :root {
 	--assistant-width: calc(100vw - 45px - var(--menu-button-width));
 
-	@include mq(screen-sm) {
+	@include mq(screen-md) {
 		--assistant-width: rem(340);
 	}
 }
@@ -31,10 +31,11 @@
 
 		user-select: text;
 
-		@include mq($from: screen-sm) {
-			bottom: calc(var(--bottombar-height) + var(--page-outer-margin));
-			left: var(--page-outer-margin);
-		}
+		// @include mq($from: screen-sm) {
+		// 	bottom: calc(var(--bottombar-height) + var(--page-outer-margin));
+		// 	left: var(--page-outer-margin);
+		// }
+
 		@include mq($from: screen-md) {
 			top: var(--page-outer-margin);
 			left: auto;
@@ -118,8 +119,13 @@
 
 			.icon {
 				color: var(--color-primary);
-				width: var(--assistant-width);
-				height: calc(var(--assistant-width) * 0.1695); // lol..
+				width: calc(var(--bottombar-height) / 0.1695);
+				height: var(--bottombar-height);
+
+				@include mq(screen-md) {
+					width: var(--assistant-width);
+					height: calc(var(--assistant-width) * 0.1695);
+				}
 			}
 		}
 

@@ -23,7 +23,7 @@
 	flex-direction: column;
 
 	@include mq(screen-md) {
-		font-size: 32px;
+		font-size: 26px;
 	}
 
 	&__headline,
@@ -42,7 +42,7 @@
 		line-height: 1em;
 
 		@include mq(screen-sm) {
-			font-size: clamp(30px, 6vw, 85px);
+			font-size: clamp(30px, 4.5vw, 85px);
 		}
 	}
 

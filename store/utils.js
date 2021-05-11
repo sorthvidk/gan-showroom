@@ -67,7 +67,7 @@ export const mutations = {
 		state.audioPlayerDark = data
 	},
 	[TEXT_CURSOR.mutation](state, data) {
-		state.textCursor = data
+		state.textCursor = !data.str && !data.icon ? null : data
 	}
 }
 

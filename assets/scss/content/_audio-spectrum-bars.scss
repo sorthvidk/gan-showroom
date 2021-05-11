@@ -1,11 +1,14 @@
 .audio-spectrum-bars {
 	position: fixed;
-	left: calc(80vw + 45px);
+	left: calc(80vw + 45px + 4em);
 	display: flex;
-	align-items: baseline;
+	align-items: center;
+	height: 48px;
+	top: 0;
+	margin-top: -1px;
 
 	@include mq($from: screen-sm) {
-		left: calc(25vw + 45px);
+		left: #{'max(calc(25vw + 4em), calc(330px + 4em))'};
 	}
 
 	&__bar {
