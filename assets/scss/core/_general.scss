@@ -1,8 +1,9 @@
 body {
 	color: var(--color-secondary);
 
-	&::-webkit-scrollbar {
-		// display: none;
+	&::-webkit-scrollbar,
+	*::-webkit-scrollbar {
+		display: none;
 	}
 
 	&.no-cursor {

@@ -13,7 +13,10 @@
 			<div class="lookbook-slideshow__content">
 				<transition name="fade--fast">
 					<div v-if="!overview" class="lookbook-slideshow__standard">
-						<div v-for="(activeContent, i) in activePage" :key="`asgaf${i}`">
+						<div
+							v-for="(activeContent, i) in isMobile ? content : activePage"
+							:key="`asgaf${i}`"
+						>
 							<img
 								v-if="activeContent.type === 'image'"
 								:src="
@@ -38,7 +41,10 @@
 					</div>
 				</transition>
 				<transition name="fade--fast">
-					<div v-if="overview" class="lookbook-slideshow__overview">
+					<div
+						v-if="overview && !isMobile"
+						class="lookbook-slideshow__overview"
+					>
 						<div
 							v-for="(item, i) in content"
 							:key="'jhfjsdf' + i"
@@ -71,7 +77,7 @@
 				</transition>
 			</div>
 
-			<div class="lookbook-slideshow__ui">
+			<div class="lookbook-slideshow__ui" v-if="!isMobile">
 				<button
 					class="lookbook-slideshow__button"
 					@click="change({ next: false })"
@@ -124,6 +130,7 @@ export default {
 	computed: {
 		...mapState('assets', ['lookBook']),
 		...mapState('user', ['keyPressed']),
+		...mapState('utils', ['isMobile']),
 		content() {
 			return this.lookBook
 		},

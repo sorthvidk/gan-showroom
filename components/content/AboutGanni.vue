@@ -1,6 +1,11 @@
 <template>
 	<div class="about-ganni">
-		<div v-for="(item, index) in items" :key="index" class="about-ganni__item">
+		<div
+			v-for="(item, index) in items"
+			:key="index"
+			class="about-ganni__item"
+			ref="items"
+		>
 			<div
 				v-if="item.headline"
 				class="about-ganni__headline"
@@ -30,12 +35,34 @@ export default {
 	computed: {
 		...mapState('aboutGanni', ['items']),
 	},
+	methods: {
+		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
+		...mapActions('utils', [AUDIOPLAYER_DARK.action]),
+		getImage(src) {
+			return {
+				src: getCloudinaryUrl(
+					this.$cloudinary,
+					{ cloudinaryUrl: src },
+					{ quality: 90, width: 1600 }
+				),
+				loading: greyPixel,
+			}
+		},
+
+		itemClass(item) {
+			return {
+				'about-ganni__item': true,
+				'about-ganni__item-media': item.type === 'image',
+				'about-ganni__item-text': item.type === 'text',
+			}
+		},
+	},
 	mounted() {
 		gsap.registerPlugin(ScrollTrigger)
 		this[AUDIOPLAYER_DARK.action](true)
+		this[ASSISTANT_TOGGLE.action](true)
 
-		const scrollTriggers = [...document.querySelectorAll('.about-ganni__item')]
-		scrollTriggers.forEach((scrollElement) => {
+		this.$refs['items'].forEach((scrollElement) => {
 			const image = scrollElement.querySelector('.about-ganni__image')
 			ScrollTrigger.create({
 				trigger: scrollElement,
@@ -53,27 +80,6 @@ export default {
 	},
 	beforeDestroy() {
 		this[AUDIOPLAYER_DARK.action](false)
-	},
-	methods: {
-		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
-		...mapActions('utils', [AUDIOPLAYER_DARK.action]),
-		getImage(src) {
-			return {
-				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
-				loading: greyPixel,
-			}
-		},
-
-		itemClass(item) {
-			return {
-				'about-ganni__item': true,
-				'about-ganni__item-media': item.type === 'image',
-				'about-ganni__item-text': item.type === 'text',
-			}
-		},
-	},
-	mounted() {
-		this[ASSISTANT_TOGGLE.action](true)
 	},
 }
 </script>

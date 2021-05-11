@@ -41,10 +41,7 @@ export default {
 			deep: true,
 			handler(newValue) {
 				setTimeout(() => {
-					document.body.classList.toggle(
-						'no-cursor',
-						newValue.str !== '' || newValue.icon
-					)
+					document.body.classList.toggle('no-cursor', newValue)
 				})
 			},
 		},

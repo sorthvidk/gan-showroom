@@ -9,12 +9,13 @@
 			class="media-library__item"
 			>{{ item.name }}</a
 		>
+		<button class="media-library__item" @click="refresh">Refresh page</button>
 	</div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { MENU_SHOW } from '~/model/constants'
+import { MENU_SHOW, RESET_STATE } from '~/model/constants'
 
 export default {
 	name: 'media-library',
@@ -22,9 +23,14 @@ export default {
 		...mapState('assets', ['downloads']),
 	},
 	methods: {
+		...mapActions([RESET_STATE.action]),
 		...mapActions('utils', [MENU_SHOW.action]),
 		close() {
 			setTimeout(() => this[MENU_SHOW.action](false), 500)
+		},
+		refresh(event) {
+			this[RESET_STATE.action](event)
+			window.location.reload()
 		},
 	},
 }

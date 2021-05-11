@@ -21,7 +21,7 @@
 
 		width: 15em;
 		padding: 0.25em;
-		outline: 0.2em solid;
+		// outline: 0.2em solid;
 
 		&:nth-of-type(1) {
 			top: 45%;
@@ -71,10 +71,18 @@
 		}
 
 		&.is-link {
-			transform: rotate(-3deg) !important;
+			img {
+				transform: rotate(-3deg) !important;
+			}
+
+			&:hover {
+				img {
+					transform: scale(1.02) rotate(0deg) !important;
+				}
+			}
 		}
 
-		&:not(.fixed) {
+		&:not(.fixed):not(.is-link) {
 			&:hover {
 				img {
 					transform: scale(1.02) rotate(3deg) !important;
@@ -83,6 +91,8 @@
 		}
 
 		&:hover {
+			z-index: 2 !important;
+
 			.green-room__text {
 				display: block;
 			}

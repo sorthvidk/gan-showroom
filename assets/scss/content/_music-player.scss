@@ -23,9 +23,18 @@
 			height: 4em;
 		}
 
-		&.large-hit-area:after {
-			width: 500px;
-			height: 200px;
+		&.large-hit-area {
+			&:after {
+				width: 500px;
+				height: 200px;
+			}
+
+			// the muted icon has a fucked viewbox
+			svg {
+				padding: 5px;
+				width: 1.5em;
+				height: 1.5em;
+			}
 		}
 	}
 

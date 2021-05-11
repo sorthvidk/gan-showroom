@@ -83,7 +83,7 @@ export default {
 				src: getCloudinaryUrl(
 					this.$cloudinary,
 					{ type, cloudinaryUrl },
-					{ width: window.innerWidth < 600 ? 150 : 400 }
+					{ quality: 60, width: window.innerWidth < 600 ? 150 : 400 }
 				),
 			}
 		},

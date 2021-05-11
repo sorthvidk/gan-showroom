@@ -116,10 +116,10 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'green-room',
-			label: 'Green room',
+			label: 'GANNI Lab',
 			windowContent: [
 				{
-					title: 'Green room',
+					title: 'GANNI Lab',
 					contentId: 'green-room',
 					type: ContentTypes.greenRoom
 				}

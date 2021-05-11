@@ -13,12 +13,18 @@
 				@mouseleave="changeCursor('')"
 				:class="{ 'large-hit-area': !hasStarted }"
 			>
-				<svg-icon :name="musicPlaying ? 'pause' : 'play'" />
+				<svg-icon
+					:name="!hasStarted ? 'muted' : musicPlaying ? 'pause' : 'play'"
+				/>
 			</button>
 			<p>{{ songs[current].title }}</p>
 		</div>
 
-		<p class="music-player__time">{{ currentTime }}</p>
+		<p class="music-player__time">
+			{{ currentTime }}
+		</p>
+
+		<audio-spectrum-bars :animate="!hasStarted || musicPlaying" />
 
 		<div class="music-player__canvas-container" ref="canvasContainer">
 			<canvas ref="canvas" id="canvas"></canvas>
@@ -39,6 +45,7 @@ import { MUSIC_PLAY_PAUSE, TEXT_CURSOR } from '~/model/constants'
 import { MMSS } from '~/utils/HHMMSS'
 import AudioVisualizer from '~/components/content/AudioVisualizer.vue'
 import SimplexNoise from 'simplex-noise'
+import AudioSpectrumBars from '~/components/content/AudioSpectrumBars.vue'
 
 const filterData = (audioBuffer, samples) => {
 	const rawData = audioBuffer
@@ -58,7 +65,7 @@ const filterData = (audioBuffer, samples) => {
 export default {
 	// extends: WindowContent,
 	name: 'music-player',
-	components: { AudioVisualizer },
+	components: { AudioVisualizer, AudioSpectrumBars },
 	props: { showAudioVisualizer: { type: Boolean, default: true } },
 	data() {
 		return {
@@ -84,6 +91,7 @@ export default {
 			frame: 0,
 			hasStarted: false,
 			simplex: null,
+			fakeTime: 0,
 		}
 	},
 	watch: {
@@ -117,6 +125,10 @@ export default {
 		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
 		currentTime() {
 			return MMSS(this.progress)
+		},
+		fakeTimeParsed() {
+			console.log(this.fakeTime)
+			return MMSS(this.fakeTime)
 		},
 	},
 	methods: {
@@ -238,7 +250,7 @@ export default {
 			renderFrame()
 		},
 		idleAnimation() {
-			const tick = () => {
+			const tick = (t = 0) => {
 				if (this.hasStarted) return
 
 				requestAnimationFrame(tick)
@@ -251,13 +263,17 @@ export default {
 								  (250 - idx * 5)
 								: 0
 						),
-						// [...Array(37)].map(() => 0),
 						37
 					)
 						.map((x) => x / 128)
 						.filter((_, i) => i > 1 && i % 2 === 0)
 				}
 
+				this.audio.currentTime = Math.floor(t / 1000)
+				this.progress = Math.min(
+					this.audio.currentTime,
+					this.audio.duration - 10 || 0
+				)
 				this.frame++
 			}
 
@@ -289,7 +305,6 @@ export default {
 		)
 		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
 		this.simplex = new SimplexNoise(Math.random)
-		console.log(this.simplex.noise3D)
 		this.idleAnimation()
 	},
 	beforeDestroy() {

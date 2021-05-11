@@ -28,8 +28,7 @@
 		<!-- step 2 -->
 		<transition name="slide-in-out">
 			<quiz
-				v-show="!hasDoneQuiz"
-				v-if="loggedIn && !dashboardContent.contentId"
+				v-if="!hasDoneQuiz && loggedIn && !dashboardContent.contentId"
 				@done="onQuizDone"
 				:with-skip-link="true"
 			/>
