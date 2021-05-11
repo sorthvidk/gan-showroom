@@ -651,7 +651,7 @@ collections:
           name: 'order',
           widget: 'number',
           required: true,
-          hint: 'Determines the order in which the content appears, higher nr: higher on the page',
+          hint: 'Determines the order in which the content appears, lower nr: higher on the page',
         }
 
   - name: 'passwords'
@@ -758,7 +758,7 @@ collections:
           name: 'order',
           widget: 'number',
           required: true,
-          hint: 'Determines the order in which the content is placed on the page, higher nr: more to the left',
+          hint: 'Determines the order in which the content is placed on the page, lower nr: more to the left',
         }
 
   - name: 'fabrics'
