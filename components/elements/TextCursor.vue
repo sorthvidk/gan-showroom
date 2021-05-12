@@ -8,8 +8,8 @@
 				`translate(calc(${lerpedPos.x}px - 50%), calc(${lerpedPos.y}px - 50%))`,
 		}"
 	>
-		<svg-icon v-if="textCursor && textCursor.icon" :name="textCursor.icon" />
-		<p v-if="textCursor && textCursor.str">{{ textCursor.str }}</p>
+		<svg-icon v-if="content.icon" :name="content.icon" />
+		<p v-if="content.str">{{ content.str }}</p>
 	</div>
 </template>
 
@@ -22,6 +22,10 @@ function lerp(start, end, amt) {
 
 export default {
 	name: 'text-cursor',
+	props: {
+		text: { type: Object | null, default: () => ({ str: null, icon: null }) },
+	},
+
 	data: () => ({
 		lerpedPos: {
 			x: null,
@@ -33,7 +37,16 @@ export default {
 		...mapState('user', ['mousepos']),
 		...mapState('utils', ['textCursor']),
 		hideDefaultCursor() {
-			return this.textCursor ? true : false
+			return this.text.str || this.text.icon || this.textCursor ? true : false
+		},
+		content() {
+			if (this.text.str || this.text.icon) {
+				return this.text
+			}
+
+			const { str = null, icon = null } = this.textCursor || {}
+
+			return { str, icon }
 		},
 	},
 	watch: {

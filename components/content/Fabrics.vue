@@ -42,6 +42,7 @@ export default {
 	data: () => ({
 		clamp,
 		isFullScreen: false,
+		// textCursorText: { str: null, icon: null },
 	}),
 	computed: {
 		...mapState('fabrics', ['items']),
@@ -97,6 +98,7 @@ export default {
 		},
 		changeCursor(str, icon) {
 			this[TEXT_CURSOR.action]({ str, icon })
+			this.textCursorText = { str, icon }
 		},
 	},
 	mounted() {

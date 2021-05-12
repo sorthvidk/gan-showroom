@@ -13,7 +13,9 @@
 				Skip
 			</button>
 			<h1 class="quiz__title">
-				Who is visiting the club?<br />Please choose to proceed
+				GANNI NIGHT OUT<br />
+				WHO'S IN THE CLUB?<br />
+				CHOOSE YOUR PARTY ANIMAL PERSONA TO PROCEED
 			</h1>
 
 			<transition name="fade--fast" mode="out-in">
@@ -73,7 +75,7 @@ export default {
 	computed: {
 		...mapState('quiz', ['questions', 'answers']),
 		score() {
-			return clamp(0, this.points, this.answers.length - 1)
+			return this.points <= 2 ? 0 : 1
 		},
 	},
 	methods: {

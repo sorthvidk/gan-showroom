@@ -3,6 +3,7 @@
 		<div
 			class="inner"
 			@wheel="toggleImages"
+			@touchmove="toggleImages"
 			:class="{ 'show-images': showImages }"
 		>
 			<div class="text">
@@ -108,7 +109,10 @@ export default {
 			}
 		},
 		toggleImages(e) {
-			// this.$refs['images'].scrollIntoView()
+			// if (this.showImages) {
+			// 	e.preventDefault()
+			// }
+
 			this.showImages = e.deltaY < 0 ? false : true
 		},
 	},

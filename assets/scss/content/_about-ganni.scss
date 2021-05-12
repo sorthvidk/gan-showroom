@@ -42,7 +42,7 @@
 		line-height: 1em;
 
 		@include mq(screen-sm) {
-			font-size: clamp(30px, 4.5vw, 85px);
+			font-size: clamp(30px, 4vw, 75px);
 		}
 	}
 

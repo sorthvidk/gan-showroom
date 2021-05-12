@@ -67,8 +67,11 @@
 		// }
 
 		p {
+			@include truncate;
 			margin-top: -2px;
 			padding-left: 1em;
+
+			max-width: #{'max(calc(25vw - 5em), calc(330px - 5em))'};
 		}
 	}
 

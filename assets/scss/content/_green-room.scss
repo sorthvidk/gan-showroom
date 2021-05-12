@@ -66,8 +66,13 @@
 		}
 
 		&.fixed {
-			width: 75vmin;
-			height: 75vmin;
+			width: 50vmin;
+			height: 50vmin;
+
+			@include mq(screen-md) {
+				width: 75vmin;
+				height: 75vmin;
+			}
 		}
 
 		&.is-link {
@@ -154,18 +159,18 @@
 		}
 
 		&[data-order='5'] {
-			top: 10vh;
+			top: 0vh;
 			left: 140vw;
 		}
 
 		&[data-order='6'] {
 			top: 60vh;
-			left: 160vw;
+			left: 150vw;
 		}
 
 		&[data-order='7'] {
-			top: 0vh;
-			left: 170vw;
+			bottom: 10vh;
+			left: 185vw;
 		}
 
 		&[data-order='8'] {
@@ -205,14 +210,18 @@
 	}
 
 	&__text {
+		position: fixed;
+		top: 20%;
+		left: 0;
+
 		display: none;
-		position: absolute;
 		background-color: $color-white;
 		color: var(--color-secondary);
 		padding: 1.5em;
-		top: 20%;
-		left: 40%;
 		width: 400px;
+		max-width: 90vw;
+		max-height: 40vh;
+		overflow: auto;
 		border: 2px solid;
 		z-index: 1;
 		white-space: pre-line;
@@ -224,6 +233,12 @@
 			right: 0;
 			width: 1.5em;
 			height: 1.5em;
+		}
+
+		@include mq(screen-md) {
+			position: absolute;
+			top: 20%;
+			left: 40%;
 		}
 	}
 

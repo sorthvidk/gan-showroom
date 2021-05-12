@@ -270,10 +270,13 @@ export default {
 				}
 
 				this.audio.currentTime = Math.floor(t / 1000)
-				this.progress = Math.min(
-					this.audio.currentTime,
-					this.audio.duration - 10 || 0
-				)
+
+				if (this.audio.currentTime >= this.audio.duration - 30) {
+					this.audio.currentTime = 0
+				}
+
+				this.progress = this.audio.currentTime
+
 				this.frame++
 			}
 
