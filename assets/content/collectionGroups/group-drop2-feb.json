@@ -1,13 +1,14 @@
 {
-  "order": 4,
-  "styles": [],
-  "filters": [],
-  "groupId": "drop-3",
-  "name": "Drop III",
-  "passwords": [],
-  "text": "Ready for delivery\n<b>October</b>",
   "cloudinaryUrl": [
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463121/AW21_21.3/rails/drop3.jpg",
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463121/AW21_21.3/rails/drop3_01.jpg"
-  ]
+  ],
+  "styles": [],
+  "name": "DENIM CORE",
+  "text": "Ready for delivery\n<b>October</b>",
+  "order": 4,
+  "headline": "DENIM CORE",
+  "passwords": [],
+  "groupId": "drop-DENIM CORE",
+  "filters": []
 }
