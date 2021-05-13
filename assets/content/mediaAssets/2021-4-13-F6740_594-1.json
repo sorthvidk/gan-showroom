@@ -1,1 +1,12 @@
-{"assetId":"occm5h6dm","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6740_6385_594.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6740_594","name":"F6740_594_Shirt","groupId":"drop-1","filters":"default"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6740_6385_594.jpg",
+  "assetId": "occm5h6dm",
+  "name": "F6740_594_Shirt",
+  "styleId": "F6740_594",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "default"
+}
