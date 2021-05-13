@@ -1,1 +1,12 @@
-{"assetId":"m37k3lmvg","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3865_5785_880.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3865_880","name":"A3865_880_Leather Medium / Large Bag","groupId":"drop-1","filters":"Bags"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3865_5785_880.jpg",
+  "assetId": "m37k3lmvg",
+  "name": "A3865_880_Leather Medium / Large Bag",
+  "styleId": "A3865_880",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Bags"
+}
