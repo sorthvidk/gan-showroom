@@ -1,1 +1,12 @@
-{"assetId":"smyghphmc","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6715_6381_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6715_099","name":"F6715_099_Blazer","groupId":"drop-1","filters":"Coats / Jackets"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6715_6381_099.jpg",
+  "assetId": "smyghphmc",
+  "name": "F6715_099_Blazer",
+  "styleId": "F6715_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Coats / Jackets"
+}
