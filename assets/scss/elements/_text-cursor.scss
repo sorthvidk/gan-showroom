@@ -6,7 +6,6 @@
 	pointer-events: none;
 
 	font-size: 3vw;
-	max-width: 10.7em;
 	letter-spacing: -0.02em;
 	line-height: 0.85;
 	color: var(--color-primary);
@@ -15,11 +14,18 @@
 
 	display: grid;
 	grid-template-columns: auto auto;
+	grid-template-rows: auto;
 	grid-gap: 0.25em;
 	align-items: center;
 
+	white-space: nowrap;
+
 	* {
 		pointer-events: none;
+	}
+
+	p {
+		max-width: 10.7em;
 	}
 
 	svg {

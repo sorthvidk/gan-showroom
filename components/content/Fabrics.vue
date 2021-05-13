@@ -16,7 +16,7 @@
 						transformOrigin: !isFullScreen ? 'center' : transformString(idx),
 					}"
 					@click="fullscreen"
-					@mouseenter="changeCursor('Zoom', 'plus--bold')"
+					@mousemove="() => !isFullScreen && changeCursor('Zoom', 'plus--bold')"
 					@mouseleave="changeCursor('')"
 				/>
 				<div class="fabrics__text">
@@ -87,13 +87,13 @@ export default {
 				}
 
 				this.isFullScreen = true
-				this.changeCursor('Zoom out')
+				this.changeCursor('Zoom out', 'gan_icon_minus_arrow')
 			} else {
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
 				}
 				this.isFullScreen = false
-				this.changeCursor('+ Zoom')
+				this.changeCursor('')
 			}
 		},
 		changeCursor(str, icon) {
