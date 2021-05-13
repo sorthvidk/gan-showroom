@@ -1,1 +1,12 @@
-{"assetId":"vpvle9mpv","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6920_6372_506.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6920_506","name":"F6920_506_Shirt","groupId":"drop-1","filters":"default"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6920_6372_506.jpg",
+  "assetId": "vpvle9mpv",
+  "name": "F6920_506_Shirt",
+  "styleId": "F6920_506",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "default"
+}
