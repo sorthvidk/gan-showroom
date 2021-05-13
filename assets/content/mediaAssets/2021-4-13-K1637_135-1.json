@@ -1,1 +1,12 @@
-{"assetId":"rzldbi9a5","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1637_2535_135.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1637_135","name":"K1637_135_Jumper","groupId":"drop-1","filters":"Knitwear"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1637_2535_135.jpg",
+  "assetId": "rzldbi9a5",
+  "name": "K1637_135_Jumper",
+  "styleId": "K1637_135",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Knitwear"
+}
