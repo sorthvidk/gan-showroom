@@ -1,1 +1,12 @@
-{"assetId":"5d5lmb9wu","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3979_5786_721.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3979_721","name":"A3979_721_Fabric Small Bag","groupId":"drop-1","filters":"Bags"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3979_5786_721.jpg",
+  "assetId": "5d5lmb9wu",
+  "name": "A3979_721_Fabric Small Bag",
+  "styleId": "A3979_721",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Bags"
+}
