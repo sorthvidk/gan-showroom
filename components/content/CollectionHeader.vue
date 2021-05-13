@@ -21,6 +21,15 @@
 				@click="showNextImage"
 				:class="{ 'in-view': showImages }"
 				ref="images"
+				@mousemove="
+					changeCursor(
+						null,
+						mousepos.x < screenSize.width / 2
+							? 'gan_icon_left_arrow'
+							: 'gan_icon_right_arrow'
+					)
+				"
+				@mouseleave="changeCursor(null, null)"
 			>
 				<img
 					v-for="(image, idx) in group.cloudinaryUrl"
@@ -52,11 +61,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Countdown from '~/components/elements/Countdown.vue'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import { greyPixel } from '~/utils/placeholders'
 import { nextIndex, prevIndex } from '~/utils/array-helpers'
+import { TEXT_CURSOR } from '~/model/constants'
 
 export default {
 	name: 'collection-header',
@@ -83,6 +93,7 @@ export default {
 	}),
 	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
+		...mapActions('utils', [TEXT_CURSOR.action]),
 		getImage(src) {
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
@@ -114,6 +125,9 @@ export default {
 			// }
 
 			this.showImages = e.deltaY < 0 ? false : true
+		},
+		changeCursor(str, icon) {
+			this[TEXT_CURSOR.action]({ str, icon })
 		},
 	},
 	mounted() {

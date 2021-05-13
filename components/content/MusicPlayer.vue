@@ -11,10 +11,12 @@
 					() => !hasStarted && !loggedIn && changeCursor('Click to unmute')
 				"
 				@mouseleave="changeCursor('')"
-				:class="{ 'large-hit-area': !hasStarted }"
+				:class="{ 'large-hit-area': !hasStarted && !loggedIn }"
 			>
 				<svg-icon
-					:name="!hasStarted ? 'muted' : musicPlaying ? 'pause' : 'play'"
+					:name="
+						!hasStarted && !loggedIn ? 'muted' : musicPlaying ? 'pause' : 'play'
+					"
 				/>
 			</button>
 			<p>{{ songs[current].title }}</p>
@@ -24,7 +26,7 @@
 			{{ currentTime }}
 		</p>
 
-		<audio-spectrum-bars :animate="!hasStarted || musicPlaying" />
+		<audio-spectrum-bars :animate="!loggedIn || musicPlaying" />
 
 		<div class="music-player__canvas-container" ref="canvasContainer">
 			<canvas ref="canvas" id="canvas"></canvas>
@@ -125,10 +127,6 @@ export default {
 		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
 		currentTime() {
 			return MMSS(this.progress)
-		},
-		fakeTimeParsed() {
-			console.log(this.fakeTime)
-			return MMSS(this.fakeTime)
 		},
 	},
 	methods: {
@@ -251,7 +249,9 @@ export default {
 		},
 		idleAnimation() {
 			const tick = (t = 0) => {
-				if (this.hasStarted) return
+				if (this.hasStarted) {
+					return
+				}
 
 				requestAnimationFrame(tick)
 
