@@ -1,1 +1,12 @@
-{"assetId":"qj2mug69i","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6596_6384_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6596_099","name":"F6596_099_Maxi Skirt","groupId":"drop-1","filters":"Skirts"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6596_6384_099.jpg",
+  "assetId": "qj2mug69i",
+  "name": "F6596_099_Maxi Skirt",
+  "styleId": "F6596_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Skirts"
+}
