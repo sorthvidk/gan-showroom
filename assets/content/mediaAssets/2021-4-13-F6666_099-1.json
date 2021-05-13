@@ -1,1 +1,12 @@
-{"assetId":"lmwnbbj7v","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6666_6383_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6666_099","name":"F6666_099_Mini Dress","groupId":"drop-1","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6666_6383_099.jpg",
+  "assetId": "lmwnbbj7v",
+  "name": "F6666_099_Mini Dress",
+  "styleId": "F6666_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Dresses"
+}
