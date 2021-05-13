@@ -4,7 +4,7 @@ import path from 'path'
 // import { isVideo } from '../utils/is-video.js'
 
 // import fileCI from './files/21.3_GANNISPACE_UPLOAD-upload02.json'
-const data = fs.readFileSync('./files/21.3_GANNISPACE_UPLOAD-upload02.json')
+const data = fs.readFileSync('./files/21.4-bulk-upload-Kopi-af-Ark1.json')
 const json = JSON.parse(data)
 
 // settings
