@@ -1,1 +1,12 @@
-{"assetId":"c2igcpzj6","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1696_4871_594.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1696_594","name":"S1696_594_Boots","groupId":"drop-1","filters":"Shoes"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1696_4871_594.jpg",
+  "assetId": "c2igcpzj6",
+  "name": "S1696_594_Boots",
+  "styleId": "S1696_594",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
