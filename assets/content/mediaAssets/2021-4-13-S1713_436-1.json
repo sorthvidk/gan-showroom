@@ -1,1 +1,12 @@
-{"assetId":"57ikkv9bh","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1713_4880_436.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1713_436","name":"S1713_436_Flats / Loafers","groupId":"drop-1","filters":"Shoes"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1713_4880_436.jpg",
+  "assetId": "57ikkv9bh",
+  "name": "S1713_436_Flats / Loafers",
+  "styleId": "S1713_436",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
