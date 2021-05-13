@@ -1,1 +1,12 @@
-{"assetId":"tjs0jbs3q","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6535_6387_135.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6535_135","name":"F6535_135_Mini Dress","groupId":"drop-1","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6535_6387_135.jpg",
+  "assetId": "tjs0jbs3q",
+  "name": "F6535_135_Mini Dress",
+  "styleId": "F6535_135",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Dresses"
+}
