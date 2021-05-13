@@ -41,9 +41,19 @@
 			<span>{{ item.sizes }}</span>
 		</div>
 
+		<div class="style-info__row" v-if="item.sizeRange">
+			<span>Sizes range</span>
+			<span>{{ item.sizeRange }}</span>
+		</div>
+
 		<div class="style-info__row" v-if="item.measurements">
 			<span>Measurements</span>
 			<span>{{ item.measurements }}</span>
+		</div>
+
+		<div class="style-info__row" v-if="individualMeasurements.length">
+			<span>Measurements (cm)</span>
+			<span v-html="individualMeasurements"></span>
 		</div>
 
 		<div class="style-info__row" v-if="item.message">
@@ -67,10 +77,9 @@
 				>DKK {{ item.retailPriceDKK }}<br />
 				EUR {{ item.retailPriceEUR }}<br />
 				USD {{ item.retailPriceUSD }}<br />
-				<div v-if="item.retailPriceGBP">
-					GBP {{ item.retailPriceGBP }}
-				</div></span
-			>
+				<div v-if="item.retailPriceGBP">GBP {{ item.retailPriceGBP }}</div>
+				<div v-if="item.retailRMB">RMB {{ item.retailRMB }}</div>
+			</span>
 		</div>
 	</div>
 </template>
@@ -93,6 +102,43 @@ export default {
 			return (
 				this.item['re-runner'] === true || this.item['re-runner'] === 'SAND'
 			)
+		},
+		individualMeasurements() {
+			const targets = [
+				'chest',
+				'waist',
+				'hip',
+				'bottomWidth',
+				'totalLength',
+				'inseamLength',
+				'sleeveLength',
+				'height',
+				'length',
+				'width',
+				'heelHeight',
+			]
+
+			const capitalize = (word) =>
+				word.charAt(0).toUpperCase() + word.substring(1)
+
+			const toCapitalizedWords = (name) => {
+				var words = name.match(/[A-Za-z][a-z]*/g) || []
+
+				return words.map(capitalize).join(' ')
+			}
+
+			const nonZeroMeasurements = Object.entries(this.item)
+				.filter(([key]) => targets.includes(key))
+				.filter(([_, value]) => value && value !== 0)
+				.map(([key, value]) => [toCapitalizedWords(key), value])
+
+			console.log(nonZeroMeasurements)
+
+			const stringOutput = nonZeroMeasurements
+				.map(([key, value]) => `${key}: ${value}`)
+				.join('<br />')
+
+			return stringOutput
 		},
 	},
 }

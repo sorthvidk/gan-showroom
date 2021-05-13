@@ -210,6 +210,97 @@ collections:
           required: false,
         }
       - {
+          label: 'Retail Price RMB',
+          name: 'retailRMB',
+          widget: 'number',
+          hint: "Retail price in RMB ex. '130'",
+          required: false,
+        }
+      - {
+          label: 'Heel height',
+          name: 'heelHeight',
+          widget: 'number',
+          hint: 'The height of the heel',
+          required: false,
+        }
+      - {
+          label: 'Width',
+          name: 'width',
+          widget: 'number',
+          hint: 'The width of the garment',
+          required: false,
+        }
+      - {
+          label: 'Length',
+          name: 'length',
+          widget: 'number',
+          hint: 'The ength of the garment',
+          required: false,
+        }
+      - {
+          label: 'Height',
+          name: 'height',
+          widget: 'number',
+          hint: 'The height of the garment',
+          required: false,
+        }
+      - {
+          label: 'Sleeve length',
+          name: 'sleeveLength',
+          widget: 'number',
+          hint: 'The sleeve length of the garment',
+          required: false,
+        }
+      - {
+          label: 'Inseam length',
+          name: 'inseamLength',
+          widget: 'number',
+          hint: 'The inseam length of the garment',
+          required: false,
+        }
+      - {
+          label: 'Total length',
+          name: 'totalLength',
+          widget: 'number',
+          hint: 'The total length of the garment',
+          required: false,
+        }
+      - {
+          label: 'Bottom width',
+          name: 'bottomWidth',
+          widget: 'number',
+          hint: 'The bottom length of the garment',
+          required: false,
+        }
+      - {
+          label: 'Hip',
+          name: 'hip',
+          widget: 'number',
+          hint: 'The hip size of the garment',
+          required: false,
+        }
+      - {
+          label: 'Waist',
+          name: 'waist',
+          widget: 'number',
+          hint: 'The waist size of the garment',
+          required: false,
+        }
+      - {
+          label: 'Chest',
+          name: 'chest',
+          widget: 'number',
+          hint: 'The chest size of the garment',
+          required: false,
+        }
+      - {
+          label: 'Size range',
+          name: 'sizeRange',
+          widget: 'string',
+          hint: 'All the sizes the garment comes in',
+          required: false,
+        }
+      - {
           label: 'Responsible',
           name: 'responsible',
           widget: 'boolean',
