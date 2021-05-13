@@ -1,1 +1,12 @@
-{"assetId":"qqe95a2ev","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6699_6449_594.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6699_594","name":"F6699_594_Puffer","groupId":"drop-1","filters":"Coats / Jackets"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6699_6449_594.jpg",
+  "assetId": "qqe95a2ev",
+  "name": "F6699_594_Puffer",
+  "styleId": "F6699_594",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Coats / Jackets"
+}
