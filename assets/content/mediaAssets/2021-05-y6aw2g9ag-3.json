@@ -6,7 +6,7 @@
   "name": "F6729_880_Mini Dress",
   "styleId": "F6729_880",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-2",
