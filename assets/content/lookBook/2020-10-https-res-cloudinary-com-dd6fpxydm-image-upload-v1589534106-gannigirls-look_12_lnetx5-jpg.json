@@ -3,5 +3,6 @@
   "cloudinaryUrl": [
     "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620901277/21.4/bts/_DSC4187.jpg"
   ],
-  "aspect": "portrait"
+  "aspect": "portrait",
+  "order": 500
 }
