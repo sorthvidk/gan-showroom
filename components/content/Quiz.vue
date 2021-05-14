@@ -1,9 +1,5 @@
 <template>
-	<div
-		class="quiz"
-		@click="emitIfDone"
-		:style="{ cursor: emit ? 'pointer' : 'default' }"
-	>
+	<div class="quiz" @click="emitIfDone">
 		<div class="quiz__content">
 			<button
 				v-if="withSkipLink"
@@ -58,8 +54,11 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import { DASHBOARD_DARK, ASSISTANT_TOGGLE } from '~/model/constants'
-import { clamp } from '~/utils/clamp'
+import {
+	DASHBOARD_DARK,
+	ASSISTANT_TOGGLE,
+	TEXT_CURSOR,
+} from '~/model/constants'
 
 export default {
 	name: 'quiz',
@@ -80,12 +79,16 @@ export default {
 	},
 	methods: {
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
-		...mapActions('utils', [DASHBOARD_DARK.action]),
+		...mapActions('utils', [DASHBOARD_DARK.action, TEXT_CURSOR.action]),
 		next(choice) {
 			this.current++
 			this.points += choice
 
 			this.done = this.current === this.questions.length
+
+			if (this.done && this.withSkipLink) {
+				this[TEXT_CURSOR.action]({ str: 'Click to enter', icon: null })
+			}
 		},
 		emitIfDone() {
 			if (!this.done) return
@@ -103,8 +106,8 @@ export default {
 		this[ASSISTANT_TOGGLE.action](true)
 	},
 
-	// beforeDestroy() {
-	// 	this[DASHBOARD_DARK.action](false)
-	// },
+	beforeDestroy() {
+		this[TEXT_CURSOR.action]({ str: '', icon: null })
+	},
 }
 </script>

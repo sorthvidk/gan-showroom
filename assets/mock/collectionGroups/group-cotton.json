@@ -1,17 +1,24 @@
 {
-  "order": 2,
-  "styles": [],
-  "filters": [],
-  "groupId": "drop-1",
-  "name": "Drop I",
-  "passwords": [],
   "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463120/AW21_21.3/rails/drop1.jpg",
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463120/AW21_21.3/rails/drop1_01.jpg",
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463120/AW21_21.3/rails/drop1_02.jpg",
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463120/AW21_21.3/rails/drop1_04.jpg",
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612463120/AW21_21.3/rails/drop1_03.jpg"
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928244/21.4/rails/210506_GANNI_EH_RAILS_13_0134.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928243/21.4/rails/210506_GANNI_EH_RAILS_12_0116.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928243/21.4/rails/210506_GANNI_EH_RAILS_09_0072.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928243/21.4/rails/210506_GANNI_EH_RAILS_10_0082.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928243/21.4/rails/210506_GANNI_EH_RAILS_08_0066.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928242/21.4/rails/210506_GANNI_EH_RAILS_04_0027.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928242/21.4/rails/210506_GANNI_EH_RAILS_03_0021.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928242/21.4/rails/210506_GANNI_EH_RAILS_01_0007.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928242/21.4/rails/210506_GANNI_EH_RAILS_06_0052.jpg",
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620928242/21.4/rails/210506_GANNI_EH_RAILS_02_0014.jpg"
   ],
-  "headline": "Drop 01\nAugust 15th",
-  "deadline": "2021, 8, 15, 0, 0, 0"
+  "styles": [],
+  "name": "Drop I",
+  "text": "",
+  "order": 2,
+  "countdown": "2021, 11, 01, 0, 0, 0",
+  "headline": "Drop 01\nLaunches in November",
+  "passwords": [],
+  "deadline": "2021, 8, 15, 0, 0, 0",
+  "groupId": "drop-1",
+  "filters": []
 }

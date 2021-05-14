@@ -97,6 +97,12 @@
 			width: 100%;
 			animation: fade forwards 0.4s $easeInOutQuint;
 		}
+
+		&.single {
+			@include mq(screen-md) {
+				grid-template-columns: 1fr;
+			}
+		}
 	}
 
 	&__overview {
@@ -111,12 +117,16 @@
 
 		div {
 			display: inline-flex;
-			width: 100%;
-			height: calc(90px * 1.25);
+			// width: 100%;
+			// height: calc(90px * 1.25);
 
 			@include mq(screen-md) {
-				width: 75px;
-				height: calc(75px * 1.25);
+				// width: 75px;
+				// height: calc(75px * 1.25);
+			}
+
+			&.landscape {
+				grid-column: span 2;
 			}
 		}
 
@@ -127,7 +137,7 @@
 			cursor: pointer;
 
 			@include mq(screen-md) {
-				object-fit: contain;
+				// object-fit: contain;
 			}
 		}
 

@@ -11,7 +11,7 @@
 	overflow-y: hidden;
 
 	h1 {
-		font-size: 3.5vw;
+		font-size: 20px;
 		font-weight: bold;
 		text-transform: uppercase;
 		line-height: 0.85;
@@ -22,6 +22,10 @@
 		width: 15em;
 		padding: 0.25em;
 		// outline: 0.2em solid;
+
+		@include mq(screen-md) {
+			font-size: 3.5vw;
+		}
 
 		&:nth-of-type(1) {
 			top: 45%;
@@ -199,19 +203,19 @@
 		}
 
 		&[data-order='13'] {
-			top: 25vh;
-			left: 340vw;
+			bottom: 15vh;
+			left: 317vw;
 		}
 
 		&[data-order='14'] {
-			top: 20vh;
-			left: 380vw;
+			top: 6vh;
+			left: 335vw;
 		}
 	}
 
 	&__text {
 		position: fixed;
-		top: 20%;
+		top: 0;
 		left: 0;
 
 		display: none;
@@ -220,7 +224,7 @@
 		padding: 1.5em;
 		width: 400px;
 		max-width: 90vw;
-		max-height: 40vh;
+		max-height: 45vh;
 		overflow: auto;
 		border: 2px solid;
 		z-index: 1;
@@ -239,6 +243,7 @@
 			position: absolute;
 			top: 20%;
 			left: 40%;
+			max-height: none;
 		}
 	}
 

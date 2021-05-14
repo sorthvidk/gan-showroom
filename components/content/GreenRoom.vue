@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="green-room"
-		:style="{ width: `${items.length * 30}vmax`, height: '100vh' }"
+		:style="{ width: `${items.length * 27}vw`, height: '100vh' }"
 	>
 		<h1>
 			"A carbon tax, which our politicians never had the guts to introduce, will
