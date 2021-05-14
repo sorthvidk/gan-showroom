@@ -28,7 +28,9 @@
 				width: 500px;
 				height: 200px;
 			}
+		}
 
+		&.small-icon {
 			// the muted icon has a fucked viewbox
 			svg {
 				padding: 5px;

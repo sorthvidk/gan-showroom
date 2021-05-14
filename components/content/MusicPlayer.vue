@@ -11,12 +11,13 @@
 					() => !hasStarted && !loggedIn && changeCursor('Click to unmute')
 				"
 				@mouseleave="changeCursor('')"
-				:class="{ 'large-hit-area': !hasStarted && !loggedIn }"
+				:class="{
+					'large-hit-area': !hasStarted && !loggedIn,
+					'small-icon': !hasStarted,
+				}"
 			>
 				<svg-icon
-					:name="
-						!hasStarted && !loggedIn ? 'muted' : musicPlaying ? 'pause' : 'play'
-					"
+					:name="!hasStarted ? 'muted' : musicPlaying ? 'pause' : 'play'"
 				/>
 			</button>
 			<p>{{ songs[current].title }}</p>
@@ -26,7 +27,7 @@
 			{{ currentTime }}
 		</p>
 
-		<audio-spectrum-bars :animate="!loggedIn || musicPlaying" />
+		<audio-spectrum-bars :animate="!hasStarted || musicPlaying" />
 
 		<div class="music-player__canvas-container" ref="canvasContainer">
 			<canvas ref="canvas" id="canvas"></canvas>
@@ -269,11 +270,8 @@ export default {
 						.filter((_, i) => i > 1 && i % 2 === 0)
 				}
 
-				this.audio.currentTime = Math.floor(t / 1000)
-
-				if (this.audio.currentTime >= this.audio.duration - 30) {
-					this.audio.currentTime = 0
-				}
+				this.audio.currentTime =
+					Math.floor(t / 1000) % (this.audio.duration - 30) || 60
 
 				this.progress = this.audio.currentTime
 

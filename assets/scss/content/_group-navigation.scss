@@ -30,11 +30,17 @@
 		overflow: auto;
 
 		@include mq(screen-md) {
-			width: 50%;
+			width: calc(
+				100vw - var(--assistant-width) - var(--page-outer-margin) * 2
+			);
 			padding: rem(30) var(--page-outer-margin) 0;
 		}
 
-		@include mq(screen-xxl) {
+		@include mq(screen-lg) {
+			width: 50%;
+		}
+
+		@include mq(screen-xxxl) {
 			margin: 0 auto;
 			padding: rem(30) 0 0;
 		}
