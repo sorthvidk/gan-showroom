@@ -15,6 +15,7 @@
 					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />
+				{{ scrolledAmount }}
 			</div>
 			<div
 				class="image"
@@ -90,6 +91,8 @@ export default {
 		activeIndex: 0,
 		progress: 0,
 		showImages: false,
+
+		scrolledAmount: 0,
 	}),
 	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
@@ -120,9 +123,11 @@ export default {
 			}
 		},
 		toggleImages(e) {
-			// if (this.showImages) {
-			// 	e.preventDefault()
-			// }
+			this.scrolledAmount = Math.max(0, this.scrolledAmount + e.deltaY)
+
+			if (this.scrolledAmount < 400) {
+				e.preventDefault()
+			}
 
 			this.showImages = e.deltaY < 0 ? false : true
 		},
