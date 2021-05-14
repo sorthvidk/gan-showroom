@@ -4,22 +4,27 @@
 		:style="{ width: `${items.length * 25}vw`, height: '100vh' }"
 	>
 		<h1>
-			"A carbon tax, which our politicians never had the guts to introduce, will
-			be hugely beneficial for the transition towards a sustainable fashion
-			industry"<br />
-			— Nicolaj Reffstrup
+			"WE SEE CARBON OFFSETTING AS A SELF-IMPOSED CARBON TAX, A TAX WHICH
+			POLITICIANS NEVER HAD THE GUTS TO INTRODUCE. IT IS HUGELY BENEFICIAL FOR
+			THE TRANSITION TOWARDS A SUSTAINABLE FASHION INDUSTRY"<br />
+			– NICOLAJ REFFSTRUP
 		</h1>
 		<h1>
-			"A carbon tax, which our politicians never had the guts to introduce, will
-			be hugely beneficial for the transition towards a sustainable fashion
-			industry"<br />
-			— Nicolaj Reffstrup
+			"I’ve been involved in the climate change agenda for over 25 years,
+			despite this inherent contradiction, I still own a fashion company. I’ve
+			been over it a million times, but I’ve come to realize that staying in the
+			industry and working to become more responsible is better than the
+			alternative of opting out and doing nothing. Fashion is not going away.
+			We’re running out of time, and we need to solve the issues we’re facing
+			through growth and innovation"<br />
+			– NICOLAJ REFFSTRUP, GANNI
 		</h1>
 		<h1>
-			"A carbon tax, which our politicians never had the guts to introduce, will
-			be hugely beneficial for the transition towards a sustainable fashion
-			industry"<br />
-			— Nicolaj Reffstrup
+			"IT’S NOT ENOUGH TO REPLACE A CONVENTIONAL COTTON WITH AN ORGANIC ONE AND
+			THINKING THAT THE JOB IT DONE. YOU HAVE TO APPROACH BEHAVING RESPONSIBLY
+			IN A HOLISTIC WAY – IT’S ABOUT PUTTING OUR GOALS OUT THERE AND HOLDING
+			OURSELVES ACCOUNTABLE"<br />
+			– NICOLAJ REFFSTRUP
 		</h1>
 		<div
 			class="green-room__item"
