@@ -86,11 +86,18 @@ export default {
 					e.target.parentElement.requestFullscreen()
 				}
 
+				if (typeof document.body.webkitRequestFullScreen() === 'function') {
+					e.target.parentElement.webkitRequestFullScreen()
+				}
+
 				this.isFullScreen = true
 				this.changeCursor('Zoom out', 'gan_icon_minus_arrow')
 			} else {
 				if (document.exitFullscreen) {
 					document.exitFullscreen()
+				}
+				if (document.webkitCancelFullScreen) {
+					document.webkitCancelFullScreen()
 				}
 				this.isFullScreen = false
 				this.changeCursor('')

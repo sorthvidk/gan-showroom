@@ -9,9 +9,9 @@
 			<div class="text">
 				<h1 v-if="group.headline">{{ group.headline }}</h1>
 				<countdown
-					v-if="group.deadline"
+					v-if="group.countdown"
 					:preText="'That is in '"
-					:deadline="group.deadline.split(',')"
+					:deadline="group.countdown.split(',')"
 					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />
