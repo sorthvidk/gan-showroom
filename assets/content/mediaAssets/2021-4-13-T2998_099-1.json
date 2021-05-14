@@ -1,1 +1,12 @@
-{"assetId":"86taziiqe","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/T2998_3548_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"T2998_099","name":"T2998_099_Top / Blouse","groupId":"drop-1","filters":"Tops"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/T2998_3548_099.jpg",
+  "assetId": "86taziiqe",
+  "name": "T2998_099_Top / Blouse",
+  "styleId": "T2998_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Tops"
+}
