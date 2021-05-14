@@ -1,1 +1,12 @@
-{"assetId":"ga1m9s2xb","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1621_2537_472.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1621_472","name":"K1621_472_Midi Dress","groupId":"drop-2","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1621_2537_472.jpg",
+  "assetId": "ga1m9s2xb",
+  "name": "K1621_472_Midi Dress",
+  "styleId": "K1621_472",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Dresses"
+}
