@@ -1,1 +1,12 @@
-{"assetId":"m2f1jjmsz","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6665_6383_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6665_099","name":"F6665_099_Leather Pants","groupId":"drop-1","filters":"Trousers"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6665_6383_099.jpg",
+  "assetId": "m2f1jjmsz",
+  "name": "F6665_099_Leather Pants",
+  "styleId": "F6665_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Trousers"
+}
