@@ -236,14 +236,39 @@ export default {
 			active: 0,
 			clubs: [
 				{
-					preText: 'trädgården opens in ',
-					deadline: [2021, 6, 21, 19, 0, 0],
-					postText: ' in stockholm',
+					preText: 'Berghain opens in ',
+					deadline: [2021, 9, 10],
+					postText: ' in Berlin',
 				},
 				{
-					preText: 'gewölbe opens in ',
-					deadline: [2021, 3, 31, 21, 0, 0],
-					postText: ' in cologne',
+					preText: 'Søpavillonen',
+					deadline: [2021, 10, 21],
+					postText: ' in København',
+				},
+				{
+					preText: 'Le Péripate opens in ',
+					deadline: [2021, 9, 1],
+					postText: ' in Paris',
+				},
+				{
+					preText: 'Studio 54 opens in ',
+					deadline: [2021, 10, 5],
+					postText: ' in New York',
+				},
+				{
+					preText: 'Grottan opens in ',
+					deadline: [2021, 9, 31],
+					postText: ' in Stockholm',
+				},
+				{
+					preText: 'Fabric opens in ',
+					deadline: [2021, 10, 23],
+					postText: ' in London',
+				},
+				{
+					preText: 'Plastic opens in ',
+					deadline: [2021, 10, 31],
+					postText: ' in Milano',
 				},
 			],
 			menuClosed: !this.isMobile,

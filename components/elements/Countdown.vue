@@ -39,10 +39,11 @@ export default {
 			})
 		},
 		loop() {
-			setTimeout(() => {
+			const tick = () => {
+				requestAnimationFrame(tick)
 				this.updateDuration()
-				this.loop()
-			}, 1000)
+			}
+			tick()
 		},
 	},
 	mounted() {

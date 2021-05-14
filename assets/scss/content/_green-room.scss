@@ -21,7 +21,7 @@
 
 		width: 15em;
 		padding: 0.25em;
-		// outline: 0.2em solid;
+		outline: 0.2em solid;
 
 		@include mq(screen-md) {
 			font-size: 3.5vw;
