@@ -77,6 +77,13 @@
 				width: 75vmin;
 				height: 75vmin;
 			}
+
+			.green-room__text {
+				@include mq(screen-md) {
+					top: -10% !important;
+					left: 10%;
+				}
+			}
 		}
 
 		&.is-link {
@@ -208,13 +215,13 @@
 		}
 
 		&[data-order='14'] {
-			top: 6vh;
+			top: 12vh;
 			left: 335vw;
 		}
 
 		&[data-order='15'] {
-			top: 15vh;
-			left: 350vw;
+			bottom: 15vh;
+			left: 290vw;
 		}
 	}
 
@@ -227,7 +234,7 @@
 		background-color: $color-white;
 		color: var(--color-secondary);
 		padding: 1.5em;
-		width: 400px;
+		width: 550px;
 		max-width: 90vw;
 		max-height: 45vh;
 		overflow: auto;
@@ -246,9 +253,13 @@
 
 		@include mq(screen-md) {
 			position: absolute;
-			top: 20%;
+			top: 5%;
 			left: 40%;
 			max-height: none;
+		}
+
+		.big {
+			font-size: 1.63em;
 		}
 	}
 
