@@ -30,7 +30,8 @@
   "bottomWidth": 0,
   "filters": [
     "acc2",
-    "rtw14"
+    "rtw14",
+    "misc4"
   ],
   "sizeRange": "ONE SIZE",
   "retailPriceEUR": 95,
