@@ -1,1 +1,12 @@
-{"assetId":"cxjf73zxg","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1633_2540_135.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1633_135","name":"K1633_135_Knitted Vest","groupId":"drop-1","filters":"Knitwear"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1633_2540_135.jpg",
+  "assetId": "cxjf73zxg",
+  "name": "K1633_135_Knitted Vest",
+  "styleId": "K1633_135",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Knitwear"
+}
