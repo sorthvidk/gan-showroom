@@ -30,7 +30,7 @@ export const state = () => ({
 		{
 			description:
 				"YOU'RE HERE FOR ONE THING ONLY - 90S MUSIC & DANCING ON TABLES. YOU ONLY LEAVE THE DANCEFLOOR, FOR THE OCCASIONAL BREATH OF FRESH COPENHAGEN NIGHT AIR AND PREFER TO CATCH UP WITH EVERYONE IN YOUR USUAL SPOT – IN FRONT OF THE DJ BOOTH.",
-			text: 'You’re a snake on the dance floor!'
+			text: 'You’re a dance monkey on the dance floor!'
 		}
 	]
 })
