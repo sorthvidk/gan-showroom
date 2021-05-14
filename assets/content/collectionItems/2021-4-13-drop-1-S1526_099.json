@@ -30,7 +30,8 @@
   "bottomWidth": 0,
   "filters": [
     "acc3",
-    "rtw14"
+    "rtw14",
+    "misc4"
   ],
   "sizeRange": "35, 36, 37, 38, 39, 40, 41",
   "retailPriceEUR": 215,
