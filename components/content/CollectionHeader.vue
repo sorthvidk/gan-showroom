@@ -15,7 +15,6 @@
 					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />
-				{{ scrolledAmount }}
 			</div>
 			<div
 				class="image"
@@ -125,7 +124,7 @@ export default {
 		toggleImages(e) {
 			this.scrolledAmount = Math.max(0, this.scrolledAmount + e.deltaY)
 
-			if (this.scrolledAmount < 400) {
+			if (this.scrolledAmount < window.innerHeight / 2 && e.deltaY > 0) {
 				e.preventDefault()
 			}
 
