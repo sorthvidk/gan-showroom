@@ -12,7 +12,11 @@
 
 			<div class="lookbook-slideshow__content">
 				<transition name="fade--fast">
-					<div v-if="!overview" class="lookbook-slideshow__standard">
+					<div
+						v-if="!overview"
+						class="lookbook-slideshow__standard"
+						:class="activePage.length === 1 ? 'single' : 'double'"
+					>
 						<div
 							v-for="(activeContent, i) in isMobile ? content : activePage"
 							:key="`asgaf${i}`"
@@ -49,6 +53,7 @@
 							v-for="(item, i) in content"
 							:key="'jhfjsdf' + i"
 							@click="show(item)"
+							:class="item.aspect"
 						>
 							<img
 								v-if="item.type === 'image'"
@@ -105,7 +110,7 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import WindowContent from '~/components/framework/WindowContent.vue'
@@ -218,6 +223,8 @@ export default {
 
 	mounted() {
 		this[DASHBOARD_DARK.action](true)
+
+		console.log(this.pages)
 	},
 
 	// beforeDestroy() {

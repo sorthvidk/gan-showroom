@@ -100,9 +100,30 @@ export default {
 			this[TEXT_CURSOR.action]({ str, icon })
 			this.textCursorText = { str, icon }
 		},
+
+		closeHandler(e) {
+			// dirrty
+			setTimeout(() => {
+				if (!document.fullscreenElement) {
+					console.log(e)
+					this.isFullScreen = false
+					this.changeCursor('')
+				}
+			}, 1000)
+		},
 	},
 	mounted() {
 		this[ASSISTANT_TOGGLE.action](true)
+
+		document.addEventListener('fullscreenchange', this.closeHandler.bind(this))
+		// document.addEventListener(
+		// 	'webkitfullscreenchange',
+		// 	this.closeHandler.bind(this)
+		// )
+		// document.addEventListener(
+		// 	'mozfullscreenchange',
+		// 	this.closeHandler.bind(this)
+		// )
 	},
 	beforeDestroy() {
 		this.changeCursor('')

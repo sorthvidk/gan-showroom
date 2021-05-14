@@ -1,7 +1,8 @@
 {
   "type": "image",
   "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612614605/AW21_21.3/21.3_lookbook/bts_green/210129_GANNI_FW21_06_6241.jpg"
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620901275/21.4/bts/_DSC3947.jpg"
   ],
-  "aspect": "portrait"
+  "aspect": "portrait",
+  "order": 560
 }
