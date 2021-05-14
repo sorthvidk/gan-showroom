@@ -8,11 +8,14 @@
 			>
 				Skip
 			</button>
-			<h1 class="quiz__title">
-				GANNI NIGHT OUT<br />
-				WHO'S IN THE CLUB?<br />
-				CHOOSE YOUR PARTY ANIMAL PERSONA TO PROCEED
-			</h1>
+
+			<transition name="fade--fast" mode="out-in">
+				<h1 class="quiz__title" v-if="!done">
+					GANNI NIGHT OUT<br />
+					WHO'S IN THE CLUB?<br />
+					CHOOSE YOUR PARTY ANIMAL PERSONA TO PROCEED
+				</h1>
+			</transition>
 
 			<transition name="fade--fast" mode="out-in">
 				<div v-if="!done" class="quiz__box" :key="current">
@@ -34,7 +37,7 @@
 						</button>
 					</div>
 				</div>
-				<p v-if="done" class="quiz__description">
+				<p v-else class="quiz__description">
 					{{ answers[score].description }}
 				</p>
 			</transition>
