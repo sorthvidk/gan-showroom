@@ -12,8 +12,7 @@
 			<transition name="fade--fast" mode="out-in">
 				<h1 class="quiz__title" v-if="!done">
 					GANNI NIGHT OUT<br />
-					WHO'S IN THE CLUB?<br />
-					CHOOSE YOUR PARTY ANIMAL PERSONA TO PROCEED
+					WHO'S IN THE CLUB?
 				</h1>
 			</transition>
 

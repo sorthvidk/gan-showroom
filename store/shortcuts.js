@@ -142,7 +142,7 @@ export const state = () => ({
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'links',
-			label: 'Download',
+			label: 'Tools',
 			actions: [
 				{
 					name: 'utils/' + MENU_SHOW.action,
