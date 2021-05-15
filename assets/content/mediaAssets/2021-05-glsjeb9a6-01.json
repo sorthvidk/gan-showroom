@@ -1,12 +1,12 @@
 {
   "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620901276/21.4/bts/_DSC4164.jpg"
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074405/21.4/packs/A3969_5755_506.jpg"
   ],
   "assetId": "glsjeb9a6 01",
   "name": "A3969_506_Scarf",
   "styleId": "A3969_506",
   "visible": true,
-  "onTop": false,
+  "onTop": true,
   "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
