@@ -1,1 +1,14 @@
-{"assetId":"1zyz36kq4","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1174_4621_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1174_099","name":"S1174_099_Flats / Loafers","groupId":"drop-1","filters":"Shoes"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1612313177/AW21_21.3/21.3_PACKSHOTS/S1174_4621_99.jpg"
+  ],
+  "assetId": "1zyz36kq4",
+  "name": "S1174_099_Flats / Loafers",
+  "styleId": "S1174_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
