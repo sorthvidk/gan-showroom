@@ -1,1 +1,12 @@
-{"assetId":"woee8abey","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6546_6428_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6546_099","name":"F6546_099_Shirt","groupId":"drop-1","filters":"Denim"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6546_6428_099.jpg",
+  "assetId": "woee8abey",
+  "name": "F6546_099_Shirt",
+  "styleId": "F6546_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Denim"
+}
