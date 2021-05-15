@@ -1,1 +1,14 @@
-{"assetId":"wp6yzmhem","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1498_2509_683.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1498_683","name":"K1498_683_Cardigan","groupId":"drop-1","filters":"Knitwear"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614522899/AW21_21.3/21.3_PACKSHOTS/K1498_2509_683.jpg"
+  ],
+  "assetId": "wp6yzmhem",
+  "name": "K1498_683_Cardigan",
+  "styleId": "K1498_683",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Knitwear"
+}
