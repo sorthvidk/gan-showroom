@@ -1,5 +1,7 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6584_6376_189.jpg",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074393/21.4/packs/F6584_6303_189.jpg"
+  ],
   "assetId": "njx55llfq",
   "name": "F6584_189_Tailored Pants",
   "styleId": "F6584_189",
