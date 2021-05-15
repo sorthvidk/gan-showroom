@@ -1,0 +1,14 @@
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074416/21.4/packs/S1744_4893_132_2.jpg"
+  ],
+  "assetId": "nbrc46i3f 01",
+  "name": "S1744_132_Flats / Loafers",
+  "styleId": "S1744_132",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
