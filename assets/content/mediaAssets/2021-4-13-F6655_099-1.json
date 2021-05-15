@@ -1,5 +1,7 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6655_6407_099.jpg",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620927241/21.4/packs/F6655_6399_506.jpg"
+  ],
   "assetId": "m93cu3jts",
   "name": "F6655_099_Mini Dress",
   "styleId": "F6655_099",
