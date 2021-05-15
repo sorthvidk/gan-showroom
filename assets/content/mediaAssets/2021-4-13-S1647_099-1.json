@@ -1,5 +1,7 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1647_4864_099.jpg",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074409/21.4/packs/S1647_4846_099.jpg"
+  ],
   "assetId": "alcd1z6dy",
   "name": "S1647_099_Boots",
   "styleId": "S1647_099",
