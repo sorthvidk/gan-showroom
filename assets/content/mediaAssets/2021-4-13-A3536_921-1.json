@@ -1,1 +1,14 @@
-{"assetId":"5080m2moz","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3536_5713_921.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3536_921","name":"A3536_921_Hat","groupId":"drop-1","filters":"Hats"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614510485/AW21_21.3/21.3_PACKSHOTS/A3536_5713_921.jpg"
+  ],
+  "assetId": "5080m2moz",
+  "name": "A3536_921_Hat",
+  "styleId": "A3536_921",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Hats"
+}
