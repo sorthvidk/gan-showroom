@@ -1,5 +1,7 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6555_6411_5.jpg",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074393/21.4/packs/F6555_6411_005.jpg"
+  ],
   "assetId": "xtog0j43b",
   "name": "F6555_5_Denim Jacket",
   "styleId": "F6555_5",
