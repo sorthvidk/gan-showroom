@@ -1,1 +1,14 @@
-{"assetId":"kjr7cu9ok","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6391_6350_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6391_099","name":"F6391_099_Midi Dress","groupId":"drop-1","filters":"Dresses"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614522276/AW21_21.3/21.3_PACKSHOTS/F6391_6350_99.jpg"
+  ],
+  "assetId": "kjr7cu9ok",
+  "name": "F6391_099_Midi Dress",
+  "styleId": "F6391_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Dresses"
+}
