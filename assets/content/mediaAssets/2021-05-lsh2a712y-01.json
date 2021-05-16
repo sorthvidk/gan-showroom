@@ -6,9 +6,9 @@
   "name": "F6515_248_Midi Dress",
   "styleId": "F6515_248",
   "visible": true,
-  "onTop": true,
+  "onTop": false,
   "aspect": "portrait",
-  "type": "image",
+  "type": "video",
   "groupId": "drop-1",
   "filters": "Dresses"
 }
