@@ -30,7 +30,8 @@
   "bottomWidth": 112,
   "filters": [
     "rtw13",
-    "misc2"
+    "misc2",
+    "rtw2"
   ],
   "sizeRange": "32, 34, 36, 38, 40, 42, 44",
   "retailPriceEUR": 245,
