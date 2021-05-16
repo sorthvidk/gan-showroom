@@ -33,14 +33,24 @@
 					/>
 
 					<filter-button
+						:name="'ACC'"
+						:is-big="true"
+						:count="accessories.length"
+						:filter-id="'ACC'"
+					/>
+
+					<filter-button
 						v-for="(item, key) in groupFiltersNonNull"
 						:key="key"
 						:name="item.name"
 						:count="item.styleIds.length"
 						:filter-id="item.filterId"
-						:is-big="['accessories', 'shoes'].includes(item.name.toLowerCase())"
+						:is-big="['shoes'].includes(item.name.toLowerCase())"
 					/>
-					<span class="filter-button" v-if="groupFiltersNonNull.length % 2 > 0">
+					<span
+						class="filter-button"
+						v-if="groupFiltersNonNull.length % 2 === 0"
+					>
 						&nbsp;
 					</span>
 				</div>
@@ -97,7 +107,7 @@ export default {
 			'authorizedGroups',
 		]),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
-		...mapGetters('collection', ['readyToWear']),
+		...mapGetters('collection', ['readyToWear', 'accessories']),
 
 		downloadCollectionButtonLabel() {
 			if (this.activeFilter.filterId) {

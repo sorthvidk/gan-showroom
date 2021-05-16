@@ -102,10 +102,17 @@ export const getters = {
 	allStyles: state => state.allStyles,
 
 	readyToWear: state => {
-		const accessoriesFilterId = 'acc1'
-		const shoesFilterId = 'acc3'
-		const nonClothes = [accessoriesFilterId, shoesFilterId]
-		const isAccOrShoes = filterId => nonClothes.includes(filterId)
+		const targetFilters = {
+			accessoriesFilterId: 'acc1',
+			shoesFilterId: 'acc3',
+			bagsFilterId: 'acc2',
+			hatsFilterId: 'acc5',
+			collarsFilterId: 'acc6',
+			walletsFilterId: 'acc7'
+		}
+
+		const isAccOrShoes = filterId =>
+			Object.values(targetFilters).includes(filterId)
 		const hasNoAccOrShoesFilter = style => !style.filters.find(isAccOrShoes)
 
 		return state.activeGroup
@@ -113,6 +120,23 @@ export const getters = {
 			: state.authorizedGroups
 					.map(g => g.styles.filter(hasNoAccOrShoesFilter))
 					.flat()
+	},
+
+	accessories: state => {
+		const targetFilters = {
+			accessoriesFilterId: 'acc1',
+			bagsFilterId: 'acc2',
+			hatsFilterId: 'acc5',
+			collarsFilterId: 'acc6',
+			walletsFilterId: 'acc7'
+		}
+
+		const isAcc = filterId => Object.values(targetFilters).includes(filterId)
+		const hasAccFilter = style => style.filters.find(isAcc)
+
+		return state.activeGroup
+			? state.activeGroup.styles.filter(hasAccFilter)
+			: state.authorizedGroups.map(g => g.styles.filter(hasAccFilter)).flat()
 	}
 }
 

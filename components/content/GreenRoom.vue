@@ -57,7 +57,7 @@
 				<img :src="item.cloudinaryUrl" />
 			</a>
 			<div class="green-room__text" v-if="item.text">
-				<p>{{ item.text }}</p>
+				<p v-html="item.text" />
 			</div>
 		</div>
 	</div>
