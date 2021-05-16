@@ -1,1 +1,12 @@
-{"assetId":"h27qyueek","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6713_6455_530.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6713_530","name":"F6713_530_Midi Dress","groupId":"drop-2","filters":"Dresses"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6713_6455_530.jpg",
+  "assetId": "h27qyueek",
+  "name": "F6713_530_Midi Dress",
+  "styleId": "F6713_530",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Dresses"
+}
