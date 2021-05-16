@@ -1,1 +1,12 @@
-{"assetId":"9sltj71am","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1653_2543_594.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"K1653_594","name":"K1653_594_Cardigan","groupId":"drop-2","filters":"Knitwear"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/K1653_2543_594.jpg",
+  "assetId": "9sltj71am",
+  "name": "K1653_594_Cardigan",
+  "styleId": "K1653_594",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Knitwear"
+}

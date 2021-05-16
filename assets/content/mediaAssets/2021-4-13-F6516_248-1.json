@@ -1,1 +1,12 @@
-{"assetId":"8luglxjlh","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6516_6382_248.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6516_248","name":"F6516_248_Elasticated Pants","groupId":"drop-1","filters":"Trousers"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6516_6382_248.jpg",
+  "assetId": "8luglxjlh",
+  "name": "F6516_248_Elasticated Pants",
+  "styleId": "F6516_248",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Trousers"
+}

@@ -1,5 +1,7 @@
 {
-  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1707_4879_339.jpg",
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074412/21.4/packs/S1707_4878_339.jpg"
+  ],
   "assetId": "bolz76o7o",
   "name": "S1707_339_Boots",
   "styleId": "S1707_339",

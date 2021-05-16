@@ -1,13 +1,13 @@
 {
   "cloudinaryUrl": [
-    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620901534/21.4/still%20life/210506_GANNI_EH_STILL_01_0272.jpg"
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074413/21.4/packs/S1713_4880_436_2.jpg"
   ],
-  "assetId": "57ikkv9bh 01",
+  "assetId": "57ikkv9bh 02",
   "name": "S1713_436_Flats / Loafers",
   "styleId": "S1713_436",
   "visible": true,
   "onTop": false,
-  "aspect": "landscape",
+  "aspect": "portrait",
   "type": "image",
   "groupId": "drop-1",
   "filters": "Shoes"

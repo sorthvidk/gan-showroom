@@ -1,1 +1,12 @@
-{"assetId":"zq49o0efa","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6505_6378_177.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6505_177","name":"F6505_177_Tailored Pants","groupId":"drop-2","filters":"Trousers"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6505_6378_177.jpg",
+  "assetId": "zq49o0efa",
+  "name": "F6505_177_Tailored Pants",
+  "styleId": "F6505_177",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Trousers"
+}

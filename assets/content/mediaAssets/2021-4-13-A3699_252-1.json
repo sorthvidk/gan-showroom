@@ -1,1 +1,14 @@
-{"assetId":"xufm84iaa","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3699_5689_252.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3699_252","name":"A3699_252_Intimates Top","groupId":"drop-1","filters":"Tops"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1614510512/AW21_21.3/21.3_PACKSHOTS/A3699_5689_252.jpg"
+  ],
+  "assetId": "xufm84iaa",
+  "name": "A3699_252_Intimates Top",
+  "styleId": "A3699_252",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Tops"
+}

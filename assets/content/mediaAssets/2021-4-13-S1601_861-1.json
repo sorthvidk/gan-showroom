@@ -1,1 +1,14 @@
-{"assetId":"oih4tms3v","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/S1601_4682_861.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"S1601_861","name":"S1601_861_Boots","groupId":"drop-1","filters":"Shoes"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1618566092/AW21_21.3/21.3_PACKSHOTS/S1601_4682_861.jpg"
+  ],
+  "assetId": "oih4tms3v",
+  "name": "S1601_861_Boots",
+  "styleId": "S1601_861",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}

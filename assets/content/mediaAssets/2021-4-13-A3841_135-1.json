@@ -1,1 +1,12 @@
-{"assetId":"g7uzv5k7g","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3841_5748_135.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3841_135","name":"A3841_135_Hat","groupId":"drop-1","filters":"Hats"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3841_5748_135.jpg",
+  "assetId": "g7uzv5k7g",
+  "name": "A3841_135_Hat",
+  "styleId": "A3841_135",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Hats"
+}

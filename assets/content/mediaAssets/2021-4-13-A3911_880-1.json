@@ -1,1 +1,12 @@
-{"assetId":"pv7on27vx","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3911_5725_880.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3911_880","name":"A3911_880_Scarf","groupId":"drop-1","filters":"Accessories"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3911_5725_880.jpg",
+  "assetId": "pv7on27vx",
+  "name": "A3911_880_Scarf",
+  "styleId": "A3911_880",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Accessories"
+}
