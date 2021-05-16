@@ -54,8 +54,8 @@
 	&__item {
 		@include bodytext();
 		font-weight: bold;
-		width: 33vmin;
-		height: 33vmin;
+		width: 40vmin;
+		height: 40vmin;
 		position: absolute;
 
 		display: grid;
@@ -181,7 +181,7 @@
 
 		&[data-order='6'] {
 			top: 60vh;
-			left: 150vw;
+			left: 130vw;
 		}
 
 		&[data-order='7'] {
@@ -206,7 +206,7 @@
 
 		&[data-order='11'] {
 			top: 0vh;
-			left: 275vw;
+			left: 250vw;
 		}
 
 		&[data-order='12'] {
@@ -226,7 +226,7 @@
 
 		&[data-order='15'] {
 			bottom: 15vh;
-			left: 290vw;
+			left: 370vw;
 		}
 	}
 
@@ -262,10 +262,10 @@
 			left: 40%;
 			max-height: none;
 		}
+	}
 
-		.big {
-			font-size: 1.63em;
-		}
+	.big {
+		font-size: 1.63em;
 	}
 
 	.copycat {

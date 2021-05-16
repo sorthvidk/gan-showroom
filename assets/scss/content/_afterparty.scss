@@ -5,6 +5,10 @@
 		font-size: 20px;
 	}
 
+	@include mq(screen-lg) {
+		font-size: 2rem;
+	}
+
 	min-height: 100vh;
 	padding-bottom: var(--bottombar-height);
 	color: var(--color-primary);

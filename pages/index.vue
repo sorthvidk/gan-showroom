@@ -214,6 +214,13 @@ export default {
 		if (this.audioPlayer) {
 			this.audioPlayer = this.$children[1].$children[0].progress
 		}
+
+		if (
+			navigator.userAgent.indexOf('Safari') != -1 &&
+			navigator.userAgent.indexOf('Chrome') == -1
+		) {
+			document.body.classList.add('safari')
+		}
 	},
 }
 </script>
