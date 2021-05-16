@@ -1,1 +1,12 @@
-{"assetId":"7mo1fz2gl","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6716_6386_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6716_099","name":"F6716_099_Midi Skirt","groupId":"drop-1","filters":"Skirts"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6716_6386_099.jpg",
+  "assetId": "7mo1fz2gl",
+  "name": "F6716_099_Midi Skirt",
+  "styleId": "F6716_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Skirts"
+}
