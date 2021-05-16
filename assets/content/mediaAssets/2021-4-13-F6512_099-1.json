@@ -1,1 +1,12 @@
-{"assetId":"5ftthxd3f","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6512_6379_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6512_099","name":"F6512_099_Vest","groupId":"drop-2","filters":"Coats / Jackets"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6512_6379_099.jpg",
+  "assetId": "5ftthxd3f",
+  "name": "F6512_099_Vest",
+  "styleId": "F6512_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-2",
+  "filters": "Coats / Jackets"
+}
