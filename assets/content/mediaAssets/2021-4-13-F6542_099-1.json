@@ -1,1 +1,12 @@
-{"assetId":"l2ho48brj","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6542_6408_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6542_099","name":"F6542_099_Jeans","groupId":"drop-1","filters":"Denim"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6542_6408_099.jpg",
+  "assetId": "l2ho48brj",
+  "name": "F6542_099_Jeans",
+  "styleId": "F6542_099",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Denim"
+}
