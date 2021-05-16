@@ -1,1 +1,12 @@
-{"assetId":"ji7r09k1p","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6616_6413_880.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"F6616_880","name":"F6616_880_Beachwear Top","groupId":"drop-1","filters":"Tops"}
+{
+  "cloudinaryUrl": "https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/F6616_6413_880.jpg",
+  "assetId": "ji7r09k1p",
+  "name": "F6616_880_Beachwear Top",
+  "styleId": "F6616_880",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Tops"
+}
