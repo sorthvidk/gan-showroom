@@ -4,8 +4,8 @@
 			<div v-for="_ in 6" :key="`banner-item${_}`">
 				<svg-icon v-if="responsible" name="ganni-smiley--inv" />
 				{{ responsible ? 'responsible&nbsp;&nbsp;' : '' }}
-				<svg-icon v-if="reRunner" name="ganni-smiley--inv" />
-				{{ reRunner ? 're-runner&nbsp;&nbsp;' : '' }}
+				<!-- <svg-icon v-if="reRunner" name="ganni-smiley--inv" />
+				{{ reRunner ? 're-runner&nbsp;&nbsp;' : '' }} -->
 			</div>
 		</span>
 

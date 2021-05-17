@@ -55,6 +55,7 @@
 		"vue-fragment": "^1.5.1",
 		"vue-howler": "^0.7.0",
 		"vue-lazyload": "^1.3.3",
+		"vue-lazyload-video": "^0.1.15",
 		"vue-typer": "^1.2.0",
 		"vue-vimeo-player": "^0.1.1",
 		"vue-visibility-change": "^1.2.1",

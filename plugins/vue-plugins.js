@@ -12,6 +12,7 @@ import vueVimeoPlayer from 'vue-vimeo-player'
 import * as dateFns from 'date-fns'
 import viscosity from 'scroll-viscosity'
 import Matter from 'matter-js'
+import VueLazyLoadVideo from 'vue-lazyload-video'
 
 Vue.use(VueLazyload)
 Vue.use(VueDraggableResizable)
@@ -25,6 +26,9 @@ Vue.use(vueVimeoPlayer)
 Vue.use(dateFns)
 Vue.use(viscosity)
 Vue.use(Matter)
+// Register Components
+// LazyVideo & LazyVideoAsGIF
+Vue.use(VueLazyLoadVideo)
 
 /**
  * todo: turn of when bugfixing is done

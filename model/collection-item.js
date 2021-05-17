@@ -82,5 +82,62 @@ export default {
 	responsible: {
 		type: [Boolean, String],
 		default: false
+	},
+	groupId: {
+		type: String
+	},
+	weight: {
+		type: Number
+	},
+	sizeRange: {
+		type: String
+	},
+	chest: {
+		type: Number
+	},
+	waist: {
+		type: Number
+	},
+	hip: {
+		type: Number
+	},
+	bottomWidth: {
+		type: Number
+	},
+	totalLength: {
+		type: Number
+	},
+	inseamLength: {
+		type: Number
+	},
+	sleeveLength: {
+		type: Number
+	},
+	height: {
+		type: Number
+	},
+	length: {
+		type: Number
+	},
+	width: {
+		type: Number
+	},
+	heelHeight: {
+		type: Number
+	},
+	wholesalePriceGBP: {
+		type: Number
+	},
+	retailPriceGBP: {
+		type: Number
+	},
+	retailRMB: {
+		type: Number
+	},
+	slug: {
+		type: String
+	},
+	['re-runner']: {
+		type: Boolean
 	}
 }
