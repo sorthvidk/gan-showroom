@@ -460,14 +460,24 @@ export const mutations = {
 
 	[SET_CURRENT_FILTER.mutation](state, { filterId, getters }) {
 		if (filterId === 'RTW') {
-			console.log('getters: ', getters)
-
 			state.currentStyles = [...getters.readyToWear].sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)
 			state.activeFilter = {
 				filterId,
 				name: 'Ready to wear',
+				styleIds: state.currentStyles
+			}
+
+			return
+		}
+		if (filterId === 'ACC') {
+			state.currentStyles = [...getters.accessories].sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
+			state.activeFilter = {
+				filterId,
+				name: 'Accessories',
 				styleIds: state.currentStyles
 			}
 

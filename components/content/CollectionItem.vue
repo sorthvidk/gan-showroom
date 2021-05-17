@@ -13,19 +13,19 @@
 				v-lazy="imageUrl2"
 				:alt="imageName"
 			/>
-			<!-- <video
+			<video
 				autoplay
 				muted
 				loop
 				v-if="assets[1].type === 'video'"
 				:src="imageUrl2.src"
-			></video> -->
-			<lazy-video
+			></video>
+			<!-- <lazy-video
 				v-else
 				:src="imageUrl2.src"
 				:poster="greyPixel"
 				:attrs="{ loop: true, autoplay: true, muted: true }"
-			/>
+			/> -->
 		</div>
 		<p>{{ imageName }}</p>
 
