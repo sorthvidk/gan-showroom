@@ -175,57 +175,57 @@ export const mutations = {
 		let gl = state.allGroups.length
 
 		// run through assets, add to styles
-		for (var i = 0; i < al; i++) {
-			let asset = state.allMediaAssets[i]
-			let style = state.allStyles.find(e => e.styleId === asset.styleId)
-			// if (style && !style.assets) {
-			// 	style.assets = []
-			// }
-			if (style) style.assets = [...(style.assets || []), asset]
-			else if (window.GS_LOGS)
-				console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
-		}
+		// for (var i = 0; i < al; i++) {
+		// 	let asset = state.allMediaAssets[i]
+		// 	let style = state.allStyles.find(e => e.styleId === asset.styleId)
+		// 	// if (style && !style.assets) {
+		// 	// 	style.assets = []
+		// 	// }
+		// 	if (style) style.assets = [...(style.assets || []), asset]
+		// 	else if (window.GS_LOGS)
+		// 		console.warn('NO STYLE FOR ASSET | styleId: "' + asset.styleId + '"')
+		// }
 
 		//sort style assets to have onTop asset first in assets array
-		for (var j = 0; j < cl; j++) {
-			let style = state.allStyles[j]
+		// for (var j = 0; j < cl; j++) {
+		// let style = state.allStyles[j]
 
-			// quick fix - format groupId
-			state.allStyles[j].groupId = state.allStyles[j].groupId.toLowerCase()
+		// quick fix - format groupId
+		// state.allStyles[j].groupId = state.allStyles[j].groupId.toLowerCase()
 
-			if (!style.assets) {
-				style.assets = []
-			}
+		// if (!style.assets) {
+		// 	style.assets = []
+		// }
 
-			if (!style.assets.length) {
-				if (window.GS_LOGS) {
-					console.log(`Didn't find assets for: `, style)
-				}
-				// return
-			}
+		// if (!style.assets.length) {
+		// 	if (window.GS_LOGS) {
+		// 		console.log(`Didn't find assets for: `, style)
+		// 	}
+		// 	// return
+		// }
 
-			if (style.assets && style.assets.length === 0) {
-				style.assets.push({
-					assetId: getUniqueId(),
-					styleId: style.styleId,
-					type: 'image',
-					name: 'Asset pending',
-					aspect: 'portrait',
-					onTop: true,
-					visible: true,
-					defaultImageUrl: '/img/styles/dummy.jpg'
-				})
-			}
+		// if (style.assets && style.assets.length === 0) {
+		// 	style.assets.push({
+		// 		assetId: getUniqueId(),
+		// 		styleId: style.styleId,
+		// 		type: 'image',
+		// 		name: 'Asset pending',
+		// 		aspect: 'portrait',
+		// 		onTop: true,
+		// 		visible: true,
+		// 		defaultImageUrl: '/img/styles/dummy.jpg'
+		// 	})
+		// }
 
-			// is the style has an 'onTop', place it on top
-			if (style.assets.find(a => a.onTop)) {
-				style.assets = style.assets.sort((a, b) =>
-					a.onTop && !b.onTop ? -1 : 1
-				)
-			}
+		// // is the style has an 'onTop', place it on top
+		// if (style.assets.find(a => a.onTop)) {
+		// 	style.assets = style.assets.sort((a, b) =>
+		// 		a.onTop && !b.onTop ? -1 : 1
+		// 	)
+		// }
 
-			// style.onWishList = false
-		}
+		// style.onWishList = false
+		// }
 
 		state.referencedFilters = []
 
@@ -460,8 +460,6 @@ export const mutations = {
 
 	[SET_CURRENT_FILTER.mutation](state, { filterId, getters }) {
 		if (filterId === 'RTW') {
-			console.log('getters: ', getters)
-
 			state.currentStyles = [...getters.readyToWear].sort((a, b) =>
 				a.weight > b.weight ? -1 : 1
 			)

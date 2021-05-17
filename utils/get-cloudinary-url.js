@@ -4,9 +4,12 @@ export default function(cl, asset, tf = {}, pixelDensity = 2) {
 	let parseUrl
 
 	// if passed url is wrapped in an array, get the string value
-	const url = Array.isArray(asset.cloudinaryUrl)
-		? asset.cloudinaryUrl[0]
-		: asset.cloudinaryUrl
+	const url =
+		typeof asset === 'string'
+			? asset
+			: Array.isArray(asset.cloudinaryUrl)
+			? asset.cloudinaryUrl[0]
+			: asset.cloudinaryUrl
 
 	if (url) {
 		parseUrl = url.split('upload/')[1]

@@ -8,15 +8,15 @@ const assetsFolder = '../assets/content/collectionItems'
 
 json
 	.map(f => ({ ...f, retailPriceGBP: parseInt(f.retailPriceGBP) }))
-	.forEach(updatedPrice => {
-		glob(`${assetsFolder}/*${updatedPrice.styleId}*.json`, (er, [file]) => {
+	.forEach(updatedValues => {
+		glob(`${assetsFolder}/*${updatedValues.styleId}*.json`, (er, [file]) => {
 			if (!file) return
 
 			const oldJson = JSON.parse(fs.readFileSync(file, 'utf8'))
 
 			const newContent = {
 				...oldJson,
-				...updatedPrice
+				...updatedValues
 			}
 
 			// console.log(newContent)

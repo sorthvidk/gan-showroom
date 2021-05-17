@@ -48,6 +48,7 @@ import getOptimalProp from '~/utils/get-optimal-props'
 import resetZOrder from '~/utils/reset-z-order'
 import getAssetType from '~/utils/asset-type'
 import { lastElement } from '~/utils/array-helpers'
+import { isVideo } from '~/utils/is-video'
 
 export const state = () => ({
 	SHOW_WHOLESALE_PRICE: true, // for when the site is for PR purposes only (a.k.a. "is old")
@@ -315,32 +316,59 @@ export const actions = {
 	},
 
 	[OPEN_STYLE_CONTENT.action]({ commit, state, dispatch }, styleId) {
-		let listStyle = state.collection.allStyles.filter(
-			e => e.styleId === styleId
-		)[0]
+		let listStyle = state.collection.allStyles.find(e => e.styleId === styleId)
+
 		if (!listStyle || !listStyle.assets) return false
 
-		let content = []
-		let al = listStyle.assets.length
+		// let content = []
+		// let al = listStyle.assets.length
 
 		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
-		for (var i = al - 1; i >= 0; i--) {
-			let asset = listStyle.assets[i]
-
-			if (asset.visible) {
-				let type = getAssetType(asset)
-
-				content.push({
-					title: asset.name,
-					contentId: asset.assetId,
-					type: type,
-					canOverride: false,
-					windowProps: type.defaultWindowProps,
-					contentComponentProps: { asset: asset },
-					statusComponentProps: type.defaultStatusComponentProps
-				})
+		const content = [...listStyle.assets].reverse().map(asset => {
+			const mediaAsset = {
+				assetId: getUniqueId(),
+				cloudinaryUrl: asset,
+				onTop: false,
+				visible: true,
+				aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
+				type: isVideo(asset) ? 'video' : 'image',
+				styleId,
+				name: listStyle.name
 			}
-		}
+
+			// if (asset.visible) {
+			let type = getAssetType(mediaAsset)
+
+			return {
+				title: listStyle.name,
+				contentId: mediaAsset.assetId,
+				type: type,
+				canOverride: false,
+				windowProps: type.defaultWindowProps,
+				contentComponentProps: { asset: mediaAsset },
+				statusComponentProps: type.defaultStatusComponentProps
+			}
+			// }
+		})
+
+		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
+		// for (var i = al - 1; i >= 0; i--) {
+		// 	let asset = listStyle.assets[i]
+
+		// 	if (asset.visible) {
+		// 		let type = getAssetType(asset)
+
+		// 		content.push({
+		// 			title: asset.name,
+		// 			contentId: asset.assetId,
+		// 			type: type,
+		// 			canOverride: false,
+		// 			windowProps: type.defaultWindowProps,
+		// 			contentComponentProps: { asset: asset },
+		// 			statusComponentProps: type.defaultStatusComponentProps
+		// 		})
+		// 	}
+		// }
 
 		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
 		commit(OPEN_CONTENT.mutation, {
@@ -399,99 +427,99 @@ export const actions = {
 		commit(
 			'assistant/' + FETCH_ASSISTANT.mutation,
 			await getData(
-				require.context(`~/assets/content/assistant/`, false, /\.json$/)
+				require.context(`~/assets/mock/assistant/`, false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'exhibition/' + FETCH_EXHIBITION.mutation,
 		// 	await getData(
-		// 		require.context(`~/assets/content/exhibition/`, false, /\.json$/)
+		// 		require.context(`~/assets/mock/exhibition/`, false, /\.json$/)
 		// 	)
 		// )
 
 		// commit(
 		// 	'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
 		// 	await getData(
-		// 		require.context(`~/assets/content/exhibitionAssets/`, false, /\.json$/)
+		// 		require.context(`~/assets/mock/exhibitionAssets/`, false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
 			await getData(
-				require.context('~/assets/content/collectionItems/', false, /\.json$/)
+				require.context('~/assets/mock/collectionItems/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
 			await getData(
-				require.context('~/assets/content/collectionFilters/', false, /\.json$/)
+				require.context('~/assets/mock/collectionFilters/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
 			await getData(
-				require.context('~/assets/content/collectionGroups/', false, /\.json$/)
-			)
-		)
-
-		commit(
-			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
-			await getData(
-				require.context('~/assets/content/mediaAssets/', false, /\.json$/)
+				require.context('~/assets/mock/collectionGroups/', false, /\.json$/)
 			)
 		)
 
 		// commit(
+		// 	'collection/' + FETCH_COLLECTION_ASSETS.mutation,
+		// 	await getData(
+		// 		require.context('~/assets/mock/mediaAssets/', false, /\.json$/)
+		// 	)
+		// )
+
+		// commit(
 		// 	'assets/' + FETCH_FILMS.mutation,
-		// 	await getData(require.context('~/assets/content/films/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/mock/films/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_GANNIGIRLS.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/content/ganniGirls/', false, /\.json$/)
+		// 		require.context('~/assets/mock/ganniGirls/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,
 			await getData(
-				require.context('~/assets/content/lookBook/', false, /\.json$/)
+				require.context('~/assets/mock/lookBook/', false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'assets/' + FETCH_ANAS.mutation,
-		// 	await getData(require.context('~/assets/content/anas/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/mock/anas/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_DITTE.mutation,
-		// 	await getData(require.context('~/assets/content/ditte/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/mock/ditte/', false, /\.json$/))
 		// )
 
 		// commit(
 		// 	'assets/' + FETCH_ABOUT.mutation,
-		// 	await getData(require.context('~/assets/content/about/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/mock/about/', false, /\.json$/))
 		// )
 
 		commit(
 			'assets/' + FETCH_DESKTOP.mutation,
-			await getData(require.context('~/assets/content/desktop/', false, /\.json$/))
+			await getData(require.context('~/assets/mock/desktop/', false, /\.json$/))
 		)
 
 		// commit(
 		// 	'assets/' + FETCH_INTRO.mutation,
-		// 	await getData(require.context('~/assets/content/intro/', false, /\.json$/))
+		// 	await getData(require.context('~/assets/mock/intro/', false, /\.json$/))
 		// )
 
 		commit('assets/' + FETCH_GENERAL.mutation, {
 			data: await getData(
-				require.context('~/assets/content/general/', false, /\.json$/)
+				require.context('~/assets/mock/general/', false, /\.json$/)
 			),
 			rootState: state
 		})
@@ -499,65 +527,65 @@ export const actions = {
 		commit(
 			'user/' + FETCH_PASSWORDS.mutation,
 			await getData(
-				require.context('~/assets/content/passwords/', false, /\.json$/)
+				require.context('~/assets/mock/passwords/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'ganniFm/' + FETCH_SONGS.mutation,
-			await getData(require.context('~/assets/content/songs/', false, /\.json$/))
+			await getData(require.context('~/assets/mock/songs/', false, /\.json$/))
 		)
 
 		commit(
 			'utils/' + FETCH_VARIOUS.mutation,
-			await getData(require.context('~/assets/content/various/', false, /\.json$/))
+			await getData(require.context('~/assets/mock/various/', false, /\.json$/))
 		)
 
 		// commit(
 		// 	'audio/' + FETCH_SUBTITLES.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/content/subtitles/', false, /\.json$/)
+		// 		require.context('~/assets/mock/subtitles/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'assets/' + FETCH_DOWNLOADS.mutation,
 			await getData(
-				require.context('~/assets/content/downloads/', false, /\.json$/)
+				require.context('~/assets/mock/downloads/', false, /\.json$/)
 			)
 		)
 
 		// commit(
 		// 	'audio/' + FETCH_SCROLL_IMAGES.mutation,
 		// 	await getData(
-		// 		require.context('~/assets/content/scrollImages/', false, /\.json$/)
+		// 		require.context('~/assets/mock/scrollImages/', false, /\.json$/)
 		// 	)
 		// )
 
 		commit(
 			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
 			await getData(
-				require.context('~/assets/content/greenRoom/', false, /\.json$/)
+				require.context('~/assets/mock/greenRoom/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'afterparty/' + FETCH_AFTERPARTY.mutation,
 			await getData(
-				require.context('~/assets/content/afterparty/', false, /\.json$/)
+				require.context('~/assets/mock/afterparty/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'aboutGanni/' + FETCH_ABOUT_GANNI.mutation,
 			await getData(
-				require.context('~/assets/content/aboutGanni/', false, /\.json$/)
+				require.context('~/assets/mock/aboutGanni/', false, /\.json$/)
 			)
 		)
 
 		commit(
 			'fabrics/' + FETCH_FABRICS.mutation,
-			await getData(require.context('~/assets/content/fabrics/', false, /\.json$/))
+			await getData(require.context('~/assets/mock/fabrics/', false, /\.json$/))
 		)
 
 		console.log('NUXT SERVER INIT DONE')

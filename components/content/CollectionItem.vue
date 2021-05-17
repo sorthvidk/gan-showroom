@@ -8,18 +8,8 @@
 		<!-- <img :src="imageUrl.src" :alt="`An image of ${imageName}`" /> -->
 
 		<div v-if="!canvasHover && imageUrl2" class="collection-item__extra">
-			<img
-				v-if="assets[1].type === 'image'"
-				v-lazy="imageUrl2"
-				:alt="imageName"
-			/>
-			<video
-				autoplay
-				muted
-				loop
-				v-if="assets[1].type === 'video'"
-				:src="imageUrl2.src"
-			></video>
+			<img v-if="!isVideo(assets[1])" v-lazy="imageUrl2" :alt="imageName" />
+			<video autoplay muted loop v-else :src="imageUrl2.src"></video>
 		</div>
 		<p>{{ imageName }}</p>
 
@@ -33,10 +23,9 @@
 
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
-import capitalize from 'lodash/capitalize'
 
 import ResponsibleIcon from '~/components/content/ResponsibleIcon.vue'
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
@@ -46,6 +35,7 @@ import sendTracking from '~/utils/send-tracking'
 import { greyPixel } from '~/utils/placeholders'
 import { hoverEffect } from '~/components/transitions/hover'
 import displacementImage from '~/static/img/smiley-bw.png'
+import { isVideo } from '~/utils/is-video'
 
 export default {
 	name: 'collectionItem',
@@ -56,11 +46,10 @@ export default {
 	},
 	data: () => ({
 		greyPixel,
+		isVideo,
 	}),
 	computed: {
-		...mapState({
-			wishList: (state) => state.collection.wishList,
-		}),
+		...mapState('collection', ['wishList']),
 		imageUrl() {
 			if (!this.assets || !this.assets.length) {
 				return ''

@@ -132,8 +132,6 @@ export default {
 				.filter(([_, value]) => value && value !== 0)
 				.map(([key, value]) => [toCapitalizedWords(key), value])
 
-			console.log(nonZeroMeasurements)
-
 			const stringOutput = nonZeroMeasurements
 				.map(([key, value]) => `${key}: ${value}`)
 				.join('<br />')
