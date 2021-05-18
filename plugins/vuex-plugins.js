@@ -7,6 +7,7 @@ export default ({ store }) => {
 			key: `gannishowroom${manifest.version.replace(/\./g, '_')}`,
 			paths: [
 				'user.loggedIn',
+				'user.hasAuthenticated',
 				'user.cookiesAccepted',
 				'user.copyrightAccepted',
 				'user.hasDoneQuiz',

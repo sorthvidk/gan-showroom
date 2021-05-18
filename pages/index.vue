@@ -46,6 +46,8 @@
 		<transition name="slide-up">
 			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: hasDoneQuiz }" />
 		</transition>
+
+		<!-- <auth-popup v-if="!hasAuthenticated" /> -->
 	</div>
 </template>
 
@@ -82,6 +84,8 @@ import {
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
 	HAS_DONE_QUIZ,
+	LOGIN,
+	HAS_AUTHENTICATED,
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -105,7 +109,13 @@ export default {
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
-		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle', 'hasDoneQuiz']),
+		...mapState('user', [
+			'loggedIn',
+			'cookiesAccepted',
+			'idle',
+			'hasDoneQuiz',
+			'hasAuthenticated',
+		]),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
 	},
@@ -135,6 +145,8 @@ export default {
 			CURRENT_SCROLL.action,
 			SCREEN_SIZE.action,
 			HAS_DONE_QUIZ.action,
+			LOGIN.action,
+			HAS_AUTHENTICATED.action,
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 
@@ -181,7 +193,7 @@ export default {
 			this.nonidle()
 		})
 		document.body.addEventListener(
-			'click',
+			'mousemove',
 			() => {
 				setTimeout(this[USER_HAS_INTERACTED.action], 2000)
 			},
@@ -220,6 +232,10 @@ export default {
 			navigator.userAgent.indexOf('Chrome') == -1
 		) {
 			document.body.classList.add('safari')
+		}
+
+		if (!this.hasAuthenticated) {
+			this[LOGIN.action](false)
 		}
 	},
 }

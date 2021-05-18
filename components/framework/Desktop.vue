@@ -118,6 +118,7 @@ import {
 	// AUDIO_TRACK,
 	OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_TOGGLE,
+	HAS_AUTHENTICATED,
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -280,6 +281,7 @@ export default {
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
+		...mapActions('user', [HAS_AUTHENTICATED.action]),
 
 		// ...mapActions('audio', [AUDIO_TRACK.action]),
 

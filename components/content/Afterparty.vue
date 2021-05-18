@@ -1,5 +1,6 @@
 <template>
 	<div class="afterparty">
+		<auth-popup v-if="!hasAuthenticated" />
 		<div
 			v-for="(item, idx) in content"
 			:key="item.slug"
@@ -64,6 +65,7 @@ export default {
 	},
 	computed: {
 		...mapState('afterparty', ['items']),
+		...mapState('user', ['hasAuthenticated']),
 		content() {
 			return this.items
 				.map((item) => {
