@@ -20,6 +20,12 @@
 				v-if="assets[1].type === 'video'"
 				:src="imageUrl2.src"
 			></video>
+			<!-- <lazy-video
+				v-else
+				:src="imageUrl2.src"
+				:poster="greyPixel"
+				:attrs="{ loop: true, autoplay: true, muted: true }"
+			/> -->
 		</div>
 		<p>{{ imageName }}</p>
 
@@ -33,10 +39,9 @@
 
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT } from '~/model/constants'
 import CollectionItemModel from '~/model/collection-item'
-import capitalize from 'lodash/capitalize'
 
 import ResponsibleIcon from '~/components/content/ResponsibleIcon.vue'
 import VideoPlayer from '~/components/content/VideoPlayer.vue'
@@ -56,6 +61,7 @@ export default {
 	},
 	data: () => ({
 		greyPixel,
+		isHovered: false,
 	}),
 	computed: {
 		...mapState({
@@ -80,7 +86,7 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
-					width: window.innerWidth < 600 ? 320 : 720,
+					width: window.innerWidth < 600 ? 320 : 360,
 				}),
 				loading: this.greyPixel,
 			}
@@ -90,7 +96,7 @@ export default {
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.filter((e) => e.styleId === this.styleId).length > 0
+			return this.wishList.find((e) => e.styleId === this.styleId)
 		},
 	},
 	methods: {

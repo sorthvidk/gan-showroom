@@ -7,9 +7,7 @@
 		}"
 		@click="clickHandler"
 	>
-		<span>{{
-			name.replace('Accessories', 'ACC').replace('Shoes', 'FTW')
-		}}</span>
+		<span>{{ name }}</span>
 		<em>({{ count }})</em>
 	</button>
 </template>
