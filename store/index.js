@@ -539,6 +539,7 @@ export const actions = {
 		// 		require.context('~/assets/content/scrollImages/', false, /\.json$/)
 		// 	)
 		// )
+		//
 
 		commit(
 			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
