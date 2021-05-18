@@ -71,7 +71,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import { LOGIN } from '~/model/constants'
+import { LOGIN, HAS_AUTHENTICATED } from '~/model/constants'
 import hash from 'hash.js'
 import FullpageSlideShow from '~/components/content/FullpageSlideShow.vue'
 import LoginAsterixes from '~/components/content/LoginAsterixes.vue'
@@ -95,7 +95,7 @@ export default {
 		...mapState('user', ['loggedIn', 'passwords', 'cookiesAccepted']),
 	},
 	methods: {
-		...mapActions('user', [LOGIN.action]),
+		...mapActions('user', [LOGIN.action, HAS_AUTHENTICATED.action]),
 
 		updateValidState() {
 			const passwordUsed = hash.sha256().update(this.pwd).digest('hex')
@@ -106,6 +106,13 @@ export default {
 
 			setTimeout(() => {
 				this[LOGIN.action](authorized)
+
+				/**
+				 * Temporary double-authentication,
+				 * There was an old password still running on PS22 and
+				 * in order to force users to logout this was added:
+				 */
+				this[HAS_AUTHENTICATED.action](authorized)
 			}, 3000)
 
 			this.valid = authorized

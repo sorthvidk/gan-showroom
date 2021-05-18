@@ -47,7 +47,7 @@
 			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: hasDoneQuiz }" />
 		</transition>
 
-		<auth-popup v-if="!hasAuthenticated" />
+		<!-- <auth-popup v-if="!hasAuthenticated" /> -->
 	</div>
 </template>
 
@@ -68,7 +68,6 @@ import PreloadImages from '~/components/content/PreloadImages.vue'
 import Quiz from '~/components/content/Quiz.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import TextCursor from '~/components/elements/TextCursor.vue'
-import AuthPopup from '~/components/content/AuthPopup.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -85,6 +84,8 @@ import {
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
 	HAS_DONE_QUIZ,
+	LOGIN,
+	HAS_AUTHENTICATED,
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -101,7 +102,6 @@ export default {
 		Quiz,
 		MusicPlayer,
 		TextCursor,
-		AuthPopup,
 	},
 	data: () => ({
 		currentAudioIdx: 0,
@@ -145,6 +145,8 @@ export default {
 			CURRENT_SCROLL.action,
 			SCREEN_SIZE.action,
 			HAS_DONE_QUIZ.action,
+			LOGIN.action,
+			HAS_AUTHENTICATED.action,
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 
@@ -191,7 +193,7 @@ export default {
 			this.nonidle()
 		})
 		document.body.addEventListener(
-			'click',
+			'mousemove',
 			() => {
 				setTimeout(this[USER_HAS_INTERACTED.action], 2000)
 			},
@@ -230,6 +232,10 @@ export default {
 			navigator.userAgent.indexOf('Chrome') == -1
 		) {
 			document.body.classList.add('safari')
+		}
+
+		if (!this.hasAuthenticated) {
+			this[LOGIN.action](false)
 		}
 	},
 }
