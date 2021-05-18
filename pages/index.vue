@@ -46,6 +46,8 @@
 		<transition name="slide-up">
 			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: hasDoneQuiz }" />
 		</transition>
+
+		<auth-popup v-if="!hasAuthenticated" />
 	</div>
 </template>
 
@@ -66,6 +68,7 @@ import PreloadImages from '~/components/content/PreloadImages.vue'
 import Quiz from '~/components/content/Quiz.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import TextCursor from '~/components/elements/TextCursor.vue'
+import AuthPopup from '~/components/content/AuthPopup.vue'
 
 import getShortUrl from '~/utils/get-short-url'
 import { debounce } from '~/utils/debounce'
@@ -98,6 +101,7 @@ export default {
 		Quiz,
 		MusicPlayer,
 		TextCursor,
+		AuthPopup,
 	},
 	data: () => ({
 		currentAudioIdx: 0,
@@ -105,7 +109,13 @@ export default {
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
-		...mapState('user', ['loggedIn', 'cookiesAccepted', 'idle', 'hasDoneQuiz']),
+		...mapState('user', [
+			'loggedIn',
+			'cookiesAccepted',
+			'idle',
+			'hasDoneQuiz',
+			'hasAuthenticated',
+		]),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
 	},

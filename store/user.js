@@ -10,7 +10,8 @@ import {
 	USER_HAS_INTERACTED,
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
-	HAS_DONE_QUIZ
+	HAS_DONE_QUIZ,
+	HAS_AUTHENTICATED
 } from '~/model/constants'
 
 export const state = () => ({
@@ -30,7 +31,9 @@ export const state = () => ({
 	currentScroll: 0,
 	screenSize: { width: 0, height: 0 },
 
-	hasDoneQuiz: false
+	hasDoneQuiz: false,
+
+	hasAuthenticated: false
 })
 
 export const mutations = {
@@ -79,6 +82,10 @@ export const mutations = {
 
 	[HAS_DONE_QUIZ.mutation](state, data) {
 		state.hasDoneQuiz = data
+	},
+
+	[HAS_AUTHENTICATED.mutation](state, data) {
+		state.hasAuthenticated = data
 	}
 }
 
@@ -122,5 +129,9 @@ export const actions = {
 
 	[HAS_DONE_QUIZ.action]({ commit }, data) {
 		commit(HAS_DONE_QUIZ.mutation, data)
+	},
+
+	[HAS_AUTHENTICATED.action]({ commit }, data) {
+		commit(HAS_AUTHENTICATED.mutation, data)
 	}
 }
