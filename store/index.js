@@ -481,7 +481,9 @@ export const actions = {
 
 		commit(
 			'assets/' + FETCH_DESKTOP.mutation,
-			await getData(require.context('~/assets/content/desktop/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/desktop/', false, /\.json$/)
+			)
 		)
 
 		// commit(
@@ -505,12 +507,16 @@ export const actions = {
 
 		commit(
 			'ganniFm/' + FETCH_SONGS.mutation,
-			await getData(require.context('~/assets/content/songs/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/songs/', false, /\.json$/)
+			)
 		)
 
 		commit(
 			'utils/' + FETCH_VARIOUS.mutation,
-			await getData(require.context('~/assets/content/various/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/various/', false, /\.json$/)
+			)
 		)
 
 		// commit(
@@ -557,7 +563,9 @@ export const actions = {
 
 		commit(
 			'fabrics/' + FETCH_FABRICS.mutation,
-			await getData(require.context('~/assets/content/fabrics/', false, /\.json$/))
+			await getData(
+				require.context('~/assets/content/fabrics/', false, /\.json$/)
+			)
 		)
 
 		console.log('NUXT SERVER INIT DONE')
