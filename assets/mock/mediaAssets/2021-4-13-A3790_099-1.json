@@ -1,1 +1,14 @@
-{"assetId":"yvqvvjdas","cloudinaryUrl":"https://res.cloudinary.com/dd6fpxydm/image/upload/v1620674960/21.4/packs/A3790_5745_099.jpg","onTop":false,"visible":true,"aspect":"portrait","type":"image","styleId":"A3790_099","name":"A3790_099_Swimsuit","groupId":"drop-1","filters":"Swimwear"}
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621107187/21.4/packs/A3790_5788_943.jpg"
+  ],
+  "assetId": "yvqvvjdas",
+  "name": "A3790_099_Swimsuit",
+  "styleId": "A3790_099",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Swimwear"
+}

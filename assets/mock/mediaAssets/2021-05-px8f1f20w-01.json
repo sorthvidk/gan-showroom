@@ -1,0 +1,14 @@
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621086003/21.4/packs/S1751_4682_099_2.jpg"
+  ],
+  "assetId": "px8f1f20w 01",
+  "name": "S1751_099_Boots",
+  "styleId": "S1751_099",
+  "visible": true,
+  "onTop": false,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}

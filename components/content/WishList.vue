@@ -71,17 +71,17 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { REMOVE_FROM_WISHLIST } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import SingleImage from '~/components/content/SingleImage.vue'
 import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
-import addMediaChangeListener from '~/utils/media-change'
+// import addMediaChangeListener from '~/utils/media-change'
 import WindowContent from '~/components/framework/WindowContent.vue'
 import VueBar from '~/components/content/VueBar.vue'
 import StyleInfo from '~/components/content/StyleInfo.vue'
-import { firstIndex } from '~/utils/array-helpers'
+// import { firstIndex } from '~/utils/array-helpers'
 
 export default {
 	extends: WindowContent,

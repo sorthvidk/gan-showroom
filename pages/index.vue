@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import addMediaChangeListener from '~/utils/media-change'
-import ViewportSizes from '~/model/viewport-sizes'
+// import ViewportSizes from '~/model/viewport-sizes'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
@@ -69,8 +69,8 @@ import Quiz from '~/components/content/Quiz.vue'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import TextCursor from '~/components/elements/TextCursor.vue'
 
-import getShortUrl from '~/utils/get-short-url'
-import { debounce } from '~/utils/debounce'
+// import getShortUrl from '~/utils/get-short-url'
+// import { debounce } from '~/utils/debounce'
 // index
 import {
 	INDEX_COLLECTION_DATA,
@@ -86,6 +86,7 @@ import {
 	HAS_DONE_QUIZ,
 	LOGIN,
 	HAS_AUTHENTICATED,
+	REMOVE_FROM_WISHLIST,
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -118,6 +119,7 @@ export default {
 		]),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
+		...mapState('collection', ['wishList', 'allStyles']),
 	},
 	head() {
 		return {
@@ -149,6 +151,7 @@ export default {
 			HAS_AUTHENTICATED.action,
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
+		...mapActions('collection', [REMOVE_FROM_WISHLIST.action]),
 
 		onidle() {
 			this[IDLE.action](true)
@@ -237,6 +240,12 @@ export default {
 		if (!this.hasAuthenticated) {
 			this[LOGIN.action](false)
 		}
+
+		this.wishList.forEach(({ styleId }) => {
+			if (!this.allStyles.find((s) => s.styleId === styleId)) {
+				this[REMOVE_FROM_WISHLIST.action](styleId)
+			}
+		})
 	},
 }
 </script>
