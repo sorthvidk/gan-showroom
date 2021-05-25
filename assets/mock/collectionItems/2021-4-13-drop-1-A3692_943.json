@@ -18,7 +18,7 @@
   "name": "A3692_943_Intimates Bottom",
   "styleId": "A3692_943",
   "sleeveLength": 0,
-  "retailPriceGBP": 30,
+  "retailPriceGBP": 75,
   "programName": "Rayon Underwear",
   "hip": 0,
   "responsible": false,
@@ -30,7 +30,8 @@
   "bottomWidth": 0,
   "filters": [
     "rtw9",
-    "misc4"
+    "misc4",
+    "rtw12"
   ],
   "sizeRange": "S, M, L",
   "retailPriceEUR": 85,

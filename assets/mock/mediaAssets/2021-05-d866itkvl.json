@@ -1,0 +1,14 @@
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1621074411/21.4/packs/S1681_4880_436.jpg"
+  ],
+  "assetId": "d866itkvl",
+  "name": "S1681_436_Boots",
+  "styleId": "S1681_436",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Shoes"
+}
