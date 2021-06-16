@@ -55,6 +55,7 @@
 import { mapActions, mapState } from 'vuex'
 
 import addMediaChangeListener from '~/utils/media-change'
+import sendTracking from '~/utils/send-tracking'
 // import ViewportSizes from '~/model/viewport-sizes'
 
 import Login from '~/components/framework/Login.vue'
@@ -87,6 +88,7 @@ import {
 	LOGIN,
 	HAS_AUTHENTICATED,
 	REMOVE_FROM_WISHLIST,
+	OPEN_STYLE_CONTENT
 } from '~/model/constants'
 import { nextIndex } from '~/utils/array-helpers'
 
@@ -102,11 +104,11 @@ export default {
 		PreloadImages,
 		Quiz,
 		MusicPlayer,
-		TextCursor,
+		TextCursor
 	},
 	data: () => ({
 		currentAudioIdx: 0,
-		pageClicked: 0,
+		pageClicked: 0
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
@@ -115,30 +117,30 @@ export default {
 			'cookiesAccepted',
 			'idle',
 			'hasDoneQuiz',
-			'hasAuthenticated',
+			'hasAuthenticated'
 		]),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
 		...mapState('ganniFm', ['songs']),
-		...mapState('collection', ['wishList', 'allStyles']),
+		...mapState('collection', ['wishList', 'allStyles'])
 	},
 	head() {
 		return {
 			script: [
-				{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+				{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
 			],
 			link: [
 				{
 					rel: 'stylesheet',
 					type: 'text/css',
 					href:
-						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext',
-				},
+						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
+				}
 			],
-			title: 'GANNI Space',
+			title: 'GANNI Space'
 		}
 	},
 	methods: {
-		...mapActions([RESET_STATE.action]),
+		...mapActions([RESET_STATE.action, OPEN_STYLE_CONTENT.action]),
 		...mapActions('user', [
 			KEYPRESS.action,
 			IDLE.action,
@@ -148,7 +150,7 @@ export default {
 			SCREEN_SIZE.action,
 			HAS_DONE_QUIZ.action,
 			LOGIN.action,
-			HAS_AUTHENTICATED.action,
+			HAS_AUTHENTICATED.action
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
 		...mapActions('collection', [REMOVE_FROM_WISHLIST.action]),
@@ -173,12 +175,21 @@ export default {
 		onQuizDone() {
 			this[HAS_DONE_QUIZ.action](true)
 		},
+		parseUrl(param, cb, err) {
+			const query = new URL(window.location.href).searchParams.get(param)
+			if (!query) {
+				if (err) err('No search query')
+				return
+			}
+
+			cb(query)
+		}
 	},
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
 		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
-		this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
+		// this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
 
 		this.onMediaChange(window.innerWidth <= 768) // todo: ugly way of init
 		addMediaChangeListener(
@@ -187,7 +198,7 @@ export default {
 		)
 
 		window.addEventListener('keyup', this[KEYPRESS.action])
-		window.addEventListener('keydown', (event) => {
+		window.addEventListener('keydown', event => {
 			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
 				this[RESET_STATE.action](event)
 			}
@@ -205,7 +216,7 @@ export default {
 
 		// document.body.addEventListener('mousemove', this.nonidle.bind(this))
 
-		window.addEventListener('mousemove', (event) => {
+		window.addEventListener('mousemove', event => {
 			// debounce(() => {
 			this.nonidle()
 			this[MOUSEMOVE.action](event)
@@ -220,7 +231,7 @@ export default {
 		const setScreenSize = () => {
 			this[SCREEN_SIZE.action]({
 				width: window.innerWidth,
-				height: window.innerHeight,
+				height: window.innerHeight
 			})
 		}
 		setScreenSize()
@@ -241,11 +252,35 @@ export default {
 			this[LOGIN.action](false)
 		}
 
+		/**
+		 * rm old styles from wishlist
+		 */
 		this.wishList.forEach(({ styleId }) => {
-			if (!this.allStyles.find((s) => s.styleId === styleId)) {
+			if (!this.allStyles.find(s => s.styleId === styleId)) {
 				this[REMOVE_FROM_WISHLIST.action](styleId)
 			}
 		})
-	},
+
+		/**
+		 * Open a single style if the url contains a query with a styleId
+		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135
+		 */
+		this.parseUrl('q', param => {
+			const isStyle = this.allStyles.find(style => style.styleId === param)
+
+			if (!isStyle) {
+				console.error(
+					`The query string: "${param}" is not an existing style. No style to open.`
+				)
+				return
+			}
+
+			if (param && isStyle) {
+				sendTracking('Product click', param)
+
+				this[OPEN_STYLE_CONTENT.action](param)
+			}
+		})
+	}
 }
 </script>
