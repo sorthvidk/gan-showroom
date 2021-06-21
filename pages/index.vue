@@ -248,19 +248,6 @@ export default {
 			document.body.classList.add('safari')
 		}
 
-		if (!this.hasAuthenticated) {
-			this[LOGIN.action](false)
-		}
-
-		/**
-		 * rm old styles from wishlist
-		 */
-		this.wishList.forEach(({ styleId }) => {
-			if (!this.allStyles.find(s => s.styleId === styleId)) {
-				this[REMOVE_FROM_WISHLIST.action](styleId)
-			}
-		})
-
 		/**
 		 * Open a single style if the url contains a query with a styleId
 		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135

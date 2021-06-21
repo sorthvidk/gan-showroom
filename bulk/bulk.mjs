@@ -15,7 +15,7 @@ const assetFolder = `../assets/${OUT_FOLDER}`
 // helpers
 const date = new Date()
 const dateString = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
-const parseFalse = x => x === 'FALSK' || x === false
+const parseFalse = x => x !== undefined && (x === 'FALSK' || x === false)
 function clean(obj) {
 	for (var propName in obj) {
 		if (obj[propName] === null || obj[propName] === undefined) {

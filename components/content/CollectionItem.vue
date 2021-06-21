@@ -18,7 +18,8 @@
 				muted
 				loop
 				v-if="assets[1].type === 'video'"
-				:src="imageUrl2.src"
+				:data-src="imageUrl2.src"
+				ref="video"
 			></video>
 			<!-- <lazy-video
 				v-else
@@ -36,7 +37,6 @@
 		</span>
 	</button>
 </template>
-
 
 <script>
 import { mapActions, mapState } from 'vuex'
@@ -57,15 +57,15 @@ export default {
 	components: { ResponsibleIcon, VideoPlayer },
 	props: {
 		...CollectionItemModel,
-		canvasHover: { type: Boolean, default: false },
+		canvasHover: { type: Boolean, default: false }
 	},
 	data: () => ({
 		greyPixel,
-		isHovered: false,
+		isHovered: false
 	}),
 	computed: {
 		...mapState({
-			wishList: (state) => state.collection.wishList,
+			wishList: state => state.collection.wishList
 		}),
 		imageUrl() {
 			if (!this.assets || !this.assets.length) {
@@ -74,9 +74,9 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
-					width: window.innerWidth < 600 ? 320 : 720,
+					width: window.innerWidth < 600 ? 320 : 720
 				}),
-				loading: this.greyPixel,
+				loading: this.greyPixel
 			}
 		},
 		imageUrl2() {
@@ -86,9 +86,9 @@ export default {
 
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
-					width: window.innerWidth < 600 ? 320 : 360,
+					width: window.innerWidth < 600 ? 320 : 360
 				}),
-				loading: this.greyPixel,
+				loading: this.greyPixel
 			}
 		},
 		imageName() {
@@ -96,8 +96,8 @@ export default {
 			return this.name + " | 0 assets, can't open"
 		},
 		onWishList() {
-			return this.wishList.find((e) => e.styleId === this.styleId)
-		},
+			return this.wishList.find(e => e.styleId === this.styleId)
+		}
 	},
 	methods: {
 		...mapActions([OPEN_STYLE_CONTENT.action]),
@@ -107,7 +107,7 @@ export default {
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 
 			// console.log(this.assets)
-		},
+		}
 	},
 	mounted() {
 		if (this.canvasHover && this.imageUrl2) {
@@ -117,11 +117,23 @@ export default {
 				image1: this.imageUrl.src,
 				image2: this.imageUrl2.src,
 				displacementImage,
-				intensity: 0.2,
+				intensity: 0.2
 				// speedIn: 0.6,
 				// speedOut: 0.6,
 			})
 		}
-	},
+
+		let callback = ([entry], observer) => {
+			if (entry.isIntersecting) {
+				console.log(this.imageUrl2.src)
+				entry.target.src = this.imageUrl2.src
+				observer.unobserve(entry.target)
+			}
+		}
+		if (this.$refs['video']) {
+			const observer = new IntersectionObserver(callback, { threshold: 0 })
+			observer.observe(this.$refs['video'])
+		}
+	}
 }
 </script>
