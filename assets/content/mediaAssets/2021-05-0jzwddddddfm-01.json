@@ -1,0 +1,14 @@
+{
+  "cloudinaryUrl": [
+    "https://res.cloudinary.com/dd6fpxydm/image/upload/v1622210607/21.4/packs/S1786_4868_99.jpg"
+  ],
+  "assetId": "0jzwddddddfm 01",
+  "name": "S1786_4_Boots",
+  "styleId": "S1786_4",
+  "visible": true,
+  "onTop": true,
+  "aspect": "portrait",
+  "type": "image",
+  "groupId": "drop-1",
+  "filters": "Denim"
+}
