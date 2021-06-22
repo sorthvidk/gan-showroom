@@ -29,6 +29,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@nuxt/content": "^1.14.0",
 		"@nuxtjs/gtm": "^2.2.3",
 		"@nuxtjs/markdownit": "^1.2.6",
 		"@nuxtjs/svg-sprite": "^0.5.2",
