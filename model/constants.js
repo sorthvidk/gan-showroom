@@ -117,3 +117,5 @@ export const SCREEN_SIZE = create('SCREEN_SIZE')
 export const HAS_DONE_QUIZ = create('HAS_DONE_QUIZ')
 
 export const TEXT_CURSOR = create('TEXT_CURSOR')
+
+export const HAS_AUTHENTICATED = create('HAS_AUTHENTICATED')

@@ -1,11 +1,11 @@
 <template>
 	<div class="style-info">
-		<span v-if="responsible || reRunner" class="responsible">
+		<span v-if="responsible" class="responsible">
 			<div v-for="_ in 6" :key="`banner-item${_}`">
 				<svg-icon v-if="responsible" name="ganni-smiley--inv" />
 				{{ responsible ? 'responsible&nbsp;&nbsp;' : '' }}
-				<svg-icon v-if="reRunner" name="ganni-smiley--inv" />
-				{{ reRunner ? 're-runner&nbsp;&nbsp;' : '' }}
+				<!-- <svg-icon v-if="reRunner" name="ganni-smiley--inv" />
+				{{ reRunner ? 're-runner&nbsp;&nbsp;' : '' }} -->
 			</div>
 		</span>
 
@@ -90,8 +90,8 @@ export default {
 	props: {
 		item: {
 			type: Object,
-			default: () => ({}),
-		},
+			default: () => ({})
+		}
 	},
 	computed: {
 		...mapState(['SHOW_WHOLESALE_PRICE']),
@@ -115,13 +115,13 @@ export default {
 				'height',
 				'length',
 				'width',
-				'heelHeight',
+				'heelHeight'
 			]
 
-			const capitalize = (word) =>
+			const capitalize = word =>
 				word.charAt(0).toUpperCase() + word.substring(1)
 
-			const toCapitalizedWords = (name) => {
+			const toCapitalizedWords = name => {
 				var words = name.match(/[A-Za-z][a-z]*/g) || []
 
 				return words.map(capitalize).join(' ')
@@ -132,12 +132,14 @@ export default {
 				.filter(([_, value]) => value && value !== 0)
 				.map(([key, value]) => [toCapitalizedWords(key), value])
 
+			// console.log(nonZeroMeasurements)
+
 			const stringOutput = nonZeroMeasurements
 				.map(([key, value]) => `${key}: ${value}`)
 				.join('<br />')
 
 			return stringOutput
-		},
-	},
+		}
+	}
 }
 </script>

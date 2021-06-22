@@ -83,11 +83,11 @@ export default {
 		type: [Boolean, String],
 		default: false
 	},
-	weight: {
-		type: Number
-	},
 	groupId: {
 		type: String
+	},
+	weight: {
+		type: Number
 	},
 	sizeRange: {
 		type: String
@@ -96,6 +96,9 @@ export default {
 		type: Number
 	},
 	waist: {
+		type: Number
+	},
+	hip: {
 		type: Number
 	},
 	bottomWidth: {
@@ -113,23 +116,14 @@ export default {
 	height: {
 		type: Number
 	},
-	width: {
+	length: {
 		type: Number
 	},
-	length: {
+	width: {
 		type: Number
 	},
 	heelHeight: {
 		type: Number
-	},
-	retailRMB: {
-		type: Number
-	},
-	['re-runner']: {
-		type: Boolean
-	},
-	slug: {
-		type: String
 	},
 	wholesalePriceGBP: {
 		type: Number
@@ -137,7 +131,13 @@ export default {
 	retailPriceGBP: {
 		type: Number
 	},
-	hip: {
+	retailRMB: {
 		type: Number
+	},
+	slug: {
+		type: String
+	},
+	['re-runner']: {
+		type: Boolean
 	}
 }

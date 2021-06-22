@@ -1,26 +1,16 @@
 import {
 	RESET_STATE,
-	FETCH_EXHIBITION,
-	FETCH_EXHIBITION_ASSETS,
 	FETCH_COLLECTION_ITEMS,
 	FETCH_COLLECTION_GROUPS,
 	FETCH_COLLECTION_FILTERS,
 	FETCH_COLLECTION_ASSETS,
-	FETCH_INTRO,
-	FETCH_FILMS,
 	FETCH_SONGS,
-	FETCH_GANNIGIRLS,
 	FETCH_LOOKBOOK,
 	FETCH_GENERAL,
-	FETCH_ANAS,
-	FETCH_ABOUT,
 	FETCH_ASSISTANT,
 	FETCH_DESKTOP,
-	FETCH_DITTE,
 	FETCH_VARIOUS,
-	FETCH_SUBTITLES,
 	FETCH_DOWNLOADS,
-	FETCH_SCROLL_IMAGES,
 	TOPMOST_WINDOW,
 	UPDATE_WINDOW,
 	CLOSE_WINDOW,
@@ -414,178 +404,85 @@ export const actions = {
 
 	// FETCH ALL CONTENT!
 
-	async nuxtServerInit({ commit, dispatch, state }) {
-		const getData = async req => {
-			let files = await req
-			return files.keys().map(key => {
-				let res = files(key)
-				res.slug = key.slice(2, -5)
-				return res
-			})
-		}
+	async nuxtServerInit({ commit, state }, { $content }) {
+		await commit(
+			'ganniFm/' + FETCH_SONGS.mutation,
+			await $content('songs').fetch()
+		)
 
-		commit(
+		await commit(
 			'assistant/' + FETCH_ASSISTANT.mutation,
-			await getData(
-				require.context(`~/assets/mock/assistant/`, false, /\.json$/)
-			)
+			await $content('assistant').fetch()
 		)
 
-		// commit(
-		// 	'exhibition/' + FETCH_EXHIBITION.mutation,
-		// 	await getData(
-		// 		require.context(`~/assets/mock/exhibition/`, false, /\.json$/)
-		// 	)
-		// )
-
-		// commit(
-		// 	'exhibition/' + FETCH_EXHIBITION_ASSETS.mutation,
-		// 	await getData(
-		// 		require.context(`~/assets/mock/exhibitionAssets/`, false, /\.json$/)
-		// 	)
-		// )
-
-		commit(
+		await commit(
 			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
-			await getData(
-				require.context('~/assets/mock/collectionItems/', false, /\.json$/)
-			)
+			await $content('collectionItems').fetch()
 		)
 
-		commit(
+		await commit(
 			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
-			await getData(
-				require.context('~/assets/mock/collectionFilters/', false, /\.json$/)
-			)
+			await $content('collectionFilters').fetch()
 		)
 
-		commit(
+		await commit(
 			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
-			await getData(
-				require.context('~/assets/mock/collectionGroups/', false, /\.json$/)
-			)
+			await $content('collectionGroups').fetch()
 		)
 
-		// commit(
-		// 	'collection/' + FETCH_COLLECTION_ASSETS.mutation,
-		// 	await getData(
-		// 		require.context('~/assets/mock/mediaAssets/', false, /\.json$/)
-		// 	)
-		// )
+		await commit(
+			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
+			await $content('mediaAssets').fetch()
+		)
 
-		// commit(
-		// 	'assets/' + FETCH_FILMS.mutation,
-		// 	await getData(require.context('~/assets/mock/films/', false, /\.json$/))
-		// )
-
-		// commit(
-		// 	'assets/' + FETCH_GANNIGIRLS.mutation,
-		// 	await getData(
-		// 		require.context('~/assets/mock/ganniGirls/', false, /\.json$/)
-		// 	)
-		// )
-
-		commit(
+		await commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,
-			await getData(
-				require.context('~/assets/mock/lookBook/', false, /\.json$/)
-			)
+			await $content('lookBook').fetch()
 		)
 
-		// commit(
-		// 	'assets/' + FETCH_ANAS.mutation,
-		// 	await getData(require.context('~/assets/mock/anas/', false, /\.json$/))
-		// )
-
-		// commit(
-		// 	'assets/' + FETCH_DITTE.mutation,
-		// 	await getData(require.context('~/assets/mock/ditte/', false, /\.json$/))
-		// )
-
-		// commit(
-		// 	'assets/' + FETCH_ABOUT.mutation,
-		// 	await getData(require.context('~/assets/mock/about/', false, /\.json$/))
-		// )
-
-		commit(
+		await commit(
 			'assets/' + FETCH_DESKTOP.mutation,
-			await getData(require.context('~/assets/mock/desktop/', false, /\.json$/))
+			await $content('desktop').fetch()
 		)
 
-		// commit(
-		// 	'assets/' + FETCH_INTRO.mutation,
-		// 	await getData(require.context('~/assets/mock/intro/', false, /\.json$/))
-		// )
-
-		commit('assets/' + FETCH_GENERAL.mutation, {
-			data: await getData(
-				require.context('~/assets/mock/general/', false, /\.json$/)
-			),
+		await commit('assets/' + FETCH_GENERAL.mutation, {
+			data: await $content('general').fetch(),
 			rootState: state
 		})
 
-		commit(
+		await commit(
 			'user/' + FETCH_PASSWORDS.mutation,
-			await getData(
-				require.context('~/assets/mock/passwords/', false, /\.json$/)
-			)
+			await $content('passwords').fetch()
 		)
 
-		commit(
-			'ganniFm/' + FETCH_SONGS.mutation,
-			await getData(require.context('~/assets/mock/songs/', false, /\.json$/))
-		)
-
-		commit(
+		await commit(
 			'utils/' + FETCH_VARIOUS.mutation,
-			await getData(require.context('~/assets/mock/various/', false, /\.json$/))
+			await $content('various').fetch()
 		)
 
-		// commit(
-		// 	'audio/' + FETCH_SUBTITLES.mutation,
-		// 	await getData(
-		// 		require.context('~/assets/mock/subtitles/', false, /\.json$/)
-		// 	)
-		// )
-
-		commit(
+		await commit(
 			'assets/' + FETCH_DOWNLOADS.mutation,
-			await getData(
-				require.context('~/assets/mock/downloads/', false, /\.json$/)
-			)
+			await $content('downloads').fetch()
 		)
 
-		// commit(
-		// 	'audio/' + FETCH_SCROLL_IMAGES.mutation,
-		// 	await getData(
-		// 		require.context('~/assets/mock/scrollImages/', false, /\.json$/)
-		// 	)
-		// )
-
-		commit(
+		await commit(
 			'greenRoom/' + FETCH_GREEN_ROOM.mutation,
-			await getData(
-				require.context('~/assets/mock/greenRoom/', false, /\.json$/)
-			)
+			await $content('greenRoom').fetch()
 		)
 
-		commit(
-			'afterparty/' + FETCH_AFTERPARTY.mutation,
-			await getData(
-				require.context('~/assets/mock/afterparty/', false, /\.json$/)
-			)
-		)
-
-		commit(
+		await commit(
 			'aboutGanni/' + FETCH_ABOUT_GANNI.mutation,
-			await getData(
-				require.context('~/assets/mock/aboutGanni/', false, /\.json$/)
-			)
+			await $content('aboutGanni').fetch()
 		)
 
-		commit(
+		await commit(
 			'fabrics/' + FETCH_FABRICS.mutation,
-			await getData(require.context('~/assets/mock/fabrics/', false, /\.json$/))
+			await $content('fabrics').fetch()
+		)
+
+		await commit(
+			'afterparty/' + FETCH_AFTERPARTY.mutation,
+			await $content('afterparty').fetch()
 		)
 
 		console.log('NUXT SERVER INIT DONE')

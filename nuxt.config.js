@@ -88,6 +88,7 @@ export default {
 	 ** Nuxt.js modules
 	 */
 	modules: [
+		'@nuxt/content',
 		'@nuxtjs/svg-sprite',
 		'@nuxtjs/markdownit',
 		[
@@ -128,5 +129,8 @@ export default {
 			}
 		},
 		vendor: ['vue-vimeo-player']
+	},
+	content: {
+		dir: 'assets/mock'
 	}
 }

@@ -2,7 +2,6 @@
 	<nuxt v-if="rehydrated" />
 </template>
 
-
 <script>
 import { mapState } from 'vuex'
 

@@ -471,6 +471,18 @@ export const mutations = {
 
 			return
 		}
+		if (filterId === 'ACC') {
+			state.currentStyles = [...getters.accessories].sort((a, b) =>
+				a.weight > b.weight ? -1 : 1
+			)
+			state.activeFilter = {
+				filterId,
+				name: 'Accessories',
+				styleIds: state.currentStyles
+			}
+
+			return
+		}
 
 		if (!state.activeGroup) {
 			state.currentStyles = state.allStyles
