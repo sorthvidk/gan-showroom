@@ -1,23 +1,31 @@
 <template>
 	<button class="collection-item" @click.stop="onItemClick" ref="parent">
 		<img
-			v-if="!canvasHover"
-			v-lazy="imageUrl"
+			v-if="!canvasHover && !this.isVideo(imageUrl.src)"
+			v-lazy="imageUrl.src"
 			:alt="`An image of ${imageName}`"
 		/>
+		<video
+			autoplay
+			muted
+			loop
+			v-else
+			:data-src="imageUrl.src"
+			ref="video"
+		></video>
 		<!-- <img :src="imageUrl.src" :alt="`An image of ${imageName}`" /> -->
 
 		<div v-if="!canvasHover && imageUrl2" class="collection-item__extra">
 			<img
-				v-if="assets[1].type === 'image'"
-				v-lazy="imageUrl2"
+				v-if="!this.isVideo(imageUrl2.src)"
+				v-lazy="imageUrl2.src"
 				:alt="imageName"
 			/>
 			<video
 				autoplay
 				muted
 				loop
-				v-if="assets[1].type === 'video'"
+				v-else
 				:data-src="imageUrl2.src"
 				ref="video"
 			></video>
@@ -62,35 +70,25 @@ export default {
 	},
 	data: () => ({
 		greyPixel,
-		isHovered: false
+		isHovered: false,
+		isVideo
 	}),
 	computed: {
-		...mapState({
-			wishList: state => state.collection.wishList
-		}),
+		...mapState('collection', ['wishList']),
+
 		imageUrl() {
 			if (!this.assets || !this.assets.length) {
-				return ''
+				return
 			}
 
-			return {
-				src: getCloudinaryUrl(this.$cloudinary, this.assets[0], {
-					width: window.innerWidth < 600 ? 320 : 720
-				}),
-				loading: this.greyPixel
-			}
+			return this.makeImageObj(this.assets[0])
 		},
 		imageUrl2() {
 			if (!this.assets || this.assets.length < 2) {
 				return
 			}
 
-			return {
-				src: getCloudinaryUrl(this.$cloudinary, this.assets[1], {
-					width: window.innerWidth < 600 ? 320 : 360
-				}),
-				loading: this.greyPixel
-			}
+			return this.makeImageObj(this.assets[1])
 		},
 		imageName() {
 			if (this.assets && this.assets[0]) return this.name
@@ -108,6 +106,21 @@ export default {
 			this[OPEN_STYLE_CONTENT.action](this.styleId)
 
 			// console.log(this.assets)
+		},
+		makeImageObj(asset) {
+			return {
+				src: getCloudinaryUrl(
+					this.$cloudinary,
+					{
+						cloudinaryUrl: asset,
+						type: this.isVideo(asset) ? 'video' : 'image'
+					},
+					{
+						width: window.innerWidth < 600 ? 320 : 360
+					}
+				),
+				loading: this.greyPixel
+			}
 		}
 	},
 	mounted() {
@@ -126,8 +139,7 @@ export default {
 
 		let callback = ([entry], observer) => {
 			if (entry.isIntersecting) {
-				console.log(this.imageUrl2.src)
-				entry.target.src = this.imageUrl2.src
+				entry.target.src = entry.target.dataset.src
 				observer.unobserve(entry.target)
 			}
 		}

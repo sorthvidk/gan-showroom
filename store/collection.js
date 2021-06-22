@@ -5,7 +5,7 @@ import {
 	FETCH_COLLECTION_ITEMS,
 	FETCH_COLLECTION_GROUPS,
 	FETCH_COLLECTION_FILTERS,
-	FETCH_COLLECTION_ASSETS,
+	// FETCH_COLLECTION_ASSETS,
 	INDEX_COLLECTION_DATA,
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_IDENTIFIER,
@@ -26,7 +26,7 @@ import {
 } from '~/model/constants'
 
 import CollectionLayouts from '~/model/collection-layouts'
-import getUniqueId from '~/utils/get-unique-id.js'
+// import getUniqueId from '~/utils/get-unique-id.js'
 import {
 	prevIndex,
 	nextIndex,
@@ -43,7 +43,7 @@ export const state = () => ({
 	dataIndexComplete: false,
 
 	//loaded from json
-	allMediaAssets: [],
+	// allMediaAssets: [],
 
 	//loaded from json
 	allStyles: [],
@@ -161,16 +161,16 @@ export const mutations = {
 	[FETCH_COLLECTION_FILTERS.mutation](state, data) {
 		state.allFilters = data
 	},
-	[FETCH_COLLECTION_ASSETS.mutation](state, data) {
-		state.allMediaAssets = data
-	},
+	// [FETCH_COLLECTION_ASSETS.mutation](state, data) {
+	// 	state.allMediaAssets = data
+	// },
 
 	[INDEX_COLLECTION_DATA.mutation](state) {
 		if (state.dataIndexComplete) return false
 		if (window.GS_LOGS) console.warn('INDEX_COLLECTION_DATA')
 
 		// save lengths
-		let al = state.allMediaAssets.length
+		// let al = state.allMediaAssets.length
 		let cl = state.allStyles.length
 		let gl = state.allGroups.length
 
@@ -229,30 +229,32 @@ export const mutations = {
 
 		state.referencedFilters = []
 
-		//parse all styles into groups, make deep copies!
-		for (var i = 0; i < cl; i++) {
-			let style = state.allStyles[i]
+		state.allStyles.forEach(style => {
+			// flatten the assets array, into a single level array
+			style.assets = style.assets.flat()
 
-			//add style to group
-			let stateGroup = state.allGroups.filter(
+			//parse all styles into groups, make deep copies!
+			// copy the styles onto each group's "styles"-array
+			// ! mutates group.styles !
+			const currentGroup = state.allGroups.find(
 				e => e.groupId === style.groupId
-			)[0]
-
-			if (!stateGroup) {
+			)
+			if (!currentGroup) {
 				if (window.GS_LOGS) {
-					console.log(`style is part of non-existing group: ${style.groupId}`)
+					console.log(
+						`${style.styleId} is part of non-existing group: ${style.groupId}`
+					)
 				}
 				return
 			}
-
-			if (window.GS_LOGS)
+			if (window.GS_LOGS) {
 				console.warn(
-					'ADD STYLE ' + style.styleId + ' TO GROUP:',
-					stateGroup.groupId
+					`ADD STYLE ${style.styleId} TO GROUP: ${currentGroup.groupId}`
 				)
-			let clonedStyle = JSON.parse(JSON.stringify(style))
-			stateGroup.styles.push(clonedStyle)
-		}
+			}
+
+			currentGroup.styles = [...currentGroup.styles, style]
+		})
 
 		//parse groups
 		for (var j = 0; j < gl; j++) {

@@ -3,10 +3,10 @@
 		<div class="lookbook-slideshow">
 			<preload-images
 				:srcs="[
-					...content.map((i) => getMediaUrl(i.type, i.cloudinaryUrl).src),
+					...content.map(i => getMediaUrl(i.type, i.cloudinaryUrl).src),
 					...content.map(
-						(i) => getMediaUrl(i.type, i.cloudinaryUrl, { thumbnail: true }).src
-					),
+						i => getMediaUrl(i.type, i.cloudinaryUrl, { thumbnail: true }).src
+					)
 				]"
 			/>
 
@@ -59,7 +59,7 @@
 								v-if="item.type === 'image'"
 								:src="
 									getMediaUrl(item.type, item.cloudinaryUrl, {
-										thumbnail: true,
+										thumbnail: true
 									}).src
 								"
 								alt=""
@@ -68,7 +68,7 @@
 								v-if="item.type === 'video'"
 								:src="
 									getMediaUrl(item.type, item.cloudinaryUrl, {
-										thumbnail: true,
+										thumbnail: true
 									}).src
 								"
 								preload
@@ -125,12 +125,12 @@ export default {
 	components: { Loading, PreloadImages },
 	name: 'lookbook-slideshow',
 	props: {
-		contentId: { type: String, default: 'lookBook', required: true },
+		contentId: { type: String, default: 'lookBook', required: true }
 	},
 	data: () => ({
 		idx: 0,
 		overview: false,
-		transparentPixel,
+		transparentPixel
 	}),
 	computed: {
 		...mapState('assets', ['lookBook']),
@@ -143,7 +143,7 @@ export default {
 			return this.pages[this.idx]
 		},
 		pages() {
-			if (!this.content.every((x) => x.aspect)) {
+			if (!this.content.every(x => x.aspect)) {
 				console.log(
 					`LookbookSlideshow:
 						Every item should have an "aspect" key.
@@ -174,8 +174,8 @@ export default {
 
 					return acc
 				}, [])
-				.map((x) => x.filter((y) => y !== 'empty'))
-		},
+				.map(x => x.filter(y => y !== 'empty'))
+		}
 	},
 	watch: {
 		keyPressed({ key }) {
@@ -186,7 +186,7 @@ export default {
 			if (key === 'ArrowLeft') {
 				this.change({ next: false })
 			}
-		},
+		}
 	},
 	methods: {
 		...mapActions('utils', [DASHBOARD_DARK.action]),
@@ -197,7 +197,7 @@ export default {
 					{ type, cloudinaryUrl },
 					{ width: thumbnail ? 100 : window.innerWidth < 600 ? 300 : 900 }
 				),
-				loading: transparentPixel,
+				loading: transparentPixel
 			}
 		},
 
@@ -211,21 +211,19 @@ export default {
 
 		show(item) {
 			this.overview = false
-			this.idx = this.pages.findIndex((i) =>
-				i.find((x) => x.cloudinaryUrl === item.cloudinaryUrl)
+			this.idx = this.pages.findIndex(i =>
+				i.find(x => x.cloudinaryUrl === item.cloudinaryUrl)
 			)
 		},
 
 		toggleLayout() {
 			this.overview = !this.overview
-		},
+		}
 	},
 
 	mounted() {
 		this[DASHBOARD_DARK.action](true)
-
-		console.log(this.pages)
-	},
+	}
 
 	// beforeDestroy() {
 	// 	this[DASHBOARD_DARK.action](false)

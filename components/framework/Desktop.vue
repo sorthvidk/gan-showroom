@@ -13,7 +13,7 @@
 				<div
 					v-show="!isMobile || !menuClosed"
 					:class="[
-						`${textStyledWithoutIcon ? 'dashboard' : 'desktop'}__shortcuts`,
+						`${textStyledWithoutIcon ? 'dashboard' : 'desktop'}__shortcuts`
 						// `${isMobile && menuClosed ? 'hidden' : ''}`,
 					]"
 					@click="closeMenu"
@@ -39,9 +39,6 @@
 			<div
 				class="desktop"
 				:class="{ 'screensaver-running': idle, dark: dashboardDark }"
-				:style="{
-					backgroundSize: webcamImage && '400px',
-				}"
 			>
 				<transition name="fade--fast" mode="out-in">
 					<window-static
@@ -53,7 +50,7 @@
 						v-else
 						class="desktop__background"
 						:style="{
-							backgroundImage: `url(${various.dashboardBackground[0]})`,
+							backgroundImage: `url(${various.dashboardBackground[0]})`
 						}"
 					>
 						<countdown
@@ -118,7 +115,7 @@ import {
 	// AUDIO_TRACK,
 	OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_TOGGLE,
-	HAS_AUTHENTICATED,
+	HAS_AUTHENTICATED
 } from '~/model/constants'
 
 import VueDraggableResizable from 'vue-draggable-resizable'
@@ -167,12 +164,12 @@ export default {
 		VueBar,
 		MediaLibrary,
 		Countdown,
-		TransitionExpand,
+		TransitionExpand
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
 		...mapState('assets', ['desktop']),
-		...mapState('collage', ['webcamImage']),
+		// ...mapState('collage', ['webcamImage']),
 		...mapState('ganniFm', ['songs']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
 		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
@@ -182,22 +179,22 @@ export default {
 			'isMobile',
 			'showMenu',
 			'dashboardDark',
-			'various',
+			'various'
 		]),
 
 		...mapGetters('shortcuts', ['authorizedShortcuts']),
 
 		desktopIcons() {
 			return this.authorizedShortcuts.filter(
-				(s) => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
+				s => s.type == ShortcutTypes.WINDOW || s.type == ShortcutTypes.URL
 			)
 		},
 		marqueeLinks() {
-			return this.list.filter((s) => s.type == ShortcutTypes.MARQUEE)
+			return this.list.filter(s => s.type == ShortcutTypes.MARQUEE)
 		},
 
 		badgeShortcuts() {
-			return this.list.filter((s) => s.type == ShortcutTypes.BADGE)
+			return this.list.filter(s => s.type == ShortcutTypes.BADGE)
 		},
 
 		backgroundImage() {
@@ -206,7 +203,7 @@ export default {
 			// }
 			// src: `/img/wallpapers/wallpaper${getRandomInt(1,this.wallpaperCount)}.jpg`
 			// loading: '/img/login-slide.jpg'
-		},
+		}
 	},
 	watch: {
 		clipBoardCopyComplete(newVal) {
@@ -224,7 +221,7 @@ export default {
 			} else {
 				this.showDownloadMessage = false
 			}
-		},
+		}
 	},
 	data() {
 		return {
@@ -239,45 +236,45 @@ export default {
 				{
 					preText: 'Berghain opens in ',
 					deadline: [2021, 9, 10],
-					postText: ' in Berlin',
+					postText: ' in Berlin'
 				},
 				{
 					preText: 'Søpavillonen',
 					deadline: [2021, 10, 21],
-					postText: ' in København',
+					postText: ' in København'
 				},
 				{
 					preText: 'Le Péripate opens in ',
 					deadline: [2021, 9, 1],
-					postText: ' in Paris',
+					postText: ' in Paris'
 				},
 				{
 					preText: 'Studio 54 opens in ',
 					deadline: [2021, 10, 5],
-					postText: ' in New York',
+					postText: ' in New York'
 				},
 				{
 					preText: 'Grottan opens in ',
 					deadline: [2021, 9, 31],
-					postText: ' in Stockholm',
+					postText: ' in Stockholm'
 				},
 				{
 					preText: 'Fabric opens in ',
 					deadline: [2021, 10, 23],
-					postText: ' in London',
+					postText: ' in London'
 				},
 				{
 					preText: 'Plastic opens in ',
 					deadline: [2021, 10, 31],
-					postText: ' in Milano',
-				},
+					postText: ' in Milano'
+				}
 			],
-			menuClosed: !this.isMobile,
+			menuClosed: !this.isMobile
 		}
 	},
 	methods: {
 		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
-		...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
+		// ...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
 		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
@@ -315,11 +312,11 @@ export default {
 		},
 		closeMenu() {
 			this.menuClosed = true
-		},
+		}
 	},
 	mounted() {
 		this[AUTHORIZE_GROUPS.action]()
-		this[CONNECT_EXHIBITION_ASSETS.action]()
+		// this[CONNECT_EXHIBITION_ASSETS.action]()
 		this[ASSISTANT_TOGGLE.action](false)
 		// this[AUDIO_TRACK.action](this.songs[1])
 		// this[OPEN_CONTENT_IN_DASHBOARD.action]({
@@ -329,6 +326,6 @@ export default {
 		this.activateClubs()
 	},
 
-	created() {},
+	created() {}
 }
 </script>

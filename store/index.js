@@ -3,7 +3,7 @@ import {
 	FETCH_COLLECTION_ITEMS,
 	FETCH_COLLECTION_GROUPS,
 	FETCH_COLLECTION_FILTERS,
-	FETCH_COLLECTION_ASSETS,
+	// FETCH_COLLECTION_ASSETS,
 	FETCH_SONGS,
 	FETCH_LOOKBOOK,
 	FETCH_GENERAL,
@@ -430,10 +430,10 @@ export const actions = {
 			await $content('collectionGroups').fetch()
 		)
 
-		await commit(
-			'collection/' + FETCH_COLLECTION_ASSETS.mutation,
-			await $content('mediaAssets').fetch()
-		)
+		// await commit(
+		// 	'collection/' + FETCH_COLLECTION_ASSETS.mutation,
+		// 	await $content('mediaAssets').fetch()
+		// )
 
 		await commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,

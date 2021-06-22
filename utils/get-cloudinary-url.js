@@ -5,8 +5,8 @@ export default function(cl, asset, tf = {}, pixelDensity = 2) {
 
 	// if passed url is wrapped in an array, get the string value
 	const url =
-		typeof asset === 'string'
-			? asset
+		typeof asset.cloudinaryUrl === 'string'
+			? asset.cloudinaryUrl
 			: Array.isArray(asset.cloudinaryUrl)
 			? asset.cloudinaryUrl[0]
 			: asset.cloudinaryUrl

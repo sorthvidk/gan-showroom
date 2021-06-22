@@ -4,7 +4,7 @@
 			<div
 				class="fabrics__item"
 				v-for="(item, idx) in items"
-				:key="item.text + idx"
+				:key="`${item.text}-${idx}`"
 				ref="items"
 				:class="isFullScreen ? 'zoomed' : ''"
 			>
@@ -13,7 +13,7 @@
 					:src="getUrl(item.cloudinaryUrl)"
 					:alt="'One of GANNIs many really nice fabrics'"
 					:style="{
-						transformOrigin: !isFullScreen ? 'center' : transformString(idx),
+						transformOrigin: !isFullScreen ? 'center' : transformString(idx)
 					}"
 					@click="fullscreen"
 					@mousemove="() => !isFullScreen && changeCursor('Zoom', 'plus--bold')"
@@ -37,16 +37,16 @@ import TextCursor from '../elements/TextCursor.vue'
 export default {
 	name: 'fabrics',
 	components: {
-		TextCursor,
+		TextCursor
 	},
 	data: () => ({
 		clamp,
-		isFullScreen: false,
+		isFullScreen: false
 		// textCursorText: { str: null, icon: null },
 	}),
 	computed: {
 		...mapState('fabrics', ['items']),
-		...mapState('user', ['mousepos', 'currentScroll']),
+		...mapState('user', ['mousepos', 'currentScroll'])
 	},
 	methods: {
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
@@ -54,7 +54,7 @@ export default {
 		getUrl(cloudinaryUrl) {
 			return getCloudinaryUrl(this.$cloudinary, {
 				cloudinaryUrl,
-				type: 'image',
+				type: 'image'
 			})
 		},
 		// zoom(e) {
@@ -117,7 +117,7 @@ export default {
 					this.changeCursor('')
 				}
 			}, 1000)
-		},
+		}
 	},
 	mounted() {
 		this[ASSISTANT_TOGGLE.action](true)
@@ -134,6 +134,6 @@ export default {
 	},
 	beforeDestroy() {
 		this.changeCursor('')
-	},
+	}
 }
 </script>
