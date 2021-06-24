@@ -119,3 +119,5 @@ export const HAS_DONE_QUIZ = create('HAS_DONE_QUIZ')
 export const TEXT_CURSOR = create('TEXT_CURSOR')
 
 export const HAS_AUTHENTICATED = create('HAS_AUTHENTICATED')
+
+export const SET_ACTIVE_FILTER = create('SET_ACTIVE_FILTER')

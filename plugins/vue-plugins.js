@@ -14,7 +14,10 @@ import viscosity from 'scroll-viscosity'
 import Matter from 'matter-js'
 // import VueLazyLoadVideo from 'vue-lazyload-video'
 
-Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+	observer: true,
+	observerOptions: { threshold: 0 }
+})
 Vue.use(VueDraggableResizable)
 // Vue.use(VueTyper)
 Vue.use(visibility)

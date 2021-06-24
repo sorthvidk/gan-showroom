@@ -42,7 +42,7 @@
 					class="timeline"
 					v-if="group.cloudinaryUrl.length > 1"
 					:style="{
-						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`,
+						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`
 					}"
 				>
 					<div
@@ -51,7 +51,7 @@
 						class="line"
 						:style="{
 							'--progress':
-								idx < activeIndex ? 1 : idx === activeIndex ? progress : 0,
+								idx < activeIndex ? 1 : idx === activeIndex ? progress : 0
 						}"
 					></div>
 				</div>
@@ -71,17 +71,17 @@ import { TEXT_CURSOR } from '~/model/constants'
 export default {
 	name: 'collection-header',
 	components: {
-		Countdown,
+		Countdown
 	},
 	props: {
-		mode: {
-			type: String,
-			default: 'carousel',
-		},
+		// mode: {
+		// 	type: String,
+		// 	default: 'carousel',
+		// },
 		group: {
 			type: Object,
-			default: () => ({}),
-		},
+			default: () => ({})
+		}
 	},
 	data: () => ({
 		speed: 300,
@@ -91,7 +91,7 @@ export default {
 		progress: 0,
 		showImages: false,
 
-		scrolledAmount: 0,
+		scrolledAmount: 0
 	}),
 	computed: { ...mapState('user', ['mousepos', 'screenSize']) },
 	methods: {
@@ -99,7 +99,7 @@ export default {
 		getImage(src) {
 			return {
 				src: getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: src }),
-				loading: greyPixel,
+				loading: greyPixel
 			}
 		},
 		isLoaded() {
@@ -132,10 +132,10 @@ export default {
 		},
 		changeCursor(str, icon) {
 			this[TEXT_CURSOR.action]({ str, icon })
-		},
+		}
 	},
 	mounted() {
 		this.tick()
-	},
+	}
 }
 </script>
