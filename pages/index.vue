@@ -23,9 +23,6 @@
 		<transition name="slide-in">
 			<desktop v-if="loggedIn && hasDoneQuiz" />
 		</transition>
-
-		<v-idle v-show="false" :duration="15000" @idle="onidle" />
-		<screensaver v-if="idle" />
 		<!-- <mobile-disclamer v-if="isMobile" /> -->
 
 		<transition name="slide-up">
@@ -43,7 +40,6 @@ import { mapActions, mapState } from 'vuex'
 
 import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
-import Screensaver from '~/components/framework/Screensaver.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
 import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
 
@@ -56,14 +52,12 @@ export default {
 	components: {
 		Login,
 		Desktop,
-		Screensaver,
+
 		CookieBanner,
 		MobileDisclamer,
 
 		AudioGalleryController,
-		PreloadImages,
-		Quiz,
-		MusicPlayer
+		PreloadImages
 	},
 	computed: {
 		...mapState(['dashboardContent']),

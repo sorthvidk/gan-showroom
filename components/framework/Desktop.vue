@@ -1,31 +1,26 @@
 <template>
 	<transition name="startup-transition" mode="out-in">
-		<div>
-			<div
-				class="desktop"
-				:class="{ 'screensaver-running': idle, dark: dashboardDark }"
-			>
-				<transition name="fade--fast" mode="out-in">
-					<window-static
-						v-if="dashboardContent && dashboardContent.contentComponent"
-						:content="dashboardContent"
-						:key="dashboardContent.windowId"
+		<div class="desktop">
+			<transition name="fade--fast" mode="out-in">
+				<window-static
+					v-if="dashboardContent && dashboardContent.contentComponent"
+					:content="dashboardContent"
+					:key="dashboardContent.windowId"
+				/>
+				<div
+					v-else
+					class="desktop__background"
+					:style="{
+						backgroundImage: `url(${various.dashboardBackground[0]})`
+					}"
+				>
+					<countdown
+						v-for="club in activeClubs"
+						:key="club.pretext"
+						v-bind="club"
 					/>
-					<div
-						v-else
-						class="desktop__background"
-						:style="{
-							backgroundImage: `url(${various.dashboardBackground[0]})`
-						}"
-					>
-						<countdown
-							v-for="club in activeClubs"
-							:key="club.pretext"
-							v-bind="club"
-						/>
-					</div>
-				</transition>
-			</div>
+				</div>
+			</transition>
 		</div>
 	</transition>
 </template>
@@ -85,7 +80,7 @@ export default {
 		AudioPlayer,
 		DownloadMessage,
 		VueBar,
-		MediaLibrary,
+
 		Countdown,
 		TransitionExpand,
 

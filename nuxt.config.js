@@ -133,4 +133,8 @@ export default {
 	content: {
 		dir: 'assets/mock'
 	}
+
+	// router: {
+	// 	base: '/index.vue'
+	// }
 }

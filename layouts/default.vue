@@ -15,6 +15,8 @@
 
 		<clipboard-message v-if="showClipboardMessage" />
 		<copywrite-message v-if="!copyrightAccepted" />
+		<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
+		<screensaver v-if="idle" />
 	</div>
 </template>
 
@@ -48,6 +50,7 @@ import { nextIndex } from '~/utils/array-helpers'
 import sendTracking from '~/utils/send-tracking'
 import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
+import Screensaver from '~/components/framework/Screensaver.vue'
 
 export default {
 	name: 'default',
@@ -57,7 +60,8 @@ export default {
 		MusicPlayer,
 		TextCursor,
 		ClipboardMessage,
-		CopywriteMessage
+		CopywriteMessage,
+		Screensaver
 	},
 	head() {
 		return {
@@ -74,7 +78,7 @@ export default {
 	}),
 	computed: {
 		...mapState(['rehydrated']),
-		...mapState('user', ['loggedIn', 'copyrightAccepted']),
+		...mapState('user', ['loggedIn', 'copyrightAccepted', 'idle']),
 		...mapState('utils', [
 			'isMobile',
 			'downloadPreparing',
@@ -113,16 +117,6 @@ export default {
 
 		onMediaChange(isMobile) {
 			this[IS_MOBILE.action](isMobile)
-		},
-
-		parseUrl(param, cb, err) {
-			const query = new URL(window.location.href).searchParams.get(param)
-			if (!query) {
-				if (err) err('No search query')
-				return
-			}
-
-			cb(query)
 		},
 
 		nextSong() {
@@ -188,26 +182,6 @@ export default {
 		) {
 			document.body.classList.add('safari')
 		}
-		/**
-		 * Open a single style if the url contains a query with a styleId
-		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135
-		 */
-		this.parseUrl('q', param => {
-			const isStyle = this.allStyles.find(style => style.styleId === param)
-
-			if (!isStyle) {
-				console.error(
-					`The query string: "${param}" is not an existing style. No style to open.`
-				)
-				return
-			}
-
-			if (param && isStyle) {
-				sendTracking('Product click', param)
-
-				this[OPEN_STYLE_CONTENT.action](param)
-			}
-		})
 
 		this[AUTHORIZE_GROUPS.action]()
 	}

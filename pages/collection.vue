@@ -62,12 +62,43 @@ export default {
 		setTransformOrigin(el) {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
+		},
+
+		parseUrl(param, cb, err) {
+			const query = new URL(window.location.href).searchParams.get(param)
+			if (!query) {
+				if (err) err('No search query')
+				return
+			}
+
+			cb(query)
 		}
 	},
 	mounted() {
 		this[SET_GROUP_BY_INDEX.action](-1)
 		this[SET_CURRENT_FILTER.action]('')
 		this[ASSISTANT_MODE.action](AssistantModes.FILTER_COLLECTION)
+
+		/**
+		 * Open a single style if the url contains a query with a styleId
+		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135
+		 */
+		this.parseUrl('q', param => {
+			const isStyle = this.allStyles.find(style => style.styleId === param)
+
+			if (!isStyle) {
+				console.error(
+					`The query string: "${param}" is not an existing style. No style to open.`
+				)
+				return
+			}
+
+			if (param && isStyle) {
+				sendTracking('Product click', param)
+
+				this[OPEN_STYLE_CONTENT.action](param)
+			}
+		})
 	}
 }
 </script>
