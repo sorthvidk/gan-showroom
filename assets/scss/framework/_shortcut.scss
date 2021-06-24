@@ -7,6 +7,11 @@
 }
 
 .shortcut {
+	@include bodytext();
+	text-decoration: none;
+	display: grid;
+	place-items: center;
+
 	&-bottombar {
 		@include headline();
 

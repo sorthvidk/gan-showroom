@@ -121,12 +121,12 @@ import { DASHBOARD_DARK } from '~/model/constants'
 import PreloadImages from './PreloadImages.vue'
 
 export default {
-	extends: WindowContent,
+	// extends: WindowContent,
 	components: { Loading, PreloadImages },
 	name: 'lookbook-slideshow',
-	props: {
-		contentId: { type: String, default: 'lookBook', required: true }
-	},
+	// props: {
+	// 	contentId: { type: String, default: 'lookBook', required: true }
+	// },
 	data: () => ({
 		idx: 0,
 		overview: false,

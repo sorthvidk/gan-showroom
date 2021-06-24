@@ -5,21 +5,6 @@
 	>
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
-		<text-cursor />
-
-		<!-- <audio-player
-			v-if="!isMobile"
-			:src="song.src"
-			:title="song.title"
-			@played-through="nextSong"
-		/> -->
-
-		<music-player
-			v-if="!isMobile"
-			:showAudioVisualizer="!loggedIn && pageClicked < 1"
-			@clicked="() => pageClicked++"
-		/>
-
 		<!-- step 1 -->
 		<transition name="slide-out">
 			<login v-if="!loggedIn" />
@@ -54,8 +39,6 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 
-import addMediaChangeListener from '~/utils/media-change'
-import sendTracking from '~/utils/send-tracking'
 // import ViewportSizes from '~/model/viewport-sizes'
 
 import Login from '~/components/framework/Login.vue'
@@ -63,34 +46,11 @@ import Desktop from '~/components/framework/Desktop.vue'
 import Screensaver from '~/components/framework/Screensaver.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
 import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
-import AudioPlayer from '~/components/content/AudioPlayer.vue'
+
 import AudioGalleryController from '~/components/content/AudioGalleryController.vue'
 import PreloadImages from '~/components/content/PreloadImages.vue'
 import Quiz from '~/components/content/Quiz.vue'
-import MusicPlayer from '~/components/content/MusicPlayer.vue'
-import TextCursor from '~/components/elements/TextCursor.vue'
-
-// import getShortUrl from '~/utils/get-short-url'
-// import { debounce } from '~/utils/debounce'
-// index
-import {
-	INDEX_COLLECTION_DATA,
-	INIT_PROGRESS,
-	IDLE,
-	IS_MOBILE,
-	KEYPRESS,
-	MOUSEMOVE,
-	RESET_STATE,
-	USER_HAS_INTERACTED,
-	CURRENT_SCROLL,
-	SCREEN_SIZE,
-	HAS_DONE_QUIZ,
-	LOGIN,
-	HAS_AUTHENTICATED,
-	REMOVE_FROM_WISHLIST,
-	OPEN_STYLE_CONTENT
-} from '~/model/constants'
-import { nextIndex } from '~/utils/array-helpers'
+import { HAS_DONE_QUIZ } from '~/model/constants'
 
 export default {
 	components: {
@@ -99,17 +59,12 @@ export default {
 		Screensaver,
 		CookieBanner,
 		MobileDisclamer,
-		AudioPlayer,
+
 		AudioGalleryController,
 		PreloadImages,
 		Quiz,
-		MusicPlayer,
-		TextCursor
+		MusicPlayer
 	},
-	data: () => ({
-		currentAudioIdx: 0,
-		pageClicked: 0
-	}),
 	computed: {
 		...mapState(['dashboardContent']),
 		...mapState('user', [
@@ -120,154 +75,22 @@ export default {
 			'hasAuthenticated'
 		]),
 		...mapState('utils', ['isMobile', '__prod__', 'various']),
-		...mapState('ganniFm', ['songs']),
 		...mapState('collection', ['wishList', 'allStyles'])
 	},
-	head() {
-		return {
-			script: [
-				{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
-			],
-			link: [
-				{
-					rel: 'stylesheet',
-					type: 'text/css',
-					href:
-						'https://fonts.googleapis.com/css?family=Roboto:400,500,600&amp;subset=latin,latin-ext'
-				}
-			],
-			title: 'GANNI Space'
-		}
-	},
 	methods: {
-		...mapActions([RESET_STATE.action, OPEN_STYLE_CONTENT.action]),
-		...mapActions('user', [
-			KEYPRESS.action,
-			IDLE.action,
-			MOUSEMOVE.action,
-			USER_HAS_INTERACTED.action,
-			CURRENT_SCROLL.action,
-			SCREEN_SIZE.action,
-			HAS_DONE_QUIZ.action,
-			LOGIN.action,
-			HAS_AUTHENTICATED.action
-		]),
-		...mapActions('utils', [IS_MOBILE.action]),
-		...mapActions('collection', [REMOVE_FROM_WISHLIST.action]),
-
-		onidle() {
-			this[IDLE.action](true)
-		},
-		nonidle() {
-			if (this.idle) {
-				this[IDLE.action](false)
-			}
-		},
-
-		onMediaChange(isMobile) {
-			this[IS_MOBILE.action](isMobile)
-		},
-
-		nextSong() {
-			this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
-		},
-
 		onQuizDone() {
 			this[HAS_DONE_QUIZ.action](true)
-		},
-		parseUrl(param, cb, err) {
-			const query = new URL(window.location.href).searchParams.get(param)
-			if (!query) {
-				if (err) err('No search query')
-				return
-			}
-
-			cb(query)
 		}
 	},
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
 
-		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
+		// this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 		// this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
-
-		this.onMediaChange(window.innerWidth <= 768) // todo: ugly way of init
-		addMediaChangeListener(
-			this.onMediaChange.bind(null, true),
-			this.onMediaChange.bind(null, false)
-		)
-
-		window.addEventListener('keyup', this[KEYPRESS.action])
-		window.addEventListener('keydown', event => {
-			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
-				this[RESET_STATE.action](event)
-			}
-		})
-		document.body.addEventListener('click', () => {
-			this.nonidle()
-		})
-		document.body.addEventListener(
-			'mousemove',
-			() => {
-				setTimeout(this[USER_HAS_INTERACTED.action], 2000)
-			},
-			{ once: true }
-		)
-
-		// document.body.addEventListener('mousemove', this.nonidle.bind(this))
-
-		window.addEventListener('mousemove', event => {
-			// debounce(() => {
-			this.nonidle()
-			this[MOUSEMOVE.action](event)
-			// }, 200)
-		})
-
-		// TODO : add some throttle/debounce
-		this[CURRENT_SCROLL.action](window.pageYOffset)
-		window.addEventListener('scroll', () => {
-			this[CURRENT_SCROLL.action](window.pageYOffset)
-		})
-		const setScreenSize = () => {
-			this[SCREEN_SIZE.action]({
-				width: window.innerWidth,
-				height: window.innerHeight
-			})
-		}
-		setScreenSize()
-		window.addEventListener('resize', setScreenSize)
 
 		if (this.audioPlayer) {
 			this.audioPlayer = this.$children[1].$children[0].progress
 		}
-
-		if (
-			navigator.userAgent.indexOf('Safari') != -1 &&
-			navigator.userAgent.indexOf('Chrome') == -1
-		) {
-			document.body.classList.add('safari')
-		}
-
-		/**
-		 * Open a single style if the url contains a query with a styleId
-		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135
-		 */
-		this.parseUrl('q', param => {
-			const isStyle = this.allStyles.find(style => style.styleId === param)
-
-			if (!isStyle) {
-				console.error(
-					`The query string: "${param}" is not an existing style. No style to open.`
-				)
-				return
-			}
-
-			if (param && isStyle) {
-				sendTracking('Product click', param)
-
-				this[OPEN_STYLE_CONTENT.action](param)
-			}
-		})
 	}
 }
 </script>

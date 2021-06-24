@@ -32,7 +32,7 @@ import GroupNavigation from '~/components/content/GroupNavigation.vue'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
-	extends: WindowContent,
+	// extends: WindowContent,
 	name: 'collection',
 	components: {
 		CollectionItem,

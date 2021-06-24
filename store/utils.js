@@ -13,7 +13,7 @@ import {
 export const state = () => ({
 	clipBoardCopyComplete: false,
 	downloadPreparing: false,
-	isMobile: true,
+	isMobile: false,
 	shortenedReceiptUrl: '',
 	various: {},
 	__prod__: process.env.NODE_ENV === 'production',

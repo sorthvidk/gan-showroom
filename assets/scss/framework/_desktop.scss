@@ -6,6 +6,15 @@
 	}
 }
 
+.layout {
+	transition: background-color 0.1s $easeInOutQuint;
+	background-color: var(--color-background);
+
+	&.dark {
+		background: var(--color-secondary);
+	}
+}
+
 .desktop {
 	user-select: none;
 
@@ -17,16 +26,9 @@
 
 	pointer-events: none;
 
-	transition: background-color 0.1s $easeInOutQuint;
-	background-color: var(--color-background);
-
 	* {
 		image-rendering: initial;
 		pointer-events: auto;
-	}
-
-	&.dark {
-		background: var(--color-secondary);
 	}
 
 	&__background {

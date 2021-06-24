@@ -29,46 +29,20 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'party-animal',
-			label: 'Party animal quiz',
-			windowContent: [
-				{
-					contentId: 'party-animal',
-					type: {
-						contentComponent: 'party-animal'
-					}
-				}
-			]
+			shortcutId: 'quiz',
+			label: 'Party animal quiz'
 		},
 
 		{
 			type: ShortcutTypes.WINDOW,
 			shortcutId: 'afterparty',
-			label: 'Afterparty',
-			windowContent: [
-				{
-					title: 'Afterparty',
-					contentId: 'afterparty',
-					type: ContentTypes.afterparty
-				}
-			]
+			label: 'Afterparty'
 		},
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'lookbook-slideshow',
-			label: 'PS22 LookBook',
-			windowContent: [
-				{
-					title: 'GANNI LookBook',
-					contentId: 'lookbook-slideshow',
-					type: ContentTypes.lookbookSlideshow,
-					assistant: {
-						mode: AssistantModes.CUSTOM,
-						text: 'lookBook'
-					}
-				}
-			]
+			shortcutId: 'lookbook',
+			label: 'PS22 LookBook'
 		},
 
 		{
@@ -115,12 +89,12 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'green-room',
+			shortcutId: 'ganni-lab',
 			label: 'GANNI Lab',
 			windowContent: [
 				{
 					title: 'GANNI Lab',
-					contentId: 'green-room',
+					contentId: 'ganni-lab',
 					type: ContentTypes.greenRoom
 				}
 			]
@@ -137,19 +111,19 @@ export const state = () => ({
 					type: ContentTypes.aboutGanni
 				}
 			]
-		},
-
-		{
-			type: ShortcutTypes.WINDOW,
-			shortcutId: 'links',
-			label: 'Tools',
-			actions: [
-				{
-					name: 'utils/' + MENU_SHOW.action,
-					param: { toggle: true }
-				}
-			]
 		}
+
+		// {
+		// 	type: ShortcutTypes.WINDOW,
+		// 	shortcutId: 'links',
+		// 	label: 'Tools',
+		// 	actions: [
+		// 		{
+		// 			name: 'utils/' + MENU_SHOW.action,
+		// 			param: { toggle: true }
+		// 		}
+		// 	]
+		// }
 	]
 })
 

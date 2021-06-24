@@ -1,41 +1,6 @@
 <template>
 	<transition name="startup-transition" mode="out-in">
 		<div>
-			<button
-				v-if="isMobile"
-				:class="['dashboard__menu-button', !menuClosed ? 'moved-up' : '']"
-				@click="toggleMenu"
-			>
-				{{ !menuClosed ? 'CLOSE' : 'MENU' }}
-			</button>
-
-			<transition-expand>
-				<div
-					v-show="!isMobile || !menuClosed"
-					:class="[
-						`${textStyledWithoutIcon ? 'dashboard' : 'desktop'}__shortcuts`
-						// `${isMobile && menuClosed ? 'hidden' : ''}`,
-					]"
-					@click="closeMenu"
-				>
-					<shortcut
-						v-for="(item, nthChild) in desktopIcons"
-						:textLayout="textStyledWithoutIcon"
-						:key="item.shortcutId"
-						:type="item.type"
-						:position-h="item.posH"
-						:position-v="item.posV"
-						:icon="item.icon"
-						:label="item.label"
-						:shortcut-id="item.shortcutId"
-						:actions="item.actions"
-						:window-content="item.windowContent"
-						:href="item.href"
-						:nth-child="nthChild"
-					/>
-				</div>
-			</transition-expand>
-
 			<div
 				class="desktop"
 				:class="{ 'screensaver-running': idle, dark: dashboardDark }"
@@ -60,44 +25,6 @@
 						/>
 					</div>
 				</transition>
-
-				<media-library v-if="showMenu" />
-
-				<div class="desktop__windows">
-					<transition-group
-						tag="div"
-						name="window-animation"
-						@before-enter="setTransformOrigin"
-					>
-						<window
-							v-for="(item, index) in windowList"
-							:key="item.windowId"
-							v-bind="item.windowProps"
-							:position-z="item.positionZ"
-							:window-id="item.windowId"
-							:content-type="item.contentType"
-							:content-name="item.contentName"
-							:content-component="item.contentComponent"
-							:status-component="item.statusComponent"
-							:content-component-props="item.contentComponentProps"
-							:group-id="item.groupId"
-							:status-component-props="item.statusComponentProps"
-							:window-info="item.customAssistantText"
-							:title="item.title"
-							:content-id="item.contentId"
-							:data-index="index"
-						/>
-					</transition-group>
-
-					<assistant />
-					<!-- <support /> -->
-				</div>
-
-				<!-- <marquee v-show="!isMobile" /> -->
-
-				<clipboard-message v-if="showClipboardMessage" />
-				<!-- <download-message v-if="showDownloadMessage" /> -->
-				<copywrite-message v-if="!copyrightAccepted" />
 			</div>
 		</div>
 	</transition>
@@ -122,20 +49,18 @@ import VueDraggableResizable from 'vue-draggable-resizable'
 
 import ShortcutTypes from '~/model/shortcut-types'
 
+import Bottombar from '~/components/framework/Bottombar.vue'
+
 import ProgressBar from '~/components/framework/ProgressBar.vue'
 import Shortcut from '~/components/framework/Shortcut.vue'
-import Window from '~/components/framework/Window.vue'
 import WindowStatic from '~/components/framework/WindowStatic.vue'
 import Assistant from '~/components/framework/Assistant.vue'
 import Support from '~/components/framework/Support.vue'
 import Marquee from '~/components/content/Marquee.vue'
 import BackgroundImage from '~/components/content/BackgroundImage.vue'
 import AudioPlayer from '~/components/content/AudioPlayer.vue'
-import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import DownloadMessage from '~/components/content/DownloadMessage.vue'
-import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import VueBar from '~/components/content/VueBar.vue'
-import MediaLibrary from '~/components/content/MediaLibrary.vue'
 
 import Countdown from '~/components/elements/Countdown.vue'
 
@@ -150,7 +75,7 @@ export default {
 	components: {
 		ProgressBar,
 		Shortcut,
-		Window,
+
 		Marquee,
 		Assistant,
 		Support,
@@ -158,13 +83,13 @@ export default {
 		BackgroundImage,
 		WindowStatic,
 		AudioPlayer,
-		ClipboardMessage,
 		DownloadMessage,
-		CopywriteMessage,
 		VueBar,
 		MediaLibrary,
 		Countdown,
-		TransitionExpand
+		TransitionExpand,
+
+		Bottombar
 	},
 	computed: {
 		...mapState(['wallpaperIndex', 'windowList', 'dashboardContent']),
@@ -172,13 +97,12 @@ export default {
 		// ...mapState('collage', ['webcamImage']),
 		...mapState('ganniFm', ['songs']),
 		...mapState('shortcuts', ['list', 'textStyledWithoutIcon']),
-		...mapState('user', ['copyrightAccepted', 'mousepos', 'idle']),
+		...mapState('user', ['copyrightAccepted', 'idle']),
 		...mapState('utils', [
 			'downloadPreparing',
 			'clipBoardCopyComplete',
 			'isMobile',
 			'showMenu',
-			'dashboardDark',
 			'various'
 		]),
 
@@ -225,7 +149,6 @@ export default {
 	},
 	data() {
 		return {
-			showClipboardMessage: false,
 			showDownloadMessage: false,
 			wallpaperCount: 6,
 			backgrounds: [],
@@ -275,7 +198,6 @@ export default {
 	methods: {
 		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		// ...mapActions('exhibition', [CONNECT_EXHIBITION_ASSETS.action]),
-		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
 		...mapActions('user', [HAS_AUTHENTICATED.action]),
@@ -291,11 +213,6 @@ export default {
 			setTimeout(() => {
 				this[DOWNLOAD_PREPARING.action](false)
 			}, 3000)
-		},
-
-		setTransformOrigin(el) {
-			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
-			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		},
 		activateClubs() {
 			this.active++
@@ -315,7 +232,6 @@ export default {
 		}
 	},
 	mounted() {
-		this[AUTHORIZE_GROUPS.action]()
 		// this[CONNECT_EXHIBITION_ASSETS.action]()
 		this[ASSISTANT_TOGGLE.action](false)
 		// this[AUDIO_TRACK.action](this.songs[1])

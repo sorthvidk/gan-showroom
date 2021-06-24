@@ -1,8 +1,8 @@
 <template>
-	<!-- <transition @before-appear="beforeAnimateIn" @appear="animateIn"> -->
-	<!-- @mouseenter="changeBackground"
-			@mouseleave="changeBackground(false)" -->
-	<button
+	<NuxtLink class="shortcut shortcut-bottombar" :to="`/${shortcutId}`">
+		<span class="text">{{ label }}</span>
+	</NuxtLink>
+	<!-- <button
 		@click="onClick"
 		class="shortcut shortcut-bottombar"
 		:class="{
@@ -15,8 +15,7 @@
 			<img :src="icon" />
 		</span>
 		<span class="text">{{ label }}</span>
-	</button>
-	<!-- </transition> -->
+	</button> -->
 </template>
 
 <script>
@@ -26,37 +25,22 @@ import {
 	OPEN_CONTENT,
 	OPEN_CONTENT_IN_DASHBOARD,
 	SET_GROUP_BY_IDENTIFIER,
-	DESKTOP_BACKGROUND,
+	DESKTOP_BACKGROUND
 } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
 	props: {
-		textLayout: { type: Boolean, default: false, required: false },
-		positionH: { type: Number, default: 0, required: false },
-		positionV: { type: Number, default: 0, required: false },
-		icon: { type: String | null, default: null, required: true },
 		label: { type: String, default: null, required: true },
-		shortcutId: { type: String, default: null, required: true },
-		type: { type: Number, default: -1, required: true },
-		windowContent: { type: [Array, String], default: () => [], required: true },
-		actions: { type: Array, default: null, required: false },
-		href: { type: String, default: null, required: false },
-		nthChild: { type: Number },
+		shortcutId: { type: String, default: null, required: true }
 	},
 	data: () => ({
-		cssClass: '',
+		cssClass: ''
 	}),
 	computed: {
 		...mapState(['dashboardContent']),
-		...mapGetters('collection', ['authorizedGroupsIds']),
-		styleGridRow() {
-			return this.positionV + '/' + (this.positionV + 1)
-		},
-		styleGridColumn() {
-			return this.positionH + '/' + (this.positionH + 1)
-		},
+		...mapGetters('collection', ['authorizedGroupsIds'])
 	},
 	methods: {
 		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
@@ -76,7 +60,7 @@ export default {
 					// const openContent = () =>
 					// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
-					this.actions.forEach((action) => {
+					this.actions.forEach(action => {
 						if (typeof action.param !== 'undefined')
 							this.$store.dispatch(action.name, action.param)
 						else this.$store.dispatch(action.name)
@@ -94,17 +78,17 @@ export default {
 				delay: Math.floor(this.nthChild) / 20 + 0.5,
 				scale: 1,
 				opacity: 1,
-				ease: 'power4.inOut',
+				ease: 'power4.inOut'
 			})
 		},
 		changeBackground(color) {
 			if (!this.textLayout) return
 
 			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
-		},
+		}
 	},
 	mounted() {
 		// console.log(this.shortcutId)
-	},
+	}
 }
 </script>
