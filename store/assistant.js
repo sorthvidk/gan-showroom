@@ -22,7 +22,7 @@ export const state = () => ({
 })
 
 export const getters = {
-	viewWishListButtonLabel: (_, _, rootState) =>
+	viewWishListButtonLabel: (state, getters, rootState) =>
 		`View wishlist (${rootState.collection.wishList.length})`
 }
 
@@ -80,35 +80,34 @@ export const actions = {
 
 	[ASSISTANT_UPDATE.action]({ commit, rootState }, data) {
 		commit(ASSISTANT_TOGGLE.mutation, false)
-		// commit(ASSISTANT_MODE.mutation, data)
 
-		// if (rootState.windowList.length) {
-		// 	if (
-		// 		rootState.topMostWindow &&
-		// 		rootState.topMostWindow.contentComponentProps &&
-		// 		rootState.topMostWindow.contentComponentProps.asset &&
-		// 		rootState.topMostWindow.contentComponentProps.asset.styleId
-		// 	) {
-		// 		commit(ASSISTANT_MODE.mutation, AssistantModes.STYLE_DETAILS)
-		// 	} else if (rootState.topMostWindow.assistant) {
-		// 		commit(ASSISTANT_MODE.mutation, rootState.topMostWindow.assistant.mode)
-		// 		commit(ASSISTANT_TEXT.mutation, rootState.topMostWindow.assistant.text)
-		// 	} else {
-		// 		commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
-		// 	}
-		// } else {
-		// 	if (rootState.dashboardContent.assistant) {
-		// 		commit(
-		// 			ASSISTANT_MODE.mutation,
-		// 			rootState.dashboardContent.assistant.mode
-		// 		)
-		// 		commit(
-		// 			ASSISTANT_TEXT.mutation,
-		// 			rootState.dashboardContent.assistant.text
-		// 		)
-		// 	} else {
-		// 		commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
-		// 	}
-		// }
+		if (rootState.windowList.length) {
+			if (
+				rootState.topMostWindow &&
+				rootState.topMostWindow.contentComponentProps &&
+				rootState.topMostWindow.contentComponentProps.asset &&
+				rootState.topMostWindow.contentComponentProps.asset.styleId
+			) {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.STYLE_DETAILS)
+			} else if (rootState.topMostWindow.assistant) {
+				commit(ASSISTANT_MODE.mutation, rootState.topMostWindow.assistant.mode)
+				commit(ASSISTANT_TEXT.mutation, rootState.topMostWindow.assistant.text)
+			} else {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
+			}
+		} else {
+			if (rootState.dashboardContent.assistant) {
+				commit(
+					ASSISTANT_MODE.mutation,
+					rootState.dashboardContent.assistant.mode
+				)
+				commit(
+					ASSISTANT_TEXT.mutation,
+					rootState.dashboardContent.assistant.text
+				)
+			} else {
+				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
+			}
+		}
 	}
 }
