@@ -39,7 +39,8 @@ import Window from '~/components/framework/Window.vue'
 import {
 	SET_CURRENT_FILTER,
 	SET_GROUP_BY_INDEX,
-	ASSISTANT_MODE
+	ASSISTANT_MODE,
+	OPEN_STYLE_CONTENT
 } from '~/model/constants'
 
 export default {
@@ -50,9 +51,11 @@ export default {
 	},
 	computed: {
 		...mapState(['windowList']),
-		...mapState('user', ['mousepos'])
+		...mapState('user', ['mousepos']),
+		...mapState('collection', ['allStyles'])
 	},
 	methods: {
+		...mapActions([OPEN_STYLE_CONTENT.action]),
 		...mapActions('collection', [
 			SET_GROUP_BY_INDEX.action,
 			SET_CURRENT_FILTER.action
@@ -62,16 +65,6 @@ export default {
 		setTransformOrigin(el) {
 			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
 			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
-		},
-
-		parseUrl(param, cb, err) {
-			const query = new URL(window.location.href).searchParams.get(param)
-			if (!query) {
-				if (err) err('No search query')
-				return
-			}
-
-			cb(query)
 		}
 	},
 	mounted() {
@@ -80,25 +73,14 @@ export default {
 		this[ASSISTANT_MODE.action](AssistantModes.FILTER_COLLECTION)
 
 		/**
-		 * Open a single style if the url contains a query with a styleId
-		 * f.ex. gannispace.com/collection?q=A3765_135 -> opens A3765_135
+		 * Parse url query and open corresponding style, if it exists
 		 */
-		this.parseUrl('q', param => {
-			const isStyle = this.allStyles.find(style => style.styleId === param)
-
-			if (!isStyle) {
-				console.error(
-					`The query string: "${param}" is not an existing style. No style to open.`
-				)
-				return
-			}
-
-			if (param && isStyle) {
-				sendTracking('Product click', param)
-
-				this[OPEN_STYLE_CONTENT.action](param)
-			}
-		})
+		if (
+			this.$route.query.q &&
+			this.allStyles.find(style => style.styleId === this.$route.query.q)
+		) {
+			this[OPEN_STYLE_CONTENT.action](this.$route.query.q)
+		}
 	}
 }
 </script>

@@ -43,10 +43,6 @@ import {
 	USER_HAS_INTERACTED,
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
-	HAS_DONE_QUIZ,
-	LOGIN,
-	HAS_AUTHENTICATED,
-	REMOVE_FROM_WISHLIST,
 	OPEN_STYLE_CONTENT,
 	AUTHORIZE_GROUPS
 } from '~/model/constants'
@@ -104,16 +100,10 @@ export default {
 			MOUSEMOVE.action,
 			USER_HAS_INTERACTED.action,
 			CURRENT_SCROLL.action,
-			SCREEN_SIZE.action,
-			HAS_DONE_QUIZ.action,
-			LOGIN.action,
-			HAS_AUTHENTICATED.action
+			SCREEN_SIZE.action
 		]),
 		...mapActions('utils', [IS_MOBILE.action]),
-		...mapActions('collection', [
-			REMOVE_FROM_WISHLIST.action,
-			AUTHORIZE_GROUPS.action
-		]),
+		...mapActions('collection', [AUTHORIZE_GROUPS.action]),
 
 		onidle() {
 			this[IDLE.action](true)
