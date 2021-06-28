@@ -33,14 +33,14 @@
 			:class="{
 				fixed: item.fixed,
 				'enter-left': idx < items.length / 2,
-				'is-link': item.link,
+				'is-link': item.link
 			}"
 			:data-order="idx"
 			ref="items"
 			:style="{
 				zIndex: item.fixed ? 0 : 1,
 				'--enter-duration': 2 + 's',
-				'--enter-delay': idx / 10 + 's',
+				'--enter-delay': idx / 10 + 's'
 			}"
 		>
 			<!-- zIndex: items.length - idx, -->
@@ -72,9 +72,10 @@ export default {
 	name: 'green-room',
 	data: () => ({
 		currentlyOpen: null,
+		instances: []
 	}),
 	computed: {
-		...mapState('greenRoom', ['items']),
+		...mapState('greenRoom', ['items'])
 	},
 	methods: {
 		...mapActions('utils', [TEXT_CURSOR.action]),
@@ -89,7 +90,7 @@ export default {
 		},
 		changeCursor(str, icon) {
 			this[TEXT_CURSOR.action]({ str, icon })
-		},
+		}
 	},
 	mounted() {
 		this.$nextTick(() => {
@@ -100,7 +101,9 @@ export default {
 			this.$refs.items.forEach((item, idx) => {
 				if (item.classList.contains('fixed')) return
 
-				viscosity({ element: item, easing: 0.02 * idx + 0.02 })
+				this.instances.push(
+					viscosity({ element: item, easing: 0.02 * idx + 0.02 })
+				)
 			})
 		})
 		window.addEventListener('wheel', this.scrollHorizontally)
@@ -108,6 +111,7 @@ export default {
 	beforeDestroy() {
 		window.removeEventListener('wheel', this.scrollHorizontally)
 		this.changeCursor('')
-	},
+		this.instances.forEach(instance => instance.destroy())
+	}
 }
 </script>

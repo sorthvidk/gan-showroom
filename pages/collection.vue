@@ -81,7 +81,7 @@ export default {
 
 		/**
 		 * Open a single style if the url contains a query with a styleId
-		 * f.ex. gannispace.com/?q=A3765_135 -> opens A3765_135
+		 * f.ex. gannispace.com/collection?q=A3765_135 -> opens A3765_135
 		 */
 		this.parseUrl('q', param => {
 			const isStyle = this.allStyles.find(style => style.styleId === param)

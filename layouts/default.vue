@@ -1,22 +1,28 @@
 <template>
 	<div
+		:oncontextmenu="__prod__ ? `return false;` : ''"
 		class="layout"
 		:class="{ 'screensaver-running': idle, dark: dashboardDark }"
 	>
-		<text-cursor />
+		<login v-if="!loggedIn" />
+		<div class="content" v-else>
+			<nuxt v-if="rehydrated" />
+			<bottombar />
+
+			<!-- fixed elements -->
+			<text-cursor />
+			<assistant />
+			<clipboard-message v-if="showClipboardMessage" />
+			<copywrite-message v-if="!copyrightAccepted" />
+			<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
+			<screensaver v-if="idle" />
+		</div>
+
 		<music-player
 			v-if="!isMobile"
 			:showAudioVisualizer="!loggedIn && pageClicked < 1"
 			@clicked="() => pageClicked++"
 		/>
-		<nuxt v-if="rehydrated" />
-		<assistant />
-		<bottombar />
-
-		<clipboard-message v-if="showClipboardMessage" />
-		<copywrite-message v-if="!copyrightAccepted" />
-		<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
-		<screensaver v-if="idle" />
 	</div>
 </template>
 
@@ -51,6 +57,7 @@ import sendTracking from '~/utils/send-tracking'
 import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import Screensaver from '~/components/framework/Screensaver.vue'
+import Login from '~/components/framework/Login.vue'
 
 export default {
 	name: 'default',
@@ -61,7 +68,8 @@ export default {
 		TextCursor,
 		ClipboardMessage,
 		CopywriteMessage,
-		Screensaver
+		Screensaver,
+		Login
 	},
 	head() {
 		return {
@@ -83,7 +91,8 @@ export default {
 			'isMobile',
 			'downloadPreparing',
 			'clipBoardCopyComplete',
-			'dashboardDark'
+			'dashboardDark',
+			'__prod__'
 		])
 	},
 	methods: {
@@ -138,7 +147,9 @@ export default {
 
 		window.addEventListener('keyup', this[KEYPRESS.action])
 		window.addEventListener('keydown', event => {
+			console.log('RESET Listener')
 			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
+				console.log('RESET if statement')
 				this[RESET_STATE.action](event)
 			}
 		})

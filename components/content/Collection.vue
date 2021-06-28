@@ -4,10 +4,11 @@
 		:style="{ height: shifting ? 0 : '', overflow: shifting ? 'hidden' : '' }"
 	>
 		<group-navigation />
+
 		<div
 			class="collection__group"
-			v-for="(group, i) in groupsRenderList"
-			:key="'group' + i"
+			v-for="group in groupsRenderList"
+			:key="group.groupId"
 		>
 			<collection-header v-if="group.styles.length" :group="group" />
 
@@ -27,7 +28,7 @@
 import { mapActions, mapState } from 'vuex'
 import CollectionItem from '~/components/content/CollectionItem.vue'
 import CollectionHeader from '~/components/content/CollectionHeader.vue'
-import WindowContent from '~/components/framework/WindowContent.vue'
+// import WindowContent from '~/components/framework/WindowContent.vue'
 import GroupNavigation from '~/components/content/GroupNavigation.vue'
 import { DASHBOARD_DARK } from '~/model/constants'
 

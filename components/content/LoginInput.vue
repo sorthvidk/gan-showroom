@@ -1,11 +1,7 @@
 <template>
 	<div class="login-input">
-		<form
-			ref="form"
-			@submit.prevent="loginInput(true)"
-			class="form"
-			:style="{ opacity: !showMessage && !pwd ? '1' : '0' }"
-		>
+		<form ref="form" @submit.prevent="loginInput(true)" class="form">
+			<!-- :style="{ opacity: !showMessage && !pwd ? '1' : '0' }" -->
 			<input
 				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
@@ -39,7 +35,7 @@
 				top: '50%',
 				left: '50%',
 				transform: 'translate(-50%, -50%)',
-				width: '100%',
+				width: '100%'
 			}"
 		>
 			<p>Please type password</p>
@@ -53,14 +49,14 @@
 				left: '50%',
 				transform: 'translate(-50%, -50%)',
 				width: '100%',
-				zIndex: '-1',
+				zIndex: '-1'
 			}"
 		>
-			<login-asterixes
+			<!-- <login-asterixes
 				:shake="showErrorMessage"
 				:amount="pwd.length"
 				:start="valid ? true : false"
-			/>
+			/> -->
 		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
@@ -80,7 +76,7 @@ export default {
 	name: 'login',
 	components: {
 		FullpageSlideShow,
-		LoginAsterixes,
+		LoginAsterixes
 	},
 	data() {
 		return {
@@ -88,20 +84,26 @@ export default {
 			valid: false,
 			isFocus: false,
 			showErrorMessage: false,
-			showMessage: false,
+			showMessage: false
 		}
 	},
 	computed: {
-		...mapState('user', ['loggedIn', 'passwords', 'cookiesAccepted']),
+		...mapState('user', ['loggedIn', 'passwords', 'cookiesAccepted'])
 	},
 	methods: {
-		...mapActions('user', [LOGIN.action, HAS_AUTHENTICATED.action]),
+		...mapActions('user', [
+			LOGIN.action
+			// HAS_AUTHENTICATED.action
+		]),
 
 		updateValidState() {
-			const passwordUsed = hash.sha256().update(this.pwd).digest('hex')
+			const passwordUsed = hash
+				.sha256()
+				.update(this.pwd)
+				.digest('hex')
 
 			const authorized = this.passwords.find(
-				(pw) => pw.hash.toLowerCase() === passwordUsed.toLowerCase()
+				pw => pw.hash.toLowerCase() === passwordUsed.toLowerCase()
 			)
 
 			setTimeout(() => {
@@ -112,7 +114,7 @@ export default {
 				 * There was an old password still running on PS22 and
 				 * in order to force users to logout this was added:
 				 */
-				this[HAS_AUTHENTICATED.action](authorized)
+				// this[HAS_AUTHENTICATED.action](authorized)
 			}, 3000)
 
 			this.valid = authorized
@@ -144,13 +146,13 @@ export default {
 			}
 		},
 
-		playSound() {
-			const audio = new Audio('/audio/ganni_boot.mp3')
-			audio.addEventListener('loadeddata', () => {
-				audio.volume = 0.4
-				audio.play()
-			})
-		},
+		// playSound() {
+		// 	const audio = new Audio('/audio/ganni_boot.mp3')
+		// 	audio.addEventListener('loadeddata', () => {
+		// 		audio.volume = 0.4
+		// 		audio.play()
+		// 	})
+		// },
 
 		initMessage() {
 			setTimeout(() => {
@@ -158,18 +160,21 @@ export default {
 				this.initMessage()
 			}, 4000)
 		},
+
 		giveFocus() {
 			this.$refs.passwordInput && this.$refs.passwordInput.focus()
-		},
+		}
 	},
 	mounted() {
 		this.$refs.passwordInput.focus()
 
 		this.initMessage()
 		document.body.addEventListener('click', this.giveFocus.bind(this))
+
+		console.log('this.pwd', this.pwd)
 	},
 	beforeDestroy() {
 		document.body.removeEventListener('click', this.giveFocus.bind(this))
-	},
+	}
 }
 </script>

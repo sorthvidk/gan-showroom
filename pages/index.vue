@@ -1,29 +1,24 @@
 <template>
-	<div
-		:oncontextmenu="__prod__ ? `return false;` : ''"
-		style="min-height: 100vh; background-color: var(--color-secondary)"
-	>
+	<div style="background-color: var(--color-secondary)">
 		<preload-images :srcs="[various.dashboardBackground[0]]" />
 
 		<!-- step 1 -->
-		<transition name="slide-out">
+		<!-- <transition name="slide-out">
 			<login v-if="!loggedIn" />
-		</transition>
+		</transition> -->
 
 		<!-- step 2 -->
-		<transition name="slide-in-out">
+		<!-- <transition name="slide-in-out">
 			<quiz
-				v-if="!hasDoneQuiz && loggedIn && !dashboardContent.contentId"
+				v-if="!hasDoneQuiz && !dashboardContent.contentId"
 				@done="onQuizDone"
 				:with-skip-link="true"
 			/>
-		</transition>
+		</transition> -->
 
 		<!-- step 3 -->
-		<transition name="slide-in">
-			<desktop v-if="loggedIn && hasDoneQuiz" />
-		</transition>
-		<!-- <mobile-disclamer v-if="isMobile" /> -->
+
+		<desktop />
 
 		<transition name="slide-up">
 			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: hasDoneQuiz }" />
@@ -38,7 +33,6 @@ import { mapActions, mapState } from 'vuex'
 
 // import ViewportSizes from '~/model/viewport-sizes'
 
-import Login from '~/components/framework/Login.vue'
 import Desktop from '~/components/framework/Desktop.vue'
 import CookieBanner from '~/components/framework/CookieBanner.vue'
 import MobileDisclamer from '~/components/content/MobileDisclamer.vue'
@@ -50,12 +44,10 @@ import { HAS_DONE_QUIZ } from '~/model/constants'
 
 export default {
 	components: {
-		Login,
 		Desktop,
-
+		Quiz,
 		CookieBanner,
 		MobileDisclamer,
-
 		AudioGalleryController,
 		PreloadImages
 	},
@@ -68,7 +60,7 @@ export default {
 			'hasDoneQuiz',
 			'hasAuthenticated'
 		]),
-		...mapState('utils', ['isMobile', '__prod__', 'various']),
+		...mapState('utils', ['isMobile', 'various']),
 		...mapState('collection', ['wishList', 'allStyles'])
 	},
 	methods: {
@@ -78,9 +70,6 @@ export default {
 	},
 	mounted() {
 		if (window.GS_LOGS) console.warn('MOUNTED INDEX - PERFORM INITIALISATIONS')
-
-		// this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
-		// this.$store.commit('progressBar/' + INIT_PROGRESS.mutation)
 
 		if (this.audioPlayer) {
 			this.audioPlayer = this.$children[1].$children[0].progress

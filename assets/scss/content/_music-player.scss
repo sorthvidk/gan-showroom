@@ -1,6 +1,7 @@
 .music-player {
 	@include bodytext();
 	position: fixed;
+	top: 0;
 	width: 400px;
 	user-select: none !important;
 	cursor: default;

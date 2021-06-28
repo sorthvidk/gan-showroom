@@ -1,15 +1,3 @@
-// style the 'vue-typer' text
-.vue-typer {
-	padding-bottom: rem(80);
-	width: 100%;
-
-	.custom.char {
-		&.typed {
-			color: currentColor;
-		}
-	}
-}
-
 .login {
 	@include megatype();
 
@@ -24,36 +12,6 @@
 	color: var(--color-primary);
 	background-color: var(--color-secondary);
 
-	&__video {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: -1;
-		display: flex;
-		width: calc(100vmax * 16 / 9);
-		height: 100vmax;
-
-		iframe {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	&__mute {
-		position: absolute;
-		z-index: 1;
-		top: rem(10);
-		right: rem(10);
-		width: rem(50);
-		height: rem(50);
-
-		svg {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
 	h1 {
 		font-size: 17.5vh;
 		line-height: 0.8;
@@ -62,18 +20,10 @@
 		width: 4em;
 		user-select: none;
 	}
-
-	// &__form {
-	// 	position: absolute;
-	// 	right: 10%;
-	// 	top: 45%;
-	// 	transform: translateY(-50%);
-	// }
 }
 
 .login-input {
 	display: flex;
-	// justify-content: flex-end;
 	align-items: center;
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
@@ -85,7 +35,6 @@
 	letter-spacing: 0;
 
 	.form {
-		// @include windowtitle();
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -97,44 +46,41 @@
 			margin-bottom: 0;
 		}
 
-		// padding: rem(25) rem(20);
-
 		h1 {
 			font-size: 1em;
 			max-width: 10.3em;
 			display: inline-block;
 		}
 
-		&__input {
-			font-family: $font-sansserif;
-			padding: 0;
-			font-weight: inherit;
-			border: none;
-			background: none;
+		// &__input {
+		// 	font-family: $font-sansserif;
+		// 	padding: 0;
+		// 	font-weight: inherit;
+		// 	border: none;
+		// 	background: none;
 
-			font-size: 2em;
-			width: 100%;
+		// 	font-size: 2em;
+		// 	width: 100%;
 
-			margin-bottom: 0.5em;
-			color: var(--color-primary);
+		// 	margin-bottom: 0.5em;
+		// 	color: var(--color-primary);
 
-			outline: none;
-			padding-bottom: rem(10);
-			text-align: center;
-			// border-bottom: rem(5) solid currentColor;
+		// 	outline: none;
+		// 	padding-bottom: rem(10);
+		// 	text-align: center;
 
-			&.is-invalid {
-				color: $color-red;
-			}
+		// 	&.is-invalid {
+		// 		color: $color-red;
+		// 	}
 
-			&::placeholder {
-				color: inherit;
-			}
+		// 	&::placeholder {
+		// 		color: inherit;
+		// 	}
 
-			&:focus::placeholder {
-				color: transparent;
-			}
-		}
+		// 	// &:focus::placeholder {
+		// 	// 	color: transparent;
+		// 	// }
+		// }
 
 		button {
 			font-family: $font-sansserif;
@@ -157,109 +103,52 @@
 			}
 		}
 	}
-
-	@keyframes down {
-		to {
-			transform: translateY(-100vh);
-		}
-	}
-
-	.moving {
-		animation: down 5s linear forwards;
-
-		div {
-			display: flex;
-			align-items: flex-end;
-		}
-
-		svg {
-			width: 100%;
-		}
-	}
-
-	.logo-container {
-		height: 100vh;
-		width: 100vw;
-		display: flex;
-		align-items: flex-end;
-		padding: rem(25) rem(20);
-		box-sizing: border-box;
-		position: absolute;
-	}
-
-	.logo-letter {
-		display: inline-block;
-		height: 25.5vw;
-		margin-right: 1vh;
-
-		&:first-of-type {
-			margin-bottom: -0.63vw;
-			height: 27vw;
-		}
-
-		&:nth-of-type(2) {
-			animation-duration: 4.5s;
-		}
-
-		&:nth-of-type(3) {
-			animation-duration: 5s;
-		}
-
-		&:nth-of-type(4) {
-			animation-duration: 7s;
-		}
-
-		svg {
-			height: inherit;
-			width: auto;
-		}
-	}
 }
 
-.login-slide {
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	align-items: flex-end;
-	font-weight: 500;
-	line-height: 0.9;
+// .login-slide {
+// 	background-size: cover;
+// 	background-position: center;
+// 	display: flex;
+// 	align-items: flex-end;
+// 	font-weight: 500;
+// 	line-height: 0.9;
 
-	position: relative;
-	z-index: 1;
+// 	position: relative;
+// 	z-index: 1;
 
-	cursor: pointer;
+// 	cursor: pointer;
 
-	transform: translateZ(0);
+// 	transform: translateZ(0);
 
-	.background {
-		height: 100vh;
-		width: 100vw;
-		position: absolute;
-		z-index: -1;
-		background-size: 100%;
-		object-fit: cover;
-	}
+// 	.background {
+// 		height: 100vh;
+// 		width: 100vw;
+// 		position: absolute;
+// 		z-index: -1;
+// 		background-size: 100%;
+// 		object-fit: cover;
+// 	}
 
-	&.one {
-	}
+// 	&.one {
+// 	}
 
-	&.two {
-		// color: $color-purple;
-		font-size: 8vmax;
-	}
+// 	&.two {
+// 		// color: $color-purple;
+// 		font-size: 8vmax;
+// 	}
 
-	&.three {
-		align-items: flex-start;
-		justify-content: flex-end;
-	}
+// 	&.three {
+// 		align-items: flex-start;
+// 		justify-content: flex-end;
+// 	}
 
-	.logo {
-		top: auto;
-		bottom: rem(20);
+// 	.logo {
+// 		top: auto;
+// 		bottom: rem(20);
 
-		svg {
-			opacity: 1;
-			fill: $color-black;
-		}
-	}
-}
+// 		svg {
+// 			opacity: 1;
+// 			fill: $color-black;
+// 		}
+// 	}
+// }
