@@ -3,26 +3,12 @@
 		<div
 			class="assistant__content"
 			:class="{
-				'is-collapsed': isMobile && !expanded,
+				'is-collapsed': isMobile && !expanded
 			}"
 		>
 			<div class="assistant__filters">
 				<h3>{{ texts.collection.headline }}</h3>
 				<p>{{ texts.collection.bodyText }}</p>
-
-				<!-- <div class="assistant__search">
-					<input
-						type="text"
-						placeholder="filter"
-						:value="searchstring"
-						@input="onSearchInput"
-					/>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
-						<path
-							d="M447 428L337 318a192 192 0 10-19 19l110 110c3 3 6 4 10 4s6-1 9-4c5-5 5-14 0-19zM27 192a165 165 0 11331 1 165 165 0 01-331-1z"
-						/>
-					</svg>
-				</div> -->
 
 				<div class="assistant__filters__list">
 					<filter-button
@@ -40,19 +26,19 @@
 					/>
 
 					<filter-button
-						v-for="(item, key) in groupFiltersNonNull"
-						:key="key"
-						:name="item.name"
-						:count="item.styleIds.length"
-						:filter-id="item.filterId"
-						:is-big="['shoes'].includes(item.name.toLowerCase())"
+						v-for="item in currentFilters"
+						:key="item.filter.filterId"
+						:name="item.filter.name"
+						:count="item.styles.length"
+						:filter-id="item.filter.filterId"
+						:is-big="['shoes'].includes(item.filter.name.toLowerCase())"
 					/>
-					<span
+					<!-- <span
 						class="filter-button"
 						v-if="groupFiltersNonNull.length % 2 === 0"
 					>
 						&nbsp;
-					</span>
+					</span> -->
 				</div>
 			</div>
 		</div>
@@ -85,32 +71,29 @@ import {
 	OPEN_WISH_LIST,
 	DOWNLOAD_PREPARING,
 	SET_PREVIOUS_GROUP,
-	SET_NEXT_GROUP,
-	SET_SEARCHSTRING,
+	SET_NEXT_GROUP
 } from '~/model/constants'
 import FilterButton from '~/components/content/FilterButton.vue'
 
 export default {
 	name: 'assistant-mode-filter-collection',
 	components: {
-		FilterButton,
+		FilterButton
 	},
 	computed: {
-		// ...mapState('user', ['keyPressed']),
 		...mapState('utils', ['isMobile', 'downloadPreparing', '__prod__']),
 		...mapState('assistant', ['expanded', 'pdfDownloadLink', 'texts']),
-		...mapState('collection', [
-			'groupFilters',
-			'activeGroup',
-			'activeFilter',
-			'searchstring',
-			'authorizedGroups',
-		]),
+		...mapState('collection', ['activeGroup', 'activeFilter']),
 		...mapGetters('assistant', ['viewWishListButtonLabel']),
-		...mapGetters('collection', ['readyToWear', 'accessories']),
+		...mapGetters('collection', [
+			'readyToWear',
+			'accessories',
+			'groups',
+			'allStylesWithFilter'
+		]),
 
 		downloadCollectionButtonLabel() {
-			if (this.activeFilter.filterId) {
+			if (this.activeFilter && this.activeFilter.filterId) {
 				return 'Download ' + this.activeFilter.name
 			}
 			return 'Download all'
@@ -130,44 +113,14 @@ export default {
 			// /export with no params shows all styles
 			return `${window.location}export`
 		},
-		groupFiltersNonNull() {
-			const others = {
-				filterId: 'others',
-				name: 'Others',
-				order: 9999,
-				styleIds: this.groupFilters
-					.filter((f) => !f.filterId)
-					.map((f) => f.styleIds)
-					.flat(),
-			}
-			if (others.styleIds.length) {
-				console.warn(
-					`Found no matching filters for:\n\n${others.styleIds.join(
-						'\n'
-					)}\n\nThese items will only be shown when no filter is active`
-				)
-			}
-			return this.groupFilters.filter((f) => f.filterId)
-		},
-		// readyToWearCount() {
-		// 	const accessoriesFilterId = 'acc1'
-		// 	const shoesFilterId = 'acc3'
-		// 	const nonClothes = [accessoriesFilterId, shoesFilterId]
 
-		// 	if (this.activeGroup) {
-		// 		return this.activeGroup.styles.filter(
-		// 			(s) => !s.filters.find((f) => nonClothes.includes(f.filterId))
-		// 		).length
-		// 	} else {
-		// 		return this.authorizedGroups
-		// 			.map((g) =>
-		// 				g.styles.filter(
-		// 					(s) => !s.filters.find((f) => nonClothes.includes(f.filterId))
-		// 				)
-		// 			)
-		// 			.flat().length
-		// 	}
-		// },
+		currentFilters() {
+			const currentFilter = this.activeGroup
+				? this.groups[this.activeGroup.groupId].filters
+				: this.allStylesWithFilter
+
+			return currentFilter
+		}
 	},
 	watch: {
 		// keyPressed(event) {
@@ -183,8 +136,7 @@ export default {
 		...mapActions([OPEN_WISH_LIST.action]),
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
-			SET_NEXT_GROUP.action,
-			SET_SEARCHSTRING.action,
+			SET_NEXT_GROUP.action
 		]),
 		...mapActions('utils', [DOWNLOAD_PREPARING.action]),
 		viewWishList() {
@@ -201,13 +153,7 @@ export default {
 		},
 		nextGroupHandler() {
 			this[SET_NEXT_GROUP.action]()
-		},
-		onSearchInput(event) {
-			this[SET_SEARCHSTRING.action](event.target.value)
-		},
-	},
-	// beforeDestroy() {
-	// 	this[SET_SEARCHSTRING.action]('')
-	// },
+		}
+	}
 }
 </script>

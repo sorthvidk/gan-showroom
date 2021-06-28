@@ -170,8 +170,6 @@ export default {
 
 		this.initMessage()
 		document.body.addEventListener('click', this.giveFocus.bind(this))
-
-		console.log('this.pwd', this.pwd)
 	},
 	beforeDestroy() {
 		document.body.removeEventListener('click', this.giveFocus.bind(this))

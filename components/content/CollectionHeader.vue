@@ -40,7 +40,7 @@
 
 				<div
 					class="timeline"
-					v-if="group.cloudinaryUrl.length > 1"
+					v-if="group.cloudinaryUrl && group.cloudinaryUrl.length > 1"
 					:style="{
 						gridTemplateColumns: `repeat(${group.cloudinaryUrl.length}, 1fr)`
 					}"
@@ -135,7 +135,9 @@ export default {
 		}
 	},
 	mounted() {
-		this.tick()
+		if (this.group.cloudinaryUrl) {
+			this.tick()
+		}
 	}
 }
 </script>

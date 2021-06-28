@@ -19,15 +19,15 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState, mapGetters } from 'vuex'
+// import { vuex, mapActions, mapState, mapGetters } from 'vuex'
 import { TweenLite } from 'gsap'
-import {
-	OPEN_CONTENT,
-	OPEN_CONTENT_IN_DASHBOARD,
-	SET_GROUP_BY_IDENTIFIER,
-	DESKTOP_BACKGROUND
-} from '~/model/constants'
-import ShortcutTypes from '~/model/shortcut-types'
+// import {
+// 	OPEN_CONTENT,
+// 	OPEN_CONTENT_IN_DASHBOARD,
+// 	SET_GROUP_BY_IDENTIFIER,
+// 	DESKTOP_BACKGROUND
+// } from '~/model/constants'
+// import ShortcutTypes from '~/model/shortcut-types'
 
 export default {
 	name: 'shortcut',
@@ -39,37 +39,37 @@ export default {
 		cssClass: ''
 	}),
 	computed: {
-		...mapState(['dashboardContent']),
-		...mapGetters('collection', ['authorizedGroupsIds'])
+		// ...mapState(['dashboardContent']),
+		// ...mapGetters('collection', ['authorizedGroupsIds'])
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
-		...mapActions('assets', [DESKTOP_BACKGROUND.action]),
-		onClick() {
-			const { windowContent } = this
+		// ...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
+		// ...mapActions('assets', [DESKTOP_BACKGROUND.action]),
+		// onClick() {
+		// 	const { windowContent } = this
 
-			if (this.type == ShortcutTypes.URL && this.href) {
-				window.open(this.href, '_blank')
-			} else {
-				const openContentInDashboard = () => {
-					this.$nextTick(() =>
-						this[OPEN_CONTENT_IN_DASHBOARD.action]({ windowContent })
-					)
-				}
-				if (this.actions) {
-					// const openContent = () =>
-					// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
+		// 	if (this.type == ShortcutTypes.URL && this.href) {
+		// 		window.open(this.href, '_blank')
+		// 	} else {
+		// 		const openContentInDashboard = () => {
+		// 			this.$nextTick(() =>
+		// 				this[OPEN_CONTENT_IN_DASHBOARD.action]({ windowContent })
+		// 			)
+		// 		}
+		// 		if (this.actions) {
+		// 			// const openContent = () =>
+		// 			// 	this.$nextTick(() => this[OPEN_CONTENT.action]({ windowContent }))
 
-					this.actions.forEach(action => {
-						if (typeof action.param !== 'undefined')
-							this.$store.dispatch(action.name, action.param)
-						else this.$store.dispatch(action.name)
-					})
-				}
+		// 			this.actions.forEach(action => {
+		// 				if (typeof action.param !== 'undefined')
+		// 					this.$store.dispatch(action.name, action.param)
+		// 				else this.$store.dispatch(action.name)
+		// 			})
+		// 		}
 
-				openContentInDashboard()
-			}
-		},
+		// 		openContentInDashboard()
+		// 	}
+		// },
 		beforeAnimateIn(el) {
 			TweenLite.set(el, { scale: 1, opacity: 0 })
 		},
@@ -80,12 +80,12 @@ export default {
 				opacity: 1,
 				ease: 'power4.inOut'
 			})
-		},
-		changeBackground(color) {
-			if (!this.textLayout) return
-
-			this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
 		}
+		// changeBackground(color) {
+		// 	if (!this.textLayout) return
+
+		// 	this[DESKTOP_BACKGROUND.action](!color ? false : this.nthChild)
+		// }
 	},
 	mounted() {
 		// console.log(this.shortcutId)

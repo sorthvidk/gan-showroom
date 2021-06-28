@@ -6,56 +6,57 @@
 					id="all"
 					name="group-navigation"
 					type="radio"
-					@change="(e) => e.target.checked && groupHandler('')"
+					@change="e => e.target.checked && groupHandler('')"
 					:checked="!activeGroup"
 				/>
 				All ({{ allStyles.length }})
 			</label>
 			<label
-				:for="group.groupId"
-				v-for="group in authorizedGroups"
-				:key="group.name"
-				:class="{ disabled: group.styles.length === 0 }"
+				:for="groupId"
+				v-for="(obj, groupId) in groups"
+				:key="groupId"
+				:class="{ disabled: obj.styles.length === 0 }"
 			>
 				<input
-					:id="group.groupId"
+					:id="groupId"
 					name="group-navigation"
 					type="radio"
-					:disabled="group.styles.length === 0"
-					@change="(e) => e.target.checked && groupHandler(group.groupId)"
-					:checked="activeGroup && activeGroup.groupId === group.groupId"
+					:disabled="obj.styles.length === 0"
+					@change="e => e.target.checked && groupHandler(groupId)"
+					:checked="activeGroup && activeGroup.groupId === groupId"
 				/>
-				{{ group.name }}
-				({{ group.styles.length }})
+				{{ obj.group.name }}
+				({{ obj.styles.length }})
 			</label>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import {
 	SET_NEXT_GROUP,
 	SET_PREVIOUS_GROUP,
-	SET_GROUP_BY_IDENTIFIER,
+	SET_GROUP_BY_IDENTIFIER
 } from '~/model/constants'
 export default {
 	name: 'group-navigation',
 	computed: {
 		...mapState('collection', ['allStyles', 'activeGroup', 'authorizedGroups']),
+		...mapGetters('collection', ['groups']),
 		groupName() {
 			if (this.activeGroup) {
 				return this.activeGroup.name
 			} else {
 				return 'All styles'
 			}
-		},
+		}
 	},
 	methods: {
 		...mapActions('collection', [
 			SET_PREVIOUS_GROUP.action,
 			SET_NEXT_GROUP.action,
-			SET_GROUP_BY_IDENTIFIER.action,
+			SET_GROUP_BY_IDENTIFIER.action
 		]),
 		groupPrevHandler() {
 			this[SET_PREVIOUS_GROUP.action]()
@@ -65,7 +66,7 @@ export default {
 		},
 		groupHandler(id) {
 			this[SET_GROUP_BY_IDENTIFIER.action](id)
-		},
-	},
+		}
+	}
 }
 </script>

@@ -20,19 +20,14 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 import {
 	CLIPBOARD_COPY,
 	DOWNLOAD_PREPARING,
-	OPEN_CONTENT,
-	OPEN_CONTENT_IN_DASHBOARD,
-	ASSISTANT_TOGGLE,
-	HAS_AUTHENTICATED
+	ASSISTANT_TOGGLE
 } from '~/model/constants'
 
-import ShortcutTypes from '~/model/shortcut-types'
-import Shortcut from '~/components/framework/Shortcut.vue'
 import BackgroundImage from '~/components/content/BackgroundImage.vue'
 import DownloadMessage from '~/components/content/DownloadMessage.vue'
 import Countdown from '~/components/elements/Countdown.vue'
@@ -40,7 +35,6 @@ import Countdown from '~/components/elements/Countdown.vue'
 export default {
 	name: 'desktop',
 	components: {
-		Shortcut,
 		BackgroundImage,
 		DownloadMessage,
 		Countdown
@@ -111,10 +105,8 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions([OPEN_CONTENT.action, OPEN_CONTENT_IN_DASHBOARD.action]),
 		...mapActions('utils', [CLIPBOARD_COPY.action, DOWNLOAD_PREPARING.action]),
 		...mapActions('assistant', [ASSISTANT_TOGGLE.action]),
-		...mapActions('user', [HAS_AUTHENTICATED.action]),
 
 		startClipboardTimeout() {
 			setTimeout(() => {
@@ -140,8 +132,6 @@ export default {
 	mounted() {
 		this[ASSISTANT_TOGGLE.action](false)
 		this.activateClubs()
-	},
-
-	created() {}
+	}
 }
 </script>

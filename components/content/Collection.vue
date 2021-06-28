@@ -7,17 +7,16 @@
 
 		<div
 			class="collection__group"
-			v-for="group in groupsRenderList"
-			:key="group.groupId"
+			v-for="obj in groupsRenderList"
+			:key="obj.group.groupId"
 		>
-			<collection-header v-if="group.styles.length" :group="group" />
+			<collection-header :group="obj.group" />
 
 			<div class="collection__list">
 				<collection-item
 					v-bind="item"
-					v-for="(item, j) in group.styles"
+					v-for="item in obj.styles"
 					:key="item.styleId"
-					:data-index="j"
 				/>
 			</div>
 		</div>
@@ -25,15 +24,13 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 import CollectionItem from '~/components/content/CollectionItem.vue'
 import CollectionHeader from '~/components/content/CollectionHeader.vue'
-// import WindowContent from '~/components/framework/WindowContent.vue'
 import GroupNavigation from '~/components/content/GroupNavigation.vue'
 import { DASHBOARD_DARK } from '~/model/constants'
 
 export default {
-	// extends: WindowContent,
 	name: 'collection',
 	components: {
 		CollectionItem,
@@ -47,21 +44,25 @@ export default {
 		...mapState('collection', [
 			'currentStyles',
 			'authorizedGroups',
-			'activeGroup'
+			'activeGroup',
+			'activeFilter'
 		]),
+		...mapGetters('collection', ['groups']),
 
 		groupsRenderList() {
-			const isActive = g =>
-				!this.activeGroup || g.groupId === this.activeGroup.groupId
+			const isActive = groupId =>
+				!this.activeGroup || groupId === this.activeGroup.groupId
 
-			return (
-				this.authorizedGroups
-					// .filter(g => g.styles.length)
-					.filter(isActive)
-					.map(group => ({
-						...group,
-						styles: this.currentStyles.filter(e => e.groupId === group.groupId)
-					}))
+			console.log(
+				'activeGroup',
+				Object.values(this.groups).filter(({ group }) =>
+					isActive(group.groupId)
+				),
+				this.activeFilter
+			)
+
+			return Object.values(this.groups).filter(({ group }) =>
+				isActive(group.groupId)
 			)
 		}
 	},
@@ -79,6 +80,7 @@ export default {
 
 	mounted() {
 		this[DASHBOARD_DARK.action](false)
+		// console.log('groups', this.groups)
 	}
 }
 </script>

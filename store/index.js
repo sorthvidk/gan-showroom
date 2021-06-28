@@ -21,7 +21,7 @@ import {
 	OPEN_STYLE_CONTENT,
 	FETCH_PASSWORDS,
 	UPDATE_PROGRESS,
-	OPEN_CONTENT_IN_DASHBOARD,
+	// OPEN_CONTENT_IN_DASHBOARD,
 	ASSISTANT_UPDATE,
 	FETCH_GREEN_ROOM,
 	FETCH_ABOUT_GANNI,
@@ -124,16 +124,16 @@ export const mutations = {
 	/**
 	 * opens a window content, but in the dashboard instead of a draggable window
 	 */
-	[OPEN_CONTENT_IN_DASHBOARD.mutation](state, { dispatch, params }) {
-		if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
+	// [OPEN_CONTENT_IN_DASHBOARD.mutation](state, { dispatch, params }) {
+	// 	if (window.GS_LOGS) console.warn('OPEN_CONTENT', params)
 
-		params.windowContent.forEach(content => {
-			const newWindow = getOptimalProp(state, content, getUniqueId())
-			state.dashboardContent = newWindow
-		})
+	// 	params.windowContent.forEach(content => {
+	// 		const newWindow = getOptimalProp(state, content, getUniqueId())
+	// 		state.dashboardContent = newWindow
+	// 	})
 
-		dispatch('assistant/' + ASSISTANT_UPDATE.action)
-	},
+	// 	dispatch('assistant/' + ASSISTANT_UPDATE.action)
+	// },
 
 	/*
 	 *	Save window position and size values
@@ -287,10 +287,10 @@ export const actions = {
 		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 
-	[OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
-		commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
-		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
-	},
+	// [OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
+	// 	commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
+	// 	// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
+	// },
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)
@@ -417,23 +417,24 @@ export const actions = {
 
 		await commit(
 			'collection/' + FETCH_COLLECTION_ITEMS.mutation,
-			await $content('collectionItems').fetch()
+			await $content('collectionItems')
+				.sortBy('weight')
+				.fetch()
 		)
 
 		await commit(
 			'collection/' + FETCH_COLLECTION_FILTERS.mutation,
-			await $content('collectionFilters').fetch()
+			await $content('collectionFilters')
+				.sortBy('order')
+				.fetch()
 		)
 
 		await commit(
 			'collection/' + FETCH_COLLECTION_GROUPS.mutation,
-			await $content('collectionGroups').fetch()
+			await $content('collectionGroups')
+				.sortBy('order')
+				.fetch()
 		)
-
-		// await commit(
-		// 	'collection/' + FETCH_COLLECTION_ASSETS.mutation,
-		// 	await $content('mediaAssets').fetch()
-		// )
 
 		await commit(
 			'assets/' + FETCH_LOOKBOOK.mutation,

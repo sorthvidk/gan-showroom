@@ -37,10 +37,10 @@ import {
 } from '~/utils/array-helpers'
 
 export const state = () => ({
-	collectionLayout: CollectionLayouts.GRID,
+	// collectionLayout: CollectionLayouts.GRID,
 
 	//all indexasion done
-	dataIndexComplete: false,
+	// dataIndexComplete: false,
 
 	//loaded from json
 	// allMediaAssets: [],
@@ -48,7 +48,7 @@ export const state = () => ({
 	//loaded from json
 	allStyles: [],
 	//currently active in app
-	currentStyles: [],
+	// currentStyles: [],
 
 	//loaded from json
 	allGroups: [],
@@ -62,9 +62,9 @@ export const state = () => ({
 	//loaded from json
 	allFilters: [],
 	//currently available in app
-	referencedFilters: [],
+	// referencedFilters: [],
 	//currently available in active group
-	groupFilters: null,
+	// groupFilters: null,
 
 	//currently active filter in assistent
 	activeFilter: {
@@ -77,9 +77,7 @@ export const state = () => ({
 	wishList: [],
 
 	currentStyle: null,
-	hiddenAssetContent: [],
-
-	searchstring: ''
+	hiddenAssetContent: []
 })
 
 export const getters = {
@@ -101,7 +99,7 @@ export const getters = {
 
 	allStyles: state => state.allStyles,
 
-	readyToWear: state => {
+	readyToWear: (state, getters) => {
 		const targetFilters = {
 			accessoriesFilterId: 'acc1',
 			shoesFilterId: 'acc3',
@@ -116,13 +114,15 @@ export const getters = {
 		const hasNoAccOrShoesFilter = style => !style.filters.find(isAccOrShoes)
 
 		return state.activeGroup
-			? state.activeGroup.styles.filter(hasNoAccOrShoesFilter)
-			: state.authorizedGroups
+			? getters.groups[state.activeGroup.groupId].styles.filter(
+					hasNoAccOrShoesFilter
+			  )
+			: Object.values(getters.groups)
 					.map(g => g.styles.filter(hasNoAccOrShoesFilter))
 					.flat()
 	},
 
-	accessories: state => {
+	accessories: (state, getters) => {
 		const targetFilters = {
 			accessoriesFilterId: 'acc1',
 			bagsFilterId: 'acc2',
@@ -135,18 +135,62 @@ export const getters = {
 		const hasAccFilter = style => style.filters.find(isAcc)
 
 		return state.activeGroup
-			? state.activeGroup.styles.filter(hasAccFilter)
-			: state.authorizedGroups.map(g => g.styles.filter(hasAccFilter)).flat()
+			? getters.groups[state.activeGroup.groupId].styles.filter(hasAccFilter)
+			: Object.values(getters.groups)
+					.map(g => g.styles.filter(hasAccFilter))
+					.flat()
+	},
+
+	groups: state => {
+		return state.allGroups.reduce((acc, group) => {
+			const groupStyles = state.allStyles.filter(
+				({ groupId }) => group.groupId === groupId
+			)
+			const groupFilters = state.allFilters.reduce((acc, filter) => {
+				const stylesWithCurrentFilter = groupStyles.filter(style =>
+					style.filters.includes(filter.filterId)
+				)
+				return {
+					...acc,
+					...(stylesWithCurrentFilter.length && {
+						[filter.filterId]: {
+							styles: stylesWithCurrentFilter,
+							filter
+						}
+					})
+				}
+			}, {})
+
+			return {
+				...acc,
+				[group.groupId]: {
+					group,
+					styles: groupStyles,
+					filters: groupFilters
+				}
+			}
+		}, {})
+	},
+
+	allStylesWithFilter: state => {
+		return state.allFilters.reduce((acc, filter) => {
+			const styles = state.allStyles.filter(style =>
+				style.filters.includes(filter.filterId)
+			)
+
+			return {
+				...acc,
+				...(styles.length && {
+					[filter.filterId]: { filter, styles }
+				})
+			}
+		}, {})
 	}
 }
 
 export const mutations = {
 	[FETCH_COLLECTION_ITEMS.mutation](state, data) {
 		state.allStyles = data
-		// .map(style => ({
-		// 	...style,
-		// 	assets: style.assets || []
-		// }))
 	},
 	[FETCH_COLLECTION_GROUPS.mutation](state, data) {
 		state.allGroups = data
@@ -161,9 +205,6 @@ export const mutations = {
 	[FETCH_COLLECTION_FILTERS.mutation](state, data) {
 		state.allFilters = data
 	},
-	// [FETCH_COLLECTION_ASSETS.mutation](state, data) {
-	// 	state.allMediaAssets = data
-	// },
 
 	[INDEX_COLLECTION_DATA.mutation](state) {
 		if (state.dataIndexComplete) return false
@@ -392,13 +433,6 @@ export const mutations = {
 		state.allStyles = state.allStyles.sort((a, b) =>
 			a.weight > b.weight ? -1 : 1
 		)
-		// state.allStyles = sortArrayMultipleProps(
-		// 	state.allStyles,
-		// 	// 'program',
-		// 	'weight'
-		// )
-
-		//set current subset of total collection to total collection
 
 		state.currentStyles = state.allStyles
 		state.activeFilter = {
@@ -417,22 +451,9 @@ export const mutations = {
 		if (!groupId || groupId == '') {
 			state.activeGroup = null
 			state.activeGroupIndex = -1
-
-			state.currentStyles = state.allStyles
-			state.groupFilters = state.referencedFilters
 		} else {
 			state.activeGroup = state.allGroups.filter(e => e.groupId === groupId)[0]
 			state.activeGroupIndex = state.allGroups.indexOf(state.activeGroup)
-
-			// state.currentStyles = sortArrayMultipleProps(
-			// 	state.activeGroup.styles,
-			// 	// 'program',
-			// 	'weight'
-			// )
-			state.currentStyles = state.activeGroup.styles.sort((a, b) =>
-				a.weight > b.weight ? -1 : 1
-			)
-			state.groupFilters = state.activeGroup.filters
 		}
 	},
 
@@ -449,22 +470,13 @@ export const mutations = {
 		if (state.activeGroupIndex == -1) {
 			state.activeGroup = null
 			state.activeGroupIndex = -1
-
-			state.currentStyles = state.allStyles
-			state.groupFilters = state.referencedFilters
 		} else {
 			state.activeGroup = state.authorizedGroups[state.activeGroupIndex]
-
-			state.currentStyles = state.activeGroup.styles
-			state.groupFilters = state.activeGroup.filters
 		}
 	},
 
 	[SET_CURRENT_FILTER.mutation](state, { filterId, getters }) {
 		if (filterId === 'RTW') {
-			state.currentStyles = [...getters.readyToWear].sort((a, b) =>
-				a.weight > b.weight ? -1 : 1
-			)
 			state.activeFilter = {
 				filterId,
 				name: 'Ready to wear',
@@ -474,9 +486,6 @@ export const mutations = {
 			return
 		}
 		if (filterId === 'ACC') {
-			state.currentStyles = [...getters.accessories].sort((a, b) =>
-				a.weight > b.weight ? -1 : 1
-			)
 			state.activeFilter = {
 				filterId,
 				name: 'Accessories',
@@ -486,12 +495,6 @@ export const mutations = {
 			return
 		}
 
-		if (!state.activeGroup) {
-			state.currentStyles = state.allStyles
-		} else {
-			state.currentStyles = state.activeGroup.styles
-		}
-
 		if (!filterId) {
 			state.activeFilter = {
 				filterId: null,
@@ -499,24 +502,7 @@ export const mutations = {
 				styleIds: []
 			}
 		} else {
-			// set current collection to filtered by params
-			state.activeFilter = state.groupFilters.find(e => e.filterId === filterId)
-
-			if (!state.activeFilter) {
-				return
-			}
-
-			const { styleIds } = state.activeFilter
-
-			let newCurrentStyles = findArrayMatches(
-				styleIds,
-				state.currentStyles,
-				'styleId'
-			)
-
-			newCurrentStyles.sort((a, b) => (a.weight > b.weight ? -1 : 1))
-
-			state.currentStyles = newCurrentStyles
+			state.activeFilter = state.allFilters.find(e => e.filterId === filterId)
 		}
 	},
 

@@ -2,8 +2,8 @@
 	<button
 		class="filter-button"
 		:class="{
-			'is-active': activeFilter.filterId === filterId,
-			'is-big': isBig,
+			'is-active': activeFilter && activeFilter.filterId === filterId,
+			'is-big': isBig
 		}"
 		@click="clickHandler"
 	>
@@ -24,35 +24,35 @@ export default {
 		name: {
 			type: String,
 			default: '',
-			required: true,
+			required: true
 		},
 		count: {
 			type: Number,
-			required: true,
+			required: true
 		},
 		filterId: {
 			type: String,
 			default: '',
-			required: true,
+			required: true
 		},
 		isBig: {
-			type: Boolean,
-		},
+			type: Boolean
+		}
 	},
 	computed: {
-		...mapState('collection', ['activeFilter']),
+		...mapState('collection', ['activeFilter'])
 	},
 	methods: {
 		...mapActions(['collection/' + SET_CURRENT_FILTER.action]),
 		clickHandler() {
-			if (this.activeFilter.filterId === this.filterId) {
+			if (this.activeFilter?.filterId === this.filterId) {
 				this['collection/' + SET_CURRENT_FILTER.action]()
 			} else {
 				this['collection/' + SET_CURRENT_FILTER.action](this.filterId)
 
 				sendTracking('Filter added', this.name)
 			}
-		},
-	},
+		}
+	}
 }
 </script>

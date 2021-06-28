@@ -30,11 +30,8 @@
 import { mapState, mapActions } from 'vuex'
 import Bottombar from '~/components/framework/Bottombar.vue'
 import Assistant from '~/components/framework/Assistant.vue'
-import { INDEX_COLLECTION_DATA } from '~/model/constants'
 import addMediaChangeListener from '~/utils/media-change'
 import {
-	// INDEX_COLLECTION_DATA,
-	// INIT_PROGRESS,
 	IDLE,
 	IS_MOBILE,
 	KEYPRESS,
@@ -43,13 +40,10 @@ import {
 	USER_HAS_INTERACTED,
 	CURRENT_SCROLL,
 	SCREEN_SIZE,
-	OPEN_STYLE_CONTENT,
 	AUTHORIZE_GROUPS
 } from '~/model/constants'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import TextCursor from '~/components/elements/TextCursor.vue'
-import { nextIndex } from '~/utils/array-helpers'
-import sendTracking from '~/utils/send-tracking'
 import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import Screensaver from '~/components/framework/Screensaver.vue'
@@ -92,8 +86,8 @@ export default {
 		])
 	},
 	methods: {
-		...mapActions([RESET_STATE.action, OPEN_STYLE_CONTENT.action]),
-		...mapState('ganniFm', ['songs']),
+		...mapActions([RESET_STATE.action]),
+		// ...mapState('ganniFm', ['songs']),
 		...mapActions('user', [
 			KEYPRESS.action,
 			IDLE.action,
@@ -116,18 +110,18 @@ export default {
 
 		onMediaChange(isMobile) {
 			this[IS_MOBILE.action](isMobile)
-		},
-
-		nextSong() {
-			this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
 		}
+
+		// nextSong() {
+		// 	this.currentAudioIdx = nextIndex(this.songs, this.currentAudioIdx)
+		// }
 	},
 	mounted() {
 		window.$gtm = this.$gtm
 
 		window.GS_LOGS = false // window.location.href.includes('localhost')
 
-		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
+		// this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 
 		this.onMediaChange(window.innerWidth <= 768) // todo: ugly way of init
 		addMediaChangeListener(
