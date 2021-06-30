@@ -78,8 +78,12 @@ export const actions = {
 		commit(ASSISTANT_MODE.mutation, data)
 	},
 
-	[ASSISTANT_UPDATE.action]({ commit, rootState }, data) {
+	[ASSISTANT_UPDATE.action]({ state, commit, rootState }, data) {
 		commit(ASSISTANT_TOGGLE.mutation, false)
+
+		const currentPage = this.app.router.history.current.name
+
+		// console.log('router', currentPage)
 
 		if (rootState.windowList.length) {
 			if (
@@ -89,25 +93,16 @@ export const actions = {
 				rootState.topMostWindow.contentComponentProps.asset.styleId
 			) {
 				commit(ASSISTANT_MODE.mutation, AssistantModes.STYLE_DETAILS)
-			} else if (rootState.topMostWindow.assistant) {
-				commit(ASSISTANT_MODE.mutation, rootState.topMostWindow.assistant.mode)
-				commit(ASSISTANT_TEXT.mutation, rootState.topMostWindow.assistant.text)
 			} else {
-				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
+				commit(ASSISTANT_MODE.mutation, AssistantModes.WISHLIST)
 			}
+		} else if (currentPage === 'collection') {
+			commit(ASSISTANT_MODE.mutation, AssistantModes.FILTER_COLLECTION)
+		} else if (state.texts[currentPage]) {
+			commit(ASSISTANT_MODE.mutation, AssistantModes.CUSTOM)
+			commit(ASSISTANT_TEXT.mutation, currentPage)
 		} else {
-			if (rootState.dashboardContent.assistant) {
-				commit(
-					ASSISTANT_MODE.mutation,
-					rootState.dashboardContent.assistant.mode
-				)
-				commit(
-					ASSISTANT_TEXT.mutation,
-					rootState.dashboardContent.assistant.text
-				)
-			} else {
-				commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
-			}
+			commit(ASSISTANT_MODE.mutation, AssistantModes.WELCOME)
 		}
 	}
 }

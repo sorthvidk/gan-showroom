@@ -71,14 +71,14 @@ export default {
 
 		imageUrl() {
 			if (!this.assets || !this.assets.length) {
-				return { src: '' }
+				return ''
 			}
 
 			return this.makeImageObj(this.assets[0])
 		},
 		imageUrl2() {
 			if (!this.assets || this.assets.length < 2) {
-				return { src: '' }
+				return ''
 			}
 
 			return this.makeImageObj(this.assets[1])

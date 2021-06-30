@@ -280,17 +280,7 @@ export const actions = {
 
 		commit(OPEN_CONTENT.mutation, content)
 		dispatch(TOPMOST_WINDOW.action, lastElement(state.windowList).windowId)
-		dispatch(
-			'progressBar/' + UPDATE_PROGRESS.action,
-			content.windowContent[0].type.name
-		)
-		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
-
-	// [OPEN_CONTENT_IN_DASHBOARD.action]({ commit, dispatch }, params) {
-	// 	commit(OPEN_CONTENT_IN_DASHBOARD.mutation, { dispatch, params })
-	// 	// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
-	// },
 
 	[CLOSE_WINDOW_GROUP.action]({ commit, dispatch, state }, params) {
 		commit(CLOSE_WINDOW_GROUP.mutation, params)
@@ -310,9 +300,6 @@ export const actions = {
 
 		if (!listStyle || !listStyle.assets) return false
 
-		// let content = []
-		// let al = listStyle.assets.length
-
 		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
 		const content = [...listStyle.assets].reverse().map(asset => {
 			const mediaAsset = {
@@ -326,7 +313,6 @@ export const actions = {
 				name: listStyle.name
 			}
 
-			// if (asset.visible) {
 			let type = getAssetType(mediaAsset)
 
 			return {
@@ -338,34 +324,13 @@ export const actions = {
 				contentComponentProps: { asset: mediaAsset },
 				statusComponentProps: type.defaultStatusComponentProps
 			}
-			// }
 		})
-
-		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
-		// for (var i = al - 1; i >= 0; i--) {
-		// 	let asset = listStyle.assets[i]
-
-		// 	if (asset.visible) {
-		// 		let type = getAssetType(asset)
-
-		// 		content.push({
-		// 			title: asset.name,
-		// 			contentId: asset.assetId,
-		// 			type: type,
-		// 			canOverride: false,
-		// 			windowProps: type.defaultWindowProps,
-		// 			contentComponentProps: { asset: asset },
-		// 			statusComponentProps: type.defaultStatusComponentProps
-		// 		})
-		// 	}
-		// }
 
 		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
 		commit(OPEN_CONTENT.mutation, {
 			windowContent: content,
 			styleWindowGroup: true
 		})
-		// dispatch('assistant/' + ASSISTANT_TOGGLE.action, false)
 	},
 	[OPEN_GALLERY.action]({ commit }, asset) {
 		let galleryContent = [
@@ -441,15 +406,15 @@ export const actions = {
 			await $content('lookBook').fetch()
 		)
 
-		await commit(
-			'assets/' + FETCH_DESKTOP.mutation,
-			await $content('desktop').fetch()
-		)
+		// await commit(
+		// 	'assets/' + FETCH_DESKTOP.mutation,
+		// 	await $content('desktop').fetch()
+		// )
 
-		await commit('assets/' + FETCH_GENERAL.mutation, {
-			data: await $content('general').fetch(),
-			rootState: state
-		})
+		// await commit('assets/' + FETCH_GENERAL.mutation, {
+		// 	data: await $content('general').fetch(),
+		// 	rootState: state
+		// })
 
 		await commit(
 			'user/' + FETCH_PASSWORDS.mutation,

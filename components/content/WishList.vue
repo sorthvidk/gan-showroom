@@ -6,11 +6,11 @@
 				:key="'wishListGroup' + index"
 				:style="{
 					display: 'flex',
-					flexDirection: 'column',
+					flexDirection: 'column'
 				}"
 			>
 				<div class="label">
-					{{ authorizedGroups.find((g) => g.groupId === groupId).name }}
+					{{ authorizedGroups.find(g => g.groupId === groupId).name }}
 				</div>
 				<div
 					class="wish-list__overview__item"
@@ -23,7 +23,11 @@
 						class="button activate"
 						@click="overviewItemActivateHandler(groupId, index)"
 					>
-						<img :src="getImageUrl(groupId, index)" alt />
+						<!-- <img :src="getImageUrl(groupId, index)" alt /> -->
+						<img
+							:src="getImageUrl(sortedWishlist[groupId][index].assets[0])"
+							alt
+						/>
 						<p>{{ item.name }}</p>
 					</button>
 					<button
@@ -45,11 +49,12 @@
 					v-if="curStyle && curStyle.assets && curStyle.assets.length > 0"
 					:key="'wishlist-details-' + curStyle.styleId"
 				>
-					<single-image
+					<!-- <single-image
 						:asset="curStyle.assets[0]"
 						:parent-window-id="parentWindowId"
 						:lazy="true"
-					/>
+					/> -->
+					<img v-lazy="getImageUrl(curStyle.assets)" />
 
 					<h3>{{ curStyle.name }}</h3>
 					<button class="button" @click="removeItemHandler">
@@ -90,7 +95,7 @@ export default {
 		WishListAccordion,
 		SingleImage,
 		VueBar,
-		StyleInfo,
+		StyleInfo
 	},
 	computed: {
 		...mapState('utils', ['isMobile']),
@@ -98,8 +103,8 @@ export default {
 
 		sortedWishlist() {
 			const groupWeightsDesc = (a, b) => {
-				const getOrder = (x) =>
-					this.allGroups.find((y) => x.groupId === y.groupId) || { order: null }
+				const getOrder = x =>
+					this.allGroups.find(y => x.groupId === y.groupId) || { order: null }
 				const aOrder = getOrder(a).order
 				const bOrder = getOrder(b).order
 				return aOrder > bOrder ? 1 : -1
@@ -121,13 +126,13 @@ export default {
 			const [firstStyle] = Object.values(this.sortedWishlist)[0]
 			if (!this.cur.groupId) return firstStyle
 			return this.sortedWishlist[this.cur.groupId][this.cur.idx]
-		},
+		}
 	},
 	data() {
 		return {
 			cur: 0,
 			accordionStates: [],
-			viewPortSize: ViewportSizes.SMALL,
+			viewPortSize: ViewportSizes.SMALL
 		}
 	},
 	methods: {
@@ -147,16 +152,12 @@ export default {
 			this.cur = { groupId: '', idx: 0 }
 			this['collection/' + REMOVE_FROM_WISHLIST.action](styleId)
 		},
-		getImageUrl(groupId, index) {
-			return getCloudinaryUrl(
-				this.$cloudinary,
-				this.sortedWishlist[groupId][index].assets[0],
-				{ width: 30 }
-			)
-		},
+		getImageUrl(asset) {
+			return getCloudinaryUrl(this.$cloudinary, { cloudinaryUrl: asset })
+		}
 	},
 	mounted() {
 		// console.log(this.sortedWishlist)
-	},
+	}
 }
 </script>

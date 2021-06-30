@@ -4,10 +4,6 @@
 
 		<desktop />
 
-		<!-- <transition name="slide-up"> -->
-		<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: true }" />
-		<!-- </transition> -->
-
 		<!-- <auth-popup v-if="!hasAuthenticated" /> -->
 	</div>
 </template>
@@ -17,7 +13,6 @@ import { mapActions, mapState } from 'vuex'
 
 import Desktop from '~/components/framework/Desktop.vue'
 import PreloadImages from '~/components/content/PreloadImages.vue'
-import CookieBanner from '~/components/framework/CookieBanner.vue'
 import { ASSISTANT_MODE } from '~/model/constants'
 import AssistantModes from '~/model/assistant-modes'
 

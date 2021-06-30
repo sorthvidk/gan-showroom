@@ -14,8 +14,36 @@
 			<assistant />
 			<clipboard-message v-if="showClipboardMessage" />
 			<copywrite-message v-if="!copyrightAccepted" />
+			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: true }" />
 			<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
 			<screensaver v-if="idle" />
+		</div>
+
+		<div class="desktop__windows">
+			<transition-group
+				tag="div"
+				name="window-animation"
+				@before-enter="setTransformOrigin"
+			>
+				<window
+					v-for="(item, index) in windowList"
+					:key="item.windowId"
+					v-bind="item.windowProps"
+					:position-z="item.positionZ"
+					:window-id="item.windowId"
+					:content-type="item.contentType"
+					:content-name="item.contentName"
+					:content-component="item.contentComponent"
+					:status-component="item.statusComponent"
+					:content-component-props="item.contentComponentProps"
+					:group-id="item.groupId"
+					:status-component-props="item.statusComponentProps"
+					:window-info="item.customAssistantText"
+					:title="item.title"
+					:content-id="item.contentId"
+					:data-index="index"
+				/>
+			</transition-group>
 		</div>
 
 		<music-player
@@ -48,6 +76,8 @@ import ClipboardMessage from '~/components/content/ClipboardMessage.vue'
 import CopywriteMessage from '~/components/content/CopywriteMessage.vue'
 import Screensaver from '~/components/framework/Screensaver.vue'
 import Login from '~/components/framework/Login.vue'
+import CookieBanner from '~/components/framework/CookieBanner.vue'
+import Window from '~/components/framework/Window.vue'
 
 export default {
 	name: 'default',
@@ -59,7 +89,9 @@ export default {
 		ClipboardMessage,
 		CopywriteMessage,
 		Screensaver,
-		Login
+		Login,
+		CookieBanner,
+		Window
 	},
 	head() {
 		return {
@@ -75,8 +107,14 @@ export default {
 		showClipboardMessage: false
 	}),
 	computed: {
-		...mapState(['rehydrated']),
-		...mapState('user', ['loggedIn', 'copyrightAccepted', 'idle']),
+		...mapState(['rehydrated', 'windowList']),
+		...mapState('user', [
+			'loggedIn',
+			'copyrightAccepted',
+			'idle',
+			'mousepos',
+			'cookiesAccepted'
+		]),
 		...mapState('utils', [
 			'isMobile',
 			'downloadPreparing',
@@ -110,6 +148,11 @@ export default {
 
 		onMediaChange(isMobile) {
 			this[IS_MOBILE.action](isMobile)
+		},
+
+		setTransformOrigin(el) {
+			el.style.transformOrigin = `${this.mousepos.x}px ${this.mousepos.y}px`
+			el.style.transitionDelay = `${el.dataset.index * 0.05 - 0.05}s`
 		}
 
 		// nextSong() {
@@ -131,9 +174,7 @@ export default {
 
 		window.addEventListener('keyup', this[KEYPRESS.action])
 		window.addEventListener('keydown', event => {
-			console.log('RESET Listener')
 			if (event.ctrlKey && event.altKey && event.code === 'KeyR') {
-				console.log('RESET if statement')
 				this[RESET_STATE.action](event)
 			}
 		})

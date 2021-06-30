@@ -24,7 +24,7 @@ export default {
 	methods: {
 		...mapActions('user', [COOKIES_ACCEPT.action]),
 		acceptHandler() {
-			this[COOKIES_ACCEPT.action]()
+			this[COOKIES_ACCEPT.action](true)
 		}
 	}
 }

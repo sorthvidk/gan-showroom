@@ -7,7 +7,7 @@
 
 		<div
 			class="collection__group"
-			v-for="obj in groupsRenderList"
+			v-for="obj in filteredList"
 			:key="obj.group.groupId"
 		>
 			<collection-header :group="obj.group" />
@@ -49,17 +49,28 @@ export default {
 		]),
 		...mapGetters('collection', ['groups']),
 
+		filteredList() {
+			return !this.activeFilter.filterId
+				? this.groupsRenderList
+				: this.groupsRenderList.map(obj => ({
+						...obj,
+						styles: obj.styles.filter(style =>
+							style.filters.includes(this.activeFilter.filterId)
+						)
+				  }))
+		},
+
 		groupsRenderList() {
 			const isActive = groupId =>
 				!this.activeGroup || groupId === this.activeGroup.groupId
 
-			console.log(
-				'activeGroup',
-				Object.values(this.groups).filter(({ group }) =>
-					isActive(group.groupId)
-				),
-				this.activeFilter
-			)
+			// console.log(
+			// 	'activeGroup',
+			// 	Object.values(this.groups).filter(({ group }) =>
+			// 		isActive(group.groupId)
+			// 	),
+			// 	this.activeFilter
+			// )
 
 			return Object.values(this.groups).filter(({ group }) =>
 				isActive(group.groupId)
@@ -80,7 +91,6 @@ export default {
 
 	mounted() {
 		this[DASHBOARD_DARK.action](false)
-		// console.log('groups', this.groups)
 	}
 }
 </script>
