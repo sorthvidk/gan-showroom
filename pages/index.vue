@@ -19,16 +19,10 @@ import AssistantModes from '~/model/assistant-modes'
 export default {
 	components: {
 		Desktop,
-		PreloadImages,
-		CookieBanner
+		PreloadImages
 	},
 	computed: {
-		...mapState('user', [
-			'cookiesAccepted',
-			'idle',
-			'hasDoneQuiz',
-			'hasAuthenticated'
-		]),
+		...mapState('user', ['hasAuthenticated']),
 		...mapState('utils', ['various'])
 	},
 	methods: {
