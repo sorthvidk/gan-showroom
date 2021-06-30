@@ -41,6 +41,10 @@
 			<span>{{ item.sizes }}</span>
 		</div>
 
+		<div class="style-info__row" v-if="item.inclusive">
+			INCLUSIVE!
+		</div>
+
 		<div class="style-info__row" v-if="item.sizeRange">
 			<span>Sizes range</span>
 			<span>{{ item.sizeRange }}</span>

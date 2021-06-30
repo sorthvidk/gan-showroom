@@ -9,6 +9,7 @@
 				:class="isFullScreen ? 'zoomed' : ''"
 			>
 				<text-cursor />
+				<svg-icon v-if="item.sustainable" name="ganni-smiley--inv" />
 				<img
 					v-lazy="getUrl(item.cloudinaryUrl)"
 					class="fade"

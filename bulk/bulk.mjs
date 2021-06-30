@@ -90,6 +90,7 @@ STYLES_FILE.forEach(item => {
 		 * Any string value representing a boolean, should become a boolean
 		 */
 		responsible: parseFalse(item.responsible) ? false : true,
+		inclusive: parseFalse(item.inclusive) ? false : true,
 		['re-runner']: parseFalse(item['re-runner']) ? false : true
 		/**
 		 * rm the cloudinary url's on assets

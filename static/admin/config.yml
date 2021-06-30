@@ -323,6 +323,13 @@ collections:
           widget: 'list',
           field: { label: Media, name: media, widget: image },
         }
+      - {
+          label: 'Size inclusivity',
+          name: 'inclusive',
+          widget: 'boolean',
+          hint: 'If the style come in many sizes',
+          required: false,
+        }
       # - { name: 'index', default: 0, widget: 'hidden' }
       # - { name: 'onWishList', default: false, widget: 'hidden' }
 
@@ -888,6 +895,13 @@ collections:
           widget: 'text',
           required: false,
           hint: 'Text that will show in fullscreen',
+        }
+      - {
+          label: 'Sustainable',
+          name: 'sustainable',
+          widget: 'boolean',
+          required: false,
+          hint: 'Is this fabric sustainable?',
         }
 
   - name: 'downloads'
