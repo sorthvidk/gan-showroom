@@ -7,15 +7,16 @@
 			:class="[
 				`afterparty__${
 					item.sideBySide ? 'multiple' : idx === 0 ? 'gallery' : 'gallery-2'
-				}`,
+				}`
 			]"
 		>
 			<div class="afterparty__multiple__item" v-if="item.sideBySide">
 				<div v-for="i in 7 * 4" :key="'jhdfdfdffjsdf' + i">
 					<img
 						v-if="!item.cloudinaryUrl[0].video"
-						:src="getMediaUrl('image', item.cloudinaryUrl[0].url).src"
+						v-lazy="getMediaUrl('image', item.cloudinaryUrl[0].url).src"
 						alt=""
+						class="fade"
 					/>
 					<video
 						v-else
@@ -61,23 +62,23 @@ import { isVideo } from '~/utils/is-video'
 export default {
 	name: 'afterparty',
 	components: {
-		HorizontalBanner,
+		HorizontalBanner
 	},
 	computed: {
 		...mapState('afterparty', ['items']),
 		...mapState('user', ['hasAuthenticated']),
 		content() {
 			return this.items
-				.map((item) => {
+				.map(item => {
 					return {
 						...item,
-						cloudinaryUrl: item.cloudinaryUrl.map((url) => {
+						cloudinaryUrl: item.cloudinaryUrl.map(url => {
 							return { url, video: isVideo(url) }
-						}),
+						})
 					}
 				})
 				.sort((a, b) => (a.order > b.order ? 1 : -1))
-		},
+		}
 	},
 	methods: {
 		getMediaUrl(type, cloudinaryUrl) {
@@ -86,12 +87,12 @@ export default {
 					this.$cloudinary,
 					{ type, cloudinaryUrl },
 					{ quality: 60, width: window.innerWidth < 600 ? 150 : 400 }
-				),
+				)
 			}
-		},
+		}
 	},
 	mounted() {
 		// console.log(this.content)
-	},
+	}
 }
 </script>

@@ -10,7 +10,7 @@
 
 	position: relative;
 	cursor: pointer;
-	background-color: var(--color-background);
+	background-color: #dad8d3;
 
 	outline: 1px solid var(--collection-border-color);
 
@@ -25,6 +25,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		z-index: 2;
 	}
 
 	.on-wishlist {
@@ -38,16 +39,29 @@
 		}
 	}
 
+	.no-photo-icon {
+		display: none;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		color: $color-lightgrey;
+		width: 66px;
+	}
+
 	img,
 	video {
 		width: 100%;
 		height: 100%;
-		background-color: $color-lightgrey;
 		object-fit: cover;
+		position: relative;
+		z-index: 1;
 
-		// @include mq($from: screen-md) {
-		// 	height: rem(298);
-		// }
+		&[lazy='error'] {
+			+ .no-photo-icon {
+				display: block;
+			}
+		}
 	}
 
 	p {

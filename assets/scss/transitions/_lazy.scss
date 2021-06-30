@@ -1,10 +1,10 @@
-img[lazy] {
-	transition: opacity 0.4s $easeInOutQuint;
-}
+// img[lazy] {
+// 	transition: opacity 0.4s $easeInOutQuint;
+// }
 
-img[lazy='loading'] {
-	opacity: 0;
-}
+// img[lazy='loading'] {
+// 	opacity: 0;
+// }
 
 @keyframes fade {
 	from {
@@ -12,7 +12,15 @@ img[lazy='loading'] {
 	}
 }
 
-img[lazy='loaded'] {
-	opacity: 1;
-	// animation: fade 0.4s forwards $easeInOutQuint;
+// img[lazy='loaded'] {
+// 	opacity: 1;
+// 	// animation: fade 0.4s forwards $easeInOutQuint;
+// }
+
+img[lazy='loaded'].fade {
+	animation: fade 0.4s forwards $easeInOutQuint;
+}
+
+img[lazy='loaded'].fast-fade {
+	animation: fade 0.2s forwards $easeInOutQuint;
 }

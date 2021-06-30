@@ -10,7 +10,8 @@
 			>
 				<text-cursor />
 				<img
-					:src="getUrl(item.cloudinaryUrl)"
+					v-lazy="getUrl(item.cloudinaryUrl)"
+					class="fade"
 					:alt="'One of GANNIs many really nice fabrics'"
 					:style="{
 						transformOrigin: !isFullScreen ? 'center' : transformString(idx)

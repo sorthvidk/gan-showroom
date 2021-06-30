@@ -4,6 +4,8 @@
 			v-if="!this.isVideo(imageUrl.src)"
 			v-lazy="imageUrl.src"
 			:alt="`An closeup of ${imageName}`"
+			class="fast-fade"
+			ref="image"
 		/>
 		<video
 			autoplay
@@ -13,6 +15,9 @@
 			:data-src="imageUrl.src"
 			ref="video-1"
 		></video>
+
+		<!-- visible when img[lazy="error"] -->
+		<svg-icon name="no-photo" class="no-photo-icon" />
 
 		<div v-if="imageUrl2" class="collection-item__extra">
 			<img
@@ -50,9 +55,7 @@ import VideoPlayer from '~/components/content/VideoPlayer.vue'
 
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 import sendTracking from '~/utils/send-tracking'
-import { greyPixel } from '~/utils/placeholders'
-// import { hoverEffect } from '~/components/transitions/hover'
-// import displacementImage from '~/static/img/smiley-bw.png'
+import { transparentPixel } from '~/utils/placeholders'
 import { isVideo } from '~/utils/is-video'
 
 export default {
@@ -62,7 +65,7 @@ export default {
 		...CollectionItemModel
 	},
 	data: () => ({
-		greyPixel,
+		transparentPixel,
 		isHovered: false,
 		isVideo
 	}),
@@ -110,7 +113,7 @@ export default {
 						width: window.innerWidth < 600 ? 120 : 360
 					}
 				),
-				loading: this.greyPixel
+				loading: this.transparentPixel
 			}
 		}
 	},
