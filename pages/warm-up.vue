@@ -8,7 +8,9 @@
 		/>
 
 		<div class="subtitle">
-			<p>{{ currentSubtitle }}</p>
+			<p>
+				<span>{{ currentSubtitle }}</span>
+			</p>
 		</div>
 
 		<div class="images">

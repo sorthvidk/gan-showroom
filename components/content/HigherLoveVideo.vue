@@ -48,7 +48,7 @@ export default {
 			this.player.load(id)
 			this.player.setVolume(100)
 			this.player.on('playing', () => {
-				console.log(player.getDuration())
+				console.log(this.player.getDuration())
 			})
 		}
 	},
@@ -69,7 +69,8 @@ export default {
 			modestBranding: true,
 			related: false,
 			annotations: false,
-			fullscreen: true
+			fullscreen: true,
+			width: 1920
 		})
 
 		// this.player.on('timeupdate', seconds => {})

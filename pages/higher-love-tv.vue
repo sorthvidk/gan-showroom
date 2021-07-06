@@ -50,8 +50,6 @@ export default {
 		this[ASSISTANT_MODE.action](AssistantModes.CUSTOM)
 		this[ASSISTANT_TEXT.action]('higher-love-tv')
 
-		console.log(this.content)
-
 		this.$nextTick(() => this.startPlayback(this.content[0]))
 	}
 }

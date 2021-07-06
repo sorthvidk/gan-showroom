@@ -5,14 +5,22 @@
 	.subtitle {
 		@include windowtitle;
 		position: fixed;
-		background: var(--color-ss-blush);
-		color: var(--color-secondary);
 
 		left: 50%;
 		transform: translate(-50%);
 		bottom: 10vh;
 		text-align: center;
 		max-width: 30em;
+
+		p {
+			display: block;
+
+			span {
+				color: var(--color-ss-yellow);
+				background: var(--color-ss-blush);
+				line-height: 1.3;
+			}
+		}
 	}
 
 	.images {
@@ -34,6 +42,7 @@
 
 				img {
 					height: inherit;
+					width: 100%;
 				}
 			}
 

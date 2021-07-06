@@ -30,7 +30,7 @@
 				</button>
 			</slide>
 		</hooper>
-		<button @click.prevent="slidePrev" class="higher-love-sidebar__nav">
+		<button @click.prevent="slideNext" class="higher-love-sidebar__nav">
 			Go down
 		</button>
 	</div>
@@ -64,26 +64,7 @@ export default {
 		},
 		slideNext() {
 			this.$refs.carousel.slideNext()
-		},
-		load() {
-			// this.content.forEach((item, idx) => {
-			// 	const { id } = getVideoId(item.youtube)
-			// 	console.log(id)
-			// 	const player = new YTPlayer(`#ytplayer-${idx}`, {
-			// 		controls: false,
-			// 		modestBranding: true,
-			// 		related: false
-			// 	})
-			// 	player.load(id)
-			// 	player.setVolume(100)
-			// 	player.on('playing', () => {
-			// 		console.log(player.getDuration()) // => 351.521
-			// 	})
-			// })
 		}
-	},
-	mounted() {
-		this.load()
 	}
 }
 </script>
