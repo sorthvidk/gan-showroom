@@ -973,3 +973,36 @@ collections:
           widget: 'image',
           required: false,
         }
+
+  - name: 'higherLove'
+    summary: '{{title}}'
+    label: 'Higher love TV'
+    folder: 'assets/mock/higherLove'
+    sortable_fields: ['id']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{id}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          required: false,
+          hint: 'The title of the video',
+        }
+      - {
+          label: 'Youtube link',
+          name: 'youtube',
+          widget: 'string',
+          required: false,
+        }
+      - { label: 'Video', name: 'video', widget: 'image', required: false }
+      - {
+          label: 'Background',
+          name: 'background',
+          widget: 'image',
+          hint: 'Used as background, when the video is playing',
+          required: false,
+        }

@@ -28,7 +28,8 @@ import {
 	FETCH_AFTERPARTY,
 	FETCH_FABRICS,
 	FETCH_WARM_UP,
-	FETCH_SUBTITLES
+	FETCH_SUBTITLES,
+	FETCH_HIGHER_LOVE
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -471,6 +472,11 @@ export const actions = {
 			await $content('subtitles')
 				.sortBy('time')
 				.fetch()
+		)
+
+		await commit(
+			'higher-love/' + FETCH_HIGHER_LOVE.mutation,
+			await $content('higherLove').fetch()
 		)
 
 		console.log('NUXT SERVER INIT DONE')

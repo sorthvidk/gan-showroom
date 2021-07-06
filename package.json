@@ -36,8 +36,10 @@
 		"bezier-easing": "^2.1.0",
 		"cloudinary-core": "^2.8.2",
 		"date-fns": "^2.21.1",
+		"get-video-id": "^3.2.0",
 		"gsap": "^3",
 		"hash.js": "^1.1.7",
+		"hooper": "^0.3.4",
 		"intersection-observer": "^0.5.1",
 		"jigsaw-puzzle": "^1.0.3",
 		"js-yaml": "^4.0.0",
@@ -62,7 +64,8 @@
 		"vue-visibility-change": "^1.2.1",
 		"vue-web-cam": "^1.9.0",
 		"vuebar": "^0.0.20",
-		"vuex-persistedstate": "^3.0.1"
+		"vuex-persistedstate": "^3.0.1",
+		"yt-player": "^3.5.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.10",

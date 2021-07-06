@@ -5249,6 +5249,11 @@ get-package-type@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/get-package-type/-/get-package-type-0.1.0.tgz#8de2d803cff44df3bc6c456e6668b36c3926e11a"
 
+get-src@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/get-src/-/get-src-1.0.1.tgz#ca11dbe4a93c7f3aa85cec95fcb0b2dfaa9539ee"
+  integrity sha1-yhHb5Kk8fzqoXOyV/LCy36qVOe4=
+
 get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
@@ -5276,6 +5281,13 @@ get-stream@^5.0.0:
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
+
+get-video-id@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/get-video-id/-/get-video-id-3.2.0.tgz#852e153c7e651ac222b3887843ef7b1566c2894a"
+  integrity sha512-58JnnJD9uRh1pviNaP3lOMjGawYacnjUSpUqQorRB/GiMl+h4vnNye45mGVvSZhKNyq59I8OfyqwrGmvScb9fQ==
+  dependencies:
+    get-src "^1.0.1"
 
 getpass@^0.1.1:
   version "0.1.7"
@@ -5625,6 +5637,11 @@ hookable@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/hookable/-/hookable-4.4.1.tgz#3d7154ac7e1f6f147e50fef583832f2645b9f04f"
   integrity sha512-KWjZM8C7IVT2qne5HTXjM6R6VnRfjfRlf/oCnHd+yFxoHO1DzOl6B9LzV/VqGQK/IrFewq+EG+ePVrE9Tpc3fg==
+
+hooper@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/hooper/-/hooper-0.3.4.tgz#afb425d23f47f931ce2a9c00b755992cb0e2bcf9"
+  integrity sha512-hV1c+MCiCfVjltdvZIgTrGYHInvhKiNLVNOT/hRWbfjZNIS9H6F6ZUPeaxhxrYkjsEL96Z0RIs+4YPoBqrrrHQ==
 
 hoopy@^0.1.4:
   version "0.1.4"
@@ -6892,6 +6909,11 @@ load-json-file@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
+
+load-script2@^2.0.1:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/load-script2/-/load-script2-2.0.6.tgz#eb32093e4ec3ce58e4621c85c00e4e839fcaf010"
+  integrity sha512-pyuw/AR+ycZkRKgkMyXOIf/o2OnRQPc9grjZ04wVOeoJ7SqX97WlcZahl+3/r5qi09L/5d0iCVZ0q4OqNT/v0Q==
 
 loader-runner@^2.3.1, loader-runner@^2.4.0:
   version "2.4.0"
@@ -11635,6 +11657,13 @@ yargs@^15.4.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yt-player@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/yt-player/-/yt-player-3.5.0.tgz#f997b1f460042fa093d1ee0df0a1be7c9888d6a6"
+  integrity sha512-nv7Oa5knhwI/hIb1k7FDgAYlQKmAi7xQ6YA01g+JVhBhz/n6i7OytNLsKtT/YqTsnbopGlUitdIwvaV7kXH0Ug==
+  dependencies:
+    load-script2 "^2.0.1"
 
 zwitch@^1.0.0:
   version "1.0.5"

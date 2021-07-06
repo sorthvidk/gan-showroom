@@ -6,26 +6,32 @@
 			:title="various.scrollAudio.title"
 			@progress="onProgress"
 		/>
+
 		<div class="subtitle">
 			<p>{{ currentSubtitle }}</p>
 		</div>
+
 		<div class="images">
+			<!-- Three of the same images next to each other -->
 			<div class="one" v-if="!shouldBeRandom && !sideBySide">
 				<img :src="imageUrl(shuffledImages[0])" />
 				<img :src="imageUrl(shuffledImages[0])" />
 				<img :src="imageUrl(shuffledImages[0])" />
 			</div>
 
+			<!-- Three different images next to each other -->
 			<div class="two" v-if="shouldBeRandom && !sideBySide">
 				<img :src="imageUrl(shuffledImages[0])" />
 				<img :src="imageUrl(shuffledImages[1])" />
 				<img :src="imageUrl(shuffledImages[2])" />
 			</div>
 
+			<!-- Grid of the same image -->
 			<div class="three" v-if="!shouldBeRandom && sideBySide">
 				<img v-for="idx in 28" :key="idx" :src="imageUrl(shuffledImages[0])" />
 			</div>
 
+			<!-- Grid of the two different images -->
 			<div class="four" v-if="shouldBeRandom && sideBySide">
 				<img
 					v-for="idx in 28"
@@ -98,8 +104,6 @@ export default {
 		this[ASSISTANT_TEXT.action]('warm-up')
 
 		this.generateLayout()
-
-		console.log(this.subtitles)
 	}
 }
 </script>

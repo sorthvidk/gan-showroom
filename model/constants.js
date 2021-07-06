@@ -112,6 +112,7 @@ export const FETCH_ABOUT_GANNI = create('FETCH_ABOUT_GANNI')
 export const FETCH_AFTERPARTY = create('FETCH_AFTERPARTY')
 export const FETCH_FABRICS = create('FETCH_FABRICS')
 export const FETCH_WARM_UP = create('FETCH_WARM_UP')
+export const FETCH_HIGHER_LOVE = create('FETCH_HIGHER_LOVE')
 
 export const CURRENT_SCROLL = create('CURRENT_SCROLL')
 export const SCREEN_SIZE = create('SCREEN_SIZE')
