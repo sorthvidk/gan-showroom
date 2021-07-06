@@ -13,14 +13,14 @@
 				@mouseleave="changeCursor('')"
 				:class="{
 					'large-hit-area': !hasStarted && !loggedIn,
-					'small-icon': !hasStarted,
+					'small-icon': !hasStarted
 				}"
 			>
 				<svg-icon
 					:name="!hasStarted ? 'muted' : musicPlaying ? 'pause' : 'play'"
 				/>
 			</button>
-			<p>{{ songs[current].title }}</p>
+			<p>{{ title || songs[current].title }}</p>
 		</div>
 
 		<p class="music-player__time">
@@ -54,7 +54,7 @@ const filterData = (audioBuffer, samples) => {
 	const rawData = audioBuffer
 	const blockSize = Math.floor(rawData.length / samples)
 
-	const getSummedValuesInSingleBlock = (idx) =>
+	const getSummedValuesInSingleBlock = idx =>
 		[...Array(blockSize)].reduce(
 			(acc, _, idx2) => (acc += Math.abs(rawData[blockSize * idx + idx2])),
 			0
@@ -69,7 +69,11 @@ export default {
 	// extends: WindowContent,
 	name: 'music-player',
 	components: { AudioVisualizer, AudioSpectrumBars },
-	props: { showAudioVisualizer: { type: Boolean, default: true } },
+	props: {
+		showAudioVisualizer: { type: Boolean, default: true },
+		src: { type: String, default: '' },
+		title: { type: String, default: '' }
+	},
 	data() {
 		return {
 			// related to canvas and animation
@@ -94,7 +98,7 @@ export default {
 			frame: 0,
 			hasStarted: false,
 			simplex: null,
-			fakeTime: 0,
+			fakeTime: 0
 		}
 	},
 	watch: {
@@ -105,7 +109,7 @@ export default {
 		},
 		musicPlaying(playing) {
 			if (this.musicPlaying) {
-				this.audio.play().catch((err) => console.warn(err))
+				this.audio.play().catch(err => console.warn(err))
 				this.fadeIn()
 				this.hasStarted = true
 				this.updateData()
@@ -119,7 +123,7 @@ export default {
 			} else {
 				this.fadeIn()
 			}
-		},
+		}
 	},
 	computed: {
 		...mapState(['appTabUnfocused', 'topMostWindow']),
@@ -128,7 +132,7 @@ export default {
 		...mapState('utils', ['dashboardDark', '__prod__', 'audioPlayerDark']),
 		currentTime() {
 			return MMSS(this.progress)
-		},
+		}
 	},
 	methods: {
 		...mapActions('ganniFm', [MUSIC_PLAY_PAUSE.action]),
@@ -148,11 +152,11 @@ export default {
 		},
 		playNewSong() {
 			this.audio.pause()
-			this.audio.src = this.songs[this.current].src
+			this.audio.src = this.src || this.songs[this.current].src
 			this.audio.currentTime = 0
 			setTimeout(() => {
 				if (this.musicPlaying) {
-					this.audio.play().catch((err) => console.warn(err))
+					this.audio.play().catch(err => console.warn(err))
 					this.fadeIn()
 				}
 			}, 100)
@@ -202,9 +206,9 @@ export default {
 				audioCtx.resume().then(clean)
 			}
 			const clean = () => {
-				events.forEach((e) => b.removeEventListener(e, unlock))
+				events.forEach(e => b.removeEventListener(e, unlock))
 			}
-			events.forEach((e) => b.addEventListener(e, unlock, false))
+			events.forEach(e => b.addEventListener(e, unlock, false))
 		},
 		setLoadedState() {
 			this.loaded = true
@@ -215,17 +219,18 @@ export default {
 
 			// run first time audio gets played
 			this.audio.addEventListener('play', this.setupCanvas.bind(this), {
-				once: true,
+				once: true
 			})
 
 			this.duration = this.audio.duration
 		},
 		updateData() {
 			const renderFrame = () => {
-				if (!this.musicPlaying && this.dataArray.every((v) => v === 0)) return
+				if (!this.musicPlaying && this.dataArray.every(v => v === 0)) return
 				requestAnimationFrame(renderFrame)
 
 				this.progress = this.audio.currentTime
+				this.$emit('progress', this.progress)
 
 				if (!this.showAudioVisualizer) return
 
@@ -239,7 +244,7 @@ export default {
 
 				if (this.frame % 5 === 0) {
 					this.audioData = filterData(this.dataArray, 37)
-						.map((x) => x / 128)
+						.map(x => x / 128)
 						.filter((_, i) => i > 1 && i % 2 === 0)
 				}
 
@@ -266,7 +271,7 @@ export default {
 						),
 						37
 					)
-						.map((x) => x / 128)
+						.map(x => x / 128)
 						.filter((_, i) => i > 1 && i % 2 === 0)
 				}
 
@@ -293,10 +298,10 @@ export default {
 		},
 		changeCursor(str) {
 			this[TEXT_CURSOR.action]({ str })
-		},
+		}
 	},
 	mounted() {
-		this.audio = new Audio(this.songs[this.current].src)
+		this.audio = new Audio(this.src || this.songs[this.current].src)
 		this.audio.crossOrigin = 'anonymous'
 		this.audio.volume = 0.5
 		this.audio.addEventListener(
@@ -311,6 +316,6 @@ export default {
 	beforeDestroy() {
 		this.audio.pause()
 		this[MUSIC_PLAY_PAUSE.action](false)
-	},
+	}
 }
 </script>

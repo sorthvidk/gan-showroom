@@ -66,9 +66,9 @@ export default {
 			// windowContent.assistant.text can either be a string which corresponds to a CMS assistant/itemId,
 			// or defined on the code as { headline: 'foo', bodyText: 'bar }
 			return typeof this.customText === 'string'
-				? this.$store.state.assistant.texts[this.customText]
+				? this.texts[this.customText]
 				: this.customText
-		},
-	},
+		}
+	}
 }
 </script>

@@ -135,7 +135,7 @@
 		display: flex;
 		justify-content: space-between;
 
-		border-top: rem(1) solid $color-black;
+		// border-top: rem(1) solid $color-black;
 
 		> p {
 			@include bodytext();
@@ -162,9 +162,9 @@
 			}
 		}
 
-		+ .window__content {
-			border-top: rem(1) solid $color-black;
-		}
+		// + .window__content {
+		// 	border-top: rem(1) solid $color-black;
+		// }
 	}
 	// &__content {
 	// 	overflow-x: hidden;

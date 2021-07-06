@@ -1,0 +1,46 @@
+.warm-up {
+	height: 100vh;
+	overflow: hidden;
+
+	.subtitle {
+		@include windowtitle;
+		position: fixed;
+		background: var(--color-ss-blush);
+		color: var(--color-secondary);
+
+		left: 50%;
+		transform: translate(-50%);
+		bottom: 10vh;
+		text-align: center;
+		max-width: 30em;
+	}
+
+	.images {
+		height: inherit;
+
+		> * {
+			display: grid;
+			height: inherit;
+
+			img {
+				object-fit: cover;
+			}
+
+			&.one,
+			&.two {
+				grid-template-columns: repeat(3, 1fr);
+				width: 130vw;
+				margin-left: -15vw;
+
+				img {
+					height: inherit;
+				}
+			}
+
+			&.three,
+			&.four {
+				grid-template-columns: repeat(7, 1fr);
+			}
+		}
+	}
+}

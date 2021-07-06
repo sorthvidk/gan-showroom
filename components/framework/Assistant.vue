@@ -4,20 +4,10 @@
 		:class="'assistant-mode--' + assistantMode"
 	>
 		<div class="window__top" @click="toggle()">
-			<div class="plus-icon" :class="{ closed }" />
+			<div class="plus-icon" :class="{ closed: closed || !expanded }" />
 
 			<span class="title">
-				<!-- :style="{
-					cursor: windowList.length
-						? 'default'
-						: closed
-						? 's-resize'
-						: 'n-resize',
-				}" -->
-				<!-- <rotating-text :text="'GANNI SPACE'" /> -->
-
 				<span></span>
-				<!-- <img src="img/ganni-space.png" /> -->
 				<svg-icon name="ganni--knockout" />
 				<span></span>
 			</span>
@@ -27,9 +17,9 @@
 
 		<div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
-				<span class="icon">
+				<!-- <span class="icon">
 					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
-				</span>
+				</span> -->
 				<p>{{ filterName || 'Filter' }}</p>
 			</button>
 		</div>
@@ -40,12 +30,12 @@
 				@click="toggleContentHandler"
 				v-if="isMobile"
 			>
-				<span class="icon">
+				<!-- <span class="icon">
 					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
-				</span>
-				<p>{{ currentStyle.name }}</p>
+				</span> -->
+				<p>{{ currentStyle ? currentStyle.name : '' }}</p>
 			</button>
-			<p v-else>{{ currentStyle.name }}</p>
+			<p v-else>{{ currentStyle ? currentStyle.name : '' }}</p>
 
 			<button class="window-button previous" @click="previousStyleHandler">
 				<svg-icon name="arrow--left" />
@@ -88,7 +78,7 @@ import {
 	ASSISTANT_EXPANDED,
 	CURRENT_STYLE,
 	SET_HIDDEN_ASSETS,
-	ASSISTANT_TOGGLE,
+	ASSISTANT_TOGGLE
 } from '~/model/constants'
 
 import AssistantModeWelcome from '~/components/content/AssistantModeWelcome.vue'
@@ -118,11 +108,11 @@ export default {
 		AssistantModeCustom,
 		AssistantModePuzzle,
 		TransitionExpand,
-		RotatingText,
+		RotatingText
 	},
 	data() {
 		return {
-			filterName: null,
+			filterName: null
 		}
 	},
 	computed: {
@@ -132,11 +122,11 @@ export default {
 			'allStyles',
 			'currentStyle',
 			'currentStyles',
-			'activeFilter',
+			'activeFilter'
 		]),
 		...mapState('assistant', ['assistantMode', 'expanded', 'closed']),
 		...mapState('utils', ['isMobile']),
-		...mapState('user', ['currentScroll']),
+		...mapState('user', ['currentScroll'])
 	},
 	watch: {
 		currentScroll() {
@@ -165,13 +155,19 @@ export default {
 					case ContentTypes.videoPortrait.contentComponent:
 					case ContentTypes.videoLandscape.contentComponent:
 					case ContentTypes.videoSquare.contentComponent:
+					case ContentTypes.gallery.contentComponent:
 						if (
-							contentComponentProps.asset &&
-							contentComponentProps.asset.styleId
+							(contentComponentProps.asset &&
+								contentComponentProps.asset.styleId) ||
+							contentComponentProps.styleId
 						) {
-							const currentStyle = this.allStyles.filter(
-								(e) => e.styleId === contentComponentProps.asset.styleId
-							)[0]
+							const currentStyle = this.allStyles.find(
+								e =>
+									(contentComponentProps.asset &&
+										e.styleId === contentComponentProps.asset.styleId) ||
+									e.styleId === contentComponentProps.styleId
+							)
+							console.log('assistant currentStyle', currentStyle)
 							this[CURRENT_STYLE.action](currentStyle)
 							this[SET_HIDDEN_ASSETS.action]()
 						} else {
@@ -201,32 +197,32 @@ export default {
 			) {
 				this[ASSISTANT_MODE.action](AssistantModes.WELCOME)
 			}
-		},
+		}
 	},
 	methods: {
 		...mapActions([CLOSE_WINDOW_GROUP.action]),
 		...mapActions('collection', [
 			SHOW_NEW_STYLE.action,
 			CURRENT_STYLE.action,
-			SET_HIDDEN_ASSETS.action,
+			SET_HIDDEN_ASSETS.action
 		]),
 		...mapActions('assistant', [
 			ASSISTANT_MODE.action,
 			ASSISTANT_EXPANDED.action,
-			ASSISTANT_TOGGLE.action,
+			ASSISTANT_TOGGLE.action
 		]),
 
 		previousStyleHandler() {
 			this[SHOW_NEW_STYLE.action]({
 				styleId: this.currentStyle.styleId,
-				previous: true,
+				previous: true
 			})
 		},
 
 		nextStyleHandler() {
 			this[SHOW_NEW_STYLE.action]({
 				styleId: this.currentStyle.styleId,
-				next: true,
+				next: true
 			})
 		},
 
@@ -234,23 +230,29 @@ export default {
 			this[CLOSE_WINDOW_GROUP.action]()
 		},
 
-		toggleContentHandler() {
-			this[ASSISTANT_EXPANDED.action](!this.expanded)
-			this.toggle(!this.expanded)
+		toggleContentHandler(close) {
+			this[ASSISTANT_EXPANDED.action](
+				close !== undefined ? close : !this.expanded
+			)
+			// this.toggle(!this.expanded)
 		},
 
 		toggle(close) {
+			if (this.isMobile) {
+				this.toggleContentHandler()
+			}
+
 			if (!this.windowList.length) {
 				this[ASSISTANT_TOGGLE.action](
 					close !== undefined ? close : !this.closed
 				)
 			}
-		},
+		}
 	},
 	mounted() {
 		if (this.isMobile) {
 			this[ASSISTANT_EXPANDED.action](false)
 		}
-	},
+	}
 }
 </script>

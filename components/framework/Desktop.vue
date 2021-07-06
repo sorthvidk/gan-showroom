@@ -7,13 +7,7 @@
 					:style="{
 						backgroundImage: `url(${various.dashboardBackground[0]})`
 					}"
-				>
-					<countdown
-						v-for="club in activeClubs"
-						:key="club.pretext"
-						v-bind="club"
-					/>
-				</div>
+				></div>
 			</transition>
 		</div>
 	</transition>

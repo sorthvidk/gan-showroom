@@ -29,14 +29,14 @@ export const state = () => ({
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'quiz',
-			label: 'Party animal quiz'
+			shortcutId: 'warm-up',
+			label: 'Warm up'
 		},
 
 		{
 			type: ShortcutTypes.WINDOW,
-			shortcutId: 'afterparty',
-			label: 'Afterparty'
+			shortcutId: 'higher-love-tv',
+			label: 'Higher love TV'
 		},
 
 		{

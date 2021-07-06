@@ -83,14 +83,22 @@ export const actions = {
 
 		const currentPage = this.app.router.history.current.name
 
-		// console.log('router', currentPage)
+		console.log(
+			'topMostWindow',
+			rootState.topMostWindow &&
+				rootState.topMostWindow.contentComponentProps &&
+				rootState.topMostWindow.contentComponentProps.styleId
+		)
 
 		if (rootState.windowList.length) {
 			if (
-				rootState.topMostWindow &&
-				rootState.topMostWindow.contentComponentProps &&
-				rootState.topMostWindow.contentComponentProps.asset &&
-				rootState.topMostWindow.contentComponentProps.asset.styleId
+				(rootState.topMostWindow &&
+					rootState.topMostWindow.contentComponentProps &&
+					rootState.topMostWindow.contentComponentProps.asset &&
+					rootState.topMostWindow.contentComponentProps.asset.styleId) ||
+				(rootState.topMostWindow &&
+					rootState.topMostWindow.contentComponentProps &&
+					rootState.topMostWindow.contentComponentProps.styleId)
 			) {
 				commit(ASSISTANT_MODE.mutation, AssistantModes.STYLE_DETAILS)
 			} else {

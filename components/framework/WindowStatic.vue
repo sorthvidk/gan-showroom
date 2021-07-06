@@ -14,7 +14,7 @@
 			:parent-window-id="content.windowId"
 			v-bind="{
 				...content.contentComponentProps,
-				contentId: content.contentId,
+				contentId: content.contentId
 			}"
 			ref="contentComponent"
 		/>
@@ -55,8 +55,6 @@ import PartyAnimal from '~/components/content/PartyAnimal.vue'
 import AboutGanni from '~/components/content/AboutGanni.vue'
 import Fabrics from '~/components/content/Fabrics.vue'
 
-import VueBar from '~/components/content/VueBar.vue'
-
 export default {
 	name: 'window',
 	components: {
@@ -78,7 +76,6 @@ export default {
 		Collage,
 		Puzzle,
 		DownloadModal,
-		VueBar,
 		LookbookSlideshow,
 		VideoPlayer,
 		AudioGalleryController,
@@ -86,13 +83,13 @@ export default {
 		Afterparty,
 		PartyAnimal,
 		AboutGanni,
-		Fabrics,
+		Fabrics
 	},
 	props: {
 		content: {
 			type: Object,
-			default: () => ({}),
-		},
+			default: () => ({})
+		}
 	},
 	computed: {
 		...mapState('collection', ['currentStyles', 'wishList']),
@@ -103,16 +100,16 @@ export default {
 			if (!this.statusComponent) cn += ' window--no-status'
 
 			return cn
-		},
+		}
 	},
 
 	data: () => ({}),
 
 	methods: {
-		...mapActions([]),
+		...mapActions([])
 	},
 	mounted() {
 		// console.log(this.content)
-	},
+	}
 }
 </script>

@@ -33,7 +33,9 @@ import {
 	isFirstIndex,
 	isLastIndex,
 	firstElement,
-	lastElement
+	lastElement,
+	nextElement,
+	prevElement
 } from '~/utils/array-helpers'
 
 export const state = () => ({
@@ -639,105 +641,27 @@ export const actions = {
 		commit(SET_GROUP_BY_INDEX.mutation, newIndex)
 	},
 
-	[SHOW_NEW_STYLE.action](
-		{ dispatch, state, getters },
-		{ styleId, previous, next }
-	) {
+	[SHOW_NEW_STYLE.action]({ dispatch, state, getters }, { styleId, next }) {
 		dispatch(
 			CLOSE_WINDOW_GROUP.action,
 			{ styleWindowGroup: true },
 			{ root: true }
 		)
 
-		/**
-		 * When showing a group, stay in that group
-		 */
-		if (state.activeGroup) {
-			const currentIndex = state.currentStyles.findIndex(
-				s => s.styleId === state.currentStyle.styleId
-			)
-			const newIndex = previous
-				? prevIndex(state.currentStyles, currentIndex)
-				: nextIndex(state.currentStyles, currentIndex)
-			const newStyle = state.currentStyles[newIndex]
+		const allStyles = state.activeGroup
+			? getters.groups[state.activeGroup.groupId].styles
+			: Object.values(getters.groups)
+					.map(group => group.styles)
+					.flat()
 
-			if (newStyle) {
-				dispatch(OPEN_STYLE_CONTENT.action, newStyle.styleId, {
-					root: true
-				})
-			}
-			return
-		}
-
-		/**
-		 * When viewing all styles, we need some more logic
-		 */
-		const groupStyles = state.currentStyles.filter(
-			e => e.groupId === getters.currentStyleGroupId
+		const currentStyle = allStyles.find(style => style.styleId === styleId)
+		const currentIndex = allStyles.findIndex(
+			style => style.styleId === currentStyle.styleId
 		)
 
-		const styleIndex = groupStyles.findIndex(
-			s => s.styleId === state.currentStyle.styleId
-		)
-
-		const currentGroupIndex = state.authorizedGroups.findIndex(
-			g => g.groupId === state.currentStyle.groupId
-		)
-
-		/**
-		 * go to last style of the previous group
-		 */
-		if (previous && isFirstIndex(styleIndex)) {
-			const newGroup =
-				state.authorizedGroups[
-					prevIndex(state.authorizedGroups, currentGroupIndex)
-				]
-
-			const newStyles = state.currentStyles.filter(
-				s => s.groupId === newGroup.groupId
-			)
-			const newStyle = lastElement(newStyles)
-
-			if (newStyle) {
-				dispatch(OPEN_STYLE_CONTENT.action, newStyle.styleId, {
-					root: true
-				})
-			}
-
-			return
-		}
-
-		/**
-		 * go to the first style of the next group
-		 */
-		if (next && isLastIndex(groupStyles, styleIndex)) {
-			const newGroup =
-				state.authorizedGroups[
-					nextIndex(state.authorizedGroups, currentGroupIndex)
-				]
-
-			const newStyles = state.currentStyles.filter(
-				s => s.groupId === newGroup.groupId
-			)
-			const newStyle = firstElement(newStyles)
-
-			if (newStyle) {
-				dispatch(OPEN_STYLE_CONTENT.action, newStyle.styleId, {
-					root: true
-				})
-			}
-
-			return
-		}
-
-		/**
-		 * go to the previous/next style within the same group
-		 */
-		const newIndex = previous
-			? prevIndex(groupStyles, styleIndex)
-			: nextIndex(groupStyles, styleIndex)
-
-		const newStyle = groupStyles[newIndex]
+		const newStyle = next
+			? nextElement(allStyles, currentIndex)
+			: prevElement(allStyles, currentIndex)
 
 		if (newStyle) {
 			dispatch(OPEN_STYLE_CONTENT.action, newStyle.styleId, {

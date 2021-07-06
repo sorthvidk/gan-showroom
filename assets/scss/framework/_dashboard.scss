@@ -10,9 +10,9 @@
 		grid-template-columns: repeat(var(--columns), 1fr);
 		grid-gap: 1px;
 		z-index: get-z('bottombar');
-		border-top: var(--color-border);
-		background-color: $color-grey;
-		border-top: 1px solid $color-grey;
+		// border-top: var(--color-border);
+		// background-color: $color-grey;
+		// border-top: 1px solid $color-grey;
 
 		position: fixed;
 		bottom: 0;

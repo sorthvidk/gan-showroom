@@ -15,8 +15,8 @@
 	&-bottombar {
 		@include headline();
 
-		background-color: var(--color-secondary);
-		color: var(--color-primary);
+		background-color: var(--color-primary);
+		color: var(--color-secondary);
 
 		&.active {
 			background-color: var(--color-primary);

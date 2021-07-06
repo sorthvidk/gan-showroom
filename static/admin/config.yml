@@ -955,3 +955,21 @@ collections:
           required: false,
           multiple: false,
         }
+
+  - name: 'warmUp'
+    summary: '{{id}}'
+    label: 'Warm up'
+    folder: 'assets/mock/warmUp'
+    sortable_fields: ['id']
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{itemId}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Cloudinary media reference',
+          name: 'cloudinaryUrl',
+          widget: 'image',
+          required: false,
+        }

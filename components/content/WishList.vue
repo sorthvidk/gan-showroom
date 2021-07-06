@@ -84,7 +84,6 @@ import WishListAccordion from '~/components/content/WishListAccordion.vue'
 import ViewportSizes from '~/model/viewport-sizes'
 // import addMediaChangeListener from '~/utils/media-change'
 import WindowContent from '~/components/framework/WindowContent.vue'
-import VueBar from '~/components/content/VueBar.vue'
 import StyleInfo from '~/components/content/StyleInfo.vue'
 // import { firstIndex } from '~/utils/array-helpers'
 
@@ -94,7 +93,6 @@ export default {
 	components: {
 		WishListAccordion,
 		SingleImage,
-		VueBar,
 		StyleInfo
 	},
 	computed: {

@@ -17,37 +17,37 @@
 			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: true }" />
 			<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
 			<screensaver v-if="idle" />
-		</div>
 
-		<div class="desktop__windows">
-			<transition-group
-				tag="div"
-				name="window-animation"
-				@before-enter="setTransformOrigin"
-			>
-				<window
-					v-for="(item, index) in windowList"
-					:key="item.windowId"
-					v-bind="item.windowProps"
-					:position-z="item.positionZ"
-					:window-id="item.windowId"
-					:content-type="item.contentType"
-					:content-name="item.contentName"
-					:content-component="item.contentComponent"
-					:status-component="item.statusComponent"
-					:content-component-props="item.contentComponentProps"
-					:group-id="item.groupId"
-					:status-component-props="item.statusComponentProps"
-					:window-info="item.customAssistantText"
-					:title="item.title"
-					:content-id="item.contentId"
-					:data-index="index"
-				/>
-			</transition-group>
+			<div class="desktop__windows">
+				<transition-group
+					tag="div"
+					name="window-animation"
+					@before-enter="setTransformOrigin"
+				>
+					<window
+						v-for="(item, index) in windowList"
+						:key="item.windowId"
+						v-bind="item.windowProps"
+						:position-z="item.positionZ"
+						:window-id="item.windowId"
+						:content-type="item.contentType"
+						:content-name="item.contentName"
+						:content-component="item.contentComponent"
+						:status-component="item.statusComponent"
+						:content-component-props="item.contentComponentProps"
+						:group-id="item.groupId"
+						:status-component-props="item.statusComponentProps"
+						:window-info="item.customAssistantText"
+						:title="item.title"
+						:content-id="item.contentId"
+						:data-index="index"
+					/>
+				</transition-group>
+			</div>
 		</div>
 
 		<music-player
-			v-if="!isMobile"
+			v-if="!isMobile && $route.name !== 'warm-up'"
 			:showAudioVisualizer="!loggedIn && pageClicked < 1"
 			@clicked="() => pageClicked++"
 		/>
@@ -220,6 +220,8 @@ export default {
 		}
 
 		this[AUTHORIZE_GROUPS.action]()
+
+		console.log(this.$route)
 	}
 }
 </script>

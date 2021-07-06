@@ -19,27 +19,32 @@ export default {
 	name: 'gallery-video',
 	components: {
 		VideoPlayer,
-		Loading,
+		Loading
 	},
 	props: {
 		asset: {
-			type: Object,
-			required: true,
+			type: String,
+			required: true
 		},
 		focused: {
 			type: Boolean,
-			default: false,
-		},
+			default: false
+		}
 	},
 	computed: {
 		assetUrl() {
-			return getCloudinaryUrl(this.$cloudinary, this.asset, { width: 700 }, 2)
-		},
+			return getCloudinaryUrl(
+				this.$cloudinary,
+				{ cloudinaryUrl: this.asset },
+				{ width: 700 },
+				2
+			)
+		}
 	},
 	mounted() {
 		if (this.focused) {
 			setTimeout(() => this.$el.scrollIntoView({ behavior: 'smooth' }), 500)
 		}
-	},
+	}
 }
 </script>

@@ -20,8 +20,14 @@
 		&__wrapper {
 			z-index: $z-index-gallery !important;
 		}
-		.window__top .title {
-			cursor: default;
+		.window__top {
+			@include mq($until: screen-sm) {
+				display: none;
+			}
+
+			.title {
+				cursor: default;
+			}
 		}
 	}
 }

@@ -1,5 +1,5 @@
 <template>
-	<div class="gallery">
+	<div class="gallery" :key="currentStyle ? currentStyle.styleId : ''">
 		<gallery-image
 			class="gallery__item"
 			v-for="(asset, key) in images"
@@ -18,14 +18,15 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
-import getAssetType from '~/utils/asset-type'
+// import getAssetType from '~/utils/asset-type'
 import GalleryImage from '~/components/content/GalleryImage.vue'
 import GalleryVideo from '~/components/content/GalleryVideo.vue'
 
 import WindowContent from '~/components/framework/WindowContent.vue'
 import { CLOSE_WINDOW } from '~/model/constants'
+import { isVideo } from '~/utils/is-video'
 
 export default {
 	extends: WindowContent,
@@ -56,33 +57,39 @@ export default {
 			required: true
 		}
 	},
+	data: () => ({
+		isVideo
+	}),
 	computed: {
 		...mapState('collection', ['allStyles', 'currentStyle']),
 		assets() {
-			let styleRef = this.allStyles.filter(e => e.styleId === this.styleId)[0]
-			if (styleRef.assets) return styleRef.assets
+			let style = this.allStyles.find(e => e.styleId === this.styleId)
+			if (style && style.assets) return style.assets
 			return []
 		},
 		images() {
-			return this.assets.filter(asset => asset.type === 'image')
+			return this.assets.filter(asset => !isVideo(asset))
 		},
 		videos() {
-			return this.assets.filter(asset => asset.type === 'video')
+			return this.assets.filter(asset => isVideo(asset))
 		}
 	},
-	watch: {
-		currentStyle: {
-			deep: true,
-			handler() {
-				this[CLOSE_WINDOW.action]({
-					windowId: this.parentWindowId,
-					contentId: this.contentId
-				})
-			}
-		}
-	},
+	// watch: {
+	// 	currentStyle: {
+	// 		deep: true,
+	// 		handler() {
+	// 			this[CLOSE_WINDOW.action]({
+	// 				windowId: this.parentWindowId,
+	// 				contentId: this.contentId
+	// 			})
+	// 		}
+	// 	}
+	// },
 	methods: {
 		...mapActions([CLOSE_WINDOW.action])
+	},
+	mounted() {
+		console.log(this.assets, this.styleId)
 	}
 }
 </script>

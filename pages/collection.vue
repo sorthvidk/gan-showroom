@@ -14,7 +14,8 @@ import {
 	ASSISTANT_MODE,
 	OPEN_STYLE_CONTENT,
 	TOPMOST_WINDOW,
-	ASSISTANT_TEXT
+	ASSISTANT_TEXT,
+	OPEN_GALLERY
 } from '~/model/constants'
 
 export default {
@@ -23,10 +24,15 @@ export default {
 		Collection
 	},
 	computed: {
-		...mapState('collection', ['allStyles'])
+		...mapState('collection', ['allStyles']),
+		...mapState('utils', ['isMobile'])
 	},
 	methods: {
-		...mapActions([OPEN_STYLE_CONTENT.action, TOPMOST_WINDOW.action]),
+		...mapActions([
+			OPEN_STYLE_CONTENT.action,
+			TOPMOST_WINDOW.action,
+			OPEN_GALLERY.action
+		]),
 		...mapActions('collection', [
 			SET_GROUP_BY_INDEX.action,
 			SET_CURRENT_FILTER.action
@@ -37,17 +43,18 @@ export default {
 		this[SET_GROUP_BY_INDEX.action](-1)
 		this[SET_CURRENT_FILTER.action]('')
 
-		this[ASSISTANT_MODE.action](AssistantModes.FILTER_COLLECTION)
-		this[ASSISTANT_TEXT.action]('collection')
-
 		/**
 		 * Parse url query and open corresponding style, if it exists
 		 */
-		if (
-			this.$route.query.q &&
-			this.allStyles.find(style => style.styleId === this.$route.query.q)
-		) {
+		const styleToOpen = this.allStyles.find(
+			style => style.styleId === this.$route.query.q
+		)
+		if (this.$route.query.q && styleToOpen) {
 			this[OPEN_STYLE_CONTENT.action](this.$route.query.q)
+			this[ASSISTANT_MODE.action](AssistantModes.STYLE_DETAILS)
+		} else {
+			this[ASSISTANT_MODE.action](AssistantModes.FILTER_COLLECTION)
+			this[ASSISTANT_TEXT.action]('collection')
 		}
 	},
 

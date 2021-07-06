@@ -63,17 +63,25 @@ $color-marigold-yellow: #fdef75;
 $color-cinnamon-satin: #d25c83;
 $color-goblin: #3b8245;
 
+/* --- COLORS: JULY 2021 --- */
+$color-ss-blue: #5eafff;
+$color-ss-yellow: #fff954;
+$color-ss-blush: #e1698d;
+
 /**
 * Color helpers
 */
-$color-primary: $color-cinnamon-satin;
-$color-buttonhover: darken($color-primary, 15%);
+$color-primary: $color-ss-blue;
+$color-secondary: $color-ss-yellow;
+$color-buttonhover: $color-cinnamon-satin;
 $color-buttonactive: var(--color-secondary);
 
 :root {
 	--color-primary: #{$color-primary};
-	--color-secondary: #{$color-darkgrey};
+	--color-secondary: #{$color-secondary};
 	--color-background: #{$color-imagebg};
+	--color-darkgrey: #{$color-darkgrey};
+	--color-ss-blush: #{$color-ss-blush};
 }
 
 $z-index-assistant: 4000;

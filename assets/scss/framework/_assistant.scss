@@ -131,6 +131,7 @@
 
 		.button.expand {
 			@include full-width-button();
+			@include truncate;
 			border-top: 0;
 			border-bottom: 0;
 

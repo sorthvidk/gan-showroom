@@ -26,7 +26,9 @@ import {
 	FETCH_GREEN_ROOM,
 	FETCH_ABOUT_GANNI,
 	FETCH_AFTERPARTY,
-	FETCH_FABRICS
+	FETCH_FABRICS,
+	FETCH_WARM_UP,
+	FETCH_SUBTITLES
 } from '~/model/constants'
 
 import ContentTypes from '~/model/content-types'
@@ -326,13 +328,20 @@ export const actions = {
 			}
 		})
 
-		commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
-		commit(OPEN_CONTENT.mutation, {
-			windowContent: content,
-			styleWindowGroup: true
-		})
+		if (state.utils.isMobile) {
+			commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
+			dispatch(OPEN_GALLERY.action, listStyle)
+		} else {
+			commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
+			commit(OPEN_CONTENT.mutation, {
+				windowContent: content,
+				styleWindowGroup: true
+			})
+		}
 	},
-	[OPEN_GALLERY.action]({ commit }, asset) {
+	[OPEN_GALLERY.action]({ commit, dispatch }, asset) {
+		console.log('asset', asset)
+
 		let galleryContent = [
 			{
 				title: 'Zoom window',
@@ -346,6 +355,7 @@ export const actions = {
 			}
 		]
 		commit(OPEN_CONTENT.mutation, { windowContent: galleryContent })
+		dispatch(TOPMOST_WINDOW.action)
 	},
 
 	[OPEN_WISH_LIST.action]({ commit, dispatch }, asset) {
@@ -449,6 +459,18 @@ export const actions = {
 		await commit(
 			'afterparty/' + FETCH_AFTERPARTY.mutation,
 			await $content('afterparty').fetch()
+		)
+
+		await commit(
+			'warm-up/' + FETCH_WARM_UP.mutation,
+			await $content('warmUp').fetch()
+		)
+
+		await commit(
+			'audio/' + FETCH_SUBTITLES.mutation,
+			await $content('subtitles')
+				.sortBy('time')
+				.fetch()
 		)
 
 		console.log('NUXT SERVER INIT DONE')
