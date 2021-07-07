@@ -1,12 +1,13 @@
 <template>
 	<div
+		v-if="rehydrated"
 		:oncontextmenu="__prod__ ? `return false;` : ''"
 		class="layout"
 		:class="{ 'screensaver-running': idle, dark: dashboardDark }"
 	>
 		<login v-if="!loggedIn" />
 		<div class="content" v-else>
-			<nuxt v-if="rehydrated" />
+			<nuxt />
 			<bottombar />
 
 			<!-- fixed elements -->
@@ -48,8 +49,7 @@
 
 		<music-player
 			v-if="!isMobile && $route.name !== 'warm-up'"
-			:showAudioVisualizer="!loggedIn && pageClicked < 1"
-			@clicked="() => pageClicked++"
+			:showAudioVisualizer="false"
 		/>
 	</div>
 </template>

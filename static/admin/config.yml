@@ -997,8 +997,9 @@ collections:
           name: 'youtube',
           widget: 'string',
           required: false,
+          hint: 'fex. https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley',
         }
-      - { label: 'Video', name: 'video', widget: 'image', required: false }
+      # - { label: 'Video', name: 'video', widget: 'image', required: false }
       - {
           label: 'Background',
           name: 'background',

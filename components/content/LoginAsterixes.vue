@@ -13,7 +13,7 @@ export default {
 	props: {
 		amount: { type: Number },
 		start: { type: Boolean },
-		shake: { type: Boolean },
+		shake: { type: Boolean }
 	},
 	data: () => ({
 		Bodies: null,
@@ -23,17 +23,17 @@ export default {
 		render: null,
 		runner: null,
 		textureUrl: null,
-		asterixs: [],
+		asterixs: []
 	}),
 	computed: {
-		...mapState('user', ['screenSize']),
+		...mapState('user', ['screenSize'])
 	},
 	watch: {
 		amount() {
 			/**
 			 * POPULATE CANVAS
 			 */
-			this.asterixs.forEach((asterix) =>
+			this.asterixs.forEach(asterix =>
 				Matter.Composite.remove(this.engine.world, asterix)
 			)
 			;[...Array(this.amount)].forEach((_, idx) => {
@@ -44,7 +44,7 @@ export default {
 			if (this.start) {
 				this.Runner.run(this.runner, this.engine)
 			}
-		},
+		}
 	},
 	methods: {
 		addAsterix(idx) {
@@ -68,20 +68,20 @@ export default {
 						sprite: {
 							texture: this.textureUrl,
 							xScale: width / 187,
-							yScale: width / 187,
-						},
-					},
+							yScale: width / 187
+						}
+					}
 				}
 			)
 
 			setTimeout(
 				() => Matter.Body.setStatic(asterix, false),
-				Math.random() * 350
+				Math.random() * 1000
 			)
 
 			this.Composite.add(this.engine.world, [asterix])
 			this.asterixs.push(asterix)
-		},
+		}
 	},
 	async mounted() {
 		const Engine = Matter.Engine,
@@ -96,6 +96,9 @@ export default {
 		// create an engine
 		this.engine = Engine.create()
 
+		// invert gravity (everything falls up)
+		this.engine.world.gravity.y = -1
+
 		const res = await loadImage(asterixTexture)
 		this.textureUrl = res.src
 
@@ -108,8 +111,8 @@ export default {
 				width: this.screenSize.width,
 				height: this.screenSize.height,
 				background: 'transparent',
-				wireframes: false,
-			},
+				wireframes: false
+			}
 		})
 
 		const ground = this.Bodies.rectangle(
@@ -118,7 +121,7 @@ export default {
 			this.screenSize.width,
 			60,
 			{
-				isStatic: true,
+				isStatic: true
 			}
 		)
 
@@ -135,6 +138,6 @@ export default {
 		Matter.Render.stop(this.render) // this only stop renderer but not destroy canvas
 		Matter.World.clear(this.engine.world)
 		Matter.Engine.clear(this.engine)
-	},
+	}
 }
 </script>

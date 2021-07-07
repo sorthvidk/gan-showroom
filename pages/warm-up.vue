@@ -16,21 +16,25 @@
 		<div class="images">
 			<!-- Three of the same images next to each other -->
 			<div class="one" v-if="!shouldBeRandom && !sideBySide">
-				<img :src="imageUrl(shuffledImages[0])" />
-				<img :src="imageUrl(shuffledImages[0])" />
-				<img :src="imageUrl(shuffledImages[0])" />
+				<img v-lazy="imageUrl(shuffledImages[0])" />
+				<img v-lazy="imageUrl(shuffledImages[0])" />
+				<img v-lazy="imageUrl(shuffledImages[0])" />
 			</div>
 
 			<!-- Three different images next to each other -->
 			<div class="two" v-if="shouldBeRandom && !sideBySide">
-				<img :src="imageUrl(shuffledImages[0])" />
-				<img :src="imageUrl(shuffledImages[1])" />
-				<img :src="imageUrl(shuffledImages[2])" />
+				<img v-lazy="imageUrl(shuffledImages[0])" />
+				<img v-lazy="imageUrl(shuffledImages[1])" />
+				<img v-lazy="imageUrl(shuffledImages[2])" />
 			</div>
 
 			<!-- Grid of the same image -->
 			<div class="three" v-if="!shouldBeRandom && sideBySide">
-				<img v-for="idx in 28" :key="idx" :src="imageUrl(shuffledImages[0])" />
+				<img
+					v-for="idx in 28"
+					:key="idx"
+					v-lazy="imageUrl(shuffledImages[0])"
+				/>
 			</div>
 
 			<!-- Grid of the two different images -->
@@ -38,7 +42,7 @@
 				<img
 					v-for="idx in 28"
 					:key="idx"
-					:src="imageUrl(shuffledImages[idx % 2 === 0 ? 0 : 1])"
+					v-lazy="imageUrl(shuffledImages[idx % 2 === 0 ? 0 : 1])"
 				/>
 			</div>
 		</div>

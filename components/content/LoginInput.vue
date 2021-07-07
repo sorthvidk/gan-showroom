@@ -1,13 +1,17 @@
 <template>
 	<div class="login-input">
+		<div class="login-input__welcome">
+			<p>Welcome</p>
+		</div>
+
 		<form ref="form" @submit.prevent="loginInput(true)" class="form">
 			<!-- :style="{ opacity: !showMessage && !pwd ? '1' : '0' }" -->
+			<!-- @input="loginInput(false)" -->
 			<input
 				:class="{ 'is-invalid': showErrorMessage }"
 				@blur="isBlur"
 				@focus="isFocus = true"
-				@input="loginInput(false)"
-				autocomplete="new-password"
+				autocomplete="off"
 				class="form__input"
 				id="password"
 				name="password"
@@ -27,18 +31,9 @@
 			</button> -->
 		</form>
 
-		<div
-			class="login-input__message"
-			v-show="showMessage && !pwd"
-			:style="{
-				position: 'absolute',
-				top: '50%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-				width: '100%'
-			}"
-		>
-			<p>Please type password</p>
+		<div class="login-input__message">
+			<p v-show="showMessage && !pwd">Please type password</p>
+			<span v-show="!showMessage && !pwd">|</span>
 		</div>
 
 		<div
@@ -52,11 +47,11 @@
 				zIndex: '-1'
 			}"
 		>
-			<!-- <login-asterixes
+			<login-asterixes
 				:shake="showErrorMessage"
 				:amount="pwd.length"
 				:start="valid ? true : false"
-			/> -->
+			/>
 		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
@@ -107,7 +102,7 @@ export default {
 			)
 
 			setTimeout(() => {
-				this[LOGIN.action](authorized)
+				this.$emit('submit', authorized)
 
 				/**
 				 * Temporary double-authentication,

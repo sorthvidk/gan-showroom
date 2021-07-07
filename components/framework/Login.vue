@@ -1,75 +1,57 @@
 <template>
 	<div class="login">
-		<!-- <background-image /> -->
-		<!-- <client-only>
-			<vimeo-player
-				class="login__video"
-				ref="player"
-				v-if="various.vimeoUrl"
-				:video-id="various.vimeoUrl"
-				:autoplay="true"
-				:loop="true"
-				:controls="false"
-				:options="{ muted }"
-			/>
-		</client-only> -->
-
-		<!-- <button class="login__mute" @click="toggleMute">
-			<svg-icon :name="muted ? 'muted' : 'audio-playing'" />
-		</button> -->
-
-		<!-- <h1>
-			Ganni<br />love<br />
-			for&shy;ever<br />
-			fall<br />winter<br />2021
-		</h1> -->
-
-		<!-- <div v-if="!showInputField">
-			<audio-visualizer @done="() => (showInputField = true)" />
-		</div> -->
-
-		<div class="login__form">
-			<login-input />
+		<div
+			style="position: fixed; top: 0; right: 0; z-index: 2; background: blue"
+		>
+			{{ currentStep }}
+			<button @click="() => (currentStep = Math.max(currentStep - 1, 0))">
+				←
+			</button>
+			<button @click="() => (currentStep = Math.min(currentStep + 1, 2))">
+				→
+			</button>
 		</div>
+
+		<transition name="fade">
+			<intro-copenhill v-if="currentStep === 0" @done="onIntroDone" />
+
+			<login-input v-if="currentStep === 1" @submit="onSubmit" />
+
+			<countup v-if="currentStep === 2" @done="onCountDone" />
+
+			<p v-if="currentStep === 3">Meters in the sky!</p>
+		</transition>
 	</div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import LoginSlide from '~/components/content/LoginSlide.vue'
+import { mapState, mapActions } from 'vuex'
 import LoginInput from '~/components/content/LoginInput.vue'
-import AudioVisualizer from '~/components/content/AudioVisualizer.vue'
-import BackgroundImage from '../content/BackgroundImage.vue'
+import Countup from '~/components/content/Countup.vue'
+import IntroCopenhill from '~/components/content/IntroCopenhill.vue'
+import { LOGIN } from '~/model/constants'
 
 export default {
 	name: 'login',
 	components: {
 		LoginInput,
-		BackgroundImage,
-		AudioVisualizer,
+		Countup,
+		IntroCopenhill
 	},
 	data() {
 		return {
 			muted: true,
 			showInputField: false,
-			// current: 0,
-			// timeout: null,
-			// slideDuration: 100000000000,
+			// authorized: false,
+			currentStep: 2
 		}
 	},
 	computed: {
 		...mapState('utils', ['various']),
-		...mapState('user', ['loggedIn']),
-		content() {
-			return [
-				{
-					type: 'one',
-					// backgroundImageLow: '/img/login-slide_lo.jpg'
-				},
-			]
-		},
+		...mapState('user', ['loggedIn'])
 	},
 	methods: {
+		...mapActions('user', [LOGIN.action]),
 		toggleMute() {
 			if (this.muted) {
 				this.$refs.player.unmute()
@@ -78,26 +60,21 @@ export default {
 			}
 			this.muted = !this.muted
 		},
-		// dispatchNext(immediate = false) {
-		// 	this.debounce(this.nextSlide, this.slideDuration, immediate)()
-		// },
-		// nextSlide() {
-		// 	this.current = Math.min(this.content.length, this.current + 1) // cap at slide-amount + 1
-		// 	this.dispatchNext()
-		// },
-		// debounce(func, wait, immediate) {
-		// 	return () => {
-		// 		var later = () => {
-		// 			this.timeout = null
-		// 			func.apply(this)
-		// 		}
-		// 		clearTimeout(this.timeout)
-		// 		this.timeout = setTimeout(later, immediate ? 0 : wait)
-		// 	}
-		// },
-	},
-	// mounted() {
-	// 	this.dispatchNext()
-	// },
+		onIntroDone() {
+			this.currentStep = 1
+		},
+		onSubmit(authorized) {
+			if (authorized) {
+				this.authorized = authorized
+				this.currentStep = 2
+			}
+		},
+		onCountDone() {
+			this.currentStep = 3
+			setTimeout(() => {
+				this[LOGIN.action](this.authorized)
+			}, 1000)
+		}
+	}
 }
 </script>

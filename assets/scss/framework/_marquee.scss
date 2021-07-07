@@ -8,7 +8,8 @@
 
 	font-family: $font-sansserif;
 
-	background-color: $color-white;
+	background-color: var(--color-ss-blue);
+	color: var(--color-ss-yellow);
 	height: rem(60);
 	// border-top: rem(1) solid $color-black;
 

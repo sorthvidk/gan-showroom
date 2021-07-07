@@ -1,0 +1,19 @@
+.countup {
+	position: absolute;
+	inset: 0;
+	background: var(--color-ss-blue);
+	color: var(--color-ss-blush);
+
+	display: grid;
+	place-items: center;
+
+	font-size: 10vw;
+
+	> * {
+		position: absolute;
+	}
+
+	&__count {
+		font-size: 2.5em;
+	}
+}
