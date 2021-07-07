@@ -134,14 +134,17 @@
 
 		> span {
 			position: absolute;
-			font-size: 10vw;
+			font-size: 100px;
 		}
 
 		.higher {
 			display: inline-flex;
 			color: var(--color-ss-blue);
+			transform: translate(26vw, 45vh);
 
-			transform: rotate(-28deg) translate(12vw, 48vh);
+			&--rotate {
+				transform: rotate(-28deg);
+			}
 		}
 
 		.love {
@@ -151,7 +154,7 @@
 			text-orientation: upright;
 			letter-spacing: -0.3em;
 
-			transform: translate(63vw, 19vh);
+			transform: translate(64vw, 38vh);
 		}
 
 		.ganni {
@@ -165,11 +168,15 @@
 			color: white;
 			display: inline-flex;
 			align-items: flex-start;
-			transform: rotate(90deg) translate(44vh, -49vw);
+			transform: translate(50vw, 50vh);
 
 			.small {
 				transform: scale(0.8);
 				transform-origin: 100% 30%;
+			}
+
+			&--rotate {
+				transform: rotate(90deg);
 			}
 		}
 	}

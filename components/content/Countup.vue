@@ -12,15 +12,14 @@ export default {
 	name: 'countup',
 	data: () => ({
 		progress: 0,
-		maxCount: 127,
+		maxCount: 124,
 		ease: BezierEasing(1, 0, 0.5, 1),
 		speed: 400
 	}),
 	computed: {
 		currentCount() {
-			return Math.ceil(
-				Math.min(this.ease(this.progress) * this.maxCount, this.maxCount)
-			)
+			const { progress, maxCount } = this
+			return Math.ceil(Math.min(this.ease(progress) * maxCount, maxCount))
 		}
 	},
 	methods: {

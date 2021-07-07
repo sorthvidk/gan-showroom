@@ -6,9 +6,9 @@
 		<hooper
 			:centerMode="true"
 			ref="carousel"
-			:itemsToShow="3"
+			:itemsToShow="isMobile ? 2 : 3"
 			pagination="no"
-			:vertical="true"
+			:vertical="!isMobile"
 			:infiniteScroll="true"
 		>
 			<slide v-for="(item, idx) in content" :key="item.createdAt" :index="idx">
@@ -53,6 +53,7 @@ export default {
 		getVideoId
 	}),
 	computed: {
+		...mapState('utils', ['isMobile']),
 		...mapState('higher-love', ['content'])
 	},
 	methods: {

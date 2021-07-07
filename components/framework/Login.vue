@@ -42,8 +42,8 @@ export default {
 		return {
 			muted: true,
 			showInputField: false,
-			// authorized: false,
-			currentStep: 2
+			authorized: null,
+			currentStep: 1
 		}
 	},
 	computed: {

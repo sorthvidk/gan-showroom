@@ -8,10 +8,14 @@
 			"
 		/>
 		<div class="intro-copenhill__text">
-			<span class="higher">HIGHER</span>
+			<span class="higher">
+				<span class="higher--rotate">HIGHER</span>
+			</span>
 			<span class="love">LOVE</span>
 			<span class="ganni">GANNI</span>
-			<span class="ss22"><span class="small">ss</span>22</span>
+			<span class="ss22">
+				<span class="ss22--rotate"><span class="small">ss</span>22</span>
+			</span>
 		</div>
 
 		<marquee />
