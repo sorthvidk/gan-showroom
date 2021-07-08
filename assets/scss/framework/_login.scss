@@ -41,6 +41,26 @@
 		position: fixed;
 	}
 
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	}
+	@keyframes fade-in {
+		to {
+			opacity: 1;
+		}
+	}
+
+	&__welcome {
+		animation: fade-out 1s 2s forwards;
+	}
+
+	&__all {
+		opacity: 0;
+		animation: fade-in 1s 2s forwards;
+	}
+
 	.form {
 		position: relative;
 		display: flex;

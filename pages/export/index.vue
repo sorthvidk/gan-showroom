@@ -5,9 +5,10 @@
 <script>
 import Receipt from '~/components/framework/Receipt.vue'
 
-import { INDEX_COLLECTION_DATA } from '~/model/constants'
+// import { INDEX_COLLECTION_DATA } from '~/model/constants'
 
 export default {
+	layout: 'clean',
 	components: {
 		Receipt
 	},
@@ -19,7 +20,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
+		// this.$store.commit('collection/' + INDEX_COLLECTION_DATA.mutation)
 	}
 }
 </script>

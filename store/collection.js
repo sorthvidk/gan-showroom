@@ -84,7 +84,7 @@ export const state = () => ({
 
 export const getters = {
 	wishListUrl: state =>
-		`${window.location}export/?styles=${state.wishList
+		`${window.location.host}/export/?styles=${state.wishList
 			.map(style => style.styleId)
 			.join(',')}`,
 

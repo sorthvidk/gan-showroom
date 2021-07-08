@@ -72,7 +72,8 @@ export default {
 	props: {
 		showAudioVisualizer: { type: Boolean, default: true },
 		src: { type: String, default: '' },
-		title: { type: String, default: '' }
+		title: { type: String, default: '' },
+		autoplay: { type: Boolean, default: false }
 	},
 	data() {
 		return {
@@ -223,6 +224,10 @@ export default {
 			})
 
 			this.duration = this.audio.duration
+
+			if (this.autoplay) {
+				this[MUSIC_PLAY_PAUSE.action](true)
+			}
 		},
 		updateData() {
 			const renderFrame = () => {
@@ -230,7 +235,7 @@ export default {
 				requestAnimationFrame(renderFrame)
 
 				this.progress = this.audio.currentTime
-				this.$emit('progress', this.progress)
+				this.$emit('progress', this.audio.currentTime)
 
 				if (!this.showAudioVisualizer) return
 
@@ -278,6 +283,8 @@ export default {
 				this.audio.currentTime =
 					Math.floor(t / 1000) % (this.audio.duration - 30) || 60
 
+				this.$emit('progress', this.audio.currentTime)
+
 				this.progress = this.audio.currentTime
 
 				this.frame++
@@ -306,12 +313,19 @@ export default {
 		this.audio.volume = 0.5
 		this.audio.addEventListener(
 			'canplaythrough',
-			this.setLoadedState.bind(this),
+			() => {
+				this.audio.currentTime = 0
+				console.log('music player mounted', this.audio.currentTime)
+				this.setLoadedState()
+			},
 			{ once: true }
 		)
 		this.audio.addEventListener('ended', this.playlist.bind(this, 1))
 		this.simplex = new SimplexNoise(Math.random)
-		this.idleAnimation()
+
+		if (!this.autoplay) {
+			this.idleAnimation()
+		}
 	},
 	beforeDestroy() {
 		this.audio.pause()

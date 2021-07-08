@@ -457,10 +457,10 @@ export const actions = {
 			await $content('fabrics').fetch()
 		)
 
-		await commit(
-			'afterparty/' + FETCH_AFTERPARTY.mutation,
-			await $content('afterparty').fetch()
-		)
+		// await commit(
+		// 	'afterparty/' + FETCH_AFTERPARTY.mutation,
+		// 	await $content('afterparty').fetch()
+		// )
 
 		await commit(
 			'warm-up/' + FETCH_WARM_UP.mutation,

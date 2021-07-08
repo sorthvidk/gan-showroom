@@ -838,7 +838,7 @@ collections:
         }
       - {
           label: 'Popup window text',
-          name: 'text',
+          name: 'popup',
           widget: 'text',
           required: false,
           hint: 'Popup window text',
@@ -927,6 +927,31 @@ collections:
           widget: 'file',
           required: false,
           hint: 'The downloadable file',
+        }
+
+  - name: 'subtitles'
+    label: 'Subtitles'
+    identifier_field: label
+    summary: '{{time}} — {{text}}'
+    folder: 'assets/mock/subtitles'
+    create: true
+    format: 'json'
+    slug: '{{year}}-{{month}}-{{text}}'
+    editor:
+      preview: false
+    fields:
+      - {
+          label: 'Time',
+          name: 'time',
+          widget: 'number',
+          value_type: 'int',
+          hint: 'After how many seconds. F.ex. "75" will show this at 1min 15sec',
+        }
+      - {
+          label: 'Subtitle',
+          name: 'subtitle',
+          widget: 'string',
+          hint: 'What is being said at this moment',
         }
 
   - name: 'aboutGanni'

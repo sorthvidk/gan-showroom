@@ -7,8 +7,6 @@
 				</td>
 				<td colspan="2" class="title">{{ receiptItem.name }}</td>
 			</tr>
-			<!-- <tr>
-			</tr>-->
 			<tr>
 				<td style="color: #666; padding-right: 5em;">Color</td>
 				<td>{{ receiptItem.colorNames }}</td>
@@ -39,11 +37,18 @@ export default {
 	computed: {
 		imageUrl() {
 			return this.receiptItem.assets[0]
-				? getCloudinaryUrl(this.$cloudinary, this.receiptItem.assets[0], {
-						width: 196
-				  })
+				? getCloudinaryUrl(
+						this.$cloudinary,
+						{ cloudinaryUrl: this.receiptItem.assets[0] },
+						{
+							width: 196
+						}
+				  )
 				: ''
 		}
+	},
+	mounted() {
+		console.log(this.receiptItem)
 	}
 }
 </script>

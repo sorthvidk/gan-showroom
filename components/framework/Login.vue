@@ -43,7 +43,7 @@ export default {
 			muted: true,
 			showInputField: false,
 			authorized: null,
-			currentStep: 1
+			currentStep: 0
 		}
 	},
 	computed: {
@@ -73,7 +73,7 @@ export default {
 			this.currentStep = 3
 			setTimeout(() => {
 				this[LOGIN.action](this.authorized)
-			}, 1000)
+			}, 2000)
 		}
 	}
 }

@@ -4,6 +4,7 @@
 			Go up
 		</button>
 		<hooper
+			:key="isMobile"
 			:centerMode="true"
 			ref="carousel"
 			:itemsToShow="isMobile ? 2 : 3"

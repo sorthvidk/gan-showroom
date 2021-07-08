@@ -18,9 +18,10 @@
 		background-color: var(--color-primary);
 		color: var(--color-secondary);
 
-		&.active {
-			background-color: var(--color-primary);
-			color: var(--color-secondary);
+		&.active,
+		&.nuxt-link-active {
+			background-color: var(--color-secondary);
+			color: var(--color-ss-blush);
 		}
 	}
 

@@ -28,7 +28,6 @@
 
 		> * {
 			display: grid;
-			height: inherit;
 
 			img {
 				object-fit: cover;
@@ -39,6 +38,7 @@
 				grid-template-columns: repeat(3, 1fr);
 				width: 130vw;
 				margin-left: -15vw;
+				height: inherit;
 
 				img {
 					height: inherit;

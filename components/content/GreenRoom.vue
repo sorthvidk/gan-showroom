@@ -3,7 +3,7 @@
 		class="green-room"
 		:style="{ width: `${items.length * 25}vw`, height: '100vh' }"
 	>
-		<h1>
+		<!-- <h1>
 			"WE SEE CARBON OFFSETTING AS A SELF-IMPOSED CARBON TAX, A TAX WHICH
 			POLITICIANS NEVER HAD THE GUTS TO INTRODUCE. IT IS HUGELY BENEFICIAL FOR
 			THE TRANSITION TOWARDS A SUSTAINABLE FASHION INDUSTRY"<br />
@@ -25,7 +25,7 @@
 			IN A HOLISTIC WAY – IT’S ABOUT PUTTING OUR GOALS OUT THERE AND HOLDING
 			OURSELVES ACCOUNTABLE"<br />
 			– NICOLAJ REFFSTRUP
-		</h1>
+		</h1> -->
 		<div
 			class="green-room__item"
 			v-for="(item, idx) in items"
@@ -56,8 +56,8 @@
 			>
 				<img :src="item.cloudinaryUrl" />
 			</a>
-			<div class="green-room__text" v-if="item.text">
-				<p v-html="item.text" />
+			<div class="green-room__text" v-if="item.popup">
+				<p v-html="item.popup" />
 			</div>
 		</div>
 	</div>

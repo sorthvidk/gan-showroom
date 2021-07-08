@@ -5,47 +5,49 @@
 		class="layout"
 		:class="{ 'screensaver-running': idle, dark: dashboardDark }"
 	>
-		<login v-if="!loggedIn" />
-		<div class="content" v-else>
-			<nuxt />
-			<bottombar />
+		<transition name="fade" appear>
+			<login v-if="!loggedIn" />
+			<div class="content" v-else>
+				<nuxt />
+				<bottombar />
 
-			<!-- fixed elements -->
-			<text-cursor />
-			<assistant />
-			<clipboard-message v-if="showClipboardMessage" />
-			<copywrite-message v-if="!copyrightAccepted" />
-			<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: true }" />
-			<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
-			<screensaver v-if="idle" />
+				<!-- fixed elements -->
+				<text-cursor />
+				<assistant />
+				<clipboard-message v-if="showClipboardMessage" />
+				<copywrite-message v-if="!copyrightAccepted" />
+				<cookie-banner v-if="!cookiesAccepted" :class="{ pushed: true }" />
+				<!-- <v-idle v-show="false" :duration="15000" @idle="onidle" /> -->
+				<screensaver v-if="idle" />
 
-			<div class="desktop__windows">
-				<transition-group
-					tag="div"
-					name="window-animation"
-					@before-enter="setTransformOrigin"
-				>
-					<window
-						v-for="(item, index) in windowList"
-						:key="item.windowId"
-						v-bind="item.windowProps"
-						:position-z="item.positionZ"
-						:window-id="item.windowId"
-						:content-type="item.contentType"
-						:content-name="item.contentName"
-						:content-component="item.contentComponent"
-						:status-component="item.statusComponent"
-						:content-component-props="item.contentComponentProps"
-						:group-id="item.groupId"
-						:status-component-props="item.statusComponentProps"
-						:window-info="item.customAssistantText"
-						:title="item.title"
-						:content-id="item.contentId"
-						:data-index="index"
-					/>
-				</transition-group>
+				<div class="desktop__windows">
+					<transition-group
+						tag="div"
+						name="window-animation"
+						@before-enter="setTransformOrigin"
+					>
+						<window
+							v-for="(item, index) in windowList"
+							:key="item.windowId"
+							v-bind="item.windowProps"
+							:position-z="item.positionZ"
+							:window-id="item.windowId"
+							:content-type="item.contentType"
+							:content-name="item.contentName"
+							:content-component="item.contentComponent"
+							:status-component="item.statusComponent"
+							:content-component-props="item.contentComponentProps"
+							:group-id="item.groupId"
+							:status-component-props="item.statusComponentProps"
+							:window-info="item.customAssistantText"
+							:title="item.title"
+							:content-id="item.contentId"
+							:data-index="index"
+						/>
+					</transition-group>
+				</div>
 			</div>
-		</div>
+		</transition>
 
 		<music-player
 			v-if="!isMobile && $route.name !== 'warm-up'"
@@ -221,7 +223,7 @@ export default {
 
 		this[AUTHORIZE_GROUPS.action]()
 
-		console.log(this.$route)
+		// console.log(this.$route)
 	}
 }
 </script>

@@ -97,7 +97,11 @@
 					position: absolute;
 					width: 100%;
 					height: rem(5);
-					background-color: var(--color-primary);
+					background-color: var(--color-ss-blush);
+
+					.dark & {
+						background-color: var(--color-ss-yellow);
+					}
 				}
 
 				transition: transform 0.5s $easeInOutQuint;

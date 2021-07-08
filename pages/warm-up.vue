@@ -5,6 +5,7 @@
 			:src="various.scrollAudio.src"
 			:title="various.scrollAudio.title"
 			@progress="onProgress"
+			:autoplay="true"
 		/>
 
 		<div class="subtitle">
@@ -81,7 +82,7 @@ export default {
 		currentSubtitle() {
 			const sub = this.subtitles.filter(x => x.time <= this.progress)
 
-			return sub.length ? lastElement(sub).path : ''
+			return sub.length ? lastElement(sub).subtitle : ''
 		}
 	},
 	methods: {

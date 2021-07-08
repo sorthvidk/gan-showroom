@@ -1,7 +1,7 @@
 <template>
 	<div class="countup">
-		<div>Going up!</div>
-		<div class="countup__count">{{ currentCount }}</div>
+		<div class="countup__title">Going up!</div>
+		<div ref="count" class="countup__count">{{ currentCount }}</div>
 	</div>
 </template>
 
@@ -35,7 +35,9 @@ export default {
 		}
 	},
 	mounted() {
-		requestAnimationFrame(this.doCount)
+		setTimeout(() => {
+			requestAnimationFrame(this.doCount)
+		}, 3000)
 	}
 }
 </script>

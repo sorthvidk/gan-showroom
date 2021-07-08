@@ -4,22 +4,23 @@
 			<p>Welcome</p>
 		</div>
 
-		<form ref="form" @submit.prevent="loginInput(true)" class="form">
-			<!-- :style="{ opacity: !showMessage && !pwd ? '1' : '0' }" -->
-			<!-- @input="loginInput(false)" -->
-			<input
-				:class="{ 'is-invalid': showErrorMessage }"
-				@blur="isBlur"
-				@focus="isFocus = true"
-				autocomplete="off"
-				class="form__input"
-				id="password"
-				name="password"
-				type="password"
-				v-model="pwd"
-				ref="passwordInput"
-			/>
-			<!-- <button
+		<div class="login-input__all">
+			<form ref="form" @submit.prevent="loginInput(true)" class="form">
+				<!-- :style="{ opacity: !showMessage && !pwd ? '1' : '0' }" -->
+				<!-- @input="loginInput(false)" -->
+				<input
+					:class="{ 'is-invalid': showErrorMessage }"
+					@blur="isBlur"
+					@focus="isFocus = true"
+					autocomplete="off"
+					class="form__input"
+					id="password"
+					name="password"
+					type="password"
+					v-model="pwd"
+					ref="passwordInput"
+				/>
+				<!-- <button
 				:class="{
 					'is-active': pwd.length > 0,
 					'is-invalid': showErrorMessage,
@@ -29,29 +30,30 @@
 			>
 				{{ showErrorMessage ? 'Wrong password' : 'Enter' }}
 			</button> -->
-		</form>
+			</form>
 
-		<div class="login-input__message">
-			<p v-show="showMessage && !pwd">Please type password</p>
-			<span v-show="!showMessage && !pwd">|</span>
-		</div>
+			<div class="login-input__message">
+				<p v-show="showMessage && !pwd">Please type password</p>
+				<span v-show="!showMessage && !pwd">|</span>
+			</div>
 
-		<div
-			class="login-input__canvas"
-			:style="{
-				position: 'absolute',
-				top: '50%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-				width: '100%',
-				zIndex: '-1'
-			}"
-		>
-			<login-asterixes
-				:shake="showErrorMessage"
-				:amount="pwd.length"
-				:start="valid ? true : false"
-			/>
+			<div
+				class="login-input__canvas"
+				:style="{
+					position: 'absolute',
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+					width: '100%',
+					zIndex: '-1'
+				}"
+			>
+				<login-asterixes
+					:shake="showErrorMessage"
+					:amount="pwd.length"
+					:start="valid ? true : false"
+				/>
+			</div>
 		</div>
 
 		<!-- <div class="error-message" v-if="showErrorMessage">
@@ -79,7 +81,8 @@ export default {
 			valid: false,
 			isFocus: false,
 			showErrorMessage: false,
-			showMessage: false
+			showMessage: false,
+			welcome: true
 		}
 	},
 	computed: {
@@ -162,7 +165,6 @@ export default {
 	},
 	mounted() {
 		this.$refs.passwordInput.focus()
-
 		this.initMessage()
 		document.body.addEventListener('click', this.giveFocus.bind(this))
 	},
