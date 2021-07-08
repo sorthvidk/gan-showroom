@@ -97,7 +97,7 @@ export default {
 		this.engine = Engine.create()
 
 		// invert gravity (everything falls up)
-		this.engine.world.gravity.y = -1
+		this.engine.world.gravity.y = -0.6
 
 		const res = await loadImage(asterixTexture)
 		this.textureUrl = res.src

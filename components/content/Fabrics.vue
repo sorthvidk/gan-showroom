@@ -22,7 +22,7 @@
 					@mouseleave="changeCursor('')"
 				/>
 				<div class="fabrics__text">
-					<p v-html="isFullScreen ? item.text || '' : item.title || ''"></p>
+					<p v-html="isFullScreen ? item.copy || '' : item.title || ''"></p>
 				</div>
 			</div>
 		</div>
@@ -43,8 +43,8 @@ export default {
 	},
 	data: () => ({
 		clamp,
-		isFullScreen: false
-		// textCursorText: { str: null, icon: null },
+		isFullScreen: false,
+		textCursorText: { str: null, icon: null }
 	}),
 	computed: {
 		...mapState('fabrics', ['items']),
@@ -106,15 +106,14 @@ export default {
 			}
 		},
 		changeCursor(str, icon) {
-			this[TEXT_CURSOR.action]({ str, icon })
-			this.textCursorText = { str, icon }
+			this[TEXT_CURSOR.action]({ str, icon }),
+				(this.textCursorText = { str, icon })
 		},
 
 		closeHandler(e) {
 			// dirrty
 			setTimeout(() => {
 				if (!document.fullscreenElement) {
-					console.log(e)
 					this.isFullScreen = false
 					this.changeCursor('')
 				}

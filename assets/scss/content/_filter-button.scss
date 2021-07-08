@@ -16,13 +16,13 @@
 
 	&.is-active {
 		background-color: $color-buttonactive;
-		color: $color-white;
+		color: var(--color-ss-blush);
 	}
 
 	&.is-big {
 		font-weight: bold;
 		order: 1;
-		outline: 1px solid var(--color-secondary);
+		outline: 1px solid var(--color-darkgrey);
 	}
 
 	span {

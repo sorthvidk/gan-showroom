@@ -1,18 +1,26 @@
 .login {
-	position: relative;
-	z-index: 1;
+	position: absolute;
+	z-index: 100;
 	height: 100vh;
+	width: 100%;
 
 	display: grid;
 	place-items: center;
 
 	overflow: hidden;
 	color: var(--color-ss-blush);
-	background-color: var(--color-ss-blue);
+	// background-color: var(--color-ss-blue);
 
 	font-size: 8vw;
 	line-height: 0.9;
 	font-weight: 500;
+
+	transition: background-color 0s 2s;
+
+	&--background {
+		transition: background-color 0s;
+		background-color: var(--color-ss-blue);
+	}
 
 	h1 {
 		font-size: 17.5vh;
@@ -138,6 +146,8 @@
 	position: absolute;
 	inset: 0;
 	font-weight: 600;
+
+	cursor: pointer;
 
 	&__background {
 		position: absolute;

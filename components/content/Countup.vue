@@ -1,5 +1,8 @@
 <template>
-	<div class="countup">
+	<div
+		class="countup"
+		:style="{ '--progress': `${100 - (currentCount / maxCount) * 100}%` }"
+	>
 		<div class="countup__title">Going up!</div>
 		<div ref="count" class="countup__count">{{ currentCount }}</div>
 	</div>
@@ -32,6 +35,7 @@ export default {
 
 			window.requestAnimationFrame(this.doCount)
 			this.progress += 1 / this.speed
+			this.$emit('progress', this.currentCount / this.maxCount)
 		}
 	},
 	mounted() {

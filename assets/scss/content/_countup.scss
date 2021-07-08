@@ -1,8 +1,14 @@
 .countup {
+	--progress: 50;
+
 	position: absolute;
 	inset: 0;
-	background: var(--color-ss-blue);
+	// background: var(--color-ss-yellow);
 	color: var(--color-ss-blush);
+	background: linear-gradient(
+		var(--color-ss-blue) var(--progress),
+		transparent var(--progress)
+	);
 
 	display: grid;
 	place-items: center;

@@ -7,9 +7,9 @@
 			<div class="plus-icon" :class="{ closed: closed || !expanded }" />
 
 			<span class="title">
-				<span></span>
+				<!-- <span></span> -->
 				<svg-icon name="ganni--knockout" />
-				<span></span>
+				<!-- <span></span> -->
 			</span>
 		</div>
 

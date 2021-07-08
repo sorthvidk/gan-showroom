@@ -10,7 +10,14 @@
 		transform: translate(-50%);
 		bottom: 10vh;
 		text-align: center;
-		max-width: 30em;
+
+		@include mq($until: screen-sm) {
+			width: 95%;
+		}
+
+		@include mq(screen-sm) {
+			max-width: 30em;
+		}
 
 		p {
 			display: block;

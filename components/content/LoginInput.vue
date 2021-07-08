@@ -1,5 +1,6 @@
 <template>
 	<div class="login-input">
+		<div class="login-input__background"></div>
 		<div class="login-input__welcome">
 			<p>Welcome</p>
 		</div>

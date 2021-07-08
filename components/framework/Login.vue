@@ -1,6 +1,6 @@
 <template>
-	<div class="login">
-		<div
+	<div class="login" :class="{ 'login--background': currentStep < 2 }">
+		<!-- <div
 			style="position: fixed; top: 0; right: 0; z-index: 2; background: blue"
 		>
 			{{ currentStep }}
@@ -10,15 +10,16 @@
 			<button @click="() => (currentStep = Math.min(currentStep + 1, 2))">
 				→
 			</button>
-		</div>
+		</div> -->
 
 		<transition name="fade">
 			<intro-copenhill v-if="currentStep === 0" @done="onIntroDone" />
-
 			<login-input v-if="currentStep === 1" @submit="onSubmit" />
-
-			<countup v-if="currentStep === 2" @done="onCountDone" />
-
+			<countup
+				v-if="currentStep === 2"
+				@done="onCountDone"
+				@progress="onProgress"
+			/>
 			<p v-if="currentStep === 3">Meters in the sky!</p>
 		</transition>
 	</div>
@@ -50,6 +51,11 @@ export default {
 		...mapState('utils', ['various']),
 		...mapState('user', ['loggedIn'])
 	},
+	watch: {
+		currentStep() {
+			this.$emit('step', this.currentStep)
+		}
+	},
 	methods: {
 		...mapActions('user', [LOGIN.action]),
 		toggleMute() {
@@ -74,6 +80,9 @@ export default {
 			setTimeout(() => {
 				this[LOGIN.action](this.authorized)
 			}, 2000)
+		},
+		onProgress(progress) {
+			this.$emit('slide', progress)
 		}
 	}
 }

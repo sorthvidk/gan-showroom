@@ -10,9 +10,9 @@
 			v-for="obj in filteredList"
 			:key="obj.group.groupId"
 		>
-			<collection-header :group="obj.group" />
+			<collection-header :group="obj.group" v-if="obj.styles.length" />
 
-			<div class="collection__list">
+			<div class="collection__list" v-if="obj.styles.length">
 				<collection-item
 					v-bind="item"
 					v-for="item in obj.styles"

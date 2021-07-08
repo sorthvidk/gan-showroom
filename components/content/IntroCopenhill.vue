@@ -1,7 +1,7 @@
 <template>
 	<div class="intro-copenhill" @click="onClick">
 		<img
-			class="intro-copenhill__background"
+			class="intro-copenhill__background fade"
 			alt="The Copenhill plant"
 			v-lazy="
 				'https://www.smartenup.in/wp-content/uploads/2021/02/Amager-Bakke-Climate-Friendly-Energy-Plant-1600x800.jpg'

@@ -891,7 +891,7 @@ collections:
         }
       - {
           label: 'Info text',
-          name: 'text',
+          name: 'copy',
           widget: 'text',
           required: false,
           hint: 'Text that will show in fullscreen',
