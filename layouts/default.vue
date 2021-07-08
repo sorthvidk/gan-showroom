@@ -12,7 +12,10 @@
 		<div
 			class="content"
 			v-if="loggedIn || introStep >= 2"
-			:style="{ transform: `translateY(${10 - introSlide * 10}vh)` }"
+			:style="{
+				transform:
+					introSlide > -0.5 ? `translateY(${10 - introSlide * 10}vh)` : ''
+			}"
 		>
 			<nuxt />
 			<bottombar />
