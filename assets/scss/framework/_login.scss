@@ -161,6 +161,7 @@
 
 	&__text {
 		--animation-duration: 3s;
+		--animation-ease: var(--ease-in-out-quint);
 
 		position: absolute;
 		inset: 0;
@@ -183,12 +184,13 @@
 
 			@keyframes higher {
 				from {
-					transform: translate(-63vw, 38vw);
+					transform: translate(-79vw, 44vw);
 				}
 			}
 
 			&--animation {
-				animation: higher var(--animation-duration) forwards;
+				animation: higher var(--animation-duration) var(--animation-ease)
+					forwards;
 			}
 
 			&--translate {
@@ -214,7 +216,8 @@
 			}
 
 			&--animation {
-				animation: love var(--animation-duration) forwards;
+				animation: love calc(var(--animation-duration) + 0.1s)
+					var(--animation-ease) forwards;
 			}
 
 			&--translate {
@@ -228,12 +231,13 @@
 
 			@keyframes ganni {
 				from {
-					transform: translateX(-63vw);
+					transform: translateX(-103vw);
 				}
 			}
 
 			&--animation {
-				animation: ganni var(--animation-duration) forwards;
+				animation: ganni calc(var(--animation-duration) + 0.2s)
+					var(--animation-ease) forwards;
 			}
 
 			&--translate {
@@ -254,7 +258,8 @@
 			}
 
 			&--animation {
-				animation: ss22 var(--animation-duration) forwards;
+				animation: ss22 calc(var(--animation-duration) + 0.3s)
+					var(--animation-ease) forwards;
 			}
 
 			&--translate {

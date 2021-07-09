@@ -17,7 +17,7 @@ export default {
 		progress: 0,
 		maxCount: 124,
 		ease: BezierEasing(1, 0, 0.5, 1),
-		speed: 400
+		speed: 300
 	}),
 	computed: {
 		currentCount() {

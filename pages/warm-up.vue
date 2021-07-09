@@ -14,36 +14,67 @@
 			</p>
 		</div>
 
-		<div class="images">
+		<div class="images" v-if="currentLayout">
 			<!-- Three of the same images next to each other -->
-			<div class="one" v-if="!shouldBeRandom && !sideBySide">
-				<img v-lazy="imageUrl(shuffledImages[0])" />
-				<img v-lazy="imageUrl(shuffledImages[0])" />
-				<img v-lazy="imageUrl(shuffledImages[0])" />
+			<div
+				class="one"
+				v-if="!currentLayout.shouldBeRandom && !currentLayout.sideBySide"
+			>
+				<img
+					v-lazy="imageUrl(shuffledImages[randomIndex(currentIndex)])"
+					class="fade"
+				/>
+				<img
+					v-lazy="imageUrl(shuffledImages[randomIndex(currentIndex)])"
+					class="fade"
+				/>
+				<img
+					v-lazy="imageUrl(shuffledImages[randomIndex(currentIndex)])"
+					class="fade"
+				/>
 			</div>
 
 			<!-- Three different images next to each other -->
-			<div class="two" v-if="shouldBeRandom && !sideBySide">
-				<img v-lazy="imageUrl(shuffledImages[0])" />
-				<img v-lazy="imageUrl(shuffledImages[1])" />
-				<img v-lazy="imageUrl(shuffledImages[2])" />
+			<div
+				class="two"
+				v-if="currentLayout.shouldBeRandom && !currentLayout.sideBySide"
+			>
+				<img v-lazy="imageUrl(shuffledImages[randomIndex()])" class="fade" />
+				<img v-lazy="imageUrl(shuffledImages[randomIndex()])" class="fade" />
+				<img v-lazy="imageUrl(shuffledImages[randomIndex()])" class="fade" />
 			</div>
 
 			<!-- Grid of the same image -->
-			<div class="three" v-if="!shouldBeRandom && sideBySide">
+			<div
+				class="three"
+				v-if="!currentLayout.shouldBeRandom && currentLayout.sideBySide"
+			>
 				<img
 					v-for="idx in 28"
 					:key="idx"
-					v-lazy="imageUrl(shuffledImages[0])"
+					v-lazy="imageUrl(shuffledImages[randomIndex(currentIndex)])"
+					class="fade"
 				/>
 			</div>
 
 			<!-- Grid of the two different images -->
-			<div class="four" v-if="shouldBeRandom && sideBySide">
+			<div
+				class="four"
+				v-if="currentLayout.shouldBeRandom && currentLayout.sideBySide"
+			>
 				<img
 					v-for="idx in 28"
 					:key="idx"
-					v-lazy="imageUrl(shuffledImages[idx % 2 === 0 ? 0 : 1])"
+					v-lazy="
+						imageUrl(
+							shuffledImages[
+								idx % 2 === 0
+									? randomIndex(currentIndex)
+									: randomIndex(currentIndex + 1)
+							]
+						)
+					"
+					class="fade"
 				/>
 			</div>
 		</div>
@@ -59,14 +90,18 @@ import { shuffle } from '~/utils/shuffle'
 import { MMSS } from '~/utils/HHMMSS'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import { lastElement } from '~/utils/array-helpers'
+import { getRandomInt } from '~/utils/get-random-int'
+import { getRandomIntHash } from '~/utils/get-random-int-hash'
 
 export default {
 	name: 'warm-up-page',
 	components: { MusicPlayer },
 	data: () => ({
-		shouldBeRandom: null,
 		shuffledImages: [],
-		sideBySide: null,
+		layouts: {
+			shouldBeRandom: null,
+			sideBySide: null
+		},
 
 		duration: 0,
 		progress: 0,
@@ -83,6 +118,12 @@ export default {
 			const sub = this.subtitles.filter(x => x.time <= this.progress)
 
 			return sub.length ? lastElement(sub).subtitle : ''
+		},
+		currentIndex() {
+			return Math.floor((this.progress / 5) % this.layouts.length)
+		},
+		currentLayout() {
+			return this.layouts[this.currentIndex]
 		}
 	},
 	methods: {
@@ -91,19 +132,25 @@ export default {
 			return getCloudinaryUrl(
 				this.$cloudinary,
 				{ cloudinaryUrl: url },
-				{ width: 1200 }
+				{ width: 600 }
 			)
 		},
 		generateLayout() {
-			// pick one image, or multiple
-			this.shouldBeRandom = Math.random() < 0.5
+			this.layouts = [...Array(20)].map((_, idx) => ({
+				// pick one image, or multiple
+				shouldBeRandom: Math.random() < 0.5,
+				// either three large images or many side by side
+				sideBySide: idx % 2 === 0
+			}))
+
 			// shuffle the images
 			this.shuffledImages = shuffle(this.images)
-			// either three large images or many side by side
-			this.sideBySide = Math.random() < 0.5
 		},
 		onProgress(progress) {
 			this.progress = progress
+		},
+		randomIndex(hash) {
+			return Math.floor(getRandomIntHash(hash) * (this.images.length - 1))
 		}
 	},
 	mounted() {

@@ -1,6 +1,7 @@
 .warm-up {
 	height: 100vh;
 	overflow: hidden;
+	// background-color: var(--color-ss-blush);
 
 	.subtitle {
 		@include windowtitle;
@@ -11,6 +12,8 @@
 		bottom: 10vh;
 		text-align: center;
 		text-transform: initial;
+
+		z-index: 1;
 
 		@include mq($until: screen-sm) {
 			width: 95%;
