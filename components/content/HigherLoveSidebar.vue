@@ -1,6 +1,10 @@
 <template>
 	<div class="higher-love-sidebar">
-		<button @click.prevent="slidePrev" class="higher-love-sidebar__nav">
+		<button
+			v-if="!isMobile"
+			@click.prevent="slidePrev"
+			class="higher-love-sidebar__nav"
+		>
 			Go up
 		</button>
 		<hooper
@@ -31,7 +35,11 @@
 				</button>
 			</slide>
 		</hooper>
-		<button @click.prevent="slideNext" class="higher-love-sidebar__nav">
+		<button
+			v-if="!isMobile"
+			@click.prevent="slideNext"
+			class="higher-love-sidebar__nav"
+		>
 			Go down
 		</button>
 	</div>

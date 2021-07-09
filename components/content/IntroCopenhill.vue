@@ -9,12 +9,32 @@
 		/>
 		<div class="intro-copenhill__text">
 			<span class="higher">
-				<span class="higher--rotate">HIGHER</span>
+				<span class="higher--animation">
+					<span class="higher--translate">
+						<span class="higher--rotate">HIGHER</span>
+					</span>
+				</span>
 			</span>
-			<span class="love">LOVE</span>
-			<span class="ganni">GANNI</span>
+			<span class="love">
+				<span class="love--animation">
+					<span class="love--translate">
+						LOVE
+					</span>
+				</span>
+			</span>
+			<span class="ganni">
+				<span class="ganni--animation">
+					<span class="ganni--translate">
+						GANNI
+					</span>
+				</span>
+			</span>
 			<span class="ss22">
-				<span class="ss22--rotate"><span class="small">ss</span>22</span>
+				<span class="ss22--animation">
+					<span class="ss22--translate">
+						<span class="ss22--rotate"> <span class="small">ss</span>22 </span>
+					</span>
+				</span>
 			</span>
 		</div>
 

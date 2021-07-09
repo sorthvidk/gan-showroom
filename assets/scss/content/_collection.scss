@@ -1,6 +1,6 @@
 :root {
 	--collection-col-count: 2;
-	--collection-border-color: var(--color-secondary);
+	--collection-border-color: var(--color-ss-blush);
 
 	@include mq(screen-sm) {
 		--collection-col-count: 3;

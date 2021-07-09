@@ -22,7 +22,7 @@
 	&.is-big {
 		font-weight: bold;
 		order: 1;
-		outline: 1px solid var(--color-darkgrey);
+		outline: 1px solid var(--assistant-text-color);
 	}
 
 	span {
@@ -42,7 +42,7 @@ button.filter-button {
 	cursor: pointer;
 
 	&:hover {
-		color: $color-black;
+		color: var(--color-ss-blush);
 		// background-color: $color-buttonhover;
 	}
 

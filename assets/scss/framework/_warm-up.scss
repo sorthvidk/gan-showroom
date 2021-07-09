@@ -10,6 +10,7 @@
 		transform: translate(-50%);
 		bottom: 10vh;
 		text-align: center;
+		text-transform: initial;
 
 		@include mq($until: screen-sm) {
 			width: 95%;
@@ -20,6 +21,7 @@
 		}
 
 		p {
+			text-transform: inherit;
 			display: block;
 
 			span {

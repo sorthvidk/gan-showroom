@@ -1,5 +1,6 @@
 :root {
 	--assistant-width: calc(100vw - 45px - var(--menu-button-width));
+	--assistant-text-color: var(--color-ss-yellow);
 
 	@include mq(screen-md) {
 		--assistant-width: rem(340);
@@ -211,6 +212,8 @@
 }
 
 .assistant {
+	color: var(--assistant-text-color);
+
 	h3 {
 		@include headline();
 	}
@@ -363,7 +366,7 @@
 		display: grid;
 		grid-template-columns: repeat(6, 1fr); // align with filter buttons
 		grid-gap: 1px;
-		background-color: $color-black;
+		background-color: var(--assistant-text-color);
 
 		a {
 			color: var(--color-secondary);
@@ -394,8 +397,8 @@
 
 			&.add-to-wishlist,
 			&.download-wishlist {
-				background-color: $color-black;
-				color: white;
+				background-color: var(--color-ss-blush);
+				color: var(--assistant-text-color);
 
 				* {
 					fill: currentColor;

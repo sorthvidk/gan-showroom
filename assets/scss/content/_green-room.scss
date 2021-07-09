@@ -135,99 +135,101 @@
 			}
 		}
 
-		img {
-			transform: translateX(var(--move-amount));
-			animation: enter-to-left var(--enter-duration) var(--enter-delay) forwards
-				ease-in-out;
-		}
-
-		&.enter-left {
+		&:not(.is-link) {
 			img {
-				transform: translateX(calc(var(--move-amount) * -1));
-				animation: enter-to-right var(--enter-duration) var(--enter-delay)
+				transform: translateX(var(--move-amount));
+				animation: enter-to-left var(--enter-duration) var(--enter-delay)
 					forwards ease-in-out;
+			}
+
+			&.enter-left {
+				img {
+					transform: translateX(calc(var(--move-amount) * -1));
+					animation: enter-to-right var(--enter-duration) var(--enter-delay)
+						forwards ease-in-out;
+				}
 			}
 		}
 
 		&[data-order='0'] {
-			top: 10vh;
-			left: 0;
+			top: 6vh;
+			left: 3vw;
 		}
 
 		&[data-order='1'] {
-			bottom: 10vh;
-			left: 10vw;
+			bottom: 5vh;
+			left: 6vw;
 		}
 
 		&[data-order='2'] {
 			top: 0;
-			left: 55vw;
+			left: 32vw;
 		}
 
 		&[data-order='3'] {
-			bottom: 10vh;
+			bottom: 21vh;
 			left: 65vw;
 		}
 
 		&[data-order='4'] {
 			top: 10vh;
-			left: 90vw;
+			left: 62vw;
 		}
 
 		&[data-order='5'] {
-			top: 0vh;
-			left: 140vw;
+			top: 37vh;
+			left: 35vw;
 		}
 
 		&[data-order='6'] {
 			top: 60vh;
-			left: 130vw;
+			left: 67vw;
 		}
 
 		&[data-order='7'] {
 			bottom: 10vh;
-			left: 185vw;
+			left: 85vw;
 		}
 
-		&[data-order='8'] {
-			top: 5vh;
-			left: 190vw;
-		}
+		// &[data-order='8'] {
+		// 	top: 5vh;
+		// 	left: 190vw;
+		// }
 
-		&[data-order='9'] {
-			top: 14vh;
-			left: 210vw;
-		}
+		// &[data-order='9'] {
+		// 	top: 14vh;
+		// 	left: 210vw;
+		// }
 
-		&[data-order='10'] {
-			bottom: 15vh;
-			left: 260vw;
-		}
+		// &[data-order='10'] {
+		// 	bottom: 15vh;
+		// 	left: 260vw;
+		// }
 
-		&[data-order='11'] {
-			top: 0vh;
-			left: 250vw;
-		}
+		// &[data-order='11'] {
+		// 	top: 0vh;
+		// 	left: 250vw;
+		// }
 
-		&[data-order='12'] {
-			top: 5vh;
-			left: 310vw;
-		}
+		// &[data-order='12'] {
+		// 	top: 5vh;
+		// 	left: 310vw;
+		// }
 
-		&[data-order='13'] {
-			bottom: 15vh;
-			left: 317vw;
-		}
+		// &[data-order='13'] {
+		// 	bottom: 15vh;
+		// 	left: 317vw;
+		// }
 
-		&[data-order='14'] {
-			top: 12vh;
-			left: 335vw;
-		}
+		// &[data-order='14'] {
+		// 	top: 12vh;
+		// 	left: 335vw;
+		// }
 
-		&[data-order='15'] {
-			bottom: 15vh;
-			left: 370vw;
-		}
+		// &[data-order='15'] {
+		// 	bottom: 15vh;
+		// 	left: 370vw;
+		// }
 	}
 
 	&__text {

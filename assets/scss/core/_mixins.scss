@@ -64,7 +64,7 @@
 	background-color: inherit;
 	padding: 0 rem(10) rem(2);
 	height: rem(35);
-	border-top: rem(1) solid $color-black;
+	border-top: rem(1) solid var(--assistant-text-color);
 	text-align: left;
 
 	&:hover {

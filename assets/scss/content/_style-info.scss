@@ -44,8 +44,8 @@
 		right: 0;
 		display: flex;
 
-		background-color: $color-black;
-		color: $color-white;
+		background-color: var(--color-ss-blush);
+		color: var(--color-ss-yellow);
 		white-space: nowrap;
 		padding: rem(3) 0;
 		text-align: center;

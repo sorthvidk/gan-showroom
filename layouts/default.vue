@@ -58,7 +58,7 @@
 		</div>
 
 		<music-player
-			v-if="!isMobile && $route.name !== 'warm-up'"
+			v-if="!isMobile && !['warm-up', 'higher-love-tv'].includes($route.name)"
 			:showAudioVisualizer="false"
 		/>
 	</div>

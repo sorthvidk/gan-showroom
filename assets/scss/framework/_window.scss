@@ -132,10 +132,11 @@
 		box-sizing: border-box;
 		position: relative;
 		background-color: var(--color-primary);
+		color: var(--assistant-text-color);
 		display: flex;
 		justify-content: space-between;
 
-		// border-top: rem(1) solid $color-black;
+		border-top: rem(1) solid var(--assistant-text-color);
 
 		> p {
 			@include bodytext();
@@ -154,7 +155,7 @@
 			flex: 0 0 rem(35);
 			width: rem(35);
 			height: rem(35);
-			border-left: rem(1) solid $color-black;
+			border-left: rem(1) solid var(--assistant-text-color);
 			border-bottom: 0;
 
 			&:hover {
