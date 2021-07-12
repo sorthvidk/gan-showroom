@@ -12,10 +12,7 @@
 		<div
 			class="content"
 			v-if="loggedIn || introStep >= 2"
-			:style="{
-				transform:
-					introSlide > -0.5 ? `translateY(${10 - introSlide * 10}vh)` : ''
-			}"
+			:style="{ transform }"
 		>
 			<nuxt />
 			<bottombar />
@@ -133,7 +130,13 @@ export default {
 			'clipBoardCopyComplete',
 			'dashboardDark',
 			'__prod__'
-		])
+		]),
+		transform() {
+			const transformValue = 10 - this.introSlide * 10
+			return this.introSlide > -0.5 && this.introSlide !== 1
+				? `translateY(${transformValue}vh)`
+				: ''
+		}
 	},
 	methods: {
 		...mapActions([RESET_STATE.action]),

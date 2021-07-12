@@ -3,9 +3,7 @@
 		<img
 			class="intro-copenhill__background fade"
 			alt="The Copenhill plant"
-			v-lazy="
-				'https://www.smartenup.in/wp-content/uploads/2021/02/Amager-Bakke-Climate-Friendly-Energy-Plant-1600x800.jpg'
-			"
+			v-lazy="various.loginBackground[0]"
 		/>
 		<div class="intro-copenhill__text">
 			<span class="higher">
@@ -44,15 +42,18 @@
 
 <script>
 import Marquee from '~/components/content/Marquee.vue'
+import { mapState } from 'vuex'
 
 export default {
 	name: 'intro-copenhill',
 	components: {
 		Marquee
 	},
+	computed: {
+		...mapState('utils', ['various'])
+	},
 	methods: {
 		onClick() {
-			console.log('INTRO DONE')
 			this.$emit('done')
 		}
 	}

@@ -443,196 +443,196 @@ collections:
       - { name: 'styles', default: [], widget: 'hidden' }
       - { name: 'filters', default: [], widget: 'hidden' }
 
-  - name: 'mediaAssets'
-    sortable_fields: ['styleId']
-    summary: '{{styleId}} — {{name}} — ({{assetId}})'
-    label: 'Media asset'
-    folder: 'assets/mock/mediaAssets'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{assetId}}'
-    view_filters:
-      - label: 'Drop I'
-        field: groupId
-        pattern: 'drop-1'
-      - label: 'Drop II'
-        field: groupId
-        pattern: 'drop-2'
-      - label: 'Drop III'
-        field: groupId
-        pattern: 'drop-3'
-      - label: 'GANNI Software'
-        field: groupId
-        pattern: 'software'
+  # - name: 'mediaAssets'
+  #   sortable_fields: ['styleId']
+  #   summary: '{{styleId}} — {{name}} — ({{assetId}})'
+  #   label: 'Media asset'
+  #   folder: 'assets/mock/mediaAssets'
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{assetId}}'
+  #   view_filters:
+  #     - label: 'Drop I'
+  #       field: groupId
+  #       pattern: 'drop-1'
+  #     - label: 'Drop II'
+  #       field: groupId
+  #       pattern: 'drop-2'
+  #     - label: 'Drop III'
+  #       field: groupId
+  #       pattern: 'drop-3'
+  #     - label: 'GANNI Software'
+  #       field: groupId
+  #       pattern: 'software'
 
-      - label: 'GANNI Software'
-        field: filters
-        pattern: 'GANNI Software'
-      - label: 'Dresses'
-        field: filters
-        pattern: 'Dresses'
-      - label: 'Denim'
-        field: filters
-        pattern: 'Denim'
-      - label: 'Coats / Jackets'
-        field: filters
-        pattern: 'Coats / Jackets'
-      - label: 'Jersey'
-        field: filters
-        pattern: 'Jersey'
-      - label: 'Knitwear'
-        field: filters
-        pattern: 'Knitwear'
-      - label: 'Skirts'
-        field: filters
-        pattern: 'Skirts'
-      - label: 'Suiting'
-        field: filters
-        pattern: 'Suiting'
-      - label: 'Tops'
-        field: filters
-        pattern: 'Tops'
-      - label: 'Trousers'
-        field: filters
-        pattern: 'Trousers'
-      - label: 'T-shirts'
-        field: filters
-        pattern: 'T-shirts'
-      - label: 'Shorts'
-        field: filters
-        pattern: 'Shorts'
-      - label: 'Accessories'
-        field: filters
-        pattern: 'Accessories'
-      - label: 'Bags'
-        field: filters
-        pattern: 'Bags'
-      - label: 'Shoes'
-        field: filters
-        pattern: 'Shoes'
-      - label: 'Swimwear'
-        field: filters
-        pattern: 'Swimwear'
-      - label: 'Hats'
-        field: filters
-        pattern: 'Hats'
-      - label: 'Underwear'
-        field: filters
-        pattern: 'Underwear'
-      - label: 'White Cotton Poplin'
-        field: filters
-        pattern: 'White Cotton Poplin'
-      - label: 'Design Darlings'
-        field: filters
-        pattern: 'Design Darlings'
-      - label: 'Leather'
-        field: filters
-        pattern: 'Leather'
-      - label: 'Love for Leopard'
-        field: filters
-        pattern: 'Love for Leopard'
+  #     - label: 'GANNI Software'
+  #       field: filters
+  #       pattern: 'GANNI Software'
+  #     - label: 'Dresses'
+  #       field: filters
+  #       pattern: 'Dresses'
+  #     - label: 'Denim'
+  #       field: filters
+  #       pattern: 'Denim'
+  #     - label: 'Coats / Jackets'
+  #       field: filters
+  #       pattern: 'Coats / Jackets'
+  #     - label: 'Jersey'
+  #       field: filters
+  #       pattern: 'Jersey'
+  #     - label: 'Knitwear'
+  #       field: filters
+  #       pattern: 'Knitwear'
+  #     - label: 'Skirts'
+  #       field: filters
+  #       pattern: 'Skirts'
+  #     - label: 'Suiting'
+  #       field: filters
+  #       pattern: 'Suiting'
+  #     - label: 'Tops'
+  #       field: filters
+  #       pattern: 'Tops'
+  #     - label: 'Trousers'
+  #       field: filters
+  #       pattern: 'Trousers'
+  #     - label: 'T-shirts'
+  #       field: filters
+  #       pattern: 'T-shirts'
+  #     - label: 'Shorts'
+  #       field: filters
+  #       pattern: 'Shorts'
+  #     - label: 'Accessories'
+  #       field: filters
+  #       pattern: 'Accessories'
+  #     - label: 'Bags'
+  #       field: filters
+  #       pattern: 'Bags'
+  #     - label: 'Shoes'
+  #       field: filters
+  #       pattern: 'Shoes'
+  #     - label: 'Swimwear'
+  #       field: filters
+  #       pattern: 'Swimwear'
+  #     - label: 'Hats'
+  #       field: filters
+  #       pattern: 'Hats'
+  #     - label: 'Underwear'
+  #       field: filters
+  #       pattern: 'Underwear'
+  #     - label: 'White Cotton Poplin'
+  #       field: filters
+  #       pattern: 'White Cotton Poplin'
+  #     - label: 'Design Darlings'
+  #       field: filters
+  #       pattern: 'Design Darlings'
+  #     - label: 'Leather'
+  #       field: filters
+  #       pattern: 'Leather'
+  #     - label: 'Love for Leopard'
+  #       field: filters
+  #       pattern: 'Love for Leopard'
 
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Asset #',
-          name: 'assetId',
-          widget: 'string',
-          hint: 'Unique asset ID',
-        }
-      - {
-          label: 'Group filter',
-          name: 'groupId',
-          required: false,
-          widget: 'select',
-          options: ['drop-1', 'drop-2', 'drop-3', 'software'],
-          hint: 'Used for filtering in the CMS',
-        }
-      - {
-          label: 'Category filter',
-          name: 'filters',
-          required: false,
-          multiple: false,
-          widget: 'select',
-          options:
-            [
-              'GANNI Software',
-              'Dresses',
-              'Denim',
-              'Coats / Jackets',
-              'Jersey',
-              'Knitwear',
-              'Skirts',
-              'Suiting',
-              'Tops',
-              'Trousers',
-              'T-shirts',
-              'Shorts',
-              'Accessories',
-              'Bags',
-              'Shoes',
-              'Swimwear',
-              'Hats',
-              'Underwear',
-              'White Cotton Poplin',
-              'Design Darlings',
-              'Leather',
-              'Love for Leopard',
-            ],
-          hint: 'Used for filtering in the CMS',
-        }
-      - {
-          label: 'Style #',
-          name: 'styleId',
-          widget: 'relation',
-          collection: 'collectionItems',
-          search_fields: ['styleId', 'name'],
-          value_field: 'styleId',
-          display_fields: ['styleId', 'name'],
-          hint: 'Reference to unique style ID',
-        }
-      - {
-          label: 'Asset title',
-          name: 'name',
-          widget: 'string',
-          hint: "Title for image window ex. 'pleated_georgette_1.jpg'",
-        }
-      - {
-          label: 'Cloudinary media reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-        }
-      - {
-          label: 'Media type',
-          name: 'type',
-          widget: 'select',
-          multiple: false,
-          options: ['video', 'image'],
-          hint: 'Either image or video',
-        }
-      - {
-          label: 'Aspect',
-          name: 'aspect',
-          widget: 'select',
-          options: ['landscape', 'portrait', 'square'],
-          default: 'portrait',
-          hint: 'Aspect of media',
-        }
-      - {
-          label: 'Visible',
-          name: 'visible',
-          widget: 'boolean',
-          default: true,
-          hint: "If false, the asset can only be seen when clicking 'Optional assets' in Desktop Assistant",
-        }
-      - {
-          label: 'On top',
-          name: 'onTop',
-          widget: 'boolean',
-          default: false,
-          hint: 'If true, the asset will be used for Collection overview list thumbnail. NOTE: Try to only set 1 asset on top pr. style',
-        }
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Asset #',
+  #         name: 'assetId',
+  #         widget: 'string',
+  #         hint: 'Unique asset ID',
+  #       }
+  #     - {
+  #         label: 'Group filter',
+  #         name: 'groupId',
+  #         required: false,
+  #         widget: 'select',
+  #         options: ['drop-1', 'drop-2', 'drop-3', 'software'],
+  #         hint: 'Used for filtering in the CMS',
+  #       }
+  #     - {
+  #         label: 'Category filter',
+  #         name: 'filters',
+  #         required: false,
+  #         multiple: false,
+  #         widget: 'select',
+  #         options:
+  #           [
+  #             'GANNI Software',
+  #             'Dresses',
+  #             'Denim',
+  #             'Coats / Jackets',
+  #             'Jersey',
+  #             'Knitwear',
+  #             'Skirts',
+  #             'Suiting',
+  #             'Tops',
+  #             'Trousers',
+  #             'T-shirts',
+  #             'Shorts',
+  #             'Accessories',
+  #             'Bags',
+  #             'Shoes',
+  #             'Swimwear',
+  #             'Hats',
+  #             'Underwear',
+  #             'White Cotton Poplin',
+  #             'Design Darlings',
+  #             'Leather',
+  #             'Love for Leopard',
+  #           ],
+  #         hint: 'Used for filtering in the CMS',
+  #       }
+  #     - {
+  #         label: 'Style #',
+  #         name: 'styleId',
+  #         widget: 'relation',
+  #         collection: 'collectionItems',
+  #         search_fields: ['styleId', 'name'],
+  #         value_field: 'styleId',
+  #         display_fields: ['styleId', 'name'],
+  #         hint: 'Reference to unique style ID',
+  #       }
+  #     - {
+  #         label: 'Asset title',
+  #         name: 'name',
+  #         widget: 'string',
+  #         hint: "Title for image window ex. 'pleated_georgette_1.jpg'",
+  #       }
+  #     - {
+  #         label: 'Cloudinary media reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #       }
+  #     - {
+  #         label: 'Media type',
+  #         name: 'type',
+  #         widget: 'select',
+  #         multiple: false,
+  #         options: ['video', 'image'],
+  #         hint: 'Either image or video',
+  #       }
+  #     - {
+  #         label: 'Aspect',
+  #         name: 'aspect',
+  #         widget: 'select',
+  #         options: ['landscape', 'portrait', 'square'],
+  #         default: 'portrait',
+  #         hint: 'Aspect of media',
+  #       }
+  #     - {
+  #         label: 'Visible',
+  #         name: 'visible',
+  #         widget: 'boolean',
+  #         default: true,
+  #         hint: "If false, the asset can only be seen when clicking 'Optional assets' in Desktop Assistant",
+  #       }
+  #     - {
+  #         label: 'On top',
+  #         name: 'onTop',
+  #         widget: 'boolean',
+  #         default: false,
+  #         hint: 'If true, the asset will be used for Collection overview list thumbnail. NOTE: Try to only set 1 asset on top pr. style',
+  #       }
 
   - name: 'songs'
     sortable_fields: ['songName']
@@ -719,44 +719,44 @@ collections:
           hint: "Lower number, the higher up on the page. If not set it's placed last, in same order as in the cms",
         }
 
-  - name: 'afterparty'
-    summary: '{{cloudinaryUrl}}'
-    label: 'Afterparty'
-    folder: 'assets/mock/afterparty'
-    sortable_fields: ['cloudinaryUrl']
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{quote}}'
-    editor:
-      preview: false
-    fields:
-      - {
-          label: 'Cloudinary video reference',
-          name: 'cloudinaryUrl',
-          widget: 'image',
-          multiple: true,
-        }
-      - {
-          label: 'Side by Side',
-          name: 'sideBySide',
-          widget: 'boolean',
-          default: false,
-          hint: 'If true, one image will be shown over and over',
-        }
-      - {
-          label: 'Quote',
-          name: 'quote',
-          widget: 'text',
-          required: false,
-          hint: 'An optional text that slides over the images on scroll',
-        }
-      - {
-          label: 'Order',
-          name: 'order',
-          widget: 'number',
-          required: true,
-          hint: 'Determines the order in which the content appears, lower nr: higher on the page',
-        }
+  # - name: 'afterparty'
+  #   summary: '{{cloudinaryUrl}}'
+  #   label: 'Afterparty'
+  #   folder: 'assets/mock/afterparty'
+  #   sortable_fields: ['cloudinaryUrl']
+  #   create: true
+  #   format: 'json'
+  #   slug: '{{year}}-{{month}}-{{quote}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - {
+  #         label: 'Cloudinary video reference',
+  #         name: 'cloudinaryUrl',
+  #         widget: 'image',
+  #         multiple: true,
+  #       }
+  #     - {
+  #         label: 'Side by Side',
+  #         name: 'sideBySide',
+  #         widget: 'boolean',
+  #         default: false,
+  #         hint: 'If true, one image will be shown over and over',
+  #       }
+  #     - {
+  #         label: 'Quote',
+  #         name: 'quote',
+  #         widget: 'text',
+  #         required: false,
+  #         hint: 'An optional text that slides over the images on scroll',
+  #       }
+  #     - {
+  #         label: 'Order',
+  #         name: 'order',
+  #         widget: 'number',
+  #         required: true,
+  #         hint: 'Determines the order in which the content appears, lower nr: higher on the page',
+  #       }
 
   - name: 'passwords'
     sortable_fields: ['passwordId']
@@ -793,13 +793,13 @@ collections:
     editor:
       preview: false
     fields:
-      - {
-          label: 'Password page background',
-          name: 'vimeoUrl',
-          widget: 'string',
-          required: false,
-          hint: 'A vimeolink used as background on password page',
-        }
+      # - {
+      #     label: 'Password page background',
+      #     name: 'vimeoUrl',
+      #     widget: 'string',
+      #     required: false,
+      #     hint: 'A vimeolink used as background on password page',
+      #   }
       - {
           label: 'Dashboard background',
           name: 'dashboardBackground',
@@ -807,17 +807,23 @@ collections:
           hint: 'Used as background, before any menu tab is clicked',
         }
       - {
+          label: 'Login background',
+          name: 'loginBackground',
+          widget: 'image',
+          hint: 'Used as background for the intro. Can be image or video',
+        }
+      - {
           label: 'Scroll audio',
           name: 'scrollAudio',
           widget: 'image',
           hint: 'The soundfile that will be used in the subtitled scroll gallery',
         }
-      - {
-          label: 'Audio visualizer background',
-          name: 'audioVisualizerBackground',
-          widget: 'image',
-          hint: 'Used as pattern for the "GANNI EQ intro text", can be mutliple images',
-        }
+      # - {
+      #     label: 'Audio visualizer background',
+      #     name: 'audioVisualizerBackground',
+      #     widget: 'image',
+      #     hint: 'Used as pattern for the "GANNI EQ intro text", can be mutliple images',
+      #   }
 
   - name: 'greenRoom'
     label: 'Green Room'
@@ -932,7 +938,8 @@ collections:
   - name: 'subtitles'
     label: 'Subtitles'
     identifier_field: label
-    summary: '{{time}} — {{text}}'
+    sortable_fields: ['time']
+    summary: '{{time}} — {{subtitle}}'
     folder: 'assets/mock/subtitles'
     create: true
     format: 'json'
@@ -982,7 +989,7 @@ collections:
         }
 
   - name: 'warmUp'
-    summary: '{{id}}'
+    summary: '{{cloudinaryUrl}}'
     label: 'Warm up'
     folder: 'assets/mock/warmUp'
     sortable_fields: ['id']
