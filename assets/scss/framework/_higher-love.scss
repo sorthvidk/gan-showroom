@@ -6,9 +6,9 @@
 	display: grid;
 	align-items: flex-start;
 
-	@include mq(screen-sm) {
+	@include mq(screen-md) {
 		grid-auto-flow: column;
-		grid-template-columns: 1fr 300px;
+		grid-template-columns: 1fr 350px;
 		place-items: center;
 	}
 
@@ -32,21 +32,41 @@
 	position: relative;
 	z-index: 1;
 
-	@include mq(screen-sm) {
-		--width: calc((100vw - 300px) - 15vw);
+	font-size: 32px;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+	font-weight: 500;
+
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	@include mq(screen-md) {
+		@include windowtitle;
+		--width: calc((100vw - 350px) - 15vw);
 		margin-top: -10vh;
+		height: auto;
 	}
 
 	&__trumpet {
-		@include windowtitle;
 		color: var(--color-ss-yellow);
+		letter-spacing: inherit;
+		margin: 15px 0 0 15px;
+
+		@include mq(screen-md) {
+			margin: 0;
+		}
 	}
 
 	&__title {
-		@include windowtitle;
 		color: var(--color-ss-blush);
 		width: var(--width);
-		margin-bottom: 0.3em;
+		max-width: 90vw;
+		margin: 0 0 0 15px;
+
+		@include mq(screen-md) {
+			margin: 0 0 0.3em 0;
+		}
 	}
 
 	&__youtube {
@@ -54,6 +74,10 @@
 
 		width: var(--width);
 		height: calc(var(--width) * 9 / 16);
+
+		margin-top: auto;
+
+		margin-bottom: 10px;
 	}
 
 	iframe {
@@ -69,18 +93,18 @@
 	display: grid;
 	gap: 10px;
 
-	@include mq(screen-sm) {
-		gap: 30px;
-	}
+	// @include mq(screen-md) {
+	// 	gap: 30px;
+	// }
 
 	&__item {
-		--width: 50vw;
+		--width: 50vmin;
 
 		position: relative;
 		width: var(--width);
 		height: calc(var(--width) * 9 / 16);
 
-		@include mq(screen-sm) {
+		@include mq(screen-md) {
 			--width: 250px;
 			margin-top: 15px;
 		}
@@ -114,7 +138,7 @@
 	}
 
 	&__ui {
-		@include mq(screen-sm) {
+		@include mq(screen-md) {
 			transition: opacity 0.2s;
 			opacity: 0;
 		}
@@ -123,19 +147,20 @@
 	&__nav {
 		font-size: 22px;
 		color: var(--color-ss-blush);
+		user-select: none;
 	}
 
 	&__title {
+		@include bodytext;
 		position: absolute;
 		z-index: 2;
 		text-align: right;
 		display: block;
 		width: 10em;
-		top: 0;
-		font-size: 12px;
-		right: 0;
+		bottom: -10px;
+		right: 10px;
 
-		@include mq(screen-sm) {
+		@include mq(screen-md) {
 			top: -1em;
 			font-size: 16px;
 			right: calc(100% - 5em);
@@ -144,7 +169,9 @@
 		span {
 			color: var(--color-ss-blush);
 			background-color: var(--color-ss-yellow);
-			line-height: 1.3;
+			line-height: 1.6;
+			// box-shadow: 0 0 2px 1px var(--color-ss-yellow);
+			outline: 2px solid var(--color-ss-yellow);
 		}
 	}
 
@@ -155,26 +182,38 @@
 		transform: translate(-50%, -50%);
 		color: var(--color-ss-yellow);
 
-		@include mq($until: screen-sm) {
+		@include mq($until: screen-md) {
 			opacity: 0;
 		}
 	}
 }
 
 .hooper {
-	@include mq($until: screen-sm) {
+	@include mq($until: screen-md) {
 		overflow: auto;
 		height: 150px !important;
 	}
 
-	@include mq(screen-sm) {
+	@include mq(screen-md) {
 		height: 51vh !important;
 	}
 }
 
 .hooper-list {
-	@include mq(screen-sm) {
+	@include mq(screen-md) {
 		overflow: unset !important;
 		overflow-y: clip !important;
+	}
+}
+
+.hooper-track {
+	@include mq($until: screen-md) {
+		margin-left: -45px;
+	}
+}
+
+.hooper-slide {
+	@include mq($until: screen-md) {
+		margin: 0 5px !important;
 	}
 }

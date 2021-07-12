@@ -30,7 +30,9 @@
 						<p class="higher-love-sidebar__title">
 							<span>{{ item.title }}</span>
 						</p>
-						<p class="higher-love-sidebar__click-to-play">Click to play</p>
+						<p v-if="!isMobile" class="higher-love-sidebar__click-to-play">
+							Click to play
+						</p>
 					</div>
 				</button>
 			</slide>

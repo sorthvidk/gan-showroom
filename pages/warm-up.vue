@@ -50,7 +50,7 @@
 				v-if="!currentLayout.shouldBeRandom && currentLayout.sideBySide"
 			>
 				<img
-					v-for="idx in 28"
+					v-for="idx in isMobile ? 20 : 28"
 					:key="idx"
 					v-lazy="imageUrl(shuffledImages[randomIndex(currentIndex)])"
 					class="fade"
@@ -63,7 +63,7 @@
 				v-if="currentLayout.shouldBeRandom && currentLayout.sideBySide"
 			>
 				<img
-					v-for="idx in 28"
+					v-for="idx in isMobile ? 20 : 28"
 					:key="idx"
 					v-lazy="
 						imageUrl(
@@ -90,7 +90,6 @@ import { shuffle } from '~/utils/shuffle'
 import { MMSS } from '~/utils/HHMMSS'
 import MusicPlayer from '~/components/content/MusicPlayer.vue'
 import { lastElement } from '~/utils/array-helpers'
-import { getRandomInt } from '~/utils/get-random-int'
 import { getRandomIntHash } from '~/utils/get-random-int-hash'
 
 export default {
@@ -109,7 +108,7 @@ export default {
 	}),
 	computed: {
 		...mapState('warm-up', ['images']),
-		...mapState('utils', ['various']),
+		...mapState('utils', ['various', 'isMobile']),
 		...mapState('audio', ['subtitles']),
 		currentTime() {
 			return MMSS(this.duration * this.progress)
@@ -120,7 +119,7 @@ export default {
 			return sub.length ? lastElement(sub).subtitle : ''
 		},
 		currentIndex() {
-			return Math.floor((this.progress / 5) % this.layouts.length)
+			return Math.floor((this.progress / 5) % (this.layouts.length - 1))
 		},
 		currentLayout() {
 			return this.layouts[this.currentIndex]
@@ -149,7 +148,7 @@ export default {
 		onProgress(progress) {
 			this.progress = progress
 		},
-		randomIndex(hash) {
+		randomIndex(hash = 2) {
 			return Math.floor(getRandomIntHash(hash) * (this.images.length - 1))
 		}
 	},

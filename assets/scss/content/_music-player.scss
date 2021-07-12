@@ -8,6 +8,10 @@
 	z-index: get-z('audio-player');
 	color: var(--color-primary);
 
+	.dark & {
+		color: var(--color-ss-yellow);
+	}
+
 	button {
 		svg {
 			width: 2.5em;

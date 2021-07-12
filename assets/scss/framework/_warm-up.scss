@@ -9,7 +9,7 @@
 
 		left: 50%;
 		transform: translate(-50%);
-		bottom: 10vh;
+		top: calc(100vh - 200px);
 		text-align: center;
 		text-transform: initial;
 
@@ -47,10 +47,15 @@
 
 			&.one,
 			&.two {
-				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(3, 1fr);
 				width: 130vw;
 				margin-left: -15vw;
 				height: inherit;
+
+				@include mq(screen-sm) {
+					grid-template-rows: 1fr;
+					grid-template-columns: repeat(3, 1fr);
+				}
 
 				img {
 					height: inherit;
@@ -60,7 +65,19 @@
 
 			&.three,
 			&.four {
-				grid-template-columns: repeat(7, 1fr);
+				grid-template-columns: repeat(4, 1fr);
+
+				@include mq(screen-sm) {
+					grid-template-columns: repeat(7, 1fr);
+				}
+
+				img {
+					height: calc(100vh / 5);
+
+					@include mq(screen-sm) {
+						height: calc(100vh / 3);
+					}
+				}
 			}
 		}
 	}

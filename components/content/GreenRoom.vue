@@ -17,7 +17,7 @@
 			}"
 		>
 			<!-- zIndex: items.length - idx, -->
-			<img :src="item.cloudinaryUrl" v-if="!item.link" />
+			<img v-lazy="item.cloudinaryUrl[0]" v-if="!item.link" class="fade" />
 
 			<a
 				v-else
@@ -26,11 +26,13 @@
 				@mouseenter="changeCursor('Read more', 'external')"
 				@mouseleave="changeCursor('')"
 			>
-				<img :src="item.cloudinaryUrl" />
+				<img v-lazy="item.cloudinaryUrl[0]" class="fade" />
 			</a>
-			<div class="green-room__text" v-if="item.popup">
-				<p v-html="item.popup" />
-			</div>
+			<transition name="fade" appear>
+				<div class="green-room__text" v-if="item.popup">
+					<p v-html="item.popup" />
+				</div>
+			</transition>
 		</div>
 	</div>
 </template>

@@ -75,8 +75,8 @@
 		}
 
 		&.fixed {
-			width: 50vmin;
-			height: 50vmin;
+			width: 20vmin;
+			height: 20vmin;
 
 			@include mq(screen-md) {
 				width: 75vmin;
@@ -115,7 +115,8 @@
 			z-index: 2 !important;
 
 			.green-room__text {
-				display: block;
+				opacity: 1;
+				pointer-events: auto;
 			}
 		}
 
@@ -135,21 +136,21 @@
 			}
 		}
 
-		&:not(.is-link) {
-			img {
-				transform: translateX(var(--move-amount));
-				animation: enter-to-left var(--enter-duration) var(--enter-delay)
-					forwards ease-in-out;
-			}
+		// &:not(.is-link) {
+		// 	img {
+		// 		transform: translateX(var(--move-amount));
+		// 		animation: enter-to-left var(--enter-duration) var(--enter-delay)
+		// 			forwards ease-in-out;
+		// 	}
 
-			&.enter-left {
-				img {
-					transform: translateX(calc(var(--move-amount) * -1));
-					animation: enter-to-right var(--enter-duration) var(--enter-delay)
-						forwards ease-in-out;
-				}
-			}
-		}
+		// 	&.enter-left {
+		// 		img {
+		// 			transform: translateX(calc(var(--move-amount) * -1));
+		// 			animation: enter-to-right var(--enter-duration) var(--enter-delay)
+		// 				forwards ease-in-out;
+		// 		}
+		// 	}
+		// }
 
 		&[data-order='0'] {
 			top: 6vh;
@@ -157,8 +158,13 @@
 		}
 
 		&[data-order='1'] {
-			bottom: 5vh;
+			bottom: 35vh;
 			left: 6vw;
+
+			@include mq(screen-md) {
+				bottom: 5vh;
+				left: 6vw;
+			}
 		}
 
 		&[data-order='2'] {
@@ -168,7 +174,12 @@
 
 		&[data-order='3'] {
 			bottom: 21vh;
-			left: 65vw;
+			left: 15vw;
+
+			@include mq(screen-md) {
+				bottom: 21vh;
+				left: 65vw;
+			}
 		}
 
 		&[data-order='4'] {
@@ -182,8 +193,13 @@
 		}
 
 		&[data-order='6'] {
-			top: 60vh;
-			left: 67vw;
+			top: 30vh;
+			left: 37vw;
+
+			@include mq(screen-md) {
+				top: 60vh;
+				left: 67vw;
+			}
 		}
 
 		&[data-order='7'] {
@@ -233,11 +249,13 @@
 	}
 
 	&__text {
+		transition: opacity 0.2s;
+		// opacity: 0;
+		pointer-events: none;
 		position: fixed;
 		top: 0;
 		left: 0;
 
-		display: none;
 		background-color: var(--color-ss-yellow);
 		color: var(--color-ss-blush);
 		padding: 1.5em;

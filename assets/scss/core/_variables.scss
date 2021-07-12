@@ -64,16 +64,16 @@ $color-cinnamon-satin: #d25c83;
 $color-goblin: #3b8245;
 
 /* --- COLORS: JULY 2021 --- */
-$color-ss-blue: #4eb3f9;
-$color-ss-yellow: #fff954;
-$color-ss-blush: #e1698d;
+$color-ss-blue: #00b4ff;
+$color-ss-yellow: #ffe715;
+$color-ss-blush: #f25f8d;
 
 /**
 * Color helpers
 */
 $color-primary: $color-ss-blue;
 $color-secondary: $color-ss-yellow;
-$color-buttonhover: $color-cinnamon-satin;
+$color-buttonhover: $color-ss-blush;
 $color-buttonactive: var(--color-secondary);
 
 :root {

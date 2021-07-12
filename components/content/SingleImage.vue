@@ -7,7 +7,13 @@
 
 		<transition name="fade">
 			<img v-if="!lazy" :src="assetUrl" alt="img" @click="clickHandler" />
-			<img v-else v-lazy="assetUrl" alt="img" @click="clickHandler" />
+			<img
+				v-else
+				v-lazy="assetUrl"
+				alt="img"
+				@click="clickHandler"
+				class="fast-fade"
+			/>
 		</transition>
 
 		<p
@@ -20,7 +26,7 @@
 </template>
 
 <script>
-import { vuex, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import { OPEN_GALLERY } from '~/model/constants'
 import getCloudinaryUrl from '~/utils/get-cloudinary-url'
 
@@ -34,18 +40,18 @@ export default {
 	props: {
 		asset: {
 			type: Object,
-			required: true,
+			required: true
 		},
-		lazy: { type: Boolean, default: false },
+		lazy: { type: Boolean, default: true }
 	},
 	computed: {
 		...mapState('collection', ['currentStyle']),
 		assetUrl() {
 			return getCloudinaryUrl(this.$cloudinary, this.asset, {
 				width: this.asset.aspect === 'landscape' ? 592 : 370,
-				height: this.asset.aspect === 'portrait' ? 563 : 390,
+				height: this.asset.aspect === 'portrait' ? 563 : 390
 			})
-		},
+		}
 	},
 	methods: {
 		...mapActions([OPEN_GALLERY.action]),
@@ -53,7 +59,7 @@ export default {
 			if (this.asset.styleId && this.inFocus) {
 				this[OPEN_GALLERY.action](this.asset)
 			}
-		},
-	},
+		}
+	}
 }
 </script>
