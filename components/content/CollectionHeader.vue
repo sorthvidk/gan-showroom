@@ -11,7 +11,7 @@
 				<countdown
 					v-if="group.countdown"
 					:preText="'That is in '"
-					:deadline="group.countdown.split(',')"
+					:deadline="group.countdown"
 					:slim="true"
 				/>
 				<p v-if="group.text" v-html="group.text" />

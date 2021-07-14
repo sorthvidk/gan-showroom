@@ -315,7 +315,6 @@ export default {
 			'canplaythrough',
 			() => {
 				this.audio.currentTime = 0
-				console.log('music player mounted', this.audio.currentTime)
 				this.setLoadedState()
 			},
 			{ once: true }

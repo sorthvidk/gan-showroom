@@ -92,6 +92,7 @@
 	.responsible-icon {
 		transition: opacity 0.2s $easeInOutQuint;
 		opacity: 0;
+		color: var(--color-ss-blush);
 	}
 
 	&:hover {

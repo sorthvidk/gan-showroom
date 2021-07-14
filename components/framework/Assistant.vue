@@ -7,22 +7,22 @@
 			<div class="plus-icon" :class="{ closed: closed || !expanded }" />
 
 			<span class="title">
-				<!-- <span></span> -->
+				<span></span>
 				<svg-icon name="ganni--knockout" />
-				<!-- <span></span> -->
+				<span></span>
 			</span>
 		</div>
 
 		<!-- ####################### STATUS ####################### -->
 
-		<div class="window__status" v-if="assistantMode == 1 && isMobile">
+		<!-- <div class="window__status" v-if="assistantMode == 1 && isMobile">
 			<button class="button expand" @click="toggleContentHandler">
-				<!-- <span class="icon">
+				<span class="icon">
 					<svg-icon :name="!expanded ? 'plus' : 'minus'" />
-				</span> -->
+				</span>
 				<p>{{ filterName || 'Filter' }}</p>
 			</button>
-		</div>
+		</div> -->
 
 		<div class="window__status" v-if="assistantMode == 2">
 			<button
@@ -167,7 +167,7 @@ export default {
 										e.styleId === contentComponentProps.asset.styleId) ||
 									e.styleId === contentComponentProps.styleId
 							)
-							console.log('assistant currentStyle', currentStyle)
+							// console.log('assistant currentStyle', currentStyle)
 							this[CURRENT_STYLE.action](currentStyle)
 							this[SET_HIDDEN_ASSETS.action]()
 						} else {
@@ -238,14 +238,14 @@ export default {
 		},
 
 		toggle(close) {
+			const newValue = close !== undefined ? close : !this.closed
+
 			if (this.isMobile) {
-				this.toggleContentHandler()
+				this.toggleContentHandler(!newValue)
 			}
 
 			if (!this.windowList.length) {
-				this[ASSISTANT_TOGGLE.action](
-					close !== undefined ? close : !this.closed
-				)
+				this[ASSISTANT_TOGGLE.action](newValue)
 			}
 		}
 	},

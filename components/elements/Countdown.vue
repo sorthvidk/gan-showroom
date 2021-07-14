@@ -1,6 +1,5 @@
-
 <template>
-	<p class="countdown">{{ preText }} {{ duration }} {{ postText }}</p>
+	<span class="countdown">{{ preText }} {{ duration }} {{ postText }}</span>
 </template>
 
 <script>
@@ -10,32 +9,40 @@ export default {
 	name: 'countdown',
 	data: () => ({
 		duration: '',
+		durationRaw: {},
+		secondTicker: -1,
+		isFuture: true
 	}),
 	props: {
 		preText: {
-			type: String,
+			type: String
 		},
 		postText: {
-			type: String,
+			type: String
 		},
 		deadline: {
-			type: Array,
-			default: () => [],
+			type: String,
+			default: () => []
 		},
-		slim: { type: Boolean },
+		slim: { type: Boolean }
 	},
 	methods: {
 		updateDuration() {
-			const durationRaw = dateFns.intervalToDuration({
+			this.durationRaw = dateFns.intervalToDuration({
 				start: new Date(),
-				end: new Date(...this.deadline),
+				end: new Date(this.deadline)
 			})
 
-			this.duration = dateFns.formatDuration(durationRaw, {
+			this.secondTicker = dateFns.formatDuration(this.durationRaw, {
+				format: ['seconds'],
+				zero: true
+			})
+
+			this.duration = dateFns.formatDuration(this.durationRaw, {
 				format: this.slim
 					? ['months', 'days', 'hours']
 					: ['days', 'hours', 'minutes', 'seconds'],
-				zero: true,
+				zero: true
 			})
 		},
 		loop() {
@@ -44,11 +51,16 @@ export default {
 				this.updateDuration()
 			}
 			tick()
-		},
+		}
+	},
+	watch: {
+		secondTicker() {
+			this.$emit('is-future', dateFns.isFuture(new Date(this.deadline)))
+		}
 	},
 	mounted() {
 		this.updateDuration()
 		this.loop()
-	},
+	}
 }
 </script>

@@ -3,13 +3,21 @@
 		<!-- loop a couple of times to make them fill the screen -->
 		<p v-for="i in 5" :key="i">
 			&nbsp;WE WOULD LIKE TO INVITE YOU TO THE DIGITAL PREVIEW OF OUR SS 2022
-			COLLECTION. MEET US AT THE TOP!&nbsp;&nbsp;&bull;&nbsp;
-			<span v-for="link in marqueeLinks" :key="link.label">
+			COLLECTION. MEET US AT THE TOP<span v-if="isFuture"> in</span
+			><span v-else>!</span>
+			<!-- <span v-for="link in marqueeLinks" :key="link.label">
 				{{ link.text }}
 				<button @click="openWindow(link)">{{ link.label }}</button>
 				{{ link.textAfter }}
 				&nbsp;&bull;&nbsp;
-			</span>
+			</span> -->
+			<countdown
+				v-if="isFuture"
+				:deadline="deadline"
+				:slim="true"
+				@is-future="onIsFuture"
+			/>
+			<span v-else>Click anywhere to login</span>&nbsp;&nbsp;&bull;&nbsp;
 		</p>
 	</div>
 </template>
@@ -18,9 +26,17 @@
 import { mapActions, mapState } from 'vuex'
 import { OPEN_STYLE_CONTENT, OPEN_CONTENT } from '~/model/constants'
 import ShortcutTypes from '~/model/shortcut-types'
+import Countdown from '../elements/Countdown.vue'
 
 export default {
 	name: 'marquee',
+	components: { Countdown },
+	props: {
+		deadline: { type: String, default: () => [] }
+	},
+	data: () => ({
+		isFuture: true
+	}),
 	computed: {
 		...mapState('shortcuts', ['list']),
 		...mapState(['windowList']),
@@ -50,18 +66,11 @@ export default {
 					this[OPEN_CONTENT.action]({ windowContent: link.windowContent })
 				}
 			}
+		},
+		onIsFuture(isFuture) {
+			this.isFuture = isFuture
+			this.$emit('timeupdate', isFuture)
 		}
-	},
-	mounted() {
-		this.$nextTick(() => {
-			this.amount =
-				Math.ceil(
-					window.innerWidth /
-						parseInt(window.getComputedStyle(this.$refs.marquee).width)
-				) *
-					2 +
-				1
-		})
 	}
 }
 </script>

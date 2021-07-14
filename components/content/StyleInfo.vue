@@ -41,8 +41,17 @@
 			<span>{{ item.sizes }}</span>
 		</div>
 
-		<div class="style-info__row" v-if="item.inclusive">
-			INCLUSIVE!
+		<div
+			class="style-info__row"
+			style="width: 100%;
+				background: var(--color-ss-blush);
+				padding: 0.625em;
+				margin-top: 0.625em;
+				box-sizing: border-box;
+				justify-content: center;"
+			v-if="item.inclusive"
+		>
+			SIZE INCLUSIVE
 		</div>
 
 		<div class="style-info__row" v-if="item.sizeRange">

@@ -83,12 +83,12 @@ export const actions = {
 
 		const currentPage = this.app.router.history.current.name
 
-		console.log(
-			'topMostWindow',
-			rootState.topMostWindow &&
-				rootState.topMostWindow.contentComponentProps &&
-				rootState.topMostWindow.contentComponentProps.styleId
-		)
+		// console.log(
+		// 	'topMostWindow',
+		// 	rootState.topMostWindow &&
+		// 		rootState.topMostWindow.contentComponentProps &&
+		// 		rootState.topMostWindow.contentComponentProps.styleId
+		// )
 
 		if (rootState.windowList.length) {
 			if (

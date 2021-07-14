@@ -6,6 +6,7 @@
 			:controls="false"
 			:muted="true"
 			:autoPlay="true"
+			:loop="true"
 		/>
 	</div>
 </template>
@@ -35,7 +36,7 @@ export default {
 		assetUrl() {
 			return getCloudinaryUrl(
 				this.$cloudinary,
-				{ cloudinaryUrl: this.asset },
+				{ cloudinaryUrl: this.asset, type: 'video' },
 				{ width: 700 },
 				2
 			)

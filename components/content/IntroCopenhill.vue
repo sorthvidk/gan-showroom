@@ -1,5 +1,10 @@
 <template>
-	<div class="intro-copenhill" @click="onClick">
+	<div
+		class="intro-copenhill"
+		@click="onClick"
+		:class="{ outro: isLeaving }"
+		:style="{ cursor: !deadlinePassed && 'default' }"
+	>
 		<img
 			class="intro-copenhill__background fade"
 			alt="The Copenhill plant"
@@ -36,7 +41,7 @@
 			</span>
 		</div>
 
-		<marquee />
+		<marquee :deadline="various.releaseDate" @timeupdate="onTimeupdate" />
 	</div>
 </template>
 
@@ -49,12 +54,26 @@ export default {
 	components: {
 		Marquee
 	},
+	data: () => ({
+		isLeaving: false,
+		deadlinePassed: false
+	}),
 	computed: {
 		...mapState('utils', ['various'])
 	},
 	methods: {
 		onClick() {
-			this.$emit('done')
+			if (!this.deadlinePassed && !window.location.href.includes('localhost'))
+				return
+
+			this.isLeaving = true
+
+			setTimeout(() => {
+				this.$emit('done')
+			}, 2000)
+		},
+		onTimeupdate(isFuture) {
+			this.deadlinePassed = !isFuture
 		}
 	}
 }

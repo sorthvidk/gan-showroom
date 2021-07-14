@@ -155,7 +155,7 @@
 			}
 
 			p {
-				color: $color-black;
+				color: var(--assistant-text-color);
 				text-decoration: underline;
 			}
 		}

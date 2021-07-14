@@ -410,7 +410,7 @@ collections:
           name: 'countdown',
           widget: 'string',
           required: false,
-          hint: 'If there should be a countdown. Format: "YYYY, M, DD, HH, MM, SS", Ex: "2021, 8, 15, 0, 0, 0"',
+          hint: 'When the drop drops. Format like: "2021-12-17T03:24:00"',
         }
       - {
           label: 'Display name',
@@ -817,6 +817,12 @@ collections:
           name: 'scrollAudio',
           widget: 'image',
           hint: 'The soundfile that will be used in the subtitled scroll gallery',
+        }
+      - {
+          label: 'Release date',
+          name: 'releaseDate',
+          widget: 'string',
+          hint: 'When the site opens. Format like: "2021-12-17T03:24:00"',
         }
       # - {
       #     label: 'Audio visualizer background',

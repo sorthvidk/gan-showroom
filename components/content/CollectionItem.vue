@@ -31,7 +31,7 @@
 				loop
 				v-else
 				:data-src="imageUrl2.src"
-				ref="video"
+				ref="video-2"
 			></video>
 		</div>
 
@@ -125,10 +125,14 @@ export default {
 			}
 		}
 
-		if (this.$refs['video']) {
-			const observer = new IntersectionObserver(callback, { threshold: 0 })
-			observer.observe(this.$refs['video'])
-		}
+		const videoRefs = ['video-1', 'video-2']
+
+		videoRefs.forEach(ref => {
+			if (this.$refs[ref]) {
+				const observer = new IntersectionObserver(callback, { threshold: 0 })
+				observer.observe(this.$refs[ref])
+			}
+		})
 	}
 }
 </script>
