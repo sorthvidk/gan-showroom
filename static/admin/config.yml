@@ -1,11 +1,11 @@
 # used for local development:
 backend:
   name: git-gateway
-  branch: releases/2021-may
+  branch: releases/2021-aug
   publish_mode: editorial_workflow
 
 # when using the default proxy server port
-local_backend: true
+local_backend: false
 
 media_library:
   name: cloudinary
