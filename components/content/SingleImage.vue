@@ -7,13 +7,7 @@
 
 		<transition name="fade">
 			<img v-if="!lazy" :src="assetUrl" alt="img" @click="clickHandler" />
-			<img
-				v-else
-				v-lazy="assetUrl"
-				alt="img"
-				@click="clickHandler"
-				class="fast-fade"
-			/>
+			<img v-else v-lazy="assetUrl" alt="img" @click="clickHandler" />
 		</transition>
 
 		<p

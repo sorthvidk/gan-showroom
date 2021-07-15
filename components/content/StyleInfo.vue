@@ -44,7 +44,6 @@
 		<div
 			class="style-info__row"
 			style="width: 100%;
-				background: var(--color-ss-blush);
 				padding: 0.625em;
 				margin-top: 0.625em;
 				box-sizing: border-box;

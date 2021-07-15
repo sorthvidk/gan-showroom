@@ -241,7 +241,7 @@ export default {
 			const newValue = close !== undefined ? close : !this.closed
 
 			if (this.isMobile) {
-				this.toggleContentHandler(!newValue)
+				this.toggleContentHandler(true)
 			}
 
 			if (!this.windowList.length) {

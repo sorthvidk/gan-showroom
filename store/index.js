@@ -313,7 +313,9 @@ export const actions = {
 					cloudinaryUrl: asset,
 					onTop: false,
 					visible: true,
-					aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
+					aspect: asset.toLowerCase().includes('landscape')
+						? 'landscape'
+						: 'portrait',
 					type: isVideo(asset) ? 'video' : 'image',
 					styleId,
 					name: listStyle.name
