@@ -66,7 +66,7 @@ export default {
 			if (
 				!this.deadlinePassed &&
 				!window.location.href.includes('localhost') &&
-				this.$route.name !== 'dev'
+				this.$route.hash !== '#dev'
 			)
 				return
 
