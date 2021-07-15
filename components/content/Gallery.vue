@@ -68,10 +68,10 @@ export default {
 			return []
 		},
 		images() {
-			return this.assets.filter(asset => !isVideo(asset))
+			return this.assets.flat().filter(asset => !isVideo(asset))
 		},
 		videos() {
-			return this.assets.filter(asset => isVideo(asset))
+			return this.assets.flat().filter(asset => isVideo(asset))
 		}
 	},
 	// watch: {
@@ -87,9 +87,9 @@ export default {
 	// },
 	methods: {
 		...mapActions([CLOSE_WINDOW.action])
-	},
-	mounted() {
-		console.log(this.assets, this.styleId)
 	}
+	// mounted() {
+	// 	console.log(this.assets, this.styleId)
+	// }
 }
 </script>

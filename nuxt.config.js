@@ -131,7 +131,7 @@ export default {
 		vendor: ['vue-vimeo-player']
 	},
 	content: {
-		dir: 'assets/mock'
+		dir: 'assets/content'
 	}
 
 	// router: {

@@ -22,7 +22,7 @@ collections:
   - name: 'collectionItems'
     sortable_fields: ['styleId']
     label: 'Collection item'
-    folder: 'assets/mock/collectionItems'
+    folder: 'assets/content/collectionItems'
     summary: '{{styleId}} — {{name}}'
     create: true
     format: 'json'
@@ -337,7 +337,7 @@ collections:
     sortable_fields: ['filterId']
     label: 'Collection filter'
     summary: '{{filterId}} — {{name}}'
-    folder: 'assets/mock/collectionFilters'
+    folder: 'assets/content/collectionFilters'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -371,7 +371,7 @@ collections:
     sortable_fields: ['groupId']
     label: 'Collection group'
     summary: '{{name}}'
-    folder: 'assets/mock/collectionGroups'
+    folder: 'assets/content/collectionGroups'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{slug}}'
@@ -447,7 +447,7 @@ collections:
   #   sortable_fields: ['styleId']
   #   summary: '{{styleId}} — {{name}} — ({{assetId}})'
   #   label: 'Media asset'
-  #   folder: 'assets/mock/mediaAssets'
+  #   folder: 'assets/content/mediaAssets'
   #   create: true
   #   format: 'json'
   #   slug: '{{year}}-{{month}}-{{assetId}}'
@@ -638,7 +638,7 @@ collections:
     sortable_fields: ['songName']
     label: 'Songs'
     summary: '{{songName}}'
-    folder: 'assets/mock/songs'
+    folder: 'assets/content/songs'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{songId}}'
@@ -661,7 +661,7 @@ collections:
   - name: 'assistant'
     summary: '{{itemId}}'
     label: 'Assistant texts'
-    folder: 'assets/mock/assistant'
+    folder: 'assets/content/assistant'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{itemId}}'
@@ -681,7 +681,7 @@ collections:
   - name: 'lookBook'
     summary: '{{cloudinaryUrl}}'
     label: 'Lookbook'
-    folder: 'assets/mock/lookBook'
+    folder: 'assets/content/lookBook'
     sortable_fields: ['cloudinaryUrl']
     create: true
     format: 'json'
@@ -722,7 +722,7 @@ collections:
   # - name: 'afterparty'
   #   summary: '{{cloudinaryUrl}}'
   #   label: 'Afterparty'
-  #   folder: 'assets/mock/afterparty'
+  #   folder: 'assets/content/afterparty'
   #   sortable_fields: ['cloudinaryUrl']
   #   create: true
   #   format: 'json'
@@ -762,7 +762,7 @@ collections:
     sortable_fields: ['passwordId']
     label: 'Passwords'
     summary: '{{passwordId}}'
-    folder: 'assets/mock/passwords'
+    folder: 'assets/content/passwords'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{passwordId}}'
@@ -786,7 +786,7 @@ collections:
     label: 'Various'
     identifier_field: label
     summary: 'Various'
-    folder: 'assets/mock/various'
+    folder: 'assets/content/various'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}- Various'
@@ -835,7 +835,7 @@ collections:
     label: 'Green Room'
     identifier_field: label
     summary: '{{cloudinaryUrl}}'
-    folder: 'assets/mock/greenRoom'
+    folder: 'assets/content/greenRoom'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
@@ -881,7 +881,7 @@ collections:
     label: 'Fabrics'
     identifier_field: label
     summary: '{{cloudinaryUrl}}'
-    folder: 'assets/mock/fabrics'
+    folder: 'assets/content/fabrics'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{cloudinaryUrl}}'
@@ -920,7 +920,7 @@ collections:
     label: 'Downloads'
     identifier_field: label
     summary: '{{name}} — {{file}}'
-    folder: 'assets/mock/downloads'
+    folder: 'assets/content/downloads'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{name}}'
@@ -946,7 +946,7 @@ collections:
     identifier_field: label
     sortable_fields: ['time']
     summary: '{{time}} — {{subtitle}}'
-    folder: 'assets/mock/subtitles'
+    folder: 'assets/content/subtitles'
     create: true
     format: 'json'
     slug: '{{year}}-{{month}}-{{text}}'
@@ -970,7 +970,7 @@ collections:
   - name: 'aboutGanni'
     summary: '{{id}}'
     label: 'About Ganni'
-    folder: 'assets/mock/aboutGanni'
+    folder: 'assets/content/aboutGanni'
     sortable_fields: ['id']
     create: true
     format: 'json'
@@ -997,7 +997,7 @@ collections:
   - name: 'warmUp'
     summary: '{{cloudinaryUrl}}'
     label: 'Warm up'
-    folder: 'assets/mock/warmUp'
+    folder: 'assets/content/warmUp'
     sortable_fields: ['id']
     create: true
     format: 'json'
@@ -1015,7 +1015,7 @@ collections:
   - name: 'higherLove'
     summary: '{{title}}'
     label: 'Higher love TV'
-    folder: 'assets/mock/higherLove'
+    folder: 'assets/content/higherLove'
     sortable_fields: ['id']
     create: true
     format: 'json'
