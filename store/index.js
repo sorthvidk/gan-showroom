@@ -304,30 +304,33 @@ export const actions = {
 		if (!listStyle || !listStyle.assets) return false
 
 		//backwards loop to ensure asset [0] gets on top (as sorted in $store)
-		const content = [...listStyle.assets].reverse().map(asset => {
-			const mediaAsset = {
-				assetId: getUniqueId(),
-				cloudinaryUrl: asset,
-				onTop: false,
-				visible: true,
-				aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
-				type: isVideo(asset) ? 'video' : 'image',
-				styleId,
-				name: listStyle.name
-			}
+		const content = [...listStyle.assets]
+			.flat()
+			.reverse()
+			.map(asset => {
+				const mediaAsset = {
+					assetId: getUniqueId(),
+					cloudinaryUrl: asset,
+					onTop: false,
+					visible: true,
+					aspect: asset.includes('landscape') ? 'landscape' : 'portrait',
+					type: isVideo(asset) ? 'video' : 'image',
+					styleId,
+					name: listStyle.name
+				}
 
-			let type = getAssetType(mediaAsset)
+				let type = getAssetType(mediaAsset)
 
-			return {
-				title: listStyle.name,
-				contentId: mediaAsset.assetId,
-				type: type,
-				canOverride: false,
-				windowProps: type.defaultWindowProps,
-				contentComponentProps: { asset: mediaAsset },
-				statusComponentProps: type.defaultStatusComponentProps
-			}
-		})
+				return {
+					title: listStyle.name,
+					contentId: mediaAsset.assetId,
+					type: type,
+					canOverride: false,
+					windowProps: type.defaultWindowProps,
+					contentComponentProps: { asset: mediaAsset },
+					statusComponentProps: type.defaultStatusComponentProps
+				}
+			})
 
 		if (state.utils.isMobile) {
 			commit(CLOSE_WINDOW_GROUP.mutation, { styleWindowGroup: true })
