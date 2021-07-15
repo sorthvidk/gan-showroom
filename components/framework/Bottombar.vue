@@ -20,7 +20,11 @@
 					:shortcut-id="item.shortcutId"
 				/>
 
-				<button @click="openMenu" class="shortcut shortcut-bottombar">
+				<button
+					@click="openMenu"
+					:class="{ open: showMenu }"
+					class="shortcut shortcut-bottombar"
+				>
 					<span class="text">Tools</span>
 				</button>
 			</div>

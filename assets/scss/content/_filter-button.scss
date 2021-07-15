@@ -47,7 +47,7 @@ button.filter-button {
 	}
 
 	&.is-active:hover {
-		color: $color-white;
+		color: var(--color-ss-blue);
 		// background-color: $color-buttonactive;
 	}
 }

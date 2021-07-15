@@ -44,7 +44,7 @@ em {
 }
 
 @mixin windowtitle() {
-	font-size: rem(22);
+	font-size: rem(28);
 	font-weight: 600;
 	line-height: 1;
 	letter-spacing: -0.01em;
@@ -52,7 +52,7 @@ em {
 	text-transform: uppercase;
 
 	@include mq(screen-xl) {
-		font-size: rem(32);
+		font-size: rem(42);
 	}
 }
 

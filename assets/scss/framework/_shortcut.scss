@@ -23,6 +23,14 @@
 			background-color: var(--color-secondary);
 			color: var(--color-ss-blush);
 		}
+
+		&.open {
+			background-color: var(--color-ss-blush);
+
+			span {
+				color: var(--color-ss-yellow);
+			}
+		}
 	}
 
 	&__icon {
