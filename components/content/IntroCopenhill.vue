@@ -63,7 +63,11 @@ export default {
 	},
 	methods: {
 		onClick() {
-			if (!this.deadlinePassed && !window.location.href.includes('localhost'))
+			if (
+				!this.deadlinePassed &&
+				!window.location.href.includes('localhost') &&
+				this.$route.name !== 'dev'
+			)
 				return
 
 			this.isLeaving = true
